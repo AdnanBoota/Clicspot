@@ -9,7 +9,7 @@ return [
             'password'  => 'Kwkf$uV4n`',
             'key'       => '',
             'keyphrase' => '',
-            'root'      => '/var/www',
+            'root'      => '',
         ),
     ),
 
