@@ -15,6 +15,7 @@ class Server extends Controller
         ), function ($line) {
             echo $line . PHP_EOL; // outputs server feedback
         });
+        return "";
     }
 
 }
