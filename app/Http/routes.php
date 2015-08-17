@@ -26,6 +26,7 @@ Route::group(array('prefix' => 'hotspot'), function () {
 //End::hotspot/hotspotlogin
 Route::get('deploy','Server@deploy');
 
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
