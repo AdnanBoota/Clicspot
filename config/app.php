@@ -146,7 +146,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-
+		'Collective\Remote\RemoteServiceProvider',
 
 		'JasperPHP\JasperPHPServiceProvider',
 	],
@@ -163,7 +163,7 @@ return [
 	*/
 
 	'aliases' => [
-
+		'SSH' => 'Collective\Remote\RemoteFacade',
 		'App'       => 'Illuminate\Support\Facades\App',
 		'Artisan'   => 'Illuminate\Support\Facades\Artisan',
 		'Auth'      => 'Illuminate\Support\Facades\Auth',
