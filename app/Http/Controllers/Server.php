@@ -12,10 +12,8 @@ class Server extends Controller
         SSH::into('production')->run(array(
             'cd /usr/share/nginx/html/clicspot',
             'git pull origin master'
-        ), function ($line) {
-            echo $line . PHP_EOL; // outputs server feedback
-        });
-        return "";
+        ));
+        return "Deployed successfully";
     }
 
 }
