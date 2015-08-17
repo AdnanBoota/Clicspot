@@ -24,6 +24,7 @@ Route::group(array('prefix' => 'hotspot'), function () {
     Route::get('/hotspotlogin', 'HotspotLoginController@index');
 });
 //End::hotspot/hotspotlogin
+Route::get('deploy','Server@deploy');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
