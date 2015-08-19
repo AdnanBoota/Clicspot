@@ -27,7 +27,10 @@ Route::group(array('prefix' => 'hotspot'), function () {
 Route::get('deploy','Server@deploy');
 
 
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+//Route::get('verify/{verification_code}','HomeController@verify');
