@@ -99,7 +99,7 @@
             </div>
         </form>
         <a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a><br>
-        <a class="text-center" href="{{ url('/auth/register') }}">Register a new membership</a>
+        <a class="btn btn-link" href="{{ url('/auth/register') }}">Register a new membership</a>
 
     </div>
     <!-- /.login-box-body -->
