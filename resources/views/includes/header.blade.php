@@ -5,7 +5,7 @@
         <span class="logo-mini"><b>C</b>S</span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">
-            <img src="{{asset("/img/logo.png")}}" height="16px;">
+            <img src="{{asset("/img/logo.png")}}" height="40px;">
             </span>
     </a>
     <!-- Logo -->
