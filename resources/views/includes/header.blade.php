@@ -226,7 +226,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                        <span class="hidden-xs">{{ Auth::user()->username }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -234,7 +234,7 @@
                             <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image"/>
 
                             <p>
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->username }}
                                 <small>Member
                                     since {{ Carbon\Carbon::parse(\Illuminate\Support\Facades\Auth::user()->created_at)->format('d M Y') }}
                                 </small>
