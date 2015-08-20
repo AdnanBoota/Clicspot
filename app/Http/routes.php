@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 //Start::API/v1/ar71xx
 Route::group(array('prefix' => 'api/v1/ar71xx'), function () {
     Route::get('/', 'RouterControllerAR71XX@index');
@@ -34,3 +35,10 @@ Route::controllers([
 ]);
 
 Route::get('verify/{verification_code}','Auth\AuthController@verify');
+
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+{
+Route::get('/vendorList', 'VendorController@index');
+Route::get('/vendorAction/{id}', 'VendorController@getAction');
+
+});

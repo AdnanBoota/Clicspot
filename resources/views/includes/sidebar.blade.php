@@ -9,11 +9,13 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="{{Request::path() == '/subscribers' ? 'active' : ''}}">
-                <a href="{{url("subscribers")}}">
-                    <i class="fa fa fa-files-o"></i> <span>Subscribers</span>
+            @if(Auth::user()->type == "superadmin")
+            <li class="{{Request::path() == 'vendorList' ? 'active' : ''}}">
+                <a href="{{url("vendorList")}}">
+                    <i class="fa fa fa-files-o"></i> <span>Vendors</span>
                 </a>
             </li>
+            @endif
         </ul>
     </section>
     <!-- /.sidebar -->

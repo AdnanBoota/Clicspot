@@ -29,6 +29,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    @stack('styles')
 </head>
 <body class="skin-blue sidebar-mini">
 <div class="wrapper">
@@ -58,5 +59,6 @@
 <script src="{{ asset('/js/jquery.validate.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/sweetalert.min.js') }}" type="text/javascript"></script>
 @yield('script')
+@stack('scripts')
 </body>
 </html>
