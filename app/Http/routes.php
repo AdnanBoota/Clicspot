@@ -33,4 +33,4 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-//Route::get('verify/{verification_code}','HomeController@verify');
+Route::get('verify/{verification_code}','Auth\AuthController@verify');

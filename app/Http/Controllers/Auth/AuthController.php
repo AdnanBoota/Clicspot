@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use Illuminate\Http\Request,Illuminate\Support\Facades\Input;
-use App\User,Hash,Mail;
+
+use Illuminate\Http\Request,
+    Illuminate\Support\Facades\Input;
+use App\User,
+    Hash,
+    Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
@@ -53,21 +57,18 @@ use AuthenticatesAndRegistersUsers;
      */
     public function postRegister(Request $request) {
         $this->validate($request, [
-			'username' => 'required|unique:admin_user',
-			'businessname'  => 'required',
-			'email'   => 'required|email|unique:admin_user',
-			'password' => 'required|confirmed',
-			//'password_confirmation' => 'required|same:password',
-			'phone' => 'required',
-			'address' => 'required',
-			'city' => 'required',
-			'zip' => 'required',
-			'country' => 'required']);
+            'username' => 'required|unique:admin_user',
+            'businessname' => 'required',
+            'email' => 'required|email|unique:admin_user',
+            'password' => 'required|confirmed',
+            //'password_confirmation' => 'required|same:password',
+            'phone' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'zip' => 'required',
+            'country' => 'required']);
         $formFields = Input::all();
-       // parse_str($inputData["formData"], $formFields);
         
-       
- 
         $user = new User();
         $confirmationCode = str_random(60);
         $user->confirmationcode = $confirmationCode;
@@ -80,17 +81,23 @@ use AuthenticatesAndRegistersUsers;
         $user->zip = $formFields["zip"];
         $user->country = $formFields["country"];
         $user->phone = $formFields["phone"];
-        $user->save();
-        //$this->auth->login($this->registrar->create($request->all()));
+        if($user->save()){
+        $valid = "registerSuccess";
         $email = $formFields["email"];
         $firstName = $formFields["businessname"];
-         Mail::send('emails.activationTemplate', array('confirmationCode'=> $confirmationCode), function($message) use ($email,$firstName)
-        {
+        Mail::send('emails.activationTemplate', array('confirmationCode' => $confirmationCode), function($message) use ($email, $firstName) {
             $message->to($email, $firstName);
             $message->from('activation@clickspot.com', 'ClickSpot');
             $message->subject('Thank you for registering for ClickSpot! Please confirm your email');
         });
-        return redirect('auth/login');
+        }else{
+            $valid = "registerError";
+        }
+        if($valid == "registerSuccess")
+                $msg = "Your Account is Registered Successfully.";
+            else
+                $msg = "There is a Problem in Register Your Account .";
+        return redirect($this->loginPath())->with($valid,$msg);
     }
 
     /**
@@ -114,7 +121,9 @@ use AuthenticatesAndRegistersUsers;
         ]);
 
         $credentials = $request->only('email', 'password');
-
+        $credentials['isemailconfirmed'] = 1;
+        $credentials['isactivated'] = 1;
+        //return json_encode($credentials);
         if ($this->auth->attempt($credentials, $request->has('remember'))) {
             return redirect()->intended($this->redirectPath());
         }
@@ -125,31 +134,29 @@ use AuthenticatesAndRegistersUsers;
                             'email' => $this->getFailedLoginMessage(),
         ]);
     }
-    
-     public function verify($confirmation_code){
+
+    public function verify($confirmation_code) {
         $valid = "true";
-        if(!$confirmation_code)
-        {
-            $valid = "error";
+        if (!$confirmation_code) {
+            $valid = "verifyError";
         }
-        $user = User::where('confirmationcode','=',$confirmation_code)->first();
-        if (!$user)
-        {
-            $valid = "error";
-            //return view('admin.welcome',['valid'=>$valid]);
-            return redirect('auth/login');
+        $user = User::where('confirmationcode', '=', $confirmation_code)->first();
+        if (!$user) {
+            $valid = "verifyError";
         } else {
-            if($user->isemailconfirmed)
-            {
-                $valid = 'confirmed';
-            }else{
+            if ($user->isemailconfirmed) {
+                $valid = 'verifySuccess';
+            } else {
                 $user->isemailconfirmed = 1;
                 $user->save();
+                $valid = "verifySuccess";
             }
-            //return view('admin.welcome',['valid'=>$valid]);
-            return redirect('auth/login');
-           
         }
+         if($valid == "verifySuccess")
+                $msg = "Your Account is Verified Successfully.";
+            else
+                $msg = "There is a Problem in verifying Your Account .";
+            return redirect($this->loginPath())->with($valid,$msg);
     }
 
 }

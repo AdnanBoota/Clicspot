@@ -56,6 +56,26 @@
                 </ul>
             </div>
         @endif
+        @if (session('registerError'))
+            <div class="alert alert-danger">
+                <strong>Whoops! </strong>{{session('registerError')}}
+            </div>
+        @endif
+        @if (session('registerSuccess'))
+            <div class="alert alert-success">
+                {{ session('registerSuccess')}}
+            </div>
+        @endif
+        @if (session('verifyError'))
+            <div class="alert alert-danger">
+                <strong>Whoops! </strong>{{session('verifyError')}}
+            </div>
+        @endif
+        @if (session('verifySuccess'))
+            <div class="alert alert-success">
+                {{ session('verifySuccess')}}
+            </div>
+        @endif
         <form class="" role="form" method="POST" action="{{ url('/auth/login') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

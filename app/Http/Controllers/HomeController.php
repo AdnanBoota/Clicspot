@@ -37,30 +37,6 @@ class HomeController extends Controller
         return view('home');
     }
     
-    public function verify($confirmation_code){
-        $valid = "true";
-        if(!$confirmation_code)
-        {
-            $valid = "error";
-        }
-        $user = User::where('confirmationcode','=',$confirmation_code)->first();
-        if (!$user)
-        {
-            $valid = "error";
-            //return view('admin.welcome',['valid'=>$valid]);
-            return redirect('auth/login');
-        } else {
-            if($user->isemailconfirmed)
-            {
-                $valid = 'confirmed';
-            }else{
-                $user->isemailconfirmed = 1;
-                $user->save();
-            }
-            //return view('admin.welcome',['valid'=>$valid]);
-            return redirect('auth/login');
-           
-        }
-    }
+
 
 }
