@@ -71,7 +71,10 @@ class HotspotController extends Controller {
             [
             'shortname' => 'required',
             'nasidentifier' =>$nasRule ,
-            'secret' => 'required']
+            'secret' => 'required',
+            'address' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required']
         );
         
         if(!$id)
@@ -86,6 +89,10 @@ class HotspotController extends Controller {
         $hotspot->shortname = $input["shortname"];
         $hotspot->nasidentifier = $input["nasidentifier"];
         $hotspot->secret = $input["secret"];
+        $hotspot->address = $input["address"];
+        $hotspot->latitude = $input["latitude"];
+        $hotspot->longitude = $input["longitude"];
+        
         
         $hotspot->save();
         Session::flash('flash_message_success', $successMsg);

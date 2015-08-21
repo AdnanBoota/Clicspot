@@ -31,7 +31,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Email</th>
+                                <th>Identifier</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
