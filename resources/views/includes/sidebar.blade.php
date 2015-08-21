@@ -16,6 +16,11 @@
                 </a>
             </li>
             @endif
+            <li class="{{Request::path() == 'hotspot' ? 'active' : ''}}">
+                <a href="{{url("hotspot")}}">
+                    <i class="fa fa fa-files-o"></i> <span>Hotspots</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

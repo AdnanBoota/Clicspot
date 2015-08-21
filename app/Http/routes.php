@@ -36,9 +36,10 @@ Route::controllers([
 
 Route::get('verify/{verification_code}','Auth\AuthController@verify');
 
-Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+Route::group(['middleware' => ['auth','App\Http\Middleware\AdminMiddleware']], function()
 {
 Route::get('/vendorList', 'VendorController@index');
 Route::get('/vendorAction/{id}', 'VendorController@getAction');
 
 });
+Route::resource('hotspot', 'HotspotController');

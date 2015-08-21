@@ -33,5 +33,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $hidden = ['password', 'remember_token'];
     
     public $rules = '';
+    
+    public function Hotspot()
+    {
+        return $this->hasMany('App\Hotspot','adminid');
+    }
 
 }
