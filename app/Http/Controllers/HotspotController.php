@@ -61,15 +61,19 @@ class HotspotController extends Controller {
 	{
         
 		
+        $input = Input::all();
+        $id = $input['id'];
+        $nasRule = 'required|exists:routers,macaddress|unique:nas';
+        if($id)
+            $nasRule .= ',nasidentifier,'.$id;
         
         $this->validate($request,
             [
             'shortname' => 'required',
-            'nasidentifier' => 'required',
+            'nasidentifier' =>$nasRule ,
             'secret' => 'required']
         );
-        $input = Input::all();
-        $id = $input['id'];
+        
         if(!$id)
         {
             $hotspot = new Hotspot();

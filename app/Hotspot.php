@@ -20,5 +20,10 @@ class Hotspot extends Model
     {
         return $this->belongsTo('App\User');
     }
+    
+    public function router()
+    {
+        return $this->belongsTo('App\Routers', 'macaddress', 'macaddress');
+    }
 
 }
