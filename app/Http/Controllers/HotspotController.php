@@ -32,7 +32,7 @@ class HotspotController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return Datatables::of(Auth::user()->Hotspot)
+            return Datatables::of(Auth::user()->hotspots)
                 ->addColumn('edit', function ($hotspot) {
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })
@@ -94,7 +94,7 @@ class HotspotController extends Controller
                 'longitude' => 'required']
         );
 
-        Auth::user()->Hotspot()->save(new Hotspot($input));
+        Auth::user()->hotspots()->save(new Hotspot($input));
 
         $successMsg = "New Hotspot added successfully";
         Session::flash('flash_message_success', $successMsg);
@@ -144,7 +144,7 @@ class HotspotController extends Controller
                 'longitude' => 'required']
         );
 
-        Auth::user()->Hotspot()->findOrFail($id)->update($input);
+        Auth::user()->hotspots()->findOrFail($id)->update($input);
         $successMsg = "Hotspot updated successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('hotspot');

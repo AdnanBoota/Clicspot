@@ -1,10 +1,10 @@
 <?php namespace App;
 
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -31,10 +31,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-    
+
     public $rules = '';
-    
-    public function Hotspot()
+
+    public function hotspots()
     {
         return $this->hasMany('App\Hotspot','adminid');
     }

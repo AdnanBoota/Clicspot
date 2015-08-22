@@ -21,7 +21,7 @@ class Routers extends Model
         return $this->hasOne('App\RouterStatus', 'macaddress', 'macaddress');
     }
 
-    public function nas()
+    public function hotspot()
     {
         return $this->hasOne('App\Hotspot', 'macaddress', 'nasidentifier');
     }

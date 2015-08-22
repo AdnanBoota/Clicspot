@@ -7,7 +7,7 @@ class Hotspot extends Model
 
     protected $table = 'nas';
     public $timestamps = false;
-    protected $fillable = ['adminid', 'shortname', 'nasidentifier','address','latitude','longitude'];
+    protected $fillable = ['adminid', 'shortname', 'nasidentifier', 'address', 'latitude', 'longitude'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -15,15 +15,15 @@ class Hotspot extends Model
      * @var array
      */
     protected $hidden = ['secret'];
-    
-    public function User()
+
+    public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'adminid', 'id');
     }
-    
+
     public function router()
     {
-        return $this->belongsTo('App\Routers','nasidentifier','macaddress');
+        return $this->belongsTo('App\Routers', 'nasidentifier', 'macaddress');
     }
 
 }
