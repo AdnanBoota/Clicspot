@@ -2,7 +2,6 @@
 
 
 use App\Hotspot;
-use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -34,7 +33,7 @@ class HotspotController extends Controller
     {
         if ($request->ajax()) {
 
-            return Datatables::of(User::find(Auth::user()->id)->Hotspot)
+            return Datatables::of(Auth::user()->Hotspot)
                 ->addColumn('edit', function ($hotspot) {
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })

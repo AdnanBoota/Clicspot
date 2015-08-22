@@ -51,7 +51,6 @@
     </div>
     <!-- /.row -->
 </section><!-- /.content -->
-</div><!-- /.content-wrapper -->
 @endsection
 @push('scripts')
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>

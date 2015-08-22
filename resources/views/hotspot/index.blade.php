@@ -49,7 +49,6 @@
     </div>
     <!-- /.row -->
 </section><!-- /.content -->
-</div><!-- /.content-wrapper -->
 @endsection
 @push('scripts')
 <!-- DataTables -->
