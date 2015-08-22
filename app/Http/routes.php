@@ -42,4 +42,4 @@ Route::get('/vendorList', 'VendorController@index');
 Route::get('/vendorAction/{id}', 'VendorController@getAction');
 
 });
-Route::resource('hotspot', 'HotspotController');
+Route::resource('hotspot', 'HotspotController') ; 
