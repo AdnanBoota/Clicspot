@@ -48,12 +48,12 @@
       <file leaf-file-name="HotspotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6302521">
-              <caret line="46" column="102" selection-start-line="46" selection-start-column="102" selection-end-line="46" selection-end-column="102" />
+            <state vertical-scroll-proportion="0.6932773">
+              <caret line="48" column="74" selection-start-line="48" selection-start-column="74" selection-end-line="48" selection-end-column="74" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
-                <marker date="1440275380000" expanded="true" signature="1625:1655" placeholder="..." />
-                <marker date="1440275380000" expanded="true" signature="1759:1787" placeholder="..." />
+                <marker date="1440275423000" expanded="true" signature="1625:1638" placeholder="..." />
+                <marker date="1440275423000" expanded="true" signature="1742:1753" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -548,7 +548,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440275352986</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="ssh">
+      <created>1440275388835</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1440275388835</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -973,12 +979,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6302521">
-          <caret line="46" column="102" selection-start-line="46" selection-start-column="102" selection-end-line="46" selection-end-column="102" />
+        <state vertical-scroll-proportion="0.6932773">
+          <caret line="48" column="74" selection-start-line="48" selection-start-column="74" selection-end-line="48" selection-end-column="74" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
-            <marker date="1440275380000" expanded="true" signature="1625:1655" placeholder="..." />
-            <marker date="1440275380000" expanded="true" signature="1759:1787" placeholder="..." />
+            <marker date="1440275423000" expanded="true" signature="1625:1638" placeholder="..." />
+            <marker date="1440275423000" expanded="true" signature="1742:1753" placeholder="..." />
           </folding>
         </state>
       </provider>
