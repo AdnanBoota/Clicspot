@@ -8,6 +8,7 @@ use App\User,Auth,Input;
 use App\Hotspot,Redirect,Session;
 use yajra\Datatables\Datatables;
 use Illuminate\Http\Request;
+use Form,  Html;
 
 class HotspotController extends Controller {
 
@@ -49,9 +50,15 @@ class HotspotController extends Controller {
 	 */
 	public function create()
 	{
-		return View::make('hotspot.create');
+		//return View::make('hotspot.create');
+        return View::make('hotspot.create', ['hotspotDetails' => array()]);
 	}
-
+    
+    public function createClone()
+	{
+		//return View::make('hotspot.create');
+        return View::make('hotspot.create1');
+	}
 	/**
 	 * Store a newly created resource in storage.
 	 *
