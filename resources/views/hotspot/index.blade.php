@@ -50,13 +50,13 @@
     <!-- /.row -->
 </section><!-- /.content -->
 @endsection
-@push('scripts')
+
+@section('scripts')
 <!-- DataTables -->
 <script type="text/javascript" src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.responsive.js') }}"></script>
 <script>
-
 $(function () {
     oTable = $('#hotspot-table').DataTable({
         processing: true,
