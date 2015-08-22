@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/hotspot/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/hotspot/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -49,12 +48,12 @@
       <file leaf-file-name="HotspotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72899157">
-              <caret line="39" column="103" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
+            <state vertical-scroll-proportion="0.37815127">
+              <caret line="39" column="132" selection-start-line="39" selection-start-column="132" selection-end-line="39" selection-end-column="132" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
-                <marker date="1440267632000" expanded="true" signature="1633:1663" placeholder="..." />
-                <marker date="1440267632000" expanded="true" signature="1778:1806" placeholder="..." />
+                <marker date="1440274984000" expanded="true" signature="1633:1663" placeholder="..." />
+                <marker date="1440274984000" expanded="true" signature="1778:1806" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -499,7 +498,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440266330526</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="ssh">
+      <created>1440274887703</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1440274887703</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -517,7 +522,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26377663" sideWeight="0.62689394" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26377663" sideWeight="0.37310606" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32738853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32738853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -923,12 +928,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72899157">
-          <caret line="39" column="103" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
+        <state vertical-scroll-proportion="0.37815127">
+          <caret line="39" column="132" selection-start-line="39" selection-start-column="132" selection-end-line="39" selection-end-column="132" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
-            <marker date="1440267632000" expanded="true" signature="1633:1663" placeholder="..." />
-            <marker date="1440267632000" expanded="true" signature="1778:1806" placeholder="..." />
+            <marker date="1440274984000" expanded="true" signature="1633:1663" placeholder="..." />
+            <marker date="1440274984000" expanded="true" signature="1778:1806" placeholder="..." />
           </folding>
         </state>
       </provider>

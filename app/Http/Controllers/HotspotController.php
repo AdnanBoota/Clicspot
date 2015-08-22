@@ -37,7 +37,7 @@ class HotspotController extends Controller
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })
                 ->addColumn('delete', function ($hotspot) {
-                    return '<a id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $hotspot->id . ' class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i></a>';
+                    return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $hotspot->id . '><i class="glyphicon glyphicon-trash"></i></a>';
                 })
                 ->addColumn('publicip', function ($hotspot) {
                     return $hotspot->router->status->publicip;
