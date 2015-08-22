@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/hotspot/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/hotspot/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -48,8 +49,8 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.25">
-              <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+            <state vertical-scroll-proportion="-19.875">
+              <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -58,33 +59,13 @@
       <file leaf-file-name="HotspotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5168067">
-              <caret line="45" column="68" selection-start-line="45" selection-start-column="68" selection-end-line="45" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.8193277">
+              <caret line="45" column="84" selection-start-line="45" selection-start-column="84" selection-end-line="45" selection-end-column="84" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
-                <marker date="1440265441000" expanded="true" signature="1441:1471" placeholder="..." />
-                <marker date="1440265441000" expanded="true" signature="1586:1614" placeholder="..." />
+                <marker date="1440265676000" expanded="true" signature="1670:1700" placeholder="..." />
+                <marker date="1440265676000" expanded="true" signature="1815:1843" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hotspot.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Hotspot.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.625">
-              <caret line="25" column="60" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Routers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Routers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.625">
-              <caret line="25" column="75" selection-start-line="25" selection-start-column="75" selection-end-line="25" selection-end-column="75" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -494,7 +475,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440265324401</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="ssh">
+      <created>1440265456299</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1440265456299</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -511,7 +498,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26377663" sideWeight="0.62689394" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26377663" sideWeight="0.37310606" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32738853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32738853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -896,7 +883,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Hotspot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.625">
+        <state vertical-scroll-proportion="0.5115962">
           <caret line="25" column="60" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="60" />
           <folding />
         </state>
@@ -904,20 +891,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.25">
-          <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+        <state vertical-scroll-proportion="-19.875">
+          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5168067">
-          <caret line="45" column="68" selection-start-line="45" selection-start-column="68" selection-end-line="45" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.8193277">
+          <caret line="45" column="84" selection-start-line="45" selection-start-column="84" selection-end-line="45" selection-end-column="84" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
-            <marker date="1440265441000" expanded="true" signature="1441:1471" placeholder="..." />
-            <marker date="1440265441000" expanded="true" signature="1586:1614" placeholder="..." />
+            <marker date="1440265676000" expanded="true" signature="1670:1700" placeholder="..." />
+            <marker date="1440265676000" expanded="true" signature="1815:1843" placeholder="..." />
           </folding>
         </state>
       </provider>
