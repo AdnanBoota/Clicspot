@@ -49,6 +49,9 @@ class HotspotController extends Controller
                         return 'danger';
                     }
                 })
+                ->addColumn('lastcheckin', function ($hotspot) {
+                    return $hotspot->router->status->updated_at->diffForHumans();
+                })
                 ->addColumn('status', function ($hotspot) {
                     if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
                         return '<i class="fa fa-circle" style="color: green;"></i> Up';

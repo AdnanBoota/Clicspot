@@ -32,6 +32,7 @@
                             <th>Name</th>
                             <th>MAC Address</th>
                             <th>Public IP</th>
+                            <th>Last Checkin</th>
                             <th>Status</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -68,6 +69,7 @@
                 {data: 'shortname', name: 'shortname'},
                 {data: 'nasidentifier', name: 'nasidentifier'},
                 {data: 'publicip', name: 'publicip'},
+                {data: 'lastcheckin', name: 'lastcheckin'},
                 {data: 'status', name: 'status'},
                 {data: 'edit', name: 'edit', orderable: false, searchable: false},
                 {data: 'delete', name: 'delete', orderable: false, searchable: false}
