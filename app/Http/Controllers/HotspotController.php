@@ -37,16 +37,16 @@ class HotspotController extends Controller
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })
                 ->addColumn('delete', function ($hotspot) {
-                    return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $hotspot->id . '><i class="glyphicon glyphicon-trash"></i></a>';
+                    return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . 'ad" val=' . $hotspot->id . '><i class="glyphicon glyphicon-trash"></i></a>';
                 })
                 ->addColumn('publicip', function ($hotspot) {
                     return $hotspot->router->status->publicip;
                 })
                 ->addColumn('status', function ($hotspot) {
                     if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
-                        return '<i class="glyphicon glyphicon-ok" style="color: green; font-size: 18pt;"></i>';
+                        return '<i class="fa fa-circle" style="color: green; font-size: 18pt;"></i>';
                     } else {
-                        return '<i class="glyphicon glyphicon-remove" style="color: red; font-size: 18pt;"></i>';
+                        return '<i class="fa fa-circle" style="color: red; font-size: 18pt;"></i>';
                     }
                 })
                 ->make(true);
