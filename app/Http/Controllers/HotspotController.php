@@ -43,7 +43,7 @@ class HotspotController extends Controller
                     return $hotspot->router->status->publicip;
                 })
                 ->setRowClass(function ($hotspot) {
-                    if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
+                    if ((time() - strtotime($hotspot->router->status->updated_at)) < 180) {
                         return 'success';
                     } else {
                         return 'danger';
@@ -53,7 +53,7 @@ class HotspotController extends Controller
                     return $hotspot->router->status->updated_at->diffForHumans();
                 })
                 ->addColumn('status', function ($hotspot) {
-                    if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
+                    if ((time() - strtotime($hotspot->router->status->updated_at)) < 180) {
                         return '<i class="fa fa-circle" style="color: green;"></i> Up';
                     } else {
                         return '<i class="fa fa-circle" style="color: red;"></i> Down';
