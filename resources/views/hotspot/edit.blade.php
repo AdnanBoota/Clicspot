@@ -33,7 +33,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                {!! Form::open(array("class"=>"form-horizontal","url"=> url('hotspot'))) !!}
+                {!! Form::model($hotspot,["method"=>"PATCH","class"=>"form-horizontal","action"=> ['HotspotController@update',$hotspot->id]]) !!}
                 <div class="box-body">
                     @include('hotspot._form')
                 </div>
@@ -59,8 +59,8 @@
     var map;
     var marker;
     window.onload = function () {
-        var defaultLat = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->latitude : 22.3000 ?>';
-        var defaultLang = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->longitude : 70.7833 ?>';
+        var defaultLat = '<?php echo count($hotspot) > 0 ? $hotspot->latitude : 22.3000 ?>';
+        var defaultLang = '<?php echo count($hotspot) > 0 ? $hotspot->longitude : 70.7833 ?>';
 
         var myLatlng = new google.maps.LatLng(defaultLat, defaultLang);
         var mapOptions = {

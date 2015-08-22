@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+
 //Start::API/v1/ar71xx
 Route::group(array('prefix' => 'api/v1/ar71xx'), function () {
     Route::get('/', 'RouterControllerAR71XX@index');
@@ -20,6 +21,7 @@ Route::group(array('prefix' => 'api/v1/ar71xx'), function () {
     Route::get('/update/{mac}', 'RouterControllerAR71XX@update');
 });
 //End::API/v1/ar71xx
+
 //Start::hotspot/hotspotlogin
 Route::group(array('prefix' => 'hotspot'), function () {
     Route::get('/hotspotlogin', 'HotspotLoginController@index');

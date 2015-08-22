@@ -68,18 +68,18 @@ class RouterControllerAR71XX extends Controller
      * @return Response
      */
     public function update($mac)
-    {
-        $configVersion = Request::get('configversion');
-        $router = Routers::where('macaddress', '=', $mac)->first();
-        if ($router) {
-            $router->update(["configversion" => $configVersion]);
-            $router->status()->update(['publicip' => Request::getClientIp(), 'updated_at' => Carbon::now()]);
-        } else {
-            $router = Routers::create(['macaddress' => $mac, 'model' => 1, 'configversion' => $configVersion]);
-            $router->status()->save(new RouterStatus(['publicip' => Request::getClientIp()]));
-        }
-        return "";
+{
+    $configVersion = Request::get('configversion');
+    $router = Routers::where('macaddress', '=', $mac)->first();
+    if ($router) {
+        $router->update(["configversion" => $configVersion]);
+        $router->status()->update(['publicip' => Request::getClientIp(), 'updated_at' => Carbon::now()]);
+    } else {
+        $router = Routers::create(['macaddress' => $mac, 'model' => 1, 'configversion' => $configVersion]);
+        $router->status()->save(new RouterStatus(['publicip' => Request::getClientIp()]));
     }
+    return "";
+}
 
     /**
      * Remove the specified resource from storage.
