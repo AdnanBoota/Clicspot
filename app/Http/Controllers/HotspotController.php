@@ -43,7 +43,6 @@ class HotspotController extends Controller
                     return $hotspot->router->status->publicip;
                 })
                 ->addColumn('status', function ($hotspot) {
-                    return time() - strtotime($hotspot->router->status->updated_at);
                     if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
                         return '<i class="glyphicon glyphicon-ok" style="color: green; font-size: 18pt;"></i>';
                     } else {
