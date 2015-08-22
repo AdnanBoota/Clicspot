@@ -15,7 +15,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-12">
             @include('errors.flash')
             @if (count($errors) > 0)
             <div class="alert alert-danger">
