@@ -23,7 +23,7 @@ class Hotspot extends Model
     
     public function router()
     {
-        return $this->belongsTo('App\Routers', 'macaddress', 'macaddress');
+        return $this->belongsTo('App\Routers','nasidentifier','macaddress');
     }
 
 }

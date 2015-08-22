@@ -46,6 +46,7 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
+        @include('errors.flash')
         @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -56,7 +57,6 @@
                 </ul>
             </div>
         @endif
-        @include('errors.flash')
         @if (session('registerError'))
             <div class="alert alert-danger">
                 <strong>Whoops! </strong>{{session('registerError')}}

@@ -32,14 +32,21 @@ class HotspotController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-
             return Datatables::of(Auth::user()->Hotspot)
                 ->addColumn('edit', function ($hotspot) {
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })
                 ->addColumn('delete', function ($hotspot) {
                     return '<a id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $hotspot->id . ' class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i></a>';
-                })->make(true);
+                })
+                ->addColumn('status', function ($hotspot) {
+                    if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
+                        return "Online";
+                    } else {
+                        return "Down";
+                    }
+                })
+                ->make(true);
         } else {
             return view('hotspot.index');
         }

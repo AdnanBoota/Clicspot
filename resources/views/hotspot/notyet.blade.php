@@ -1,3 +1,3 @@
 <pre>
-    {!! print_r($request) !!}
+    {!! print_r($hotspot) !!}
 </pre>

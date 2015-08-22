@@ -3,7 +3,6 @@
 use App\Hotspot;
 use App\Http\Requests;
 use Request;
-use Session;
 
 class HotspotLoginController extends Controller
 {
@@ -15,18 +14,17 @@ class HotspotLoginController extends Controller
      */
     public function index()
     {
-        $mac = Request::get('mac');
-        $hotspot = Hotspot::where('nasidentifier', $mac)->first();
+        $mac = Request::get('called');
+        $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
         if ($hotspot) {
             $res = Request::get('res');
             if ($res == 'notyet' || $res == 'failed' || $res == 'logoff') {
-                return $this->display_notyet(Request::all());
+                return $this->display_notyet(Request::all(), $hotspot);
             } elseif ($res == 'already' || $res == 'success') {
-                return $this->display_success(Request::all());
+                return $this->display_success(Request::all(), $hotspot);
             }
         } else {
-            Session::flash('flash_message_error', 'Hotspot not registered, Please Login and add hotspot');
-            return redirect('/');
+            return redirect('/hotspot/create');
         }
     }
 
@@ -35,9 +33,9 @@ class HotspotLoginController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function display_notyet($request)
+    public function display_notyet($request, $hotspot)
     {
-        return view('hotspot.notyet', compact('request'));
+        return view('hotspot.notyet', compact('request', 'hotspot'));
     }
 
     /**
@@ -45,9 +43,9 @@ class HotspotLoginController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function display_success($request)
+    public function display_success($request, $hotspot)
     {
-        return view('hotspot.success', compact('request'));
+        return view('hotspot.success', compact('request', 'hotspot'));
     }
 
 }

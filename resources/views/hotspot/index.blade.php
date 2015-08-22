@@ -32,6 +32,7 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>MAC Address</th>
+                                <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -67,6 +68,7 @@ $(function () {
             {data: 'id', name: 'id'},
             {data: 'shortname', name: 'shortname'},
             {data: 'nasidentifier', name: 'nasidentifier'},
+            {data: 'status', name: 'status'},
             {data: 'edit', name: 'edit', orderable: false, searchable: false},
             {data: 'delete', name: 'delete', orderable: false, searchable: false}
         ]
