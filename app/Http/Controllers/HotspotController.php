@@ -41,9 +41,9 @@ class HotspotController extends Controller
                 })
                 ->addColumn('status', function ($hotspot) {
                     if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
-                        return '<i class="icon-ok-sign" style="color: green; font-size: 18pt;"></i>';
+                        return '<i class="glyphicon glyphicon-ok" style="color: green; font-size: 18pt;"></i>';
                     } else {
-                        return '<i class="icon-remove-sign" style="color: red; font-size: 18pt;"></i>';
+                        return '<i class="glyphicon glyphicon-remove" style="color: red; font-size: 18pt;"></i>';
                     }
                 })
                 ->make(true);
