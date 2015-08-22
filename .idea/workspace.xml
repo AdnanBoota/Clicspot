@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Hotspot.php" afterPath="$PROJECT_DIR$/app/Hotspot.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Routers.php" afterPath="$PROJECT_DIR$/app/Routers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/hotspot/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/hotspot/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -51,13 +49,23 @@
       <file leaf-file-name="HotspotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35084033">
-              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.72899157">
+              <caret line="39" column="103" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
-                <marker date="1440266316000" expanded="true" signature="1586:1616" placeholder="..." />
-                <marker date="1440266316000" expanded="true" signature="1731:1759" placeholder="..." />
+                <marker date="1440267632000" expanded="true" signature="1633:1663" placeholder="..." />
+                <marker date="1440267632000" expanded="true" signature="1778:1806" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/hotspot/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.666666">
+              <caret line="68" column="37" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,10 +124,10 @@
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspot/notyet.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/hotspot/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Routers.php" />
         <option value="$PROJECT_DIR$/app/Hotspot.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/resources/views/hotspot/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
       </list>
     </option>
@@ -210,7 +218,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Clicspot/app/Http/Controllers/RouterControllerAR71XX.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;crea&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/create.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;rou&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;app&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/app.blade.php&#10;side&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;sid&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;bootstrapper&#9;null&#9;null&#10;repos&#9;null&#9;null&#10;passw&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/Auth/PasswordController.php&#10;abstractsmtp&#9;null&#9;null&#10;home&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/HomeController.php" />
+    <property name="SearchEverywhereHistoryKey" value="inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Clicspot/app/Http/Controllers/RouterControllerAR71XX.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;crea&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/create.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;rou&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;app&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/app.blade.php&#10;side&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;sid&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;bootstrapper&#9;null&#9;null&#10;repos&#9;null&#9;null&#10;passw&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/Auth/PasswordController.php&#10;abstractsmtp&#9;null&#9;null&#10;home&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/HomeController.php" />
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -485,7 +493,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440265724021</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="ssh">
+      <created>1440266330526</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1440266330526</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -839,14 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/hotspot/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65075034">
-          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.75716233">
@@ -907,14 +913,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/hotspot/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.666666">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35084033">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.72899157">
+          <caret line="39" column="103" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
-            <marker date="1440266316000" expanded="true" signature="1586:1616" placeholder="..." />
-            <marker date="1440266316000" expanded="true" signature="1731:1759" placeholder="..." />
+            <marker date="1440267632000" expanded="true" signature="1633:1663" placeholder="..." />
+            <marker date="1440267632000" expanded="true" signature="1778:1806" placeholder="..." />
           </folding>
         </state>
       </provider>
