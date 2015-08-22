@@ -42,6 +42,13 @@ class HotspotController extends Controller
                 ->addColumn('publicip', function ($hotspot) {
                     return $hotspot->router->status->publicip;
                 })
+                ->setRowClass(function ($hotspot) {
+                    if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
+                        return 'success';
+                    } else {
+                        return 'danger';
+                    }
+                })
                 ->addColumn('status', function ($hotspot) {
                     if ((time() - strtotime($hotspot->router->status->updated_at)) < 300) {
                         return '<i class="fa fa-circle" style="color: green;"></i> Up';
