@@ -31,7 +31,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Identifier</th>
+                                <th>MAC Address</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>

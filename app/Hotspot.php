@@ -14,7 +14,7 @@ class Hotspot extends Model
      *
      * @var array
      */
-    //protected $hidden = ['configversion'];
+    protected $hidden = ['secret'];
     
     public function User()
     {

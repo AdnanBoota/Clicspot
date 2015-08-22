@@ -10,6 +10,7 @@
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Hotspot</li>
+        <li class="active">Add Hotspot</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -29,7 +30,7 @@
             @endif
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Hotspot</h3>
+                    <h3 class="box-title">Add Hotspot</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->

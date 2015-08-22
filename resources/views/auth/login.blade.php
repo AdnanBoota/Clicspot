@@ -56,6 +56,7 @@
                 </ul>
             </div>
         @endif
+        @include('errors.flash')
         @if (session('registerError'))
             <div class="alert alert-danger">
                 <strong>Whoops! </strong>{{session('registerError')}}
