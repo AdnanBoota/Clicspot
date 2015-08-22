@@ -93,8 +93,8 @@ class AuthController extends Controller
             $firstName = $formFields["businessname"];
             Mail::send('emails.activationTemplate', array('confirmationCode' => $confirmationCode), function ($message) use ($email, $firstName) {
                 $message->to($email, $firstName);
-                $message->from('activation@clickspot.com', 'ClickSpot');
-                $message->subject('Thank you for registering for ClickSpot! Please confirm your email');
+                $message->from('activation@clicspot.com', 'Clicspot');
+                $message->subject('Thank you for registering for Clicspot! Please confirm your email');
             });
         } else {
             $valid = "registerError";
