@@ -35,7 +35,7 @@ class HotspotLoginController extends Controller
      */
     public function display_notyet($request, $hotspot)
     {
-        return view('hotspot.notyet', compact('request', 'hotspot'));
+        return view('hotspotlogin.notyet', compact('request', 'hotspot'));
     }
 
     /**
@@ -45,7 +45,7 @@ class HotspotLoginController extends Controller
      */
     public function display_success($request, $hotspot)
     {
-        return view('hotspot.success', compact('request', 'hotspot'));
+        return view('hotspotlogin.success', compact('request', 'hotspot'));
     }
 
 }
