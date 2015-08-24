@@ -32,7 +32,7 @@ class HotspotController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return Datatables::of(Auth::user()->hotspots()->select(array('shortname', 'nasidentifier')))
+            return Datatables::of(Auth::user()->hotspots()->select(array('id','shortname', 'nasidentifier')))
                 ->addColumn('edit', function ($hotspot) {
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })
