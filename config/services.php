@@ -15,7 +15,7 @@ return [
 	*/
 
 	'mailgun' => [
-		'domain' => 'sandboxde7f8c1bf07746569bac0b1337f0ab01.mailgun.org',
+		'domain' => 'clicspot.com',
 		'secret' => 'key-20348db7fcb79e3dd4308323a36dd9b8',
 	],
 
