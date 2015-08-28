@@ -25,23 +25,25 @@ Route::group(array('prefix' => 'api/v1/ar71xx'), function () {
 //Start::hotspot/hotspotlogin
 Route::group(array('prefix' => 'hotspot'), function () {
     Route::get('/hotspotlogin', 'HotspotLoginController@index');
+    Route::get('/login', 'HotspotLoginController@login');
 });
 //End::hotspot/hotspotlogin
-Route::get('deploy','Server@deploy');
-
-
+Route::get('deploy', 'Server@deploy');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('verify/{verification_code}','Auth\AuthController@verify');
+Route::get('verify/{verification_code}', 'Auth\AuthController@verify');
 
-Route::group(['middleware' => ['auth','App\Http\Middleware\AdminMiddleware']], function()
-{
-Route::get('/vendorList', 'VendorController@index');
-Route::get('/vendorAction/{id}', 'VendorController@getAction');
+Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], function () {
+    Route::get('/vendorList', 'VendorController@index');
+    Route::get('/vendorAction/{id}', 'VendorController@getAction');
 
 });
-Route::resource('hotspot', 'HotspotController') ; 
+Route::resource('hotspot', 'HotspotController');
+
+
+Route::get('/facebook/login', 'FacebookLogin@login');
+Route::get('/facebook/callback', 'FacebookLogin@callback');

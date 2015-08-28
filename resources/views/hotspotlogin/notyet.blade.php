@@ -14,23 +14,23 @@
     <!-- FontAwesome 4.3.0 -->
     <link href="{{ asset('/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>
 </head>
-<body class="hold-transition">
+<body class="hold-transition" style="background-image: url('{{ asset('/img/clicspot-banner.png') }}');">
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
     <div class="lockscreen-logo">
-        <img src="http://placehold.it/300x250" class="center-block img-responsive img-rounded">
+        <img src="{{ asset('/img/logo-white.png') }}" class="center-block img-responsive img-rounded">
     </div>
     <!-- START LOCK SCREEN ITEM -->
     <div class="lockscreen-item">
-        <button class="btn btn-block btn-flat bg-blue btn-lg">
+        <a class="btn btn-block btn-flat bg-blue btn-lg" href="{{action('FacebookLogin@login')}}">
             <div class="pull-left">
                 <i class="fa fa-facebook-official"></i>
             </div>
             Login with Facebook
-        </button>
+        </a>
     </div>
     <!-- /.lockscreen-item -->
-    <div class="help-block text-center text-black">
+    <div class="help-block text-center">
         <b>We will never post to your Facebook</b>
 
         <p>Get the guest WiFi by signing in with your Facebook account</p>

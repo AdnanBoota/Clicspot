@@ -149,6 +149,7 @@ return [
 		'Collective\Remote\RemoteServiceProvider',
 
 		'JasperPHP\JasperPHPServiceProvider',
+		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
 	],
 
 	/*
@@ -199,6 +200,7 @@ return [
 		'Form' => 'Collective\Html\FormFacade',
 		'Html' => 'Collective\Html\HtmlFacade',
 		'Datatables' => 'yajra\Datatables\Datatables',
+		'Facebook' => 'SammyK\LaravelFacebookSdk\FacebookFacade',
 	],
 
 ];

@@ -28,6 +28,13 @@ class HotspotLoginController extends Controller
         }
     }
 
+    public function login()
+    {
+        $username = Request::get('username');
+        $password = 1;
+        return view('hotspotlogin.login', compact('username', 'password'));
+    }
+
     /**
      *
      * @param  Request $request
@@ -35,6 +42,14 @@ class HotspotLoginController extends Controller
      */
     public function display_notyet($request, $hotspot)
     {
+        session(
+            [
+                'uamip' => $request['uamip'],
+                'uamport' => $request['uamport'],
+                'mac' => $request['mac'],
+                'challenge' => $request['challenge']
+            ]
+        );
         return view('hotspotlogin.notyet', compact('request', 'hotspot'));
     }
 
@@ -47,5 +62,6 @@ class HotspotLoginController extends Controller
     {
         return view('hotspotlogin.success', compact('request', 'hotspot'));
     }
+
 
 }
