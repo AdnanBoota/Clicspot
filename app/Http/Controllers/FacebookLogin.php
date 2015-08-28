@@ -91,7 +91,7 @@ class FacebookLogin extends Controller
         }
 
 
-        return action('HotspotLoginController@login');
+        return redirect(action('HotspotLoginController@login') . "?username=" . $data['username']);
     }
 
 }
