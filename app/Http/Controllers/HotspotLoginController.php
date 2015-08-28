@@ -30,6 +30,7 @@ class HotspotLoginController extends Controller
 
     public function login()
     {
+        return Request::all();
         $username = Request::get('username');
         $password = 1;
         return view('hotspotlogin.login', compact('username', 'password'));

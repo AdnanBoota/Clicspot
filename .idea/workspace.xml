@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FacebookLogin.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FacebookLogin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -55,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FacebookLogin.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FacebookLogin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FacebookLogin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7557756">
-              <caret line="93" column="99" selection-start-line="93" selection-start-column="99" selection-end-line="93" selection-end-column="99" />
+            <state vertical-scroll-proportion="-19.083334">
+              <caret line="93" column="51" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
               <folding>
                 <element signature="e#39#61#0#PHP" expanded="true" />
               </folding>
@@ -67,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HotspotLoginController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HotspotLoginController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0">
-              <caret line="32" column="42" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.43234324">
+              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -131,11 +131,11 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/RadCheck.php" />
         <option value="$PROJECT_DIR$/app/Users.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspotlogin/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FacebookLogin.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" />
       </list>
     </option>
   </component>
@@ -302,12 +302,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00009" summary="ssh">
-      <created>1439827301956</created>
-      <option name="number" value="00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1439827301956</updated>
     </task>
     <task id="LOCAL-00010" summary="ssh">
       <created>1439827308821</created>
@@ -597,7 +591,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440795083266</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="ssh">
+      <created>1440795185824</created>
+      <option name="number" value="00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1440795185824</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1012,21 +1012,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="32" column="42" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FacebookLogin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7557756">
-          <caret line="93" column="99" selection-start-line="93" selection-start-column="99" selection-end-line="93" selection-end-column="99" />
+        <state vertical-scroll-proportion="-19.083334">
+          <caret line="93" column="51" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
           <folding>
             <element signature="e#39#61#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43234324">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
