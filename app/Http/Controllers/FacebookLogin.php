@@ -91,7 +91,7 @@ class FacebookLogin extends Controller
         }
 
 
-        return redirect(action('HotspotLoginController@login'));
+        return action('HotspotLoginController@login');
     }
 
 }
