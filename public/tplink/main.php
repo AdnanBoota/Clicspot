@@ -19,13 +19,13 @@ uamhomepage http://192.168.182.1:3990/www/coova.html
 wwwdir /etc/chilli/www
 wwwbin /etc/chilli/wwwsh
 uamuiport 4990
-uamdomain logisticinfotech.com
+uamdomain clicspot.com
 uamdomain facebook.com
 uamdomain facebook.net
 uamdomain akamaihd.net
 
 
-locationname "LIWIFI"
+locationname "clicspot"
 radiuslocationname "My_HotSpot"
 radiuslocationid "isocc=,cc=,ac=,network=Coova,Coova"
 
