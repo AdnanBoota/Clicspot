@@ -3,7 +3,6 @@
 
 use App\Hotspot;
 use Auth;
-use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -33,7 +32,12 @@ class HotspotController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return Datatables::of(Auth::user()->hotspots()->with(['status'])->select(['id', 'shortname', 'nasidentifier']))
+            if (Auth::user()->type == 'superadmin') {
+                $hotspot = Hotspot::with(['status'])->select(['id', 'shortname', 'nasidentifier']);
+            } else {
+                $hotspot = Auth::user()->hotspots()->with(['status'])->select(['id', 'shortname', 'nasidentifier']);
+            }
+            return Datatables::of($hotspot)
                 ->addColumn('edit', function ($hotspot) {
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })
@@ -182,5 +186,10 @@ class HotspotController extends Controller
             'success' => $success,
             'message' => $msg,
         ));
+    }
+
+    public function datatable()
+    {
+        return "";
     }
 }
