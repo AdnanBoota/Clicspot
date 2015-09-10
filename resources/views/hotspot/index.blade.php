@@ -69,9 +69,9 @@
             columns: [
                 {data: 'shortname', name: 'shortname'},
                 {data: 'nasidentifier', name: 'nasidentifier'},
-                {data: 'publicip', name: 'publicip'},
-                {data: 'lastcheckin', name: 'lastcheckin'},
-                {data: 'status', name: 'status'},
+                {data: 'publicip', name: 'publicip', orderable: false, searchable: false},
+                {data: 'lastcheckin', name: 'lastcheckin', orderable: false, searchable: false},
+                {data: 'status', name: 'status', orderable: false, searchable: false},
                 {data: 'edit', name: 'edit', orderable: false, searchable: false},
                 {data: 'delete', name: 'delete', orderable: false, searchable: false}
             ]
