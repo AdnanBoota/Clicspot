@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
     Route::get('/vendorAction/{id}', 'VendorController@getAction');
 
 });
+Route::get('hotspot/datatable','HotspotController@datatable');
 Route::resource('hotspot', 'HotspotController');
 
 

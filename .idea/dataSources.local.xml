@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - rashmin@localhost" uuid="8c66a80f-b6c6-4273-8861-3241df27c0e6">
-      <secret-storage>master_key</secret-storage>
-      <user-name>root</user-name>
-      <schema-pattern>rashmin.*</schema-pattern>
-      <default-schemas>rashmin.*</default-schemas>
-    </data-source>
+    <data-source name="MySQL - rashmin@localhost" uuid="8c66a80f-b6c6-4273-8861-3241df27c0e6" />
   </component>
 </project>

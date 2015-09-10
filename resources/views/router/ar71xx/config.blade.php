@@ -25,7 +25,7 @@ wget {{ url('') }}/tplink/coova.html -O /etc/chilli/www/coova.html
 echo chilli start > /etc/rc.local
 echo exit 0  >> /etc/rc.local
 
-echo "* * * * * wget '{{ url('api/v1/ar71xx/update') }}/$WLANMAC?configversion=16082015' -O /tmp/cloudconfig.sh;sh /tmp/cloudconfig.sh;rm /tmp/cloudconfig.sh" > /tmp/crontab
+echo "* * * * * wget '{{ url('api/v1/ar71xx/update') }}/$WLANMAC?configversion=29082015' -O /tmp/cloudconfig.sh;sh /tmp/cloudconfig.sh;rm /tmp/cloudconfig.sh" > /tmp/crontab
 crontab /tmp/crontab
 rm /tmp/crontab
 

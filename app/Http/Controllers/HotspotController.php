@@ -3,6 +3,7 @@
 
 use App\Hotspot;
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -32,28 +33,28 @@ class HotspotController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return Datatables::of(Auth::user()->hotspots()->select(array('id','shortname', 'nasidentifier')))
+            return Datatables::of(Auth::user()->hotspots()->with(['status'])->select(['id', 'shortname', 'nasidentifier']))
                 ->addColumn('edit', function ($hotspot) {
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })
                 ->addColumn('delete', function ($hotspot) {
-                    return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . 'ad" val=' . $hotspot->id . '><i class="glyphicon glyphicon-trash"></i></a>';
+                    return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $hotspot->id . '><i class="glyphicon glyphicon-trash"></i></a>';
                 })
                 ->addColumn('publicip', function ($hotspot) {
-                    return $hotspot->router->status->publicip;
+                    return $hotspot->status->publicip;
                 })
                 ->setRowClass(function ($hotspot) {
-                    if ((time() - strtotime($hotspot->router->status->updated_at)) < 180) {
+                    if ((time() - strtotime($hotspot->status->updated_at)) < 180) {
                         return 'success';
                     } else {
                         return 'danger';
                     }
                 })
                 ->addColumn('lastcheckin', function ($hotspot) {
-                    return $hotspot->router->status->updated_at->diffForHumans();
+                    return $hotspot->status->updated_at->diffForHumans();
                 })
                 ->addColumn('status', function ($hotspot) {
-                    if ((time() - strtotime($hotspot->router->status->updated_at)) < 180) {
+                    if ((time() - strtotime($hotspot->status->updated_at)) < 180) {
                         return '<i class="fa fa-circle" style="color: green;"></i> Up';
                     } else {
                         return '<i class="fa fa-circle" style="color: red;"></i> Down';
@@ -182,5 +183,4 @@ class HotspotController extends Controller
             'message' => $msg,
         ));
     }
-
 }
