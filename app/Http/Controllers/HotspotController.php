@@ -9,6 +9,7 @@ use Input;
 use Response;
 use Session;
 use yajra\Datatables\Datatables;
+use DB;
 
 class HotspotController extends Controller
 {
@@ -33,7 +34,8 @@ class HotspotController extends Controller
     {
         if ($request->ajax()) {
             if (Auth::user()->type == 'superadmin') {
-                $hotspot = Hotspot::with(['status'])->select(['id', 'shortname', 'nasidentifier']);
+                $hotspot = DB::table('nas')->join('router_status','nasidentifier','=','macaddress')->get();
+//                $hotspot = Hotspot::with(['status'])->select(['id', 'shortname', 'nasidentifier']);
             } else {
                 $hotspot = Auth::user()->hotspots()->with(['status'])->select(['id', 'shortname', 'nasidentifier']);
             }
