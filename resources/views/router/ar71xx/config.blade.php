@@ -7,8 +7,7 @@ wifi
 opkg update
 opkg install coova-chilli
 
-WLAN=`ifconfig | grep wl | cut -d " " -f1`
-WLANMAC=`ifconfig \$WLAN | awk '/HWaddr/ { print $5 }' | sed 's/:/-/g'`
+WLANMAC=`ifconfig wlan0 | awk '/HWaddr/ { print $5 }' | sed 's/:/-/g'`
 
 wget {{ url('') }}/tplink/defaults.php -O /etc/chilli/defaults
 
@@ -25,7 +24,7 @@ wget {{ url('') }}/tplink/coova.html -O /etc/chilli/www/coova.html
 echo chilli start > /etc/rc.local
 echo exit 0  >> /etc/rc.local
 
-echo "* * * * * wget '{{ url('api/v1/ar71xx/update') }}/$WLANMAC?configversion=29082015' -O /tmp/cloudconfig.sh;sh /tmp/cloudconfig.sh;rm /tmp/cloudconfig.sh" > /tmp/crontab
+echo "* * * * * wget '{{ url('api/v1/ar71xx/update') }}/$WLANMAC?configversion=11092015' -O /tmp/cloudconfig.sh;sh /tmp/cloudconfig.sh;rm /tmp/cloudconfig.sh" > /tmp/crontab
 crontab /tmp/crontab
 rm /tmp/crontab
 
