@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.33 on 2015-08-28.
+ * Generated for Laravel 5.0.33 on 2015-09-11.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12405,6 +12405,358 @@ namespace {
 
 
     class Datatables extends \yajra\Datatables\Datatables{
+        
+    }
+
+
+    class Facebook extends \SammyK\LaravelFacebookSdk\FacebookFacade{
+        
+        /**
+         * Generate an OAuth 2.0 authorization URL for authentication.
+         *
+         * @param array $scope
+         * @param string $callback_url
+         * @return string 
+         * @static 
+         */
+        public static function getLoginUrl($scope = array(), $callback_url = ''){
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getLoginUrl($scope, $callback_url);
+        }
+        
+        /**
+         * Generate a re-request authorization URL.
+         *
+         * @param array $scope
+         * @param string $callback_url
+         * @return string 
+         * @static 
+         */
+        public static function getReRequestUrl($scope, $callback_url = ''){
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getReRequestUrl($scope, $callback_url);
+        }
+        
+        /**
+         * Generate a re-authentication authorization URL.
+         *
+         * @param array $scope
+         * @param string $callback_url
+         * @return string 
+         * @static 
+         */
+        public static function getReAuthenticationUrl($scope = array(), $callback_url = ''){
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getReAuthenticationUrl($scope, $callback_url);
+        }
+        
+        /**
+         * Get an access token from a redirect.
+         *
+         * @param string $callback_url
+         * @return \Facebook\Authentication\AccessToken|null 
+         * @static 
+         */
+        public static function getAccessTokenFromRedirect($callback_url = ''){
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getAccessTokenFromRedirect($callback_url);
+        }
+        
+        /**
+         * Returns the FacebookApp entity.
+         *
+         * @return \Facebook\FacebookApp 
+         * @static 
+         */
+        public static function getApp(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getApp();
+        }
+        
+        /**
+         * Returns the FacebookClient service.
+         *
+         * @return \Facebook\FacebookClient 
+         * @static 
+         */
+        public static function getClient(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getClient();
+        }
+        
+        /**
+         * Returns the OAuth 2.0 client service.
+         *
+         * @return \Facebook\OAuth2Client 
+         * @static 
+         */
+        public static function getOAuth2Client(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getOAuth2Client();
+        }
+        
+        /**
+         * Returns the last response returned from Graph.
+         *
+         * @return \Facebook\FacebookResponse|\Facebook\FacebookBatchResponse|null 
+         * @static 
+         */
+        public static function getLastResponse(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getLastResponse();
+        }
+        
+        /**
+         * Returns the URL detection handler.
+         *
+         * @return \Facebook\UrlDetectionInterface 
+         * @static 
+         */
+        public static function getUrlDetectionHandler(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getUrlDetectionHandler();
+        }
+        
+        /**
+         * Returns the default AccessToken entity.
+         *
+         * @return \Facebook\AccessToken|null 
+         * @static 
+         */
+        public static function getDefaultAccessToken(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getDefaultAccessToken();
+        }
+        
+        /**
+         * Sets the default access token to use with requests.
+         *
+         * @param \Facebook\AccessToken|string $accessToken The access token to save.
+         * @throws \InvalidArgumentException
+         * @static 
+         */
+        public static function setDefaultAccessToken($accessToken){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::setDefaultAccessToken($accessToken);
+        }
+        
+        /**
+         * Returns the default Graph version.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultGraphVersion(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getDefaultGraphVersion();
+        }
+        
+        /**
+         * Returns the redirect login helper.
+         *
+         * @return \Facebook\FacebookRedirectLoginHelper 
+         * @static 
+         */
+        public static function getRedirectLoginHelper(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getRedirectLoginHelper();
+        }
+        
+        /**
+         * Returns the JavaScript helper.
+         *
+         * @return \Facebook\FacebookJavaScriptHelper 
+         * @static 
+         */
+        public static function getJavaScriptHelper(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getJavaScriptHelper();
+        }
+        
+        /**
+         * Returns the canvas helper.
+         *
+         * @return \Facebook\FacebookCanvasHelper 
+         * @static 
+         */
+        public static function getCanvasHelper(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getCanvasHelper();
+        }
+        
+        /**
+         * Returns the page tab helper.
+         *
+         * @return \Facebook\FacebookPageTabHelper 
+         * @static 
+         */
+        public static function getPageTabHelper(){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getPageTabHelper();
+        }
+        
+        /**
+         * Sends a GET request to Graph and returns the result.
+         *
+         * @param string $endpoint
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function get($endpoint, $accessToken = null, $eTag = null, $graphVersion = null){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::get($endpoint, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Sends a POST request to Graph and returns the result.
+         *
+         * @param string $endpoint
+         * @param array $params
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function post($endpoint, $params = array(), $accessToken = null, $eTag = null, $graphVersion = null){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::post($endpoint, $params, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Sends a DELETE request to Graph and returns the result.
+         *
+         * @param string $endpoint
+         * @param array $params
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function delete($endpoint, $params = array(), $accessToken = null, $eTag = null, $graphVersion = null){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::delete($endpoint, $params, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Sends a request to Graph for the next page of results.
+         *
+         * @param \Facebook\GraphEdge $graphEdge The GraphEdge to paginate over.
+         * @return \Facebook\GraphEdge|null 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function next($graphEdge){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::next($graphEdge);
+        }
+        
+        /**
+         * Sends a request to Graph for the previous page of results.
+         *
+         * @param \Facebook\GraphEdge $graphEdge The GraphEdge to paginate over.
+         * @return \Facebook\GraphEdge|null 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function previous($graphEdge){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::previous($graphEdge);
+        }
+        
+        /**
+         * Sends a request to Graph for the next page of results.
+         *
+         * @param \Facebook\GraphEdge $graphEdge The GraphEdge to paginate over.
+         * @param string $direction The direction of the pagination: next|previous.
+         * @return \Facebook\GraphEdge|null 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function getPaginationResults($graphEdge, $direction){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getPaginationResults($graphEdge, $direction);
+        }
+        
+        /**
+         * Sends a request to Graph and returns the result.
+         *
+         * @param string $method
+         * @param string $endpoint
+         * @param array $params
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function sendRequest($method, $endpoint, $params = array(), $accessToken = null, $eTag = null, $graphVersion = null){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::sendRequest($method, $endpoint, $params, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Sends a batched request to Graph and returns the result.
+         *
+         * @param array $requests
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookBatchResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function sendBatchRequest($requests, $accessToken = null, $graphVersion = null){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::sendBatchRequest($requests, $accessToken, $graphVersion);
+        }
+        
+        /**
+         * Instantiates a new FacebookRequest entity.
+         *
+         * @param string $method
+         * @param string $endpoint
+         * @param array $params
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookRequest 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function request($method, $endpoint, $params = array(), $accessToken = null, $eTag = null, $graphVersion = null){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::request($method, $endpoint, $params, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Factory to create FacebookFile's.
+         *
+         * @param string $pathToFile
+         * @return \Facebook\FacebookFile 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function fileToUpload($pathToFile){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::fileToUpload($pathToFile);
+        }
+        
+        /**
+         * Factory to create FacebookVideo's.
+         *
+         * @param string $pathToFile
+         * @return \Facebook\FacebookVideo 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function videoToUpload($pathToFile){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::videoToUpload($pathToFile);
+        }
         
     }
 
