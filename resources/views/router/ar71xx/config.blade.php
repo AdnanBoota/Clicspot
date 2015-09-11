@@ -30,10 +30,4 @@ rm /tmp/crontab
 
 /etc/init.d/cron restart
 
-opkg remove ip6tables
-opkg remove kmod-ip6tables
-opkg remove odhcp6c
-opkg remove 6relayd
-opkg remove kmod-ipv6
-
 reboot
