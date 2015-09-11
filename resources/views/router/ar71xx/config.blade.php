@@ -7,6 +7,8 @@ wifi
 opkg update
 opkg install coova-chilli
 
+
+
 WLANMAC=`uci get wireless.radio0.macaddr | sed 's/:/-/g' | tr [a-z] [A-Z]`
 
 wget {{ url('') }}/tplink/defaults.php -O /etc/chilli/defaults
