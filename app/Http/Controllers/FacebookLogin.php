@@ -83,14 +83,6 @@ class FacebookLogin extends Controller
         } else {
             $users = Users::create($data);
         }
-
-        if ($users->RadCheckRecord) {
-            $users->RadCheckRecord()->update(['attribute' => 'Password', 'op' => ":=", 'value' => "1"]);
-        } else {
-            $users->RadCheckRecord()->save(new RadCheck(['attribute' => 'Password', 'op' => ":=", 'value' => "1"]));
-        }
-
-
         return redirect(action('HotspotLoginController@login') . "?username=" . $data['username']);
     }
 
