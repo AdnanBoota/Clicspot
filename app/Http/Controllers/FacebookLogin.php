@@ -81,7 +81,7 @@ class FacebookLogin extends Controller
         if ($users) {
             $users->update($data);
         } else {
-            $users = Users::create($data);
+            Users::create($data);
         }
         return redirect(action('HotspotLoginController@login') . "?username=" . $data['username']);
     }
