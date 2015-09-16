@@ -146,7 +146,6 @@ class HotspotController extends Controller
             $campaign = Auth::user()->campaigns()->lists('name', 'id');
         }
         $campaign = array_add($campaign, "1", "Default");
-        sort($campaign);
         $hotspot = Hotspot::findOrFail($id);
         return view('hotspot.edit', compact('hotspot', 'campaign'));
     }
