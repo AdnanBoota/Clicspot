@@ -141,13 +141,13 @@ class HotspotController extends Controller
      */
     public function edit($id)
     {
-        $campaign = Campaign::getDefaultCampaign()->list();
+        $campaign = Campaign::getDefaultCampaign()->lists('name', 'id');
         if (Auth::user()->type == 'superadmin') {
             $userCampaign = Hotspot::find($id)->user->campaigns()->lists('name', 'id');
         } else {
             $userCampaign = Auth::user()->campaigns()->lists('name', 'id');
         }
-        $campaign = array_merge($campaign, $userCampaign);
+        $campaign += $userCampaign;
         $hotspot = Hotspot::findOrFail($id);
         return view('hotspot.edit', compact('hotspot', 'campaign'));
     }
