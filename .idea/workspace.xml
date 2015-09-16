@@ -48,8 +48,8 @@
       <file leaf-file-name="notyet.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53667957">
-              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.5945946">
+              <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -250,12 +250,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00057" summary="ssh">
-      <created>1440795083265</created>
-      <option name="number" value="00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1440795083266</updated>
     </task>
     <task id="LOCAL-00058" summary="ssh">
       <created>1440795185824</created>
@@ -545,7 +539,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442433636304</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="ssh">
+      <created>1442433669688</created>
+      <option name="number" value="00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1442433669688</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -968,8 +968,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53667957">
-          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.5945946">
+          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
