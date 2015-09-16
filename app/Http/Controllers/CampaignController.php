@@ -36,7 +36,6 @@ class CampaignController extends Controller
         if ($request->ajax()) {
             if (Auth::user()->type == 'superadmin') {
                 $campaign = Campaign::all();
-//                $campaign = Campaign::get()->select(['id','name', 'backgroundimage', 'logoimage', 'fontcolor']);
             } else {
                 $campaign = Auth::user()->campaigns()->select(['id', 'name', 'backgroundimage', 'logoimage', 'fontcolor']);
             }
