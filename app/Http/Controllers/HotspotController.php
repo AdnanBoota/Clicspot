@@ -171,8 +171,11 @@ class HotspotController extends Controller
                 'latitude' => 'required',
                 'longitude' => 'required']
         );
-
-        Auth::user()->hotspots()->findOrFail($id)->update($input);
+        if(Auth::user()->type == 'superadmin'){
+            Hotspot::findOrFail($id)->update($input);
+        }else {
+            Auth::user()->hotspots()->findOrFail($id)->update($input);
+        }
         $successMsg = "Hotspot updated successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('hotspot');
