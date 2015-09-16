@@ -41,9 +41,9 @@ class CampaignController extends Controller
                 $campaign = Auth::user()->campaigns()->select(['id', 'name', 'backgroundimage', 'logoimage', 'fontcolor']);
             }
             return Datatables::of($campaign)
-                ->editColumn('backgroundimage', '<img src="uploads/campaign/{{$backgroundimage}}" height="50" width="50" />')
-                ->editColumn('logoimage', '<img src="uploads/campaign/{{$logoimage}}" height="50" width="50" />')
-                ->editColumn('fontcolor', '<p><font color="{{$fontcolor}}">{{$fontcolor}}</font></p>')
+                ->editColumn('backgroundimage', '<img src="uploads/campaign/{{$backgroundimage}}" height="300" width="150" />')
+                ->editColumn('logoimage', '<img src="uploads/campaign/{{$logoimage}}" height="150" width="75" />')
+                ->editColumn('fontcolor', '<p>{{$fontcolor}}</p>')
                 ->addColumn('edit', function ($campaign) {
                     return '<a href="' . url("campaign/{$campaign->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                 })
