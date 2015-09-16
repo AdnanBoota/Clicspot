@@ -205,23 +205,33 @@ class CampaignController extends Controller
         );
         $input['backgroundimage'] = $bgfileName;
         $input['logoimage'] = $logofileName;
-        $campaign = Auth::user()->campaigns()->findOrFail($id)->update($input);
+        Auth::user()->campaigns()->findOrFail($id)->update($input);
 
-        $campAttrUpload = $campaign->campaignAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Up');
-        $campAttrUpload->value = $request->input('ChilliSpot-Bandwidth-Max-Up');
-        $campAttrUpload->save();
+        $campaign = Campaign::find($id);
 
-        $campAttrDownload = $campaign->campaignAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Down');
-        $campAttrDownload->value = $request->input('ChilliSpot-Bandwidth-Max-Down');
-        $campAttrDownload->save();
+        $campaign->campaignAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Up')
+            ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
 
-        $campAttrSessionTimeout = $campaign->campaignAttributes()->where('attribute', '=', 'Session-Timeout');
-        $campAttrSessionTimeout->value = $request->input('Session-Timeout');
-        $campAttrSessionTimeout->save();
+        $campaign->campaignAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Down')
+            ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Down')]);
 
-        $campAttrIdleTimeout = $campaign->campaignAttributes()->where('attribute', '=', 'Idle-Timeout');
-        $campAttrIdleTimeout->value = $request->input('Idle-Timeout');
-        $campAttrIdleTimeout->save();
+        $campaign->campaignAttributes()->where('attribute', '=', 'Session-Timeout')
+            ->update(['value' => $request->input('Session-Timeout')]);
+
+        $campaign->campaignAttributes()->where('attribute', '=', 'Idle-Timeout')
+            ->update(['value' => $request->input('Idle-Timeout')]);
+
+//        $campAttrDownload = $campaign->campaignAttributes()->where('attribute', '=', '');
+//        $campAttrDownload->value = $request->input('ChilliSpot-Bandwidth-Max-Down');
+//        $campAttrDownload->save();
+//
+//        $campAttrSessionTimeout = $campaign->campaignAttributes()->where('attribute', '=', 'Session-Timeout');
+//        $campAttrSessionTimeout->value = $request->input('Session-Timeout');
+//        $campAttrSessionTimeout->save();
+//
+//        $campAttrIdleTimeout = $campaign->campaignAttributes()->where('attribute', '=', '');
+//        $campAttrIdleTimeout->value = $request->input('Idle-Timeout');
+//        $campAttrIdleTimeout->save();
 
         $successMsg = "Campaign updated successfully";
         Session::flash('flash_message_success', $successMsg);
