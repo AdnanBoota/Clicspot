@@ -14,8 +14,8 @@
     <!-- FontAwesome 4.3.0 -->
     <link href="{{ asset('/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>
     <style type="text/css">
-        b,p {
-          color: {{$campaign->fontcolor}};
+        b, p {
+            color: {{$campaign->fontcolor}};
         }
     </style>
 </head>
@@ -43,7 +43,9 @@
         <p>Get the guest WiFi by signing in with your Facebook account</p>
     </div>
     <div class="lockscreen-footer text-center">
-        Copyright &copy; {{ \Carbon\Carbon::now()->format('Y') }} - {{ \Carbon\Carbon::now()->format('y')+1 }}
+        <p>
+            Copyright &copy; {{ \Carbon\Carbon::now()->format('Y') }} - {{ \Carbon\Carbon::now()->format('y')+1 }}
+        </p>
         <b>
             <a class="text-black" href="#">Clicspot WiFi</a>
         </b>
