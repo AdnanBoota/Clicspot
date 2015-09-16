@@ -25,7 +25,7 @@
 <div class="lockscreen-wrapper">
     <div class="lockscreen-logo">
         <img src="{{ asset('/uploads/campaign/'.$campaign->logoimage) }}"
-             class="center-block img-responsive img-rounded">
+             class="center-block img-responsive img-thumbnail">
     </div>
     <!-- START LOCK SCREEN ITEM -->
     <div class="lockscreen-item">
