@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 
 
-use App\Campaign;
 use App\Hotspot;
 use Auth;
 use Illuminate\Http\Request;
@@ -10,7 +9,6 @@ use Input;
 use Response;
 use Session;
 use yajra\Datatables\Datatables;
-use DB;
 
 class HotspotController extends Controller
 {
@@ -80,12 +78,12 @@ class HotspotController extends Controller
     public function create()
     {
         if (Auth::user()->type == 'superadmin') {
-            $campaign = Auth::user()->campaigns()->lists('name','id');
+            $campaign = Auth::user()->campaigns()->lists('name', 'id');
         } else {
-            $campaign = Auth::user()->campaigns()->lists('name','id');
+            $campaign = Auth::user()->campaigns()->lists('name', 'id');
         }
         $hotspotDetails = array();
-        return View::make('hotspot.create',compact('campaign','hotspotDetails'));
+        return View::make('hotspot.create', compact('campaign', 'hotspotDetails'));
     }
 
     public function createClone()
@@ -143,13 +141,13 @@ class HotspotController extends Controller
     public function edit($id)
     {
         if (Auth::user()->type == 'superadmin') {
-            $campaign = Hotspot::find($id)->user()->campaigns()->lists('name','id');
-//            $campaign = Campaign::lists('name','id');
+            $campaign = Hotspot::find($id)->user->campaigns()->lists('name', 'id');
         } else {
-            $campaign = Auth::user()->campaigns()->lists('name','id');
+            $campaign = Auth::user()->campaigns()->lists('name', 'id');
         }
+        $campaign = array_add($campaign, "1", "Default");
         $hotspot = Hotspot::findOrFail($id);
-        return view('hotspot.edit', compact('hotspot','campaign'));
+        return view('hotspot.edit', compact('hotspot', 'campaign'));
     }
 
     /**

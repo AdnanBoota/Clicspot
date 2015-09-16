@@ -20,9 +20,14 @@ class Campaign extends Model
     {
         return $this->belongsTo('App\User', 'adminid', 'id');
     }
-    
+
     public function campaignAttributes()
     {
-        return $this->hasMany('App\CampaignAttributes','campaignid');
+        return $this->hasMany('App\CampaignAttributes', 'campaignid');
+    }
+
+    public function getDefaultCampaign()
+    {
+        return $this->where('name','=','Default');
     }
 }
