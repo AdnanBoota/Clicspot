@@ -170,7 +170,12 @@ class CampaignController extends Controller
      */
     public function update($id, Request $request)
     {
-        //return $request->all();
+        if (Auth::user()->type == 'superadmin') {
+            $campaign = Campaign::findOrFail($id);
+        } else {
+            $campaign = Auth::user()->campaigns()->findOrFail($id);
+        }
+
         $input = $request->only('name', 'fontcolor');
 
         $bgfileName = $request->input('oldbackgroundimage');
@@ -204,9 +209,8 @@ class CampaignController extends Controller
         );
         $input['backgroundimage'] = $bgfileName;
         $input['logoimage'] = $logofileName;
-        Auth::user()->campaigns()->findOrFail($id)->update($input);
 
-        $campaign = Campaign::find($id);
+        $campaign->update($input);
 
         $campaign->campaignAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Up')
             ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
