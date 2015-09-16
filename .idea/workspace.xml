@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CampaignController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CampaignController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Hotspot.php" afterPath="$PROJECT_DIR$/app/Hotspot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -45,24 +46,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
+      <file leaf-file-name="HotspotController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.125">
-              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampaignController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CampaignController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5321101">
-              <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.61974406">
+              <caret line="145" column="84" selection-start-line="145" selection-start-column="84" selection-end-line="145" selection-end-column="84" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
-                <marker date="1442429359000" expanded="true" signature="1371:1392" placeholder="..." />
+                <marker date="1442430256000" expanded="true" signature="2325:2338" placeholder="..." />
+                <marker date="1442430256000" expanded="true" signature="2442:2453" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -123,10 +115,10 @@
         <option value="$PROJECT_DIR$/resources/views/campaign/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/campaign/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/campaign/_form.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspot/_form.blade.php" />
-        <option value="$PROJECT_DIR$/app/Hotspot.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CampaignController.php" />
+        <option value="$PROJECT_DIR$/app/Hotspot.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
       </list>
     </option>
   </component>
@@ -175,6 +167,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -193,16 +186,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Laravel5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clickspot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;campa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspotC&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;campaign&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hots&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;routersta&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/RouterStatus.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;face&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;login&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/routes.php&#10;not&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;fa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;Rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/RouterControllerAR71XX.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;authcon&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;crea&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/create.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;rou&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;app&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/app.blade.php&#10;side&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;sid&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;bootstrapper&#9;null&#9;null&#10;repos&#9;null&#9;null&#10;passw&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/Auth/PasswordController.php&#10;abstractsmtp&#9;null&#9;null&#10;home&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/HomeController.php" />
+    <property name="SearchEverywhereHistoryKey" value="hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;campa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspotC&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;campaign&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hots&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;routersta&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/RouterStatus.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;face&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;login&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/routes.php&#10;not&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;fa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;Rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/RouterControllerAR71XX.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;authcon&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;crea&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/create.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;rou&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;app&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/app.blade.php&#10;side&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;sid&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;bootstrapper&#9;null&#9;null&#10;repos&#9;null&#9;null&#10;passw&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/Auth/PasswordController.php&#10;abstractsmtp&#9;null&#9;null&#10;home&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/HomeController.php" />
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -261,12 +267,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00044" summary="ssh">
-      <created>1440277091883</created>
-      <option name="number" value="00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1440277091883</updated>
     </task>
     <task id="LOCAL-00045" summary="ssh">
       <created>1440277172223</created>
@@ -556,34 +556,40 @@
       <option name="project" value="LOCAL" />
       <updated>1442428943136</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="ssh">
+      <created>1442429370059</created>
+      <option name="number" value="00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1442429370059</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="37" y="23" width="1403" height="877" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20711564" sideWeight="0.49742836" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299045" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26965466" sideWeight="0.7470687" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26965466" sideWeight="0.25293133" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27332842" sideWeight="0.7378965" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27332842" sideWeight="0.2621035" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655653" sideWeight="0.50257164" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23949045" sideWeight="0.49742836" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23888183" sideWeight="0.49742836" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -802,13 +808,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.995879">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -881,7 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -889,7 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -905,7 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -913,15 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6530613">
           <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Campaign.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46938777">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -929,7 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.678899">
           <caret line="61" column="41" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -937,7 +929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.5143247">
           <caret line="96" column="17" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -945,45 +936,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.10091743">
           <caret line="61" column="58" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CampaignController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.880734">
+          <caret line="238" column="28" selection-start-line="238" selection-start-column="28" selection-end-line="238" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35779816">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Campaign.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08163265">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Hotspot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24770643">
-          <caret line="9" column="79" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+        <state vertical-scroll-proportion="0.71428573">
+          <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.431193">
-          <caret line="161" column="30" selection-start-line="161" selection-start-column="30" selection-end-line="161" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.61974406">
+          <caret line="145" column="84" selection-start-line="145" selection-start-column="84" selection-end-line="145" selection-end-column="84" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
-            <marker date="1442427776000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1442427776000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CampaignController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5321101">
-          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-            <marker date="1442429359000" expanded="true" signature="1371:1392" placeholder="..." />
+            <marker date="1442430256000" expanded="true" signature="2325:2338" placeholder="..." />
+            <marker date="1442430256000" expanded="true" signature="2442:2453" placeholder="..." />
           </folding>
         </state>
       </provider>

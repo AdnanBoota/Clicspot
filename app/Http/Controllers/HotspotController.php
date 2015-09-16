@@ -80,7 +80,7 @@ class HotspotController extends Controller
     public function create()
     {
         if (Auth::user()->type == 'superadmin') {
-            $campaign = Campaign::lists('name','id');
+            $campaign = Auth::user()->campaigns()->lists('name','id');
         } else {
             $campaign = Auth::user()->campaigns()->lists('name','id');
         }
@@ -143,7 +143,8 @@ class HotspotController extends Controller
     public function edit($id)
     {
         if (Auth::user()->type == 'superadmin') {
-            $campaign = Campaign::lists('name','id');
+            $campaign = Hotspot::find($id)->user()->campaigns()->lists('name','id');
+//            $campaign = Campaign::lists('name','id');
         } else {
             $campaign = Auth::user()->campaigns()->lists('name','id');
         }

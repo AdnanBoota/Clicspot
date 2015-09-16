@@ -31,4 +31,9 @@ class Hotspot extends Model
         return $this->belongsTo('App\RouterStatus', 'nasidentifier', 'macaddress');
     }
 
+    public function campaign()
+    {
+        return $this->belongsTo('App\Campaign', 'campaignid', 'id');
+    }
+
 }
