@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Campaign;
 use App\Hotspot;
 use Auth;
 use Illuminate\Http\Request;
@@ -78,8 +79,13 @@ class HotspotController extends Controller
      */
     public function create()
     {
-        //return View::make('hotspot.create');
-        return View::make('hotspot.create', ['hotspotDetails' => array()]);
+        if (Auth::user()->type == 'superadmin') {
+            $campaign = Campaign::lists('name','id');
+        } else {
+            $campaign = Auth::user()->campaigns()->lists('name','id');
+        }
+        $hotspotDetails = array();
+        return View::make('hotspot.create',compact('campaign','hotspotDetails'));
     }
 
     public function createClone()
@@ -136,8 +142,13 @@ class HotspotController extends Controller
      */
     public function edit($id)
     {
+        if (Auth::user()->type == 'superadmin') {
+            $campaign = Campaign::lists('name','id');
+        } else {
+            $campaign = Auth::user()->campaigns()->lists('name','id');
+        }
         $hotspot = Hotspot::findOrFail($id);
-        return view('hotspot.edit', compact('hotspot'));
+        return view('hotspot.edit', compact('hotspot','campaign'));
     }
 
     /**

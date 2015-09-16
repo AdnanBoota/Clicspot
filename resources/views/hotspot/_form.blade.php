@@ -11,7 +11,14 @@
         {!!  Form::text('nasidentifier', null, array('id'=>'nasidentifier','class'=>'form-control','required'=>'true')) !!}
     </div>
 </div>
-
+@if(count($campaign))
+<div class="form-group">
+    {!! Form::label('campaignid', 'Campaign', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!!  Form::select('campaignid',$campaign, null, array('id'=>'campaignid','class'=>'form-control','required'=>'true')) !!}
+    </div>
+</div>
+@endif
 <div class="form-group">
     {!! Form::label('address', 'Address', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
