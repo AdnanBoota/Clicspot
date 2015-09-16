@@ -20,7 +20,7 @@
     </style>
 </head>
 <body class="hold-transition"
-      style="background-size:100%; background-image: url('{{ asset('/uploads/campaign/'.$campaign->backgroundimage) }}')">
+      style="background-image: url('{{ asset('/uploads/campaign/'.$campaign->backgroundimage) }}')">
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
     <div class="lockscreen-logo">
