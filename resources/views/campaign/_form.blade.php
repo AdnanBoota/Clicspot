@@ -41,24 +41,27 @@
     </div>
     <div class="box-body">
         <div class="form-group">
-            {!! Form::label('uploadspeed', 'Upload Speed', array('class' => 'col-sm-2 control-label')) !!}
+            {!! Form::label('ChilliSpot-Bandwidth-Max-Up', 'Upload Speed', array('class' => 'col-sm-2 control-label')) !!}
             <div class="col-sm-10">
-                {!!  Form::text('uploadspeed', "", array('data-from'=>isset($campaign->uploadspeed) ? $campaign->uploadspeed : '1000','id'=>'uploadspeed','class'=>'form-control','required'=>'true')) !!}
-                {!! Form::hidden('uploadspeedId',isset($campaign->uploadspeedId) ? $campaign->uploadspeedId : '') !!}
+                {!!  Form::text('ChilliSpot-Bandwidth-Max-Up', "", array('data-from'=>isset($campaign['ChilliSpot-Bandwidth-Max-Up']) ? $campaign['ChilliSpot-Bandwidth-Max-Up'] : '1024','id'=>'ChilliSpot-Bandwidth-Max-Up','class'=>'form-control','required'=>'true')) !!}
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('downloadspeed', 'Download Speed', array('class' => 'col-sm-2 control-label')) !!}
+            {!! Form::label('ChilliSpot-Bandwidth-Max-Down', 'Download Speed', array('class' => 'col-sm-2 control-label')) !!}
             <div class="col-sm-10">
-                {!!  Form::text('downloadspeed', "", array('data-from'=>isset($campaign->downloadspeed) ? $campaign->downloadspeed : '1000','id'=>'downloadspeed','class'=>'form-control','required'=>'true')) !!}
-                {!! Form::hidden('downloadspeedId',isset($campaign->downloadspeedId) ? $campaign->downloadspeedId : '') !!}
+                {!!  Form::text('ChilliSpot-Bandwidth-Max-Down', "", array('data-from'=>isset($campaign['ChilliSpot-Bandwidth-Max-Down']) ? $campaign['ChilliSpot-Bandwidth-Max-Down'] : '1024','id'=>'ChilliSpot-Bandwidth-Max-Down','class'=>'form-control','required'=>'true')) !!}
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('timeout', 'Time Out', array('class' => 'col-sm-2 control-label')) !!}
+            {!! Form::label('Session-Timeout', 'Session-Timeout', array('class' => 'col-sm-2 control-label')) !!}
             <div class="col-sm-10">
-                {!!  Form::text('timeout', "", array('data-from'=>isset($campaign->timeout) ? $campaign->timeout : '3600','id'=>'timeout','class'=>'form-control','required'=>'true')) !!}
-                {!! Form::hidden('timeoutId',isset($campaign->timeoutId) ? $campaign->timeoutId : '') !!}
+                {!!  Form::text('Session-Timeout', "", array('data-from'=>isset($campaign['Session-Timeout']) ? $campaign['Session-Timeout'] : '3600','id'=>'Session-Timeout','class'=>'form-control','required'=>'true')) !!}
+            </div>
+        </div>
+        <div class="form-group">
+            {!! Form::label('Idle-Timeout', 'Idle-Timeout', array('class' => 'col-sm-2 control-label')) !!}
+            <div class="col-sm-10">
+                {!!  Form::text('Idle-Timeout', "", array('data-from'=>isset($campaign['Idle-Timeout']) ? $campaign['Idle-Timeout'] : '1800','id'=>'Idle-Timeout','class'=>'form-control','required'=>'true')) !!}
             </div>
         </div>
     </div>

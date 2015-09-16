@@ -83,34 +83,47 @@
                 $(element).parents('.form-group').addClass('has-success');
             }
         });
-        
+
         $(".my-colorpicker").colorpicker();
-        $("#uploadspeed").ionRangeSlider({
-          min:100,
-          max:100000,
-          type: "single",
-          step: 100,
-          postfix: " KBPS",
-          hideMinMax: true,
-          hideFromTo: false
+        $("#ChilliSpot-Bandwidth-Max-Up").ionRangeSlider({
+            min: 256,
+            max: 10240,
+            step: 256,
+            prettify: function (value) {
+                if (value < 1024) {
+                    return Math.round(value) + ' Kbps';
+                } else {
+                    return (value / 1024) + ' Mbps';
+                }
+            }
         });
-        $("#downloadspeed").ionRangeSlider({
-          min:100,
-          max:100000,  
-          type: "single",
-          step: 100,
-          postfix: " KBPS",
-          hideMinMax: true,
-          hideFromTo: false
+        $("#ChilliSpot-Bandwidth-Max-Down").ionRangeSlider({
+            min: 256,
+            max: 10240,
+            step: 256,
+            prettify: function (value) {
+                if (value < 1024) {
+                    return Math.round(value) + ' Kbps';
+                } else {
+                    return (value / 1024) + ' Mbps';
+                }
+            }
         });
-        $("#timeout").ionRangeSlider({
-          min:100,
-          max:100000,
-          type: "single",
-          step: 100,
-          postfix: " Seconds",
-          hideMinMax: true,
-          hideFromTo: false
+        $("#Session-Timeout").ionRangeSlider({
+            min: 60,
+            max: 14400,
+            step: 60,
+            prettify: function (value) {
+                return Math.round(value / 60) + ' min';
+            }
+        });
+        $("#Idle-Timeout").ionRangeSlider({
+            min: 60,
+            max: 7200,
+            grid_num: 1,
+            prettify: function (value) {
+                return Math.round(value / 60) + ' min';
+            }
         });
     });
 
