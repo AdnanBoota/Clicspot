@@ -14,11 +14,11 @@
     <!-- FontAwesome 4.3.0 -->
     <link href="{{ asset('/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>
 </head>
-<body class="hold-transition" style="background-image: url('{{ asset('/img/clicspot-banner.png') }}');">
+<body class="hold-transition" style="background-image: url('{{ asset('/uploads/campaign/'.$campaign->backgroundimage) }}')">
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
     <div class="lockscreen-logo">
-        <img src="{{ asset('/img/logo-white.png') }}" class="center-block img-responsive img-rounded">
+        <img src="{{ asset('/uploads/campaign/'.$campaign->logoimage) }}" class="center-block img-responsive img-rounded">
     </div>
     <!-- START LOCK SCREEN ITEM -->
     <div class="lockscreen-item">

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/blade.xml" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php" afterPath="$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -44,7 +46,18 @@
     <favorites_list name="Laravel5" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="notyet.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41133454">
+              <caret line="16" column="116" selection-start-line="16" selection-start-column="116" selection-end-line="16" selection-end-column="116" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,9 +94,7 @@
         <option value="$PROJECT_DIR$/public/dist/css/AdminLTE.min.css" />
         <option value="$PROJECT_DIR$/config/services.php" />
         <option value="$PROJECT_DIR$/app/RadCheck.php" />
-        <option value="$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspotlogin/login.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" />
         <option value="$PROJECT_DIR$/public/tplink/main.php" />
         <option value="$PROJECT_DIR$/public/tplink/coova.html" />
         <option value="$PROJECT_DIR$/app/Users.php" />
@@ -103,6 +114,8 @@
         <option value="$PROJECT_DIR$/resources/views/hotspot/_form.blade.php" />
         <option value="$PROJECT_DIR$/app/Campaign.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php" />
+        <option value="$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php" />
       </list>
     </option>
   </component>
@@ -151,7 +164,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -160,15 +172,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Laravel5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clickspot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;_form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;campa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspotC&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;campaign&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hots&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;routersta&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/RouterStatus.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;face&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;login&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/routes.php&#10;not&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;fa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;Rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/RouterControllerAR71XX.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;authcon&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;crea&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/create.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;rou&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;app&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/app.blade.php&#10;side&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;sid&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;bootstrapper&#9;null&#9;null&#10;repos&#9;null&#9;null&#10;passw&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/Auth/PasswordController.php&#10;abstractsmtp&#9;null&#9;null&#10;home&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/HomeController.php" />
+    <property name="SearchEverywhereHistoryKey" value="hotspotL&#9;null&#9;null&#10;hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;_form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;campa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspotC&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;campaign&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hots&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;routersta&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/RouterStatus.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;face&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;login&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/routes.php&#10;not&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;fa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;Rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/RouterControllerAR71XX.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;authcon&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;crea&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/create.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;rou&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;app&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/app.blade.php&#10;side&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;sid&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;bootstrapper&#9;null&#9;null&#10;repos&#9;null&#9;null&#10;passw&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/Auth/PasswordController.php&#10;abstractsmtp&#9;null&#9;null&#10;home&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/HomeController.php" />
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -227,12 +250,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00052" summary="ssh">
-      <created>1440536811333</created>
-      <option name="number" value="00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1440536811336</updated>
     </task>
     <task id="LOCAL-00053" summary="ssh">
       <created>1440794081851</created>
@@ -522,34 +539,40 @@
       <option name="project" value="LOCAL" />
       <updated>1442431611164</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="ssh">
+      <created>1442432189809</created>
+      <option name="number" value="00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1442432189810</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="37" y="23" width="1403" height="877" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20711564" sideWeight="0.49742836" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299045" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27332842" sideWeight="0.7370184" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27332842" sideWeight="0.26298156" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27700222" sideWeight="0.7312187" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27700222" sideWeight="0.2687813" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655653" sideWeight="0.50257164" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23949045" sideWeight="0.49742836" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23888183" sideWeight="0.49742836" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -572,27 +595,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/tplink/hs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39473686">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43234324">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/tplink/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66831684">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/tplink/logo.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -790,7 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2857143">
           <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,14 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Hotspot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.346789">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71376145">
@@ -908,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5669725">
           <caret line="303" column="13" selection-start-line="303" selection-start-column="13" selection-end-line="303" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -916,7 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27522936">
           <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,15 +927,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1500683">
-          <caret line="174" column="53" selection-start-line="174" selection-start-column="53" selection-end-line="174" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.020408163">
+          <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
             <marker date="1442432093000" expanded="true" signature="-1:-1" placeholder="..." />
             <marker date="1442432093000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Hotspot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67346936">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5510204">
+          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+          <folding>
+            <element signature="e#39#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41133454">
+          <caret line="16" column="116" selection-start-line="16" selection-start-column="116" selection-end-line="16" selection-end-column="116" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Campaign;
 use App\Hotspot;
 use App\Http\Requests;
 use Request;
@@ -50,7 +51,8 @@ class HotspotLoginController extends Controller
                 'challenge' => $request['challenge']
             ]
         );
-        return view('hotspotlogin.notyet', compact('request', 'hotspot'));
+        $campaign = $hotspot->campaign;
+        return view('hotspotlogin.notyet', compact('request', 'hotspot','campaign'));
     }
 
     /**
