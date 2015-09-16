@@ -47,7 +47,7 @@
             Copyright &copy; {{ \Carbon\Carbon::now()->format('Y') }} - {{ \Carbon\Carbon::now()->format('y')+1 }}
         </p>
         <b>
-            <a href="#">Clicspot WiFi</a>
+            <a class="text-black" href="#">Clicspot WiFi</a>
         </b>
         <p>All rights reserved</p>
     </div>
