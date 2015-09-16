@@ -26,8 +26,8 @@ class Campaign extends Model
         return $this->hasMany('App\CampaignAttributes', 'campaignid');
     }
 
-    public function getDefaultCampaign()
+    public static function getDefaultCampaign()
     {
-        return $this->where('name','=','Default');
+        return self::where('name','=','Default');
     }
 }

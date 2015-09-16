@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Campaign;
 use App\Hotspot;
 use Auth;
 use Illuminate\Http\Request;
@@ -140,12 +141,13 @@ class HotspotController extends Controller
      */
     public function edit($id)
     {
+        $campaign = Campaign::getDefaultCampaign()->list();
         if (Auth::user()->type == 'superadmin') {
-            $campaign = Hotspot::find($id)->user->campaigns()->lists('name', 'id');
+            $userCampaign = Hotspot::find($id)->user->campaigns()->lists('name', 'id');
         } else {
-            $campaign = Auth::user()->campaigns()->lists('name', 'id');
+            $userCampaign = Auth::user()->campaigns()->lists('name', 'id');
         }
-        $campaign = array_add($campaign, "1", "Default");
+        $campaign = array_merge($campaign, $userCampaign);
         $hotspot = Hotspot::findOrFail($id);
         return view('hotspot.edit', compact('hotspot', 'campaign'));
     }
