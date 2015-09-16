@@ -13,6 +13,11 @@
     <link href="{{ asset('/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css"/>
     <!-- FontAwesome 4.3.0 -->
     <link href="{{ asset('/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        b,p {
+          color: {{$campaign->fontcolor}};
+        }
+    </style>
 </head>
 <body class="hold-transition"
       style="background-size:100%; background-image: url('{{ asset('/uploads/campaign/'.$campaign->backgroundimage) }}')">
