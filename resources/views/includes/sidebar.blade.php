@@ -21,6 +21,11 @@
                     <i class="fa fa fa-files-o"></i> <span>Hotspots</span>
                 </a>
             </li>
+            <li class="{{Request::path() == 'campaign' ? 'active' : ''}}">
+                <a href="{{url("campaign")}}">
+                    <i class="fa fa fa-files-o"></i> <span>Campaign</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

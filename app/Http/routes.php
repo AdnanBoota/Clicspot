@@ -44,7 +44,7 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
 });
 Route::get('hotspot/datatable','HotspotController@datatable');
 Route::resource('hotspot', 'HotspotController');
-
+Route::resource('campaign', 'CampaignController');
 
 Route::get('/facebook/login', 'FacebookLogin@login');
 Route::get('/facebook/callback', 'FacebookLogin@callback');
