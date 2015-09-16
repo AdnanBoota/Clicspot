@@ -221,18 +221,6 @@ class CampaignController extends Controller
         $campaign->campaignAttributes()->where('attribute', '=', 'Idle-Timeout')
             ->update(['value' => $request->input('Idle-Timeout')]);
 
-//        $campAttrDownload = $campaign->campaignAttributes()->where('attribute', '=', '');
-//        $campAttrDownload->value = $request->input('ChilliSpot-Bandwidth-Max-Down');
-//        $campAttrDownload->save();
-//
-//        $campAttrSessionTimeout = $campaign->campaignAttributes()->where('attribute', '=', 'Session-Timeout');
-//        $campAttrSessionTimeout->value = $request->input('Session-Timeout');
-//        $campAttrSessionTimeout->save();
-//
-//        $campAttrIdleTimeout = $campaign->campaignAttributes()->where('attribute', '=', '');
-//        $campAttrIdleTimeout->value = $request->input('Idle-Timeout');
-//        $campAttrIdleTimeout->save();
-
         $successMsg = "Campaign updated successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('campaign');
