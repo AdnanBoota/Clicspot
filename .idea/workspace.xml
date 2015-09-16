@@ -49,11 +49,11 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.759633">
-              <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+              <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
-                <marker date="1442430790000" expanded="true" signature="2299:2312" placeholder="..." />
-                <marker date="1442430790000" expanded="true" signature="2416:2427" placeholder="..." />
+                <marker date="1442430900000" expanded="true" signature="2299:2312" placeholder="..." />
+                <marker date="1442430900000" expanded="true" signature="2416:2427" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -266,12 +266,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00047" summary="ssh">
-      <created>1440350815025</created>
-      <option name="number" value="00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1440350815025</updated>
     </task>
     <task id="LOCAL-00048" summary="ssh">
       <created>1440351159678</created>
@@ -561,7 +555,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442430736738</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="ssh">
+      <created>1442430800702</created>
+      <option name="number" value="00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1442430800702</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -964,7 +964,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.346789">
+        <state vertical-scroll-proportion="0.5669725">
           <caret line="303" column="13" selection-start-line="303" selection-start-column="13" selection-end-line="303" selection-end-column="13" />
           <folding />
         </state>
@@ -973,11 +973,11 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.759633">
-          <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+          <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
-            <marker date="1442430790000" expanded="true" signature="2299:2312" placeholder="..." />
-            <marker date="1442430790000" expanded="true" signature="2416:2427" placeholder="..." />
+            <marker date="1442430900000" expanded="true" signature="2299:2312" placeholder="..." />
+            <marker date="1442430900000" expanded="true" signature="2416:2427" placeholder="..." />
           </folding>
         </state>
       </provider>
