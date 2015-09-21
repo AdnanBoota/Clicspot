@@ -101,35 +101,18 @@ class CampaignController extends Controller
 
         $input['backgroundimage'] = $bgfileName;
         $input['logoimage'] = $logofileName;
+        $campaign = new Campaign($input);
+        Auth::user()->campaigns()->save($campaign);
+        
+        $campAttrArr = array(
+            new CampaignAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up','value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
+            new CampaignAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down','value' => $request->input('ChilliSpot-Bandwidth-Max-Down'))),
+            new CampaignAttributes(array('attribute' => 'Session-Timeout','value' => $request->input('Session-Timeout'))),
+            new CampaignAttributes(array('attribute' => 'Idle-Timeout','value' => $request->input('Idle-Timeout')))
+        );
 
-        $res = Auth::user()->campaigns()->save(new Campaign($input));
-
-        $campainId = $res->id;
-
-        $campAttrUpload = new CampaignAttributes;
-        $campAttrUpload->campaignid = $campainId;
-        $campAttrUpload->attribute = 'ChilliSpot-Bandwidth-Max-Up';
-        $campAttrUpload->value = $request->input('ChilliSpot-Bandwidth-Max-Up');
-        $campAttrUpload->save();
-
-        $campAttrDownload = new CampaignAttributes;
-        $campAttrDownload->campaignid = $campainId;
-        $campAttrDownload->attribute = 'ChilliSpot-Bandwidth-Max-Down';
-        $campAttrDownload->value = $request->input('ChilliSpot-Bandwidth-Max-Down');
-        $campAttrDownload->save();
-
-        $campAttrTimeout = new CampaignAttributes;
-        $campAttrTimeout->campaignid = $campainId;
-        $campAttrTimeout->attribute = 'Session-Timeout';
-        $campAttrTimeout->value = $request->input('Session-Timeout');
-        $campAttrTimeout->save();
-
-        $campAttrTimeout = new CampaignAttributes;
-        $campAttrTimeout->campaignid = $campainId;
-        $campAttrTimeout->attribute = 'Idle-Timeout';
-        $campAttrTimeout->value = $request->input('Idle-Timeout');
-        $campAttrTimeout->save();
-
+        $campaign->campaignAttributes()->saveMany($campAttrArr);
+        
         $successMsg = "New Campaign added successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('campaign');
