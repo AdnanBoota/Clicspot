@@ -124,7 +124,7 @@
                             <div class="pull-left">
                                 <i class="fa fa-google-plus"></i>
                             </div>
-                            Login with Google+
+                            Google+
                         </a>
                     </div>
                 </div>
