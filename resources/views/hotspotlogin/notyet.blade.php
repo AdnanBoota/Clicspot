@@ -29,14 +29,18 @@
         }
 
         .container-img {
-            background: url('{{ asset("/img/clicspot-banner.png") }}') no-repeat top;
+            background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
             padding-top: 15%;
             padding-bottom: 20px;
             max-height: 1335px;
             min-height: 600px;
             top: 60px;
             width: 100%;
-            /*z-index: 10;*/
+            z-index: 10;
         }
 
         .footer {
@@ -68,7 +72,7 @@
             top: 50%;
             width: 9999px;
             height: 1px;
-            background: white;
+            background: #222222;
         }
 
         .strike > span:before {
@@ -79,6 +83,9 @@
         .strike > span:after {
             left: 100%;
             margin-left: 15px;
+        }
+        .input-lg{
+            border-radius: 0px;
         }
     </style>
 </head>
@@ -93,7 +100,7 @@
         </div>
     </div>
 </nav>
-<div class="container-img">
+<div class="container-img" id="container-img">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-6">
@@ -141,12 +148,13 @@
                 <div id="email" style="display: none;">
                     <form role="form" class="form-horizontal">
                         <div class="box-body">
-                            <input type="text" class="input-lg col-xs-6" placeholder="First Name" required>
+                            <input type="text" class="input-lg col-xs-6" style="margin-bottom: 5px;"
+                                   placeholder="First Name" required>
                             <input type="text" class="input-lg col-xs-6" placeholder="Last Name" required>
                             <input type="email" class="input-lg col-xs-12" placeholder="Email" required>
                         </div>
                         <div class="box-body">
-                            <button class="btn btn-lg btn-block btn-success col-xs-12" type="submit">Get Connected
+                            <button class="btn btn-lg btn-flat btn-block btn-success col-xs-12" type="submit">Get Connected
                             </button>
                         </div>
                     </form>
@@ -154,12 +162,12 @@
                         <span style="color: white">OR</span>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url("/facebook/login") }}" class="btn bg-blue btn-lg">
+                        <a href="{{ url("/facebook/login") }}" class="btn btn-flat bg-blue btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-facebook-official"></i>
                             </div>
                         </a>
-                        <a href="#" class="btn bg-red btn-lg">
+                        <a href="#" class="btn btn-flat bg-red btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-google-plus"></i>
                             </div>
@@ -210,6 +218,7 @@
 <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
 <!-- Bootstrap 3.3.2 JS -->
 <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/background-blur.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#emailLogin').on('click', function () {
