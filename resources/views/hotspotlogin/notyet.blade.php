@@ -95,7 +95,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset("img/Clicspot-Grey.png") }}" alt="logo"
+                <img src="{{ asset("/img/Clicspot-Grey.png") }}" alt="logo"
                      style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
             </a>
         </div>
@@ -122,12 +122,14 @@
                 <div id="social">
                     <div class="box-body">
                         <a href="{{ url("/facebook/login") }}" class="btn btn-block btn-flat bg-blue btn-lg">
-                            <img src="{{asset('img/fb-logo.png')}}"/>
+                            <div class="pull-left">
+                                <i class="fa fa-facebook-official"></i>
+                            </div>
                             Login with Facebook
                         </a>
                         <a href="#" class="btn btn-block btn-flat bg-red btn-lg">
                             <div class="pull-left">
-                                <i class="fa fa-google-plus"></i>
+                                <i class="fa fa-google-plus fa-6"></i>
                             </div>
                             Login with Google+
                         </a>
