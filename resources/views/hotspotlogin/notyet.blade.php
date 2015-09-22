@@ -48,6 +48,38 @@
         .fa {
             font-size: 25px;
         }
+
+        .strike {
+            display: block;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .strike > span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .strike > span:before,
+        .strike > span:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 9999px;
+            height: 1px;
+            background: white;
+        }
+
+        .strike > span:before {
+            right: 100%;
+            margin-right: 15px;
+        }
+
+        .strike > span:after {
+            left: 100%;
+            margin-left: 15px;
+        }
     </style>
 </head>
 <body>
@@ -80,51 +112,57 @@
             </div>
             <div class="col-xs-12 col-md-4">
                 <div id="social">
-                    <a href="{{ url("/facebook/login") }}" class="btn btn-block btn-flat bg-blue btn-lg">
-                        <div class="pull-left">
-                            <i class="fa fa-facebook-official"></i>
-                        </div>
-                        Login with Facebook
-                    </a>
-                    <a href="#" class="btn btn-block btn-flat bg-red btn-lg">
-                        <div class="pull-left">
-                            <i class="fa fa-google-plus"></i>
-                        </div>
-                        Login with Google+
-                    </a>
-                    <hr>
-                    <button id="emailLogin" class="btn btn-default btn-block btn-flat btn-lg">
-                        <div class="pull-left">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        Login with Email
-                    </button>
-                </div>
-                <div id="email" style="display: none;">
-                    <form role="form" class="form-horizontal">
-                        <div class="box-body">
-                            <input type="text" class="form-control input-lg col-xs-6" placeholder="First Name" required>
-                            <input type="text" class="form-control input-lg col-xs-6" placeholder="Last Name" required>
-                            <input type="email" class="form-control input-lg col-xs-12" placeholder="Email" required>
-                        </div>
-                        <div class="box-body">
-                            <button class="btn btn-lg btn-block btn-flat btn-success col-xs-12" type="submit">Submit
-                            </button>
-                        </div>
-                    </form>
-                    <hr>
-                    <div class="text-center">
+                    <div class="box-body">
                         <a href="{{ url("/facebook/login") }}" class="btn btn-block btn-flat bg-blue btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-facebook-official"></i>
                             </div>
-                            Facebook
+                            Login with Facebook
                         </a>
                         <a href="#" class="btn btn-block btn-flat bg-red btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-google-plus"></i>
                             </div>
-                            Google+
+                            Login with Google+
+                        </a>
+                    </div>
+                    <div class="strike">
+                        <span style="color: white">OR</span>
+                    </div>
+                    <div class="box-body">
+                        <button id="emailLogin" class="btn btn-default btn-block btn-flat btn-lg">
+                            <div class="pull-left">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            Login with Email
+                        </button>
+                    </div>
+                </div>
+                <div id="email" style="display: none;">
+                    <form role="form" class="form-horizontal">
+                        <div class="box-body">
+                            <input type="text" class="input-lg col-xs-6" placeholder="First Name" required>
+                            <input type="text" class="input-lg col-xs-6" placeholder="Last Name" required>
+                            <input type="email" class="input-lg col-xs-12" placeholder="Email" required>
+                        </div>
+                        <div class="box-body">
+                            <button class="btn btn-lg btn-block btn-success col-xs-12" type="submit">Get Connected
+                            </button>
+                        </div>
+                    </form>
+                    <div class="strike">
+                        <span style="color: white">OR</span>
+                    </div>
+                    <div class="pull-right">
+                        <a href="{{ url("/facebook/login") }}" class="btn bg-blue btn-lg">
+                            <div class="pull-left">
+                                <i class="fa fa-facebook-official"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="btn bg-red btn-lg">
+                            <div class="pull-left">
+                                <i class="fa fa-google-plus"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
