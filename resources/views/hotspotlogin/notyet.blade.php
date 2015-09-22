@@ -84,7 +84,8 @@
             left: 100%;
             margin-left: 15px;
         }
-        .input-lg{
+
+        .input-lg {
             border-radius: 0px;
         }
     </style>
@@ -133,8 +134,10 @@
                             Login with Google+
                         </a>
                     </div>
-                    <div class="strike">
-                        <span style="color: white">OR</span>
+                    <div class="box-body">
+                        <div class="strike">
+                            <span style="color: white;opacity: 0.5;"><b>OR</b></span>
+                        </div>
                     </div>
                     <div class="box-body">
                         <button id="emailLogin" class="btn btn-default btn-block btn-flat btn-lg">
@@ -154,12 +157,15 @@
                             <input type="email" class="input-lg col-xs-12" placeholder="Email" required>
                         </div>
                         <div class="box-body">
-                            <button class="btn btn-lg btn-flat btn-block btn-success col-xs-12" type="submit">Get Connected
+                            <button class="btn btn-lg btn-flat btn-block btn-success col-xs-12" type="submit">Get
+                                Connected
                             </button>
                         </div>
                     </form>
-                    <div class="strike">
-                        <span style="color: white">OR</span>
+                    <div class="box-body">
+                        <div class="strike">
+                            <span style="color: white;opacity: 0.5;"><b>OR</b></span>
+                        </div>
                     </div>
                     <div class="pull-right">
                         <a href="{{ url("/facebook/login") }}" class="btn btn-flat bg-blue btn-lg">
