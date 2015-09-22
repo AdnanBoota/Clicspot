@@ -123,13 +123,13 @@
                     <div class="box-body">
                         <a href="{{ url("/facebook/login") }}" class="btn btn-block btn-flat bg-blue btn-lg">
                             <div class="pull-left">
-                                <i class="fa fa-facebook-official"></i>
+                                <i class="fa fa-facebook-square"></i>
                             </div>
                             Login with Facebook
                         </a>
                         <a href="#" class="btn btn-block btn-flat bg-red btn-lg">
                             <div class="pull-left">
-                                <i class="fa fa-google-plus fa-6"></i>
+                                <i class="fa fa-google-plus"></i>
                             </div>
                             Login with Google+
                         </a>
@@ -170,7 +170,7 @@
                     <div class="pull-right">
                         <a href="{{ url("/facebook/login") }}" class="btn btn-flat bg-blue btn-lg">
                             <div class="pull-left">
-                                <i class="fa fa-facebook-official"></i>
+                                <i class="fa fa-facebook-square"></i>
                             </div>
                         </a>
                         <a href="#" class="btn btn-flat bg-red btn-lg">
