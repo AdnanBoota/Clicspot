@@ -136,7 +136,7 @@
                     </div>
                     <div class="box-body">
                         <div class="strike">
-                            <span style="color: white;opacity: 0.5;"><b>OR</b></span>
+                            <span style="color: white;"><b>OR</b></span>
                         </div>
                     </div>
                     <div class="box-body">
@@ -164,7 +164,7 @@
                     </form>
                     <div class="box-body">
                         <div class="strike">
-                            <span style="color: white;opacity: 0.5;"><b>OR</b></span>
+                            <span style="color: white;"><b>OR</b></span>
                         </div>
                     </div>
                     <div class="pull-right">
