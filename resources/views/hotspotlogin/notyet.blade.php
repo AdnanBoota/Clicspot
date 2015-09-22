@@ -122,9 +122,7 @@
                 <div id="social">
                     <div class="box-body">
                         <a href="{{ url("/facebook/login") }}" class="btn btn-block btn-flat bg-blue btn-lg">
-                            <div class="pull-left">
-                                <i class="fa fa-facebook-official"></i>
-                            </div>
+                            <img src="{{asset('img/fb-logo.png')}}"/>
                             Login with Facebook
                         </a>
                         <a href="#" class="btn btn-block btn-flat bg-red btn-lg">
