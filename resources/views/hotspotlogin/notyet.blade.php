@@ -55,8 +55,8 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset("img/logo-white.png") }}" alt="logo"
-                     style="margin-top:-5px;margin-left: 28px;float: left;height: 40px;max-width: 120px;"/>
+                <img src="{{ asset("img/Clicspot-Grey.png") }}" alt="logo"
+                     style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
             </a>
         </div>
     </div>
@@ -137,7 +137,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-6 col-md-5">
-                <img src="{{ asset("img/logo-white.png") }}" class="img-responsive" style="max-height: 60px;">
+                <img src="{{ asset("img/Clicspot-Grey.png") }}" class="img-responsive" style="max-height: 60px;">
             </div>
             <div class="col-xs-12 col-md-3 hidden-xs">
                 <h4>Practical information</h4>
