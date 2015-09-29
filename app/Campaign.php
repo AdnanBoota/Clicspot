@@ -7,7 +7,7 @@ class Campaign extends Model
 
     protected $table = 'campaign';
     public $timestamps = false;
-    protected $fillable = ['adminid', 'name', 'backgroundimage', 'logoimage', 'fontcolor'];
+    protected $fillable = ['adminid', 'name', 'backgroundimage', 'logoimage', 'fontcolor','description'];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -127,7 +127,7 @@
                 return Math.round(value / 60) + ' min';
             }
         });
-    });
-
+        });
+        
 </script>
 @endpush

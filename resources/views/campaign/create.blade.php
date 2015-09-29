@@ -3,6 +3,24 @@
 <link href="{{ asset('/plugins/colorpicker/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/plugins/ionslider/ion.rangeSlider.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/plugins/ionslider/ion.rangeSlider.skinNice.css') }}" rel="stylesheet" type="text/css"/>
+<style>
+#preview {
+    width: 180px;
+    height: 180px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+#preview  #logo{
+    width: 90px;
+    height: 90px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+</style>
 @endpush
 @section('content')
 
@@ -125,6 +143,47 @@
                 return Math.round(value / 60) + ' min';
             }
         });
+        
+        $('#name').on('blur',function(){
+            $('#preview #fontColor').html($(this).val());
+        });
+        
+        $('#fontcolor').on('blur',function(){
+            var fontColor = $(this).val();
+            $('#preview #fontColor').css('color',fontColor);
+        });
+        
+        $("#backgroundimage").on("change", function()
+        {
+            var files = !!this.files ? this.files : [];
+            if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+            if (/^image/.test( files[0].type)){ // only image file
+                var reader = new FileReader(); // instance of the FileReader
+                reader.readAsDataURL(files[0]); // read the local file
+
+                reader.onloadend = function(){ // set image data as background of div
+                    $("#preview").css("background-image", "url("+this.result+")");
+                }
+            }
+        });
+        
+        $("#logoimage").on("change", function()
+        {
+            var files = !!this.files ? this.files : [];
+            if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+            if (/^image/.test( files[0].type)){ // only image file
+                var reader = new FileReader(); // instance of the FileReader
+                reader.readAsDataURL(files[0]); // read the local file
+
+                reader.onloadend = function(){ // set image data as background of div
+                    
+                    $("#preview #logo").css("background-image", "url("+this.result+")");
+                }
+            }
+        });
+
     });
 
 </script>

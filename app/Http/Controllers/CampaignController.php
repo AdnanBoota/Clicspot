@@ -65,8 +65,8 @@ class CampaignController extends Controller
         //return View::make('campaign.create');
         return View::make('campaign.create', ['campaign' => array()]);
     }
-
-
+    
+        
     /**
      * Store a newly created resource in storage.
      *
@@ -75,27 +75,35 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
 
-        $input = $request->only('name', 'fontcolor');
+        $input = $request->only('name', 'fontcolor','description');
         $bgfileName = "";
-        if (Input::hasFile('backgroundimage')) {
+        if ($request->input('backgroundimage')) {
+//            $bgdestinationPath = 'uploads/campaign'; // upload path
+//            $bgextension = Input::file('backgroundimage')->getClientOriginalExtension(); // getting image extension
+//            $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // renameing image
+//            Input::file('backgroundimage')->move($bgdestinationPath, $bgfileName); // uploading file to given path
             $bgdestinationPath = 'uploads/campaign'; // upload path
-            $bgextension = Input::file('backgroundimage')->getClientOriginalExtension(); // getting image extension
-            $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // renameing image
-            Input::file('backgroundimage')->move($bgdestinationPath, $bgfileName); // uploading file to given path
+            $bgpath_parts = pathinfo($request->input('backgroundimage'));
+            $bgextension = $bgpath_parts['extension']; // getting image extension
+            $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // re-nameing image
+            File::copy(ltrim ($request->input('backgroundimage'), '/'), $bgdestinationPath . '/' .$bgfileName);
         }
         $logofileName = "";
-        if (Input::hasFile('logoimage')) {
-            $logodestinationPath = 'uploads/campaign'; // upload path
-            $logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
-            $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // renameing image
-            Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
+        if ($request->input('logoimage')) {
+//            $logodestinationPath = 'uploads/campaign'; // upload path
+//            $logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
+//            $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // renameing image
+//            Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
+                $logodestinationPath = 'uploads/campaign'; // upload path
+                $lgpath_parts = pathinfo($request->input('logoimage'));
+                $logoextension = $lgpath_parts['extension'];
+                $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
+                File::copy(ltrim ($request->input('logoimage'), '/'), $logodestinationPath . '/' .$logofileName);
         }
 
         $this->validate($request,
             [
                 'name' => 'required',
-                'backgroundimage' => 'required',
-                'logoimage' => 'required',
                 'fontcolor' => 'required']
         );
 
@@ -159,14 +167,16 @@ class CampaignController extends Controller
             $campaign = Auth::user()->campaigns()->findOrFail($id);
         }
 
-        $input = $request->only('name', 'fontcolor');
-
+        $input = $request->only('name', 'fontcolor','description');
+        //dd($request->input('description'));
         $bgfileName = $request->input('oldbackgroundimage');
-        if (Input::hasFile('backgroundimage')) {
+        if ($request->input('oldbackgroundimage') != $request->input('backgroundimage')) {
             $bgdestinationPath = 'uploads/campaign'; // upload path
-            $bgextension = Input::file('backgroundimage')->getClientOriginalExtension(); // getting image extension
+            $bgpath_parts = pathinfo($request->input('backgroundimage'));
+            $bgextension = $bgpath_parts['extension']; // getting image extension
             $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // re-nameing image
-            Input::file('backgroundimage')->move($bgdestinationPath, $bgfileName); // uploading file to given path
+            File::copy(ltrim ($request->input('backgroundimage'), '/'), $bgdestinationPath . '/' .$bgfileName);
+            //Input::file('backgroundimage')->move($bgdestinationPath, $bgfileName); // uploading file to given path
             if (File::exists($bgdestinationPath . '/' . $request->input('oldbackgroundimage'))) {
                 File::delete($bgdestinationPath . '/' . $request->input('oldbackgroundimage'));
             }
@@ -174,11 +184,14 @@ class CampaignController extends Controller
         }
 
         $logofileName = $request->input('oldlogoimage');
-        if (Input::hasFile('logoimage')) {
+        if ($request->input('oldlogoimage') != $request->input('logoimage')) {
             $logodestinationPath = 'uploads/campaign'; // upload path
-            $logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
+            $lgpath_parts = pathinfo($request->input('logoimage'));
+            $logoextension = $lgpath_parts['extension'];
+            //$logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
             $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
-            Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
+            //Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
+            File::copy(ltrim ($request->input('logoimage'), '/'), $logodestinationPath . '/' .$logofileName);
             if (File::exists($logodestinationPath . '/' . $request->input('oldlogoimage'))) {
                 File::delete($logodestinationPath . '/' . $request->input('oldlogoimage'));
             }
