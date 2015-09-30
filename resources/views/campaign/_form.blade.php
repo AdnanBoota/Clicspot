@@ -72,10 +72,15 @@
             <li>
                 <div class="timeline-item">
                     <div class="timeline-body galleryList">
-                        <img src="/img/Clicspot-Grey.png" height="100" width="150" alt="..." class="margin">
+                        @forelse($images as $image)
+                        <img src="{{ $image }}" height="100" width="150" alt="..." class="margin">
+                        @empty
+                            <p>No Images</p>
+                        @endforelse
+<!--                        <img src="/img/Clicspot-Grey.png" height="100" width="150" alt="..." class="margin">
                         <img src="/uploads/gallery/lg-logo.png" height="100" width="150" alt="..." class="margin">
                         <img src="/uploads/gallery/retina_wood.png" height="100" width="150" alt="..." class="margin">
-                        <img src="/uploads/gallery/bg.png" height="100" width="150" alt="..." class="margin">
+                        <img src="/uploads/gallery/bg.png" height="100" width="150" alt="..." class="margin">-->
                     </div>
                 </div>
             </li>

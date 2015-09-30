@@ -26,6 +26,11 @@
                     <i class="fa fa fa-files-o"></i> <span>Campaign</span>
                 </a>
             </li>
+            <li class="{{Request::path() == 'gallery' ? 'active' : ''}}">
+                <a href="{{url("gallery")}}">
+                    <i class="fa fa fa-files-o"></i> <span>Gallery</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

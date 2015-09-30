@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Input;
 use Response;
-use Session;
+use Session;use Crypt;
 use yajra\Datatables\Datatables;
 
 class CampaignController extends Controller
@@ -63,7 +63,14 @@ class CampaignController extends Controller
     public function create()
     {
         //return View::make('campaign.create');
-        return View::make('campaign.create', ['campaign' => array()]);
+        $images = array();
+        $directory = 'uploads/gallery/'.Auth::user()->id;
+        $files = File::allFiles($directory);
+        foreach ($files as $file)
+        {
+           $images[] = "/".(string)$file;
+        } 
+        return View::make('campaign.create', compact('images'));
     }
     
         
@@ -150,7 +157,14 @@ class CampaignController extends Controller
         foreach ($attributes as $key => $value) {
             $campaign[$value['attribute']] = $value['value'];
         }
-        return view('campaign.edit', compact('campaign'));
+        $images = array();
+        $directory = 'uploads/gallery/'.Auth::user()->id;
+        $files = File::allFiles($directory);
+        foreach ($files as $file)
+        {
+           $images[] = "/".(string)$file;
+        }
+        return view('campaign.edit', compact('campaign','images'));
     }
 
     /**
@@ -252,4 +266,59 @@ class CampaignController extends Controller
     {
         return "";
     }
+    
+    public function gallery(){
+        $images = array();
+        $directory = 'uploads/gallery/'.Auth::user()->id;
+        $files = File::allFiles($directory);
+        foreach ($files as $file)
+        {
+           $images[] = (string)$file;
+        } 
+        return View::make('campaign.galleryList',compact('images'));
+    }
+    
+    public function addgallery(){
+       return View::make('campaign.gallery');
+    }
+    
+    public function galleryFileUpload(Request $request){
+       if ($request->ajax()) {
+           if(Input::hasFile('upl')){
+            $gallerydestinationPath = 'uploads/gallery/'.Auth::user()->id; 
+            if(!File::exists($gallerydestinationPath)) {
+                File::makeDirectory($gallerydestinationPath,0777, true, true);
+            }
+            
+            $gextension = Input::file('upl')->getClientOriginalExtension(); // getting image extension
+            $gfileName = md5(time()) . rand(11111, 99999) . '.' . $gextension; // renameing image
+            Input::file('upl')->move($gallerydestinationPath, $gfileName); // uploading file to given path
+            return Response::json(array('success' => true));
+           }
+       }
+    }
+    
+    public function deleteImage(Request $request)
+    {
+        
+        if ($request->input('imagePath')) {
+            if (File::exists($request->input('imagePath'))) {
+                File::delete($request->input('imagePath'));
+                $success = true;
+                $msg = "Record Deleted Successfully.";
+            }
+            else {
+                $success = false;
+                $msg = "Something went wrong , Please try again later.";
+            }
+        } else {
+            $success = false;
+            $msg = "Something went wrong , Please try again later.";
+        }
+        return Response::json(array(
+            'success' => $success,
+            'message' => $msg,
+        ));
+    }
+    
 }

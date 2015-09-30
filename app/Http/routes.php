@@ -44,6 +44,10 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
 });
 Route::get('hotspot/datatable','HotspotController@datatable');
 Route::resource('hotspot', 'HotspotController');
+Route::get('gallery', 'CampaignController@gallery');
+Route::get('gallery/create', 'CampaignController@addgallery');
+Route::post('gallery/deleteImage', 'CampaignController@deleteImage');
+Route::post('galleryFileUpload', 'CampaignController@galleryFileUpload');
 Route::resource('campaign', 'CampaignController');
 
 Route::get('/facebook/login', 'FacebookLogin@login');
