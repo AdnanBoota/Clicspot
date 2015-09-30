@@ -157,7 +157,7 @@ class CampaignController extends Controller
             $campaign[$value['attribute']] = $value['value'];
         }
         $images = array();
-        $directory = 'uploads/' . Auth::user()->id;
+        $directory = 'uploads';
         $files = File::allFiles($directory);
         foreach ($files as $file) {
             $images[] = "/" . (string)$file;
