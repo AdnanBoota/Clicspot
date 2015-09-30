@@ -5,13 +5,27 @@
     overflow: auto;
     position: fixed;
     top: 0;
-    width: 230px;
+    width: 100%;
+    height: 250px;
     z-index: 10000;
     overflow-x: hidden;
     }
     .mygallerybox ul{
         padding: 0;
     text-align: center;
+    }
+    .closebox{
+        position: fixed;
+        top: 0;
+        right:5px;
+        
+    }
+    .closegallery{
+        background: #fff;
+            border-radius: 5px;
+    height: 26px;
+    padding: 3px;
+    width: 30px;
     }
 </style>
 <div class="form-group">
@@ -64,8 +78,8 @@
     <div class="col-sm-10"><a class="opengallery" href="javascript:void(0)">Open Gallery</a><p>Drag and drop logo and background from gallary to below preview</p><p>click on content to edit</p></div>
 </div>
 <div class="box box-info no-border mygallerybox" style="display: none;">
-    <div class="box-header with-border">
-        <h3 class="box-title">Gallery</h3><i class="fa fa-fw fa-close pull-right closegallery"></i>
+    <div class="box-header closebox">
+        <i class="fa fa-fw fa-close pull-right closegallery"></i>
     </div>
     <div class="box-body">
         <ul class="" style="list-style: none">

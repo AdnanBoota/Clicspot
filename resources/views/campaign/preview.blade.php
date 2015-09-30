@@ -241,10 +241,10 @@
            })
            
            $('.closegallery').on('click',function(){
-               $('.mygallerybox').hide('slow');
+               $('.mygallerybox').slideToggle( "slow");
            });
          $('.opengallery').on('click',function(){
-               $('.mygallerybox').show('slow');
+               $('.mygallerybox').slideToggle( "slow");
            });
         $('.mygallerybox').hide();
         CKEDITOR.disableAutoInline = true;
