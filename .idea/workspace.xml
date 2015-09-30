@@ -60,11 +60,11 @@
       <file leaf-file-name="CampaignController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CampaignController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33783785">
-              <caret line="160" column="28" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.33204633">
+              <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
-                <marker date="1443636531000" expanded="true" signature="1325:1346" placeholder="..." />
+                <marker date="1443636554000" expanded="true" signature="1325:1346" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -317,12 +317,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00085" summary="ssh">
-      <created>1442426227253</created>
-      <option name="number" value="00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1442426227253</updated>
     </task>
     <task id="LOCAL-00086" summary="ssh">
       <created>1442426267328</created>
@@ -612,7 +606,13 @@
       <option name="project" value="LOCAL" />
       <updated>1443636419170</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="ssh">
+      <created>1443636538015</created>
+      <option name="number" value="00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1443636538015</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1015,11 +1015,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CampaignController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33783785">
-          <caret line="160" column="28" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.33204633">
+          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
-            <marker date="1443636531000" expanded="true" signature="1325:1346" placeholder="..." />
+            <marker date="1443636554000" expanded="true" signature="1325:1346" placeholder="..." />
           </folding>
         </state>
       </provider>
