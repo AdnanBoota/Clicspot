@@ -270,6 +270,9 @@ class CampaignController extends Controller
     public function gallery(){
         $images = array();
         $directory = 'uploads/gallery/'.Auth::user()->id;
+        if(!File::exists($directory)) {
+            File::makeDirectory($directory, $mode = 0777, true, true);
+        }
         $files = File::allFiles($directory);
         foreach ($files as $file)
         {
