@@ -61,10 +61,10 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CampaignController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.28440368">
-              <caret line="274" column="26" selection-start-line="274" selection-start-column="26" selection-end-line="274" selection-end-column="26" />
+              <caret line="272" column="44" selection-start-line="272" selection-start-column="44" selection-end-line="272" selection-end-column="44" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
-                <marker date="1443635501000" expanded="true" signature="1325:1346" placeholder="..." />
+                <marker date="1443635575000" expanded="true" signature="1325:1346" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -321,12 +321,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00077" summary="ssh">
-      <created>1441932003578</created>
-      <option name="number" value="00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1441932003578</updated>
     </task>
     <task id="LOCAL-00078" summary="ssh">
       <created>1441932042966</created>
@@ -616,7 +610,13 @@
       <option name="project" value="LOCAL" />
       <updated>1443634978020</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="ssh">
+      <created>1443635509056</created>
+      <option name="number" value="00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1443635509057</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -666,13 +666,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16853933">
-          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.995879">
@@ -1016,13 +1009,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_ide_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.346789">
+          <caret line="5102" column="31" selection-start-line="5102" selection-start-column="31" selection-end-line="5102" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CampaignController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28440368">
-          <caret line="274" column="26" selection-start-line="274" selection-start-column="26" selection-end-line="274" selection-end-column="26" />
+          <caret line="272" column="44" selection-start-line="272" selection-start-column="44" selection-end-line="272" selection-end-column="44" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
-            <marker date="1443635501000" expanded="true" signature="1325:1346" placeholder="..." />
+            <marker date="1443635575000" expanded="true" signature="1325:1346" placeholder="..." />
           </folding>
         </state>
       </provider>
