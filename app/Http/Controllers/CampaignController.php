@@ -268,12 +268,6 @@ class CampaignController extends Controller
     public function gallery()
     {
         $images = array();
-        $destinationPath = public_path() . 'uploads/gallery/' . Auth::user()->id;
-        if (!file_exists($destinationPath)) {
-            File::makeDirectory($destinationPath, 0777);
-        }
-        $files = File::allFiles($destinationPath);
-        dd($files);
         $directory = 'uploads/gallery/' . Auth::user()->id;
         if (!File::exists($directory)) {
             File::makeDirectory($directory, 0777, true, true);
