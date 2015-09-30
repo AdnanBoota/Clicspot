@@ -158,7 +158,7 @@ class CampaignController extends Controller
         }
         $images = array();
         $directory = 'uploads/gallery';
-        $files = File::allFiles($directory);
+        $files = File::files($directory);
         foreach ($files as $file) {
             $images[] = "/" . (string)$file;
         }
@@ -166,7 +166,7 @@ class CampaignController extends Controller
         if (!File::exists($directory)) {
             File::makeDirectory($directory, 0777, true, true);
         } else {
-            $files = File::allFiles($directory);
+            $files = File::files($directory);
             foreach ($files as $file) {
                 $images[] = "/" . (string)$file;
             }
