@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Input;
 use Response;
-use Session;use Crypt;
+use Session;
 use yajra\Datatables\Datatables;
 
 class CampaignController extends Controller
@@ -64,16 +64,15 @@ class CampaignController extends Controller
     {
         //return View::make('campaign.create');
         $images = array();
-        $directory = 'uploads/gallery/'.Auth::user()->id;
+        $directory = 'uploads/gallery/' . Auth::user()->id;
         $files = File::allFiles($directory);
-        foreach ($files as $file)
-        {
-           $images[] = "/".(string)$file;
-        } 
+        foreach ($files as $file) {
+            $images[] = "/" . (string)$file;
+        }
         return View::make('campaign.create', compact('images'));
     }
-    
-        
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -82,7 +81,7 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
 
-        $input = $request->only('name', 'fontcolor','description');
+        $input = $request->only('name', 'fontcolor', 'description');
         $bgfileName = "";
         if ($request->input('backgroundimage')) {
 //            $bgdestinationPath = 'uploads/campaign'; // upload path
@@ -93,7 +92,7 @@ class CampaignController extends Controller
             $bgpath_parts = pathinfo($request->input('backgroundimage'));
             $bgextension = $bgpath_parts['extension']; // getting image extension
             $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // re-nameing image
-            File::copy(ltrim ($request->input('backgroundimage'), '/'), $bgdestinationPath . '/' .$bgfileName);
+            File::copy(ltrim($request->input('backgroundimage'), '/'), $bgdestinationPath . '/' . $bgfileName);
         }
         $logofileName = "";
         if ($request->input('logoimage')) {
@@ -101,11 +100,11 @@ class CampaignController extends Controller
 //            $logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
 //            $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // renameing image
 //            Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
-                $logodestinationPath = 'uploads/campaign'; // upload path
-                $lgpath_parts = pathinfo($request->input('logoimage'));
-                $logoextension = $lgpath_parts['extension'];
-                $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
-                File::copy(ltrim ($request->input('logoimage'), '/'), $logodestinationPath . '/' .$logofileName);
+            $logodestinationPath = 'uploads/campaign'; // upload path
+            $lgpath_parts = pathinfo($request->input('logoimage'));
+            $logoextension = $lgpath_parts['extension'];
+            $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
+            File::copy(ltrim($request->input('logoimage'), '/'), $logodestinationPath . '/' . $logofileName);
         }
 
         $this->validate($request,
@@ -118,16 +117,16 @@ class CampaignController extends Controller
         $input['logoimage'] = $logofileName;
         $campaign = new Campaign($input);
         Auth::user()->campaigns()->save($campaign);
-        
+
         $campAttrArr = array(
-            new CampaignAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up','value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
-            new CampaignAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down','value' => $request->input('ChilliSpot-Bandwidth-Max-Down'))),
-            new CampaignAttributes(array('attribute' => 'Session-Timeout','value' => $request->input('Session-Timeout'))),
-            new CampaignAttributes(array('attribute' => 'Idle-Timeout','value' => $request->input('Idle-Timeout')))
+            new CampaignAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
+            new CampaignAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Down'))),
+            new CampaignAttributes(array('attribute' => 'Session-Timeout', 'value' => $request->input('Session-Timeout'))),
+            new CampaignAttributes(array('attribute' => 'Idle-Timeout', 'value' => $request->input('Idle-Timeout')))
         );
 
         $campaign->campaignAttributes()->saveMany($campAttrArr);
-        
+
         $successMsg = "New Campaign added successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('campaign');
@@ -158,13 +157,12 @@ class CampaignController extends Controller
             $campaign[$value['attribute']] = $value['value'];
         }
         $images = array();
-        $directory = 'uploads/gallery/'.Auth::user()->id;
+        $directory = 'uploads/gallery/' . Auth::user()->id;
         $files = File::allFiles($directory);
-        foreach ($files as $file)
-        {
-           $images[] = "/".(string)$file;
+        foreach ($files as $file) {
+            $images[] = "/" . (string)$file;
         }
-        return view('campaign.edit', compact('campaign','images'));
+        return view('campaign.edit', compact('campaign', 'images'));
     }
 
     /**
@@ -181,7 +179,7 @@ class CampaignController extends Controller
             $campaign = Auth::user()->campaigns()->findOrFail($id);
         }
 
-        $input = $request->only('name', 'fontcolor','description');
+        $input = $request->only('name', 'fontcolor', 'description');
         //dd($request->input('description'));
         $bgfileName = $request->input('oldbackgroundimage');
         if ($request->input('oldbackgroundimage') != $request->input('backgroundimage')) {
@@ -189,7 +187,7 @@ class CampaignController extends Controller
             $bgpath_parts = pathinfo($request->input('backgroundimage'));
             $bgextension = $bgpath_parts['extension']; // getting image extension
             $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // re-nameing image
-            File::copy(ltrim ($request->input('backgroundimage'), '/'), $bgdestinationPath . '/' .$bgfileName);
+            File::copy(ltrim($request->input('backgroundimage'), '/'), $bgdestinationPath . '/' . $bgfileName);
             //Input::file('backgroundimage')->move($bgdestinationPath, $bgfileName); // uploading file to given path
             if (File::exists($bgdestinationPath . '/' . $request->input('oldbackgroundimage'))) {
                 File::delete($bgdestinationPath . '/' . $request->input('oldbackgroundimage'));
@@ -205,7 +203,7 @@ class CampaignController extends Controller
             //$logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
             $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
             //Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
-            File::copy(ltrim ($request->input('logoimage'), '/'), $logodestinationPath . '/' .$logofileName);
+            File::copy(ltrim($request->input('logoimage'), '/'), $logodestinationPath . '/' . $logofileName);
             if (File::exists($logodestinationPath . '/' . $request->input('oldlogoimage'))) {
                 File::delete($logodestinationPath . '/' . $request->input('oldlogoimage'));
             }
@@ -266,52 +264,59 @@ class CampaignController extends Controller
     {
         return "";
     }
-    
-    public function gallery(){
+
+    public function gallery()
+    {
         $images = array();
-        $directory = 'uploads/gallery/'.Auth::user()->id;
-        if(!File::exists($directory)) {
-            File::makeDirectory($directory,0777, true, true);
-        }else{
+        $destinationPath = public_path() . 'uploads/gallery/' . Auth::user()->id;
+        if (!file_exists($destinationPath)) {
+            File::makeDirectory($destinationPath, 0777);
+        }
+        $files = File::allFiles($destinationPath);
+        dd($files);
+        $directory = 'uploads/gallery/' . Auth::user()->id;
+        if (!File::exists($directory)) {
+            File::makeDirectory($directory, 0777, true, true);
+        } else {
             $files = File::allFiles($directory);
-            foreach ($files as $file)
-            {
+            foreach ($files as $file) {
                 $images[] = (string)$file;
             }
         }
 
-        return View::make('campaign.galleryList',compact('images'));
+        return View::make('campaign.galleryList', compact('images'));
     }
-    
-    public function addgallery(){
-       return View::make('campaign.gallery');
+
+    public function addgallery()
+    {
+        return View::make('campaign.gallery');
     }
-    
-    public function galleryFileUpload(Request $request){
-       if ($request->ajax()) {
-           if(Input::hasFile('upl')){
-            $gallerydestinationPath = 'uploads/gallery/'.Auth::user()->id; 
-            if(!File::exists($gallerydestinationPath)) {
-                File::makeDirectory($gallerydestinationPath,0777, true, true);
+
+    public function galleryFileUpload(Request $request)
+    {
+        if ($request->ajax()) {
+            if (Input::hasFile('upl')) {
+                $gallerydestinationPath = 'uploads/gallery/' . Auth::user()->id;
+                if (!File::exists($gallerydestinationPath)) {
+                    File::makeDirectory($gallerydestinationPath, 0777, true, true);
+                }
+                $gextension = Input::file('upl')->getClientOriginalExtension(); // getting image extension
+                $gfileName = md5(time()) . rand(11111, 99999) . '.' . $gextension; // renameing image
+                Input::file('upl')->move($gallerydestinationPath, $gfileName); // uploading file to given path
+                return Response::json(array('success' => true));
             }
-            $gextension = Input::file('upl')->getClientOriginalExtension(); // getting image extension
-            $gfileName = md5(time()) . rand(11111, 99999) . '.' . $gextension; // renameing image
-            Input::file('upl')->move($gallerydestinationPath, $gfileName); // uploading file to given path
-            return Response::json(array('success' => true));
-           }
-       }
+        }
     }
-    
+
     public function deleteImage(Request $request)
     {
-        
+
         if ($request->input('imagePath')) {
             if (File::exists($request->input('imagePath'))) {
                 File::delete($request->input('imagePath'));
                 $success = true;
                 $msg = "Record Deleted Successfully.";
-            }
-            else {
+            } else {
                 $success = false;
                 $msg = "Something went wrong , Please try again later.";
             }
@@ -324,5 +329,5 @@ class CampaignController extends Controller
             'message' => $msg,
         ));
     }
-    
+
 }
