@@ -119,7 +119,7 @@
     <div class="container-img" id="container-img">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-md-6" contenteditable="true" id="contentEditor">
+                <div class="col-xs-12 col-md-6 text-center" contenteditable="true" id="contentEditor">
                     @if(isset($campaign->description) AND $campaign->description != '')
                     {!! $campaign->description !!}
                     @else
