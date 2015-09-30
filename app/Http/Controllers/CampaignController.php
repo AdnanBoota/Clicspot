@@ -271,7 +271,7 @@ class CampaignController extends Controller
         $images = array();
         $directory = 'uploads/gallery/'.Auth::user()->id;
         if(!File::exists($directory)) {
-            File::makeDirectory($directory, $mode = 0777, true, true);
+            File::makeDirectory($directory,0777, true, true);
         }
         $files = File::allFiles($directory);
         foreach ($files as $file)
@@ -292,7 +292,6 @@ class CampaignController extends Controller
             if(!File::exists($gallerydestinationPath)) {
                 File::makeDirectory($gallerydestinationPath,0777, true, true);
             }
-            
             $gextension = Input::file('upl')->getClientOriginalExtension(); // getting image extension
             $gfileName = md5(time()) . rand(11111, 99999) . '.' . $gextension; // renameing image
             Input::file('upl')->move($gallerydestinationPath, $gfileName); // uploading file to given path
