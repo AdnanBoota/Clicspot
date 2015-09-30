@@ -157,6 +157,11 @@ class CampaignController extends Controller
             $campaign[$value['attribute']] = $value['value'];
         }
         $images = array();
+        $directory = 'uploads/' . Auth::user()->id;
+        $files = File::allFiles($directory);
+        foreach ($files as $file) {
+            $images[] = "/" . (string)$file;
+        }
         $directory = 'uploads/gallery/' . Auth::user()->id;
         if (!File::exists($directory)) {
             File::makeDirectory($directory, 777, true, true);
