@@ -158,10 +158,15 @@ class CampaignController extends Controller
         }
         $images = array();
         $directory = 'uploads/gallery/' . Auth::user()->id;
-        $files = File::allFiles($directory);
-        foreach ($files as $file) {
-            $images[] = "/" . (string)$file;
+        if (!File::exists($directory)) {
+            File::makeDirectory($directory, 777, true, true);
+        } else {
+            $files = File::allFiles($directory);
+            foreach ($files as $file) {
+                $images[] = "/" . (string)$file;
+            }
         }
+
         return view('campaign.edit', compact('campaign', 'images'));
     }
 
