@@ -272,12 +272,14 @@ class CampaignController extends Controller
         $directory = 'uploads/gallery/'.Auth::user()->id;
         if(!File::exists($directory)) {
             File::makeDirectory($directory,0777, true, true);
+        }else{
+            $files = File::allFiles($directory);
+            foreach ($files as $file)
+            {
+                $images[] = (string)$file;
+            }
         }
-        $files = File::allFiles($directory);
-        foreach ($files as $file)
-        {
-           $images[] = (string)$file;
-        } 
+
         return View::make('campaign.galleryList',compact('images'));
     }
     
