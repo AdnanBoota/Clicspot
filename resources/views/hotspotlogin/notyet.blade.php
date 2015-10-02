@@ -16,7 +16,7 @@
     <style>
         .navbar {
             height: 60px;
-            background: #222222;
+            background: {{$campaign->fontcolor}};
         }
 
         h1, h2, h3, h4, h5, p {
@@ -29,8 +29,12 @@
         }
 
         .container-img {
-            background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
-            -webkit-background-size: cover;
+            @if(isset($campaign->backgroundimage))
+         background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+            @else
+             background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+            @endif
+                 -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -95,8 +99,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset("/img/Clicspot-Grey.png") }}" alt="logo"
-                     style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
+                @if(isset($campaign->logoimage))
+                    <img src="/uploads/campaign/{!! $campaign->logoimage !!}" alt="logo"
+                         style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
+                @else
+                    <img src="{{ asset("/img/Clicspot-Grey.png") }}" alt="logo"
+                         style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
+                @endif
             </a>
         </div>
     </div>
@@ -104,16 +113,20 @@
 <div class="container-img" id="container-img">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <h1 style="color: white;" class="text-center">
-                    Need a room,<br>
-                    for tonight ?
-                </h1>
-                <br>
-                <h4 style="color: white;" class="text-center">
-                    Up to 70% discount.<br>
-                    Breakfast and late checkout included !
-                </h4>
+            <div class="col-xs-12 col-md-6 text-center">
+                @if(isset($campaign->description) AND $campaign->description != '')
+                    {!! $campaign->description !!}
+                @else
+                    <h1 style="color: white;" class="text-center">
+                        Need a room,<br>
+                        for tonight ?
+                    </h1>
+                    <br>
+                    <h4 style="color: white;" class="text-center">
+                        Up to 70% discount.<br>
+                        Breakfast and late checkout included !
+                    </h4>
+                @endif
             </div>
             <div class="col-xs-12 col-md-2">
                 </br>
