@@ -1,18 +1,17 @@
 <style>
-    .mygallerybox {background: #222d32 none repeat scroll 0 0;
+    .mygallerybox {background: #e2e2e2 none repeat scroll 0 0;
     bottom: 0;
     left: 0;
-    overflow: auto;
-    position: fixed;
-    top: 0;
+    overflow: auto; 
+    
     width: 100%;
-    height: 250px;
+    height: 255px;
     z-index: 10000;
     overflow-x: hidden;
+    margin-top: 10px;
     }
     .mygallerybox ul{
         padding: 0;
-    text-align: center;
     }
     .closebox{
         position: fixed;
@@ -20,6 +19,23 @@
         right:5px;
         
     }
+    .plusicon{
+     background: #333 none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #fff;
+    display: block;
+    float: right;
+    font-size: 23px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 28px;
+    padding: 0;
+    text-align: center;
+    width: 30px;
+}
+    .lefControls p {
+    font-size: 16px;
+}
     .closegallery{
         background: #fff;
             border-radius: 5px;
@@ -67,40 +83,8 @@
 {!! Form::hidden('backgroundimage') !!}
 {!! Form::hidden('logoimage') !!}
 {!! Form::hidden('description') !!}
-<div class="form-group">
-    {!! Form::label('fontcolor', 'Font Color', array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('fontcolor', null, array('id'=>'fontcolor','class'=>'form-control my-colorpicker','required'=>'true')) !!}
-    </div>
-</div>
-<div class="form-group">
-    <label class='col-sm-2 control-label'>&nbsp;</label>
-    <div class="col-sm-10"><a class="opengallery" href="javascript:void(0)">Open Gallery</a><p>Drag and drop logo and background from gallary to below preview</p><p>click on content to edit</p></div>
-</div>
-<div class="box box-info no-border mygallerybox" style="display: none;">
-    <div class="box-header closebox">
-        <i class="fa fa-fw fa-close pull-right closegallery"></i>
-    </div>
-    <div class="box-body">
-        <ul class="" style="list-style: none">
-            <li>
-                <div class="timeline-item">
-                    <div class="timeline-body galleryList">
-                        @forelse($images as $image)
-                        <img src="{{ $image }}" height="100" width="150" alt="..." class="margin">
-                        @empty
-                            <p>No Images</p>
-                        @endforelse
-<!--                        <img src="/img/Clicspot-Grey.png" height="100" width="150" alt="..." class="margin">
-                        <img src="/uploads/gallery/lg-logo.png" height="100" width="150" alt="..." class="margin">
-                        <img src="/uploads/gallery/retina_wood.png" height="100" width="150" alt="..." class="margin">
-                        <img src="/uploads/gallery/bg.png" height="100" width="150" alt="..." class="margin">-->
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+
+
 @include('campaign.preview')
 <div class="box box-info no-border">
     <div class="box-header with-border">
@@ -133,3 +117,6 @@
         </div>
     </div>
 </div>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Set Template
+</button>
