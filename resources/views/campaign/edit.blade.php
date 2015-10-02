@@ -50,6 +50,7 @@
                 <!-- /.box-footer -->
                 {!! Form::close() !!}
             </div>
+            @include('campaign.gallery')
             <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -127,6 +128,14 @@
                 return Math.round(value / 60) + ' min';
             }
         });
+        
+         
+        $('#campaignName').text($('#name').val());
+        $('#headerBg').text($('#fontcolor').val());
+        $('.headerBgIcon').css('background-color',$('#fontcolor').val());
+        $('#preview .navbar').css('background-color',$('#fontcolor').val());
+
+    
         });
         
 </script>

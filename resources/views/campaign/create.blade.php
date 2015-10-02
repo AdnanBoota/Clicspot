@@ -68,6 +68,7 @@
                 <!-- /.box-footer -->
                 {!! Form::close() !!}
             </div>
+            @include('campaign.gallery')
             <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -144,14 +145,9 @@
             }
         });
         
-        $('#name').on('blur',function(){
-            $('#preview #fontColor').html($(this).val());
-        });
         
-        $('#fontcolor').on('blur',function(){
-            var fontColor = $(this).val();
-            $('#preview #fontColor').css('color',fontColor);
-        });
+        
+        
         
         $("#backgroundimage").on("change", function()
         {
