@@ -46,25 +46,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26455027">
-              <caret line="10" column="155" selection-start-line="10" selection-start-column="155" selection-end-line="10" selection-end-column="155" />
+            <state vertical-scroll-proportion="-6.25">
+              <caret line="10" column="161" selection-start-line="10" selection-start-column="161" selection-end-line="10" selection-end-column="161" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HotspotController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HotspotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.791666">
-              <caret line="153" column="75" selection-start-line="153" selection-start-column="67" selection-end-line="153" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.47266313">
+              <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
-                <marker date="1444168992000" expanded="true" signature="2317:2330" placeholder="..." />
-                <marker date="1444168992000" expanded="true" signature="2434:2445" placeholder="..." />
+                <marker date="1444169131000" expanded="true" signature="2317:2330" placeholder="..." />
+                <marker date="1444169131000" expanded="true" signature="2434:2445" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -134,8 +134,8 @@
         <option value="$PROJECT_DIR$/resources/views/hotspot/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspot/create.blade.php" />
         <option value="$PROJECT_DIR$/public/plugins/input-mask/jquery.inputmask.extensions.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspot/_form.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HotspotController.php" />
       </list>
     </option>
   </component>
@@ -270,12 +270,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00097" summary="ssh">
-      <created>1442430907036</created>
-      <option name="number" value="00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1442430907036</updated>
     </task>
     <task id="LOCAL-00098" summary="ssh">
       <created>1442431147306</created>
@@ -565,7 +559,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444168680927</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="ssh">
+      <created>1444169003235</created>
+      <option name="number" value="00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1444169003235</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -966,23 +966,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.791666">
-          <caret line="153" column="75" selection-start-line="153" selection-start-column="67" selection-end-line="153" selection-end-column="75" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-            <marker date="1444168992000" expanded="true" signature="2317:2330" placeholder="..." />
-            <marker date="1444168992000" expanded="true" signature="2434:2445" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="10" column="161" selection-start-line="10" selection-start-column="161" selection-end-line="10" selection-end-column="161" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26455027">
-          <caret line="10" column="155" selection-start-line="10" selection-start-column="155" selection-end-line="10" selection-end-column="155" />
-          <folding />
+        <state vertical-scroll-proportion="0.47266313">
+          <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+            <marker date="1444169131000" expanded="true" signature="2317:2330" placeholder="..." />
+            <marker date="1444169131000" expanded="true" signature="2434:2445" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -84,7 +84,7 @@ class HotspotController extends Controller
             $campaign = Auth::user()->campaigns()->lists('name', 'id');
         }
         $hotspotDetails = array();
-        $readonly = Session::has('mac');
+        $readonly = Session::has('mac') ? "readonly" : "";
         return View::make('hotspot.create', compact('campaign', 'hotspotDetails', 'readonly'));
     }
 
@@ -150,8 +150,8 @@ class HotspotController extends Controller
         }
         $campaign += $userCampaign;
         $hotspot = Hotspot::findOrFail($id);
-        $readonly = Session::has('mac');
-        return view('hotspot.edit', compact('hotspot', 'campaign','readonly'));
+        $readonly = Session::has('mac') ? "readonly" : "";
+        return view('hotspot.edit', compact('hotspot', 'campaign', 'readonly'));
     }
 
     /**
