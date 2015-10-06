@@ -55,6 +55,7 @@
 @endsection
 @push('scripts')
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script src="{{ asset('/plugins/input-mask/jquery.inputmask.maskedinput.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     var map;
     var marker;
@@ -93,6 +94,7 @@
         marker.setMap(map);
     }
     jQuery(document).ready(function () {
+        $('#nasidentifier').mask("hh-hh-hh-hh-hh-hh");
         $('form').validate({
             rules: {},
             errorClass: "text-red",
