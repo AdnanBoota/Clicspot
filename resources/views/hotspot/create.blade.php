@@ -96,7 +96,7 @@
         marker.setMap(map);
     }
     jQuery(document).ready(function () {
-        $('#nasidentifier').mask("mac");
+        $('#nasidentifier').inputmask("mac");
         $('form').validate({
             rules: {},
             errorClass: "text-red",
