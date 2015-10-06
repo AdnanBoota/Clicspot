@@ -8,7 +8,7 @@
 <div class="form-group">
     {!! Form::label('nasidentifier', 'MAC Address', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!!  Form::text('nasidentifier', Session::get('mac'), array('id'=>'nasidentifier','class'=>'form-control','required'=>'true')) !!}
+        {!!  Form::text('nasidentifier', Session::pull('mac'), array('id'=>'nasidentifier','class'=>'form-control','required'=>'true')) !!}
     </div>
 </div>
 <div class="form-group">
