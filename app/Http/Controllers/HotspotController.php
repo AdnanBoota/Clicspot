@@ -84,7 +84,8 @@ class HotspotController extends Controller
             $campaign = Auth::user()->campaigns()->lists('name', 'id');
         }
         $hotspotDetails = array();
-        return View::make('hotspot.create', compact('campaign', 'hotspotDetails'));
+        $readonly = Session::has('mac');
+        return View::make('hotspot.create', compact('campaign', 'hotspotDetails', 'readonly'));
     }
 
     public function createClone()
@@ -149,7 +150,8 @@ class HotspotController extends Controller
         }
         $campaign += $userCampaign;
         $hotspot = Hotspot::findOrFail($id);
-        return view('hotspot.edit', compact('hotspot', 'campaign'));
+        $readonly = Session::has('mac');
+        return view('hotspot.edit', compact('hotspot', 'campaign','readonly'));
     }
 
     /**
@@ -171,9 +173,9 @@ class HotspotController extends Controller
                 'latitude' => 'required',
                 'longitude' => 'required']
         );
-        if(Auth::user()->type == 'superadmin'){
+        if (Auth::user()->type == 'superadmin') {
             Hotspot::findOrFail($id)->update($input);
-        }else {
+        } else {
             Auth::user()->hotspots()->findOrFail($id)->update($input);
         }
         $successMsg = "Hotspot updated successfully";
