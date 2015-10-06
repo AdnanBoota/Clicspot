@@ -4,6 +4,7 @@ use App\Campaign;
 use App\Hotspot;
 use App\Http\Requests;
 use Request;
+use Session;
 
 class HotspotLoginController extends Controller
 {
@@ -25,6 +26,7 @@ class HotspotLoginController extends Controller
                 return $this->display_success(Request::all(), $hotspot);
             }
         } else {
+            Session::put('mac',$mac);
             return redirect('/hotspot/create');
         }
     }
