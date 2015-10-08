@@ -3,6 +3,7 @@
 
 use App\Campaign;
 use App\Hotspot;
+use App\HotspotAttributes;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -115,8 +116,21 @@ class HotspotController extends Controller
                 'latitude' => 'required',
                 'longitude' => 'required']
         );
+        $hotspot = new Hotspot($input);
+        Auth::user()->hotspots()->save($hotspot);
+        
+        $hotAttrArr = array(
+            new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
+            new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Down'))),
+            new HotspotAttributes(array('attribute' => 'Session-Timeout', 'value' => $request->input('Session-Timeout'))),
+            new HotspotAttributes(array('attribute' => 'Idle-Timeout', 'value' => $request->input('Idle-Timeout'))),
+//            new HotspotAttributes(array('attribute' => 'Social_ChilliSpot-Bandwidth-Max-Up', 'value' => $request->input('Social_ChilliSpot-Bandwidth-Max-Up'))),
+//            new HotspotAttributes(array('attribute' => 'Social_ChilliSpot-Bandwidth-Max-Down', 'value' => $request->input('Social_ChilliSpot-Bandwidth-Max-Down'))),
+//            new HotspotAttributes(array('attribute' => 'Social_Session-Timeout', 'value' => $request->input('Social_Session-Timeout'))),
+//            new HotspotAttributes(array('attribute' => 'Social_Idle-Timeout', 'value' => $request->input('Social_Idle-Timeout')))
+        );
 
-        Auth::user()->hotspots()->save(new Hotspot($input));
+        $hotspot->hotspotAttributes()->saveMany($hotAttrArr);
 
         $successMsg = "New Hotspot added successfully";
         Session::flash('flash_message_success', $successMsg);
@@ -150,6 +164,10 @@ class HotspotController extends Controller
         }
         $campaign += $userCampaign;
         $hotspot = Hotspot::findOrFail($id);
+        $attributes = $hotspot->hotspotAttributes;
+        foreach ($attributes as $key => $value) {
+            $hotspot[$value['attribute']] = $value['value'];
+        }
         $readonly = Session::has('mac') ? "readonly" : "";
         return view('hotspot.edit', compact('hotspot', 'campaign', 'readonly'));
     }
@@ -174,10 +192,37 @@ class HotspotController extends Controller
                 'longitude' => 'required']
         );
         if (Auth::user()->type == 'superadmin') {
-            Hotspot::findOrFail($id)->update($input);
+           $hotspot = Hotspot::findOrFail($id);
         } else {
-            Auth::user()->hotspots()->findOrFail($id)->update($input);
+           $hotspot = Auth::user()->hotspots()->findOrFail($id);
         }
+        
+        $hotspot->update($input);
+        
+        $hotspot->hotspotAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Up')
+            ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
+
+        $hotspot->hotspotAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Down')
+            ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Down')]);
+
+        $hotspot->hotspotAttributes()->where('attribute', '=', 'Session-Timeout')
+            ->update(['value' => $request->input('Session-Timeout')]);
+
+        $hotspot->hotspotAttributes()->where('attribute', '=', 'Idle-Timeout')
+            ->update(['value' => $request->input('Idle-Timeout')]);
+        
+//        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_ChilliSpot-Bandwidth-Max-Up')
+//            ->update(['value' => $request->input('Social_ChilliSpot-Bandwidth-Max-Up')]);
+//
+//        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_ChilliSpot-Bandwidth-Max-Down')
+//            ->update(['value' => $request->input('Social_ChilliSpot-Bandwidth-Max-Down')]);
+//
+//        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_Session-Timeout')
+//            ->update(['value' => $request->input('Social_Session-Timeout')]);
+//
+//        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_Idle-Timeout')
+//            ->update(['value' => $request->input('Social_Idle-Timeout')]);
+        
         $successMsg = "Hotspot updated successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('hotspot');

@@ -307,7 +307,7 @@ class CampaignController extends Controller
                 $gextension = Input::file('upl')->getClientOriginalExtension(); // getting image extension
                 $gfileName = md5(time()) . rand(11111, 99999) . '.' . $gextension; // renameing image
                 Input::file('upl')->move($gallerydestinationPath, $gfileName); // uploading file to given path
-                return Response::json(array('success' => true));
+                return Response::json(array('success' => true,'filePath'=>"/".$gallerydestinationPath.'/'.$gfileName));
             }
         }
     }

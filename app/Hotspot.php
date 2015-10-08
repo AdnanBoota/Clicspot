@@ -35,5 +35,10 @@ class Hotspot extends Model
     {
         return $this->belongsTo('App\Campaign', 'campaignid', 'id');
     }
+    
+    public function hotspotAttributes()
+    {
+        return $this->hasMany('App\HotspotAttributes', 'nasid');
+    }
 
 }

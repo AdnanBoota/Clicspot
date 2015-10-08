@@ -62,13 +62,21 @@ $(function(){
 
             if(progress == 100){
                 data.context.removeClass('working');
-            }
+            }            
         },
 
         fail:function(e, data){
             // Something has gone wrong!
             data.context.addClass('error');
+        },
+        
+        done:function(e, data){
+            if(data.result.success){
+                var newImg = "<img src='"+data.result.filePath+"' height='100' width='150' alt='...' class='margin' />";
+                $('.galleryList').append(newImg);
+            }
         }
+        
 
     });
 

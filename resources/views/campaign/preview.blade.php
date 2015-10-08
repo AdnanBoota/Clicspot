@@ -321,7 +321,20 @@
 
 @push('scripts')
 <script src="{{ asset('/plugins/ckeditor/ckeditor.js') }}"></script>
+
 <script type="text/javascript">
+(function ($) {
+   $.fn.liveDraggable = function (opts) {
+       //$(document).on("mouseover")
+      this.on("mouseover", function() {
+         if (!$(this).data("init")) {
+            $(this).data("init", true).draggable(opts);
+         }
+         
+      });
+      return this;
+   };
+}(jQuery));
 $(document).ready(function () {
     var drag_obj = '';
 // Drag Drop Functionality
@@ -335,7 +348,23 @@ $(document).ready(function () {
             drag_obj = $(this);
         }
     });
-
+    //new appended element chek for draggable
+    $(document).on("mouseenter", '.galleryList img', function(e){
+        var item = $(this); 
+        //check if the item is already draggable
+        if (!item.is('.ui-draggable')) {
+                //make the item draggable
+               item.draggable({
+                revert: 'invalid',
+                helper: 'clone',
+                scroll: false,
+                opacity: 0.50,
+                start: function (event, ui) {
+                    drag_obj = $(this);
+                }
+            });
+         }
+    });
     $('.container-img').droppable({
          hoverClass: "container-img-drop-hover",
 
@@ -386,6 +415,13 @@ $(document).ready(function () {
         $('.headerBgIcon').css('background-color',fontColor);
         $('#preview .navbar').css('background-color',fontColor);
 
+    });
+    
+    //multiple modal open than scroll parent modal
+    $('.modal').on('hidden.bs.modal', function (e) {
+        if($('.modal').hasClass('in')) {
+        $('body').addClass('modal-open');
+        }    
     });
 
 });
