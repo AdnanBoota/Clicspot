@@ -199,16 +199,16 @@ class HotspotController extends Controller
         
         $hotspot->update($input);
         
-        $hotspot->hotspotAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Up')
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute'=> 'ChilliSpot-Bandwidth-Max-Up'])
             ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
 
-        $hotspot->hotspotAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Down')
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute'=> 'ChilliSpot-Bandwidth-Max-Down'])
             ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Down')]);
 
-        $hotspot->hotspotAttributes()->where('attribute', '=', 'Session-Timeout')
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Session-Timeout'])
             ->update(['value' => $request->input('Session-Timeout')]);
 
-        $hotspot->hotspotAttributes()->where('attribute', '=', 'Idle-Timeout')
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute'=> 'Idle-Timeout'])
             ->update(['value' => $request->input('Idle-Timeout')]);
         
 //        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_ChilliSpot-Bandwidth-Max-Up')
