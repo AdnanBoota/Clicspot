@@ -128,8 +128,9 @@
         });
 
         google.maps.event.addListener(autocomplete, 'place_changed', function (evt) {
-            $("[name=latitude]").val(evt.latLng.lat());
-            $("[name=longitude]").val(evt.latLng.lng());
+            console.log(evt);
+            $("#latitude").val(evt.latLng.lat());
+            $("#longitude").val(evt.latLng.lng());
             infowindow.close();
             marker.setVisible(false);
             var place = autocomplete.getPlace();

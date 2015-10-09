@@ -48,8 +48,8 @@
       <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625">
-              <caret line="26" column="32" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="32" />
+            <state vertical-scroll-proportion="-16.25">
+              <caret line="48" column="65" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="65" />
               <folding>
                 <marker date="1444425167000" expanded="true" signature="2636:2882" placeholder="..." />
                 <marker date="1444425167000" expanded="true" signature="2649:2880" placeholder="..." />
@@ -75,8 +75,8 @@
       <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41589648">
-              <caret line="131" column="41" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.38817006">
+              <caret line="130" column="29" selection-start-line="130" selection-start-column="29" selection-end-line="130" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -282,12 +282,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00123" summary="ssh">
-      <created>1443634623912</created>
-      <option name="number" value="00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1443634623912</updated>
     </task>
     <task id="LOCAL-00124" summary="ssh">
       <created>1443634803920</created>
@@ -577,7 +571,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444433448731</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="ssh">
+      <created>1444433523387</created>
+      <option name="number" value="00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1444433523387</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -876,6 +876,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23037542">
           <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -963,8 +964,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="32" />
+        <state vertical-scroll-proportion="-16.25">
+          <caret line="48" column="65" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="65" />
           <folding>
             <marker date="1444425167000" expanded="true" signature="2636:2882" placeholder="..." />
             <marker date="1444425167000" expanded="true" signature="2649:2880" placeholder="..." />
@@ -988,8 +989,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41589648">
-          <caret line="131" column="41" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.38817006">
+          <caret line="130" column="29" selection-start-line="130" selection-start-column="29" selection-end-line="130" selection-end-column="29" />
           <folding />
         </state>
       </provider>
