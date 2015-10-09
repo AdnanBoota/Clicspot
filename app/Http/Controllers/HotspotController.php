@@ -118,7 +118,7 @@ class HotspotController extends Controller
         );
         $hotspot = new Hotspot($input);
         Auth::user()->hotspots()->save($hotspot);
-        
+        Session::remove('mac');
         $hotAttrArr = array(
             new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
             new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Down'))),
