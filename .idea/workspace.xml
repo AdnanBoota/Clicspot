@@ -87,8 +87,8 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.3521128">
-              <caret line="175" column="9" selection-start-line="175" selection-start-column="9" selection-end-line="175" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.70950705">
+              <caret line="199" column="11" selection-start-line="199" selection-start-column="11" selection-end-line="199" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -326,12 +326,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00130" summary="ssh">
-      <created>1443635784220</created>
-      <option name="number" value="00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1443635784220</updated>
     </task>
     <task id="LOCAL-00131" summary="ssh">
       <created>1443635840270</created>
@@ -621,7 +615,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444434753854</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="ssh">
+      <created>1444434850330</created>
+      <option name="number" value="00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1444434850330</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1040,8 +1040,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.3521128">
-          <caret line="175" column="9" selection-start-line="175" selection-start-column="9" selection-end-line="175" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.70950705">
+          <caret line="199" column="11" selection-start-line="199" selection-start-column="11" selection-end-line="199" selection-end-column="11" />
           <folding />
         </state>
       </provider>

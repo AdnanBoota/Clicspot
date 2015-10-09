@@ -61,8 +61,8 @@
 <script>
     var map;
     var marker;
-    var defaultLat = 22.3000;
-    var defaultLang = 70.7833;
+    var defaultLat = '<?php echo count($hotspot) > 0 ? $hotspot->latitude : 22.3000 ?>';
+    var defaultLang = '<?php echo count($hotspot) > 0 ? $hotspot->longitude : 70.7833 ?>';
     function initialize() {
         var mapOptions = {
             zoom: 12
