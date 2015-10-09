@@ -51,7 +51,7 @@
 </div>
 <div class="box box-info no-border">
     <div class="box-header with-border">
-        <h3 class="box-title">Attributes</h3>
+        <h3 class="box-title">Social</h3>
     </div>
     <div class="box-body">
         <div class="form-group">
@@ -82,7 +82,7 @@
 </div>
 <div class="box box-info no-border">
     <div class="box-header with-border">
-        <h3 class="box-title">Social</h3>
+        <h3 class="box-title">E-Mail</h3>
     </div>
     <div class="box-body">
         <div class="form-group">
