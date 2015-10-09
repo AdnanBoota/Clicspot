@@ -127,10 +127,13 @@
             draggable: true
         });
 
-        google.maps.event.addListener(autocomplete, 'place_changed', function (evt) {
-            console.log(evt);
-            $("#latitude").val(evt.latLng.lat());
-            $("#longitude").val(evt.latLng.lng());
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            console.log(place);
+            var lat = place.geometry.location.lat();
+            var lng = place.geometry.location.lng();
+            console.log(lat);
+            console.log(lng);
             infowindow.close();
             marker.setVisible(false);
             var place = autocomplete.getPlace();

@@ -76,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.38817006">
-              <caret line="130" column="29" selection-start-line="130" selection-start-column="29" selection-end-line="130" selection-end-column="29" />
+              <caret line="135" column="27" selection-start-line="135" selection-start-column="27" selection-end-line="135" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -282,12 +282,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00124" summary="ssh">
-      <created>1443634803920</created>
-      <option name="number" value="00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1443634803920</updated>
     </task>
     <task id="LOCAL-00125" summary="ssh">
       <created>1443634978020</created>
@@ -577,7 +571,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444433523387</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="ssh">
+      <created>1444433630257</created>
+      <option name="number" value="00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1444433630257</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -990,7 +990,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38817006">
-          <caret line="130" column="29" selection-start-line="130" selection-start-column="29" selection-end-line="130" selection-end-column="29" />
+          <caret line="135" column="27" selection-start-line="135" selection-start-column="27" selection-end-line="135" selection-end-column="27" />
           <folding />
         </state>
       </provider>
