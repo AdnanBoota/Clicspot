@@ -30,11 +30,11 @@
 
         .container-img {
             @if(isset($campaign->backgroundimage))
-          background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+           background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
             @else
-              background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+               background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
-                  -webkit-background-size: cover;
+                   -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -162,7 +162,7 @@
                     </div>
                 </div>
                 <div id="email" style="display: none;">
-                    <form role="form" method="POST" class="form-horizontal">
+                    <form role="form" method="POST" action="{{ url("/email/login") }}" class="form-horizontal">
                         <div class="box-body">
                             <input type="text" name="fname" class="input-lg col-xs-6" style="margin-bottom: 5px;"
                                    placeholder="First Name" required>
