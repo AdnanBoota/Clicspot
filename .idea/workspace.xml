@@ -48,8 +48,8 @@
       <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="46.25">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="28" />
+            <state vertical-scroll-proportion="-5.625">
+              <caret line="26" column="32" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="32" />
               <folding>
                 <marker date="1444425167000" expanded="true" signature="2636:2882" placeholder="..." />
                 <marker date="1444425167000" expanded="true" signature="2649:2880" placeholder="..." />
@@ -75,8 +75,8 @@
       <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61182994">
-              <caret line="56" column="89" selection-start-line="56" selection-start-column="89" selection-end-line="56" selection-end-column="89" />
+            <state vertical-scroll-proportion="0.63955635">
+              <caret line="116" column="56" selection-start-line="116" selection-start-column="56" selection-end-line="116" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -282,12 +282,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00120" summary="ssh">
-      <created>1442953936005</created>
-      <option name="number" value="00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1442953936005</updated>
     </task>
     <task id="LOCAL-00121" summary="ssh">
       <created>1442953990406</created>
@@ -577,7 +571,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444433103868</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="ssh">
+      <created>1444433155090</created>
+      <option name="number" value="00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1444433155090</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -961,8 +961,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="46.25">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="28" />
+        <state vertical-scroll-proportion="-5.625">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="32" />
           <folding>
             <marker date="1444425167000" expanded="true" signature="2636:2882" placeholder="..." />
             <marker date="1444425167000" expanded="true" signature="2649:2880" placeholder="..." />
@@ -986,8 +986,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61182994">
-          <caret line="56" column="89" selection-start-line="56" selection-start-column="89" selection-end-line="56" selection-end-column="89" />
+        <state vertical-scroll-proportion="0.63955635">
+          <caret line="116" column="56" selection-start-line="116" selection-start-column="56" selection-end-line="116" selection-end-column="56" />
           <folding />
         </state>
       </provider>

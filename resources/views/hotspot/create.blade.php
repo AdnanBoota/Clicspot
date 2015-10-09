@@ -66,7 +66,7 @@
         var mapOptions = {
             zoom: 12
         };
-        map = new google.maps.Map(document.getElementById('map-canvas'),
+        map = new google.maps.Map(document.getElementById('map_canvas'),
                 mapOptions);
 
         // Get GEOLOCATION
@@ -114,7 +114,7 @@
         // get places auto-complete when user type in location-text-box
         var input = /** @type {HTMLInputElement} */
                 (
-                        document.getElementById('location-text-box'));
+                        document.getElementById('address'));
 
 
         var autocomplete = new google.maps.places.Autocomplete(input);
