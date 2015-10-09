@@ -132,8 +132,8 @@
             console.log(place);
             var lat = place.geometry.location.lat();
             var lng = place.geometry.location.lng();
-            console.log(lat);
-            console.log(lng);
+            $("[name=latitude]").val(lat);
+            $("[name=longitude]").val(lng);
             infowindow.close();
             marker.setVisible(false);
             var place = autocomplete.getPlace();
