@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Users;
 use Illuminate\Http\Request;
 
 class EMailLoginController extends Controller

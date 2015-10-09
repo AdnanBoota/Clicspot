@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\RadCheck;
 use App\Users;
 use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
 
