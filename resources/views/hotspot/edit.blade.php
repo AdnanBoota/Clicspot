@@ -71,24 +71,9 @@
                 mapOptions);
 
         // Get GEOLOCATION
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var pos = new google.maps.LatLng(position.coords.latitude,
-                        position.coords.longitude);
 
-                map.setCenter(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    draggable: true
-                });
-            }, function () {
-                handleNoGeolocation(true);
-            });
-        } else {
-            // Browser doesn't support Geolocation
-            handleNoGeolocation(false);
-        }
+        handleNoGeolocation(false);
+
 
         function handleNoGeolocation(errorFlag) {
             if (errorFlag) {
@@ -109,6 +94,13 @@
                 map: map,
                 draggable: true
             });
+            marker.setIcon(/** @type {google.maps.Icon} */ ({
+                url: '{{ asset('img/wifi_marker.png') }}',
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(35, 35)
+            }));
 
         }
 
