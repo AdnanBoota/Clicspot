@@ -72,6 +72,7 @@ class FacebookLogin extends Controller
 
         $data = array(
             'username' => \Session::get('mac'),
+            'type' => 1,
             'name' => $facebook_user->getName(),
             'email' => $facebook_user->getField('email'),
             'gender' => $facebook_user->getField('gender'),

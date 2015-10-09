@@ -7,7 +7,7 @@ class HotspotAttributes extends Model
 
     protected $table = 'nas_attributes';
     public $timestamps = false;
-    protected $fillable = ['nasid', 'attribute', 'op', 'value'];
+    protected $fillable = ['nasid', 'type', 'attribute', 'op', 'value'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -20,5 +20,5 @@ class HotspotAttributes extends Model
     {
         return $this->belongsTo('App\Hotspot', 'nasid', 'id');
     }
-    
+
 }

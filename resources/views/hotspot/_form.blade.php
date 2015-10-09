@@ -86,27 +86,27 @@
     </div>
     <div class="box-body">
         <div class="form-group">
-            {!! Form::label('Social_ChilliSpot-Bandwidth-Max-Up', 'Upload Speed', array('class' => 'col-sm-2 control-label')) !!}
+            {!! Form::label('EMail_ChilliSpot-Bandwidth-Max-Up', 'Upload Speed', array('class' => 'col-sm-2 control-label')) !!}
             <div class="col-sm-10">
-                {!!  Form::text('Social_ChilliSpot-Bandwidth-Max-Up', "", array('data-from'=>isset($hotspot['Social_ChilliSpot-Bandwidth-Max-Up']) ? $hotspot['Social_ChilliSpot-Bandwidth-Max-Up'] : '1024','id'=>'Social_ChilliSpot-Bandwidth-Max-Up','class'=>'form-control','required'=>'true')) !!}
+                {!!  Form::text('EMail_ChilliSpot-Bandwidth-Max-Up', "", array('data-from'=>isset($hotspot['EMail_ChilliSpot-Bandwidth-Max-Up']) ? $hotspot['EMail_ChilliSpot-Bandwidth-Max-Up'] : '1024','id'=>'EMail_ChilliSpot-Bandwidth-Max-Up','class'=>'form-control','required'=>'true')) !!}
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('Social_ChilliSpot-Bandwidth-Max-Down', 'Download Speed', array('class' => 'col-sm-2 control-label')) !!}
+            {!! Form::label('EMail_ChilliSpot-Bandwidth-Max-Down', 'Download Speed', array('class' => 'col-sm-2 control-label')) !!}
             <div class="col-sm-10">
-                {!!  Form::text('Social_ChilliSpot-Bandwidth-Max-Down', "", array('data-from'=>isset($hotspot['Social_ChilliSpot-Bandwidth-Max-Down']) ? $hotspot['Social_ChilliSpot-Bandwidth-Max-Down'] : '1024','id'=>'Social_ChilliSpot-Bandwidth-Max-Down','class'=>'form-control','required'=>'true')) !!}
+                {!!  Form::text('EMail_ChilliSpot-Bandwidth-Max-Down', "", array('data-from'=>isset($hotspot['EMail_ChilliSpot-Bandwidth-Max-Down']) ? $hotspot['EMail_ChilliSpot-Bandwidth-Max-Down'] : '1024','id'=>'EMail_ChilliSpot-Bandwidth-Max-Down','class'=>'form-control','required'=>'true')) !!}
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('Social_Session-Timeout', 'Session-Timeout', array('class' => 'col-sm-2 control-label')) !!}
+            {!! Form::label('EMail_Session-Timeout', 'Session-Timeout', array('class' => 'col-sm-2 control-label')) !!}
             <div class="col-sm-10">
-                {!!  Form::text('Social_Session-Timeout', "", array('data-from'=>isset($hotspot['Social_Session-Timeout']) ? $hotspot['Social_Session-Timeout'] : '3600','id'=>'Social_Session-Timeout','class'=>'form-control','required'=>'true')) !!}
+                {!!  Form::text('EMail_Session-Timeout', "", array('data-from'=>isset($hotspot['EMail_Session-Timeout']) ? $hotspot['EMail_Session-Timeout'] : '3600','id'=>'EMail_Session-Timeout','class'=>'form-control','required'=>'true')) !!}
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('Social_Idle-Timeout', 'Idle-Timeout', array('class' => 'col-sm-2 control-label')) !!}
+            {!! Form::label('EMail_Idle-Timeout', 'Idle-Timeout', array('class' => 'col-sm-2 control-label')) !!}
             <div class="col-sm-10">
-                {!!  Form::text('Social_Idle-Timeout', "", array('data-from'=>isset($hotspot['Social_Idle-Timeout']) ? $hotspot['Social_Idle-Timeout'] : '1800','id'=>'Social_Idle-Timeout','class'=>'form-control','required'=>'true')) !!}
+                {!!  Form::text('EMail_Idle-Timeout', "", array('data-from'=>isset($hotspot['EMail_Idle-Timeout']) ? $hotspot['EMail_Idle-Timeout'] : '1800','id'=>'EMail_Idle-Timeout','class'=>'form-control','required'=>'true')) !!}
             </div>
         </div>
     </div>
@@ -156,7 +156,7 @@
             }
         });
         
-        $("#Social_ChilliSpot-Bandwidth-Max-Up").ionRangeSlider({
+        $("#EMail_ChilliSpot-Bandwidth-Max-Up").ionRangeSlider({
             min: 256,
             max: 10240,
             step: 256,
@@ -168,7 +168,7 @@
                 }
             }
         });
-        $("#Social_ChilliSpot-Bandwidth-Max-Down").ionRangeSlider({
+        $("#EMail_ChilliSpot-Bandwidth-Max-Down").ionRangeSlider({
             min: 256,
             max: 10240,
             step: 256,
@@ -180,7 +180,7 @@
                 }
             }
         });
-        $("#Social_Session-Timeout").ionRangeSlider({
+        $("#EMail_Session-Timeout").ionRangeSlider({
             min: 60,
             max: 14400,
             step: 60,
@@ -188,7 +188,7 @@
                 return Math.round(value / 60) + ' min';
             }
         });
-        $("#Social_Idle-Timeout").ionRangeSlider({
+        $("#EMail_Idle-Timeout").ionRangeSlider({
             min: 60,
             max: 7200,
             step: 60,

@@ -120,14 +120,14 @@ class HotspotController extends Controller
         Auth::user()->hotspots()->save($hotspot);
         Session::remove('mac');
         $hotAttrArr = array(
-            new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
-            new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Down'))),
-            new HotspotAttributes(array('attribute' => 'Session-Timeout', 'value' => $request->input('Session-Timeout'))),
-            new HotspotAttributes(array('attribute' => 'Idle-Timeout', 'value' => $request->input('Idle-Timeout'))),
-//            new HotspotAttributes(array('attribute' => 'Social_ChilliSpot-Bandwidth-Max-Up', 'value' => $request->input('Social_ChilliSpot-Bandwidth-Max-Up'))),
-//            new HotspotAttributes(array('attribute' => 'Social_ChilliSpot-Bandwidth-Max-Down', 'value' => $request->input('Social_ChilliSpot-Bandwidth-Max-Down'))),
-//            new HotspotAttributes(array('attribute' => 'Social_Session-Timeout', 'value' => $request->input('Social_Session-Timeout'))),
-//            new HotspotAttributes(array('attribute' => 'Social_Idle-Timeout', 'value' => $request->input('Social_Idle-Timeout')))
+            new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 1, 'value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
+            new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'type' => 1, 'value' => $request->input('ChilliSpot-Bandwidth-Max-Down'))),
+            new HotspotAttributes(array('attribute' => 'Session-Timeout', 'type' => 1, 'value' => $request->input('Session-Timeout'))),
+            new HotspotAttributes(array('attribute' => 'Idle-Timeout', 'type' => 1, 'value' => $request->input('Idle-Timeout'))),
+            new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 2, 'value' => $request->input('EMail_ChilliSpot-Bandwidth-Max-Up'))),
+            new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'type' => 2, 'value' => $request->input('EMail_ChilliSpot-Bandwidth-Max-Down'))),
+            new HotspotAttributes(array('attribute' => 'Session-Timeout', 'type' => 2, 'value' => $request->input('EMail_Session-Timeout'))),
+            new HotspotAttributes(array('attribute' => 'Idle-Timeout', 'type' => 2, 'value' => $request->input('EMail_Idle-Timeout')))
         );
 
         $hotspot->hotspotAttributes()->saveMany($hotAttrArr);
@@ -192,37 +192,38 @@ class HotspotController extends Controller
                 'longitude' => 'required']
         );
         if (Auth::user()->type == 'superadmin') {
-           $hotspot = Hotspot::findOrFail($id);
+            $hotspot = Hotspot::findOrFail($id);
         } else {
-           $hotspot = Auth::user()->hotspots()->findOrFail($id);
+            $hotspot = Auth::user()->hotspots()->findOrFail($id);
         }
-        
+
         $hotspot->update($input);
-        
-        $hotspot->hotspotAttributes()->firstOrCreate(['attribute'=> 'ChilliSpot-Bandwidth-Max-Up'])
+
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 1])
             ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
 
-        $hotspot->hotspotAttributes()->firstOrCreate(['attribute'=> 'ChilliSpot-Bandwidth-Max-Down'])
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'type' => 1])
             ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Down')]);
 
-        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Session-Timeout'])
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Session-Timeout', 'type' => 1])
             ->update(['value' => $request->input('Session-Timeout')]);
 
-        $hotspot->hotspotAttributes()->firstOrCreate(['attribute'=> 'Idle-Timeout'])
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Idle-Timeout', 'type' => 1])
             ->update(['value' => $request->input('Idle-Timeout')]);
-        
-//        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_ChilliSpot-Bandwidth-Max-Up')
-//            ->update(['value' => $request->input('Social_ChilliSpot-Bandwidth-Max-Up')]);
-//
-//        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_ChilliSpot-Bandwidth-Max-Down')
-//            ->update(['value' => $request->input('Social_ChilliSpot-Bandwidth-Max-Down')]);
-//
-//        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_Session-Timeout')
-//            ->update(['value' => $request->input('Social_Session-Timeout')]);
-//
-//        $hotspot->hotspotAttributes()->where('attribute', '=', 'Social_Idle-Timeout')
-//            ->update(['value' => $request->input('Social_Idle-Timeout')]);
-        
+
+
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 2])
+            ->update(['value' => $request->input('EMail_ChilliSpot-Bandwidth-Max-Up')]);
+
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'type' => 2])
+            ->update(['value' => $request->input('EMail_ChilliSpot-Bandwidth-Max-Down')]);
+
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Session-Timeout', 'type' => 2])
+            ->update(['value' => $request->input('EMail_Session-Timeout')]);
+
+        $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Idle-Timeout', 'type' => 2])
+            ->update(['value' => $request->input('EMail_Idle-Timeout')]);
+
         $successMsg = "Hotspot updated successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('hotspot');
