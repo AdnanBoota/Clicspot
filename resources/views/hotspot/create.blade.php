@@ -128,6 +128,8 @@
         });
 
         google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            $("[name=latitude]").val(this.latLng.lat());
+            $("[name=longitude]").val(this.latLng.lng());
             infowindow.close();
             marker.setVisible(false);
             var place = autocomplete.getPlace();
@@ -162,22 +164,6 @@
         });
 
         google.maps.event.addDomListener(window, 'load', initialize);
-
-        google.maps.event.addListener(marker, 'dragend', function (evt) {
-
-            $("[name=latitude]").val(evt.latLng.lat());
-            $("[name=longitude]").val(evt.latLng.lng());
-        });
-
-        google.maps.event.addListener(map, 'click', function (evt) {
-            marker.setMap(null);
-            $("[name=latitude]").val(evt.latLng.lat());
-            $("[name=longitude]").val(evt.latLng.lng());
-            marker = new google.maps.Marker({
-                position: evt.latLng,
-                map: map
-            });
-        });
 
     }
 
