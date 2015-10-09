@@ -94,13 +94,15 @@
 
         map.setCenter(marker.position);
         marker.setMap(map);
+
+        var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
+        autocomplete.bindTo('bounds', map);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            console.log(place.address_components);
+        });
     }
-    var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
-    autocomplete.bindTo('bounds', map);
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        var place = autocomplete.getPlace();
-        console.log(place.address_components);
-    });
+
     jQuery(document).ready(function () {
         $('#nasidentifier').inputmask("mac");
         $('form').validate({
