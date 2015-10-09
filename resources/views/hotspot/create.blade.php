@@ -80,11 +80,11 @@
             center: {lat: defaultLat, lng: defaultLang}
         };
         map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-//        marker = new google.maps.Marker({
-//            position: myLatlng,
-//            draggable: true,
-//            map: map
-//        });
+        marker = new google.maps.Marker({
+            position: myLatlng,
+            draggable: true,
+            map: map
+        });
         google.maps.event.addListener(marker, 'dragend', function (evt) {
 
             $("[name=latitude]").val(evt.latLng.lat());
@@ -101,8 +101,8 @@
             });
         });
 
-//        map.setCenter(marker.position);
-//        marker.setMap(map);
+        map.setCenter(marker.position);
+        marker.setMap(map);
     }
     jQuery(document).ready(function () {
         $('#nasidentifier').inputmask("mac");
