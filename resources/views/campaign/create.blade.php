@@ -104,50 +104,6 @@
         });
 
         $(".my-colorpicker").colorpicker();
-        $("#ChilliSpot-Bandwidth-Max-Up").ionRangeSlider({
-            min: 256,
-            max: 10240,
-            step: 256,
-            prettify: function (value) {
-                if (value < 1024) {
-                    return Math.round(value) + ' Kbps';
-                } else {
-                    return (value / 1024) + ' Mbps';
-                }
-            }
-        });
-        $("#ChilliSpot-Bandwidth-Max-Down").ionRangeSlider({
-            min: 256,
-            max: 10240,
-            step: 256,
-            prettify: function (value) {
-                if (value < 1024) {
-                    return Math.round(value) + ' Kbps';
-                } else {
-                    return (value / 1024) + ' Mbps';
-                }
-            }
-        });
-        $("#Session-Timeout").ionRangeSlider({
-            min: 60,
-            max: 14400,
-            step: 60,
-            prettify: function (value) {
-                return Math.round(value / 60) + ' min';
-            }
-        });
-        $("#Idle-Timeout").ionRangeSlider({
-            min: 60,
-            max: 7200,
-            grid_num: 1,
-            prettify: function (value) {
-                return Math.round(value / 60) + ' min';
-            }
-        });
-        
-        
-        
-        
         
         $("#backgroundimage").on("change", function()
         {

@@ -117,16 +117,6 @@ class CampaignController extends Controller
         $input['logoimage'] = $logofileName;
         $campaign = new Campaign($input);
         Auth::user()->campaigns()->save($campaign);
-
-        $campAttrArr = array(
-            new CampaignAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
-            new CampaignAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'value' => $request->input('ChilliSpot-Bandwidth-Max-Down'))),
-            new CampaignAttributes(array('attribute' => 'Session-Timeout', 'value' => $request->input('Session-Timeout'))),
-            new CampaignAttributes(array('attribute' => 'Idle-Timeout', 'value' => $request->input('Idle-Timeout')))
-        );
-
-        $campaign->campaignAttributes()->saveMany($campAttrArr);
-
         $successMsg = "New Campaign added successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('campaign');
@@ -229,19 +219,6 @@ class CampaignController extends Controller
         $input['logoimage'] = $logofileName;
 
         $campaign->update($input);
-
-        $campaign->campaignAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Up')
-            ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
-
-        $campaign->campaignAttributes()->where('attribute', '=', 'ChilliSpot-Bandwidth-Max-Down')
-            ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Down')]);
-
-        $campaign->campaignAttributes()->where('attribute', '=', 'Session-Timeout')
-            ->update(['value' => $request->input('Session-Timeout')]);
-
-        $campaign->campaignAttributes()->where('attribute', '=', 'Idle-Timeout')
-            ->update(['value' => $request->input('Idle-Timeout')]);
-
         $successMsg = "Campaign updated successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('campaign');
