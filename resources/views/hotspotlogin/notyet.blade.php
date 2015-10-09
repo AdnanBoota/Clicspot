@@ -164,6 +164,7 @@
                 <div id="email" style="display: none;">
                     <form role="form" method="POST" action="{{ url("/email/login") }}" class="form-horizontal">
                         <div class="box-body">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="text" name="fname" class="input-lg col-xs-6" style="margin-bottom: 5px;"
                                    placeholder="First Name" required>
                             <input type="text" name="lname" class="input-lg col-xs-6" placeholder="Last Name" required>

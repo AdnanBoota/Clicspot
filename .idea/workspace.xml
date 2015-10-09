@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php" afterPath="$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -46,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EMailLoginController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EMailLoginController.php">
+      <file leaf-file-name="notyet.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4225352">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5616197">
+              <caret line="166" column="90" selection-start-line="166" selection-start-column="90" selection-end-line="166" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -204,46 +203,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Laravel5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clickspot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Laravel5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clickspot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -251,7 +210,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;use&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/User.php&#10;for&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;hotspotc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;campaign&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;_&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;input.&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/plugins/input-mask/jquery.inputmask.extensions.js&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;notye&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;not&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;hotspotLo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotLoginController.php&#10;edit.bl&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/edit.blade.php&#10;gall&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/gallery.blade.php&#10;campai&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;adminLte&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/dist/css/AdminLTE.min.css&#10;hotspotL&#9;null&#9;null&#10;_form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;campa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspotC&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hots&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;routersta&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/RouterStatus.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;face&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;login&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/routes.php&#10;fa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;Rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/RouterControllerAR71XX.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;authcon&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;crea&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/create.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;rou&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;app&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/app.blade.php&#10;side&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;sid&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;bootstrapper&#9;null&#9;null&#10;repos&#9;null&#9;null&#10;passw&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/Auth/PasswordController.php&#10;abstractsmtp&#9;null&#9;null&#10;home&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/HomeController.php" />
+    <property name="SearchEverywhereHistoryKey" value="for&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;noty&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;use&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/User.php&#10;hotspotc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;campaign&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;_&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;input.&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/plugins/input-mask/jquery.inputmask.extensions.js&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;notye&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;not&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;hotspotLo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotLoginController.php&#10;edit.bl&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/edit.blade.php&#10;gall&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/gallery.blade.php&#10;campai&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;adminLte&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/dist/css/AdminLTE.min.css&#10;hotspotL&#9;null&#9;null&#10;_form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;campa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspotC&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hots&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;routersta&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/RouterStatus.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;face&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;login&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/routes.php&#10;fa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;Rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/RouterControllerAR71XX.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;authcon&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;crea&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/create.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/subscribers/edit.blade.php&#10;rou&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/routes.php&#10;app&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/app.blade.php&#10;side&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;sid&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/resources/views/includes/sidebar.blade.php&#10;bootstrapper&#9;null&#9;null&#10;repos&#9;null&#9;null&#10;passw&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Laravel5/app/Http/Controllers/Auth/PasswordController.php&#10;abstractsmtp&#9;null&#9;null" />
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -310,12 +269,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00106" summary="ssh">
-      <created>1442433669688</created>
-      <option name="number" value="00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1442433669688</updated>
     </task>
     <task id="LOCAL-00107" summary="ssh">
       <created>1442433729828</created>
@@ -605,7 +558,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444427129584</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="ssh">
+      <created>1444427241900</created>
+      <option name="number" value="00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1444427241900</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -949,31 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.863481">
-          <caret line="190" column="19" selection-start-line="190" selection-start-column="19" selection-end-line="190" selection-end-column="19" />
-          <folding>
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.9368601">
@@ -1006,14 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36091548">
-          <caret line="164" column="80" selection-start-line="164" selection-start-column="80" selection-end-line="164" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.027726432">
@@ -1030,6 +956,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4225352">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.017606">
+          <caret line="190" column="19" selection-start-line="190" selection-start-column="19" selection-end-line="190" selection-end-column="19" />
+          <folding>
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444425167000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5616197">
+          <caret line="166" column="90" selection-start-line="166" selection-start-column="90" selection-end-line="166" selection-end-column="90" />
           <folding />
         </state>
       </provider>
