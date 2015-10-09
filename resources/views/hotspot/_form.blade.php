@@ -150,7 +150,7 @@
         $("#Idle-Timeout").ionRangeSlider({
             min: 60,
             max: 7200,
-            grid_num: 1,
+            step: 60,
             prettify: function (value) {
                 return Math.round(value / 60) + ' min';
             }
@@ -191,7 +191,7 @@
         $("#Social_Idle-Timeout").ionRangeSlider({
             min: 60,
             max: 7200,
-            grid_num: 1,
+            step: 60,
             prettify: function (value) {
                 return Math.round(value / 60) + ' min';
             }
