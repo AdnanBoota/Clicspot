@@ -166,7 +166,11 @@ class HotspotController extends Controller
         $hotspot = Hotspot::findOrFail($id);
         $attributes = $hotspot->hotspotAttributes;
         foreach ($attributes as $key => $value) {
-            $hotspot[$value['attribute']] = $value['value'];
+            if($value['type'] == 1) {
+                $hotspot[$value['attribute']] = $value['value'];
+            }else{
+                $hotspot["EMail_".$value['attribute']] = $value['value'];
+            }
         }
         $readonly = Session::has('mac') ? "readonly" : "";
         return view('hotspot.edit', compact('hotspot', 'campaign', 'readonly'));
