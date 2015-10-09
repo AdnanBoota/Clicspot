@@ -62,20 +62,33 @@
 <script>
     var map;
     var marker;
-    function initialize() {
-        var defaultLat = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->latitude : 22.3000 ?>';
-        var defaultLang = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->longitude : 70.7833 ?>';
 
-        var myLatlng = new google.maps.LatLng(defaultLat, defaultLang);
+    function initialize() {
         var mapOptions = {
-            zoom: 22
+            zoom: 12
         };
-        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-        marker = new google.maps.Marker({
-            position: myLatlng,
-            draggable: true,
-            map: map
-        });
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+
+        // Get GEOLOCATION
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = new google.maps.LatLng(position.coords.latitude,
+                        position.coords.longitude);
+
+                map.setCenter(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    draggable: true
+                });
+            }, function () {
+                handleNoGeolocation(true);
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
+        }
 
         function handleNoGeolocation(errorFlag) {
             if (errorFlag) {
@@ -169,48 +182,49 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <script type="text/javascript">
-    {{--var map;--}}
-    {{--var marker;--}}
-    {{--window.onload = function () {--}}
-        {{--var defaultLat = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->latitude : 22.3000 ?>';--}}
-        {{--var defaultLang = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->longitude : 70.7833 ?>';--}}
-
-        {{--var myLatlng = new google.maps.LatLng(defaultLat, defaultLang);--}}
-        {{--var mapOptions = {--}}
-            {{--zoom: 22--}}
-        {{--};--}}
-        {{--map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);--}}
-        {{--marker = new google.maps.Marker({--}}
-            {{--position: myLatlng,--}}
-            {{--draggable: true,--}}
-            {{--map: map--}}
-        {{--});--}}
-        {{--google.maps.event.addListener(marker, 'dragend', function (evt) {--}}
-
-            {{--$("[name=latitude]").val(evt.latLng.lat());--}}
-            {{--$("[name=longitude]").val(evt.latLng.lng());--}}
-        {{--});--}}
-
-        {{--google.maps.event.addListener(map, 'click', function (evt) {--}}
-            {{--marker.setMap(null);--}}
-            {{--$("[name=latitude]").val(evt.latLng.lat());--}}
-            {{--$("[name=longitude]").val(evt.latLng.lng());--}}
-            {{--marker = new google.maps.Marker({--}}
-                {{--position: evt.latLng,--}}
-                {{--map: map--}}
-            {{--});--}}
-        {{--});--}}
-
-        {{--map.setCenter(marker.position);--}}
-        {{--marker.setMap(map);--}}
-
-        {{--var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});--}}
-        {{--autocomplete.bindTo('bounds', map);--}}
-        {{--google.maps.event.addListener(autocomplete, 'place_changed', function () {--}}
-            {{--var place = autocomplete.getPlace();--}}
-            {{--console.log(place.address_components);--}}
-        {{--});--}}
-    {{--}--}}
+//    var map;
+//    var marker;
+//    window.onload = function () {
+//        var defaultLat = '22.3000';
+//        var defaultLang = '70.7833';
+//
+//        var myLatlng = new google.maps.LatLng(defaultLat, defaultLang);
+//        var mapOptions = {
+//            zoom: 22
+//            //        mapTypeId: google.maps.MapTypeId.SATELLITE
+//        };
+//        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+//        marker = new google.maps.Marker({
+//            position: myLatlng,
+//            draggable: true,
+//            map: map
+//        });
+//        google.maps.event.addListener(marker, 'dragend', function (evt) {
+//
+//            $("[name=latitude]").val(evt.latLng.lat());
+//            $("[name=longitude]").val(evt.latLng.lng());
+//        });
+//
+//        google.maps.event.addListener(map, 'click', function (evt) {
+//            marker.setMap(null);
+//            $("[name=latitude]").val(evt.latLng.lat());
+//            $("[name=longitude]").val(evt.latLng.lng());
+//            marker = new google.maps.Marker({
+//                position: evt.latLng,
+//                map: map
+//            });
+//        });
+//
+//        map.setCenter(marker.position);
+//        marker.setMap(map);
+//
+//        var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
+//        autocomplete.bindTo('bounds', map);
+//        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+//            var place = autocomplete.getPlace();
+//            console.log(place.address_components);
+//        });
+//    }
 
     jQuery(document).ready(function () {
         $('#nasidentifier').inputmask("mac");
