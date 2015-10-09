@@ -68,42 +68,42 @@
 
 </script>
 <script type="text/javascript">
-    {{--var map;--}}
-    {{--var marker;--}}
-    {{--window.onload = function () {--}}
-        {{--var defaultLat = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->latitude : 22.3000 ?>';--}}
-        {{--var defaultLang = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->longitude : 70.7833 ?>';--}}
+    var map;
+    var marker;
+    window.onload = function () {
+        var defaultLat = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->latitude : 22.3000 ?>';
+        var defaultLang = '<?php echo count($hotspotDetails) > 0 ? $hotspotDetails->longitude : 70.7833 ?>';
 
-        {{--var myLatlng = new google.maps.LatLng(defaultLat, defaultLang);--}}
-        {{--var mapOptions = {--}}
-            {{--zoom: 22--}}
-            {{--//        mapTypeId: google.maps.MapTypeId.SATELLITE--}}
-        {{--};--}}
-        {{--map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);--}}
-        {{--marker = new google.maps.Marker({--}}
-            {{--position: myLatlng,--}}
-            {{--draggable: true,--}}
-            {{--map: map--}}
-        {{--});--}}
-        {{--google.maps.event.addListener(marker, 'dragend', function (evt) {--}}
+        var myLatlng = new google.maps.LatLng(defaultLat, defaultLang);
+        var mapOptions = {
+            zoom: 22,
+            center: {lat: defaultLat, lng: defaultLang}
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+//        marker = new google.maps.Marker({
+//            position: myLatlng,
+//            draggable: true,
+//            map: map
+//        });
+        google.maps.event.addListener(marker, 'dragend', function (evt) {
 
-            {{--$("[name=latitude]").val(evt.latLng.lat());--}}
-            {{--$("[name=longitude]").val(evt.latLng.lng());--}}
-        {{--});--}}
+            $("[name=latitude]").val(evt.latLng.lat());
+            $("[name=longitude]").val(evt.latLng.lng());
+        });
 
-        {{--google.maps.event.addListener(map, 'click', function (evt) {--}}
-            {{--marker.setMap(null);--}}
-            {{--$("[name=latitude]").val(evt.latLng.lat());--}}
-            {{--$("[name=longitude]").val(evt.latLng.lng());--}}
-            {{--marker = new google.maps.Marker({--}}
-                {{--position: evt.latLng,--}}
-                {{--map: map--}}
-            {{--});--}}
-        {{--});--}}
+        google.maps.event.addListener(map, 'click', function (evt) {
+            marker.setMap(null);
+            $("[name=latitude]").val(evt.latLng.lat());
+            $("[name=longitude]").val(evt.latLng.lng());
+            marker = new google.maps.Marker({
+                position: evt.latLng,
+                map: map
+            });
+        });
 
-        {{--map.setCenter(marker.position);--}}
-        {{--marker.setMap(map);--}}
-    {{--}--}}
+//        map.setCenter(marker.position);
+//        marker.setMap(map);
+    }
     jQuery(document).ready(function () {
         $('#nasidentifier').inputmask("mac");
         $('form').validate({
@@ -127,46 +127,46 @@
                 $(element).parents('.form-group').addClass('has-success');
             }
         });
-//        $("#address").blur(function () {
-//            var address = $(this).val();
-//            $.ajax({
-//                url: "http://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&sensor=false",
-//                type: "POST",
-//                success: function (res) {
-//                    console.log(res.results[0].geometry.location.lat);
-//                    console.log(res.results[0].geometry.location.lng);
-//                    $("[name=latitude]").val(res.results[0].geometry.location.lat);
-//                    $("[name=longitude]").val(res.results[0].geometry.location.lng);
-//
-//                    marker.setMap(null);
-//                    marker = new google.maps.Marker({
-//                        position: res.results[0].geometry.location,
-//                        draggable: true,
-//                        map: map
-//                    });
-//                    map.setCenter(marker.position);
-//                    marker.setMap(map);
-//
-//                    google.maps.event.addListener(marker, 'dragend', function (evt) {
-//                        //                console.log(geocodePosition(marker.getPosition()));
-//                        $("[name=latitude]").val(evt.latLng.lat());
-//                        $("[name=longitude]").val(evt.latLng.lng());
-//                    });
-//
-//                    google.maps.event.addListener(map, 'click', function (evt) {
-//                        console.log(evt);
-//                        marker.setMap(null);
-//                        $("[name=latitude]").val(evt.latLng.lat());
-//                        $("[name=longitude]").val(evt.latLng.lng());
-//                        marker = new google.maps.Marker({
-//                            position: evt.latLng,
-//                            draggable: true,
-//                            map: map
-//                        });
-//                    });
-//                }
-//            });
-//        });
+        $("#address").blur(function () {
+            var address = $(this).val();
+            $.ajax({
+                url: "http://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&sensor=false",
+                type: "POST",
+                success: function (res) {
+                    console.log(res.results[0].geometry.location.lat);
+                    console.log(res.results[0].geometry.location.lng);
+                    $("[name=latitude]").val(res.results[0].geometry.location.lat);
+                    $("[name=longitude]").val(res.results[0].geometry.location.lng);
+
+                    marker.setMap(null);
+                    marker = new google.maps.Marker({
+                        position: res.results[0].geometry.location,
+                        draggable: true,
+                        map: map
+                    });
+                    map.setCenter(marker.position);
+                    marker.setMap(map);
+
+                    google.maps.event.addListener(marker, 'dragend', function (evt) {
+                        //                console.log(geocodePosition(marker.getPosition()));
+                        $("[name=latitude]").val(evt.latLng.lat());
+                        $("[name=longitude]").val(evt.latLng.lng());
+                    });
+
+                    google.maps.event.addListener(map, 'click', function (evt) {
+                        console.log(evt);
+                        marker.setMap(null);
+                        $("[name=latitude]").val(evt.latLng.lat());
+                        $("[name=longitude]").val(evt.latLng.lng());
+                        marker = new google.maps.Marker({
+                            position: evt.latLng,
+                            draggable: true,
+                            map: map
+                        });
+                    });
+                }
+            });
+        });
     });
 
 
