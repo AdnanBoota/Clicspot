@@ -65,7 +65,7 @@
     var defaultLang = '<?php echo count($hotspot) > 0 ? $hotspot->longitude : 70.7833 ?>';
     function initialize() {
         var mapOptions = {
-            zoom: 12
+            zoom: 20
         };
         map = new google.maps.Map(document.getElementById('map_canvas'),
                 mapOptions);
