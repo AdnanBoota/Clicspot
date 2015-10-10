@@ -68,12 +68,10 @@
       <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/campaign/_form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44547135">
-              <caret line="504" column="0" selection-start-line="504" selection-start-column="0" selection-end-line="504" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.30499077">
+              <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
               <folding>
-                <element signature="e#11957#14542#0#HTML" expanded="false" />
-                <element signature="e#14663#21455#0#HTML" expanded="false" />
-                <element signature="e#21476#24687#0#HTML" expanded="false" />
+                <element signature="e#21320#24531#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -279,12 +277,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00140" summary="ssh">
-      <created>1444166310494</created>
-      <option name="number" value="00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1444166310494</updated>
     </task>
     <task id="LOCAL-00141" summary="ssh">
       <created>1444167595456</created>
@@ -574,7 +566,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444519514467</updated>
     </task>
-    <option name="localTasksCounter" value="189" />
+    <task id="LOCAL-00189" summary="ssh">
+      <created>1444519548761</created>
+      <option name="number" value="00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1444519548761</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -971,12 +969,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/campaign/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44547135">
-          <caret line="504" column="0" selection-start-line="504" selection-start-column="0" selection-end-line="504" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.30499077">
+          <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
           <folding>
-            <element signature="e#11957#14542#0#HTML" expanded="false" />
-            <element signature="e#14663#21455#0#HTML" expanded="false" />
-            <element signature="e#21476#24687#0#HTML" expanded="false" />
+            <element signature="e#21320#24531#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>

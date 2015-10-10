@@ -205,12 +205,6 @@
         margin-right: 4px;
     }
 
-    .content-header {
-        background: #fff !important;
-        padding: 10px 15px 0;
-        box-shadow: 0 0 16px rgba(0, 0, 0, 0.5) !important;
-    }
-
     .champtitle h3 {
         color: #585858;
         font-size: 17px;
