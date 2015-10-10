@@ -59,23 +59,24 @@
 
     #preview .container-img {
         @if(isset($campaign->backgroundimage))
-                background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+                 background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
         @else
-                background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                 background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
         @endif
         
         
-                padding-top: 4%;
+                 padding-top: 4%;
         padding-bottom: 20px;
         max-height: 1335px;
         min-height: 260px;
         width: 100%;
         z-index: 10;
         @if(isset($campaign->backgroundzoom))
-                background-size: {{$campaign->backgroundzoom}}%;
+                 background-size: {{$campaign->backgroundzoom}}%;
         @else
-                background-size: 100%;
+                 background-size: 100%;
     @endif
+
 
 
 
@@ -587,166 +588,173 @@
         </div>
         <div class="col-md-9">
             <div class="box">
-                <div id="preview">
-                    <nav class="navbar navbar-default">
+                <div class="box-body">
+                    <div id="preview">
+                        <nav class="navbar navbar-default">
 
-                        <div class="navbar-header headerlogodrop">
-                            <a class="navbar-brand" href="javascript:void(0)">
-                                @if(isset($campaign->logoimage))
-                                    <img src="/uploads/campaign/{!! $campaign->logoimage !!}" alt="logo"
-                                         style="margin-top:-2px;margin-left: 28px;max-height: 40px;max-width: 120px;"/>
-                                @else
-                                    <img src="{{ asset("/img/Clicspot-Grey.png") }}" alt="logo"
-                                         style="margin-top:-2px;margin-left: 28px;max-height: 40px;max-width: 120px;"/>
-                                @endif
-                            </a>
-
-                        </div>
-                    </nav>
-                    <div class="container-img" id="container-img">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6 text-center" contenteditable="true" id="contentEditor">
-                                    @if(isset($campaign->description) AND $campaign->description != '')
-                                        {!! $campaign->description !!}
+                            <div class="navbar-header headerlogodrop">
+                                <a class="navbar-brand" href="javascript:void(0)">
+                                    @if(isset($campaign->logoimage))
+                                        <img src="/uploads/campaign/{!! $campaign->logoimage !!}" alt="logo"
+                                             style="margin-top:-2px;margin-left: 28px;max-height: 40px;max-width: 120px;"/>
                                     @else
-                                        <h1 style="color: white;" class="text-center">
-                                            Need a room,<br>
-                                            for tonight ?
-                                        </h1>
-                                        <br>
-                                        <h4 style="color: white;" class="text-center">
-                                            Up to 70% discount.<br>
-                                            Breakfast and late checkout included !
-                                        </h4>
+                                        <img src="{{ asset("/img/Clicspot-Grey.png") }}" alt="logo"
+                                             style="margin-top:-2px;margin-left: 28px;max-height: 40px;max-width: 120px;"/>
                                     @endif
+                                </a>
 
-                                </div>
-                                <div class="col-xs-12 col-md-2">
-                                    </br>
-                                </div>
-                                <div class="col-xs-12 col-md-4">
-                                    <div id="social">
-                                        <div class="box-body">
-                                            <a href="javascript:void(0)" class="btn btn-block btn-flat bg-blue btn-lg">
-                                                <div class="pull-left">
-                                                    <i class="fa fa-facebook-square"></i>
+                            </div>
+                        </nav>
+                        <div class="container-img" id="container-img">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6 text-center" contenteditable="true"
+                                         id="contentEditor">
+                                        @if(isset($campaign->description) AND $campaign->description != '')
+                                            {!! $campaign->description !!}
+                                        @else
+                                            <h1 style="color: white;" class="text-center">
+                                                Need a room,<br>
+                                                for tonight ?
+                                            </h1>
+                                            <br>
+                                            <h4 style="color: white;" class="text-center">
+                                                Up to 70% discount.<br>
+                                                Breakfast and late checkout included !
+                                            </h4>
+                                        @endif
+
+                                    </div>
+                                    <div class="col-xs-12 col-md-2">
+                                        </br>
+                                    </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <div id="social">
+                                            <div class="box-body">
+                                                <a href="javascript:void(0)"
+                                                   class="btn btn-block btn-flat bg-blue btn-lg">
+                                                    <div class="pull-left">
+                                                        <i class="fa fa-facebook-square"></i>
+                                                    </div>
+                                                    Login with Facebook
+                                                </a>
+                                                <a href="javascript:void(0)"
+                                                   class="btn btn-block btn-flat bg-red btn-lg">
+                                                    <div class="pull-left">
+                                                        <i class="fa fa-google-plus"></i>
+                                                    </div>
+                                                    Login with Google+
+                                                </a>
+                                            </div>
+                                            <div class="box-body">
+                                                <div class="strike">
+                                                    <span style="color: white;"><b>OR</b></span>
                                                 </div>
-                                                Login with Facebook
-                                            </a>
-                                            <a href="javascript:void(0)" class="btn btn-block btn-flat bg-red btn-lg">
-                                                <div class="pull-left">
-                                                    <i class="fa fa-google-plus"></i>
-                                                </div>
-                                                Login with Google+
-                                            </a>
-                                        </div>
-                                        <div class="box-body">
-                                            <div class="strike">
-                                                <span style="color: white;"><b>OR</b></span>
+                                            </div>
+                                            <div class="box-body">
+                                                <button id="emailLogin" disabled="true"
+                                                        class="btn btn-default btn-block btn-flat btn-lg">
+                                                    <div class="pull-left">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </div>
+                                                    Login with Email
+                                                </button>
                                             </div>
                                         </div>
-                                        <div class="box-body">
-                                            <button id="emailLogin" disabled="true"
-                                                    class="btn btn-default btn-block btn-flat btn-lg">
-                                                <div class="pull-left">
-                                                    <i class="fa fa-envelope"></i>
-                                                </div>
-                                                Login with Email
-                                            </button>
-                                        </div>
-                                    </div>
 
+                                    </div>
+                                    <div class="clearfix visible-xs-block"></div>
                                 </div>
-                                <div class="clearfix visible-xs-block"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="footer">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xs-6 col-md-3">
-                                    <img src="{{ asset("img/Clicspot-Grey.png") }}" class="img-responsive"
-                                         style="max-height: 60px;">
-                                </div>
-                                <div class="col-xs-12 col-md-3 hidden-xs">
-                                    <h4>Practical information</h4>
+                        <div class="footer">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-3">
+                                        <img src="{{ asset("img/Clicspot-Grey.png") }}" class="img-responsive"
+                                             style="max-height: 60px;">
+                                    </div>
+                                    <div class="col-xs-12 col-md-3 hidden-xs">
+                                        <h4>Practical information</h4>
 
-                                    <p> Join us</p>
+                                        <p> Join us</p>
 
-                                    <p>Terms and Conditions</p>
+                                        <p>Terms and Conditions</p>
 
-                                    <p>Privacy</p>
-                                </div>
-                                <div class="col-xs-12 col-md-3">
-                                    <h4>Support</h4>
+                                        <p>Privacy</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-3">
+                                        <h4>Support</h4>
 
-                                    <p>Support 24/7</p>
+                                        <p>Support 24/7</p>
 
-                                    <p>FAQ</p>
-                                </div>
-                                <div class="col-xs-12 col-md-3">
-                                    <h4>Secure Payment</h4>
+                                        <p>FAQ</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-3">
+                                        <h4>Secure Payment</h4>
 
-                                    <div>
-                                        <i class="fa fa-cc-visa" style="font-size: 40px;color: white"></i>
-                                        <i class="fa fa-cc-mastercard" style="font-size: 40px;color: white"></i>
-                                        <i class="fa fa-lock" style="font-size: 40px;color: white"></i>
+                                        <div>
+                                            <i class="fa fa-cc-visa" style="font-size: 40px;color: white"></i>
+                                            <i class="fa fa-cc-mastercard" style="font-size: 40px;color: white"></i>
+                                            <i class="fa fa-lock" style="font-size: 40px;color: white"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="imageslider">
+                    <div class="imageslider">
 
-                    <div class="col-md-9">
-                        <p>Drag and drop the picture into to replace the background or the logo.</p>
+                        <div class="col-md-9">
+                            <p>Drag and drop the picture into to replace the background or the logo.</p>
 
-                        <div class="selectimg">
-                            <div id="myCarousel" class="carousel slide">
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <div class="row-fluid">
-                                            @forelse($images as $key=>$image)
-                                                @if ($key != 0 AND $key % 3 == 0)
+                            <div class="selectimg">
+                                <div id="myCarousel" class="carousel slide">
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <div class="row-fluid">
+                                                @forelse($images as $key=>$image)
+                                                    @if ($key != 0 AND $key % 3 == 0)
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="row-fluid">
-                                            @endif
-                                            <div class="span3"><a href="javascript:void(0);" class="thumbnail"><img
-                                                            src="{{ $image }}" height="100" width="100" alt="..."
-                                                            class="margin" style="height:100px;width:100px;"/></a></div>
-                                            @empty
+                                        <div class="item">
+                                            <div class="row-fluid">
+                                                @endif
                                                 <div class="span3"><a href="javascript:void(0);" class="thumbnail"><img
-                                                                src="/img/captive-wallpaper.jpg" height="100"
-                                                                width="100"
-                                                                alt="..." class="margin"
-                                                                style="height:100px;width:100px;"/></a>
+                                                                src="{{ $image }}" height="100" width="100" alt="..."
+                                                                class="margin" style="height:100px;width:100px;"/></a>
                                                 </div>
-                                            @endforelse
+                                                @empty
+                                                    <div class="span3"><a href="javascript:void(0);"
+                                                                          class="thumbnail"><img
+                                                                    src="/img/captive-wallpaper.jpg" height="100"
+                                                                    width="100"
+                                                                    alt="..." class="margin"
+                                                                    style="height:100px;width:100px;"/></a>
+                                                    </div>
+                                                @endforelse
+                                            </div>
+                                            <!--/row-fluid-->
                                         </div>
-                                        <!--/row-fluid-->
                                     </div>
-                                </div>
-                                <!--/carousel-inner-->
+                                    <!--/carousel-inner-->
 
-                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-                                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                                    <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                                </div>
+                                <!--/myCarousel-->
                             </div>
-                            <!--/myCarousel-->
+                        </div>
+                        <div class="col-md-3">
+                            <div class="imgaddrgt">
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#gallaryModal"><i
+                                            class="addimg"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="imgaddrgt">
-                            <a href="javascript:void(0);" data-toggle="modal" data-target="#gallaryModal"><i
-                                        class="addimg"></i></a>
-                        </div>
-                    </div>
+                    <!--                    <img src="/img/mobileimg.jpg" width="100%" height="auto" alt="" title="" />-->
                 </div>
-                <!--                    <img src="/img/mobileimg.jpg" width="100%" height="auto" alt="" title="" />-->
             </div>
         </div>
     </div>
