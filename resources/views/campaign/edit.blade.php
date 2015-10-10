@@ -12,18 +12,19 @@
     </ul>
 </div>
 @endif
-
+<section class="content-header">
+    <h1>
+        Campaign
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Campaign</li>
+        <li class="active">Edit Campaign</li>
+    </ol>
+</section>
 <!-- form start -->
 {!! Form::model($campaign,["method"=>"PATCH","class"=>"form-horizontal","action"=> ['CampaignController@update',$campaign->id],"files"=>"true"]) !!}
-
 @include('campaign._form')
-
-<div class="box-footer">
-    <!--<button type="submit" class="btn btn-default">Cancel</button>-->
-    <a href="{{url('campaign')}}" class="btn btn-default">Cancel</a>
-    <button type="submit" class="btn btn-info pull-right">Submit</button>
-</div>
-<!-- /.box-footer -->
 {!! Form::close() !!}
 @include('campaign.gallery')
 @endsection
