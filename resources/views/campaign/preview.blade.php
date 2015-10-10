@@ -339,7 +339,7 @@ $(document).ready(function () {
     var drag_obj = '';
 // Drag Drop Functionality
 
-    $('.galleryList img').draggable({
+    $('.myCarousel .thumbnail img').draggable({
         revert: 'invalid',
         helper: 'clone',
         scroll: false,
@@ -349,7 +349,7 @@ $(document).ready(function () {
         }
     });
     //new appended element chek for draggable
-    $(document).on("mouseenter", '.galleryList img', function(e){
+    $(document).on("mouseenter", '.myCarousel .thumbnail img', function(e){
         var item = $(this); 
         //check if the item is already draggable
         if (!item.is('.ui-draggable')) {

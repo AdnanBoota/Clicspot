@@ -1,84 +1,31 @@
 @extends('app')
-@push('styles')
-<link href="{{ asset('/plugins/colorpicker/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css"/>
-<link href="{{ asset('/plugins/ionslider/ion.rangeSlider.css') }}" rel="stylesheet" type="text/css"/>
-<link href="{{ asset('/plugins/ionslider/ion.rangeSlider.skinNice.css') }}" rel="stylesheet" type="text/css"/>
-<style>
-#preview {
-    width: 180px;
-    height: 180px;
-    background-position: center center;
-    background-size: cover;
-    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
-    display: inline-block;
-}
-#preview  #logo{
-    width: 90px;
-    height: 90px;
-    background-position: center center;
-    background-size: cover;
-    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
-    display: inline-block;
-}
-</style>
-@endpush
-@section('content')
 
-        <!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-        Campaign
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Campaign</li>
-        <li class="active">Add Campaign</li>
-    </ol>
-</section>
-<!-- Main content -->
-<section class="content">
-    <div class="row">
-        <div class="col-xs-12">
-            @include('errors.flash')
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <div class="box box-info">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Add Campaign</h3>
-                </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                {!! Form::open(array("class"=>"form-horizontal","url"=> url('campaign'),"files"=>"true")) !!}
-                <div class="box-body">
-                    @include('campaign._form')
-                </div>
-                <div class="box-footer">
-                    <!--<button type="submit" class="btn btn-default">Cancel</button>-->
-                    <a href="{{url('campaign')}}" class="btn btn-default">Cancel</a>
-                    <button type="submit" class="btn btn-info pull-right">Submit</button>
-                </div>
-                <!-- /.box-footer -->
-                {!! Form::close() !!}
-            </div>
-            @include('campaign.gallery')
-            <!-- /.box -->
-        </div>
-        <!-- /.col -->
-    </div>
-    <!-- /.row -->
-</section><!-- /.content -->
+@section('content')
+@include('errors.flash')
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+{!! Form::open(array("class"=>"form-horizontal","url"=> url('campaign'),"files"=>"true")) !!}
+@include('campaign._form')
+<div class="box-footer">
+    <!--<button type="submit" class="btn btn-default">Cancel</button>-->
+    <a href="{{url('campaign')}}" class="btn btn-default">Cancel</a>
+    <button type="submit" class="btn btn-info pull-right">Submit</button>
+</div>
+<!-- /.box-footer -->
+{!! Form::close() !!}
+@include('campaign.gallery')
+<!-- Content Header (Page header) -->
+
 @endsection
 @push('scripts')
-<script src="{{ asset('/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
-<script src="{{ asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function () {
         $('form').validate({
@@ -103,35 +50,42 @@
             }
         });
 
-        $(".my-colorpicker").colorpicker();
-        
-        $("#backgroundimage").on("change", function()
+//    $(".my-colorpicker").colorpicker();
+
+
+
+
+
+
+        $("#backgroundimage").on("change", function ()
         {
             var files = !!this.files ? this.files : [];
-            if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+            if (!files.length || !window.FileReader)
+                return; // no file selected, or no FileReader support
 
-            if (/^image/.test( files[0].type)){ // only image file
+            if (/^image/.test(files[0].type)) { // only image file
                 var reader = new FileReader(); // instance of the FileReader
                 reader.readAsDataURL(files[0]); // read the local file
 
-                reader.onloadend = function(){ // set image data as background of div
-                    $("#preview").css("background-image", "url("+this.result+")");
+                reader.onloadend = function () { // set image data as background of div
+                    $("#preview").css("background-image", "url(" + this.result + ")");
                 }
             }
         });
-        
-        $("#logoimage").on("change", function()
+
+        $("#logoimage").on("change", function ()
         {
             var files = !!this.files ? this.files : [];
-            if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+            if (!files.length || !window.FileReader)
+                return; // no file selected, or no FileReader support
 
-            if (/^image/.test( files[0].type)){ // only image file
+            if (/^image/.test(files[0].type)) { // only image file
                 var reader = new FileReader(); // instance of the FileReader
                 reader.readAsDataURL(files[0]); // read the local file
 
-                reader.onloadend = function(){ // set image data as background of div
-                    
-                    $("#preview #logo").css("background-image", "url("+this.result+")");
+                reader.onloadend = function () { // set image data as background of div
+
+                    $("#preview #logo").css("background-image", "url(" + this.result + ")");
                 }
             }
         });

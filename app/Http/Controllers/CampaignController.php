@@ -81,7 +81,7 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
 
-        $input = $request->only('name', 'fontcolor', 'description');
+        $input = $request->only('name', 'fontcolor', 'description','logoposition');
         $bgfileName = "";
         if ($request->input('backgroundimage')) {
 //            $bgdestinationPath = 'uploads/campaign'; // upload path
@@ -179,7 +179,7 @@ class CampaignController extends Controller
             $campaign = Auth::user()->campaigns()->findOrFail($id);
         }
 
-        $input = $request->only('name', 'fontcolor', 'description');
+        $input = $request->only('name', 'fontcolor', 'description','logoposition');
         //dd($request->input('description'));
         $bgfileName = $request->input('oldbackgroundimage');
         if ($request->input('oldbackgroundimage') != $request->input('backgroundimage')) {
