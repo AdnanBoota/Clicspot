@@ -447,10 +447,6 @@
         margin: 35px 0 0 0;
     }
 
-    .box-footer {
-        margin-bottom: 30px;
-    }
-
     @media screen and (max-width: 1420px) {
         .imgbtn a {
             font-size: 15px;
