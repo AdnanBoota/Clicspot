@@ -58,6 +58,8 @@ jQuery(document).ready(function () {
     $('#headerBg').text($('#fontcolor').val());
     $('#preview .navbar').css('background-color', $('#fontcolor').val());
     $('#preview .navbar-brand').css('text-align', $('input[name=logoposition]').val());
+//    console.log($('input[name=backgroundzoom]').attr('data-from'));
+//    $('#preview .container-img').css('background-size', $('input[name=backgroundzoom]').attr('data-from') + '%');
 	
 
 });

@@ -58,16 +58,19 @@
         @else
         background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
         @endif
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+        
+        
         padding-top: 4%;
         padding-bottom: 20px;
         max-height: 1335px;
         min-height: 260px; 
         width: 100%;
         z-index: 10;
+        @if(isset($campaign->backgroundzoom))
+        background-size : {{$campaign->backgroundzoom}}%;
+        @else
+        background-size : 100%;
+        @endif
     }
 
     #preview .footer {
@@ -328,7 +331,7 @@
     }
     .carousel {
         margin-bottom: 0;
-        padding: 0 40px 30px 40px;
+        padding: 0 40px;
     }
     /* Reposition the controls slightly */
     .carousel-control {
@@ -471,8 +474,8 @@
                 <div role="tabpanel" class="tab-pane active" id="header">
                     <div class="tabcontendtl">
                         <p>Logo position</p>
-                        <div class="imgbtn">
-                            <a class="{{ isset($campaign->logoposition) ? $campaign->logoposition == 'left' ? 'active' : '':'active' }}" val='left' href="javascript:void(0)">left</a>
+                        <div class="imgbtn imgbtnlogo">
+                            <a class="{{ isset($campaign->logoposition) && $campaign->logoposition == 'left' ? 'active' : '' }}" val='left' href="javascript:void(0)">left</a>
                             <a class="{{ isset($campaign->logoposition) && $campaign->logoposition == 'center' ? 'active' : '' }}" href="javascript:void(0)" val='center' >center</a>
                             <a class="{{ isset($campaign->logoposition) && $campaign->logoposition == 'right' ? 'active' : '' }}" href="javascript:void(0)" val='right' >right</a>
                         </div>
@@ -488,11 +491,11 @@
                     <div class="tabcontendtl">
                         <p>Media Social Connection</p>
                         <div class="imgbtn imgbtn2">
-                            <a href="#">left</a>
-                            <a href="#">right</a>
+                            <a href="javascript:void(0);">left</a>
+                            <a href="javascript:void(0);" class="active" >right</a>
                         </div>
                         <p>Zoom Background Image</p>
-                        
+                        {!!  Form::text('backgroundzoom', "", array('data-from'=>isset($campaign->backgroundzoom) ? $campaign->backgroundzoom : '100','id'=>'backgroundzoom','class'=>'form-control','required'=>'true')) !!}
                     </div>
                 </div>
             </div>
@@ -769,14 +772,24 @@ $(document).ready(function () {
         interval: false
     });
     
-    $('.imgbtn a').on('click',function(){
+    $('.imgbtnlogo a').on('click',function(){
         
-        $('.imgbtn a').removeClass('active');
+        $('.imgbtnlogo a').removeClass('active');
         $(this).addClass('active');
         var logoPos = $(this).attr('val');
         $('#preview .navbar-brand').css('text-align',logoPos);
         $('input[name=logoposition]').val(logoPos);
     });
+    
+     $("#backgroundzoom").ionRangeSlider({
+            min: 50,
+            max: 150,
+            step: 1,
+            onChange: function (data) {
+               $('.container-img').css('background-size',data.from+'%');
+            }
+        });
+    
 });
 </script>
 @endpush
