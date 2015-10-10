@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/campaign/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/campaign/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/campaign/_form.blade.php" afterPath="$PROJECT_DIR$/resources/views/campaign/_form.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -45,10 +45,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/campaign/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34330985">
+            <state vertical-scroll-proportion="-8.125">
               <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
               <folding />
             </state>
@@ -58,22 +58,22 @@
       <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.125">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="14" selection-end-column="10" />
+            <state vertical-scroll-proportion="-8.75">
+              <caret line="16" column="25" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/campaign/_form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5882354">
-              <caret line="505" column="21" selection-start-line="505" selection-start-column="21" selection-end-line="505" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.3068392">
+              <caret line="524" column="32" selection-start-line="524" selection-start-column="32" selection-end-line="524" selection-end-column="32" />
               <folding>
-                <element signature="e#12001#14586#0#HTML" expanded="false" />
-                <element signature="e#14707#21499#0#HTML" expanded="false" />
-                <element signature="e#21520#24731#0#HTML" expanded="false" />
+                <element signature="e#12002#14587#0#HTML" expanded="false" />
+                <element signature="e#14708#21500#0#HTML" expanded="false" />
+                <element signature="e#21521#24732#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -143,8 +143,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/FacebookLogin.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspot/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspot/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/campaign/_form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/campaign/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/campaign/_form.blade.php" />
       </list>
     </option>
   </component>
@@ -279,12 +279,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00138" summary="ssh">
-      <created>1443810502655</created>
-      <option name="number" value="00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1443810502655</updated>
     </task>
     <task id="LOCAL-00139" summary="ssh">
       <created>1444166123755</created>
@@ -574,7 +568,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444519244281</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="ssh">
+      <created>1444519390450</created>
+      <option name="number" value="00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1444519390450</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -953,31 +953,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/campaign/_form.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/campaign/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5882354">
-          <caret line="505" column="21" selection-start-line="505" selection-start-column="21" selection-end-line="505" selection-end-column="21" />
-          <folding>
-            <element signature="e#12001#14586#0#HTML" expanded="false" />
-            <element signature="e#14707#21499#0#HTML" expanded="false" />
-            <element signature="e#21520#24731#0#HTML" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-8.125">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="14" selection-end-column="10" />
+        <state vertical-scroll-proportion="-8.75">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/campaign/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/campaign/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34330985">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding />
+        <state vertical-scroll-proportion="0.3068392">
+          <caret line="524" column="32" selection-start-line="524" selection-start-column="32" selection-end-line="524" selection-end-column="32" />
+          <folding>
+            <element signature="e#12002#14587#0#HTML" expanded="false" />
+            <element signature="e#14708#21500#0#HTML" expanded="false" />
+            <element signature="e#21521#24732#0#HTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -503,9 +503,14 @@
 </style>
 @endpush
 <section class="content-header">
+</section>
+
+<!-- Main content -->
+<section class="content">
     <div class="row">
         <div class="col-md-3">
-            <div class="champtitle">
+
+            <div class="box-body">
                 <div class="form-group">
 
                     <div class="col-sm-12">
@@ -517,7 +522,7 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="campnav">
+            <div class="box-body">
                 <ul class="cpnavigaion">
                     <li>
                         <a href="javascript:void(0);" class="active"><i class="campnavicon1"></i>
@@ -538,9 +543,6 @@
             </div>
         </div>
     </div>
-</section>
-<!-- Main content -->
-<section class="content">
     <div class="row">
         <div class="col-md-3 lefControls">
             <ul class="nav nav-tabs" role="tablist">
