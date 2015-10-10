@@ -24,12 +24,6 @@
 </section>
 {!! Form::open(array("class"=>"form-horizontal","url"=> url('campaign'),"files"=>"true")) !!}
 @include('campaign._form')
-<div class="box-footer">
-    <!--<button type="submit" class="btn btn-default">Cancel</button>-->
-    <a href="{{url('campaign')}}" class="btn btn-default">Cancel</a>
-    <button type="submit" class="btn btn-info pull-right">Submit</button>
-</div>
-<!-- /.box-footer -->
 {!! Form::close() !!}
 @include('campaign.gallery')
 <!-- Content Header (Page header) -->

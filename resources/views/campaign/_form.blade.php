@@ -59,23 +59,24 @@
 
     #preview .container-img {
         @if(isset($campaign->backgroundimage))
-                     background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+                      background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
         @else
-                     background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                      background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
         @endif
         
         
-                     padding-top: 4%;
+                      padding-top: 4%;
         padding-bottom: 20px;
         max-height: 1335px;
         min-height: 260px;
         width: 100%;
         z-index: 10;
         @if(isset($campaign->backgroundzoom))
-                     background-size: {{$campaign->backgroundzoom}}%;
+                      background-size: {{$campaign->backgroundzoom}}%;
         @else
-                     background-size: 100%;
+                      background-size: 100%;
     @endif
+
 
 
 
@@ -771,8 +772,15 @@
                     </div>
                     <!-- /.row -->
                 </div>
+                <div class="box-footer">
+                    <!--<button type="submit" class="btn btn-default">Cancel</button>-->
+                    <a href="{{url('campaign')}}" class="btn btn-default">Cancel</a>
+                    <button type="submit" class="btn btn-info pull-right">Submit</button>
+                </div>
+                <!-- /.box-footer -->
             </div>
         </div>
+    </div>
 </section><!-- /.content -->
 
 @if(isset($campaign->backgroundimage))
