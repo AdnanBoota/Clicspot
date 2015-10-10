@@ -205,7 +205,7 @@
         z-index: 10000000;
     }
 
-    #preview .footer i {
+    #preview .footer_preview i {
         font-size: 22px !important;
         margin-right: 4px;
     }
