@@ -48,7 +48,7 @@
       <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/campaign/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.875">
+            <state vertical-scroll-proportion="-15.625">
               <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
               <folding />
             </state>
@@ -58,12 +58,12 @@
       <file leaf-file-name="_form.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/campaign/_form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6081331">
-              <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.60998154">
+              <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
               <folding>
-                <element signature="e#10794#12280#0#HTML" expanded="false" />
-                <element signature="e#12301#29314#0#HTML" expanded="false" />
-                <element signature="e#24525#29043#0#HTML" expanded="false" />
+                <element signature="e#10826#12312#0#HTML" expanded="false" />
+                <element signature="e#16383#16459#0#HTML" expanded="true" />
+                <element signature="e#16697#16773#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -269,12 +269,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00144" summary="ssh">
-      <created>1444168233487</created>
-      <option name="number" value="00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1444168233487</updated>
     </task>
     <task id="LOCAL-00145" summary="ssh">
       <created>1444168680926</created>
@@ -564,7 +558,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444520147194</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="ssh">
+      <created>1444520297410</created>
+      <option name="number" value="00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1444520297410</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -953,7 +953,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/campaign/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.875">
+        <state vertical-scroll-proportion="-15.625">
           <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
           <folding />
         </state>
@@ -961,12 +961,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/campaign/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6081331">
-          <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.60998154">
+          <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
           <folding>
-            <element signature="e#10794#12280#0#HTML" expanded="false" />
-            <element signature="e#12301#29314#0#HTML" expanded="false" />
-            <element signature="e#24525#29043#0#HTML" expanded="false" />
+            <element signature="e#10826#12312#0#HTML" expanded="false" />
+            <element signature="e#16383#16459#0#HTML" expanded="true" />
+            <element signature="e#16697#16773#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

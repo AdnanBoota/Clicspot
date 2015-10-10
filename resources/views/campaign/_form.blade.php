@@ -92,24 +92,24 @@
 
     }
 
-    #preview .footer {
+    #preview .footer_preview {
         padding: 12px 5px;
         background: #222222;
         position: relative;
     }
 
-    #preview .footer p {
+    #preview .footer_preview p {
         font-size: 9px;
         margin-bottom: 0px;
     }
 
-    #preview .footer h4 {
+    #preview .footer_preview h4 {
         font-size: 9px;
         font-weight: bold;
         margin-bottom: 3px;
     }
 
-    #preview .footer img.img-responsive {
+    #preview .footer_preview img.img-responsive {
         height: auto;
         width: 80px;
     }
@@ -663,7 +663,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="footer">
+                                        <div class="footer footer_preview">
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-xs-6 col-md-3">
