@@ -30,11 +30,11 @@
 
         .container-img {
             @if(isset($campaign->backgroundimage))
-           background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+            background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
             @else
-               background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
-                   -webkit-background-size: cover;
+                    -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -168,7 +168,11 @@
                             <input type="text" name="fname" class="input-lg col-xs-6" style="margin-bottom: 5px;"
                                    placeholder="First Name" required>
                             <input type="text" name="lname" class="input-lg col-xs-6" placeholder="Last Name" required>
-                            <input type="email" name="email" class="input-lg col-xs-12" placeholder="Email" required>
+
+                            <div class="form-group">
+                                <input type="email" name="email" class="input-lg col-xs-12" placeholder="Email"
+                                       required>
+                            </div>
                         </div>
                         <div class="box-body">
                             <button class="btn btn-lg btn-flat btn-block btn-success col-xs-12" type="submit">Get
