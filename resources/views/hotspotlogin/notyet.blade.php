@@ -165,13 +165,13 @@
                     <form role="form" method="POST" action="{{ url("/email/login") }}" class="form-horizontal">
                         <div class="box-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="text" name="fname" class="form-control input-lg col-xs-6"
+                            <input type="text" name="fname" class="input-lg col-xs-6"
                                    style="margin-bottom: 5px;"
                                    placeholder="First Name" required>
-                            <input type="text" name="lname" class="form-control input-lg col-xs-6"
+                            <input type="text" name="lname" class="input-lg col-xs-6"
                                    placeholder="Last Name"
                                    required>
-                            <input type="email" name="email" class="form-control input-lg col-xs-12" placeholder="Email"
+                            <input type="email" name="email" class="input-lg col-xs-12" placeholder="Email"
                                    required>
                         </div>
                         <div class="box-body">

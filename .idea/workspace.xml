@@ -49,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.6302817">
-              <caret line="173" column="99" selection-start-line="173" selection-start-column="99" selection-end-line="173" selection-end-column="99" />
+              <caret line="173" column="68" selection-start-line="173" selection-start-column="68" selection-end-line="173" selection-end-column="68" />
               <folding>
                 <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -299,12 +299,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00172" summary="ssh">
-      <created>1444433523387</created>
-      <option name="number" value="00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1444433523387</updated>
     </task>
     <task id="LOCAL-00173" summary="ssh">
       <created>1444433630257</created>
@@ -594,7 +588,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444525429032</updated>
     </task>
-    <option name="localTasksCounter" value="221" />
+    <task id="LOCAL-00221" summary="ssh">
+      <created>1444525464789</created>
+      <option name="number" value="00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1444525464789</updated>
+    </task>
+    <option name="localTasksCounter" value="222" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -998,7 +998,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6302817">
-          <caret line="173" column="99" selection-start-line="173" selection-start-column="99" selection-end-line="173" selection-end-column="99" />
+          <caret line="173" column="68" selection-start-line="173" selection-start-column="68" selection-end-line="173" selection-end-column="68" />
           <folding>
             <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
