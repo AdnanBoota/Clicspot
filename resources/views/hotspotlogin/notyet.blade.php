@@ -30,11 +30,11 @@
 
         .container-img {
             @if(isset($campaign->backgroundimage))
-               background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+                  background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
             @else
-                   background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                      background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
-                       -webkit-background-size: cover;
+                          -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -168,12 +168,16 @@
 
                             <div class="form-group col-xs-12">
                                 <div class="row">
-                                    <input type="text" name="fname" class="form-control input-lg col-xs-6"
-                                           style="margin-bottom: 5px;"
-                                           placeholder="First Name" required>
-                                    <input type="text" name="lname" class="form-control input-lg col-xs-6"
-                                           placeholder="Last Name"
-                                           required>
+                                    <div class="col-xs-6">
+                                        <input type="text" name="fname" class="form-control input-lg"
+                                               style="margin-bottom: 5px;"
+                                               placeholder="First Name" required>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input type="text" name="lname" class="form-control input-lg"
+                                               placeholder="Last Name"
+                                               required>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-xs-12">
