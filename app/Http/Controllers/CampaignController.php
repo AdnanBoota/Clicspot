@@ -64,10 +64,19 @@ class CampaignController extends Controller
     {
         //return View::make('campaign.create');
         $images = array();
-        $directory = 'uploads/gallery/' . Auth::user()->id;
+        $directory = 'uploads/gallery';
         $files = File::files($directory);
         foreach ($files as $file) {
             $images[] = "/" . (string)$file;
+        }
+        $directory = 'uploads/gallery/' . Auth::user()->id;
+        if (!File::exists($directory)) {
+            File::makeDirectory($directory, 0777, true, true);
+        } else {
+            $files = File::files($directory);
+            foreach ($files as $file) {
+                $images[] = "/" . (string)$file;
+            }
         }
         return View::make('campaign.create', compact('images'));
     }
