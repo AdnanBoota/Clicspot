@@ -166,7 +166,7 @@
                         <div class="box-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12" style="margin: 0 auto;">
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <input type="text" name="fname" class="form-control input-lg"
@@ -180,7 +180,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12" style="margin: 0 auto;">
                                 <input type="email" name="email" class="form-control input-lg" placeholder="Email"
                                        required>
                             </div>

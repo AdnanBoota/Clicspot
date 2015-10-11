@@ -48,10 +48,12 @@
       <file leaf-file-name="notyet.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49823943">
-              <caret line="171" column="100" selection-start-line="171" selection-start-column="100" selection-end-line="171" selection-end-column="100" />
+            <state vertical-scroll-proportion="0.36619717">
+              <caret line="168" column="84" selection-start-line="168" selection-start-column="84" selection-end-line="168" selection-end-column="84" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -299,12 +301,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00157" summary="ssh">
-      <created>1444428061470</created>
-      <option name="number" value="00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1444428061471</updated>
     </task>
     <task id="LOCAL-00158" summary="ssh">
       <created>1444430706585</created>
@@ -594,7 +590,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444522866132</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="ssh">
+      <created>1444522928036</created>
+      <option name="number" value="00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1444522928036</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -997,10 +999,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49823943">
-          <caret line="171" column="100" selection-start-line="171" selection-start-column="100" selection-end-line="171" selection-end-column="100" />
+        <state vertical-scroll-proportion="0.36619717">
+          <caret line="168" column="84" selection-start-line="168" selection-start-column="84" selection-end-line="168" selection-end-column="84" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
