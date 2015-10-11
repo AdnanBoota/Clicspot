@@ -113,7 +113,7 @@
 <div class="container-img" id="container-img">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-6 text-center">
+            <div class="col-xs-12 col-md-6">
                 @if(isset($campaign->description) AND $campaign->description != '')
                     {!! $campaign->description !!}
                 @else
@@ -236,11 +236,33 @@
 </body>
 <!-- jQuery 2.1.3 -->
 <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
+<script src="{{ asset('/js/jquery.validate.js') }}" type="text/javascript"></script>
 <!-- Bootstrap 3.3.2 JS -->
 <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/background-blur.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        $('form').validate({
+            rules: {},
+            errorClass: "text-red",
+            errorElement: "span",
+            errorPlacement: function (error, element) {
+                if (element.context.name == 'x') {
+                    error.appendTo(element.parents(".col-sm-10:last"));
+                }
+                else {
+                    error.appendTo(element.parents(".col-sm-10:first"));
+                }
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).parents('.form-group').addClass('has-error');
+                $(element).parents('.form-group').removeClass('has-success');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).parents('.form-group').removeClass('has-error');
+                $(element).parents('.form-group').addClass('has-success');
+            }
+        });
         $('#emailLogin').on('click', function () {
             $('#social').hide();
             $('#email').show();
