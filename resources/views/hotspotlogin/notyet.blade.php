@@ -30,11 +30,11 @@
 
         .container-img {
             @if(isset($campaign->backgroundimage))
-                       background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+               background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
             @else
-                           background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                   background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
-                               -webkit-background-size: cover;
+                       -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -165,17 +165,14 @@
                     <form role="form" method="POST" action="{{ url("/email/login") }}" class="form-horizontal">
                         <div class="box-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                            <div class="form-group">
-                                <input type="text" name="fname" class="form-control input-lg"
-                                       style="margin-bottom: 5px;"
-                                       placeholder="First Name" required>
-                                <input type="text" name="lname" class="form-control input-lg"
-                                       placeholder="Last Name"
-                                       required>
-                                <input type="email" name="email" class="form-control input-lg" placeholder="Email"
-                                       required>
-                            </div>
+                            <input type="text" name="fname" class="form-control input-lg col-xs-6"
+                                   style="margin-bottom: 5px;"
+                                   placeholder="First Name" required>
+                            <input type="text" name="lname" class="form-control input-lg col-xs-6"
+                                   placeholder="Last Name"
+                                   required>
+                            <input type="email" name="email" class="form-control input-lg" placeholder="Email"
+                                   required>
                         </div>
                         <div class="box-body">
                             <button class="btn btn-lg btn-flat btn-block btn-success col-xs-12" type="submit">Get
