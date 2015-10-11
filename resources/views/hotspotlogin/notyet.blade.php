@@ -28,13 +28,18 @@
             background: #222222;
         }
 
+        .text-red {
+            border-color: #a94442;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        }
+
         .container-img {
             @if(isset($campaign->backgroundimage))
-                background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+                 background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
             @else
-                    background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                     background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
-                        -webkit-background-size: cover;
+                         -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -249,22 +254,8 @@
         $('form').validate({
             rules: {},
             errorClass: "text-red",
-            errorElement: "span",
             errorPlacement: function (error, element) {
-                if (element.context.name == 'x') {
-                    error.appendTo(element.parents(".col-sm-10:last"));
-                }
-                else {
-                    error.appendTo(element.parents(".col-sm-10:first"));
-                }
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).parents('.form-group').addClass('has-error');
-                $(element).parents('.form-group').removeClass('has-success');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).parents('.form-group').removeClass('has-error');
-                $(element).parents('.form-group').addClass('has-success');
+                return false;  // suppresses error message text
             }
         });
         $('#emailLogin').on('click', function () {
