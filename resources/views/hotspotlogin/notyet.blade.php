@@ -170,7 +170,7 @@
                             <input type="text" name="lname" class="input-lg col-xs-6" placeholder="Last Name" required>
 
                             <div class="form-group">
-                                <input type="email" name="email" class="input-lg col-xs-12" placeholder="Email"
+                                <input type="email" name="email" class="form-control input-lg col-xs-12" placeholder="Email"
                                        required>
                             </div>
                         </div>
