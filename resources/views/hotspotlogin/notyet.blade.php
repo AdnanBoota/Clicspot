@@ -168,9 +168,10 @@
 
                             <div class="form-group col-xs-12" style="margin: 0 auto;">
                                 <input type="text" name="fname" class="form-control input-lg col-xs-6"
-                                       style="margin-bottom: 5px;"
+                                       style="margin-bottom: 5px;width: 50%;"
                                        placeholder="First Name" required>
                                 <input type="text" name="lname" class="form-control input-lg col-xs-6"
+                                       style="margin-bottom: 5px;width: 50%;"
                                        placeholder="Last Name"
                                        required>
                             </div>
