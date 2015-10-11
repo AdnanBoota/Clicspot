@@ -48,8 +48,8 @@
       <file leaf-file-name="notyet.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41197184">
-              <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.27992958">
+              <caret line="169" column="99" selection-start-line="169" selection-start-column="97" selection-end-line="169" selection-end-column="99" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -301,12 +301,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00159" summary="ssh">
-      <created>1444431348054</created>
-      <option name="number" value="00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1444431348054</updated>
     </task>
     <task id="LOCAL-00160" summary="ssh">
       <created>1444431591281</created>
@@ -596,7 +590,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444523406239</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="ssh">
+      <created>1444523899880</created>
+      <option name="number" value="00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1444523899881</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -999,8 +999,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspotlogin/notyet.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41197184">
-          <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.27992958">
+          <caret line="169" column="99" selection-start-line="169" selection-start-column="97" selection-end-line="169" selection-end-column="99" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

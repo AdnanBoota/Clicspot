@@ -167,10 +167,10 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group col-xs-12" style="margin: 0 auto;">
-                                <input type="text" name="fname" class="form-control input-lg"
+                                <input type="text" name="fname" class="form-control input-lg col-xs-6"
                                        style="margin-bottom: 5px;"
                                        placeholder="First Name" required>
-                                <input type="text" name="lname" class="form-control input-lg"
+                                <input type="text" name="lname" class="form-control input-lg col-xs-6"
                                        placeholder="Last Name"
                                        required>
                             </div>
