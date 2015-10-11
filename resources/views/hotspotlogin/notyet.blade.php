@@ -242,27 +242,7 @@
 <script src="{{ asset('/js/background-blur.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('form').validate({
-            rules: {},
-            errorClass: "text-red",
-            errorElement: "span",
-            errorPlacement: function (error, element) {
-                if (element.context.name == 'x') {
-                    error.appendTo(element.parents(".col-sm-10:last"));
-                }
-                else {
-                    error.appendTo(element.parents(".col-sm-10:first"));
-                }
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).parents('.form-group').addClass('has-error');
-                $(element).parents('.form-group').removeClass('has-success');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).parents('.form-group').removeClass('has-error');
-                $(element).parents('.form-group').addClass('has-success');
-            }
-        });
+        $('form').validate();
         $('#emailLogin').on('click', function () {
             $('#social').hide();
             $('#email').show();
