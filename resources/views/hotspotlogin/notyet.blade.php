@@ -30,11 +30,11 @@
 
         .container-img {
             @if(isset($campaign->backgroundimage))
-                   background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+                    background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
             @else
-                       background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                        background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
-                           -webkit-background-size: cover;
+                            -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -166,10 +166,12 @@
                         <div class="box-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            <div class="form-group col-xs-12" style="margin: 0 auto;">
+                            <div class="form-group col-xs-6" style="margin: 0 auto;">
                                 <input type="text" name="fname" class="form-control input-lg col-xs-6"
                                        style="margin-bottom: 5px;width: 50%;"
                                        placeholder="First Name" required>
+                            </div>
+                            <div class="form-group col-xs-6" style="margin: 0 auto;">
                                 <input type="text" name="lname" class="form-control input-lg col-xs-6"
                                        style="margin-bottom: 5px;width: 50%;"
                                        placeholder="Last Name"
