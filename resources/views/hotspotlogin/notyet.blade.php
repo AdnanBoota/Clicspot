@@ -29,7 +29,7 @@
         }
 
         .text-red {
-            border-color: red;
+            border-color: #ff0000 !important;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
         }
 
