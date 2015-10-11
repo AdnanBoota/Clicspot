@@ -29,18 +29,16 @@
         }
 
         .text-red {
-            color: #ff0000 !important;
-            border-color: #ff0000 !important;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+            border: solid 1px red;
         }
 
         .container-img {
             @if(isset($campaign->backgroundimage))
-                   background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+                    background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
             @else
-                       background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                        background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
-                           -webkit-background-size: cover;
+                            -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
