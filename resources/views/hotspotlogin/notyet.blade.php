@@ -172,7 +172,7 @@
                                            style="margin-bottom: 5px;"
                                            placeholder="First Name" required>
                                 </div>
-                                <div class="form-group col-xs-6" style="margin: 0 auto;">
+                                <div class="form-group col-xs-6" style="">
                                     <input type="text" name="lname" class="form-control input-lg"
                                            style="margin-bottom: 5px;"
                                            placeholder="Last Name"
