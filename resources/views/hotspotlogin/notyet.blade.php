@@ -30,11 +30,11 @@
 
         .container-img {
             @if(isset($campaign->backgroundimage))
-                      background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+                       background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
             @else
-                          background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                           background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
-                              -webkit-background-size: cover;
+                               -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -166,24 +166,20 @@
                         <div class="box-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            <div class="row">
-                                <div class="form-group col-xs-6" style="margin: 0 auto;">
-                                    <input type="text" name="fname" class="form-control input-lg"
-                                           style="margin-bottom: 5px;"
-                                           placeholder="First Name" required>
-                                </div>
-                                <div class="form-group col-xs-6" style="">
-                                    <input type="text" name="lname" class="form-control input-lg"
-                                           style="margin-bottom: 5px;"
-                                           placeholder="Last Name"
-                                           required>
-                                </div>
+                            <div class="form-group col-xs-6" style="margin: 0 auto;">
+                                <input type="text" name="fname" class="form-control input-lg"
+                                       style="margin-bottom: 5px;"
+                                       placeholder="First Name" required>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-xs-12" style="margin: 0 auto;">
-                                    <input type="email" name="email" class="form-control input-lg" placeholder="Email"
-                                           required>
-                                </div>
+                            <div class="form-group col-xs-6" style="">
+                                <input type="text" name="lname" class="form-control input-lg"
+                                       style="margin-bottom: 5px;"
+                                       placeholder="Last Name"
+                                       required>
+                            </div>
+                            <div class="form-group col-xs-12" style="margin: 0 auto;">
+                                <input type="email" name="email" class="form-control input-lg" placeholder="Email"
+                                       required>
                             </div>
                         </div>
                         <div class="box-body">
