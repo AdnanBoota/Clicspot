@@ -28,13 +28,13 @@
     </div>
 </div>
 
-<div class="form-group">
+<!--<div class="form-group">
     {!! Form::label('map_canvas', 'Map', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         <div id="map_canvas" class="mapping"
              style="width:100%;max-width: 350px; height: 350px"></div>
     </div>
-</div>
+</div>-->
 
 <div class="form-group">
     {!! Form::label('latitude', 'Latitude', array('class' => 'col-sm-2 control-label')) !!}
