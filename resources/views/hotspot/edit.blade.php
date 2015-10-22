@@ -54,7 +54,7 @@
 </section><!-- /.content -->
 @endsection
 @push('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places"></script>-->
 <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.extensions.js') }}" type="text/javascript"></script>
@@ -91,7 +91,7 @@
 
         });
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
+    //google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <script type="text/javascript">
     jQuery(document).ready(function () {
