@@ -1,6 +1,7 @@
 
 @push('styles')
-<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+<!--<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />-->
+<link href="{{ asset('/css/pt-sans-narrow.css') }}" rel='stylesheet' />
 <link href="{{ asset('/plugins/mini-upload-form/assets/css/style.css') }}" rel="stylesheet" />
 @endpush
  <div class="modal fade" id="gallaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
