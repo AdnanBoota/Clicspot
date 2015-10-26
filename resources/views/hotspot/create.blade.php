@@ -36,7 +36,7 @@
                 <!-- form start -->
                 {!! Form::open(array("class"=>"form-horizontal","url"=> url('hotspot'))) !!}
                 <div class="box-body">
-                    @include('hotspot._form')   
+                    @include('hotspot._form')
                 </div>
                 <div class="box-footer">
                     <!--<button type="submit" class="btn btn-default">Cancel</button>-->

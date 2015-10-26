@@ -36,7 +36,7 @@
     </div>
 </div>-->
 
-<div class="form-group">
+<!--<div class="form-group">
     {!! Form::label('latitude', 'Latitude', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!!  Form::text('latitude', null, array('id'=>'latitude','class'=>'form-control','required'=>'true')) !!}
@@ -48,7 +48,7 @@
     <div class="col-sm-10">
         {!!  Form::text('longitude', null, array('id'=>'longitude','class'=>'form-control','required'=>'true')) !!}
     </div>
-</div>
+</div>-->
 <div class="box box-info no-border">
     <div class="box-header with-border">
         <h3 class="box-title">Social</h3>

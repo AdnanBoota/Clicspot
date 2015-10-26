@@ -112,9 +112,7 @@ class HotspotController extends Controller
             [
                 'shortname' => 'required',
                 'nasidentifier' => $nasRule,
-                'address' => 'required',
-                'latitude' => 'required',
-                'longitude' => 'required']
+                'address' => 'required']
         );
         $hotspot = new Hotspot($input);
         Auth::user()->hotspots()->save($hotspot);
@@ -191,9 +189,7 @@ class HotspotController extends Controller
             [
                 'shortname' => 'required',
                 'nasidentifier' => $nasRule,
-                'address' => 'required',
-                'latitude' => 'required',
-                'longitude' => 'required']
+                'address' => 'required']
         );
         if (Auth::user()->type == 'superadmin') {
             $hotspot = Hotspot::findOrFail($id);
