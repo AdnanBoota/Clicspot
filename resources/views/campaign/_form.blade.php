@@ -58,7 +58,7 @@
     }
 
     #preview .container-img {
-        @if(isset($campaign->backgroundimage))
+        @if(isset($campaign->backgroundimage) AND $campaign->backgroundimage != '')
                       background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
         @else
                       background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
@@ -576,7 +576,7 @@
                                             <a href="javascript:void(0);" class="active">right</a>
                                         </div>
                                         <p>Zoom Background Image</p>
-                                        {!!  Form::text('backgroundzoom', "", array('data-from'=>isset($campaign->backgroundzoom) ? $campaign->backgroundzoom : '100','id'=>'backgroundzoom','class'=>'form-control','required'=>'true')) !!}
+                                        {!!  Form::text('backgroundzoom', null, array('data-from'=>isset($campaign->backgroundzoom) ? $campaign->backgroundzoom : '100','id'=>'backgroundzoom','class'=>'form-control','required'=>'true')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -589,7 +589,7 @@
 
                                             <div class="navbar-header headerlogodrop">
                                                 <a class="navbar-brand" href="javascript:void(0)">
-                                                    @if(isset($campaign->logoimage))
+                                                    @if(isset($campaign->logoimage) AND $campaign->logoimage != '')
                                                         <img src="/uploads/campaign/{!! $campaign->logoimage !!}"
                                                              alt="logo"
                                                              style="margin-top:-2px;margin-left: 28px;max-height: 40px;max-width: 120px;"/>

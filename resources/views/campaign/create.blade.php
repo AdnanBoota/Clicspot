@@ -95,6 +95,8 @@
         });
         
         $('.imgbtnlogo a:first').trigger('click');
+        $("#backgroundzoom").val('100');
+        $('#fontcolor').val('#222222');
     });
 
 </script>
