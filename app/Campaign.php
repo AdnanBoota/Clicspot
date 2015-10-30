@@ -30,4 +30,9 @@ class Campaign extends Model
     {
         return self::where('name','=','Default');
     }
+    
+    public function hotspot()
+    {
+        return $this->hasMany('App\Hotspot','campaignid');
+    }
 }

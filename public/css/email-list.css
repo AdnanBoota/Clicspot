@@ -1,0 +1,152 @@
+ul{
+    padding: 0 !important;
+}
+.statistics i{
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 20px;
+}
+.statistics span{
+    font-size: 20px;
+    color: #34495e;
+    font-weight: bold;
+    font-family: lato;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.content-wrapper .p30{
+    padding: 30px;
+}
+.box-widget .info-box h2{
+    float: left;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: lato;
+    padding-left: 10px;
+    margin-top: 30px;
+}
+.box-widget .info-box .user-icon{
+    height: auto;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 30px;
+}
+.box .info-box h2{
+    right: 70px;
+    position: absolute;
+}
+.bgteal{
+    background-color: #1abc9c !important;
+}
+.mailinfo .info-box{
+    min-height: 195px;
+}
+.mailinfo .info-box-icon{
+    height: 195px;
+    width: 195px;
+    line-height: 175px;
+}
+.info-box .mail-detail{
+    padding: 30px 0 0 20px;
+    display: inline-block;
+}
+.info-box .mail-detail h3{
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+    font-family: lato;
+    display: inline;
+}
+.info-box .mail-detail span{
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+.info-box .mail-detail .mail-icon{
+    height: auto;
+    margin-left: 20px;
+    position: absolute;
+    top: 30px;
+    width: 40px;
+}
+.mailinfo .progress{
+    top: 30px;
+    position: relative;
+}
+.mailinfo .remain-title{
+    display: inline-block;
+    padding-left: 20px;
+    padding-top: 55px;
+}
+.mailinfo .remain-title p{
+    color: #fff;
+    font-size: 14px;
+}
+.mailinfo .remain-title p span{
+    font-size: 20px;
+    padding-right: 10px;
+}
+.manage-list{
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+.manage-list ul{
+    width: 100%;
+    list-style: none;
+    text-align: center;
+}
+.manage-list ul li{
+    display: inline-block;
+    position: relative;
+    width: 12%;
+    background: #95a0aa;
+    border-radius: 10px;
+    margin:0 10px;
+    height: auto;
+}
+.manage-list ul li:hover{
+    background: #1abc9c;
+}
+.manage-list ul li a{
+    display: block;
+    justify-content: space-around;
+}
+.manage-list ul li a .slist{
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 75px;
+}
+.manage-list ul li a .slist img{
+    width: 25%;
+    padding: 30px 0px 10px 0;
+}
+.manage-list ul li a .list-title{
+    display: block;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+.user-icon-black{
+    height: auto;
+    left: 8px;
+    margin-left: 20px;
+    position: relative;
+    top: 6px;
+    vertical-align: top;
+    width: 22px;
+}
+.box .info-box-icon i{
+    font-size: 35px;
+}
+.box .info-box-icon img{
+    width: 35%;
+    height: auto;
+}
+.statistics-box .box{
+    margin-bottom:  0 !important ;
+}
+.user-list {margin-top: 5px !important; margin-bottom: 5px !important;};

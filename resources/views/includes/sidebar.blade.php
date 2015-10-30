@@ -26,6 +26,16 @@
                     <i class="fa fa fa-files-o"></i> <span>Campaign</span>
                 </a>
             </li>
+            <li class="{{Request::path() == 'users' ? 'active' : ''}}">
+                <a href="{{url("users")}}">
+                    <i class="fa fa fa-files-o"></i> <span>Users</span>
+                </a>
+            </li>
+            <li class="{{Request::path() == 'emails' ? 'active' : ''}}">
+                <a href="{{url("emails")}}">
+                    <i class="fa fa fa-files-o"></i> <span>Emails</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
