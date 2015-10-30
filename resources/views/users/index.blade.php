@@ -146,7 +146,7 @@
         </div>
     </div>
 </section>
-<section>
+<!--<section>
     <div class="row">
         <div class="statistics user-list">
             <img src="img/user-icon-black.png" alt="" class="user-icon-black"></i><span>User Lists</span>
@@ -154,7 +154,7 @@
         </div>
     </div>
      <div class="box box-widget">
-            <!-- /.box-header -->
+             /.box-header 
             <div class="box-body">
 
                 <table class="table table-bordered table-striped dt-responsive" id="user-table" width="100%">
@@ -173,9 +173,9 @@
                     </tbody>
                 </table>
             </div>
-            <!-- /.box-body -->
+             /.box-body 
         </div>
-</section>
+</section>-->
 <!-- Main content -->
 
 @endsection
