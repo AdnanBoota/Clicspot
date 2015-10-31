@@ -28,18 +28,16 @@
                     <div class="col-md-6">
                         <div class="info-box bg-aqua">
                             <span class="info-box-icon"><i class="fa fa-facebook"></i></span>
+                            <img src="img/user-icon.png" alt="" class="user-icon">
                             <h2>{{$facebookCount}}</h2>
-                            <div class="">
-                                <img src="img/user-icon.png" alt="" class="user-icon">
-                            </div>
                         </div>
                         <!-- /.info-box -->
                     </div>
                     <div class="col-md-6">
                         <div class="info-box bg-red">
                             <span class="info-box-icon"><i class="fa  fa-google-plus"></i></span>
-                            <h2>{{$googleCount}}</h2>
                             <img src="img/user-icon.png" alt="" class="user-icon">
+                            <h2>{{$googleCount}}</h2>
                         </div>
                         <!-- /.info-box -->
                     </div>
@@ -49,8 +47,9 @@
                     <div class="col-md-6">
                         <div class="info-box bg-yellow">
                             <span class="info-box-icon"><i class="fa  fa-envelope"></i></span>
-                            <h2>{{$emailCount}}</h2>
                             <img src="img/user-icon.png" alt="" class="user-icon">
+                            <h2>{{$emailCount}}</h2>
+                            
                         </div>
                         <!-- /.info-box -->
                     </div>
@@ -59,8 +58,8 @@
                             <span class="info-box-icon">
                                 <img src="img/voicemail-icon.png" alt="">
                             </span>
-                            <h2>10</h2>
                             <img src="img/speech.png" alt="" class="user-icon">
+                            <h2>10</h2>
                         </div>
                         <!-- /.info-box -->
                     </div>
@@ -71,16 +70,18 @@
                     <span class="info-box-icon">
                         <img src="img/pin.png" alt="">
                     </span>
-                    <div class="mail-detail">
-                        <h3>1327</h3>
-                        <span>/ 1500</span>
-                        <img src="img/mail-icon.png" alt="" class="mail-icon">
-                    </div>
-                    <div class="progress">
-                        <div style="width: 70%" class="progress-bar"></div>
-                    </div>
-                    <div class="remain-title">
-                        <p><span>10</span>Days Remaining</p>
+                   <div class="mail-info">
+                        <div class="mail-detail">
+                            <h3>1327</h3>
+                            <span>/ 1500</span>
+                            <img src="img/mail-icon.png" alt="" class="mail-icon">
+                        </div>
+                        <div class="progress">
+                            <div style="width: 70%" class="progress-bar"></div>
+                        </div>
+                        <div class="remain-title">
+                            <p><span>10</span>Days Remaining</p>
+                        </div>
                     </div>
                 </div>
                 <!-- /.info-box -->

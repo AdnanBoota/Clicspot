@@ -17,24 +17,28 @@ ul{
 .content-wrapper .p30{
     padding: 30px;
 }
+
 .box-widget .info-box h2{
     float: left;
     font-size: 35px;
     font-weight: bold;
     font-family: lato;
-    padding-left: 10px;
     margin-top: 30px;
 }
 .box-widget .info-box .user-icon{
     height: auto;
+    padding-top: 8px;
     position: absolute;
-    top: 20px;
-    right: 30px;
+    right: 22px;
     width: 30px;
 }
 .box .info-box h2{
-    right: 70px;
-    position: absolute;
+   float: none;
+    margin-right: 43px;
+    padding-top: 25px;
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
 }
 .bgteal{
     background-color: #1abc9c !important;
@@ -49,6 +53,15 @@ ul{
 }
 .info-box .mail-detail{
     padding: 30px 0 0 20px;
+    display: inline-block;
+}
+.info-box .mail-info{
+     width: 100%;
+    display: block;
+    position: relative;
+}
+.mailinfo .mail-info{
+    width: 65%;
     display: inline-block;
 }
 .info-box .mail-detail h3{
@@ -66,9 +79,16 @@ ul{
 .info-box .mail-detail .mail-icon{
     height: auto;
     margin-left: 20px;
-    position: absolute;
-    top: 30px;
+    position: relative;
+    top: -11px;
     width: 40px;
+}
+.mailinfo .info-box-icon{
+    width: 35%;
+    display: inline-block;
+}
+.mailinfo .info-box .progress{
+    margin: 0;
 }
 .mailinfo .progress{
     top: 30px;
@@ -117,7 +137,7 @@ ul{
     display: block;
     text-align: center;
     width: 100%;
-    height: 75px;
+    height: 95px;
 }
 .manage-list ul li a .slist img{
     width: 25%;
@@ -149,4 +169,38 @@ ul{
 .statistics-box .box{
     margin-bottom:  0 !important ;
 }
-.user-list {margin-top: 5px !important; margin-bottom: 5px !important;};
+.user-list {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+ @media screen and (max-width: 1300px) {
+    .manage-list ul li a .slist{
+    
+    height: 75px;
+}
+}
+ @media screen and (max-width: 980px) {
+    .manage-list ul li{
+        width: 19%;
+    }
+}
+ @media screen and (max-width: 767px) {
+    .manage-list ul li{
+        width: 19%;
+    }
+}
+@media screen and (max-width: 479px) {
+    .manage-list ul li{
+        width: 30%;
+        margin-bottom: 20px;
+    }
+    
+}
+@media screen and (max-width: 406px){
+     .mailinfo .info-box-icon{
+         width: 100%;
+     }
+    .mailinfo .mail-info{
+        width: 100%;
+    }
+}
