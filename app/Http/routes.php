@@ -46,6 +46,7 @@ Route::get('hotspot/datatable','HotspotController@datatable');
 Route::get('emails','EmailsController@getEmail');
 Route::post('emails','EmailsController@postEmail');
 Route::resource('users', 'UsersController');
+Route::resource('emailList', 'EmailListController');
 Route::resource('hotspot', 'HotspotController');
 Route::get('gallery', 'CampaignController@gallery');
 Route::get('gallery/create', 'CampaignController@addgallery');

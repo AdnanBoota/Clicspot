@@ -1,0 +1,498 @@
+h1,h2,h3,h4,h5,h6,a,p,ul,li{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a,a:hover{
+    text-decoration: none;
+}
+section:first-child{
+    border: none;
+}
+section{
+    border-top:1px solid #d4d9dc; 
+}
+.creatpart ,.profilepart ,.filterpart{
+    background: #fff;
+}
+.titleblock{
+    display: inline-block;
+    width: 100%;
+    background: #ecf0f1;
+    padding: 10px 15px;
+}
+.titleblock h1{
+    color: #34495e;
+    font-weight: bold;
+    margin: 0;
+    font-size: 24px;
+}
+.titleblock i{
+    color: #34495e;
+    float: left;
+    font-size: 20px;
+    margin: 5px 10px 0 0;
+}
+.multitab{
+    padding: 40px 0;
+}
+ul.tabpart {
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: auto;
+}
+.tabpart li {
+    display: table-cell;
+    width: 150px;
+}
+.tabpart li a{
+    background: #34495e;
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    padding: 20px 0;
+}
+.tabpart li a i{
+    margin-right: 10px;
+}
+.tabpart li.active a ,.tabpart li a:hover{
+  background-color:#1abc9c;
+  box-shadow: inset 0px -4px 0px 0px rgba(17, 168, 171, 0.6);
+}
+
+.profilepart{
+    
+}
+.filterpart{
+
+}
+.filterpart .titleblock {
+    padding-left: 43px;
+}
+.filterform{
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.fliterrow {
+    margin: 30px 0 0;
+}
+.frmlabel{
+    
+}
+.lblfirst{
+    font-size: 22px;
+    color: #34495e;
+    width: 60px;
+    float: left;
+    text-align: center;
+}
+.fliterrow label{
+    font-size: 22px;
+    font-weight: bold;
+    color: #34495e;
+}
+.fliterrow .infowindow {
+    display: inline-block;
+    margin-left: 10px;
+}
+.fliterrow .infowindow i{
+    color: #1abc9c;
+    font-size: 18px;
+}
+.fliterrow .editb input[type="text"]{
+    position: relative;
+    width: 220px;
+    border-style: solid;
+    border-width: 2px;
+    border-color:#1abc9c;
+    background: #fff;
+    border-radius: 5px;
+    height: 41px;
+    padding: 7px 10px 7px 50px;
+}
+.editb {
+    position: relative;s
+}
+.editb i {
+    background: #1abc9c none repeat scroll 0 0;
+    border-radius: 5px 0 0 5px;
+    color: #fff;
+    content: "";
+    display: block;
+    font-size: 20px;
+    padding: 10px 0;
+    position: absolute;
+    text-align: center;
+    width: 44px;
+    z-index: 1;
+}
+.pingicon {
+    transform: rotate(-30deg);
+}
+.socialicon{
+    
+}
+input[type=checkbox].css-checkbox {
+    position:absolute;
+    z-index:-1000;
+    left:-1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height:1px;
+    width:1px;
+    margin:-1px;
+    padding:0;
+    border:0;
+}
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left:25px;
+    height:41px; 
+    display:inline-block;
+    line-height:20px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:20px;
+    vertical-align:middle;
+    cursor:pointer;
+    width: 220px;
+}
+.fbimg input[type=checkbox].css-checkbox:checked + label.css-label ,.gplusimg input[type=checkbox].css-checkbox:checked + label.css-label ,.emailimg input[type=checkbox].css-checkbox:checked + label.css-label ,.maleimg input[type=checkbox].css-checkbox:checked + label.css-label ,.femaleimg input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -41px;
+}
+label.css-label {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.fbimg label.css-label{
+    background-image: url('../img/fbimg.png');
+}
+.gplusimg label.css-label{
+    background-image: url('../img/gplusimg.png');
+}
+.emailimg label.css-label{
+    background-image: url('../img/emailimg.png');
+}
+.maleimg label.css-label{
+    background-image: url('../img/maleimg.png');
+}
+.femaleimg label.css-label{
+    background-image: url('../img/femaleimg.png');
+}
+.maincheck{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+.fliterrow input[type="text"]{
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    padding: 7px 10px;
+    height: 41px;
+    width: 100%;
+}
+.fliterrow input[type="text"]:hover, .fliterrow input[type="text"]:focus ,.fliterrow input[type="date"]:hover, .fliterrow input[type="date"]:focus{
+    border: 2px solid #1abc9c;
+    color: #2c3e50;
+}
+.selectbox{
+    position: relative;
+}
+.selectbox i{
+    font-size: 18px;
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    color: #fff;
+}
+.fliterrow .selectbox select{
+    background: #bdc3c7;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    padding: 9px 10px;
+    appearance:none;
+-moz-appearance:none; /* Firefox */
+-webkit-appearance:none; /* Safari and Chrome */
+}
+.fliterrow .selectbox select:hover ,.fliterrow .selectbox select:focus{
+    background: #1abc9c;
+}
+
+.dateblock{
+    position: relative;
+}
+.dateblock i{
+    left: 13px;
+    position: absolute;
+    top: 13px;
+    color: #bdc3c7;
+    font-size: 16px;
+}
+
+.dateblock input[type="date"] ,.dateblock input[type="text"]{
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    width: 100%;
+    height: 41px;
+    padding: 0 10px 0 40px;
+}
+.reviewblock{
+    
+}
+.reviewblock a{
+    display: inline-block;
+    margin-right: 5px;
+}
+.reviewblock a i{
+    background: url('../img/star.png') no-repeat;
+    display: block;
+    height: 34px;
+    width: 34px;
+}
+.reviewblock a.active i ,.reviewblock a:hover i{
+    background: url('../img/star_active.png') no-repeat;
+}
+.editbottombtn {
+    margin-top: 70px;
+    text-align: center;
+}
+.editbottombtn a ,.editbottombtn button {
+    background: #1abc9c;
+    display: inline-block;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0 5px;
+    padding: 10px;
+    width: 190px;
+    border: none;
+}
+.bottomdecore {
+    margin-top: 60px;
+}
+.bottomdecore ul{
+    text-align: center
+}
+.bottomdecore ul li{
+    display: inline-block;
+}
+.routericon{}
+.routericon img{
+    width: 32px;
+    height: auto;
+}
+
+.selectbox button {
+    background: #bdc3c7 !important;
+    border: medium none;
+    box-shadow: none !important;
+    width: 100% !important;
+    color: #fff;
+    text-align: left;
+    height: 41px;
+    font-size: 16px;
+    position: relative;
+}
+.selectbox .btn-default:hover, .selectbox .btn-default:active, .selectbox .btn-default.hover{
+    background: #1abc9c !important;
+    color: #fff;
+}
+.btn-group, .btn-group-vertical{
+    width: 100%;
+}
+.selectbox .multiselect-selected-text {
+
+}
+.selectbox .caret {
+    border-width: 6px;
+    position: absolute;
+    right: 12px;
+    top: 15px;
+}
+.selectbox .checkbox {
+    font-size: 15px;
+}
+.selectbox .dropdown-menu > li > a:focus, .selectbox .dropdown-menu > li > a:hover ,.selectbox .dropdown-menu > .active > a, .selectbox .dropdown-menu > .active > a:focus, .selectbox .dropdown-menu > .active > a:hover{
+    background: #1abc9c;
+}
+.selectbox .dropdown-menu > .active > a:focus label{
+    color: #fff;
+}
+.selectbox .dropdown-menu > li > a:hover label{
+    color: #fff;
+}
+.btn-default.active, .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover, .open > .dropdown-toggle.btn-default{
+    color: #fff !important;
+    background: #1abc9c !important;
+}
+.selectbox .multiselect-container{
+    border: 2px solid #1abc9c !important;
+    height: 170px;
+    overflow: auto;
+    width: 100%;
+}
+
+.info-box h2 {
+    float: none;
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
+    width: auto;
+}
+.info-box .user-icon {
+    height: auto;
+    padding-top: 8px;
+    position: absolute;
+    right: 22px;
+    width: 30px;
+}
+.profilefound {
+    margin: 0 auto;
+    padding: 40px 0;
+    width: 85%;
+}
+.agecl {
+    padding-top: 15px;
+    float: left;
+}
+.editbtn{
+    width: 220px;
+    max-width: 100%;
+}
+.editbtn button{
+    width: 100%;
+    height: 41px;
+    background: #bec3c7;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.hover ,.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary{
+    background: #1bbc9b;
+}
+.editbtn button span{
+    float: left;
+}
+.editbtn button .caret{
+    float: right;
+    border-width: 6px 6px 0;
+    margin-top: 10px;
+}
+
+.editbtn .dropdown-menu{
+    width: 100%;
+    border: 2px solid #1bbc9b;
+}
+.editbtn .dropdown-menu li span{
+    float: left;
+    color: #69737f;
+    font-weight: bold;
+}
+.editbtn .dropdown-menu > li {
+    padding: 5px 10px;
+    overflow: auto;
+}
+.editbtn .dropdown-menu li a {
+    clear: none;
+    display: inline-block;
+    float: right;
+    padding: 0;
+    color: #fff;
+}
+.editbtn .dropdown-menu li:hover ,.editbtn .dropdown-menu li.active{
+    background: #1bbc9b;
+}
+.editbtn .dropdown-menu li:hover span ,.editbtn .dropdown-menu li.active span{
+    color: #fff;
+}
+.editbtn .dropdown-menu li a:hover{
+    background: none;
+}
+.dropdown-menu a img {
+    height: auto;
+    width: 14px;
+}
+.selectbox .multiselect-container > li > a > label {
+    padding-left: 25px;
+}
+
+
+@media screen and (max-width:1440px){
+    input.css-checkbox[type="checkbox"] + label.css-label{width: 188px;height: 35px;}
+    .fbimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .gplusimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .emailimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .maleimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .femaleimg input.css-checkbox[type="checkbox"]:checked + label.css-label{background-position: 0 -35px;}
+    label.css-label{background-size:100% auto;}
+}
+
+@media screen and (max-width:1280px){
+    .filterform{width: 96%;padding-top: 20px;}
+    .lblfirst{width: 50px;font-size: 19px;}
+    .fliterrow .infowindow{margin-left: 5px;}
+    .fliterrow label{font-size: 19px;}
+    .fliterrow .infowindow i{font-size: 16px;}
+    .tabpart li a{padding: 13px 0;font-size: 16px;}
+    input.css-checkbox[type="checkbox"] + label.css-label{width: 172px;height: 32px;}
+    
+    .fbimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .gplusimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .emailimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .maleimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .femaleimg input.css-checkbox[type="checkbox"]:checked + label.css-label{background-position: 0 -32px;}
+    .maincheck{margin-right: 5px;}
+    .fliterrow input[type="text"] ,.dateblock input[type="date"], .dateblock input[type="text"] ,.fliterrow .editb input[type="text"]{height: 35px;}
+    .dateblock i{font-size: 15px;left: 10px;top: 11px;}
+    .dateblock input[type="date"], .dateblock input[type="text"]{padding: 0 10px 0 30px;} 
+    .fliterrow .selectbox select{padding: 7px 10px;}
+    .selectbox button{height: 35px;}
+    .reviewblock a i ,.reviewblock a.active i, .reviewblock a:hover i{background-size: 30px auto;}
+    .reviewblock a{margin: 0;}
+    .editbottombtn a ,.editbottombtn button{font-size: 18px;padding: 7px 0;width: 180px;}
+    .editb i{font-size: 16px;padding: 9px 0;width: 40px;}
+    .fliterrow .editb input[type="text"]{padding: 7px 10px 7px 45px;width: 190px;}
+    .bottomdecore img {height: auto;width: 20px;}
+    .editbtn{width: 190px;}
+    .editbtn button{height: 35px;}
+}
+@media screen and (max-width:1199px){
+    .lblfirst{width: 35px;}
+    .visiticon > img {height: auto;width: 22px;}
+    .routericon img {width: 25px;}
+    .fliterrow label{font-size: 18px;}
+}
+@media screen and (max-width:991px){
+    .fliterrow input[type="text"]{margin-bottom: 10px;}
+    .selectbox ,.dateblock{margin-bottom: 10px;}
+    .tabpart li{width: 130px;}
+    .editbottombtn a ,.editbottombtn button{width: 160px;font-size: 18px;}
+    .frmlabel {margin-bottom: 15px;}
+    .fliterrow {margin: 15px 0 0;}
+    .editbottombtn{margin-top: 40px;}
+    .bottomdecore{margin-top: 30px;}
+    .titleblock i{font-size: 15px;}
+    .titleblock h1{font-size: 20px;}
+    .ageslider{margin-bottom: 10px;}
+    .dropdown-menu a img{width: 12px;}
+    .editbtn{width: 100%;}
+    .fliterrow .editb input[type="text"]{width: 100%;}
+}
+@media screen and (max-width:550px){
+    .editbottombtn a  ,.editbottombtn button{font-size: 16px;width: 140px;margin: 0 2px;}
+}
+@media screen and (max-width:480px){
+    .tabpart li a i {margin-right: 5px;}
+    .tabpart li {width: 100px;}
+}
+@media screen and (max-width:460px){
+    .editbottombtn a ,.editbottombtn button{width: 70%;margin:0 0 10px;}
+}
+
+

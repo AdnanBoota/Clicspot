@@ -173,6 +173,33 @@ ul{
     margin-top: 5px !important;
     margin-bottom: 5px !important;
 }
+.selectlistblock{
+    border: 2px solid #1abc9c;
+    background: #fff;
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    top: 105px;
+    width: 100%;
+    z-index: 10;
+}
+.selectlistblock a{
+    display: block;
+    padding: 5px;
+    font-size: 15px;
+    text-align: left;
+    color: #95a0aa;
+    line-height: 18px;
+}
+.selectlistblock a:hover{
+    background: #1abc9c;
+    color: #fff;
+}
+.manage-list ul li:hover .selectlistblock{
+    display: block;
+}
+
+
  @media screen and (max-width: 1300px) {
     .manage-list ul li a .slist{
     

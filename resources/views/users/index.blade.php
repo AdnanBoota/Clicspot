@@ -14,6 +14,11 @@
         <li class="active">Users</li>
     </ol>
 </section>-->
+<div class="row">
+    <div class="col-xs-12">
+        @include('errors.flash')
+    </div>
+</div>
 <section class="statistics-box">
     <div class="row">
         <div class="statistics">
@@ -49,7 +54,7 @@
                             <span class="info-box-icon"><i class="fa  fa-envelope"></i></span>
                             <img src="img/user-icon.png" alt="" class="user-icon">
                             <h2>{{$emailCount}}</h2>
-                            
+
                         </div>
                         <!-- /.info-box -->
                     </div>
@@ -70,7 +75,7 @@
                     <span class="info-box-icon">
                         <img src="img/pin.png" alt="">
                     </span>
-                   <div class="mail-info">
+                    <div class="mail-info">
                         <div class="mail-detail">
                             <h3>1327</h3>
                             <span>/ 1500</span>
@@ -102,7 +107,7 @@
             <div class="manage-list">
                 <ul>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <div class="slist">
                                 <img src="img/select-list.png" alt="">
                             </div>
@@ -110,9 +115,16 @@
                                 <span>Select List</span>
                             </div>
                         </a>
+                        @if (count($emailList) > 0)
+                        <div class="selectlistblock">
+                               @foreach ($emailList as $list)
+                               <a href="{{url('emailList/'.$list->id.'/edit')}}">{{ $list->listname }}</a>
+                              @endforeach
+                        </div>
+                        @endif
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{url('emailList/create')}}">
                             <div class="slist">
                                 <img src="img/create-list.png" alt="">
                             </div>
@@ -130,6 +142,13 @@
                                 <span>Edit List</span>
                             </div>
                         </a>
+                        @if (count($emailList) > 0)
+                        <div class="selectlistblock">
+                               @foreach ($emailList as $list)
+                               <a href="{{url('emailList/'.$list->id.'/edit')}}">{{ $list->listname }}</a>
+                              @endforeach
+                        </div>
+                        @endif
                     </li>
                     <li>
                         <a href="">
@@ -140,6 +159,11 @@
                                 <span>Export List</span>
                             </div>
                         </a>
+                         <div class="selectlistblock">
+                             <a href="javascript:void(0);">Download CSV</a>
+                             <a href="javascript:void(0);">Download XLS</a>
+                             <a href="javascript:void(0);">Download TXT</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -147,36 +171,36 @@
         </div>
     </div>
 </section>
-<!--<section>
+<section>
     <div class="row">
         <div class="statistics user-list">
             <img src="img/user-icon-black.png" alt="" class="user-icon-black"></i><span>User Lists</span>
 
         </div>
     </div>
-     <div class="box box-widget">
-             /.box-header 
-            <div class="box-body">
+    <div class="box box-widget">
+        <!--             /.box-header -->
+        <div class="box-body">
 
-                <table class="table table-bordered table-striped dt-responsive" id="user-table" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Favored Connection</th>
-                            <th>Visitor</th>
-                            <th>Amount of Visits</th>
-                            <th>Last Visit</th>
-                            <th>Campaign</th>
-                            <th>Review Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <table class="table table-bordered table-striped dt-responsive" id="user-table" width="100%">
+                <thead>
+                    <tr>
+                        <th>Favored Connection</th>
+                        <th>Visitor</th>
+                        <th>Amount of Visits</th>
+                        <th>Last Visit</th>
+                        <th>Campaign</th>
+                        <th>Review Status</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                    </tbody>
-                </table>
-            </div>
-             /.box-body 
+                </tbody>
+            </table>
         </div>
-</section>-->
+        <!--/.box-body--> 
+    </div>
+</section>
 <!-- Main content -->
 
 @endsection
@@ -189,20 +213,20 @@
 <script>
 
 $(function () {
-//    oTable = $('#user-table').DataTable({
-//        processing: true,
-//        serverSide: true,
-//        responsive: true,
-//        ajax: 'users',
-//        columns: [
-//            {data: 'name', name: 'name'},
-//            {data: 'backgroundimage', name: 'backgroundimage', orderable: false, searchable: false},
-//            {data: 'logoimage', name: 'logoimage', orderable: false, searchable: false},
-//            {data: 'fontcolor', name: 'fontcolor', orderable: false, searchable: false},
-//            {data: 'edit', name: 'edit', orderable: false, searchable: false},
-//            {data: 'delete', name: 'delete', orderable: false, searchable: false}
-//        ]
-//    });
+    oTable = $('#user-table').DataTable({
+        processing: true,
+        serverSide: true,
+        responsive: true,
+        ajax: 'users',
+        columns: [
+            {data: 'favoredconnection', name: 'favoredconnection'},
+            {data: 'visitor', name: 'visitor', orderable: false, searchable: false},
+            {data: 'amountofvisit', name: 'amountofvisit', orderable: false, searchable: false},
+            {data: 'lastvisit', name: 'lastvisit', orderable: false, searchable: false},
+            {data: 'campaign', name: 'campaign', orderable: false, searchable: false},
+            {data: 'review', name: 'review', orderable: false, searchable: false}
+        ]
+    });
 
 
 
