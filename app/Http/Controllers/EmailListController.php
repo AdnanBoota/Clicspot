@@ -15,6 +15,11 @@ use App\User;
 
 class EmailListController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        View::share('projectTitle', 'ClicSpot');
+    }
 
     public function index()
     {
