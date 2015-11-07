@@ -1,5 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
 
+namespace App\Http\Controllers;
 
 use App\Users;
 use Auth;
@@ -10,17 +11,18 @@ use Input;
 use Response;
 use Session;
 use yajra\Datatables\Datatables;
+use App\Radacct;
+use Illuminate\Support\Facades\DB;
+use App\EmailList;
 
-class UsersController extends Controller
-{
+class UsersController extends Controller {
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
         View::share('projectTitle', 'ClicSpot');
     }
@@ -30,54 +32,138 @@ class UsersController extends Controller
      *
      * @return Response
      */
-    public function index(Request $request)
-    {
-//        $categories = Category::select(DB::raw('categories.*, count(*) as `aggregate`'))
-//        ->join('pictures', 'categories.id', '=', 'pictures.category_id')
-//        ->groupBy('category_id')
-//        ->orderBy('aggregate', 'desc')
-//        ->paginate(10);
-//        $users = Auth::user()->campaigns()->with('hotspot')->get();
-//        return $users;
+    public function index(Request $request) {
+
         if ($request->ajax()) {
-            if (Auth::user()->type == 'superadmin') {
-                $users = Users::all();
-                
-            } else {
-                $users = Users::all();
-                
-                //$users = Auth::user()->campaigns()->select(['id', 'name', 'backgroundimage', 'logoimage', 'fontcolor']);
-                
-            }
+            $listVal = $request->input('listVal');
+            $users = $this->getStatistics($listVal,'datatable');
             return Datatables::of($users)
-                ->addColumn('favoredconnection', function ($users) {
-                    return $users->type;
-                })
-                ->addColumn('visitor', function ($users) {
-                    return $users->name;
-                })
-                ->addColumn('amountofvisit', function ($users) {
-                    return rand(0, 99);
-                })
-                ->addColumn('lastvisit', function ($users) {
-                    return "Nov 2";
-                })
-                ->addColumn('campaign', function ($users) {
-                    return "Campaign Here";
-                })
-                ->addColumn('review', function ($users) {
-                    return "Review Here";
-                })
-                ->make(true);
+                            ->editColumn('favoredconnection', function ($users) {
+                                if ($users->favoredconnection == '2')
+                                    //return '<i class="fa fa-envelope"></i>';
+                                    return "<img src='img/mail.png' />";
+                                else {
+                                    if ($users->profileurl != '' AND strpos($users->profileurl, 'facebook') !== false) {
+                                        return "<img src='img/facebook.png' />";
+                                    } else
+                                        return "<img src='img/googleplus.png' />";
+                                }
+                            })
+                            ->addColumn('campaign', function ($users) {
+                                return $users->campaignName;
+                            })
+                            ->addColumn('review', function ($users) {
+                                return "Review Here";
+                            })
+                            ->make(true);
         } else {
-            $facebookCount =  Users::where('type','1')->where('profileurl', 'like', '%facebook%')->count();
-            $googleCount =  Users::where('type','1')->where('profileurl', 'like', '%google%')->count();
-            $emailCount =  Users::where('type','2')->count();
-            $emailList = Auth::user()->emailList()->select('listname','id')->get();
-            return view('users.index',['facebookCount' => $facebookCount,'googleCount' => $googleCount,'emailCount'=>$emailCount,'emailList'=>$emailList]);
+            $users = $this->getStatistics('','indexCount');
+            $emailList = Auth::user()->emailList()->select('listname', 'id')->get();
+            return view('users.index', ['facebookCount' => $users['fbCount'], 'googleCount' => $users['gCount'], 'emailCount' => $users['eCount'], 'emailList' => $emailList]);
         }
     }
 
-   
+    public function getStatistics($listId = '',$callFrom='') {
+        
+        if ($listId) {
+            $emailListFilterData = EmailList::findOrFail($listId);
+            $favConArr = explode(';', $emailListFilterData->favoredconnection);
+            $visitorsArr = ($emailListFilterData->visitors) ? explode(';', $emailListFilterData->visitors) : '';
+            $numVisitArr = ($emailListFilterData->numberofvisit) ? explode(';', $emailListFilterData->numberofvisit) : '';
+            $routerArr = ($emailListFilterData->router) ? explode(';', $emailListFilterData->router) : '';
+            $firstName = $emailListFilterData->firstname;
+            $lastName = $emailListFilterData->lastname;
+            $isDateQkSel = $emailListFilterData->isdatequickselection;
+            $dateQkSel = $emailListFilterData->datequickselection;
+            $datefrom = $emailListFilterData->datefrom;
+            $dateto = $emailListFilterData->dateto;
+        }
+        if (Auth::user()->type == 'superadmin') {
+        $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.profileurl,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
+                ->join('users', 'radacct.username', '=', 'users.username')
+                ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
+                ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
+                ->groupBy('radacct.username')
+                ->orderBy('acctstarttime', 'desc');
+        }  else {
+            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.profileurl,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
+                ->join('users', 'radacct.username', '=', 'users.username')
+                ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
+                ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
+                ->where('nas.adminid', '=', Auth::user()->id)
+                ->groupBy('radacct.username')
+                ->orderBy('acctstarttime', 'desc');
+        }
+        if (isset($favConArr)) {
+            $users->where(function ($query) use ($favConArr) {
+                $query->orWhere(function ($query) use ($favConArr) {
+                    if (in_array('facebook', $favConArr))
+                        $query->where('users.type', '1')->where('users.profileurl', 'like', '%facebook%');
+                });
+                $query->orWhere(function ($query) use ($favConArr) {
+                    if (in_array('google', $favConArr))
+                        $query->orWhere('users.type', '1')->where('users.profileurl', 'like', '%google%');
+                });
+                $query->orWhere(function ($query) use ($favConArr) {
+                    if (in_array('email', $favConArr))
+                        $query->orWhere('users.type', '2');
+                });
+            });
+        }
+        if (isset($visitorsArr) AND $visitorsArr != '') {
+            $users->where(function ($query) use ($visitorsArr) {
+                $query->orWhere(function ($query) use ($visitorsArr) {
+                    if (in_array('male', $visitorsArr))
+                        $query->orWhere('users.gender', 'male');
+                });
+                $query->orWhere(function ($query) use ($visitorsArr) {
+                    if (in_array('female', $visitorsArr))
+                        $query->orWhere('users.gender', 'female');
+                });
+            });
+        }
+        if (isset($firstName) AND $firstName != '') {
+            $users->where('users.name', 'like', '%' . $firstName . '%');
+        }
+        if (isset($lastName) AND $lastName != '') {
+            $users->where('users.name', 'like', '%' . $lastName . '%');
+        }
+        if (isset($numVisitArr) AND $numVisitArr != '') {
+            $users->havingRaw('amountofvisit between ' . $numVisitArr[0] . ' and  ' . $numVisitArr[1] . '');
+        }
+        if (isset($isDateQkSel)) {
+            if ($isDateQkSel) {
+                $users->whereRaw('acctstarttime >= DATE(NOW()) - INTERVAL ' . $dateQkSel . ' DAY');
+            } else if (isset($datefrom) AND $datefrom != '' AND isset($dateto) AND $dateto != '') {
+                $users->whereRaw('DATE_FORMAT(acctstarttime,"%Y-%m-%d") between "' . $datefrom . '" and  "' . $dateto . '"');
+            }
+        }
+        if (isset($routerArr) AND $routerArr != '') {
+            $users->whereIn('nas.nasidentifier', $routerArr);
+        }
+        $users = $users->get();
+        
+        // return on basis of call from function
+        if ($callFrom == 'selList' OR $callFrom == 'indexCount') {
+            $fbCount = $gCount = $eCount = 0;
+            foreach ($users as $user) {
+                if ($user->favoredconnection == '2')
+                    $eCount++;
+                else {
+                    if ($user->profileurl != '' AND strpos($user->profileurl, 'facebook') !== false) {
+                        $fbCount++;
+                    } else
+                        $gCount++;
+                }
+            }
+            $countRes = ['fbCount' => $fbCount, 'gCount' => $gCount, 'eCount' => $eCount];
+            if($callFrom == 'indexCount')
+                return $countRes;
+            else
+                return Response::json($countRes);
+        } else if ($callFrom == 'datatable') {
+            return $users;
+        }
+    }
 
 }

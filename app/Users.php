@@ -25,5 +25,10 @@ class Users extends Model
     {
         return $this->hasOne('App\RadCheck', 'username', 'username');
     }
+    
+    public function RadacctU()
+    {
+        return $this->hasOne('App\Radacct', 'username', 'username');
+    }
 
 }

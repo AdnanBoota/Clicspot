@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
 Route::get('hotspot/datatable','HotspotController@datatable');
 Route::get('emails','EmailsController@getEmail');
 Route::post('emails','EmailsController@postEmail');
+Route::post('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
 Route::resource('users', 'UsersController');
 Route::resource('emailList', 'EmailListController');
 Route::resource('hotspot', 'HotspotController');

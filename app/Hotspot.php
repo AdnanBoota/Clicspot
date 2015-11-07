@@ -40,5 +40,10 @@ class Hotspot extends Model
     {
         return $this->hasMany('App\HotspotAttributes', 'nasid');
     }
+    
+    public function RadacctH()
+    {
+        return $this->hasMany('App\Radacct', 'calledstationid');
+    }
 
 }

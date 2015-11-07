@@ -12,6 +12,8 @@ use yajra\Datatables\Datatables;
 use App\Campaign;
 use App\Hotspot;
 use App\User;
+use App\Users;
+use App\Http\Controllers\UsersController;
 
 class EmailListController extends Controller
 {
@@ -30,8 +32,8 @@ class EmailListController extends Controller
     public function create()
     {
        $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier','nasidentifier'); 
-       
-       return view('emailList.create',  compact('routers'));
+       $profileCount = array('fbCount'=> 0,'gCount'=> 0,'eCount'=>0);
+       return view('emailList.create',  compact('routers','profileCount'));
     }
     
     public function store(Request $request)
@@ -72,7 +74,8 @@ class EmailListController extends Controller
         $emailList->dateto = ($emailList->dateto != '0000-00-00') ? $emailList->dateto:'';
         $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier','nasidentifier'); 
         $emailListSelctBox = Auth::user()->emailList()->select('listname','id')->get();
-        return view('emailList.edit', compact('emailList','routers','emailListSelctBox'));
+        $profileCount = (new UsersController)->getStatistics($id,'indexCount');
+        return view('emailList.edit', compact('emailList','routers','emailListSelctBox','profileCount'));
     }
     
     public function update($id, Request $request)
