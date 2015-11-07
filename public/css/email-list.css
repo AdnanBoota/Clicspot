@@ -191,7 +191,7 @@ ul{
     color: #95a0aa;
     line-height: 18px;
 }
-.selectlistblock a:hover{
+.selectlistblock a:hover ,.selectlistblock a.active{
     background: #1abc9c;
     color: #fff;
 }

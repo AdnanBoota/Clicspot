@@ -298,49 +298,10 @@ jQuery(document).ready(function () {
         $('input[name=rate]').val(myVal);
     })
     
-    $(document).on('click', '.delList', function () {
-            var $me = $(this);
-            swal({
-                        title: "Are you sure?",
-                        text: "",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes, Delete it!",
-                        cancelButtonText: "No, cancel!",
-                        closeOnConfirm: false,
-                        closeOnCancel: false
-                    },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            var id = jQuery($me).attr('val');
-                            var token = jQuery($me).attr('data-token');
-
-                            jQuery.ajax({
-                                url: '/emailList/' + id,
-                                type: 'DELETE',
-                                data: {
-                                    "_token": token
-                                },
-                                success: function (result) {
-                                    if (result.success) {
-                                        swal("success!", "List deleted successfully.", "success");
-                                        $me.parent().remove();
-                                    } else {
-                                        alert('false');
-                                        swal("ohh snap!", "something went wrong", "error");
-                                    }
-
-                                }
-                            });
-                        } else {
-                            swal("Cancelled", "List delete is cancelled ", "error");
-                            //return true;
-                        }
-                    });
-            return false;
-        });
-
+    $('form').on('change', 'input, select, textarea', function(){
+       //console.log('Form changed!',$('form').serialize());
+    });
+   
 });
 
 </script>

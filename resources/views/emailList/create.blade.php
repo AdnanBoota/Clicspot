@@ -37,7 +37,7 @@
             <div class="info-box bg-aqua">
                 <span class="info-box-icon"><i class="fa fa-facebook"></i></span>
                 <img src="/img/user-icon.png" alt="" class="user-icon">
-                <h2>15</h2>
+                <h2>{{$profileCount['fbCount']}}</h2>
             </div>
             <!-- /.info-box -->
         </div>
@@ -45,7 +45,7 @@
             <div class="info-box bg-red">
                 <span class="info-box-icon"><i class="fa  fa-google-plus"></i></span>
                 <img src="/img/user-icon.png" alt="" class="user-icon">
-                <h2>10</h2>
+                <h2>{{$profileCount['gCount']}}</h2>
             </div>
             <!-- /.info-box -->
         </div>
@@ -53,7 +53,7 @@
             <div class="info-box bg-yellow">
                 <span class="info-box-icon"><i class="fa  fa-envelope"></i></span>
                 <img src="/img/user-icon.png" alt="" class="user-icon">
-                <h2>5</h2>
+                <h2>{{$profileCount['eCount']}}</h2>
 
             </div>
             <!-- /.info-box -->
@@ -101,7 +101,7 @@
             <a href="javascript:void(0);">Reset Preferences</a>
             <a href="javascript:void(0);">Save List</a>-->
             <a href="{{url('emailList/create')}}" >Reset Preferences</a>
-            <button type="submit" class="">Submit</button>
+            <button type="submit" class="">Save List</button>
         </div>
         <!-- /.box-footer -->
         {!! Form::close() !!}

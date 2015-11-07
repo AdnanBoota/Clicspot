@@ -34,7 +34,7 @@
                         <div class="info-box bg-aqua">
                             <span class="info-box-icon"><i class="fa fa-facebook"></i></span>
                             <img src="img/user-icon.png" alt="" class="user-icon">
-                            <h2>{{$facebookCount}}</h2>
+                            <h2 class="fbCount" >{{$facebookCount}}</h2>
                         </div>
                         <!-- /.info-box -->
                     </div>
@@ -42,7 +42,7 @@
                         <div class="info-box bg-red">
                             <span class="info-box-icon"><i class="fa  fa-google-plus"></i></span>
                             <img src="img/user-icon.png" alt="" class="user-icon">
-                            <h2>{{$googleCount}}</h2>
+                            <h2 class="gCount">{{$googleCount}}</h2>
                         </div>
                         <!-- /.info-box -->
                     </div>
@@ -53,7 +53,7 @@
                         <div class="info-box bg-yellow">
                             <span class="info-box-icon"><i class="fa  fa-envelope"></i></span>
                             <img src="img/user-icon.png" alt="" class="user-icon">
-                            <h2>{{$emailCount}}</h2>
+                            <h2 class="eCount">{{$emailCount}}</h2>
 
                         </div>
                         <!-- /.info-box -->
@@ -107,7 +107,7 @@
             <div class="manage-list">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="javascript:void(0)">
                             <div class="slist">
                                 <img src="img/select-list.png" alt="">
                             </div>
@@ -116,9 +116,9 @@
                             </div>
                         </a>
                         @if (count($emailList) > 0)
-                        <div class="selectlistblock">
+                        <div class="selectlistblock select-list">
                                @foreach ($emailList as $list)
-                               <a href="{{url('emailList/'.$list->id.'/edit')}}">{{ $list->listname }}</a>
+                               <a href="javascript:void(0);" data-token="{{csrf_token()}}" val="{{$list->id}}">{{ $list->listname }}</a>
                               @endforeach
                         </div>
                         @endif
@@ -217,15 +217,48 @@ $(function () {
         processing: true,
         serverSide: true,
         responsive: true,
-        ajax: 'users',
+        ajax: {
+            "url": 'users',
+            "data": function ( d ) {
+                var listVal = $('.select-list a.active').attr('val');
+                if(listVal)
+                    d.listVal = listVal;
+            }
+        },
         columns: [
-            {data: 'favoredconnection', name: 'favoredconnection'},
+            {data: 'favoredconnection', name: 'favoredconnection',orderable: false, searchable: false},
             {data: 'visitor', name: 'visitor', orderable: false, searchable: false},
-            {data: 'amountofvisit', name: 'amountofvisit', orderable: false, searchable: false},
+            {data: 'amountofvisit', name: 'amountofvisit', orderable: false, searchable: true},
             {data: 'lastvisit', name: 'lastvisit', orderable: false, searchable: false},
             {data: 'campaign', name: 'campaign', orderable: false, searchable: false},
             {data: 'review', name: 'review', orderable: false, searchable: false}
         ]
+    });
+    
+    $('.select-list a').on('click',function(){
+        $('.select-list a').removeClass('active');
+        var myVal = $(this).attr('val');
+        $(this).addClass('active');
+        oTable.draw();
+         var token = $(this).attr('data-token');
+        jQuery.ajax({
+            url: 'users/getStatistics/' + myVal+'/selList',
+            type: 'POST',
+            data: {
+                "_token": token
+            },
+            success: function (result) {
+                if (result) {
+                    $('.fbCount').text(result.fbCount);
+                    $('.gCount').text(result.gCount);
+                    $('.eCount').text(result.eCount);
+                    
+                } else {
+                   
+                }
+
+            }
+        });
     });
 
 
