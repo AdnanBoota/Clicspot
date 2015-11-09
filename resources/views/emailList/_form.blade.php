@@ -2,7 +2,8 @@
 <link href="{{ asset('/plugins/ionslider/ion.rangeSlider.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/plugins/ionslider/ion.rangeSlider.skinNice.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/css/bootstrap-multiselect.css') }}" rel="stylesheet" type="text/css"/>
-<link href="{{ asset('/css/datepicker3.css') }}" rel="stylesheet" type="text/css"/>
+<!--<link href="{{ asset('/css/datepicker3.css') }}" rel="stylesheet" type="text/css"/>-->
+<link href="{{ asset('/plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/css/list.css') }}" rel="stylesheet" type="text/css"/>
 @endpush
 
@@ -156,22 +157,32 @@
             <div class="col-md-4">
                 <div class="selectbox">
                     <i class="fa fa-caret-down"></i>
-                    {!!  Form::select('datequickselection', array('' => 'Quick Selection','1' => 'Last Day', '7' => 'Last Week','30' => 'Last Month', '365' => 'Last Year'), null, ['placeholder' => 'Quick Selection','id'=>'datequickselection','required'=>'true']) !!}
+                    {!!  Form::select('datequickselection', array('' => 'Quick Selection','1' => 'Last Day', '7' => 'Last Week','30' => 'Last Month', '365' => 'Last Year'), null, ['placeholder' => 'Quick Selection','id'=>'datequickselection','class'=>'dateGrp']) !!}
                     {!!  Form::hidden('isdatequickselection') !!}
                 </div>
             </div>
-            <div class="col-md-4">
+             <div class="col-md-8">
+                <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                    <input type="text" name="dateRange" id="dateRange" class="form-control pull-right active date-txt dateGrp">
+                </div>
+             </div>
+            {!!  Form::hidden('datefrom', null, array('id'=>'datefrom','class'=>'date-txt')) !!}
+            {!!  Form::hidden('dateto', null, array('id'=>'dateto','class'=>'date-txt')) !!}
+<!--            <div class="col-md-4">
                 <div class="dateblock">
                     <i class="fa fa-calendar"></i>
-                    {!!  Form::text('datefrom', null, array('id'=>'datefrom','class'=>'date-txt')) !!}
+                    {!!  Form::hidden('datefrom', null, array('id'=>'datefrom','class'=>'date-txt')) !!}
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="dateblock">
                     <i class="fa fa-calendar"></i> 
-                    {!!  Form::text('dateto', null, array('id'=>'dateto','class'=>'date-txt')) !!}
+                    {!!  Form::hidden('dateto', null, array('id'=>'dateto','class'=>'date-txt')) !!}
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
@@ -228,11 +239,40 @@
 @push('scripts')
 <script src="{{ asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
 <script src="{{ asset('/js/bootstrap-multiselect.js') }}"></script>
-<script src="{{ asset('/js/bootstrap-datepicker.js') }}"></script>
+<!--<script src="{{ asset('/js/bootstrap-datepicker.js') }}"></script>-->
+<script src="/plugins/daterangepicker/moment.min.js"></script>
+<script src="{{ asset('/plugins/daterangepicker/daterangepicker.js') }}"></script>
+<!--<script src="{{ asset('/js/additional-methods.js') }}"></script>-->
 <script type="text/javascript">
 jQuery(document).ready(function () {
+    $.validator.addMethod("eitherQuickRange", function(value, element) {
+            var quickVal = $('#datequickselection').val();
+            var rangeVal = $('#dateRange').val();
+            return quickVal || rangeVal;
+        }, "Please enter either Quick selection or Date range");
+
     $('form').validate({
-        rules: {},
+        groups: {  // consolidate messages into one
+            names: "datequickselection dateRange"
+        },
+        rules: {
+            'listname':{
+                require_from_group:true
+            },
+            'favoredconnection[]': {
+                required: true
+            },
+            'router[]': {
+                required: true
+            },
+            datequickselection: {
+                eitherQuickRange: true
+            },
+            dateRange: {
+                eitherQuickRange: true
+            },
+        
+        },
         errorClass: "text-red",
         errorElement: "span",
         errorPlacement: function (error, element) {
@@ -262,16 +302,33 @@ jQuery(document).ready(function () {
         min: 1,
         max: 100
     });
-    
-    $('#datefrom').datepicker({
-        format: "yyyy-mm-dd",
-         autoclose: true
-    });
-    
-    $('#dateto').datepicker({
-        format: "yyyy-mm-dd",
-         autoclose: true
-    });
+    $('#dateRange').daterangepicker({
+            autoUpdateInput: true,
+            locale: {
+          format: 'YYYY-MM-DD'
+        },
+    }
+    ).on('apply.daterangepicker', function(ev, picker) {
+//        console.log(picker.startDate.format('YYYY-MM-DD'));
+//        console.log(picker.endDate.format('YYYY-MM-DD'));
+        //$('input[id="dateRange"]').val(picker.startDate.format('YYYY-MM-DD') + ' - ' + picker.endDate.format('YYYY-MM-DD'));
+        $('input[name=datefrom]').val(picker.startDate.format('YYYY-MM-DD'));
+        $('input[name=dateto]').val(picker.endDate.format('YYYY-MM-DD'));
+        getProfileUpdate()
+      });
+//    $('#datefrom').datepicker({
+//        format: "yyyy-mm-dd",
+//         autoclose: true
+//    }).on('changeDate', function(ev) {
+//        getProfileUpdate();
+//    });
+//    
+//    $('#dateto').datepicker({
+//        format: "yyyy-mm-dd",
+//         autoclose: true
+//    }).on('changeDate', function(ev) {
+//        getProfileUpdate();
+//    });
 
     $('#router').multiselect({
         includeSelectAllOption: true
@@ -299,10 +356,41 @@ jQuery(document).ready(function () {
     })
     
     $('form').on('change', 'input, select, textarea', function(){
-       //console.log('Form changed!',$('form').serialize());
+        var myName = $(this).attr('name');
+        //console.log('myName',myName);
+       if(myName && myName != 'listname' && myName != 'age' && myName != 'datefrom' && myName != 'dateto' && myName != 'dateRange'){
+            getProfileUpdate();
+        }
     });
+    
+    if($('input[name=datefrom]').val() != '' && $('input[name=dateto]').val()){
+        $('#dateRange').data('daterangepicker').setStartDate($('input[name=datefrom]').val());
+        $('#dateRange').data('daterangepicker').setEndDate($('input[name=dateto]').val());
+    }else{
+        $('#dateRange').val('');
+    }
    
 });
 
+function getProfileUpdate(){
+    //console.log('form url:',$('form').serialize())
+    var myVal = 'static';
+    jQuery.ajax({
+             url: '/users/getStatistics/' + myVal+'/formList',
+             type: 'POST',
+             data: $('form').serialize(),
+             success: function (result) {
+                 if (result) {
+                     $('.fbCount').text(result.fbCount);
+                     $('.gCount').text(result.gCount);
+                     $('.eCount').text(result.eCount);
+
+                 } else {
+
+                 }
+
+             }
+         });
+}
 </script>
 @endpush

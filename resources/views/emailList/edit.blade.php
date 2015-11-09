@@ -25,7 +25,7 @@
             <div class="info-box bg-aqua">
                 <span class="info-box-icon"><i class="fa fa-facebook"></i></span>
                 <img src="/img/user-icon.png" alt="" class="user-icon">
-                <h2>{{$profileCount['fbCount']}}</h2>
+                <h2 class="fbCount">{{$profileCount['fbCount']}}</h2>
             </div>
             <!-- /.info-box -->
         </div>
@@ -33,7 +33,7 @@
             <div class="info-box bg-red">
                 <span class="info-box-icon"><i class="fa  fa-google-plus"></i></span>
                 <img src="/img/user-icon.png" alt="" class="user-icon">
-                <h2>{{$profileCount['gCount']}}</h2>
+                <h2 class="gCount">{{$profileCount['gCount']}}</h2>
             </div>
             <!-- /.info-box -->
         </div>
@@ -41,7 +41,7 @@
             <div class="info-box bg-yellow">
                 <span class="info-box-icon"><i class="fa  fa-envelope"></i></span>
                 <img src="/img/user-icon.png" alt="" class="user-icon">
-                <h2>{{$profileCount['eCount']}}</h2>
+                <h2 class="eCount">{{$profileCount['eCount']}}</h2>
 
             </div>
             <!-- /.info-box -->

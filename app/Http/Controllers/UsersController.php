@@ -64,8 +64,7 @@ class UsersController extends Controller {
     }
 
     public function getStatistics($listId = '',$callFrom='') {
-        
-        if ($listId) {
+        if ($listId AND $listId != 'static') {
             $emailListFilterData = EmailList::findOrFail($listId);
             $favConArr = explode(';', $emailListFilterData->favoredconnection);
             $visitorsArr = ($emailListFilterData->visitors) ? explode(';', $emailListFilterData->visitors) : '';
@@ -77,6 +76,23 @@ class UsersController extends Controller {
             $dateQkSel = $emailListFilterData->datequickselection;
             $datefrom = $emailListFilterData->datefrom;
             $dateto = $emailListFilterData->dateto;
+        }else if($callFrom == 'formList'){
+            $inputs = Input::all();
+            if(isset($inputs['favoredconnection']))
+                $favConArr = $inputs['favoredconnection'];
+            if(isset($inputs['visitors']))
+                $visitorsArr = $inputs['visitors'];
+            $numVisitArr = ($inputs['numberofvisit']) ? explode(';', $inputs['numberofvisit']) : '';
+            if(isset($inputs['router']))
+                $routerArr = $inputs['router'];
+                $firstName = $inputs['firstname'];
+                $lastName = $inputs['lastname'];
+            $isDateQkSel = $inputs['isdatequickselection'];
+            $dateQkSel = $inputs['datequickselection'];
+            if(isset($inputs['datefrom']))
+                $datefrom = $inputs['datefrom'];
+            if(isset($inputs['dateto']))
+                $dateto = $inputs['dateto'];
         }
         if (Auth::user()->type == 'superadmin') {
         $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.profileurl,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
@@ -144,7 +160,7 @@ class UsersController extends Controller {
         $users = $users->get();
         
         // return on basis of call from function
-        if ($callFrom == 'selList' OR $callFrom == 'indexCount') {
+        if ($callFrom == 'selList' OR $callFrom == 'indexCount' OR $callFrom == 'formList') {
             $fbCount = $gCount = $eCount = 0;
             foreach ($users as $user) {
                 if ($user->favoredconnection == '2')
