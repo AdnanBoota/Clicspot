@@ -177,9 +177,47 @@ class UsersController extends Controller {
                 return $countRes;
             else
                 return Response::json($countRes);
-        } else if ($callFrom == 'datatable') {
+        } else if ($callFrom == 'datatable' OR $callFrom == 'expList') {
             return $users;
         }
     }
+    
+    public function exportUsers($listId,$expType){
+           
+            $fileName = md5(time()) . rand(11111, 99999) . '.' .$expType;
+            $headers = [
+                    'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
+                ,   'Content-Disposition' => 'attachment; filename='.$fileName
+                ,   'Expires'             => '0'
+                ,   'Pragma'              => 'public'
+            ];
+            
+            $headers['Content-type']  = 'text/csv';
+            if($expType == 'txt')
+                $headers['Content-type']  = 'text/plain';
+            if($expType == 'xls')
+                $headers['Content-type']  = 'application/vnd.ms-excel; charset=utf-8';
+            $list =$this->getStatistics($listId,'expList');
+            $list = $list->toArray();
+            # add headers for each column in the CSV download
+            array_unshift($list, array_keys($list[0]));
+            
+           $callback = function() use ($list)
+            {
+                $FH = fopen('php://output', 'w');
+                //add BOM to fix UTF-8 in Excel
+                fputs($FH, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
+                foreach ($list as $row) {
+                    
+                    fputcsv($FH, $row,";");
+                    
+                }
+                fclose($FH);
+            };
+
+            return Response::stream($callback, 200, $headers);
+
+    }
+    
 
 }

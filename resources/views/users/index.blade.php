@@ -159,10 +159,10 @@
                                 <span>Export List</span>
                             </div>
                         </a>
-                         <div class="selectlistblock">
-                             <a href="javascript:void(0);">Download CSV</a>
-                             <a href="javascript:void(0);">Download XLS</a>
-                             <a href="javascript:void(0);">Download TXT</a>
+                         <div class="selectlistblock expList">
+                             <a href="javascript:void(0);" val='csv'>Download CSV</a>
+                             <a href="javascript:void(0);" val='xls' >Download XLS</a>
+                             <a href="javascript:void(0);" val='txt' >Download TXT</a>
                         </div>
                     </li>
                 </ul>
@@ -259,6 +259,17 @@ $(function () {
 
             }
         });
+    });
+    
+    $('.expList a').on('click',function(){
+        var myVal = $(this).attr('val');
+        var listVal = $('.select-list a.active').attr('val');
+        if(listVal){
+            window.location.href = '/users/exportUsers/' + listVal+'/'+ myVal;
+            return false;
+        }else{
+            return false;
+        }
     });
 
 
