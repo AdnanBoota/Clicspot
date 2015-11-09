@@ -199,28 +199,30 @@ class UsersController extends Controller {
                 $headers['Content-type']  = 'application/vnd.ms-excel; charset=utf-8';
             $list =$this->getStatistics($listId,'expList');
             $list = $list->toArray();
-            # add headers for each column in the CSV download
-            $headRow = array_keys($list[0]);
-            $radkey = array_search('radacctid', $headRow);
-            $uidkey = array_search('userId', $headRow);
-            unset($headRow[$radkey]);
-            unset($headRow[$uidkey]);
-            array_unshift($list,$headRow);
-            
-           $callback = function() use ($list)
-            {
-                $FH = fopen('php://output', 'w');
-                //add BOM to fix UTF-8 in Excel
-                fputs($FH, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
-                foreach ($list as $row) {
-                    unset($row['radacctid']);
-                    unset($row['userId']);
-                    fputcsv($FH, $row,";");
-                    
-                }
-                fclose($FH);
-            };
+            $callback = function(){};
+            if(count($list)){
+                # add headers for each column in the CSV download
+                $headRow = array_keys($list[0]);
+                $radkey = array_search('radacctid', $headRow);
+                $uidkey = array_search('userId', $headRow);
+                unset($headRow[$radkey]);
+                unset($headRow[$uidkey]);
+                array_unshift($list,$headRow);
 
+               $callback = function() use ($list)
+                {
+                    $FH = fopen('php://output', 'w');
+                    //add BOM to fix UTF-8 in Excel
+                    fputs($FH, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
+                    foreach ($list as $row) {
+                        unset($row['radacctid']);
+                        unset($row['userId']);
+                        fputcsv($FH, $row,";");
+
+                    }
+                    fclose($FH);
+                };
+            }
             return Response::stream($callback, 200, $headers);
 
     }
