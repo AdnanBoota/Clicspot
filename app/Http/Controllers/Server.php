@@ -11,6 +11,7 @@ class Server extends Controller
     {
         SSH::into('production')->run(array(
             'cd /usr/share/nginx/html/clicspot',
+            'git reset --hard origin/master',
             'git pull origin master'
         ));
         return "Deployed successfully";
