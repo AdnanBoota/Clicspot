@@ -118,7 +118,7 @@
                         @if (count($emailList) > 0)
                         <div class="selectlistblock select-list">
                                @foreach ($emailList as $list)
-                               <a href="javascript:void(0);" data-token="{{csrf_token()}}" val="{{$list->id}}">{{ $list->listname }}</a>
+                               <a href="javascript:void(0);" class="{{ (Session::has('listId') AND Session::get('listId') == $list->id) ? 'active':'' }}" data-token="{{csrf_token()}}" val="{{$list->id}}">{{ $list->listname }}</a>
                               @endforeach
                         </div>
                         @endif
@@ -129,7 +129,7 @@
                                 <img src="img/create-list.png" alt="">
                             </div>
                             <div class="list-title">
-                                <span>Creat List</span>
+                                <span>Create List</span>
                             </div>
                         </a>
                     </li>

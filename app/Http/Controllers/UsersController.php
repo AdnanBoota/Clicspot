@@ -36,6 +36,9 @@ class UsersController extends Controller {
 
         if ($request->ajax()) {
             $listVal = $request->input('listVal');
+            if($listVal == '' AND Session::has('listId')){
+                $listVal =  Session::get('listId');
+            }
             $users = $this->getStatistics($listVal,'datatable');
             return Datatables::of($users)
                             ->editColumn('favoredconnection', function ($users) {
@@ -64,6 +67,9 @@ class UsersController extends Controller {
     }
 
     public function getStatistics($listId = '',$callFrom='') {
+        if($callFrom == 'selList')
+            Session::put('listId',$listId);
+       
         if ($listId AND $listId != 'static') {
             $emailListFilterData = EmailList::findOrFail($listId);
             $favConArr = explode(';', $emailListFilterData->favoredconnection);

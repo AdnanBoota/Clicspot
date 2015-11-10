@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Mail;
+use Session;
 
 class AuthController extends Controller
 {
@@ -167,5 +168,13 @@ class AuthController extends Controller
             $msg = "There is a Problem in verifying Your Account .";
         return redirect($this->loginPath())->with($valid, $msg);
     }
+    
+    public function getLogout()
+	{
+        Session::flush('listId');
+		$this->auth->logout();
+
+		return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+	}
 
 }
