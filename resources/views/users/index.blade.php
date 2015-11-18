@@ -61,9 +61,9 @@
                     <div class="col-md-6">
                         <div class="info-box bg-green">
                             <span class="info-box-icon">
-                                <img src="img/voicemail-icon.png" alt="">
+                                <img src="img/voicemail-icon.png" alt="voice-mail">
                             </span>
-                            <img src="img/speech.png" alt="" class="user-icon">
+                            <img src="img/speech.png" alt="speech" class="user-icon">
                             <h2>10</h2>
                         </div>
                         <!-- /.info-box -->
