@@ -15,13 +15,14 @@ class GoogleLogin extends Controller
     function callback()
     {
         $user = Socialize::with('google')->user();
+        //dd($user);
         $data = array(
             'username' => \Session::get('mac'),
             'type' => 1,
             'name' => $user->getName(),
             'email' => $user->getEmail(),
             'gender' => $user->user['gender'],
-            'profileurl' => $user->getAvatar()
+            'profileurl' => $user->user['url']
         );
         $users = Users::where('username', $data['username'])->first();
         if ($users) {
