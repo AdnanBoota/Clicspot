@@ -33,5 +33,17 @@ return [
 		'model'  => 'User',
 		'secret' => '',
 	],
+    
+//    'google' => [
+//        'client_id' => '418301101154-aetpt3gtumq14bjrt62jg7udahejhnfk.apps.googleusercontent.com',
+//        'client_secret' => 'aU3rD-mDTQtuJ6VM5AzvFnfJ',
+//        'redirect' => 'http://localhost:8000/google/callback',
+//    ],
+    
+    'google' => [
+        'client_id'     => env('GOOGLE_ID'),
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
+    ]
 
 ];

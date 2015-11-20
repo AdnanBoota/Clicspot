@@ -60,4 +60,7 @@ Route::resource('campaign', 'CampaignController');
 Route::get('/facebook/login', 'FacebookLogin@login');
 Route::get('/facebook/callback', 'FacebookLogin@callback');
 
+Route::get('/google/login', 'GoogleLogin@login');
+Route::get('/google/callback', 'GoogleLogin@callback');
+
 Route::post('/email/login', 'EMailLoginController@login');

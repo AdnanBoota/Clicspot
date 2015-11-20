@@ -144,7 +144,7 @@
                             </div>
                             Login with Facebook
                         </a>
-                        <a href="#" class="btn btn-block btn-flat bg-red btn-lg">
+                        <a href="{{ url("/google/login") }}" class="btn btn-block btn-flat bg-red btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-google-plus"></i>
                             </div>
@@ -195,7 +195,7 @@
                                 <i class="fa fa-facebook-square"></i>
                             </div>
                         </a>
-                        <a href="#" class="btn btn-flat bg-red btn-lg">
+                        <a href="{{ url("/google/login") }}" class="btn btn-flat bg-red btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-google-plus"></i>
                             </div>

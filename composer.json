@@ -15,7 +15,8 @@
     "yajra/laravel-datatables-oracle": "~5.0",
     "guzzlehttp/guzzle": "~4.0",
     "sammyk/laravel-facebook-sdk": "~2.0",
-    "caouecs/laravel4-lang": "~2.0"
+    "caouecs/laravel4-lang": "~2.0",
+    "laravel/socialite": "~2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",
