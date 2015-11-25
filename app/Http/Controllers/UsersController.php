@@ -239,7 +239,9 @@ class UsersController extends Controller {
     }
     
     public function getProfile($id){
-       return view('users.profile');
+       $getProfile = Users::findOrFail($id);
+       $getLastVisit = Radacct::select(DB::raw('username, DATEDIFF(now(),max(acctstarttime)) as lastvisit'))->where('username','=',$getProfile->username)->get();
+        return view('users.profile',compact('getProfile','getLastVisit'));
     }
     
 

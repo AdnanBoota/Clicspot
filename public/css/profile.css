@@ -60,8 +60,8 @@ ul.tabpart {
     margin-right: 10px;
 }
 .tabpart li.active a ,.tabpart li a:hover{
-  background-color:#1abc9c;
-  box-shadow: inset 0px -4px 0px 0px rgba(17, 168, 171, 0.6);
+    background-color:#1abc9c;
+    box-shadow: inset 0px -4px 0px 0px rgba(17, 168, 171, 0.6);
 }
 
 /*------- profile css -----------*/
@@ -78,7 +78,12 @@ ul.tabpart {
     height: 120px;
     text-align: center;
 }
-.profiledettop h3{
+.profiledettopFemale{
+    background: #f72459 ;
+    height: 120px;
+    text-align: center;
+}
+.profiledettop h3,.profiledettopFemale h3{
     color: #fff;
     padding-top: 20px;
     font-weight: bold;
@@ -126,7 +131,7 @@ ul.tabpart {
     margin-bottom: 0;
 }
 .profiledetrgt{
-    
+
 }
 .socialsharing{
     text-align: center;
@@ -143,14 +148,14 @@ ul.tabpart {
     font-size: 22px;
     line-height: 45px;
 }
-.socialsharing a.fbicon:hover {
-    background: #3b589e;
+.socialsharing a.fbicon:hover ,.facebookHover{
+    background: #3b589e !important;
 }
-.socialsharing a.gplusicon:hover{
-    background: #de4b39;
+.socialsharing a.gplusicon:hover,.gplusHover{
+    background: #de4b39 !important;
 }
-.socialsharing a.mailicon:hover{
-    background: #787878;
+.socialsharing a.mailicon:hover,.emailHover{
+    background: #787878 !important;
 }
 .userprodtl{
     margin-top: 20px;
@@ -167,7 +172,7 @@ ul.tabpart {
     font-weight: bold;
 }
 .prolbldetail{
-    
+
 }
 .prolbldetail span{
     color: #34495e;
@@ -330,6 +335,7 @@ ul.tabpart {
     height: auto;
 }
 
+
 /*------- profile css -----------*/
 
 
@@ -358,7 +364,7 @@ ul.tabpart {
     .hismaildesc p{font-size: 20px;}
     .hismaildesc h3 {font-size: 20px;}
 }
-    
+
 @media screen and (max-width:1280px){
     .tabpart li a{padding: 13px 0;font-size: 16px;}
     .historyblock_right img {height: 55px;}
