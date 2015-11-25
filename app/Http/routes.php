@@ -48,6 +48,7 @@ Route::post('emails','EmailsController@postEmail');
 Route::post('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
 Route::patch('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
 Route::get('users/exportUsers/{listId}/{expType}', 'UsersController@exportUsers');
+Route::get('users/profile/{id}', 'UsersController@getProfile');
 Route::resource('users', 'UsersController');
 Route::resource('emailList', 'EmailListController');
 Route::resource('hotspot', 'HotspotController');

@@ -1,0 +1,417 @@
+h1,h2,h3,h4,h5,h6,a,p,ul,li{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a,a:hover{
+    text-decoration: none;
+}
+section:first-child{
+    border: none;
+}
+section{
+    border-top:1px solid #d4d9dc; 
+}
+.creatpart ,.profilepart ,.filterpart{
+    background: #fff;
+}
+.titleblock{
+    display: inline-block;
+    width: 100%;
+    background: #ecf0f1;
+    padding: 10px 15px;
+}
+.titleblock h1{
+    color: #34495e;
+    font-weight: bold;
+    margin: 0;
+    font-size: 24px;
+}
+.titleblock i{
+    color: #34495e;
+    float: left;
+    font-size: 20px;
+    margin: 5px 10px 0 0;
+}
+.multitab{
+    padding: 40px 0;
+}
+ul.tabpart {
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: auto;
+}
+.tabpart li {
+    display: table-cell;
+    width: 150px;
+}
+.tabpart li a{
+    background: #34495e;
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    padding: 20px 0;
+}
+.tabpart li a i{
+    margin-right: 10px;
+}
+.tabpart li.active a ,.tabpart li a:hover{
+  background-color:#1abc9c;
+  box-shadow: inset 0px -4px 0px 0px rgba(17, 168, 171, 0.6);
+}
+
+/*------- profile css -----------*/
+.userprofileblock {
+    margin: 0 auto;
+    padding: 30px 0 60px;
+    width: 94%;
+}
+.profiledetleft{
+    position: relative;
+}
+.profiledettop{
+    background: #00c0ef;
+    height: 120px;
+    text-align: center;
+}
+.profiledettop h3{
+    color: #fff;
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 22px;
+}
+.profiledetmin{
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.profileimg{
+    width: 128px;
+    height: 128px;
+    margin: 0 auto;
+    border: 4px solid #fff;
+    border-radius: 50%;
+}
+.profileimg img{
+    width: 100%;
+    height: auto;
+}
+.profiledetbtm {
+    padding-top: 90px;
+    text-align: center;
+}
+.profiledetbtm a.sendbtn {
+    background: #1abc9c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: inset 0px -2px 0px 0px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    margin-top: 15px;
+    display: inline-block;
+}
+.profiledetbtm a.sendbtn i{
+    margin-right: 7px
+}
+.memberbox{
+    background: #ecf0f5;
+    padding: 2px;
+}
+.memberbox .box.box-danger{
+    margin-bottom: 0;
+}
+.profiledetrgt{
+    
+}
+.socialsharing{
+    text-align: center;
+}
+.socialsharing a{
+    display: inline-block;
+    height: 45px;
+    margin: 0 7px;
+    width: 45px;
+    background: #bdc3c7;
+}
+.socialsharing a i{
+    color: #fff;
+    font-size: 22px;
+    line-height: 45px;
+}
+.socialsharing a.fbicon:hover {
+    background: #3b589e;
+}
+.socialsharing a.gplusicon:hover{
+    background: #de4b39;
+}
+.socialsharing a.mailicon:hover{
+    background: #787878;
+}
+.userprodtl{
+    margin-top: 20px;
+}
+.userprodtlrow{
+    margin-bottom: 20px;
+}
+.prolabel{
+
+}
+.prolabel label{
+    color: #34495e;
+    font-size: 22px;
+    font-weight: bold;
+}
+.prolbldetail{
+    
+}
+.prolbldetail span{
+    color: #34495e;
+    font-size: 22px;
+}
+.actionblock{
+    background: #fff;
+}
+
+.actionblock .titleblock img{
+    float: left;
+    margin: 3px 10px 0 0;
+}
+.ltaction{
+    padding: 60px 0;
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+}
+.mainlabox{
+    min-height: 110px;
+    width: 32%;
+    margin:0 0.5%;
+    float: left;
+}
+.mailbox{
+    background: #dd4b39;
+}
+.mailbox .info-box-icon{
+    background: #b13c2e !important;
+}
+.visitbox{
+    background: #f39c12;
+}
+.visitbox .info-box-icon{
+    background: #c37d0e !important;
+}
+.wifibox{
+    background: #00a65a;
+}
+.wifibox .info-box-icon{
+    background: #008548 !important;
+}
+.mainlabox .info-box-icon{
+    font-size: 65px;
+    font-weight: bold;
+    height: 110px !important;
+    line-height: 110px !important;
+    width: 100px;
+}
+.mainlabox .info-box-content {
+    display: table;
+    float: left;
+    height: 110px;
+    margin: 0 0 0 5px;
+    width: 150px;
+}
+.mainlabox .info-box-content span {
+    color: #fff;
+    display: table-cell;
+    font-size: 22px;
+    font-weight: bold;
+    height: 100%;
+    vertical-align: middle;
+}
+.mainlabox .info-box-content span span{
+    font-weight: normal;
+}
+.mainlabox .rgticon{
+    float: right !important;
+    background: none !important;
+    margin-right: 10px;
+    font-size: 0 !important;
+}
+.historyblock{
+    padding: 40px 0;
+    width: 94%;
+    margin: 0 auto;
+}
+.historuydtl{
+    border-radius: 3px;
+    border-bottom: 5px solid #d2d6de;
+    padding: 5px;
+}
+.historyblock_left{
+    border-top: 3px solid #dd4b39;
+}
+.historyblock_right{
+    border-top: 3px solid #00a65a;
+}
+.htitle {
+    overflow: auto;
+    margin: 5px 0 10px;
+}
+.htitle h2{
+    display: inline;
+    font-size: 22px;
+}
+.numblock{
+    float: right;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.historyblock_left .numblock{
+    background: #dd4b39;
+}
+.historyblock_right .numblock{
+    background: #00a65a;
+}
+.historyblock_left  .hismaildetail_img{
+    background: #dd4b39;
+}
+.historyblock_right  .hismaildetail_img{
+    background: #00a65a;
+}
+.hismaildetail_img{
+    display: table-cell;
+    height: 120px;
+    max-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px
+}
+.hismaildetail {
+    display: table;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.hismaildesc{
+    margin-left: 15px;
+    padding: 10px 0;
+}
+.hismaildesc h3{
+    font-weight: bold;
+    font-size: 22px;
+}
+.hismaildesc p { 
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.hismaildesc p span ,.hismaildesc p label{
+    font-weight: bold;
+}
+.plusimg{
+    background: none !important;
+    width: 30px !important;
+}
+
+.plusimg a{
+    color: #000;
+    font-size: 20px;
+}
+.mailicon img{
+    width: 25px;
+    height: auto;
+}
+
+/*------- profile css -----------*/
+
+
+@media screen and (max-width:1515px){
+    .mainlabox .rgticon{width: 80px;}
+    .info-box-icon > img{width: 60px;height: auto;}
+}
+@media screen and (max-width:1450px){
+    .mainlabox .info-box-content{height: 100px;width: 140px;}
+    .mainlabox .info-box-icon{height: 100px !important;line-height: 100px !important;font-size: 50px;width: 90px;}
+    .mainlabox{min-height: 100px;}
+    .info-box-icon > img{width: 50px;}
+    .mainlabox .rgticon {width: 70px;}
+    .historyblock_right img {height: 65px;width: auto;}
+    .historyblock_left img {height: auto;width: 60px;}
+    .profileimg{height: 110px;width: 110px;}
+    .prolabel label ,.prolbldetail span{font-size: 20px;}
+}
+@media screen and (max-width:1360px){
+    .ltaction{width: 94%;padding: 40px 0;}
+    .mainlabox .info-box-icon{font-size: 40px;width: 80px;}
+    .mainlabox .rgticon{width: 55px;}
+    .mainlabox {min-height: 85px;}
+    .mainlabox .info-box-icon{height: 85px !important;line-height: 85px !important;}
+    .mainlabox .info-box-content{height: 85px;}
+    .hismaildesc p{font-size: 20px;}
+    .hismaildesc h3 {font-size: 20px;}
+}
+    
+@media screen and (max-width:1280px){
+    .tabpart li a{padding: 13px 0;font-size: 16px;}
+    .historyblock_right img {height: 55px;}
+    .hismaildetail_img{width: 100px;}
+    .profileimg{height: 90px;width: 90px;}
+    .prolabel label, .prolbldetail span{font-size: 17px;}
+    .profiledettop h3{font-size: 20px;}
+    .socialsharing a{width: 40px;height: 40px;}
+    .socialsharing a i{line-height: 40px;font-size: 20px;}
+    .numblock{width: 25px;height: 25px;font-size: 17px;}
+    .profiledetbtm {padding-top: 60px;}
+    .mailicon img{position: relative;top:-2px;width: 22px;}
+}
+@media screen and (max-width:1225px){
+    .mainlabox .info-box-content span{font-size: 20px;line-height: 20px;}
+    .mainlabox .info-box-icon {font-size: 30px;width: 65px;height: 65px !important;line-height: 65px !important;}
+    .info-box-icon > img {width: 40px;}
+    .mainlabox .rgticon{width: 45px;}
+    .mainlabox .info-box-content{margin: 0;height: 65px;}
+    .mainlabox {min-height: 65px;}
+}
+@media screen and (max-width:1199px){
+    .historyblock_right img {height: 45px;}
+    .historyblock_left img{width: 50px;}
+    .hismaildetail_img {width: 90px;}
+    .userprofileblock_left{width: 100%;margin-bottom: 10px;}
+    .userprofileblock_right{width: 100%;}
+}
+@media screen and (max-width:1100px){
+    .mainlabox .info-box-icon{font-size: 25px;width: 55px;}
+    .mainlabox .info-box-content span{font-size: 18px;}
+    .info-box-icon > img {width: 30px;}
+    .mainlabox .rgticon{width: 35px;}
+    .mainlabox .info-box-content{width: 120px;}
+}
+@media screen and (max-width:991px){
+    .tabpart li{width: 130px;}
+    .mainlabox{width: 100%;margin: 0 0 10px;}
+    .historuydtl{margin-bottom: 15px;}
+    .hismaildesc p {font-size: 18px;margin-bottom: 5px;}
+    .hismaildesc h3 {font-size: 18px;}
+}
+
+@media screen and (max-width:550px){
+    .historyblock_right img {height: 35px;}
+    .historyblock_left img {width: 40px;}
+    .hismaildetail_img {width: 65px;}
+}
+@media screen and (max-width:480px){
+    .tabpart li a i {margin-right: 5px;}
+    .tabpart li {width: 100px;}
+}
+@media screen and (max-width:460px){
+}
+
+

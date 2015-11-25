@@ -52,6 +52,11 @@ class UsersController extends Controller {
                                         return "<img src='img/googleplus.png' />";
                                 }
                             })
+                            ->editColumn('visitor', function ($users) {
+                                
+                                    return "<a href='users/profile/{$users->userId}' />{$users->visitor}</a>";
+                                
+                            })
                             ->addColumn('campaign', function ($users) {
                                 return $users->campaignName;
                             })
@@ -231,6 +236,10 @@ class UsersController extends Controller {
             }
             return Response::stream($callback, 200, $headers);
 
+    }
+    
+    public function getProfile($id){
+       return view('users.profile');
     }
     
 
