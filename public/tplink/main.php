@@ -23,6 +23,10 @@ uamdomain clicspot.com
 uamdomain facebook.com
 uamdomain facebook.net
 uamdomain akamaihd.net
+uamdomain google.com
+uamdomain googleapis.com
+uamdomain gstatic.com
+uamdomain googleusercontent.com
 
 
 locationname "clicspot"
