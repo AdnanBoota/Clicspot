@@ -32,7 +32,11 @@
                             </div>
                             <div class="profiledetmin">
                                 <div class="profileimg">
-                                    <img src="{{ asset("img/profileimg.png") }}" />
+                                    @if($getProfile->gender=='male')
+                                    <img src="{{ asset("img/male.png") }}" />
+                                    @else
+                                    <img src="{{ asset("img/female.png") }}" />
+                                    @endif
                                 </div>
                             </div>
                             <div class="profiledetbtm">
@@ -51,11 +55,11 @@
                     <div class="col-md-7 userprofileblock_right">
                         <div class="profiledetrgt">
                             <div class="socialsharing">
-                               
-                                <a class="mailicon {{($getProfile->type==2) ? 'emailHover':''}}" href="mailto:{{$getProfile->email}}"><i><img src="{{ asset("img/emailicon.png") }}"/></i></a>
-                                <a class="fbicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? 'facebookHover':''}}" href="{{$getProfile->profileurl}}"><i class="fa fa-facebook"></i></a>
-                                <a class="gplusicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? 'gplusHover':''}}" href="{{$getProfile->profileurl}}"><i class="fa fa-google-plus"></i></a>
-                              
+
+                                <a class="mailicon {{($getProfile->type==2) ? 'emailHover':''}}" href="javascript:void(0)"><i><img src="{{ asset("img/emailicon.png") }}"/></i></a>
+                                <a class="fbicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? 'facebookHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? $getProfile->profileurl :'javascipt:void(0)' }}"><i class="fa fa-facebook"></i></a>
+                                <a class="gplusicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? 'gplusHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? $getProfile->profileurl : 'javascript:void(0)'}}"><i class="fa fa-google-plus"></i></a>
+
 
                             </div>
                             <div class="userprodtl">
@@ -67,7 +71,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="prolbldetail">
-                                            <span>32 years</span>
+                                            <span>Unkonwn</span>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +95,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="prolbldetail">
-                                            <span>{{$getProfile->email}}</span>
+                                            <span>{{ isset($getProfile->email)? $getProfile->email : 'Unkonwn' }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -106,64 +110,34 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Latest Members</h3>
 
-                            <div class="box-tools pull-right">
-                                <span class="label label-danger">8 New Members</span>
-                                <button data-widget="collapse" class="btn btn-box-tool" type="button"><i class="fa fa-minus"></i>
-                                </button>
-                                <button data-widget="remove" class="btn btn-box-tool" type="button"><i class="fa fa-times"></i>
-                                </button>
-                            </div>
+                            <!--                            <div class="box-tools pull-right">
+                                                            <span class="label label-danger">8 New Members</span>
+                                                            <button data-widget="collapse" class="btn btn-box-tool" type="button"><i class="fa fa-minus"></i>
+                                                            </button>
+                                                            <button data-widget="remove" class="btn btn-box-tool" type="button"><i class="fa fa-times"></i>
+                                                            </button>
+                                                        </div>-->
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body no-padding">
                             <ul class="users-list clearfix">
+                                @if (count($getLatestUsers) > 0)
+                                @foreach ($getLatestUsers as $latestUser)
                                 <li>
                                     <img alt="User Image" src="/dist/img/user1-128x128.jpg">
-                                    <a href="#" class="users-list-name">Alexander Pierce</a>
-                                    <span class="users-list-date">Today</span>
+                                    <a href="#" class="users-list-name">{{$latestUser->name}}</a>
+                                    <span class="users-list-date">{{ $latestUser->joinDate }}</span>
                                 </li>
-                                <li>
-                                    <img alt="User Image" src="/dist/img/user8-128x128.jpg">
-                                    <a href="#" class="users-list-name">Norman</a>
-                                    <span class="users-list-date">Yesterday</span>
-                                </li>
-                                <li>
-                                    <img alt="User Image" src="/dist/img/user7-128x128.jpg">
-                                    <a href="#" class="users-list-name">Jane</a>
-                                    <span class="users-list-date">12 Jan</span>
-                                </li>
-                                <li>
-                                    <img alt="User Image" src="/dist/img/user6-128x128.jpg">
-                                    <a href="#" class="users-list-name">John</a>
-                                    <span class="users-list-date">12 Jan</span>
-                                </li>
-                                <li>
-                                    <img alt="User Image" src="/dist/img/user2-160x160.jpg">
-                                    <a href="#" class="users-list-name">Alexander</a>
-                                    <span class="users-list-date">13 Jan</span>
-                                </li>
-                                <li>
-                                    <img alt="User Image" src="/dist/img/user5-128x128.jpg">
-                                    <a href="#" class="users-list-name">Sarah</a>
-                                    <span class="users-list-date">14 Jan</span>
-                                </li>
-                                <li>
-                                    <img alt="User Image" src="/dist/img/user4-128x128.jpg">
-                                    <a href="#" class="users-list-name">Nora</a>
-                                    <span class="users-list-date">15 Jan</span>
-                                </li>
-                                <li>
-                                    <img alt="User Image" src="/dist/img/user3-128x128.jpg">
-                                    <a href="#" class="users-list-name">Nadia</a>
-                                    <span class="users-list-date">15 Jan</span>
-                                </li>
+                                @endforeach
+                                @endif
+
                             </ul>
                             <!-- /.users-list -->
                         </div>
                         <!-- /.box-body -->
-                        <div class="box-footer text-center">
-                            <a class="uppercase" href="javascript::">View All Users</a>
-                        </div>
+                        <!--                        <div class="box-footer text-center">
+                                                    <a class="uppercase" href="javascript::">View All Users</a>
+                                                </div>-->
                         <!-- /.box-footer -->
                     </div>
                 </div>

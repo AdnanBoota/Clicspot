@@ -241,7 +241,11 @@ class UsersController extends Controller {
     public function getProfile($id){
        $getProfile = Users::findOrFail($id);
        $getLastVisit = Radacct::select(DB::raw('username, DATEDIFF(now(),max(acctstarttime)) as lastvisit'))->where('username','=',$getProfile->username)->get();
-        return view('users.profile',compact('getProfile','getLastVisit'));
+       $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.username as username,users.name,DATE_FORMAT(created_at,"%b %d") as joinDate'))
+                ->join('users', 'radacct.username', '=', 'users.username')
+                ->orderBy('users.created_at', 'desc');
+       $getLatestUsers=$latestUsers->take(8)->get();
+               return view('users.profile',compact('getProfile','getLastVisit','getLatestUsers'));
     }
     
 
