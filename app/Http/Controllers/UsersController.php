@@ -36,14 +36,14 @@ class UsersController extends Controller {
 
         if ($request->ajax()) {
             $listVal = $request->input('listVal');
-            if($listVal == '' AND Session::has('listId')){
-                $listVal =  Session::get('listId');
+            if ($listVal == '' AND Session::has('listId')) {
+                $listVal = Session::get('listId');
             }
-            $users = $this->getStatistics($listVal,'datatable');
+            $users = $this->getStatistics($listVal, 'datatable');
             return Datatables::of($users)
                             ->editColumn('favoredconnection', function ($users) {
                                 if ($users->favoredconnection == '2')
-                                    //return '<i class="fa fa-envelope"></i>';
+                                //return '<i class="fa fa-envelope"></i>';
                                     return "<img src='img/mail.png' />";
                                 else {
                                     if ($users->profileurl != '' AND strpos($users->profileurl, 'facebook') !== false) {
@@ -53,9 +53,8 @@ class UsersController extends Controller {
                                 }
                             })
                             ->editColumn('visitor', function ($users) {
-                                
-                                    return "<a href='users/profile/{$users->userId}' />{$users->visitor}</a>";
-                                
+
+                                return "<a href='users/profile/{$users->userId}' />{$users->visitor}</a>";
                             })
                             ->addColumn('campaign', function ($users) {
                                 return $users->campaignName;
@@ -65,16 +64,16 @@ class UsersController extends Controller {
                             })
                             ->make(true);
         } else {
-            $users = $this->getStatistics('','indexCount');
+            $users = $this->getStatistics('', 'indexCount');
             $emailList = Auth::user()->emailList()->select('listname', 'id')->get();
             return view('users.index', ['facebookCount' => $users['fbCount'], 'googleCount' => $users['gCount'], 'emailCount' => $users['eCount'], 'emailList' => $emailList]);
         }
     }
 
-    public function getStatistics($listId = '',$callFrom='') {
-        if($callFrom == 'selList')
-            Session::put('listId',$listId);
-       
+    public function getStatistics($listId = '', $callFrom = '') {
+        if ($callFrom == 'selList')
+            Session::put('listId', $listId);
+
         if ($listId AND $listId != 'static') {
             $emailListFilterData = EmailList::findOrFail($listId);
             $favConArr = explode(';', $emailListFilterData->favoredconnection);
@@ -87,39 +86,39 @@ class UsersController extends Controller {
             $dateQkSel = $emailListFilterData->datequickselection;
             $datefrom = $emailListFilterData->datefrom;
             $dateto = $emailListFilterData->dateto;
-        }else if($callFrom == 'formList'){
+        } else if ($callFrom == 'formList') {
             $inputs = Input::all();
-            if(isset($inputs['favoredconnection']))
+            if (isset($inputs['favoredconnection']))
                 $favConArr = $inputs['favoredconnection'];
-            if(isset($inputs['visitors']))
+            if (isset($inputs['visitors']))
                 $visitorsArr = $inputs['visitors'];
             $numVisitArr = ($inputs['numberofvisit']) ? explode(';', $inputs['numberofvisit']) : '';
-            if(isset($inputs['router']))
+            if (isset($inputs['router']))
                 $routerArr = $inputs['router'];
-                $firstName = $inputs['firstname'];
-                $lastName = $inputs['lastname'];
+            $firstName = $inputs['firstname'];
+            $lastName = $inputs['lastname'];
             $isDateQkSel = $inputs['isdatequickselection'];
             $dateQkSel = $inputs['datequickselection'];
-            if(isset($inputs['datefrom']))
+            if (isset($inputs['datefrom']))
                 $datefrom = $inputs['datefrom'];
-            if(isset($inputs['dateto']))
+            if (isset($inputs['dateto']))
                 $dateto = $inputs['dateto'];
         }
         if (Auth::user()->type == 'superadmin') {
-        $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.profileurl,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
-                ->join('users', 'radacct.username', '=', 'users.username')
-                ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
-                ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
-                ->groupBy('radacct.username')
-                ->orderBy('acctstarttime', 'desc');
-        }  else {
             $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.profileurl,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
-                ->join('users', 'radacct.username', '=', 'users.username')
-                ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
-                ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
-                ->where('nas.adminid', '=', Auth::user()->id)
-                ->groupBy('radacct.username')
-                ->orderBy('acctstarttime', 'desc');
+                    ->join('users', 'radacct.username', '=', 'users.username')
+                    ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
+                    ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
+                    ->groupBy('radacct.username')
+                    ->orderBy('acctstarttime', 'desc');
+        } else {
+            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.profileurl,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
+                    ->join('users', 'radacct.username', '=', 'users.username')
+                    ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
+                    ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
+                    ->where('nas.adminid', '=', Auth::user()->id)
+                    ->groupBy('radacct.username')
+                    ->orderBy('acctstarttime', 'desc');
         }
         if (isset($favConArr)) {
             $users->where(function ($query) use ($favConArr) {
@@ -169,7 +168,7 @@ class UsersController extends Controller {
             $users->whereIn('nas.nasidentifier', $routerArr);
         }
         $users = $users->get();
-        
+
         // return on basis of call from function
         if ($callFrom == 'selList' OR $callFrom == 'indexCount' OR $callFrom == 'formList') {
             $fbCount = $gCount = $eCount = 0;
@@ -184,7 +183,7 @@ class UsersController extends Controller {
                 }
             }
             $countRes = ['fbCount' => $fbCount, 'gCount' => $gCount, 'eCount' => $eCount];
-            if($callFrom == 'indexCount')
+            if ($callFrom == 'indexCount')
                 return $countRes;
             else
                 return Response::json($countRes);
@@ -192,61 +191,62 @@ class UsersController extends Controller {
             return $users;
         }
     }
-    
-    public function exportUsers($listId,$expType){
-           
-            $fileName = md5(time()) . rand(11111, 99999) . '.' .$expType;
-            $headers = [
-                    'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
-                ,   'Content-Disposition' => 'attachment; filename='.$fileName
-                ,   'Expires'             => '0'
-                ,   'Pragma'              => 'public'
-            ];
+
+    public function exportUsers($listId, $expType) {
+
+        $fileName = md5(time()) . rand(11111, 99999) . '.' . $expType;
+        $headers = [
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0'
+            , 'Content-Disposition' => 'attachment; filename=' . $fileName
+            , 'Expires' => '0'
+            , 'Pragma' => 'public'
+        ];
+
+        $headers['Content-type'] = 'text/csv';
+        if ($expType == 'txt')
+            $headers['Content-type'] = 'text/plain';
+        if ($expType == 'xls')
+            $headers['Content-type'] = 'application/vnd.ms-excel; charset=utf-8';
+        $list = $this->getStatistics($listId, 'expList');
+        $list = $list->toArray();
+        $callback = function() {
             
-            $headers['Content-type']  = 'text/csv';
-            if($expType == 'txt')
-                $headers['Content-type']  = 'text/plain';
-            if($expType == 'xls')
-                $headers['Content-type']  = 'application/vnd.ms-excel; charset=utf-8';
-            $list =$this->getStatistics($listId,'expList');
-            $list = $list->toArray();
-            $callback = function(){};
-            if(count($list)){
-                # add headers for each column in the CSV download
-                $headRow = array_keys($list[0]);
-                $radkey = array_search('radacctid', $headRow);
-                $uidkey = array_search('userId', $headRow);
-                unset($headRow[$radkey]);
-                unset($headRow[$uidkey]);
-                array_unshift($list,$headRow);
+        };
+        if (count($list)) {
+            # add headers for each column in the CSV download
+            $headRow = array_keys($list[0]);
+            $radkey = array_search('radacctid', $headRow);
+            $uidkey = array_search('userId', $headRow);
+            unset($headRow[$radkey]);
+            unset($headRow[$uidkey]);
+            array_unshift($list, $headRow);
 
-               $callback = function() use ($list)
-                {
-                    $FH = fopen('php://output', 'w');
-                    //add BOM to fix UTF-8 in Excel
-                    fputs($FH, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
-                    foreach ($list as $row) {
-                        unset($row['radacctid']);
-                        unset($row['userId']);
-                        fputcsv($FH, $row,";");
-
-                    }
-                    fclose($FH);
-                };
-            }
-            return Response::stream($callback, 200, $headers);
-
+            $callback = function() use ($list) {
+                $FH = fopen('php://output', 'w');
+                //add BOM to fix UTF-8 in Excel
+                fputs($FH, $bom = ( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
+                foreach ($list as $row) {
+                    unset($row['radacctid']);
+                    unset($row['userId']);
+                    fputcsv($FH, $row, ";");
+                }
+                fclose($FH);
+            };
+        }
+        return Response::stream($callback, 200, $headers);
     }
-    
-    public function getProfile($id){
-       $getProfile = Users::findOrFail($id);
-       $getLastVisit = Radacct::select(DB::raw('username, DATEDIFF(now(),max(acctstarttime)) as lastvisit'))->where('username','=',$getProfile->username)->get();
-       $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.username as username,users.name,DATE_FORMAT(created_at,"%b %d") as joinDate'))
+
+    public function getProfile($id) {
+        $getProfile = Users::findOrFail($id);
+        $getLastVisit = Radacct::select(DB::raw('username, DATEDIFF(now(),max(acctstarttime)) as lastvisit,count(radacct.username) as connections,calledstationid'))->where('username', '=', $getProfile->username)->get();
+        $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(created_at,"%b %d") as joinDate'))
                 ->join('users', 'radacct.username', '=', 'users.username')
                 ->orderBy('users.created_at', 'desc');
-       $getLatestUsers=$latestUsers->take(8)->get();
-               return view('users.profile',compact('getProfile','getLastVisit','getLatestUsers'));
+        $getLatestUsers = $latestUsers->take(8)->get();
+        $getRouterInformation=Radacct::select(DB::raw('radacct.radacctid,username,count(radacct.calledstationid) as totalVisit,DATE_FORMAT(max(radacct.acctstarttime),"%b %d %Y %h:%i %p") as LastVisitDate,nas.nasidentifier,nas.shortname as routerName'))
+                ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier') ->where('username', '=', $getProfile->username)->groupBy('radacct.calledstationid')->get();
+
+        return view('users.profile', compact('getProfile', 'getLastVisit', 'getLatestUsers','totalConnections','getRouterInformation'));
     }
-    
 
 }

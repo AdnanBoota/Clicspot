@@ -3,7 +3,6 @@
 <link href="{{ asset('/css/profile.css') }}" rel="stylesheet" type="text/css"/>
 @endpush
 @section('content')
-
 <section class="creatpart">
     <div class="titleblock">
         <i class="fa fa-user"></i>
@@ -32,10 +31,14 @@
                             </div>
                             <div class="profiledetmin">
                                 <div class="profileimg">
+                                    @if($getProfile->avatar!='')
+                                    <img src="{{ $getProfile->avatar }}" />
+                                    @else
                                     @if($getProfile->gender=='male')
                                     <img src="{{ asset("img/male.png") }}" />
                                     @else
                                     <img src="{{ asset("img/female.png") }}" />
+                                    @endif
                                     @endif
                                 </div>
                             </div>
@@ -124,7 +127,16 @@
                                 @if (count($getLatestUsers) > 0)
                                 @foreach ($getLatestUsers as $latestUser)
                                 <li>
-                                    <img alt="User Image" src="/dist/img/user1-128x128.jpg">
+                                    @if($latestUser->avatar!='')
+                                    <img alt="User Image" src="{{$latestUser->avatar}}">
+                                    @else
+                                    @if($latestUser->gender=='male')
+                                    <img src="{{ asset("img/male.png") }}" />
+                                    @else
+                                    <img src="{{ asset("img/female.png") }}" />
+                                    @endif
+                                    @endif
+
                                     <a href="#" class="users-list-name">{{$latestUser->name}}</a>
                                     <span class="users-list-date">{{ $latestUser->joinDate }}</span>
                                 </li>
@@ -171,7 +183,7 @@
             </span>
         </div>
         <div class="info-box mainlabox wifibox">
-            <span class="info-box-icon bg-aqua">12</span>
+            <span class="info-box-icon bg-aqua">{{$getLastVisit[0]->connections}}</span>
             <div class="info-box-content">
                 <span>Connections</span></span>
             </div>
@@ -224,30 +236,35 @@
                         <div class="numblock">1</div>
                         <h2>Latest Venues</h2>
                     </div>
+                    @if (count($getRouterInformation) > 0)
+                    @foreach ($getRouterInformation as $getRounterInfo)
                     <div class="hismaildetail">
                         <div class="hismaildetail_img">
                             <img src="{{ asset("img/venueimg.png") }}" />
                         </div>
 
                         <div class="hismaildesc">
-                            <h3>Router Name1</h3>
-                            <p><label>Visits :</label>7</p>
-                            <p><label>Last visit :</label>Tue 10th Feb 2015, 13:31:45</p>
+                            <h3>{{$getRounterInfo->routerName}}</h3>
+                            <p><label>Visits :</label>{{$getRounterInfo->totalVisit}}</p>
+                            <p><label>Last visit :</label>{{$getRounterInfo->LastVisitDate}}</p>
                         </div>
                         <div class="hismaildetail_img plusimg">
                             <a href="#"><i class="fa fa-plus"></i></a>
                         </div>
                     </div>
-                    <div class="hismaildetail">
-                        <div class="hismaildetail_img">
-                            <img src="{{ asset("img/venueimg.png") }}" />
-                        </div>
-                        <div class="hismaildesc">
-                            <h3>Router Name2</h3>
-                            <p><label>Visits :</label> 4</p>
-                            <p><label>Last visit :</label>Mon 7th Feb 2015, 13:27:30</p>
-                        </div>
-                    </div
+                    @endforeach
+                    @endif
+
+                    <!--                    <div class="hismaildetail">
+                                            <div class="hismaildetail_img">
+                                                <img src="{{ asset("img/venueimg.png") }}" />
+                                            </div>
+                                            <div class="hismaildesc">
+                                                <h3>Router Name2</h3>
+                                                <p><label>Visits :</label> 4</p>
+                                                <p><label>Last visit :</label>Mon 7th Feb 2015, 13:27:30</p>
+                                            </div>
+                                        </div>-->
 
 
 
