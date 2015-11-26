@@ -11,7 +11,7 @@ class FacebookLogin extends Controller
     {
         $login_url = $fb
             ->getRedirectLoginHelper()
-            ->getLoginUrl(url('/facebook/callback'), ['email', 'public_profile', 'user_friends']);
+            ->getLoginUrl(url('/facebook/callback'), ['email', 'public_profile', 'user_friends','user_birthday']);
         return redirect($login_url);
     }
 
@@ -61,7 +61,7 @@ class FacebookLogin extends Controller
 
         // Get basic info on the user from Facebook.
         try {
-            $response = $fb->get('me?fields=id,name,email,gender,picture');
+            $response = $fb->get('me?fields=id,name,email,gender,picture,birthday');
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
             dd($e->getMessage());
         }
