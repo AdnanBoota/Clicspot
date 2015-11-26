@@ -68,7 +68,7 @@ class FacebookLogin extends Controller
 
         // Convert the response to a `Facebook/GraphNodes/GraphUser` collection
         $facebook_user = $response->getGraphUser();
-
+        dd($facebook_user);
         $data = array(
             'username' => \Session::get('mac'),
             'type' => 1,
