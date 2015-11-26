@@ -25,6 +25,7 @@
     <link href="{{ asset('/css/dataTables.responsive.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/css/datepicker3.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/css/newmenu.css') }}" rel="stylesheet" type="text/css"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
