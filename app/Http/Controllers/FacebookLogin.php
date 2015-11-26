@@ -61,14 +61,14 @@ class FacebookLogin extends Controller
 
         // Get basic info on the user from Facebook.
         try {
-            $response = $fb->get('me?fields=id,name,email,gender,picture');
+            $response = $fb->get('me?fields=id,name,email,gender,picture,birth_date');
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
             dd($e->getMessage());
         }
 
         // Convert the response to a `Facebook/GraphNodes/GraphUser` collection
         $facebook_user = $response->getGraphUser();
-        dd($response);
+        dd($facebook_user);
         $data = array(
             'username' => \Session::get('mac'),
             'type' => 1,
