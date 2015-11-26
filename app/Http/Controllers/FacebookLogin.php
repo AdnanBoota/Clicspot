@@ -61,7 +61,7 @@ class FacebookLogin extends Controller
 
         // Get basic info on the user from Facebook.
         try {
-            $response = $fb->get('me?fields=id,name,email,gender,avatar');
+            $response = $fb->get('me?fields=id,name,email,gender,picture');
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
             dd($e->getMessage());
         }
