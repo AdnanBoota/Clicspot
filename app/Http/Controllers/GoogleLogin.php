@@ -28,8 +28,11 @@ class GoogleLogin extends Controller
             'name' => $user->getName(),
             'email' => $user->getEmail(),
             'gender' => $user->user['gender'],
-            'profileurl' => $user->user['url']
+            'profileurl' => $user->user['url'],
+            'avatar'=>$user->getAvatar(),
+            'birthday'=>isset($user->user['birthday'])?$user->user['birthday']:''
         );
+        //dd($data);
         $users = Users::where('username', $data['username'])->first();
         if ($users) {
             $users->update($data);
