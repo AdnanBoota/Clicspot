@@ -241,6 +241,7 @@ class UsersController extends Controller {
         $getLastVisit = Radacct::select(DB::raw('username, DATEDIFF(now(),max(acctstarttime)) as lastvisit,count(radacct.username) as connections,calledstationid'))->where('username', '=', $getProfile->username)->get();
         $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(created_at,"%b %d") as joinDate'))
                 ->join('users', 'radacct.username', '=', 'users.username')
+                ->groupBy('radacct.username')
                 ->orderBy('users.created_at', 'desc');
         $getLatestUsers = $latestUsers->take(8)->get();
         $getRouterInformation=Radacct::select(DB::raw('radacct.radacctid,username,count(radacct.calledstationid) as totalVisit,DATE_FORMAT(max(radacct.acctstarttime),"%b %d %Y %h:%i %p") as LastVisitDate,nas.nasidentifier,nas.shortname as routerName'))
