@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
 Route::get('hotspot/datatable','HotspotController@datatable');
 Route::get('emails','EmailsController@getEmail');
 Route::post('emails','EmailsController@postEmail');
+Route::resource('emails','EmailsController');
 Route::post('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
 Route::patch('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
 Route::get('users/exportUsers/{listId}/{expType}', 'UsersController@exportUsers');

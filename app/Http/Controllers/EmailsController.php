@@ -49,4 +49,8 @@ class EmailsController extends Controller
        Session::flash('flash_message_success', $successMsg);
        return redirect('emails');
     }
+    
+    public function create(){
+        return View::make('email.create');
+    }
 }
