@@ -1,0 +1,201 @@
+.tabpart li{
+    width: 180px;
+}
+
+.automailingblock {
+    overflow: auto;
+}
+.automailingblock a ,.automailingblock a.emailbtn{
+    background: #1abc9c;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 30px 0 30px 45px;
+}
+.mailingtabledtl{
+    
+}
+.mailingtabledtl a.deletebtn{
+    padding: 0;
+    background: none;
+    margin: 0;
+}
+.mailingtabledtl a.deletebtn img{
+    height: auto;
+    margin-left: 50px;
+    width: 25px;
+}
+.mailingtable {
+    margin: auto;
+    width: 94%;
+} 
+.mailingtable .tchackboc{
+    width: 50px;
+}
+.mailingtable .tselectbox {
+    width: 150px;
+}
+.mailingtable tr{
+    border-bottom: 2px solid #d7dcde;
+}
+.mailingtable tr th{
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 15px 10px; 
+}
+.mailingtable tr td{
+    padding: 20px 10px;
+}
+.mailingtable tr td.greenttxt h2{
+    color: #1abc9c;
+    font-size: 22px;
+    font-weight: 600;
+}
+.mailingtable tr td p{
+    color:#95a0aa;
+    font-size: 22px;
+}
+.icheckbox_flat-green.checked {
+    background-position: -22px 0;
+}
+.icheckbox_flat-green {
+    background-position: 0 0;
+}
+.icheckbox_flat-green, .iradio_flat-green {
+    background:url("../img/green.png") no-repeat scroll 0 0;
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 20px;
+}
+.editbtn button {
+    background: #bec3c7;
+    border: medium none;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 41px;
+    text-align: left;
+    width: 100%;
+}
+.editbtn button span {
+    float: left;
+}
+.editbtn button .caret {
+    border-width: 6px 6px 0;
+    float: right;
+    margin-top: 10px;
+}
+.editbtn .dropdown-menu {
+    border: 2px solid #1bbc9b;
+    width: 100%;
+}
+.editbtn .dropdown-menu > li {
+    overflow: auto;
+    padding: 5px 10px;
+}
+.editbtn .dropdown-menu li span {
+    color: #69737f;
+    float: left;
+    font-weight: bold;
+}
+.editbtn .dropdown-menu li:hover {
+    background: #1bbc9b none repeat scroll 0 0;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.hover, .btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    background: #1bbc9b;
+}
+
+.ttitleblock{
+    overflow: hidden;
+}
+.ttitleblock h2{
+    float: left;
+}
+.ttitleblock span{
+    background: #f86b4f;
+    border-radius: 50px;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+    margin: 6px 0 0 4px;
+    text-align: center;
+    width: 16px;
+}
+.greenttxt p{
+    color: #95a0aa;
+    font-size: 18px;
+    display: block;
+}
+.greenttxt p span{
+    font-weight: 600;
+}
+.mailingstatic{
+    
+}
+.mailingstatic p{
+    color: #95a0aa;
+    font-size: 18px;
+    display: block;
+}
+
+.mailingstatic span{
+    color: #95a0aa;
+    font-size: 18px;
+    display: block;
+    font-weight: 600;
+}
+
+
+.mailingstaticlft{
+    width: 130px;
+    float: left;
+}
+.automailingblock a.emailbtn{
+    float: right;
+    margin: 50px 45px 50px 0;
+}
+.tchackboc a.deletebtn img{
+    margin: 0;
+}
+.tchackboc a.deletebtn{
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+
+@media screen and (max-width:1330px){
+    .mailingtable .tchackboc {width: 25px;}
+    .ttitleblock span{width: 15px;height: 15px;font-size: 11px;}
+    .mailingtable tr td.greenttxt h2{font-size: 20px;}
+    .mailingtable tr td p{font-size: 20px;}
+    .mailingstatic p{font-size: 18px;}
+    .mailingstaticlft{width: 100px;}
+}
+@media screen and (max-width:1150px){
+    .mailingtable tr td{padding: 15px 10px;}
+}
+@media screen and (max-width:991px){
+    .mailingtable tr td p {font-size: 18px;}
+    .mailingstaticlft {width: 60px;}
+}
+
+@media screen and (max-width:460px){
+    .mailingtable{overflow: auto;}
+    .editbtn button{width: 130px;}
+
+}
+
+
+
+

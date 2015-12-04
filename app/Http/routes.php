@@ -47,7 +47,7 @@ Route::get('emails','EmailsController@getEmail');
 Route::post('emails','EmailsController@postEmail');
 Route::resource('emails','EmailsController');
 Route::post('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
-Route::patch('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
+Route::patch('users/getSt atistics/{listId}/{callFrom}', 'UsersController@getStatistics');
 Route::get('users/exportUsers/{listId}/{expType}', 'UsersController@exportUsers');
 Route::get('users/profile/{id}', 'UsersController@getProfile');
 Route::resource('users', 'UsersController');

@@ -169,7 +169,7 @@ $(function() {
 
     function qr() {
         function e() {
-          
+
         }
         window.onload = e
     }
@@ -246,10 +246,10 @@ $(function() {
                 Cr.val("pls input right google API!")
             } else {
                 var n = $n.html().replace(kr, ""),
-                    r = /\<style\s*type=\"text\/css\">[\s\S]*\<\/style\>/i,
-                    i = n.match(r),
-                    i = t + "\n" + i,
-                    n = n.replace(r, i);
+                        r = /\<style\s*type=\"text\/css\">[\s\S]*\<\/style\>/i,
+                        i = n.match(r),
+                        i = t + "\n" + i,
+                        n = n.replace(r, i);
                 $n.html(n).css({
                     opacity: "0.3"
                 }).animate({
@@ -262,7 +262,7 @@ $(function() {
                     Pr.html("").html(u)
                 } else {
                     var a = s.split("|"),
-                        u = "";
+                            u = "";
                     $.each(a, function(e, t) {
                         u += "<li>" + t + ", serif</li>"
                     });
@@ -308,7 +308,6 @@ $(function() {
             return (e / 1e3).toFixed(2) + " KB"
         }
         var e = window.location.hostname === "blueimp.github.io" ? "//jquery-file-upload.appspot.com/" : "server/php/";
-        
         $(document).on("drop dragover", function(e) {
             e.preventDefault()
         })
@@ -328,7 +327,8 @@ $(function() {
                 repk = 1
             }, 2500);
             setTimeout("$.post('delete.php')", 3e3);
-            if (OptS == 1) {}
+            if (OptS == 1) {
+            }
             $n.find(Id + ":first").addClass("this-module")
         });
         Xn.html("Upload succcess, and the uploaded file will be deleted from temp folder after uploading...").fadeIn(1e3);
@@ -519,16 +519,23 @@ $(function() {
             return false
         }
         if (isDemo == true) {
-            BDLJ = location.protocol + "//" + location.host + e.join("/") + "/demo/"
+            BDLJ = APP_URL + "/demo/"
         } else {
-            BDLJ = location.protocol + "//" + location.host + e.join("/") + "/template_builder/html/"
+            BDLJ = APP_URL + "/template_builder/html/"
         }
         BDLJP = location.protocol + "//" + location.host + e.join("/");
         if (mLt == "all") {
-            IL = BDLJ + mTm + "/" + mLt + "-inline.html"
+// IL = BDLJ + mTm + "/21961.html"
         } else {
-            IL = BDLJ + mTm + "/layout" + mLt + "-inline.html"
+            if (templateName != "") {
+                IL = BDLJ + userId + "/" + templateName + ".html"
+            }
+            else {
+                IL = BDLJ + mTm + "/all-inline.html"
+            }
         }
+
+        console.log(userId)
         hIL = BDLJ + mTm + "/all-inline.html";
         IImL = '"' + BDLJ + mTm + "/images/";
         IBmL = "url(" + BDLJ + mTm + "/images/";
@@ -564,7 +571,7 @@ $(function() {
         Xn.html("Preheader has been added...").css("display", "none").fadeIn(1e3);
         tCKDM = Zn.html();
         var n = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' + "\n" + '<html xmlns="http://www.w3.org/1999/xhtml">' + "\n" + "<head>" + "\n" + '<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>' + "\n" + '<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>' + "\n",
-            r = "</head>" + "\n" + '<body style="margin:0;padding:0;width:100%;height:100%;">' + "\n";
+                r = "</head>" + "\n" + '<body style="margin:0;padding:0;width:100%;height:100%;">' + "\n";
         var i = "\n" + "</body>" + "\n" + "</html>";
         var s = /\x3c\/style\x3e/g;
         var o = rn.html();
@@ -572,8 +579,8 @@ $(function() {
         var a = /\x3ctitle\x3e[^<]+\x3c\/title\x3e/g;
         var f = /\u0067i\u0074\u0068\@/i;
         var l = "&copy;",
-            c = "&raquo;",
-            h = "'";
+                c = "&raquo;",
+                h = "'";
         var p = /\<tbody\>/g;
         var d = /\<\/tbody\>/g;
         var v = /2013\-Business\s*Template\,\s*All\s*rights\s*reserved/g;
@@ -581,36 +588,36 @@ $(function() {
         var g = "<currentyear>-Business Template,  All rights reserved";
         var y = /0800\s*123\s*4567/g;
         var b = /mc:edit="[^"]+"/g,
-            w = "2006 - *|CURRENT_YEAR|* *|LIST:COMPANY|*",
-            E = "*|LIST:PHONE|*",
-            S = /\*\|ARCHIVE\|\*/g,
-            x = /\*\|LIST:ADDRESS\|\*/g,
-            T = /\*\|LIST:URL\|\*/g,
-            N = /\*\|FORWARD\|\*/g,
-            C = /\*\|UNSUB\|\*/g,
-            k = /\#\*\|ARCHIVE\|\*/g,
-            L = /\#\*\|FORWARD\|\*/g,
-            A = /\#\*\|UNSUB\|\*/g,
-            O = /\#\*\|LIST:URL\|\*/g;
+                w = "2006 - *|CURRENT_YEAR|* *|LIST:COMPANY|*",
+                E = "*|LIST:PHONE|*",
+                S = /\*\|ARCHIVE\|\*/g,
+                x = /\*\|LIST:ADDRESS\|\*/g,
+                T = /\*\|LIST:URL\|\*/g,
+                N = /\*\|FORWARD\|\*/g,
+                C = /\*\|UNSUB\|\*/g,
+                k = /\#\*\|ARCHIVE\|\*/g,
+                L = /\#\*\|FORWARD\|\*/g,
+                A = /\#\*\|UNSUB\|\*/g,
+                O = /\#\*\|LIST:URL\|\*/g;
         var M = /\<webversion\>/g,
-            _ = /\<\/webversion\>/g,
-            D = /\<forwardtoafriend\>/g,
-            P = /\<\/forwardtoafriend\>/g,
-            H = /\<unsubscribe\>/g,
-            B = /\<\/unsubscribe\>/g,
-            j = /<singleline\s*label="[^"]+"\>/g,
-            F = /\<\/singleline\>/g,
-            I = /\<multiline\s*label="[^"]+"\>/g,
-            q = /\<\/multiline\>/g,
-            R = /\<currentyear\>/g,
-            U = /\<\/currentyear\>/g,
-            z = /editable="true"\s*label="[^"]+"/g;
+                _ = /\<\/webversion\>/g,
+                D = /\<forwardtoafriend\>/g,
+                P = /\<\/forwardtoafriend\>/g,
+                H = /\<unsubscribe\>/g,
+                B = /\<\/unsubscribe\>/g,
+                j = /<singleline\s*label="[^"]+"\>/g,
+                F = /\<\/singleline\>/g,
+                I = /\<multiline\s*label="[^"]+"\>/g,
+                q = /\<\/multiline\>/g,
+                R = /\<currentyear\>/g,
+                U = /\<\/currentyear\>/g,
+                z = /editable="true"\s*label="[^"]+"/g;
         var W = /\<webversion\>\<a[^>]+\>/g,
-            X = /\<\/a\>\<\/webversion\>/g,
-            V = /\<forwardtoafriend\>\<a[^>]+\>/g,
-            J = /\<\/a\>\<\/forwardtoafriend\>/g,
-            K = /\<unsubscribe\>\<a[^>]+\>/g,
-            Q = /\<\/a\>\<\/unsubscribe\>/g;
+                X = /\<\/a\>\<\/webversion\>/g,
+                V = /\<forwardtoafriend\>\<a[^>]+\>/g,
+                J = /\<\/a\>\<\/forwardtoafriend\>/g,
+                K = /\<unsubscribe\>\<a[^>]+\>/g,
+                Q = /\<\/a\>\<\/unsubscribe\>/g;
         tCKDM = n + tCKDM + i;
         pT = an.val();
         Phd = "<title>" + pT + pS + "</title>";
@@ -788,6 +795,7 @@ $(function() {
     function ri() {
         In.click(function(e) {
             if (isDemo == false) {
+
                 mLg = $n.find(Id).length;
                 if (mLg == 0) {
                     Xn.html("<span>***   You have not choose any modules , please selete modules and add them to your page.   ***</span>").css("display", "none").fadeIn(1e3)
@@ -859,7 +867,7 @@ $(function() {
             items: Id,
             placeholder: "placehold",
             receive: function(e, t) {
-                
+
                 $(CK + " li.item").css({
                     "list-style-type": "none",
                     display: "none"
@@ -894,12 +902,11 @@ $(function() {
             }
         });
         $("li.item").draggable({
-          
             connectToSortable: CK,
             helper: "clone",
             distance: 20,
             drag: function(e, t) {
-                  console.log("hello");
+                console.log("hello");
                 h = t.helper.find("img").height() + "px";
                 mT = $(this).attr("id");
                 $(CK + " .placehold").css({
@@ -919,14 +926,14 @@ $(function() {
             },
             revert: "invalid",
             stop: function(e, t) {
-                 console.log("hello Stop");
+                console.log("hello Stop");
                 scrollPosi = $n.scrollTop();
                 $n.scrollTop(scrollPosi);
                 var n = $(this).attr("id");
                 colne_M = Jn.find("[rev=" + n + "]").clone()
             }
         })
-        
+
     }
 
     function ai() {
@@ -1375,7 +1382,7 @@ $(function() {
                             return false
                         }
                     });
-                    XZH += '<li class="item" id="' + t + '"><img src="'+location.protocol + "//" + location.host + "/" +'template_builder/images/buju/' + t + '.jpg" title="' + n + '"></li>'
+                    XZH += '<li class="item" id="' + t + '"><img src="' + location.protocol + "//" + location.host + "/" + 'template_builder/images/buju/' + t + '.jpg" title="' + n + '"></li>'
                 });
                 XZH += "</ul></div>"
             })
@@ -1641,27 +1648,27 @@ $(function() {
 
     function ji(e) {
         var t = [{
-            width: 100,
-            height: 50,
-            padding: 10,
-            stepsPerFrame: 2,
-            trailLength: 1,
-            pointDistance: .03,
-            strokeColor: "#E6E8FA",
-            step: "fader",
-            multiplier: 2,
-            setup: function() {
-                this._.lineWidth = 5
-            },
-            path: [
-                ["arc", 10, 10, 10, -270, -90],
-                ["bezier", 10, 0, 40, 20, 20, 0, 30, 20],
-                ["arc", 40, 10, 10, 90, -90],
-                ["bezier", 40, 0, 10, 20, 30, 0, 20, 20]
-            ]
-        }];
+                width: 100,
+                height: 50,
+                padding: 10,
+                stepsPerFrame: 2,
+                trailLength: 1,
+                pointDistance: .03,
+                strokeColor: "#E6E8FA",
+                step: "fader",
+                multiplier: 2,
+                setup: function() {
+                    this._.lineWidth = 5
+                },
+                path: [
+                    ["arc", 10, 10, 10, -270, -90],
+                    ["bezier", 10, 0, 40, 20, 20, 0, 30, 20],
+                    ["arc", 40, 10, 10, 90, -90],
+                    ["bezier", 40, 0, 10, 20, 30, 0, 20, 20]
+                ]
+            }];
         var n, r, i = document.getElementById("mask2");
-        for (var s = -1, o = t.length; ++s < o;) {
+        for (var s = -1, o = t.length; ++s < o; ) {
             n = document.createElement("div");
             n.className = "l";
             r = new Sonic(t[s]);
@@ -2564,191 +2571,191 @@ $(function() {
         tCKDM = e
     }
     var t = $("#color1"),
-        n = $("#color2"),
-        r = $("#color3"),
-        s = $("#color4"),
-        o = $("#color5"),
-        u = $("#color6"),
-        f = $("#color7"),
-        l = $("#color8"),
-        p = $("#color9"),
-        v = $("#color10"),
-        m = $("#color11"),
-        y = $("#color12"),
-        w = $("#color13"),
-        E = $("#color14"),
-        S = $("#color15"),
-        x = $("#color16"),
-        T = $("#color17"),
-        N = $("#color18"),
-        C = $("#picker1"),
-        L = $("#picker2"),
-        A = $("#picker3"),
-        O = $("#picker4"),
-        M = $("#picker5"),
-        _ = $("#picker6"),
-        D = $("#picker7"),
-        P = $("#picker8"),
-        H = $("#picker9"),
-        B = $("#picker10"),
-        F = $("#picker11"),
-        I = $("#picker12"),
-        q = $("#picker13"),
-        R = $("#picker14"),
-        U = $("#picker15"),
-        z = $("#picker16"),
-        W = $("#picker17"),
-        X = $("#picker18"),
-        V = $("#BG1"),
-        J = $("#BG2"),
-        K = $("#BG3"),
-        Q = $("#BG4"),
-        G = $("#BG5"),
-        Y = $("#BG6"),
-        Z = $("#BG7"),
-        et = $("#BG8"),
-        tt = $("#BG9"),
-        nt = $("#ChangeBGnow1"),
-        rt = $("#ChangeBGnow2"),
-        it = $("#ChangeBGnow3"),
-        st = $("#ChangeBGnow4"),
-        ot = $("#ChangeBGnow5"),
-        ut = $("#ChangeBGnow6"),
-        at = $("#ChangeBGnow7"),
-        ft = $("#ChangeBGnow8"),
-        lt = $("#ChangeBGnow9"),
-        ct = $("#pattern1"),
-        ht = $("#pattern2"),
-        pt = $("#pattern3"),
-        dt = $("#pattern4"),
-        vt = $("#pattern5"),
-        mt = $("#amount1"),
-        gt = $("#amount2"),
-        yt = $("#amount3"),
-        bt = $("#amount4"),
-        wt = $("#amount5"),
-        Et = $("#amount6"),
-        St = $("#slider-range-min1"),
-        xt = $("#slider-range-min2"),
-        Tt = $("#slider-range-min3"),
-        Nt = $("#slider-range-min4"),
-        Ct = $("#slider-range-min5"),
-        kt = $("#slider-range-min6"),
-        Lt = $(window),
-        At = $("#builder"),
-        Ot = $("#lightt"),
-        Mt = $("#darkk"),
-        _t = $("#mask"),
-        Dt = $("#mask1"),
-        Pt = $("#mask2"),
-        Ht = $("#top-barr"),
-        Bt = $("#gongNeng"),
-        jt = $("#pageBox"),
-        Ft = $("#top-barr .menuu"),
-        It = $("#barrSwithcher"),
-        qt = $("#choose-module"),
-        Rt = $("#setting-color"),
-        Ut = $("#barrBgChang"),
-        zt = $("#barrDownload"),
-        Wt = $("#barrCopyRight"),
-        Xt = $("#barrGuide"),
-        Vt = $("#projectVersion"),
-        $t = $("#gongNengBox"),
-        Jt = $("#gongNengBox .gnn"),
-        Kt = $("#gongNengBox .gnn"),
-        Qt = $("#switcher_box"),
-        Gt = $("#choose-module-box"),
-        Yt = $("#color-setting-box"),
-        Zt = $("#bg-radius-box"),
-        en = $("#download-box"),
-        tn = $("#builder-info"),
-        nn = $("#guide-box"),
-        rn = $("#copyright"),
-        sn = $("#patternTitle"),
-        on = $("#urlTitle"),
-        un = $("#border-setting"),
-        an = $("#file-name"),
-        fn = $("#preheader"),
-        ln = $("li#purchase"),
-        cn = $("#code-in"),
-        hn = $("#embededCSS"),
-        pn = $("#inlineCSS"),
-        dn = $("#mailchimp"),
-        vn = $("#campaignmonitor"),
-        mn = $("li#bbColor"),
-        gn = $("li#ttColor"),
-        yn = $("li#fsColor"),
-        bn = $("li#urlC"),
-        wn = $("li#patternC"),
-        En = $("li#radiusC"),
-        Sn = $("#seeGuide"),
-        xn = $("#guideInfo"),
-        Tn = $("#accordion-module"),
-        Nn = $("#accordion-bg"),
-        Cn = $("#accordion-title"),
-        kn = $("#accordion-fonts"),
-        Ln = $("#accordion-pattern"),
-        An = $("#accordion-url"),
-        On = $("#accordion-radius"),
-        Mn = $("#dakuo-color"),
-        _n = $("#dakuo-BG-Radius"),
-        Dn = $("#accordion-guide"),
-        Pn = $("#dakuo-google-fonts-api"),
-        Hn = $("#accordion-api"),
-        Bn = $("#accordion-family"),
-        jn = $("#accordion-font-size"),
-        Fn = $("li.item"),
-        In = $("#download-btn"),
-        qn = $("#layout_switcher"),
-        Rn = $("#theme_switcher"),
-        Un = $("#patternTitle,#urlTitle,#accordion-pattern,#accordion-url"),
-        zn = $("#border-setting,#accordion-radius"),
-        Wn = $("#code-in .gnn_content"),
-        Xn = $("#info-content"),
-        Vn = $("#template-page-box"),
-        $n = $("#iframe"),
-        Jn = $("#hide-iframe"),
-        Kn = $("#template-list"),
-        Qn = $("#device-list li a"),
-        Gn = $("#show-device"),
-        Yn = $("#browser"),
-        Zn = $("#temp-iframe"),
-        er = $("#template"),
-        tr = $("#editLayoutButton"),
-        nr = $("#editContentButton"),
-        rr = $("#uploadProject"),
-        ir = $("#uploadFilebox"),
-        sr = $("#project-name"),
-        or = $("#saveProjectbox"),
-        ur = $("#saveProject"),
-        ar = $(".center ul li #container"),
-        fr = $("#container ul li"),
-        lr = $("li#purchase a"),
-        cr = $("ol a.pc"),
-        hr = $("ol a.ipad"),
-        pr = $("ol a.ipad-landscape"),
-        dr = $("ol a.iphone"),
-        vr = $("ol a.iphone-landscape"),
-        mr = $("ol a.mobile-360"),
-        gr = $("ol a.mobile-360-landscape"),
-        yr = $("#upload ul"),
-        br = [],
-        wr = [],
-        Er, Sr, xr;
+            n = $("#color2"),
+            r = $("#color3"),
+            s = $("#color4"),
+            o = $("#color5"),
+            u = $("#color6"),
+            f = $("#color7"),
+            l = $("#color8"),
+            p = $("#color9"),
+            v = $("#color10"),
+            m = $("#color11"),
+            y = $("#color12"),
+            w = $("#color13"),
+            E = $("#color14"),
+            S = $("#color15"),
+            x = $("#color16"),
+            T = $("#color17"),
+            N = $("#color18"),
+            C = $("#picker1"),
+            L = $("#picker2"),
+            A = $("#picker3"),
+            O = $("#picker4"),
+            M = $("#picker5"),
+            _ = $("#picker6"),
+            D = $("#picker7"),
+            P = $("#picker8"),
+            H = $("#picker9"),
+            B = $("#picker10"),
+            F = $("#picker11"),
+            I = $("#picker12"),
+            q = $("#picker13"),
+            R = $("#picker14"),
+            U = $("#picker15"),
+            z = $("#picker16"),
+            W = $("#picker17"),
+            X = $("#picker18"),
+            V = $("#BG1"),
+            J = $("#BG2"),
+            K = $("#BG3"),
+            Q = $("#BG4"),
+            G = $("#BG5"),
+            Y = $("#BG6"),
+            Z = $("#BG7"),
+            et = $("#BG8"),
+            tt = $("#BG9"),
+            nt = $("#ChangeBGnow1"),
+            rt = $("#ChangeBGnow2"),
+            it = $("#ChangeBGnow3"),
+            st = $("#ChangeBGnow4"),
+            ot = $("#ChangeBGnow5"),
+            ut = $("#ChangeBGnow6"),
+            at = $("#ChangeBGnow7"),
+            ft = $("#ChangeBGnow8"),
+            lt = $("#ChangeBGnow9"),
+            ct = $("#pattern1"),
+            ht = $("#pattern2"),
+            pt = $("#pattern3"),
+            dt = $("#pattern4"),
+            vt = $("#pattern5"),
+            mt = $("#amount1"),
+            gt = $("#amount2"),
+            yt = $("#amount3"),
+            bt = $("#amount4"),
+            wt = $("#amount5"),
+            Et = $("#amount6"),
+            St = $("#slider-range-min1"),
+            xt = $("#slider-range-min2"),
+            Tt = $("#slider-range-min3"),
+            Nt = $("#slider-range-min4"),
+            Ct = $("#slider-range-min5"),
+            kt = $("#slider-range-min6"),
+            Lt = $(window),
+            At = $("#builder"),
+            Ot = $("#lightt"),
+            Mt = $("#darkk"),
+            _t = $("#mask"),
+            Dt = $("#mask1"),
+            Pt = $("#mask2"),
+            Ht = $("#top-barr"),
+            Bt = $("#gongNeng"),
+            jt = $("#pageBox"),
+            Ft = $("#top-barr .menuu"),
+            It = $("#barrSwithcher"),
+            qt = $("#choose-module"),
+            Rt = $("#setting-color"),
+            Ut = $("#barrBgChang"),
+            zt = $("#barrDownload"),
+            Wt = $("#barrCopyRight"),
+            Xt = $("#barrGuide"),
+            Vt = $("#projectVersion"),
+            $t = $("#gongNengBox"),
+            Jt = $("#gongNengBox .gnn"),
+            Kt = $("#gongNengBox .gnn"),
+            Qt = $("#switcher_box"),
+            Gt = $("#choose-module-box"),
+            Yt = $("#color-setting-box"),
+            Zt = $("#bg-radius-box"),
+            en = $("#download-box"),
+            tn = $("#builder-info"),
+            nn = $("#guide-box"),
+            rn = $("#copyright"),
+            sn = $("#patternTitle"),
+            on = $("#urlTitle"),
+            un = $("#border-setting"),
+            an = $("#file-name"),
+            fn = $("#preheader"),
+            ln = $("li#purchase"),
+            cn = $("#code-in"),
+            hn = $("#embededCSS"),
+            pn = $("#inlineCSS"),
+            dn = $("#mailchimp"),
+            vn = $("#campaignmonitor"),
+            mn = $("li#bbColor"),
+            gn = $("li#ttColor"),
+            yn = $("li#fsColor"),
+            bn = $("li#urlC"),
+            wn = $("li#patternC"),
+            En = $("li#radiusC"),
+            Sn = $("#seeGuide"),
+            xn = $("#guideInfo"),
+            Tn = $("#accordion-module"),
+            Nn = $("#accordion-bg"),
+            Cn = $("#accordion-title"),
+            kn = $("#accordion-fonts"),
+            Ln = $("#accordion-pattern"),
+            An = $("#accordion-url"),
+            On = $("#accordion-radius"),
+            Mn = $("#dakuo-color"),
+            _n = $("#dakuo-BG-Radius"),
+            Dn = $("#accordion-guide"),
+            Pn = $("#dakuo-google-fonts-api"),
+            Hn = $("#accordion-api"),
+            Bn = $("#accordion-family"),
+            jn = $("#accordion-font-size"),
+            Fn = $("li.item"),
+            In = $("#download-btn"),
+            qn = $("#layout_switcher"),
+            Rn = $("#theme_switcher"),
+            Un = $("#patternTitle,#urlTitle,#accordion-pattern,#accordion-url"),
+            zn = $("#border-setting,#accordion-radius"),
+            Wn = $("#code-in .gnn_content"),
+            Xn = $("#info-content"),
+            Vn = $("#template-page-box"),
+            $n = $("#iframe"),
+            Jn = $("#hide-iframe"),
+            Kn = $("#template-list"),
+            Qn = $("#device-list li a"),
+            Gn = $("#show-device"),
+            Yn = $("#browser"),
+            Zn = $("#temp-iframe"),
+            er = $("#template"),
+            tr = $("#editLayoutButton"),
+            nr = $("#editContentButton"),
+            rr = $("#uploadProject"),
+            ir = $("#uploadFilebox"),
+            sr = $("#project-name"),
+            or = $("#saveProjectbox"),
+            ur = $("#saveProject"),
+            ar = $(".center ul li #container"),
+            fr = $("#container ul li"),
+            lr = $("li#purchase a"),
+            cr = $("ol a.pc"),
+            hr = $("ol a.ipad"),
+            pr = $("ol a.ipad-landscape"),
+            dr = $("ol a.iphone"),
+            vr = $("ol a.iphone-landscape"),
+            mr = $("ol a.mobile-360"),
+            gr = $("ol a.mobile-360-landscape"),
+            yr = $("#upload ul"),
+            br = [],
+            wr = [],
+            Er, Sr, xr;
     var Tr = $("#accordion-family div.in"),
-        Nr = $("#barrGoogleAPI"),
-        Cr = $("#ggAPI"),
-        kr = "",
-        Lr = "",
-        Ar = "",
-        Or = $("#font-setting-box"),
-        Mr = $("li#ligAPI"),
-        _r = $("li#ligFf"),
-        Dr = $("#ChangeAPInow"),
-        Pr = $(".dropdown div ul"),
-        Hr = $(".dropdown1 div ul"),
-        Br = $(".dropdown"),
-        jr = $(".dropdown1");
+            Nr = $("#barrGoogleAPI"),
+            Cr = $("#ggAPI"),
+            kr = "",
+            Lr = "",
+            Ar = "",
+            Or = $("#font-setting-box"),
+            Mr = $("li#ligAPI"),
+            _r = $("li#ligFf"),
+            Dr = $("#ChangeAPInow"),
+            Pr = $(".dropdown div ul"),
+            Hr = $(".dropdown1 div ul"),
+            Br = $(".dropdown"),
+            jr = $(".dropdown1");
     ji(true);
     Zr();
     wi();
@@ -2799,11 +2806,48 @@ $(function() {
         wi()
     }).resize();
     $.generateFile = function(e) {
+
         e = e || {};
-        if (!e.script || !e.filename || !e.content) {
-            Xn.html("**** Please enter all the required config options!").css("display", "none").fadeIn();
-            alert("**** Please enter all the required config options!")
-        }
+//        if (!e.script || !e.filename || !e.content) {
+//            Xn.html("**** Please enter all the required config options!").css("display", "none").fadeIn();
+//            alert("**** Please enter all the required config options!")
+//        }
+
+      if (templateName != "") {
+          var title="Email Template Updated SuccessFully";
+      }else{
+          var title="Email Template Saved SuccessFully";
+      }
+        $.ajax({
+            url: '/emails',
+            type: 'post',
+            data: {
+                "content": e.content,
+                "_token": $("input[name=_token]").val(),
+                "templateName": templateName
+
+
+            },
+            success: function(result) {
+                swal({
+                    title: title,
+                    text: "",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Ok",
+                    closeOnConfirm: true
+
+                },
+                function(response) {
+                   if(response==true){                    
+                  window.location =APP_URL +"/emails" ;}
+              else{
+                  return false;
+              }
+                    
+                });
+            }
+        });
         var t = $("<iframe>", {
             width: 1,
             height: 1,
@@ -2823,9 +2867,11 @@ $(function() {
             i.find("input[name=content]").val(e.content);
             i.submit()
         }, 50)
+
     }
 });
-if (top.location != location) top.location.href = location.href
-$(document).ready(function(){
-   $("#choose-module").trigger("click") ;
+if (top.location != location)
+    top.location.href = location.href
+$(document).ready(function() {
+    $("#choose-module").trigger("click");
 });

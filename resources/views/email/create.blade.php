@@ -12,6 +12,7 @@
     <title>Clicspot | Dashboard</title>
     <link href="{{asset("template_builder/css/jquery-ui-1.10.4.custom.css")}}" rel="stylesheet">
     <link href="{{asset("template_builder/css/jihe.css")}}" rel="stylesheet">
+     <link href="{{ asset('/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
 
     <!--[if IE]>
             <style type="text/css">
@@ -36,6 +37,11 @@
     .placehold(margin-left:-20px !important;}
             </style>
     <![endif]-->
+    <script type="text/javascript">
+        var templateName='<?php echo ((isset($templates['templateName'])) ?  $templates['templateName'] : "");?>';
+        var APP_URL = {!! json_encode(url('/')) !!};
+        var userId='<?php echo ((isset($userId)) ?  $userId : "");?>';
+    </script>
 </head>
 <body id="builder" class="lightt">
     <div id="mask2"></div>
@@ -43,6 +49,9 @@
         <div id="top-bar-box">
             <ul>
                 <li id="choose-module" class="menuu active" title="Choose Module"></li>
+                <input type="hidden" value="<?php echo csrf_token(); ?>" name="_token">
+                <li id="download-btn" class="menuu" title="Save"><span>Save</span></li>
+
             </ul>
         </div>
     </div>
@@ -147,6 +156,7 @@
         </div>
 
     </div><!---->
+    
     <script src="{{asset("template_builder/js/jquery-1.7.1.min.js")}}"></script>
     <script src="{{asset("template_builder/js/jquery-ui-1.10.4.custom.js")}}"></script>
     <script src="{{asset("template_builder/ckeditor/ckeditor.js")}}"></script>
@@ -160,5 +170,7 @@
     <script src="{{asset("template_builder/js/jquery.nicescroll.min.js")}}"></script>
     <script src="{{asset("template_builder/js/jquery.ui.widget.js")}}"></script>
     <script src="{{asset("template_builder/js/digith.js")}}"></script>
+    <script src="{{ asset('/js/sweetalert.min.js') }}" type="text/javascript"></script>
+  
 </body>
 </html>
