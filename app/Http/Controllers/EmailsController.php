@@ -38,7 +38,7 @@ class EmailsController extends Controller {
             } else {
                 $emailTemplate = Auth::user()->emailTemplates()->select(['id', 'adminid', 'templateName', 'description']);
             }
-         
+
             return Datatables::of($emailTemplate)
                             ->addColumn('edit', function ($emailTemplate) {
                                 return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
@@ -75,15 +75,23 @@ class EmailsController extends Controller {
 
     public function create() {
         $getAllTemplates = Emails::select(DB::raw('adminid,templateName'))->get();
-
-
-        return View::make('email.create', compact('getAllTemplates'));
+          $directory = 'uploads/templateImages/' . Auth::user()->id;
+         $files = File::files($directory);
+            foreach ($files as $file) {
+                $images[] = "/" . (string)$file;
+            }
+        return View::make('email.create', compact('getAllTemplates','images'));
     }
 
     public function edit($id) {
         $templates = Emails::findOrFail($id);
         $userId = Auth::id();
-        return View::make('email.create', compact('templates', 'userId'));
+        $directory = 'uploads/templateImages/' . Auth::user()->id;
+         $files = File::files($directory);
+            foreach ($files as $file) {
+                $images[] = "/" . (string)$file;
+            }
+        return View::make('email.create', compact('templates', 'userId','images'));
     }
 
     /**
@@ -176,6 +184,37 @@ class EmailsController extends Controller {
                     'success' => "hi",
                     'message' => "called",
         ));
+    }
+
+    public function gallery() {
+        $images = array();
+        $directory = 'uploads/templateImages/' . Auth::user()->id;
+        if (!File::exists($directory)) {
+            File::makeDirectory($directory, 0777, true, true);
+        } else {
+            $files = File::files($directory);
+            foreach ($files as $file) {
+                $images[] = (string) $file;
+            }
+        }
+
+        return View::make('campaign.galleryList', compact('images'));
+    }
+
+    public function galleryFileUpload(Request $request) {
+      
+        if ($request->ajax()) {
+            if (Input::hasFile('upl')) {
+                $gallerydestinationPath = 'uploads/templateImages/' . Auth::user()->id;
+                if (!File::exists($gallerydestinationPath)) {
+                    File::makeDirectory($gallerydestinationPath, 0777, true, true);
+                }
+                $gextension = Input::file('upl')->getClientOriginalExtension(); // getting image extension
+                $gfileName = md5(time()) . rand(11111, 99999) . '.' . $gextension; // renameing image
+                Input::file('upl')->move($gallerydestinationPath, $gfileName); // uploading file to given path
+                return Response::json(array('success' => true, 'filePath' => "/" . $gallerydestinationPath . '/' . $gfileName));
+            }
+        }
     }
 
 }

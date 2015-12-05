@@ -727,8 +727,8 @@ div#color-none:hover,div#color-none1:hover{background-color:#111 !important;
 #campaignmonitor{width:65px;height:65px; padding:7px !important;display:inline-block;float:left;margin:15px 1px 15px;text-align:center;-moz-border-radius:60px;border-radius:60px;/*border:#C4CBCE 1px solid;*/ cursor:pointer;-moz-box-shadow:3px 3px 3px rgba(153,153,153,0.5) inset;            
                  -webkit-box-shadow:3px 3px 3px rgba(153,153,153,0.5) inset;         
                  box-shadow:3px 3px 3px rgba(153,153,153,0.5) inset}
-#download-btn{background:none;cursor:pointer;font-size:14px; font-weight:bold; text-align:center;}
-#download-btn span{
+#download-btn,#imageUpload{background:none;cursor:pointer;font-size:14px; font-weight:bold; text-align:center;}
+#download-btn span,#imageUpload span{
     float: left;
     margin: 26px 0;
     width: 100%;

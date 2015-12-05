@@ -12,7 +12,48 @@
     <title>Clicspot | Dashboard</title>
     <link href="{{asset("template_builder/css/jquery-ui-1.10.4.custom.css")}}" rel="stylesheet">
     <link href="{{asset("template_builder/css/jihe.css")}}" rel="stylesheet">
-     <link href="{{ asset('/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/css/pt-sans-narrow.css') }}" rel='stylesheet' />
+    <link href="{{ asset('/plugins/mini-upload-form/assets/css/style.css') }}" rel="stylesheet" />
+    <!--<link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>-->
+    <style>
+        #template-page-box #iframe{
+            color: #404040 !important;
+        }
+        .imageGallery { 
+            float: none !important;
+            left: 75px;
+            position: absolute !important;
+            right: auto;
+            width: 250px !important;
+            z-index: 1000;
+            display: none;
+        }
+        #top-barr.imageGallery > #top-bar-box , #top-barr.imageGallery .menuu{
+            width: 100%;
+        }
+        a .addimg {
+            background: url('/img/addimgicon.png') no-repeat;
+            height: 86px;
+            width: 86px;
+            display: block;
+        }
+
+        a .addimg:hover {
+            background: url('/img/addimgicon_hover.png') no-repeat;
+        }
+        #upload{
+            width: auto !important;
+        }
+        .imagePrview{
+            width:250px;
+            float: left;
+        }
+        .imagePrview img{
+            float: left;
+            margin: 10px;
+        }
+    </style>
 
     <!--[if IE]>
             <style type="text/css">
@@ -38,9 +79,9 @@
             </style>
     <![endif]-->
     <script type="text/javascript">
-        var templateName='<?php echo ((isset($templates['templateName'])) ?  $templates['templateName'] : "");?>';
-        var APP_URL = {!! json_encode(url('/')) !!};
-        var userId='<?php echo ((isset($userId)) ?  $userId : "");?>';
+        var templateName = '<?php echo ((isset($templates['templateName'])) ? $templates['templateName'] : ""); ?>';
+                var APP_URL = {!! json_encode(url('/')) !!};
+        var userId = '<?php echo ((isset($userId)) ? $userId : ""); ?>';
     </script>
 </head>
 <body id="builder" class="lightt">
@@ -51,8 +92,31 @@
                 <li id="choose-module" class="menuu active" title="Choose Module"></li>
                 <input type="hidden" value="<?php echo csrf_token(); ?>" name="_token">
                 <li id="download-btn" class="menuu" title="Save"><span>Save</span></li>
+                <li id="imageUpload" class="menuu" title="Image Upload"><span>Image Upload</span></li>
 
             </ul>
+        </div>
+    </div>
+    <div id="top-barr" class="imageGallery">
+        <div id="top-bar-box">
+            <form id="upload" method="post" action="{{url('emails/ImageFileUpload')}}" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                <div id="drop">
+                    Drop Here
+
+                    <a>Browse</a>
+                    <input type="file" name="upl" multiple accept="image/*" />
+                </div>
+
+
+            </form>
+            <div class="imagePrview">
+                @foreach ($images as $templatePath)
+                <a href="javascript:void(0)" class="thumbnail">
+                    <img src="{{url().$templatePath}}" width="50" height="50"/>
+                </a>
+                @endforeach</div>
+
         </div>
     </div>
     <div id="gongNeng">
@@ -154,16 +218,41 @@
                 <div id="temp-iframe"></div>
             </div>
         </div>
-
     </div><!---->
-    
+    <div class="modal fade" id="gallaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Gallary</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="upload" method="post" action="" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <div id="drop">
+                            Drop Here
+
+                            <a>Browse</a>
+                            <input type="file" name="upl" multiple accept="image/*" />
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="{{asset("template_builder/js/jquery-1.7.1.min.js")}}"></script>
     <script src="{{asset("template_builder/js/jquery-ui-1.10.4.custom.js")}}"></script>
     <script src="{{asset("template_builder/ckeditor/ckeditor.js")}}"></script>
     <script src="{{asset("template_builder/ckeditor/adapters/jquery.js")}}"></script>
     <script src="{{asset("template_builder/js/sonic.js")}}"></script><!---->
     <script src="{{asset("template_builder/js/gongneng.js")}}"></script>
-    <script src="http://digith.com/demo/builder.js")}}"></script><!---->
+    <script src="http://digith.com/demo/builder.js"></script><!---->
     <script src="{{asset("template_builder/js/pattern.js")}}"></script>
     <script src="{{asset("template_builder/js/main.js")}}"></script>
     <script src="{{asset("template_builder/js/farbtastic.js")}}"></script>
@@ -171,6 +260,59 @@
     <script src="{{asset("template_builder/js/jquery.ui.widget.js")}}"></script>
     <script src="{{asset("template_builder/js/digith.js")}}"></script>
     <script src="{{ asset('/js/sweetalert.min.js') }}" type="text/javascript"></script>
-  
+    <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.knob.js') }}"></script>
+    <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.iframe-transport.js') }}"></script>
+    <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.ui.widget.js') }}"></script>
+    <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload.js') }}"></script>
+    <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload-validate.js') }}"></script>
+    <script src="{{ asset('/plugins/mini-upload-form/assets/js/script_email_template.js') }}"></script>
+        <!--<script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>-->
+    <script>
+        $(document).ready(function() {
+//            $('.image').on('click', function() {
+//                $('.imageGallery').toggle("slide" , { direction: "right" },200);
+//            });
+//           
+            $('#imageUpload').on('click', function() {
+                $('.imageGallery').toggle("slide", {direction: "left"}, 200);
+            });
+            $('.imagePrview .thumbnail img').draggable({
+                revert: 'invalid',
+                helper: 'clone',
+                scroll: false,
+                opacity: 0.50,
+                start: function(event, ui) {
+                    drag_obj = $(this);
+                }
+            });
+            $(document).on("mouseenter", '.imagePrview .thumbnail img', function(e) {
+                var item = $(this);
+                //check if the item is already draggable
+                if (!item.is('.ui-draggable')) {
+                    //make the item draggable
+                    item.draggable({
+                        revert: 'invalid',
+                        helper: 'clone',
+                        scroll: false,
+                        opacity: 0.50,
+                        start: function(event, ui) {
+                            drag_obj = $(this);
+                        }
+                    });
+                }
+            });
+            $(document).on("mouseenter", '.dropableCLass', function(e) {
+               
+                $('.dropableCLass tbody tr img').droppable({
+                    hoverClass: "container-img-drop-hover",
+                    drop: function(ev, ui) {
+                        $(this).attr("src",$(drag_obj).attr('src'));
+                        
+                    }
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>

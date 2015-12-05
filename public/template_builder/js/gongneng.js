@@ -130,6 +130,7 @@ var isDemo = false,
         headerbanner_1s: "headerbanner_1s",
         headerbanner_2s: "headerbanner_2s",
         headerbanner_3s: "headerbanner_3s",
+      headerbanner_3s: "headerbanner_4s",
         service_1s: "service_1s",
         who_we_are_1s: "who_we_are_1s",
         col3_icon_bg: "col3_icon_bg",
@@ -163,7 +164,7 @@ var isDemo = false,
     },
     BuFen = {
         MainModules: {
-            "Main Modules": ["header", "headerbanner_1s", "headerbanner_2s", "headerbanner_3s", "service_1s", "who_we_are_1s", "col3_icon_bg", "skills", "portfolio", "from_blog_1s", "testimonial_1s", "price_1s", "strat_project", "management", "who_we_are_2s", "process", "full_img_1s", "divider", "from_blog_2s", "products", "from_blog_3s", "testimonial_2s", "price_2s", "service_2s", "who_we_are_3s", "timeline", "projects", "full_img_2s", "from_blog_4s", "testimonial_3s", "price_3s", "partner", "bottom", "footer"]
+            "Main Modules": ["header", "headerbanner_1s", "headerbanner_2s", "headerbanner_3s","headerbanner_4s", "service_1s", "who_we_are_1s", "col3_icon_bg", "skills", "portfolio", "from_blog_1s", "testimonial_1s", "price_1s", "strat_project", "management", "who_we_are_2s", "process", "full_img_1s", "divider", "from_blog_2s", "products", "from_blog_3s", "testimonial_2s", "price_2s", "service_2s", "who_we_are_3s", "timeline", "projects", "full_img_2s", "from_blog_4s", "testimonial_3s", "price_3s", "partner", "bottom", "footer"]
         }
     },
     RQz = ["MainModules"],
