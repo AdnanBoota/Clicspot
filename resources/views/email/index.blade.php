@@ -6,7 +6,11 @@
 
 @endpush
 @section('content')
-
+<style>
+      .deletebtn{
+            display: none !important;
+        }
+</style>
 
 <section class="creatpart">
     <div class="titleblock">
@@ -62,9 +66,12 @@
 
 $(function() {
     oTable = $('#emailTemplate-table').DataTable({
+        sDom: 'lrftip',
         processing: true,
         serverSide: true,
         responsive: true,
+        info:     false,
+        bFilter: false,
         ajax: '',
         columns: [
             {data: 'templateName', name: 'templateName'},

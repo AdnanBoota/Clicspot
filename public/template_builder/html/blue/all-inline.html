@@ -1,594 +1,683 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Raleway:400,700,300" rel="stylesheet" type="text/css">
-    <title>Corpo</title>
-    <style type="text/css">
-        /*
-                        *Project:	Corpo - Responsive Email Template
-                        *Version:	1.0
-                        *Creat:		09/05/14
-                        *coder:		M.Beau
-                        *Copyright: Digith Studio
-                        *Website: 	http://themeforest.net/user/digith
-                        */
-        /* Client-specific Styles */
-        
-        #outlook a {
-            padding: 0;
-        }
-        
-        .ReadMsgBody {
-            width: 100%;
-        }
-        
-        .ExternalClass {
-            width: 100%;
-        }
-        
-        body {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .yshortcuts,
-        .yshortcuts a,
-        .yshortcuts a:link,
-        .yshortcuts a:visited,
-        .yshortcuts a:hover,
-        .yshortcuts a span {
-            text-decoration: none !important;
-            border-bottom: none !important;
-            background: none !important;
-        }
-        
-        .ExternalClass * {
-            line-height: 100%
-        }
-        /*link style*/
-        
-        a {
-            color: #149ff3;
-            text-decoration: none;
-            outline: none;
-        }
-        
-        a:hover {
-            text-decoration: underline !important;
-        }
-        
-        .header a:hover,
-        .button a:hover,
-        .btn a:hover,
-        .footer a:hover,
-        .bottom a:hover,
-        .headerbanner2 a:hover {
-            text-decoration: none !important;
-        }
-        /*startMedia@media only screen and (max-width: 619px) {/*endMedia*/
-        /*start480MediaNeiStart
-                        table[class~=wrap] { width:100% !important; }
-                        table[class~=row] { width:400px !important; }
-                        table[class~=row][class~=a],td[class~=headerbanner1-bg] table[class~=row] { width:100% !important; }
-                        img[class~=img] { width:100% !important; max-width:100% !important; height:auto !important; }
-                        table[class~=col2] table[class~=title-module] td[class~=content][class~=in] { padding-right:0px !important; }
-                        table[class~=full-moblie] { float:none !important; margin:0 auto !important; width:400px !important; }
-                        table[class~=title-module] { width:100% !important; }
-                        table[class~=col2],table[class~=col3],table[class~=col4],table[class~=logo-box],table[class~=menu-box],td[class~=headerbanner1] table[class~=button] { float:none !important; margin:0 auto !important; }
-                        table[class~=logo-box] { margin-top:20px !important; }
-                        table[class~=col2] { width:100% !important; }
-                        table[class~=col2][class~=img-for2] { width:40% !important; }
-                        table[class~=col2][class~=a] { width:60% !important; }
-                        table[class~=col2][class~=b] { width:60% !important; float:left !important; }
-                        table[class~=col2][class~=c] { width:290px !important; }
-                        table[class~=col2][class~=d] { width:290px !important; }
-                        table[class~=col2][class~=d] td[class~=h3],td[class~=headerbanner1] td { text-align:center !important; }
-                        td[class~=banner1] table[class~=img-for2] { margin-bottom:20px !important; }
-                        table[class~=col3] { width:100% !important; }
-                        table[class~=col3][class~=list],table[class~=col2][class~=list],table[class~=col4][class~=list] { width:100% !important; }
-                        td[class~=td-block] { display:block !important; width:100% !important; float:left !important; }
-                        td[class~=management-text] { padding:0 20px !important; }
-                        td[class=management-text] { padding:0 20px 40px !important; }
-                        table[class~=media-left] { float:left !important; width:auto !important; }
-                        td[class~=icon-pad-l] { padding-left:21px !important; }
-                        table[class~=menu-box] td[class~=content][class~=in] { padding:0 60px !important; }
-                        td[class~=headerbanner2] td[class~=content][class~=in] { padding:0px !important; }
-                        td[class~=banner6] td[class~=block439] { padding:0 1px !important; }
-                        td[class~=media-height-a] { height:40px !important; }
-                        td[class~=media-height-b] { height:140px !important; }
-                        
-                        table[class~=hide],td[class~=hide] { display:none !important; }
-                        table[class~=mid20],td[class~=mid20] { margin-bottom:20px !important; }
-                        table[class~=mid40] { margin-bottom:40px !important; }
-                        td[class~=media-h40] { height:40px !important; }
-                        /*MediaNeiEnd*/
-        /*startMedia}/*endMedia*/
-        /*startMedia@media only screen and (max-width: 439px) {/*endMedia*/
-        /*start360MediaNeiStart
-                        table[class~=row],table[class~=full-moblie] { width:93% !important; }
-                        td[class~=h1],h1[class~=h1] { font-size:32px !important; line-height:38px !important; }
-                        td[class~=h1][class~=b] { font-size:36px !important; line-height:42px !important; }
-                        table[class~=menu-box] td[class~=content][class~=in] { padding:0 45px !important; }
-                        table[class~=col2][class~=img-for2] { width:50% !important; }
-                        td[class~=padding19][class~=bottom-module] { padding:15px !important; }
-                        td[class~=block439] { display:block !important; float:left !important; padding:0 !important; width:100% !important; }
-                        td[class~=block439][class~=a] { margin-bottom:20px !important; }
-                        td[class~=banner6] td[class~=block439] { padding:0 !important; width:50% !important; margin:0 !important; }
-                        
-                        table[class~=hide],td[class~=hide],td[class~=hide439] { display:none !important; }
-                        table[class~=mid20],td[class~=mid20] { margin-bottom:20px !important; }
-                        table[class~=mid40] { margin-bottom:40px !important; }
-                        td[class~=media-h40] { height:40px !important; }
-                        /*MediaNeiEnd*/
-        /*startMedia}/*endMedia*/
-        /*startMedia@media only screen and (max-width: 359px) {/*endMedia*/
-        /*start320MediaNeiStart
-                        table[class~=menu-box] td[class~=content][class~=in] { padding:0 25px !important; }
-                        td[class~=padding19][class~=bottom-module] { padding:10px !important; }
-                        table[class~=col2][class~=img-for2] { width:70% !important; }
-                        table[class~=col2][class~=a] { width:100% !important; }
-                        table[class~=col2][class~=b] { width:100% !important; float:left !important; }
-                        td[class~=banner6] img[class~=img][class~=h] { width:130px !important; max-width:130px !important; }
-                        td[class~=banner6] td[class~=block439][class~=a],td[class~=block439][class~=a] { margin-bottom:20px !important; }
-                        td[class~=banner6] td[class~=block439] { width:100% !important; }
-                        table[class~=bottom] td[class~=h2][class~=large] { font-size:26px !important; line-height:26px !important; }
-                        td[class~=media-height-b] { height:100px !important; }
-                        
-                        table[class~=hide],td[class~=hide],td[class~=hide439] { display:none !important; }
-                        table[class~=mid20],td[class~=mid20] { margin-bottom:20px !important; }
-                        table[class~=mid40] { margin-bottom:40px !important; }
-                        td[class~=media-h40] { height:40px !important; }
-                        /*MediaNeiEnd*/
-        /*startMedia}/*endMedia*/
-        /* Resets */
-        /* Resets */
-        
-        .ReadMsgBody {
-            width: 100%;
-            background-color: #ebebeb;
-        }
-        
-        .ExternalClass {
-            width: 100%;
-            background-color: #ebebeb;
-        }
-        
-        .ExternalClass,
-        .ExternalClass p,
-        .ExternalClass span,
-        .ExternalClass font,
-        .ExternalClass td,
-        .ExternalClass div {
-            line-height: 100%;
-        }
-        
-        body {
-            -webkit-text-size-adjust: none;
-            -ms-text-size-adjust: none;
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .yshortcuts a {
-            border-bottom: none !important;
-        }
-        
-        .rnb-del-min-width {
-            min-width: 0 !important;
-        }
-        /* Image width by default for 3 columns */
-        
-        img[class="rnb-col-3-img"] {
-            max-width: 170px;
-        }
-        /* Image width by default for 2 columns */
-        
-        img[class="rnb-col-2-img"] {
-            max-width: 264px;
-        }
-        /* Image width by default for 2 columns aside small size */
-        
-        img[class="rnb-col-2-img-side-xs"] {
-            max-width: 180px;
-        }
-        /* Image width by default for 2 columns aside big size */
-        
-        img[class="rnb-col-2-img-side-xl"] {
-            max-width: 350px;
-        }
-        /* Image width by default for 1 column */
-        
-        img[class="rnb-col-1-img"] {
-            max-width: 550px;
-        }
-        /* Image width by default for header */
-        
-        img[class="rnb-header-img"] {
-            max-width: 590px;
-        }
-        
-        @media screen and (max-width: 480px) {
-            td[class="rnb-container-padding"] {
-                padding-left: 10px !important;
-                padding-right: 10px !important;
-            }
-            /* force container nav to (horizontal) blocks */
-            td[class="rnb-force-nav"] {
-                display: block;
-            }
-        }
-        
-        @media only screen and (max-width: 600px) {
-            /* center the address &amp; social icons */
-            .rnb-text-center {
-                text-align: center !important;
-            }
-            /* force container columns to (horizontal) blocks */
-            td[class="rnb-force-col"] {
-                display: block;
-                padding-right: 0 !important;
-                padding-left: 0 !important;
-            }
-            table[class="rnb-container"] {
-                width: 100% !important;
-            }
-            table[class="rnb-btn-col-content"] {
-                width: 100% !important;
-            }
-            table[class="rnb-col-3"] {
-                /* unset table align="left/right" */
-                float: none !important;
-                width: 100% !important;
-                /* change left/right padding and margins to top/bottom ones */
-                margin-bottom: 10px;
-                padding-bottom: 10px;
-                border-bottom: 1px solid #eee;
-            }
-            table[class="rnb-last-col-3"] {
-                /* unset table align="left/right" */
-                float: none !important;
-                width: 100% !important;
-            }
-            table[class="rnb-col-2"] {
-                /* unset table align="left/right" */
-                float: none !important;
-                width: 100% !important;
-                /* change left/right padding and margins to top/bottom ones */
-                margin-bottom: 10px;
-                padding-bottom: 10px;
-                border-bottom: 1px solid #eee;
-            }
-            table[class="rnb-col-2-noborder-onright"] {
-                /* unset table align="left/right" */
-                float: none !important;
-                width: 100% !important;
-                /* change left/right padding and margins to top/bottom ones */
-                margin-bottom: 10px;
-                padding-bottom: 10px;
-            }
-            table[class="rnb-col-2-noborder-onleft"] {
-                /* unset table align="left/right" */
-                float: none !important;
-                width: 100% !important;
-                /* change left/right padding and margins to top/bottom ones */
-                margin-top: 10px;
-                padding-top: 10px;
-            }
-            table[class="rnb-last-col-2"] {
-                /* unset table align="left/right" */
-                float: none !important;
-                width: 100% !important;
-            }
-            table[class="rnb-col-1"] {
-                /* unset table align="left/right" */
-                float: none !important;
-                width: 100% !important;
-            }
-            img[class="rnb-col-3-img"] {
-                /**max-width:none !important;**/
-                width: 100% !important;
-            }
-            img[class="rnb-col-2-img"] {
-                /**max-width:none !important;**/
-                width: 100% !important;
-            }
-            img[class="rnb-col-2-img-side-xs"] {
-                /**max-width:none !important;**/
-                width: 100% !important;
-            }
-            img[class="rnb-col-2-img-side-xl"] {
-                /**max-width:none !important;**/
-                width: 100% !important;
-            }
-            img[class="rnb-col-1-img"] {
-                /**max-width:none !important;**/
-                width: 100% !important;
-            }
-            img[class="rnb-header-img"] {
-                /**max-width:none !important;**/
-                width: 100% !important;
-            }
-            td[class="rnb-mbl-float-none"] {
-                float: inherit !important;
-            }
-        }
-    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Raleway:400,700,300" rel="stylesheet" type="text/css">
+<title>Corpo</title>
+<style type="text/css">
+/*
+*Project:	Corpo - Responsive Email Template
+*Version:	1.0
+*Creat:		09/05/14
+*coder:		M.Beau
+*Copyright: Digith Studio
+*Website: 	http://themeforest.net/user/digith
+*/
+
+/* Client-specific Styles */
+#outlook a { padding: 0; }
+.ReadMsgBody { width: 100%; }
+.ExternalClass { width: 100%; }
+body {-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;}
+.yshortcuts, .yshortcuts a, .yshortcuts a:link, .yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a span {text-decoration: none !important;border-bottom: none !important;background: none !important;}
+.ExternalClass * {line-height: 100%}
+
+/*link style*/
+a {color: #149ff3;text-decoration: none;outline: none;}
+a:hover { text-decoration: underline !important; }
+.header a:hover,.button a:hover,.btn a:hover,.footer a:hover,.bottom a:hover,.headerbanner2 a:hover { text-decoration:none !important;}
+
+/*startMedia@media only screen and (max-width: 619px) {/*endMedia*/
+/*start480MediaNeiStart
+table[class~=wrap] { width:100% !important; }
+table[class~=row] { width:400px !important; }
+table[class~=row][class~=a],td[class~=headerbanner1-bg] table[class~=row] { width:100% !important; }
+img[class~=img] { width:100% !important; max-width:100% !important; height:auto !important; }
+table[class~=col2] table[class~=title-module] td[class~=content][class~=in] { padding-right:0px !important; }
+table[class~=full-moblie] { float:none !important; margin:0 auto !important; width:400px !important; }
+table[class~=title-module] { width:100% !important; }
+table[class~=col2],table[class~=col3],table[class~=col4],table[class~=logo-box],table[class~=menu-box],td[class~=headerbanner1] table[class~=button] { float:none !important; margin:0 auto !important; }
+table[class~=logo-box] { margin-top:20px !important; }
+table[class~=col2] { width:100% !important; }
+table[class~=col2][class~=img-for2] { width:40% !important; }
+table[class~=col2][class~=a] { width:60% !important; }
+table[class~=col2][class~=b] { width:60% !important; float:left !important; }
+table[class~=col2][class~=c] { width:290px !important; }
+table[class~=col2][class~=d] { width:290px !important; }
+table[class~=col2][class~=d] td[class~=h3],td[class~=headerbanner1] td { text-align:center !important; }
+td[class~=banner1] table[class~=img-for2] { margin-bottom:20px !important; }
+table[class~=col3] { width:100% !important; }
+table[class~=col3][class~=list],table[class~=col2][class~=list],table[class~=col4][class~=list] { width:100% !important; }
+td[class~=td-block] { display:block !important; width:100% !important; float:left !important; }
+td[class~=management-text] { padding:0 20px !important; }
+td[class=management-text] { padding:0 20px 40px !important; }
+table[class~=media-left] { float:left !important; width:auto !important; }
+td[class~=icon-pad-l] { padding-left:21px !important; }
+table[class~=menu-box] td[class~=content][class~=in] { padding:0 60px !important; }
+td[class~=headerbanner2] td[class~=content][class~=in] { padding:0px !important; }
+td[class~=banner6] td[class~=block439] { padding:0 1px !important; }
+td[class~=media-height-a] { height:40px !important; }
+td[class~=media-height-b] { height:140px !important; }
+
+table[class~=hide],td[class~=hide] { display:none !important; }
+table[class~=mid20],td[class~=mid20] { margin-bottom:20px !important; }
+table[class~=mid40] { margin-bottom:40px !important; }
+td[class~=media-h40] { height:40px !important; }
+/*MediaNeiEnd*/
+/*startMedia}/*endMedia*/
+
+/*startMedia@media only screen and (max-width: 439px) {/*endMedia*/
+/*start360MediaNeiStart
+table[class~=row],table[class~=full-moblie] { width:93% !important; }
+td[class~=h1],h1[class~=h1] { font-size:32px !important; line-height:38px !important; }
+td[class~=h1][class~=b] { font-size:36px !important; line-height:42px !important; }
+table[class~=menu-box] td[class~=content][class~=in] { padding:0 45px !important; }
+table[class~=col2][class~=img-for2] { width:50% !important; }
+td[class~=padding19][class~=bottom-module] { padding:15px !important; }
+td[class~=block439] { display:block !important; float:left !important; padding:0 !important; width:100% !important; }
+td[class~=block439][class~=a] { margin-bottom:20px !important; }
+td[class~=banner6] td[class~=block439] { padding:0 !important; width:50% !important; margin:0 !important; }
+
+table[class~=hide],td[class~=hide],td[class~=hide439] { display:none !important; }
+table[class~=mid20],td[class~=mid20] { margin-bottom:20px !important; }
+table[class~=mid40] { margin-bottom:40px !important; }
+td[class~=media-h40] { height:40px !important; }
+/*MediaNeiEnd*/
+/*startMedia}/*endMedia*/
+
+/*startMedia@media only screen and (max-width: 359px) {/*endMedia*/
+/*start320MediaNeiStart
+table[class~=menu-box] td[class~=content][class~=in] { padding:0 25px !important; }
+td[class~=padding19][class~=bottom-module] { padding:10px !important; }
+table[class~=col2][class~=img-for2] { width:70% !important; }
+table[class~=col2][class~=a] { width:100% !important; }
+table[class~=col2][class~=b] { width:100% !important; float:left !important; }
+td[class~=banner6] img[class~=img][class~=h] { width:130px !important; max-width:130px !important; }
+td[class~=banner6] td[class~=block439][class~=a],td[class~=block439][class~=a] { margin-bottom:20px !important; }
+td[class~=banner6] td[class~=block439] { width:100% !important; }
+table[class~=bottom] td[class~=h2][class~=large] { font-size:26px !important; line-height:26px !important; }
+td[class~=media-height-b] { height:100px !important; }
+
+table[class~=hide],td[class~=hide],td[class~=hide439] { display:none !important; }
+table[class~=mid20],td[class~=mid20] { margin-bottom:20px !important; }
+table[class~=mid40] { margin-bottom:40px !important; }
+td[class~=media-h40] { height:40px !important; }
+/*MediaNeiEnd*/
+/*startMedia}/*endMedia*/
+
+/* Resets */
+         .ReadMsgBody { width: 100%; background-color: #ebebeb;}
+         .ExternalClass {width: 100%; background-color: #ebebeb;}
+         .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height:100%;}
+         body {-webkit-text-size-adjust:none; -ms-text-size-adjust:none;}
+         body {margin:0; padding:0;}
+         .yshortcuts a {border-bottom: none !important;}
+         .rnb-del-min-width{ min-width: 0 !important; }
+         /* Image width by default for 3 columns */
+         img[class="rnb-col-3-img"] {
+         max-width:170px;
+         }
+         /* Image width by default for 2 columns */
+         img[class="rnb-col-2-img"] {
+         max-width:264px;
+         }
+         /* Image width by default for 2 columns aside small size */
+         img[class="rnb-col-2-img-side-xs"] {
+         max-width:180px;
+         }
+         /* Image width by default for 2 columns aside big size */
+         img[class="rnb-col-2-img-side-xl"] {
+         max-width:350px;
+         }
+         /* Image width by default for 1 column */
+         img[class="rnb-col-1-img"] {
+         max-width:550px;
+         }
+         /* Image width by default for header */
+         img[class="rnb-header-img"] {
+         max-width:590px;
+         }
+         @media screen and (max-width: 480px) {
+         td[class="rnb-container-padding"] {
+         padding-left: 10px !important;
+         padding-right: 10px !important;
+         }
+         /* force container nav to (horizontal) blocks */
+         td[class="rnb-force-nav"] {
+         display: block;
+         }
+         }
+         @media only screen and (max-width : 600px) {
+         /* center the address &amp; social icons */
+         .rnb-text-center {text-align:center !important;}
+         /* force container columns to (horizontal) blocks */
+         td[class="rnb-force-col"] {
+         display: block;
+         padding-right: 0 !important;
+         padding-left: 0 !important;
+         }
+         table[class="rnb-container"] {
+         width: 100% !important;
+         }
+         table[class="rnb-btn-col-content"] {
+         width: 100% !important;
+         }
+         table[class="rnb-col-3"] {
+         /* unset table align="left/right" */
+         float: none !important;
+         width: 100% !important;
+         /* change left/right padding and margins to top/bottom ones */
+         margin-bottom: 10px;
+         padding-bottom: 10px;
+         border-bottom: 1px solid #eee;
+         }
+         table[class="rnb-last-col-3"] {
+         /* unset table align="left/right" */
+         float: none !important;
+         width: 100% !important;
+         }
+         table[class="rnb-col-2"] {
+         /* unset table align="left/right" */
+         float: none !important;
+         width: 100% !important;
+         /* change left/right padding and margins to top/bottom ones */
+         margin-bottom: 10px;
+         padding-bottom: 10px;
+         border-bottom: 1px solid #eee;
+         }
+         table[class="rnb-col-2-noborder-onright"] {
+         /* unset table align="left/right" */
+         float: none !important;
+         width: 100% !important;
+         /* change left/right padding and margins to top/bottom ones */
+         margin-bottom: 10px;
+         padding-bottom: 10px;
+         }
+         table[class="rnb-col-2-noborder-onleft"] {
+         /* unset table align="left/right" */
+         float: none !important;
+         width: 100% !important;
+         /* change left/right padding and margins to top/bottom ones */
+         margin-top: 10px;
+         padding-top: 10px;
+         }
+         table[class="rnb-last-col-2"] {
+         /* unset table align="left/right" */
+         float: none !important;
+         width: 100% !important;
+         }
+         table[class="rnb-col-1"] {
+         /* unset table align="left/right" */
+         float: none !important;
+         width: 100% !important;
+         }
+         img[class="rnb-col-3-img"] {
+         /**max-width:none !important;**/
+         width:100% !important;
+         }
+         img[class="rnb-col-2-img"] {
+         /**max-width:none !important;**/
+         width:100% !important;
+         }
+         img[class="rnb-col-2-img-side-xs"] {
+         /**max-width:none !important;**/
+         width:100% !important;
+         }
+         img[class="rnb-col-2-img-side-xl"] {
+         /**max-width:none !important;**/
+         width:100% !important;
+         }
+         img[class="rnb-col-1-img"] {
+         /**max-width:none !important;**/
+         width:100% !important;
+         }
+         img[class="rnb-header-img"] {
+         /**max-width:none !important;**/
+         width:100% !important;
+         }
+         td[class="rnb-mbl-float-none"] {
+         float:inherit !important;
+         }}
+</style>
+
 </head>
-
 <body style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;margin: 0;padding: 0;background-color: #404040;width: 100% !important;">
-    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="BGtable" style="border-collapse: collapse;margin: 0;padding: 0;table-layout: fixed;background-color: #404040;width: 100% !important;height: 100% !important;">
-        <tr>
-            <td align="center" valign="top" class="BGtable-inner">
-                <!-- start ◆header◆ -->
-                <div mc:repeatable="header">
-                    <layout label="header">
-                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap header" style="border-collapse: collapse;background-color: #d6d6d6;">
-                            <tr>
-                                <td align="center" valign="top" class="module-td">
-                                    <table align="center" class="dropableCLass" width="600" border="0" cellpadding="0" cellspacing="0" class="row" style="border-collapse: collapse;">
-                                        <tr>
-                                            <td valign="top">
-                                                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="center" valign="middle">
-                                                                <img src="images/rnb_logo.gif" alt="[&quot;Logistic Infotech&quot;]" label="logo" class="logo" mc:edit="logo" editable="true" style="max-width:120px;" class="rnb-logo-img" border="0" hspace="0" vspace="0" width="120">
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="BGtable main-template" style="background-color:#d6d6d6;" bgcolor="#d6d6d6">
+  <tr>
+    <td align="center" valign="top" class="BGtable-inner">
 
-                                            </td>
-                                        </tr>
-
-                                    </table>
-
-                                </td>
-                            </tr>
-                        </table>
-                    </layout>
-                </div>
-                <!-- end - ◆header◆ -->
-
-                <!-- start ◆headerbanner_1s◆ -->
-                <div mc:repeatable="headerbanner_1s">
-                    <layout label="headerbanner_1s">
-                        <table style="background-color:#d6d6d6;"  name="Layout_5" id="Layout_5" bgcolor="#d6d6d6" border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody>
-                                <tr>
-                                    <td style="background-color: #d6d6d6;" align="center" bgcolor="#d6d6d6" valign="top">
-                                        <table style="height: 0px; background-color: rgb(255, 255, 255); border-radius: 0px; border-collapse: separate; padding-left: 20px; padding-right: 20px;" class="rnb-container" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="590">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="rnb-container-padding" style="background-color: #ffffff; font-size: px;font-family: ; color: ;" bgcolor="#ffffff">
-                                                        <table class="rnb-columns-container dropableCLass" style="margin:auto;" align="center" border="0" cellpadding="0" cellspacing="0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="rnb-force-col" align="center">
-                                                                        <table class="rnb-col-1" align="center" border="0" cellpadding="0" cellspacing="0">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td height="10"></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td style="font-size:18px;font-family:Arial,Helvetica,sans-serif; color:#999; font-weight:normal; text-align:center;">
-                                                                                        <span style="color:#999; font-weight:normal;">Title</span>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td height="10"></td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                </div>
-                <!-- end - ◆headerbanner_1s◆ -->
-
-                <!-- start ◆headerbanner_2s◆ -->
-                <div mc:repeatable="headerbanner_2s">
-                    <layout label="headerbanner_2s">
-                   
-
-                   
-                        <table class="rnb-del-min-width dropableCLass" style="min-width:590px; background-color:#d6d6d6;" name="Layout_6" bgcolor="#d6d6d6" border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody>
-                                <tr>
-                                    <td class="rnb-del-min-width" style="min-width:590px; background-color: #d6d6d6;" align="center" bgcolor="#d6d6d6" valign="top">
-                                        <table style="background-color: rgb(255, 255, 255); border-radius: 0px; border-collapse: separate; padding-left: 20px; padding-right: 20px;" class="rnb-container" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="590">
-                                            <tbody>
-                                                <tr>
-                                                    <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="rnb-container-padding" style="background-color: #ffffff;" align="left" bgcolor="#ffffff" valign="top">
-                                                        <table class="rnb-columns-container" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="padding-right: 0px;" class="rnb-force-col" valign="top">
-                                                                        <table valign="top" class="rnb-col-1" align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td style="font-size:13px; font-family:Arial,Helvetica,sans-serif, sans-serif; color:#555;">Mauris commodo massa tortor, u <a href="#" style="text-decoration: none; color: rgb(153, 153, 153);">sit amet,consectetur adipisicing</a> Nunc fermentum neque quam, sodales eleifend elit imperdiet vitae. Aliquam id euismod nulla. Suspendisse imperdiet, sem et sollicitudin egestas, urna nunc auctor massa, vulputate pharetra mi odio nec tortor. Ut ultricies massa viverra quis.</td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="font-size:1px; line-height:1px;border-bottom:0px;" height="20">&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </layout>
-                </div>
-                <!-- end - ◆headerbanner_2s◆ -->
-
-                <!-- start ◆headerbanner_3s◆ -->
-                 <div mc:repeatable="headerbanner_3s">
-                        <layout label="headerbanner_3s">
-                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap headerbanner" style="border-collapse: collapse;background-color: #fff;">
-                                <tbody>
+<!-- start ◆header◆ -->
+      <div mc:repeatable="header">
+      <layout label="header">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap header" style="border-collapse: collapse;background-color: #6a6b6d;">
+      <tr>
+                  <!--col2 right menu-->
+                 <td style="background-color:#d6d6d6;" align="center" bgcolor="#d6d6d6" valign="top">
+                  <table class="rnb-del-min-width" style="min-width:590px; background-color:#d6d6d6;" name="Layout_10" id="Layout_10" bgcolor="#d6d6d6" border="0" cellpadding="0" cellspacing="0" width="100%">
+                     <tbody>
+                        <tr>
+                           <td class="rnb-del-min-width" style="min-width:590px; background-color: #d6d6d6;" align="center" bgcolor="#d6d6d6" valign="top">
+                              <table style="background-color: rgb(214, 214, 214); border-radius: 0px; padding-left: 20px; padding-right: 20px; border-collapse: separate;" class="rnb-container" bgcolor="#d6d6d6" border="0" cellpadding="0" cellspacing="0" width="590">
+                                 <tbody>
                                     <tr>
-                                        <td align="center" valign="top" class="headerbanner3" background="http://placehold.it/1500x510/aaa/999&amp;text=1500-510-headerbanner3" style="background-color: #bcbdc0;background-image: url(http://placehold.it/1500x510/aaa/999&amp;text=1500-510-headerbanner3);background-position: center center;background-repeat: no-repeat;-moz-background-size: cover;-webkit-background-size: cover;-o-background-size: cover;background-size: cover;">
-                                            <!--[if gte mso 9]>
+                                       <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="rnb-container-padding" style="background-color: #d6d6d6;" align="left" bgcolor="#d6d6d6" valign="top">
+                                          <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                             <tbody>
+                                                <tr>
+                                                   <td align="center" valign="top">
+                                                       <table align="center" border="0" cellpadding="0" cellspacing="0" class="dropableCLass">
+                                                         <tbody>
+                                                            <tr>
+                                                               <td align="center" valign="middle">
+                                                                  <img src="http://img.mailinblue.com/new_images/rnb/rnb_logo.gif" alt="[&quot;Logistic Infotech&quot;]" style="max-width:120px;" class="rnb-logo-img" border="0" hspace="0" vspace="0" width="120">
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                      <table align="center" border="0" cellpadding="0" cellspacing="0">
+                                                         <tbody>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td class="rnb-force-nav" style="font-size:14px; font-family:Arial,Helvetica,sans-serif; text-align:center; color:#555; font-weight:normal; padding-left:14px; padding-right:14px;" align="center" height="20" valign="middle" width="auto">
+                                                                  <span style="color:#999;">
+                                                                  <a style="text-decoration:none; color:#999;" name="" target="_blank">Link</a>
+                                                                  </span>
+                                                               </td>
+                                                               <td class="rnb-force-nav" style="font-size:14px; font-family:Arial,Helvetica,sans-serif; text-align:center; color:#555; font-weight:normal; padding-left:14px; padding-right:14px;" align="center" height="20" valign="middle" width="auto">
+                                                                  <span style="color:#999;">
+                                                                  <a style="text-decoration:none; color:#999;" name="" target="_blank">Link</a>
+                                                                  </span>
+                                                               </td>
+                                                               <td class="rnb-force-nav" style="font-size:14px; font-family:Arial,Helvetica,sans-serif; text-align:center; color:#555; font-weight:normal; padding-left:14px; padding-right:14px;" align="center" height="20" valign="middle" width="auto">
+                                                                  <span style="color:#999;">
+                                                                  <a style="text-decoration:none; color:#999;" name="" target="_blank">Link</a>
+                                                                  </span>
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
+                  
+                
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </layout>
+      </div>
+<!-- end - ◆header◆ -->
+
+<!-- start ◆headerbanner_1s◆ -->
+      <div mc:repeatable="headerbanner_1s">
+      <layout label="headerbanner_1s">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap headerbanner" style="border-collapse: collapse;background-color: #fff;">
+        <tr>
+          <td align="center" valign="top" class="headerbanner1-bg" style="background-color: #d6d6d6;">
+            <table align="center" width="600" border="0" cellpadding="0" cellspacing="0" class="row" style="border-collapse: collapse;">
+             <tbody>
+                        <tr>
+                           <td style="min-width: 590px;" class="rnb-del-min-width" align="center" valign="top">
+                              <table class="rnb-container dropableCLass" style="background-color:#d6d6d6;" align="center" bgcolor="#d6d6d6" border="0" cellpadding="0" cellspacing="0" width="590">
+                                 <tbody>
+                                    <tr>
+                                       <td align="center" valign="top">
+                                          <img src="http://img.mailinblue.com/new_images/rnb/590px.gif" class="rnb-header-img" alt="" style="display:block; border-radius:5px; width:590px;max-width:px !important;" border="0" hspace="0" vspace="0" width="590">
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </layout>
+      </div>
+<!-- end - ◆headerbanner_1s◆ -->
+
+<!-- start ◆headerbanner_2s◆ -->
+      <div mc:repeatable="headerbanner_2s">
+      <layout label="headerbanner_2s">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap headerbanner" style="border-collapse: collapse;background-color: #fff;">
+                     <tbody>
+                        <tr>
+                           <td class="rnb-del-min-width" style="min-width:590px; background-color: #d6d6d6;" align="center" bgcolor="#d6d6d6" valign="top">
+                              <table style="background-color: rgb(255, 255, 255); border-radius: 0px; border-collapse: separate; padding-left: 20px; padding-right: 20px;" class="rnb-container" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="590">
+                                 <tbody>
+                                    <tr>
+                                       <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="rnb-container-padding" style="background-color: #ffffff;" align="left" bgcolor="#ffffff" valign="top">
+                                          <table class="rnb-columns-container" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                             <tbody>
+                                                <tr>
+                                                   <td style="padding-right: 20px;" class="rnb-force-col" valign="top">
+                                                      <table valign="top" class="rnb-col-3 dropableCLass" align="left" border="0" cellpadding="0" cellspacing="0" width="170">
+                                                         <tbody>
+                                                            <tr>
+                                                               <td align="left" valign="top" width="100%">
+                                                                  <img style="vertical-align: top;" src="http://img.mailinblue.com/new_images/rnb/550px.gif" class="rnb-col-3-img" alt="" border="0" hspace="0" vspace="0" width="170">
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:18px; font-family:Arial,Helvetica,sans-serif; color:#999; font-weight:bold; text-align:left;">
+                                                                  <span style="color:#999; font-weight:bold;">Title</span>
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="10">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:13px; font-family:Arial,Helvetica,sans-serif, sans-serif; color:#555;">
+                                                                  <div>Lorem ipsum dolor <a href="#" style="text-decoration: none; color: rgb(153, 153, 153);">sit amet,consectetur adipisicing</a> elit, sed do incididunt utlabore etdolore magna aliqua. Ut enim minim.</div>
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td valign="top">
+                                                                  <table class="rnb-btn-col-content" align="left" border="0" cellpadding="0" cellspacing="0">
+                                                                     <tbody>
+                                                                        <tr>
+                                                                           <td style="font-size:13px; font-family:Arial,Helvetica,sans-serif; text-align:center; color:#ffffff; font-weight:normal; padding-left:18px; padding-right:18px; background-color:#999; border-radius:4px;" align="left" bgcolor="#999" height="26" valign="middle" width="auto">
+                                                                              <span style="color:#ffffff; font-weight:normal;">
+                                                                              <a style="text-decoration:none; color:#ffffff; font-weight:normal;" target="_blank">Button</a>
+                                                                              </span>
+                                                                           </td>
+                                                                        </tr>
+                                                                     </tbody>
+                                                                  </table>
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </td>
+                                                   <td style="padding-right: 20px;" class="rnb-force-col" valign="top">
+                                                      <table valign="top" class="rnb-col-3 dropableCLass" align="left" border="0" cellpadding="0" cellspacing="0" width="170">
+                                                         <tbody>
+                                                            <tr>
+                                                               <td align="left" valign="top" width="100%">
+                                                                  <img style="vertical-align: top;" src="http://img.mailinblue.com/new_images/rnb/550px.gif" class="rnb-col-3-img" alt="" border="0" hspace="0" vspace="0" width="170">
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:18px; font-family:Arial,Helvetica,sans-serif; color:#999; font-weight:bold; text-align:left;">
+                                                                  <span style="color:#999; font-weight:bold;">Title</span>
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="10">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:13px; font-family:Arial,Helvetica,sans-serif, sans-serif; color:#555;">
+                                                                  <div>Lorem ipsum dolor <a href="#" style="text-decoration: none; color: rgb(153, 153, 153);">sit amet,consectetur adipisicing</a> elit, sed do incididunt utlabore etdolore magna aliqua. Ut enim minim.</div>
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td valign="top">
+                                                                  <table class="rnb-btn-col-content" align="left" border="0" cellpadding="0" cellspacing="0">
+                                                                     <tbody>
+                                                                        <tr>
+                                                                           <td style="font-size:13px; font-family:Arial,Helvetica,sans-serif; text-align:center; color:#ffffff; font-weight:normal; padding-left:18px; padding-right:18px; background-color:#999; border-radius:4px;" align="left" bgcolor="#999" height="26" valign="middle" width="auto">
+                                                                              <span style="color:#ffffff; font-weight:normal;">
+                                                                              <a style="text-decoration:none; color:#ffffff; font-weight:normal;" target="_blank">Button</a>
+                                                                              </span>
+                                                                           </td>
+                                                                        </tr>
+                                                                     </tbody>
+                                                                  </table>
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </td>
+                                                   <td style="padding-right: 0px;" class="rnb-force-col" valign="top">
+                                                      <table valign="top" class="rnb-last-col-3 dropableCLass" align="left" border="0" cellpadding="0" cellspacing="0" width="170">
+                                                         <tbody>
+                                                            <tr>
+                                                               <td align="left" valign="top" width="100%">
+                                                                  <img style="vertical-align: top;" src="http://img.mailinblue.com/new_images/rnb/550px.gif" class="rnb-col-3-img" alt="" border="0" hspace="0" vspace="0" width="170">
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:18px; font-family:Arial,Helvetica,sans-serif; color:#999; font-weight:bold; text-align:left;">
+                                                                  <span style="color:#999; font-weight:bold;">Title</span>
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="10">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:13px; font-family:Arial,Helvetica,sans-serif, sans-serif; color:#555;">
+                                                                  <div>Lorem ipsum dolor <a href="#" style="text-decoration: none; color: rgb(153, 153, 153);">sit amet,consectetur adipisicing</a> elit, sed do incididunt utlabore etdolore magna aliqua. Ut enim minim.</div>
+                                                               </td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td valign="top">
+                                                                  <table class="rnb-btn-col-content" align="left" border="0" cellpadding="0" cellspacing="0">
+                                                                     <tbody>
+                                                                        <tr>
+                                                                           <td style="font-size:13px; font-family:Arial,Helvetica,sans-serif; text-align:center; color:#ffffff; font-weight:normal; padding-left:18px; padding-right:18px; background-color:#999; border-radius:4px;" align="left" bgcolor="#999" height="26" valign="middle" width="auto">
+                                                                              <span style="color:#ffffff; font-weight:normal;">
+                                                                              <a style="text-decoration:none; color:#ffffff; font-weight:normal;" target="_blank">Button</a>
+                                                                              </span>
+                                                                           </td>
+                                                                        </tr>
+                                                                     </tbody>
+                                                                  </table>
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+                  
+      </table>
+      </layout>
+      </div>
+<!-- end - ◆headerbanner_2s◆ -->
+
+<!-- start ◆headerbanner_3s◆ -->
+      <div mc:repeatable="headerbanner_3s">
+      <layout label="headerbanner_3s">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap headerbanner" style="border-collapse: collapse;background-color: #fff;">
+        <tr>
+          <td align="center" valign="top" class="headerbanner3" background="http://placehold.it/1500x510/aaa/999&text=1500-510-headerbanner3" style="background-color: #d6d6d6;background-image: url(http://placehold.it/1500x510/aaa/999&text=1500-510-headerbanner3);background-position: center center;background-repeat: no-repeat;-moz-background-size: cover;-webkit-background-size: cover;-o-background-size: cover;background-size: cover;">
+            <!--[if gte mso 9]>
             <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;">
               <v:fill type="tile" src="http://placehold.it/1500x510/aaa/999&text=1500-510-headerbanner3" color="#bcbdc0" id="msoBG-3" />
               <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
             <![endif]-->
-                                            <div>
-                                                <table align="center" width="600" border="0" cellpadding="0" cellspacing="0" class="row" style="border-collapse: collapse;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td height="25">
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top">
-                                                                <table width="235" align="left" border="0" cellpadding="0" cellspacing="0" class="color-80-box" style="border-collapse: collapse;border: none;mso-table-lspace: 0pt;mso-table-rspace: 0pt;">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <!--title infomation-->
-                                                                            <td background="images/color-80.png" align="left" class="color-80 padding15" mc:edit="main-title" style="background-image: url(images/color-80.png);background-repeat: repeat;padding: 15px;">
-                                                                                <span class="h2 uppercase" style="font-weight: 400;color: #fff;font-family: 'Raleway',Tahoma,Arial;font-size: 27px;line-height: 32px;text-transform: uppercase;"><singleline label="subtitle">Professional Solution</singleline>
-</span>
-                                                                                <h1 class="h1 bold uppercase" style="font-weight: 700;color: #fff;font-family: 'Raleway',Tahoma,Arial;font-size: 40px;line-height: 44px;text-transform: uppercase;margin: 0 0 15px !important;"><singleline label="title">For your business</singleline></h1>
-                                                                                <span class="content" style="font-family: 'Raleway',Tahoma,Arial;font-size: 14px;line-height: 18px;font-weight: 400;color: #fff;-webkit-font-smoothing: antialiased;"><singleline label="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh sed diam nonummy nibh.</singleline>
-</span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td valign="top" background="images/color-80.png" class="color-80" style="background-image: url(images/color-80.png);background-repeat: repeat;">
-                                                                                <!--underline in headerbanner3-->
-                                                                                <table align="left" width="85%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;border: none;mso-table-lspace: 0pt;mso-table-rspace: 0pt;">
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td height="1" class="small-img line" style="font-size: 0px;line-height: 0px;border-collapse: collapse;background-color: #fff;">
-                                                                                                <img src="images/spacer.gif" width="1" height="1" style="border: 0;display: block;-ms-interpolation-mode: bicubic;">
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td height="20" background="images/color-80.png" class="color-80" style="background-image: url(images/color-80.png);background-repeat: repeat;">
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td valign="top" background="images/color-80.png" class="color-80" style="background-image: url(images/color-80.png);background-repeat: repeat;">
-                                                                                <!--button in headerbanner3-->
-                                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" class="button" style="border-collapse: collapse;display: inline-block;border: none;mso-table-lspace: 0pt;mso-table-rspace: 0pt;">
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td width="15">
-                                                                                            </td>
-                                                                                            <td class="content" mc:edit="button" style="font-family: 'Raleway',Tahoma,Arial;font-size: 15px;line-height: 15px;font-weight: 400;color: #fff;-webkit-font-smoothing: antialiased;display: block;padding: 15px 30px;background-color: #fff;">
-                                                                                                <singleline label="button"><a href="#" style="color: #149ff3;text-decoration: none;outline: none;">Read More</a></singleline>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td height="20" background="images/color-80.png" class="color-80" style="background-image: url(images/color-80.png);background-repeat: repeat;">
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td height="25">
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!--[if gte mso 9]>
+            
+            <table align="center" width="600" border="0" cellpadding="0" cellspacing="0" class="row" style="border-collapse: collapse;">
+             <tbody>
+                        <tr>
+                           <td style="min-width: 590px;" class="rnb-del-min-width" align="center" valign="top">
+                              <table class="rnb-container dropableCLass" style="background-color:#d6d6d6;" align="center" bgcolor="#d6d6d6" border="0" cellpadding="0" cellspacing="0" width="590">
+                                 <tbody>
+                                    <tr>
+                                       <td align="center" valign="top">
+                                          <img src="http://img.mailinblue.com/new_images/rnb/590px.gif" class="rnb-header-img" alt="" style="display:block; border-radius:5px; width:590px;max-width:px !important;" border="0" hspace="0" vspace="0" width="590">
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+            </table>
+                </tr>
+            </table>
+            
+            <!--[if gte mso 9]>
               </v:textbox>
             </v:rect>
             <![endif]-->
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </layout>
-                    </div>
-                
-                <!-- end - ◆headerbanner_3s◆ -->
-                            <div mc:repeatable="who_we_are_3s">
-                        <layout label="who_we_are_3s">
-                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap gray" style="border-collapse: collapse;background-color: #f0f0f0;">
-                                <tbody>
-                                    <tr>
-                                        <td align="center" valign="top" class="module-td">
-                                            <table align="center" width="600" border="0" cellpadding="0" cellspacing="0" class="row" style="border-collapse: collapse;">
-                                        <tbody>
-                                            <tr>
-                                                <td height="20">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td valign="top">
-                                                    <table align="right" width="383" border="0" cellpadding="0" cellspacing="0" class="col2" style="border-collapse: collapse;border: none;mso-table-lspace: 0pt;mso-table-rspace: 0pt;">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td align="left" class="h6" mc:edit="copyright" style="font-weight: 400;color: #ababab;font-family: 'Source Sans Pro',Tahoma,Arial;font-size: 11px;line-height: 18px;">
-                                                                    <singleline label="copyright">Copyright@2013-Business Template, All rights reserved</singleline>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="left" class="h6 a" mc:edit="unsub" style="font-weight: 400;color: #707070;font-family: 'Source Sans Pro',Tahoma,Arial;font-size: 11px;line-height: 18px;">
-                                                                    <unsubscribe><a href="#*|UNSUB|*" style="color: #707070;text-decoration: none;outline: none;">Un Subscribed Here</a></unsubscribe>
-                                                                    <singleline label="update">&nbsp;&nbsp;/&nbsp;&nbsp;<a href="#" style="color: #707070;text-decoration: none;outline: none;">Update Profile</a></singleline>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td height="40">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </layout>
-                    </div>
-                </td>
-                </tr>
-                </table>
-</body>
+          </td>
+        </tr>
+      </table>
+      </layout>
+      </div>
+<!-- end - ◆headerbanner_3s◆ -->
 
+<!-- start ◆service_1s◆ -->
+      <div mc:repeatable="service_1s">
+      <layout label="service_1s">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap" style="border-collapse: collapse;background-color: #555;">
+        <tr>
+          <td align="center" valign="top" class="module-td">
+            <table class="rnb-container" style="padding-right:20px; padding-left:20px;" align="center" border="0" cellpadding="0" cellspacing="0" width="590">
+                                 <tbody>
+                                    <tr>
+                                       <td style="font-size:1px; line-height:1px;" height="10">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                       <td>
+                                          <div style="font-size:13px; color:#919191; font-weight:normal; text-align:center; font-family:Arial,Helvetica,sans-serif;">
+                                             This email was sent to {EMAIL}
+                                             <div>You received this email because you are registered with Logistic Infotech</div>
+                                             <div>&nbsp;</div>
+                                          </div>
+                                          <div style="font-size:13px; font-weight:normal; text-align:center; font-family:Arial,Helvetica,sans-serif;">
+                                             <a href="[UNSUBSCRIBE]" style="text-decoration:none; color:#ccc;" target="_blank">Unsubscribe here</a>
+                                          </div>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td style="font-size:1px; line-height:1px;" height="10">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                       <td>
+                                          <div style="text-align:center;">
+                                             <div style="font-family:Arial, Helvetica, sans-serif;color:#aaaaaa;opacity:0.8">Sent by</div>
+                                             <a href="https://www.sendinblue.com/?utm_source=logo_mailin&amp;utm_campaign=14c9c680b61b8aa0f591a51367eabf9b&amp;utm_medium=email" target="_blank">
+                                                 <img src="http://img.mailinblue.com/new_images/rnb/logo_nb_en.png" alt="SendinBlue" style="margin:auto;" border="0" hspace="0" vspace="0"></a>
+                                          </div>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td style="font-size:1px; line-height:1px;" height="10">&nbsp;</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+          </td>
+        </tr>
+          <tr>
+            <td style="background-color:#d6d6d6;" align="center" bgcolor="#d6d6d6" valign="top">
+                  <table class="rnb-del-min-width" style="min-width:590px; background-color:#d6d6d6;" name="Layout_4" id="Layout_4" bgcolor="#d6d6d6" border="0" cellpadding="0" cellspacing="0" width="100%">
+                     <tbody>
+                        <tr>
+                           <td class="rnb-del-min-width" style="min-width:590px; background-color: #333;" align="center" bgcolor="#333" valign="top">
+                              <table class="rnb-container" style="padding-right:20px; padding-left:20px;" align="center" border="0" cellpadding="0" cellspacing="0" width="590">
+                                 <tbody>
+                                    <tr>
+                                       <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="font-size:13px; color:#919191; font-weight:normal; text-align:center; font-family:Arial,Helvetica,sans-serif;">
+                                          <div> ClicSpot</div>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
+        </tr>
+      </table>
+      </layout>
+      </div>
+<!-- end - ◆service_1s◆ -->
+
+<!-- start ◆who_we_are_1s◆ -->
+     
+<!-- end - ◆who_we_are_1s◆ -->
+
+<!-- start ◆col3_icon_bg◆ -->
+      
+<!-- end - ◆col3_icon_bg◆ -->
+
+<!-- start ◆skills◆ -->
+     
+<!-- end - ◆skills◆ -->
+
+<!-- start ◆portfolio◆ -->
+    
+<!-- end - ◆portfolio◆ -->
+
+<!-- start ◆from_blog_1s◆ -->
+      
+<!-- end - ◆from_blog_1s◆ -->
+
+<!-- start ◆testimonial_1s◆ -->
+     
+<!-- end - ◆testimonial_1s◆ -->
+
+<!-- start ◆price_1s◆ -->
+     
+<!-- end - ◆footer◆ -->
+
+    </td>
+  </tr>
+</table>
+</body>
 </html>

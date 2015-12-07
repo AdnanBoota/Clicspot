@@ -43,6 +43,10 @@ class EmailsController extends Controller {
                             ->addColumn('edit', function ($emailTemplate) {
                                 return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                             })
+                           ->addColumn('description', function ($emailTemplate) {
+                                return 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.';
+                            }) 
+                           
                             ->make(true);
         } else {
 

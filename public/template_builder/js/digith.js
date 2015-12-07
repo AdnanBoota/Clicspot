@@ -1372,6 +1372,7 @@ $(function() {
 
     function Ti() {
         $.each(BuFen, function(e, t) {
+            
             XZH += '<ul id="' + e + '"><li class="menu-list' + '">';
             $.each(t, function(t, n) {
                 XZH += t + "</li></ul>" + '<div id="' + e + 'Content"><ul>';
@@ -1383,6 +1384,7 @@ $(function() {
                             return false
                         }
                     });
+                    console.log(t+"====>");
                     XZH += '<li class="item" id="' + t + '"><img src="' + location.protocol + "//" + location.host + "/" + 'template_builder/images/buju/' + t + '.jpg" title="' + n + '"></li>'
                 });
                 XZH += "</ul></div>"

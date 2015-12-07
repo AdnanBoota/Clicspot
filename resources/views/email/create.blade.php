@@ -18,7 +18,7 @@
     <!--<link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>-->
     <style>
         #template-page-box #iframe{
-            color: #404040 !important;
+            color: #d6d6d6 !important;
         }
         .imageGallery { 
             float: none !important;
@@ -29,6 +29,7 @@
             z-index: 1000;
             display: none;
         }
+      
         #top-barr.imageGallery > #top-bar-box , #top-barr.imageGallery .menuu{
             width: 100%;
         }
