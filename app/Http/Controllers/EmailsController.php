@@ -43,10 +43,9 @@ class EmailsController extends Controller {
                             ->addColumn('edit', function ($emailTemplate) {
                                 return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                             })
-                           ->addColumn('description', function ($emailTemplate) {
+                            ->addColumn('description', function ($emailTemplate) {
                                 return 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.';
-                            }) 
-                           
+                            })
                             ->make(true);
         } else {
 
@@ -78,26 +77,26 @@ class EmailsController extends Controller {
     }
 
     public function create() {
-         $images= array();
-        $getAllTemplates = Emails::select(DB::raw('adminid,templateName'))->get();
-          $directory = 'uploads/templateImages/' . Auth::user()->id;
-         $files = File::files($directory);
-            foreach ($files as $file) {
-                $images[] = "/" . (string)$file;
-            }
-        return View::make('email.create', compact('getAllTemplates','images'));
+        $images = array();
+        $getAllTemplates = Emails::select(DB::raw('id,adminid,templateName'))->get();
+        $directory = 'uploads/templateImages/' . Auth::user()->id;
+        $files = File::files($directory);
+        foreach ($files as $file) {
+            $images[] = "/" . (string) $file;
+        }
+        return View::make('email.create', compact('getAllTemplates', 'images'));
     }
 
     public function edit($id) {
         $templates = Emails::findOrFail($id);
         $userId = Auth::id();
-        $images= array();
+        $images = array();
         $directory = 'uploads/templateImages/' . Auth::user()->id;
-         $files = File::files($directory);
-            foreach ($files as $file) {
-                $images[] = "/" . (string)$file;
-            }
-        return View::make('email.create', compact('templates', 'userId','images'));
+        $files = File::files($directory);
+        foreach ($files as $file) {
+            $images[] = "/" . (string) $file;
+        }
+        return View::make('email.create', compact('templates', 'userId', 'images'));
     }
 
     /**
@@ -107,58 +106,14 @@ class EmailsController extends Controller {
      * @return Response
      */
     public function update($id, Request $request) {
-        if (Auth::user()->type == 'superadmin') {
-            $campaign = Campaign::findOrFail($id);
-        } else {
-            $campaign = Auth::user()->campaigns()->findOrFail($id);
-        }
-
-        $input = $request->only('name', 'fontcolor', 'description', 'logoposition', 'backgroundzoom');
-        //dd($request->input('description'));
-        $bgfileName = $request->input('oldbackgroundimage');
-        if ($request->input('oldbackgroundimage') != $request->input('backgroundimage')) {
-            $bgdestinationPath = 'uploads/campaign'; // upload path
-            $bgpath_parts = pathinfo($request->input('backgroundimage'));
-            $bgextension = $bgpath_parts['extension']; // getting image extension
-            $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // re-nameing image
-            File::copy(ltrim($request->input('backgroundimage'), '/'), $bgdestinationPath . '/' . $bgfileName);
-            //Input::file('backgroundimage')->move($bgdestinationPath, $bgfileName); // uploading file to given path
-            if (File::exists($bgdestinationPath . '/' . $request->input('oldbackgroundimage'))) {
-                File::delete($bgdestinationPath . '/' . $request->input('oldbackgroundimage'));
-            }
-        }
-
-        $logofileName = $request->input('oldlogoimage');
-        if ($request->input('oldlogoimage') != $request->input('logoimage')) {
-            $logodestinationPath = 'uploads/campaign'; // upload path
-            $lgpath_parts = pathinfo($request->input('logoimage'));
-            $logoextension = $lgpath_parts['extension'];
-            //$logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
-            $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
-            //Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
-            File::copy(ltrim($request->input('logoimage'), '/'), $logodestinationPath . '/' . $logofileName);
-            if (File::exists($logodestinationPath . '/' . $request->input('oldlogoimage'))) {
-                File::delete($logodestinationPath . '/' . $request->input('oldlogoimage'));
-            }
-        }
-        $this->validate($request, [
-            'name' => 'required',
-            'fontcolor' => 'required'
-                ]
-        );
-        $input['backgroundimage'] = $bgfileName;
-        $input['logoimage'] = $logofileName;
-
-        $campaign->update($input);
-        $successMsg = "Campaign updated successfully";
-        Session::flash('flash_message_success', $successMsg);
-        return redirect('campaign');
+        
     }
 
     public function store(Request $request) {
+
         $data = Input::all();
         $input = array();
-
+        $id=$data['templateId'];
         if ($data['templateName'] == '') {
             $length = 8;
             $randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
@@ -178,11 +133,14 @@ class EmailsController extends Controller {
             $filePath = $directory . $templateName . ".html";
             File::put($filePath, $data['content']);
         }
-
-
-        $emails = new Emails($input);
-
-        Auth::user()->emailTemplates()->save($emails);
+        if ($data['templateId'] == '') {
+            $emails = new Emails($input);
+            Auth::user()->emailTemplates()->save($emails);
+        } else {
+            $templates = Auth::user()->emailTemplates()->findOrFail($id);
+          
+            $templates->update($input);
+        }
         //$emails->save();
 
 
@@ -208,7 +166,7 @@ class EmailsController extends Controller {
     }
 
     public function galleryFileUpload(Request $request) {
-      
+
         if ($request->ajax()) {
             if (Input::hasFile('upl')) {
                 $gallerydestinationPath = 'uploads/templateImages/' . Auth::user()->id;

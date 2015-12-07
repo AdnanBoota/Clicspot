@@ -81,6 +81,7 @@
     <![endif]-->
     <script type="text/javascript">
         var templateName = '<?php echo ((isset($templates['templateName'])) ? $templates['templateName'] : ""); ?>';
+        var templateId = '<?php echo ((isset($templates['id'])) ? $templates['id'] : ""); ?>';
                 var APP_URL = {!! json_encode(url('/')) !!};
         var userId = '<?php echo ((isset($userId)) ? $userId : ""); ?>';
     </script>
@@ -92,6 +93,7 @@
             <ul>
                 <li id="choose-module" class="menuu active" title="Choose Module"></li>
                 <input type="hidden" value="<?php echo csrf_token(); ?>" name="_token">
+            
                 <li id="download-btn" class="menuu" title="Save"><span>Save</span></li>
                 <li id="imageUpload" class="menuu" title="Image Upload"><span>Image Upload</span></li>
 
