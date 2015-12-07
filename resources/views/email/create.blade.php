@@ -29,7 +29,7 @@
             z-index: 1000;
             display: none;
         }
-      
+
         #top-barr.imageGallery > #top-bar-box , #top-barr.imageGallery .menuu{
             width: 100%;
         }
@@ -93,7 +93,7 @@
             <ul>
                 <li id="choose-module" class="menuu active" title="Choose Module"></li>
                 <input type="hidden" value="<?php echo csrf_token(); ?>" name="_token">
-            
+
                 <li id="download-btn" class="menuu" title="Save"><span>Save</span></li>
                 <li id="imageUpload" class="menuu" title="Image Upload"><span>Image Upload</span></li>
 
@@ -304,14 +304,23 @@
                     });
                 }
             });
-            $(document).on("mouseenter", '.dropableCLass', function(e) {
-               
+            $(document).on("click", '#editContentButton', function(e) {
+console.log("Enable");
                 $('.dropableCLass tbody tr img').droppable({
                     hoverClass: "container-img-drop-hover",
+                    disabled: false,
                     drop: function(ev, ui) {
-                        $(this).attr("src",$(drag_obj).attr('src'));
-                        
+                        $(this).attr("src", $(drag_obj).attr('src'));
+
                     }
+                });
+            });
+
+            $(document).on("click", "#editLayoutButton", function(e) {
+                console.log("disable");
+                $('.dropableCLass tbody tr img').droppable({
+                    disabled: true
+
                 });
             });
 
