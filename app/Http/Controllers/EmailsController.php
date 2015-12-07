@@ -78,6 +78,7 @@ class EmailsController extends Controller {
     }
 
     public function create() {
+         $images= array();
         $getAllTemplates = Emails::select(DB::raw('adminid,templateName'))->get();
           $directory = 'uploads/templateImages/' . Auth::user()->id;
          $files = File::files($directory);
@@ -90,6 +91,7 @@ class EmailsController extends Controller {
     public function edit($id) {
         $templates = Emails::findOrFail($id);
         $userId = Auth::id();
+        $images= array();
         $directory = 'uploads/templateImages/' . Auth::user()->id;
          $files = File::files($directory);
             foreach ($files as $file) {
