@@ -383,7 +383,7 @@ $(function() {
             } else {
                 Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)
             }
-            
+
             setTimeout(function() {
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"
@@ -536,7 +536,7 @@ $(function() {
             }
         }
 
-        console.log(userId)
+        //  console.log(userId)
         hIL = BDLJ + mTm + "/all-inline.html";
         IImL = '"' + BDLJ + mTm + "/images/";
         IBmL = "url(" + BDLJ + mTm + "/images/";
@@ -891,7 +891,7 @@ $(function() {
             tolerance: "pointer",
             revert: 300,
             stop: function(e, t) {
-                console.log($n.html());
+                //   console.log($n.html());
                 ci(t);
                 CKDM = $n.html();
                 $("#iframe div[rev]").ckeditor();
@@ -907,7 +907,7 @@ $(function() {
             helper: "clone",
             distance: 20,
             drag: function(e, t) {
-                console.log("hello");
+                // console.log("hello");
                 h = t.helper.find("img").height() + "px";
                 mT = $(this).attr("id");
                 $(CK + " .placehold").css({
@@ -927,7 +927,7 @@ $(function() {
             },
             revert: "invalid",
             stop: function(e, t) {
-                
+
                 scrollPosi = $n.scrollTop();
                 $n.scrollTop(scrollPosi);
                 //$n.find(".BGtable").append(scrollPosi); 
@@ -1373,7 +1373,7 @@ $(function() {
 
     function Ti() {
         $.each(BuFen, function(e, t) {
-            
+
             XZH += '<ul id="' + e + '"><li class="menu-list' + '">';
             $.each(t, function(t, n) {
                 XZH += t + "</li></ul>" + '<div id="' + e + 'Content"><ul>';
@@ -1385,7 +1385,7 @@ $(function() {
                             return false
                         }
                     });
-                    console.log(t+"====>");
+
                     XZH += '<li class="item" id="' + t + '"><img src="' + location.protocol + "//" + location.host + "/" + 'template_builder/images/buju/' + t + '.jpg" title="' + n + '"></li>'
                 });
                 XZH += "</ul></div>"
@@ -2817,42 +2817,59 @@ $(function() {
 //            alert("**** Please enter all the required config options!")
 //        }
 
-      if (templateName != "") {
-          var title="Email Template Updated SuccessFully";
-      }else{
-          var title="Email Template Saved SuccessFully";
-      }
-        $.ajax({
-            url: '/emails',
-            type: 'post',
-            data: {
-                "content": e.content,
-                "_token": $("input[name=_token]").val(),
-                "templateId": templateId,
-                "templateName": templateName
-
-
-            },
-            success: function(result) {
-                swal({
-                    title: title,
-                    text: "",
-                    type: "success",
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Ok",
-                    closeOnConfirm: true
-
-                },
+        swal({
+            title: "Template Info",
+            text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name"><br><textarea class="visibleInput templateDesc" id="templateDesc" name="templateDesc" placeholder="Template Description">' + templateDescription + '</textarea>',
+            html: true,
+            showCancelButton: true,
+        },
                 function(response) {
-                   if(response==true){                    
-                  window.location =APP_URL +"/emails" ;}
-              else{
-                  return false;
-              }
-                    
+                    if (response == true) {
+                        templateName = $("#templateName").val();
+                        var templateDescription = $("#templateDesc").val();
+                        if (templateName != "") {
+                            var title = "Email Template Updated SuccessFully";
+                        } else {
+                            var title = "Email Template Saved SuccessFully";
+                        }
+                        $.ajax({
+                            url: '/emails',
+                            type: 'post',
+                            data: {
+                                "content": e.content,
+                                "_token": $("input[name=_token]").val(),
+                                "templateId": templateId,
+                                "templateName": templateName,
+                                "templateDescription": templateDescription
+
+
+                            },
+                            success: function(result) {
+                                swal({
+                                    title: title,
+                                    text: "",
+                                    type: "success",
+                                    confirmButtonColor: "#DD6B55",
+                                    confirmButtonText: "Ok",
+                                    closeOnConfirm: true
+
+                                },
+                                function(response) {
+                                    if (response == true) {
+                                        window.location = APP_URL + "/emails";
+                                    }
+                                    else {
+                                        return false;
+                                    }
+
+                                });
+                            }
+                        });
+                    }
                 });
-            }
-        });
+
+
+
         var t = $("<iframe>", {
             width: 1,
             height: 1,

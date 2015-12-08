@@ -53,39 +53,57 @@
             float: left;
             margin: 10px;
         }
-    </style>
+        .visibleInput{
+            display: block !important;
+        }
+        .templateDesc{
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            border: 1px solid #d7d7d7;
+            border-radius: 3px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06) inset;
+            box-sizing: border-box;
+            
+            font-size: 18px;
+            height: 100px;
+            margin-bottom: 17px;
+            margin-top: 10px;
+            padding: 10 12px;
+            transition: all 0.3s ease 0s;
+            width: 100%;}
+        </style>
 
-    <!--[if IE]>
-            <style type="text/css">
-    html, body{overflow-x: hidden;}
-    .placehold(margin-left:-20px !important;}
-            </style>
-    <![endif]-->
+        <!--[if IE]>
+                <style type="text/css">
+        html, body{overflow-x: hidden;}
+        .placehold(margin-left:-20px !important;}
+                </style>
+        <![endif]-->
 
-    <!--[if lt IE 9]>
-      <script src="{{asset("template_builder/assets/js/h5.js")}}></script>
-    <![endif]-->
+        <!--[if lt IE 9]>
+          <script src="{{asset("template_builder/assets/js/h5.js")}}></script>
+        <![endif]-->
 
-    <!--[if IE 7]>
-            <style type="text/css">
-    html, body{overflow-x: hidden;}
-    .placehold(margin-left:-20px !important;}
-            </style>
-    <![endif]-->
-    <!--[if IE 6]>
-            <style type="text/css">
-    html, body{overflow-x: hidden;}
-    .placehold(margin-left:-20px !important;}
-            </style>
-    <![endif]-->
-    <script type="text/javascript">
-        var templateName = '<?php echo ((isset($templates['templateName'])) ? $templates['templateName'] : ""); ?>';
-        var templateId = '<?php echo ((isset($templates['id'])) ? $templates['id'] : ""); ?>';
-                var APP_URL = {!! json_encode(url('/')) !!};
-        var userId = '<?php echo ((isset($userId)) ? $userId : ""); ?>';
-    </script>
-</head>
-<body id="builder" class="lightt">
+        <!--[if IE 7]>
+                <style type="text/css">
+        html, body{overflow-x: hidden;}
+        .placehold(margin-left:-20px !important;}
+                </style>
+        <![endif]-->
+        <!--[if IE 6]>
+                <style type="text/css">
+        html, body{overflow-x: hidden;}
+        .placehold(margin-left:-20px !important;}
+                </style>
+        <![endif]-->
+        <script type="text/javascript">
+            var templateName = '<?php echo ((isset($templates['templateName'])) ? $templates['templateName'] : ""); ?>';
+            var templateId = '<?php echo ((isset($templates['id'])) ? $templates['id'] : ""); ?>';
+                    var APP_URL = {!! json_encode(url('/')) !!};
+            var userId = '<?php echo ((isset($userId)) ? $userId : ""); ?>';
+            var templateDescription = "<?php echo ((isset($templates['description'])) ? $templates['description'] : ""); ?>";
+        </script>
+    </head>
+    <body id="builder" class="lightt">
     <div id="mask2"></div>
     <div id="top-barr">
         <div id="top-bar-box">
@@ -95,6 +113,7 @@
 
                 <li id="download-btn" class="menuu" title="Save"><span>Save</span></li>
                 <li id="imageUpload" class="menuu" title="Image Upload"><span>Image Upload</span></li>
+                <li id="backbtn" class="menuu" title="Back"><span><a href="{{url('emails')}}">Back</a></span></li>
 
             </ul>
         </div>
@@ -242,10 +261,10 @@
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload-validate.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/script_email_template.js') }}"></script>
-       
+
     <script>
         $(document).ready(function() {
-        
+
             $('#imageUpload').on('click', function() {
                 $('.imageGallery').toggle("slide", {direction: "left"}, 200);
             });
@@ -275,7 +294,7 @@
                 }
             });
             $(document).on("click", '#editContentButton', function(e) {
-console.log("Enable");
+                console.log("Enable");
                 $('.dropableCLass tbody tr img').droppable({
                     hoverClass: "container-img-drop-hover",
                     disabled: false,

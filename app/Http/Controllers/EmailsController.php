@@ -43,9 +43,7 @@ class EmailsController extends Controller {
                             ->addColumn('edit', function ($emailTemplate) {
                                 return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                             })
-                            ->addColumn('description', function ($emailTemplate) {
-                                return 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.';
-                            })
+                           
                             ->make(true);
         } else {
 
@@ -111,16 +109,13 @@ class EmailsController extends Controller {
 
     public function store(Request $request) {
 
+
         $data = Input::all();
+       
         $input = array();
-        $id=$data['templateId'];
-        if ($data['templateName'] == '') {
-            $length = 8;
-            $randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
-            $templateName = $randomString;
-        } else {
-            $templateName = $data['templateName'];
-        }
+        $id = $data['templateId'];
+        $templateName = $data['templateName'];
+        $input['description'] = $data['templateDescription'];
         $input['templateName'] = $templateName;
         $directory = 'template_builder/html/' . Auth::user()->id . '/';
         if (!File::exists($directory)) {
@@ -138,7 +133,7 @@ class EmailsController extends Controller {
             Auth::user()->emailTemplates()->save($emails);
         } else {
             $templates = Auth::user()->emailTemplates()->findOrFail($id);
-          
+
             $templates->update($input);
         }
         //$emails->save();
