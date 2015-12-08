@@ -2816,7 +2816,8 @@ $(function() {
 //            Xn.html("**** Please enter all the required config options!").css("display", "none").fadeIn();
 //            alert("**** Please enter all the required config options!")
 //        }
-        if (templateName != "") {
+console.log(templateName);
+        if (templateName != '') {
             var title = "Email Template Updated SuccessFully";
         } else {
             var title = "Email Template Saved SuccessFully";
