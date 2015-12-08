@@ -383,6 +383,7 @@ $(function() {
             } else {
                 Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)
             }
+            
             setTimeout(function() {
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"

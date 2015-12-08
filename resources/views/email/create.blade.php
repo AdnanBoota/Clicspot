@@ -15,7 +15,6 @@
     <link href="{{ asset('/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/css/pt-sans-narrow.css') }}" rel='stylesheet' />
     <link href="{{ asset('/plugins/mini-upload-form/assets/css/style.css') }}" rel="stylesheet" />
-    <!--<link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>-->
     <style>
         #template-page-box #iframe{
             color: #d6d6d6 !important;
@@ -110,7 +109,7 @@
                     <a>Browse</a>
                     <input type="file" name="upl" multiple accept="image/*" />
                 </div>
-
+                <img src="{{asset("img/loading.gif")}}" id="loadingImage" style="display: none;"/>
 
             </form>
             <div class="imagePrview">
@@ -222,33 +221,7 @@
             </div>
         </div>
     </div><!---->
-    <div class="modal fade" id="gallaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Gallary</h4>
-                </div>
-                <div class="modal-body">
-                    <form id="upload" method="post" action="" enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                        <div id="drop">
-                            Drop Here
 
-                            <a>Browse</a>
-                            <input type="file" name="upl" multiple accept="image/*" />
-                        </div>
-
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <!--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>-->
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="{{asset("template_builder/js/jquery-1.7.1.min.js")}}"></script>
     <script src="{{asset("template_builder/js/jquery-ui-1.10.4.custom.js")}}"></script>
     <script src="{{asset("template_builder/ckeditor/ckeditor.js")}}"></script>
@@ -269,13 +242,10 @@
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload-validate.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/script_email_template.js') }}"></script>
-        <!--<script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>-->
+       
     <script>
         $(document).ready(function() {
-//            $('.image').on('click', function() {
-//                $('.imageGallery').toggle("slide" , { direction: "right" },200);
-//            });
-//           
+        
             $('#imageUpload').on('click', function() {
                 $('.imageGallery').toggle("slide", {direction: "left"}, 200);
             });

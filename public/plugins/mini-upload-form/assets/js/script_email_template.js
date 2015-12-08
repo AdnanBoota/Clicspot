@@ -21,6 +21,7 @@ $(function(){
         add: function (e, data) {
            //JSON.parse(data);
             //add validation for file type
+            $("#loadingImage").show();
             if(data.files[0]['type'] != 'image/png' && data.files[0]['type'] != 'image/jpg' && data.files[0]['type'] != 'image/jpeg'){ alert("Only .png, .jpg, and .jpeg is allowed."); return; }
 
             var tpl = $('<li class="working"><input type="text" value="0" data-width="48" data-height="48"'+
@@ -75,7 +76,7 @@ $(function(){
         done:function(e, data){
             if(data.result.success){
                
-             
+             $("#loadingImage").hide();
                 var newImg = "<div class='dragImage'><a class='thumbnail' href='javascript:void(0);'><img src='"+APP_URL+data.result.filePath+"' height='50' width='50' alt='...' class='margin' style='height:50px;width:50px;' /></a></div>";
                 $('.imagePrview').append(newImg);
             }
