@@ -361,6 +361,10 @@ $(function() {
             $("#hide-iframe div[rev]").attr({
                 title: ""
             });
+             $('.dropableCLass tbody tr img').droppable({
+                    disabled: true
+
+                });
             $n.find(Id).live("mouseenter", function() {
                 var e = $(this).height() / 2 - 20;
                 $(this).css({
@@ -376,6 +380,7 @@ $(function() {
             })
         });
         nr.click(function() {
+            
             tr.removeClass("active");
             $(this).addClass("active");
             if ($.browser.msie) {
@@ -385,6 +390,7 @@ $(function() {
             }
 
             setTimeout(function() {
+                
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"
                 }).ckeditor();
@@ -401,8 +407,22 @@ $(function() {
                     $(this).addClass("this-module").find(opt).hide()
                 }).live("mouseleave", function() {
                     $(this).css("border", "none")
-                })
-            }, 500)
+                }); 
+                     setTimeout(function() {
+                      console.log("Enable");
+                $('.dropableCLass tbody tr img').droppable({
+                    hoverClass: "container-img-drop-hover",
+                    disabled: false,
+                    drop: function(ev, ui) {
+                        $(this).attr("src", $(drag_obj).attr('src'));
+
+                    }
+                });
+                 },500);
+               
+            }, 500);
+      
+
         });
         rr.click(function() {
             qr()
@@ -2816,7 +2836,7 @@ $(function() {
 //            Xn.html("**** Please enter all the required config options!").css("display", "none").fadeIn();
 //            alert("**** Please enter all the required config options!")
 //        }
-console.log(templateName);
+        console.log(templateName);
         if (templateName != '') {
             var title = "Email Template Updated SuccessFully";
         } else {

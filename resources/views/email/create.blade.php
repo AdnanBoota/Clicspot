@@ -62,7 +62,7 @@
             border-radius: 3px;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06) inset;
             box-sizing: border-box;
-            
+
             font-size: 18px;
             height: 100px;
             margin-bottom: 17px;
@@ -240,7 +240,6 @@
             </div>
         </div>
     </div><!---->
-
     <script src="{{asset("template_builder/js/jquery-1.7.1.min.js")}}"></script>
     <script src="{{asset("template_builder/js/jquery-ui-1.10.4.custom.js")}}"></script>
     <script src="{{asset("template_builder/ckeditor/ckeditor.js")}}"></script>
@@ -261,59 +260,38 @@
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload-validate.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/script_email_template.js') }}"></script>
-
     <script>
-        $(document).ready(function() {
+            $(document).ready(function() {
 
-            $('#imageUpload').on('click', function() {
-                $('.imageGallery').toggle("slide", {direction: "left"}, 200);
-            });
-            $('.imagePrview .thumbnail img').draggable({
-                revert: 'invalid',
-                helper: 'clone',
-                scroll: false,
-                opacity: 0.50,
-                start: function(event, ui) {
-                    drag_obj = $(this);
-                }
-            });
-            $(document).on("mouseenter", '.imagePrview .thumbnail img', function(e) {
-                var item = $(this);
-                //check if the item is already draggable
-                if (!item.is('.ui-draggable')) {
-                    //make the item draggable
-                    item.draggable({
-                        revert: 'invalid',
-                        helper: 'clone',
-                        scroll: false,
-                        opacity: 0.50,
-                        start: function(event, ui) {
-                            drag_obj = $(this);
-                        }
-                    });
-                }
-            });
-            $(document).on("click", '#editContentButton', function(e) {
-                console.log("Enable");
-                $('.dropableCLass tbody tr img').droppable({
-                    hoverClass: "container-img-drop-hover",
-                    disabled: false,
-                    drop: function(ev, ui) {
-                        $(this).attr("src", $(drag_obj).attr('src'));
-
+                $('#imageUpload').on('click', function() {
+                    $('.imageGallery').toggle("slide", {direction: "left"}, 200);
+                });
+                $('.imagePrview .thumbnail img').draggable({
+                    revert: 'invalid',
+                    helper: 'clone',
+                    scroll: false,
+                    opacity: 0.50,
+                    start: function(event, ui) {
+                        drag_obj = $(this);
+                    }
+                });
+                $(document).on("mouseenter", '.imagePrview .thumbnail img', function(e) {
+                    var item = $(this);
+                    //check if the item is already draggable
+                    if (!item.is('.ui-draggable')) {
+                        //make the item draggable
+                        item.draggable({
+                            revert: 'invalid',
+                            helper: 'clone',
+                            scroll: false,
+                            opacity: 0.50,
+                            start: function(event, ui) {
+                                drag_obj = $(this);
+                            }
+                        });
                     }
                 });
             });
-
-            $(document).on("click", "#editLayoutButton", function(e) {
-                console.log("disable");
-                $('.dropableCLass tbody tr img').droppable({
-                    disabled: true
-
-                });
-            });
-
-        });
     </script>
 </body>
 </html>
