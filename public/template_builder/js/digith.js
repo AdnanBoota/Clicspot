@@ -2816,7 +2816,11 @@ $(function() {
 //            Xn.html("**** Please enter all the required config options!").css("display", "none").fadeIn();
 //            alert("**** Please enter all the required config options!")
 //        }
-
+        if (templateName != "") {
+            var title = "Email Template Updated SuccessFully";
+        } else {
+            var title = "Email Template Saved SuccessFully";
+        }
         swal({
             title: "Template Info",
             text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name"><br><textarea class="visibleInput templateDesc" id="templateDesc" name="templateDesc" placeholder="Template Description">' + templateDescription + '</textarea>',
@@ -2827,11 +2831,7 @@ $(function() {
                     if (response == true) {
                         templateName = $("#templateName").val();
                         var templateDescription = $("#templateDesc").val();
-                        if (templateName != "") {
-                            var title = "Email Template Updated SuccessFully";
-                        } else {
-                            var title = "Email Template Saved SuccessFully";
-                        }
+
                         $.ajax({
                             url: '/emails',
                             type: 'post',
