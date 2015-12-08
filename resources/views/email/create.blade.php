@@ -62,7 +62,6 @@
             border-radius: 3px;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06) inset;
             box-sizing: border-box;
-
             font-size: 18px;
             height: 100px;
             margin-bottom: 17px;
