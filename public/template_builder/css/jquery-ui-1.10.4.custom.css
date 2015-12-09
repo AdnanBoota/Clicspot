@@ -493,9 +493,12 @@ body .ui-tooltip {
 .darkk .ui-widget-content .ui-state-active,
 .darkk .ui-widget-header .ui-state-active {
 	border: 1px solid #fbd850;border:none;
-	background: #368EE0 url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+	background: #34495E;
 	font-weight: 400;
 	color: #fff;
+}
+.nicescroll-rails div{
+    background: #1ABC9C !important;
 }
 .ui-state-active a,
 .ui-state-active a:link,
