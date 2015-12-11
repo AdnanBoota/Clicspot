@@ -40,6 +40,11 @@ class EmailsController extends Controller {
             }
 
             return Datatables::of($emailTemplate)
+//                            ->addColumn('checkbox', function ($emailTemplate) {
+//                                return ' <label class="">
+//                              <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="" name="emailTemplateDelete[]" checked="" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
+//                            </label>';
+//                            })
                             ->addColumn('edit', function ($emailTemplate) {
                                 return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
                             })
@@ -174,6 +179,22 @@ class EmailsController extends Controller {
                 return Response::json(array('success' => true, 'filePath' => "/" . $gallerydestinationPath . '/' . $gfileName));
             }
         }
+    }
+    public function destroy($id)
+    {
+        $EmailTemplates = Emails::find($id);
+        $res = $EmailTemplates->delete();
+        if ($res) {
+            $success = true;
+            $msg = "Record Deleted Successfully.";
+        } else {
+            $success = false;
+            $msg = "Something went wrong , Please try again later.";
+        }
+        return Response::json(array(
+            'success' => $success,
+            'message' => $msg,
+        ));
     }
 
 }

@@ -7,16 +7,16 @@ CKEDITOR.editorConfig = function( config ) {
 	
 // Toolbar configuration generated automatically by the editor based on config.toolbarGroups.
 	config.toolbarGroups = [
-		{ name: 'document',	   groups: [ 'mode' ] },//
-		{ name: 'clipboard',   groups: [ 'undo' ] },
-		{ name: 'paragraph',   groups: [ 'list', 'indent','blocks', '-', 'align'] },//, 'bidi'
-		{ name: 'insert',   	groups: ['Image','Table', 'HorizontalRule', 'Smiley','SpecialChar'] },//, 'bidi'
-		{ name: 'editing',     groups: [ 'find'] },//, 'Replace', 'SelectAll', 'Scayt'
+//		{ name: 'document',	   groups: [ 'mode' ] },//
+//		{ name: 'clipboard',   groups: [ 'undo' ] },
+//		{ name: 'paragraph',   groups: [ 'list', 'indent','blocks', '-', 'align'] },//, 'bidi'
+//		{ name: 'insert',   	groups: ['Image','Table', 'HorizontalRule', 'Smiley','SpecialChar'] },//, 'bidi'
+//                  { name: 'editing',     groups: [ 'find'] },//, 'Replace', 'SelectAll', 'Scayt'
 		'/',
-		{ name: 'tools' },//
-		{ name: 'styles' },//
-		{ name: 'colors'},
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },//, 'cleanup'//
+//		{ name: 'tools' },//
+//		{ name: 'styles' },//
+//		{ name: 'colors'},
+		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ]},//, 'cleanup'//
 		{ name: 'links' },
 	];
 	config.extraPlugins = 'sourcedialog';

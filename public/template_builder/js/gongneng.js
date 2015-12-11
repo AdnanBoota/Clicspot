@@ -130,12 +130,24 @@ BJZ = ["1", "2", "3", "all"],
             headerbanner_1s: "headerbanner_1s",
             headerbanner_2s: "headerbanner_2s",
             headerbanner_3s: "headerbanner_3s",
-            service_1s: "service_1s"
+            service_1s: "service_1s",
+            who_we_are_1s:"who_we_are_1s",
+            col3_icon_bg:"col3_icon_bg",
+            management:"management",
+            skills:"skills",
+            strat_project:"strat_project",
+            testimonial_1s:"testimonial_1s",
+            price_1s:"price_1s",
+            from_blog_1s:"from_blog_1s",
+            portfolio:"portfolio",
+            
+            
+            
 
         },
 BuFen = {
     MainModules: {
-        "Main Modules": ["header", "headerbanner_1s", "headerbanner_2s", "headerbanner_3s", "service_1s"]
+        "Main Modules": ["header", "headerbanner_1s", "headerbanner_2s", "headerbanner_3s", "service_1s","who_we_are_1s","col3_icon_bg","management","skills","strat_project","testimonial_1s","price_1s","from_blog_1s","portfolio"]
     }
 },
 RQz = ["MainModules"],

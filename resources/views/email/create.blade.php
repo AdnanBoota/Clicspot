@@ -28,7 +28,45 @@
             z-index: 1000;
             display: none;
         }
+        .menuInfo{
+            float: none !important;
+            left: auto;
+            position: absolute !important;
+            right: 0px;
+            width: 250px !important;
+            z-index: 1000;
+            display: none;
+            height: 100%;
+            background: #222d32;
+        }
 
+        #rightSideBox {
+            background: #222d32 none repeat scroll 0 0;
+            overflow: hidden;
+            padding: 25px 10px 10px;
+            width: 88%;
+            position: relative;
+        }
+        #rightSideBox a{
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: #fff;
+            font-weight: bold;
+        }
+        #rightSideBox input[type="text"]{
+            margin-bottom: 10px;
+            max-width: 100%;
+            padding: 7px;
+            width: 210px;
+        }
+        #rightSideBox label{
+            font-size: 16px;
+            color: #fff;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
         #top-barr.imageGallery > #top-bar-box , #top-barr.imageGallery .menuu{
             width: 100%;
         }
@@ -112,6 +150,7 @@
 
                 <li id="download-btn" class="menuu" title="Save"><span>Save</span></li>
                 <li id="imageUpload" class="menuu" title="Image Upload"><span>Image Upload</span></li>
+
                 <li id="backbtn" class="menuu" title="Back"><span><a href="{{url('emails')}}">Back</a></span></li>
 
             </ul>
@@ -138,7 +177,21 @@
                 @endforeach</div>
 
         </div>
+
     </div>
+    <div id="rightSide" class="menuInfo">
+        <div id="rightSideBox">
+            <a href="#" id="closeButton">X</a>
+            <label>Link Name</label>
+            <img src="" class="socialImagePrview" style="display: none">
+            <input type="text" name="linkName" class="linkName" ><br/>
+            <label>Link Url</label>
+            <input type="text" name="linkUrl" class="linkUrl">
+
+
+        </div>
+    </div>
+
     <div id="gongNeng">
         <div id="gongNengBox">
             <div id="choose-module-box" class="gnn">
@@ -261,7 +314,7 @@
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/script_email_template.js') }}"></script>
     <script>
             $(document).ready(function() {
-
+                var currentThisValue;
                 $('#imageUpload').on('click', function() {
                     $('.imageGallery').toggle("slide", {direction: "left"}, 200);
                 });
@@ -273,6 +326,31 @@
                     start: function(event, ui) {
                         drag_obj = $(this);
                     }
+                });
+                $(document).on('click', 'table a', function() {
+                    $(".linkName").show();
+                    $(".socialImagePrview").attr("style", "display:none;");
+                    currentThisValue = $(this);
+                    $('.menuInfo').show("slide", {direction: "right"}, 200);
+//                   alert($(this).text());
+                    $(".linkName").val($(this).text());
+                    $(".linkUrl").val($(this).attr("href"));
+                });
+                $(document).on('input', ".linkName", function() {
+                    $(currentThisValue).html($(".linkName").val());
+                });
+                $(document).on('input', ".linkUrl", function() {
+                    $(currentThisValue).attr("href", $(".linkUrl").val());
+                });
+                $(document).on("click", "#closeButton", function() {
+                    $('.menuInfo').hide("slide", {direction: "right"}, 200);
+                });
+                $(document).on("click", ".social span a", function() {
+                    currentThisValue = $(this);
+                    $('.menuInfo').show("slide", {direction: "right"}, 200);
+                    $(".linkName").hide();
+                    $(".socialImagePrview").attr("src", $(this).find("img").attr("src")).removeAttr("style");
+                    $(".linkUrl").val($(this).attr("href"));
                 });
                 $(document).on("mouseenter", '.imagePrview .thumbnail img', function(e) {
                     var item = $(this);
