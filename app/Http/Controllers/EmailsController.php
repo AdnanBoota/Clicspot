@@ -40,15 +40,27 @@ class EmailsController extends Controller {
             }
 
             return Datatables::of($emailTemplate)
-//                            ->addColumn('checkbox', function ($emailTemplate) {
-//                                return ' <label class="">
-//                              <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="" name="emailTemplateDelete[]" checked="" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
-//                            </label>';
+                            ->addColumn('checkbox', function ($emailTemplate) {
+                                return ' <label class="">
+                              <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="' . $emailTemplate->id . '" name="emailTemplateDelete[]"  class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
+                            </label>';
+                            })
+//                            ->addColumn('edit', function ($emailTemplate) {
+//                                return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
 //                            })
                             ->addColumn('edit', function ($emailTemplate) {
-                                return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
+                                return '  <td class="tselectbox">
+                        <div class="dropdown editbtn">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span>Edit</span>
+                      <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><span><a href="' . url("emails/{$emailTemplate->id}/edit") . '">View Template</a></span></li>
+                        <li><span><a href="javascript:void(0)" class="duplicateTemplate" id="' . $emailTemplate->id . '">Duplicate</a></span></li>
+                        <li><span><a href="javascript:void(0)" class="renameTemplate" id="' . $emailTemplate->id . '" templateName="' . $emailTemplate->templateName . '">Rename</a></span></li>
+                      </ul>
+                    </div>
+                    </td>';
                             })
-                           
                             ->make(true);
         } else {
 
@@ -57,6 +69,8 @@ class EmailsController extends Controller {
     }
 
     public function getEmail() {
+        echo "hii";
+        exit;
         return View::make('email.email');
     }
 
@@ -116,7 +130,7 @@ class EmailsController extends Controller {
 
 
         $data = Input::all();
-       
+
         $input = array();
         $id = $data['templateId'];
         $templateName = $data['templateName'];
@@ -180,10 +194,17 @@ class EmailsController extends Controller {
             }
         }
     }
-    public function destroy($id)
-    {
-        $EmailTemplates = Emails::find($id);
-        $res = $EmailTemplates->delete();
+
+    public function destroy($id) {
+        $emailTemplateId = explode(",", $id);
+        $EmailTemplates = Emails::whereIn('id', $emailTemplateId);
+        $email = $EmailTemplates->get();
+        //Delete File From Server
+        foreach ($email as $templateName) {
+            unlink(public_path("/template_builder/html/{$templateName['adminid']}/{$templateName['templateName']}.html"));
+            $EmailTemplatesDelete = Emails::find($templateName['id']);
+            $res = $EmailTemplatesDelete->delete();
+        }
         if ($res) {
             $success = true;
             $msg = "Record Deleted Successfully.";
@@ -192,9 +213,57 @@ class EmailsController extends Controller {
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-            'success' => $success,
-            'message' => $msg,
+                    'success' => $success,
+                    'message' => $msg,
         ));
+    }
+
+    public function duplicateTemplate($id) {
+
+        $email = Emails::where('id', $id);
+        $originalTemplate = $email->get();
+        $fileName = "/template_builder/html/{$originalTemplate[0]['adminid']}/" . $originalTemplate[0]['templateName'] . ".html";
+        $originalDile = $fileName;
+        $pathInfo = pathinfo($fileName);
+        $extension = isset($pathInfo['extension']) ? ('.' . $pathInfo['extension']) : '';
+        if (preg_match('/(.*?)(\d+)$/', $pathInfo['filename'], $match)) {
+            $base = $match[1];
+            $number = intVal($match[2]);
+        } else {
+            $base = $pathInfo['filename'];
+            $number = 0;
+        }
+        do {
+            $fileName = $pathInfo['dirname'] . "/" . $base . ++$number . $extension;
+        } while (file::exists($fileName));
+        $targetpath = substr($fileName, 1);
+        $contents = File::get(public_path($originalDile));
+        File::put($targetpath, $contents);
+        $EmailTemplates = Emails::findOrFail($id);
+        $email = $EmailTemplates->get();
+        $input['templateName'] = $number;
+        $input['description'] = $originalTemplate[0]['description'];
+         $input['adminid'] = $originalTemplate[0]['adminid'];
+         $emailsResult = new Emails($input);
+     $res=$emailsResult->save($input);
+      if ($res) {
+            $success = true;
+            $msg = "Record Duplicated Successfully.";
+        } else {
+            $success = false;
+            $msg = "Something went wrong , Please try again later.";
+        }
+        return Response::json(array(
+                    'success' => $success,
+                    'message' => $msg,
+        ));
+    }
+
+    public function rename($id) {
+        $input['templateName'] = $_POST['templateName'];
+        $templates = Emails::findOrFail($id);
+
+        $templates->update($input);
     }
 
 }

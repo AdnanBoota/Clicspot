@@ -10,6 +10,18 @@
     /*    .deletebtn{
             display: none !important;
         }*/
+    .automailingblock{
+        overflow: visible;
+    }
+    .dropdown-menu span a{
+        color: #69737f !important;
+        background: none;
+        border-radius: none;
+        margin: 0px;
+    }
+    #templateName{
+        display: block;
+    }
 </style>
 
 <section class="creatpart">
@@ -32,15 +44,15 @@
     <div class="automailingblock">
         <a href="{{url('emails/create')}}">Create Campaign</a>
         <div class="mailingtabledtl">
-            <!--<a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>-->
+            <a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>
             <table class="mailingtable" id="emailTemplate-table">
                 <thead>
                     <tr>
-<!--                        <th class="tchackboc">
+                        <th class="tchackboc">
                             <label class="">
-                                <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" checked="" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value="hi"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
+                                <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>
-                        </th>-->
+                        </th>
                         <th>Template Name</th>
                         <th>Template Description</th>
                         <th>Edit</th>
@@ -67,6 +79,7 @@
 <script type="text/javascript" src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.responsive.js') }}"></script>
+
 <script>
 
 $(function() {
@@ -79,7 +92,7 @@ $(function() {
         bFilter: false,
         ajax: '',
         columns: [
-//            {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
+            {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
             {data: 'templateName', name: 'templateName'},
             {data: 'description', name: 'description'},
             {data: 'edit', name: 'edit', orderable: false, searchable: false}
@@ -94,28 +107,114 @@ $(document).ready(function() {
             $(this).parent().removeClass("checked");
         }
     });
+    $(document).on("change", "#multicheck", function() {
+//        alert("hello");
+        if ($(this).is(":checked")) {
+
+            $('.emailDelCheckBox').each(function() {
+                $(this).prop('checked', true);
+            });
+            $(".emailDelCheckBox").parent().addClass("checked");
+
+        } else {
+            $('.emailDelCheckBox').each(function() {
+                $(this).prop('checked', false);
+            });
+            $(".emailDelCheckBox").parent().removeClass("checked");
+        }
+    });
+
     $(document).on("click", ".deletebtn", function() {
-        console.log($(".emailDelCheckBox:checked").map(function() {
-            return this.value;
-        }).get().join(', '));
-//                     $(this).attr("templateId");
-//            jQuery.ajax({
-//                                url: 'emails/' + id,
-//                                type: 'DELETE',
-//                                data: {
-//                                    "_token": token
-//                                },
-//                                success: function (result) {
-//                                    if (result.success) {
-//                                        swal("success!", "Hotspot deleted successfully.", "success");
-//                                        oTable.draw();
-//                                    } else {
-//                                        alert('false');
-//                                        swal("ohh snap!", "something went wrong", "error");
-//                                    }
-//
-//                                }
-//                            });
+
+        var checkBoxValue = $(".emailDelCheckBox:checked").map(function() {
+            return $(this).val();
+        }).toArray();
+        console.log(checkBoxValue);
+        jQuery.ajax({
+            url: 'emails/' + checkBoxValue,
+            type: 'post',
+            data: {
+                "_method": 'delete',
+                "_token": '{{csrf_token()}}'
+
+            },
+            success: function(result) {
+                if (result.success) {
+                    swal("success!", "Email Template  deleted successfully.", "success");
+                    oTable.draw();
+                } else {
+                    alert('false');
+                    swal("ohh snap!", "something went wrong", "error");
+                }
+
+            }
+        });
+    });
+
+    $(document).on("click", ".duplicateTemplate", function() {
+        var templateId = $(this).attr("id");
+        console.log(templateId);
+        jQuery.ajax({
+            url: 'emails/duplicateTemplate/' + templateId,
+            type: 'post',
+            data: {
+                "_token": '{{csrf_token()}}'
+            },
+            success: function(result) {
+                if (result.success) {
+                    swal("success!", "Email Template  Duplicated successfully.", "success");
+                    oTable.draw();
+                } else {
+                    alert('false');
+                    swal("ohh snap!", "something went wrong", "error");
+                }
+
+            }
+        });
+    });
+
+    $(document).on("click", ".renameTemplate", function() {
+        var templateId = $(this).attr("id");
+        var templateName = $(this).attr("templateName");
+        console.log(templateId);
+        swal({
+            title: "Template Rename",
+            text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name">',
+            html: true,
+            showCancelButton: true,
+        },
+                function(response) {
+                    if (response == true) {
+                        templateName = $("#templateName").val();
+                        var templateDescription = $("#templateDesc").val();
+                        jQuery.ajax({
+                            url: 'emails/rename/' + templateId,
+                            type: 'POST',
+                            data: {
+                                "templateName": templateName,
+                                "_token": '{{csrf_token()}}'
+                            },
+                            success: function(result) {
+                                swal({
+                                    title: "Template is Renamed Successfully",
+                                    text: "",
+                                    type: "success",
+                                    confirmButtonColor: "#DD6B55",
+                                    confirmButtonText: "Ok",
+                                    closeOnConfirm: true
+                                },
+                                function(response) {
+                                    if (response == true) {
+                                        oTable.draw();
+                                    }
+                                    else {
+                                        return false;
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
     });
 });
 </script>

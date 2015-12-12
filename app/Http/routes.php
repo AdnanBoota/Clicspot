@@ -44,7 +44,8 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
 });
 Route::get('hotspot/datatable','HotspotController@datatable');
 Route::get('emails','EmailsController@getEmail');
-
+Route::post('emails/duplicateTemplate/{id}','EmailsController@duplicateTemplate');
+Route::post('emails/rename/{id}','EmailsController@rename');
 Route::post('emails/ImageFileUpload','EmailsController@galleryFileUpload');
 Route::resource('emails','EmailsController');
 Route::post('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
