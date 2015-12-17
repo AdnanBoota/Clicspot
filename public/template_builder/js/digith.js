@@ -950,7 +950,7 @@ $(function() {
 
                 scrollPosi = $n.scrollTop();
                 $n.scrollTop(scrollPosi);
-                //$n.find(".BGtable").append(scrollPosi); 
+                $n.find(".BGtable").append(scrollPosi).remove(); 
                 var n = $(this).attr("id");
                 colne_M = Jn.find("[rev=" + n + "]").clone()
             }
