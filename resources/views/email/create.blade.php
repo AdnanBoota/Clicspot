@@ -29,6 +29,9 @@
             z-index: 1000;
             display: none;
         }
+        #myModalLabel {
+    color: #000;
+}
         .menuInfo{
             float: none !important;
             left: auto;
@@ -316,7 +319,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Gallary</h4>
+                    <h4 class="modal-title" id="myModalLabel">Default Template</h4>
                 </div>
                 <div class="modal-body">
 
