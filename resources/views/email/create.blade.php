@@ -29,8 +29,13 @@
             z-index: 1000;
             display: none;
         }
+        .templateLoad {
+    float: right;
+    margin: 3px 20px 0 0;
+}
         #myModalLabel {
     color: #000;
+    display: inline-block;
 }
         .menuInfo{
             float: none !important;
@@ -320,6 +325,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Default Template</h4>
+                     <img src="{{asset("img/loading.gif")}}" class="templateLoad" style="display: none;"/>
                 </div>
                 <div class="modal-body">
 
@@ -417,11 +423,13 @@
                     }
                 });
                 $(document).on("click", ".getTemplate", function() {
+                      $(".templateLoad").removeAttr("style");
                     var fileName = $(this).attr("alt");
-
+                  
                     var path = APP_URL + "/uploads/defaultTemplate/" + fileName + ".html";
                     ti(path);
                     $('#templateList').modal('hide');
+                   
                 });
             });
     </script>
