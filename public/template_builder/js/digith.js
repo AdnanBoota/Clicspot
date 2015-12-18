@@ -1,4 +1,4 @@
-$(function() {
+
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
             $("#dpmenu1 li").removeClass("active");
@@ -2912,7 +2912,7 @@ $(function() {
         }, 50)
 
     }
-});
+
 if (top.location != location)
     top.location.href = location.href
 $(document).ready(function() {
