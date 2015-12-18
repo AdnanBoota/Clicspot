@@ -1,4 +1,4 @@
-$(function() {
+
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
             $("#dpmenu1 li").removeClass("active");
@@ -950,7 +950,7 @@ $(function() {
 
                 scrollPosi = $n.scrollTop();
                 $n.scrollTop(scrollPosi);
-                $n.find(".BGtable").append(scrollPosi).remove(); 
+                //$n.find(".BGtable").append(scrollPosi); 
                 var n = $(this).attr("id");
                 colne_M = Jn.find("[rev=" + n + "]").clone()
             }
@@ -2912,7 +2912,7 @@ $(function() {
         }, 50)
 
     }
-});
+
 if (top.location != location)
     top.location.href = location.href
 $(document).ready(function() {
