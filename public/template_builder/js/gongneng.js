@@ -140,7 +140,7 @@ BJZ = ["1", "2", "3", "all"],
             price_1s:"price_1s",
             from_blog_1s:"from_blog_1s",
             portfolio:"portfolio",
-            service_2s:"service_2s",
+           
             
             
             
@@ -148,7 +148,7 @@ BJZ = ["1", "2", "3", "all"],
         },
 BuFen = {
     MainModules: {
-        "Main Modules": ["header", "headerbanner_1s", "headerbanner_2s", "headerbanner_3s", "service_1s","who_we_are_1s","col3_icon_bg","management","skills","strat_project","testimonial_1s","price_1s","from_blog_1s","portfolio","service_2s"]
+        "Main Modules": ["header", "headerbanner_1s", "headerbanner_2s", "headerbanner_3s", "service_1s","who_we_are_1s","col3_icon_bg","management","skills","strat_project","testimonial_1s","price_1s","from_blog_1s","portfolio"]
     }
 },
 RQz = ["MainModules"],
