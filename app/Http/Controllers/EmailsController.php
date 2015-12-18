@@ -101,7 +101,14 @@ class EmailsController extends Controller {
         foreach ($files as $file) {
             $images[] = "/" . (string) $file;
         }
-        return View::make('email.create', compact('getAllTemplates', 'images'));
+         $directory = 'uploads/defaultTemplate/images';
+        $files = File::files($directory);
+        foreach ($files as $file) {
+            $defaultTemplate[] = "/" . (string) $file;
+        }
+        $getFileName = scandir($directory, 0);
+        $templateFileName = array_diff($getFileName, array('.', '..'));
+        return View::make('email.create', compact('getAllTemplates', 'images','defaultTemplate','templateFileName'));
     }
 
     public function edit($id) {

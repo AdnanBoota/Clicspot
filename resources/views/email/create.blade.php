@@ -15,6 +15,7 @@
     <link href="{{ asset('/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/css/pt-sans-narrow.css') }}" rel='stylesheet' />
     <link href="{{ asset('/plugins/mini-upload-form/assets/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
     <style>
         #template-page-box #iframe{
             color: #d6d6d6 !important;
@@ -107,40 +108,52 @@
             padding: 10 12px;
             transition: all 0.3s ease 0s;
             width: 100%;}
-        </style>
+        .col-md-3 img{
+            width: 100%;
+            height: 100px;
+        }
+        .imgaddrgt .dftbtn {
+            background: #1e282c none repeat scroll 0 0;
+            border-radius: 5px;
+            color: #fff;
+            line-height: 30px;
+            margin-left: 25px;
+            padding: 11px 15px;
+        }
+    </style>
 
-        <!--[if IE]>
-                <style type="text/css">
-        html, body{overflow-x: hidden;}
-        .placehold(margin-left:-20px !important;}
-                </style>
-        <![endif]-->
+    <!--[if IE]>
+            <style type="text/css">
+    html, body{overflow-x: hidden;}
+    .placehold(margin-left:-20px !important;}
+            </style>
+    <![endif]-->
 
-        <!--[if lt IE 9]>
-          <script src="{{asset("template_builder/assets/js/h5.js")}}></script>
-        <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="{{asset("template_builder/assets/js/h5.js")}}></script>
+    <![endif]-->
 
-        <!--[if IE 7]>
-                <style type="text/css">
-        html, body{overflow-x: hidden;}
-        .placehold(margin-left:-20px !important;}
-                </style>
-        <![endif]-->
-        <!--[if IE 6]>
-                <style type="text/css">
-        html, body{overflow-x: hidden;}
-        .placehold(margin-left:-20px !important;}
-                </style>
-        <![endif]-->
-        <script type="text/javascript">
-            var templateName = '<?php echo ((isset($templates['templateName'])) ? $templates['templateName'] : ""); ?>';
-            var templateId = '<?php echo ((isset($templates['id'])) ? $templates['id'] : ""); ?>';
-                    var APP_URL = {!! json_encode(url('/')) !!};
-            var userId = '<?php echo ((isset($userId)) ? $userId : ""); ?>';
-            var templateDescription = "<?php echo ((isset($templates['description'])) ? $templates['description'] : ""); ?>";
-        </script>
-    </head>
-    <body id="builder" class="lightt">
+    <!--[if IE 7]>
+            <style type="text/css">
+    html, body{overflow-x: hidden;}
+    .placehold(margin-left:-20px !important;}
+            </style>
+    <![endif]-->
+    <!--[if IE 6]>
+            <style type="text/css">
+    html, body{overflow-x: hidden;}
+    .placehold(margin-left:-20px !important;}
+            </style>
+    <![endif]-->
+    <script type="text/javascript">
+        var templateName = '<?php echo ((isset($templates['templateName'])) ? $templates['templateName'] : ""); ?>';
+        var templateId = '<?php echo ((isset($templates['id'])) ? $templates['id'] : ""); ?>';
+                var APP_URL = {!! json_encode(url('/')) !!};
+        var userId = '<?php echo ((isset($userId)) ? $userId : ""); ?>';
+        var templateDescription = "<?php echo ((isset($templates['description'])) ? $templates['description'] : ""); ?>";
+    </script>
+</head>
+<body id="builder" class="lightt">
     <div id="mask2"></div>
     <div id="top-barr">
         <div id="top-bar-box">
@@ -274,6 +287,7 @@
                     </li>
                 </ul>
             </div>
+            
             <div id="infoBox">
                 <div id="info-box">
                     <div id="editCL">
@@ -282,6 +296,10 @@
                         <div id="editContentButton" class="shadoww1" title="Edit the content and images, can not Delete / Duplicate Module in page window directly, but can click the module item to add module.">Content</div>
                     </div>
                 </div>
+                <div class="imgaddrgt">
+            <a href="javascript:void(0);" data-toggle="modal"
+               data-target="#templateList" class="dftbtn">Default Template</a>
+        </div>
             </div>
         </div>
         <div id="template-page-box">
@@ -291,7 +309,31 @@
                 <div id="temp-iframe"></div>
             </div>
         </div>
+        
     </div><!---->
+    <div class="modal fade" id="templateList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Gallary</h4>
+                </div>
+                <div class="modal-body">
+
+                    @for($i=0;$i<count($defaultTemplate);$i++)
+                        <div class="col-md-3">
+                            <a href="javascript:void(0)" class="thumbnail"><img class="getTemplate" src="{{url().$defaultTemplate[$i]}}" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileName[$i+2])}}"> </a>
+                        </div>
+                        @endfor
+                </div>
+                <div class="modal-footer">
+                    <!--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div>
+        </div>
+    </div> 
+
     <script src="{{asset("template_builder/js/jquery-1.7.1.min.js")}}"></script>
     <script src="{{asset("template_builder/js/jquery-ui-1.10.4.custom.js")}}"></script>
     <script src="{{asset("template_builder/ckeditor/ckeditor.js")}}"></script>
@@ -311,7 +353,10 @@
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.ui.widget.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload-validate.js') }}"></script>
+    <script src="{{ asset('/bootstrap/js/bootstrapjs1-7.js') }}" type="text/javascript"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/script_email_template.js') }}"></script>
+
+
     <script>
             $(document).ready(function() {
                 var currentThisValue;
@@ -367,6 +412,13 @@
                             }
                         });
                     }
+                });
+                $(document).on("click", ".getTemplate", function() {
+                    var fileName = $(this).attr("alt");
+
+                    var path = APP_URL + "/uploads/defaultTemplate/" + fileName + ".html";
+                    ti(path);
+                    $('#templateList').modal('hide');
                 });
             });
     </script>

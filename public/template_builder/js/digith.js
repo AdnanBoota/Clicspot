@@ -1,4 +1,4 @@
-$(function() {
+
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
             $("#dpmenu1 li").removeClass("active");
@@ -719,6 +719,8 @@ $(function() {
     }
 
     function ti(e) {
+        console.log("hello");
+        console.log(e);
         repk = 0;
         if (zhixingfou == undefined) {
             if (location.protocol !== "http:") {
@@ -1006,6 +1008,7 @@ $(function() {
                 if (OptS == 1) {
                     setTimeout(function() {
                         $("#iframe div[rev]").attr("contenteditable", "false")
+                        $("#iframe .hiddenDiv div").attr("contenteditable", "false")
                     }, 1e3)
                 }
                 Xn.html("module: [ " + n + " ] has been added to the email page.").css("display", "none").fadeIn(1e3);
@@ -2912,7 +2915,7 @@ $(function() {
         }, 50)
 
     }
-});
+
 if (top.location != location)
     top.location.href = location.href
 $(document).ready(function() {
