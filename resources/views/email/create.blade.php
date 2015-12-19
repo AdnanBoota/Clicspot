@@ -30,13 +30,13 @@
             display: none;
         }
         .templateLoad {
-    float: right;
-    margin: 3px 20px 0 0;
-}
+            float: right;
+            margin: 3px 20px 0 0;
+        }
         #myModalLabel {
-    color: #000;
-    display: inline-block;
-}
+            color: #000;
+            display: inline-block;
+        }
         .menuInfo{
             float: none !important;
             left: auto;
@@ -192,7 +192,7 @@
             </form>
             <div class="imagePrview">
                 @foreach ($images as $templatePath)
-                <a href="javascript:void(0)" class="thumbnail">
+                <a href="javascript:void(0)" class="">
                     <img src="{{url().$templatePath}}" width="50" height="50"/>
                 </a>
                 @endforeach</div>
@@ -295,7 +295,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <div id="infoBox">
                 <div id="info-box">
                     <div id="editCL">
@@ -305,9 +305,9 @@
                     </div>
                 </div>
                 <div class="imgaddrgt">
-            <a href="javascript:void(0);" data-toggle="modal"
-               data-target="#templateList" class="dftbtn">Default Template</a>
-        </div>
+                    <a href="javascript:void(0);" data-toggle="modal"
+                       data-target="#templateList" class="dftbtn">Default Template</a>
+                </div>
             </div>
         </div>
         <div id="template-page-box">
@@ -317,7 +317,7 @@
                 <div id="temp-iframe"></div>
             </div>
         </div>
-        
+
     </div><!---->
     <div class="modal fade" id="templateList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
         <div class="modal-dialog" role="document">
@@ -325,7 +325,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Default Template</h4>
-                     <img src="{{asset("img/loading.gif")}}" class="templateLoad" style="display: none;"/>
+                    <img src="{{asset("img/loading.gif")}}" class="templateLoad" style="display: none;"/>
                 </div>
                 <div class="modal-body">
 
@@ -344,6 +344,7 @@
     </div> 
 
     <script src="{{asset("template_builder/js/jquery-1.7.1.min.js")}}"></script>
+    <script src="{{ asset('/bootstrap/js/bootstrapjs1-7.js') }}" type="text/javascript"></script>
     <script src="{{asset("template_builder/js/jquery-ui-1.10.4.custom.js")}}"></script>
     <script src="{{asset("template_builder/ckeditor/ckeditor.js")}}"></script>
     <script src="{{asset("template_builder/ckeditor/adapters/jquery.js")}}"></script>
@@ -362,76 +363,79 @@
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.ui.widget.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload.js') }}"></script>
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/jquery.fileupload-validate.js') }}"></script>
-    <script src="{{ asset('/bootstrap/js/bootstrapjs1-7.js') }}" type="text/javascript"></script>
+
     <script src="{{ asset('/plugins/mini-upload-form/assets/js/script_email_template.js') }}"></script>
 
 
     <script>
-            $(document).ready(function() {
-                var currentThisValue;
-                $('#imageUpload').on('click', function() {
-                    $('.imageGallery').toggle("slide", {direction: "left"}, 200);
-                });
-                $('.imagePrview .thumbnail img').draggable({
-                    revert: 'invalid',
-                    helper: 'clone',
-                    scroll: false,
-                    opacity: 0.50,
-                    start: function(event, ui) {
-                        drag_obj = $(this);
-                    }
-                });
-                $(document).on('click', 'table a', function() {
-                    $(".linkName").show();
-                    $(".socialImagePrview").attr("style", "display:none;");
-                    currentThisValue = $(this);
-                    $('.menuInfo').show("slide", {direction: "right"}, 200);
-//                   alert($(this).text());
-                    $(".linkName").val($(this).text());
-                    $(".linkUrl").val($(this).attr("href"));
-                });
-                $(document).on('input', ".linkName", function() {
-                    $(currentThisValue).html($(".linkName").val());
-                });
-                $(document).on('input', ".linkUrl", function() {
-                    $(currentThisValue).attr("href", $(".linkUrl").val());
-                });
-                $(document).on("click", "#closeButton", function() {
-                    $('.menuInfo').hide("slide", {direction: "right"}, 200);
-                });
-                $(document).on("click", ".social span a", function() {
-                    currentThisValue = $(this);
-                    $('.menuInfo').show("slide", {direction: "right"}, 200);
-                    $(".linkName").hide();
-                    $(".socialImagePrview").attr("src", $(this).find("img").attr("src")).removeAttr("style");
-                    $(".linkUrl").val($(this).attr("href"));
-                });
-                $(document).on("mouseenter", '.imagePrview  img', function(e) {
-                    var item = $(this);
-                    //check if the item is already draggable
-                    if (!item.is('.ui-draggable')) {
-                        //make the item draggable
-                        item.draggable({
-                            revert: 'invalid',
-                            helper: 'clone',
-                            scroll: false,
-                            opacity: 0.50,
-                            start: function(event, ui) {
-                                drag_obj = $(this);
-                            }
-                        });
-                    }
-                });
-                $(document).on("click", ".getTemplate", function() {
-                      $(".templateLoad").removeAttr("style");
-                    var fileName = $(this).attr("alt");
-                  
-                    var path = APP_URL + "/uploads/defaultTemplate/" + fileName + ".html";
-                    ti(path);
-                    $('#templateList').modal('hide');
-                   
-                });
+        $(document).ready(function() {
+            if (CKEDITOR.instances['editarea']) {
+                CKEDITOR.remove(CKEDITOR.instances['editarea']);
+            }
+            var currentThisValue;
+            $('#imageUpload').on('click', function() {
+                $('.imageGallery').toggle("slide", {direction: "left"}, 200);
             });
+            $('.imagePrview img').draggable({
+                revert: 'invalid',
+                helper: 'clone',
+                scroll: false,
+                opacity: 0.50,
+                start: function(event, ui) {
+                    drag_obj = $(this);
+                }
+            });
+            $(document).on('click', 'table a', function() {
+                $(".linkName").show();
+                $(".socialImagePrview").attr("style", "display:none;");
+                currentThisValue = $(this);
+                $('.menuInfo').show("slide", {direction: "right"}, 200);
+//                   alert($(this).text());
+                $(".linkName").val($(this).text());
+                $(".linkUrl").val($(this).attr("href"));
+            });
+            $(document).on('input', ".linkName", function() {
+                $(currentThisValue).html($(".linkName").val());
+            });
+            $(document).on('input', ".linkUrl", function() {
+                $(currentThisValue).attr("href", $(".linkUrl").val());
+            });
+            $(document).on("click", "#closeButton", function() {
+                $('.menuInfo').hide("slide", {direction: "right"}, 200);
+            });
+            $(document).on("click", ".social span a", function() {
+                currentThisValue = $(this);
+                $('.menuInfo').show("slide", {direction: "right"}, 200);
+                $(".linkName").hide();
+                $(".socialImagePrview").attr("src", $(this).find("img").attr("src")).removeAttr("style");
+                $(".linkUrl").val($(this).attr("href"));
+            });
+            $(document).on("mouseenter", '.imagePrview .thumbnail img', function(e) {
+                var item = $(this);
+                //check if the item is already draggable
+                if (!item.is('.ui-draggable')) {
+                    //make the item draggable
+                    item.draggable({
+                        revert: 'invalid',
+                        helper: 'clone',
+                        scroll: false,
+                        opacity: 0.50,
+                        start: function(event, ui) {
+                            drag_obj = $(this);
+                        }
+                    });
+                }
+            });
+            $(document).on("click", ".getTemplate", function() {
+                $(".templateLoad").removeAttr("style");
+                var fileName = $(this).attr("alt");
+
+                var path = APP_URL + "/uploads/defaultTemplate/" + fileName + ".html";
+                ti(path);
+                $('#templateList').modal('hide');
+
+            });
+        });
     </script>
 </body>
 </html>
