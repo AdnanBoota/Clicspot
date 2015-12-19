@@ -1,3 +1,4 @@
+$(function() {
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
             $("#dpmenu1 li").removeClass("active");
@@ -360,10 +361,6 @@
             $("#hide-iframe div[rev]").attr({
                 title: ""
             });
-              $('.dropableCLass tbody tr img').droppable({
-                    disabled: true
-
-                });
             $n.find(Id).live("mouseenter", function() {
                 var e = $(this).height() / 2 - 20;
                 $(this).css({
@@ -403,18 +400,7 @@
                     $(this).addClass("this-module").find(opt).hide()
                 }).live("mouseleave", function() {
                     $(this).css("border", "none")
-                });
-                    setTimeout(function() {
-                      console.log("Enable");
-                $('.dropableCLass tbody tr img').droppable({
-                    hoverClass: "container-img-drop-hover",
-                    disabled: false,
-                    drop: function(ev, ui) {
-                        $(this).attr("src", $(drag_obj).attr('src'));
-
-                    }
-                });
-                 },10000);
+                })
             }, 500)
         });
         rr.click(function() {
@@ -2826,59 +2812,42 @@
 //            Xn.html("**** Please enter all the required config options!").css("display", "none").fadeIn();
 //            alert("**** Please enter all the required config options!")
 //        }
-      console.log(templateName);
-        if (templateName != '') {
-            var title = "Email Template Updated SuccessFully";
-        } else {
-            var title = "Email Template Saved SuccessFully";
-        }
-        swal({
-            title: "Template Info",
-            text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name"><br><textarea class="visibleInput templateDesc" id="templateDesc" name="templateDesc" placeholder="Template Description">' + templateDescription + '</textarea>',
-            html: true,
-            showCancelButton: true,
-        },
+
+      if (templateName != "") {
+          var title="Email Template Updated SuccessFully";
+      }else{
+          var title="Email Template Saved SuccessFully";
+      }
+        $.ajax({
+            url: '/emails',
+            type: 'post',
+            data: {
+                "content": e.content,
+                "_token": $("input[name=_token]").val(),
+                "templateName": templateName
+
+
+            },
+            success: function(result) {
+                swal({
+                    title: title,
+                    text: "",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Ok",
+                    closeOnConfirm: true
+
+                },
                 function(response) {
-                    if (response == true) {
-                        templateName = $("#templateName").val();
-                        var templateDescription = $("#templateDesc").val();
-
-                        $.ajax({
-                            url: '/emails',
-                            type: 'post',
-                            data: {
-                                "content": e.content,
-                                "_token": $("input[name=_token]").val(),
-                                "templateId": templateId,
-                                "templateName": templateName,
-                                "templateDescription": templateDescription
-
-
-                            },
-                            success: function(result) {
-                                swal({
-                                    title: title,
-                                    text: "",
-                                    type: "success",
-                                    confirmButtonColor: "#DD6B55",
-                                    confirmButtonText: "Ok",
-                                    closeOnConfirm: true
-
-                                },
-                                function(response) {
-                                    if (response == true) {
-                                        window.location = APP_URL + "/emails";
-                                    }
-                                    else {
-                                        return false;
-                                    }
-
-                                });
-                            }
-                        });
-                    }
+                   if(response==true){                    
+                  window.location =APP_URL +"/emails" ;}
+              else{
+                  return false;
+              }
+                    
                 });
-
+            }
+        });
         var t = $("<iframe>", {
             width: 1,
             height: 1,
@@ -2900,7 +2869,7 @@
         }, 50)
 
     }
-
+});
 if (top.location != location)
     top.location.href = location.href
 $(document).ready(function() {
