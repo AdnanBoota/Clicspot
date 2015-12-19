@@ -410,7 +410,7 @@
                 $(".socialImagePrview").attr("src", $(this).find("img").attr("src")).removeAttr("style");
                 $(".linkUrl").val($(this).attr("href"));
             });
-            $(document).on("mouseenter", '.imagePrview .thumbnail img', function(e) {
+            $(document).on("mouseenter", '.imagePrview  img', function(e) {
                 var item = $(this);
                 //check if the item is already draggable
                 if (!item.is('.ui-draggable')) {

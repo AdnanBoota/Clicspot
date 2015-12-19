@@ -1,3 +1,4 @@
+
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
             $("#dpmenu1 li").removeClass("active");
@@ -360,7 +361,7 @@
             $("#hide-iframe div[rev]").attr({
                 title: ""
             });
-              $('.dropableCLass tbody tr img').droppable({
+             $('.dropableCLass tbody tr img').droppable({
                     disabled: true
 
                 });
@@ -379,6 +380,7 @@
             })
         });
         nr.click(function() {
+            
             tr.removeClass("active");
             $(this).addClass("active");
             if ($.browser.msie) {
@@ -386,7 +388,9 @@
             } else {
                 Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)
             }
+
             setTimeout(function() {
+                
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"
                 }).ckeditor();
@@ -403,8 +407,8 @@
                     $(this).addClass("this-module").find(opt).hide()
                 }).live("mouseleave", function() {
                     $(this).css("border", "none")
-                });
-                    setTimeout(function() {
+                }); 
+                     setTimeout(function() {
                       console.log("Enable");
                 $('.dropableCLass tbody tr img').droppable({
                     hoverClass: "container-img-drop-hover",
@@ -415,7 +419,10 @@
                     }
                 });
                  },10000);
-            }, 500)
+               
+            }, 500);
+      
+
         });
         rr.click(function() {
             qr()
@@ -549,7 +556,7 @@
             }
         }
 
-        console.log(userId)
+        //  console.log(userId)
         hIL = BDLJ + mTm + "/all-inline.html";
         IImL = '"' + BDLJ + mTm + "/images/";
         IBmL = "url(" + BDLJ + mTm + "/images/";
@@ -904,7 +911,7 @@
             tolerance: "pointer",
             revert: 300,
             stop: function(e, t) {
-                console.log($n.html());
+                //   console.log($n.html());
                 ci(t);
                 CKDM = $n.html();
                 $("#iframe div[rev]").ckeditor();
@@ -920,7 +927,7 @@
             helper: "clone",
             distance: 20,
             drag: function(e, t) {
-                console.log("hello");
+                // console.log("hello");
                 h = t.helper.find("img").height() + "px";
                 mT = $(this).attr("id");
                 $(CK + " .placehold").css({
@@ -940,9 +947,10 @@
             },
             revert: "invalid",
             stop: function(e, t) {
-                console.log("hello Stop");
+
                 scrollPosi = $n.scrollTop();
                 $n.scrollTop(scrollPosi);
+                //$n.find(".BGtable").append(scrollPosi); 
                 var n = $(this).attr("id");
                 colne_M = Jn.find("[rev=" + n + "]").clone()
             }
@@ -1385,6 +1393,7 @@
 
     function Ti() {
         $.each(BuFen, function(e, t) {
+
             XZH += '<ul id="' + e + '"><li class="menu-list' + '">';
             $.each(t, function(t, n) {
                 XZH += t + "</li></ul>" + '<div id="' + e + 'Content"><ul>';
@@ -1396,6 +1405,7 @@
                             return false
                         }
                     });
+
                     XZH += '<li class="item" id="' + t + '"><img src="' + location.protocol + "//" + location.host + "/" + 'template_builder/images/buju/' + t + '.jpg" title="' + n + '"></li>'
                 });
                 XZH += "</ul></div>"
@@ -2826,7 +2836,7 @@
 //            Xn.html("**** Please enter all the required config options!").css("display", "none").fadeIn();
 //            alert("**** Please enter all the required config options!")
 //        }
-      console.log(templateName);
+        console.log(templateName);
         if (templateName != '') {
             var title = "Email Template Updated SuccessFully";
         } else {
@@ -2878,6 +2888,8 @@
                         });
                     }
                 });
+
+
 
         var t = $("<iframe>", {
             width: 1,
