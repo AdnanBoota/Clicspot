@@ -1,6 +1,7 @@
-$(function() {
+jQuery(function($) {
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
+           
             $("#dpmenu1 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu1").find(".selected").text(e);
@@ -13,6 +14,7 @@ $(function() {
             })
         });
         $("#dpmenu2").find("li").live("click", function() {
+             
             $("#dpmenu2 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu2").find(".selected").text(e);
@@ -186,6 +188,7 @@ $(function() {
     }
 
     function Ur() {
+         
         ur.click(function() {
             ir.slideUp("fast");
             rr.removeClass("active");
@@ -384,6 +387,7 @@ $(function() {
                 Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)
             }
             setTimeout(function() {
+                
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"
                 }).ckeditor();
@@ -400,8 +404,20 @@ $(function() {
                     $(this).addClass("this-module").find(opt).hide()
                 }).live("mouseleave", function() {
                     $(this).css("border", "none")
-                })
-            }, 500)
+                }); 
+                     setTimeout(function() {
+                      console.log("Enable");
+                $('.dropableCLass tbody tr img').droppable({
+                    hoverClass: "container-img-drop-hover",
+                    disabled: false,
+                    drop: function(ev, ui) {
+                        $(this).attr("src", $(drag_obj).attr('src'));
+
+                    }
+                });
+                 },10000);
+               
+            }, 500);
         });
         rr.click(function() {
             qr()
@@ -543,6 +559,7 @@ $(function() {
     }
 
     function ei(e) {
+         
         CKDM = $n.html();
         var t = jsflay.test(CKDM);
         if (t != 1) {
@@ -567,6 +584,7 @@ $(function() {
         }
         pH = fn.val();
         Zn.find(".preheader").remove();
+        console.log("ph=============>"+H);
         $(tCK + " " + ".BGtable").before('<div class="preheader" style="display:none; visibility:hidden; height:0px; font-size:0px; line-height:0px;">' + pH + "</div>" + "\n");
         Xn.html("Preheader has been added...").css("display", "none").fadeIn(1e3);
         tCKDM = Zn.html();
@@ -698,6 +716,7 @@ $(function() {
     }
 
     function ti(e) {
+     
         repk = 0;
         if (zhixingfou == undefined) {
             if (location.protocol !== "http:") {
@@ -772,8 +791,9 @@ $(function() {
             }
         })
     }
-
+my_function=ti;
     function ni(e) {
+          
         $.get(e, function(e) {
             var t = jsflay.test(e);
             if (t != 1) {
@@ -793,7 +813,9 @@ $(function() {
     }
 
     function ri() {
+       
         In.click(function(e) {
+           
             if (isDemo == false) {
 
                 mLg = $n.find(Id).length;
@@ -822,6 +844,7 @@ $(function() {
     }
 
     function ii() {
+         
         if (zhixingshu == 1) {
             return false
         }
@@ -839,6 +862,7 @@ $(function() {
     }
 
     function si() {
+          
         $(BJ + " a").each(function(e) {
             br[e] = $(this).attr("id");
             Er = br[0];
@@ -852,6 +876,7 @@ $(function() {
     }
 
     function oi() {
+       
         if (OptS == 1) {
             return false
         }
@@ -867,8 +892,7 @@ $(function() {
             items: Id,
             placeholder: "placehold",
             receive: function(e, t) {
-
-                $(CK + " li.item").css({
+               $(CK + " li.item").css({
                     "list-style-type": "none",
                     display: "none"
                 }).after(colne_M).next(Id).css({
@@ -890,7 +914,6 @@ $(function() {
             tolerance: "pointer",
             revert: 300,
             stop: function(e, t) {
-                console.log($n.html());
                 ci(t);
                 CKDM = $n.html();
                 $("#iframe div[rev]").ckeditor();
@@ -906,7 +929,6 @@ $(function() {
             helper: "clone",
             distance: 20,
             drag: function(e, t) {
-                console.log("hello");
                 h = t.helper.find("img").height() + "px";
                 mT = $(this).attr("id");
                 $(CK + " .placehold").css({
@@ -926,12 +948,14 @@ $(function() {
             },
             revert: "invalid",
             stop: function(e, t) {
-                console.log("hello Stop");
+                
                 scrollPosi = $n.scrollTop();
                 $n.scrollTop(scrollPosi);
                 var n = $(this).attr("id");
                 colne_M = Jn.find("[rev=" + n + "]").clone()
-            }
+                       
+            
+        }
         })
 
     }
@@ -940,9 +964,13 @@ $(function() {
         $.each(RQz, function(e) {
             var t = RQz.length - 1;
             $("#" + RQz[e] + "Content" + " .item").click(function() {
+            //   colne_M
+         //   alert("hello");
                 var n = $(this).attr("id");
                 colne_M = Jn.find("[rev=" + n + "]").clone();
+                
                 var r = $(CK + " " + RQm[e]).find(".this-module").length;
+           //     alert("length of r" + e);
                 if (r != 0) {
                     $(colne_M).css({
                         display: "none"
@@ -958,6 +986,7 @@ $(function() {
                     }, 300)
                 } else {
                     if (e == t) {
+                      
                         $(CK + " " + RQm[e]).append(colne_M).find(Id + ":last").css({
                             opacity: 0
                         }).animate({
@@ -968,6 +997,7 @@ $(function() {
                             opacity: 1
                         }, 600)
                     } else {
+                       
                         $(CK + " " + RQm[e]).prepend(colne_M).find(Id + ":first").css({
                             opacity: 0
                         }).animate({
@@ -987,6 +1017,7 @@ $(function() {
                     }, 1e3)
                 }
                 Xn.html("module: [ " + n + " ] has been added to the email page.").css("display", "none").fadeIn(1e3);
+               
                 CKDM = $n.html()
             });
             $("#" + RQz[e] + "Content" + " .item").live("mousemove", function() {
@@ -2813,41 +2844,58 @@ $(function() {
 //            alert("**** Please enter all the required config options!")
 //        }
 
-      if (templateName != "") {
-          var title="Email Template Updated SuccessFully";
-      }else{
-          var title="Email Template Saved SuccessFully";
-      }
-        $.ajax({
-            url: '/emails',
-            type: 'post',
-            data: {
-                "content": e.content,
-                "_token": $("input[name=_token]").val(),
-                "templateName": templateName
+      console.log(templateName);
+    if (templateName != '') {
+        var title = "Email Template Updated SuccessFully";
+    } else {
+        var title = "Email Template Saved SuccessFully";
+    }
+    swal({
+        title: "Template Info",
+        text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name"><br><textarea class="visibleInput templateDesc" id="templateDesc" name="templateDesc" placeholder="Template Description">' + templateDescription + '</textarea>',
+        html: true,
+        showCancelButton: true,
+    },
+            function(response) {
+                if (response == true) {
+                    templateName = $("#templateName").val();
+                    var templateDescription = $("#templateDesc").val();
+
+                    $.ajax({
+                        url: '/emails',
+                        type: 'post',
+                        data: {
+                            "content": e.content,
+                            "_token": $("input[name=_token]").val(),
+                            "templateId": templateId,
+                            "templateName": templateName,
+                            "templateDescription": templateDescription
 
 
-            },
-            success: function(result) {
-                swal({
-                    title: title,
-                    text: "",
-                    type: "success",
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Ok",
-                    closeOnConfirm: true
+                        },
+                        success: function(result) {
+                            swal({
+                                title: title,
+                                text: "",
+                                type: "success",
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "Ok",
+                                closeOnConfirm: true
 
-                },
-                function(response) {
-                   if(response==true){                    
-                  window.location =APP_URL +"/emails" ;}
-              else{
-                  return false;
-              }
-                    
-                });
-            }
-        });
+                            },
+                            function(response) {
+                                if (response == true) {
+                                    window.location = APP_URL + "/emails";
+                                }
+                                else {
+                                    return false;
+                                }
+
+                            });
+                        }
+                    });
+                }
+            });
         var t = $("<iframe>", {
             width: 1,
             height: 1,

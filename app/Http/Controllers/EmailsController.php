@@ -144,7 +144,6 @@ class EmailsController extends Controller {
 
 
         $data = Input::all();
-
         $input = array();
         $id = $data['templateId'];
         $templateName = $data['templateName'];

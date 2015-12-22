@@ -77,7 +77,7 @@ $(function(){
             if(data.result.success){
                
              $("#loadingImage").hide();
-                var newImg = "<div class='dragImage'><a class='thumbnail' href='javascript:void(0);'><img src='"+APP_URL+data.result.filePath+"' height='50' width='50' alt='...' class='margin' style='height:50px;width:50px;' /></a></div>";
+                var newImg = "<div class='dragImage'><a class='' href='javascript:void(0);'><img src='"+APP_URL+data.result.filePath+"' height='50' width='50' alt='...' class='margin' style='height:50px;width:50px;' /></a></div>";
                 $('.imagePrview').append(newImg);
             }
         }

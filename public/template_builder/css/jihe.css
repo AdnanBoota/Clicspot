@@ -267,7 +267,7 @@ li.menu-list.active a { color: #fff !important; }
 #editTitle{ display:block; height:12px; font-size:9px; line-height:12px;  background-color:#000;text-align:center; color:#E6E8FA; border-bottom:#555 1px solid;}
 #editProject{display:inline-block;padding:2px 20px 2px 0px;float: right;}
 #projectTitle{ display:block; height:12px; font-size:9px; line-height:12px; background-color:#000;text-align:center; color:#E6E8FA; border-bottom:#555 1px solid;}
-#editContentButton,#editLayoutButton,#saveProject,#uploadProject{
+#saveProject,#uploadProject{
     float: left;
     height: 20px;
     line-height:20px;
@@ -280,14 +280,14 @@ li.menu-list.active a { color: #fff !important; }
     color:#aaa;
 }
 #saveProject,#uploadProject{ height: 20px;line-height:20px;padding: 0 21px !important; }/**/
-#editContentButton.active,#editLayoutButton.active,#saveProject.active,#uploadProject.active{
+#saveProject.active,#uploadProject.active{
     background-color: #1E282C !important;
     color:#fff;
     -webkit-transition: all .4s;
     -moz-transition: all .4s;
     transition: all .4s
 }
-#editContentButton:hover,#editLayoutButton:hover,#saveProject:hover,#uploadProject:hover{
+#saveProject:hover,#uploadProject:hover{
     background-color: #1E282C !important;
     color:#fff;
     -webkit-transition: all .4s;
@@ -295,7 +295,7 @@ li.menu-list.active a { color: #fff !important; }
     transition: all .4s
 }
 #editTitle,#projectTitle{-moz-border-radius:4px 4px 0 0;border-radius: 4px 4px 0 0;}
-#editLayoutButton,#uploadProject{ /**/-moz-border-radius:0 0 0 4px;border-radius:0 0 0 4px;}
+#uploadProject{ /**/-moz-border-radius:0 0 0 4px;border-radius:0 0 0 4px;}
 #editContentButton,#saveProject{ -moz-border-radius: 0 0 4px 0;border-radius: 0 0 4px 0;/**/}
 #info-content{margin:0 auto;height:37px; line-height:37px; text-align:center;font-size:11px;font-weight: 300;display:block;overflow:hidden;padding:0 5px; }
 #info-content span{color:#92eeff;}
@@ -728,8 +728,8 @@ div#color-none:hover,div#color-none1:hover{background-color:#111 !important;
 #campaignmonitor{width:65px;height:65px; padding:7px !important;display:inline-block;float:left;margin:15px 1px 15px;text-align:center;-moz-border-radius:60px;border-radius:60px;/*border:#C4CBCE 1px solid;*/ cursor:pointer;-moz-box-shadow:3px 3px 3px rgba(153,153,153,0.5) inset;            
                  -webkit-box-shadow:3px 3px 3px rgba(153,153,153,0.5) inset;         
                  box-shadow:3px 3px 3px rgba(153,153,153,0.5) inset}
-#download-btn,#imageUpload,#backbtn{background:none;cursor:pointer;font-size:14px; font-weight:bold; text-align:center;}
-#download-btn span,#imageUpload span,#backbtn span{
+#backbtn{background:none;cursor:pointer;font-size:14px; font-weight:bold; text-align:center;}
+#backbtn span{
     float: left;
     margin: 26px 0;
     width: 100%;
@@ -738,10 +738,7 @@ div#color-none:hover,div#color-none1:hover{background-color:#111 !important;
   color: #fff;
   text-decoration: none;
 }
-#download-btn:hover{background-color:#C64848;
-                    -webkit-transition: all .2s;
-                    -moz-transition: all .2s;
-                    transition: all .2s}
+
 #Tvote{
     margin:10px;
     width:204px;
