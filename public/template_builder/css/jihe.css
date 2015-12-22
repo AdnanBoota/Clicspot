@@ -287,6 +287,7 @@ li.menu-list.active a { color: #fff !important; }
     -moz-transition: all .4s;
     transition: all .4s
 }
+
 #saveProject:hover,#uploadProject:hover{
     background-color: #1E282C !important;
     color:#fff;
