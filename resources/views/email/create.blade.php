@@ -506,7 +506,8 @@
                     });
                 }
             });
-         
+          });
+          $(function() {
         $(document).on("click", ".getTemplate", function() {
             $(".templateLoad").removeAttr("style");
             var fileName = $(this).attr("alt");
