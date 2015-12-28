@@ -303,13 +303,14 @@ class EmailsController extends Controller {
                       <span class="caret"></span></button>
                       <ul class="dropdown-menu">
                         <li><span><a href="' . url("emails/emailSetup/{$campaignList->id}/edit") . '">Edit</a></span></li>
-                        <li><span><a href="javascript:void(0)" class="duplicateTemplate" id="' . $campaignList->id . '">Duplicate</a></span></li>
-                        <li><span><a href="javascript:void(0)" class="renameTemplate" id="' . $campaignList->id . '" templateName="' . $campaignList->campaignName . '">Rename</a></span></li>
+
                       </ul>
                     </div>
                     </td>';
                         })
                         ->make(true);
     }
+    //  <li><span><a href="javascript:void(0)" class="duplicateTemplate" id="' . $campaignList->id . '">Duplicate</a></span></li>
+//                        <li><span><a href="javascript:void(0)" class="renameTemplate" id="' . $campaignList->id . '" templateName="' . $campaignList->campaignName . '">Rename</a></span></li>
 
 }
