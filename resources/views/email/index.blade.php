@@ -73,7 +73,7 @@
         <h1>Manual Mailing</h1>
     </div>
     <div class="automailingblock">
-        <a href="{{url('emails/create')}}">Create Campaign</a>
+        <a href="{{url('emails/emailSetup')}}">Create Campaign</a>
         <div class="mailingtabledtl">
             <a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>
             <table class="mailingtable" id="campaign-table">
