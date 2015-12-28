@@ -431,7 +431,7 @@
     </div> 
     
     <div class="mainfooter">
-        
+        &nbsp;
     </div>
     <!--Template Scripting Section-->
     <script src="{{asset("template_builder/js/jquery-1.7.1.min.js")}}"></script>

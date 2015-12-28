@@ -1,0 +1,81 @@
+/*  Fonts */
+@font-face {
+    font-family: 'latoregular';
+    src: url('lato-reg-webfont.eot');
+    src: url('lato-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lato-reg-webfont.woff') format('woff'),
+         url('lato-reg-webfont.ttf') format('truetype'),
+         url('lato-reg-webfont.svg#latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold';
+    src: url('lato-bol-webfont.eot');
+    src: url('lato-bol-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lato-bol-webfont.woff') format('woff'),
+         url('lato-bol-webfont.ttf') format('truetype'),
+         url('lato-bol-webfont.svg#latobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'latolight';
+    src: url('lato-lig-webfont.eot');
+    src: url('lato-lig-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lato-lig-webfont.woff') format('woff'),
+         url('lato-lig-webfont.ttf') format('truetype'),
+         url('lato-lig-webfont.svg#latolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'latolight_italic';
+    src: url('lato-ligita-webfont.eot');
+    src: url('lato-ligita-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lato-ligita-webfont.woff') format('woff'),
+         url('lato-ligita-webfont.ttf') format('truetype'),
+         url('lato-ligita-webfont.svg#latolight_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'latoitalic';
+    src: url('lato-regita-webfont.eot');
+    src: url('lato-regita-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lato-regita-webfont.woff') format('woff'),
+         url('lato-regita-webfont.ttf') format('truetype'),
+         url('lato-regita-webfont.svg#latoitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'latobold_italic';
+    src: url('Lato-BoldItalic-webfont.eot');
+    src: url('Lato-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-BoldItalic-webfont.woff2') format('woff2'),
+         url('Lato-BoldItalic-webfont.woff') format('woff'),
+         url('Lato-BoldItalic-webfont.ttf') format('truetype'),
+         url('Lato-BoldItalic-webfont.svg#latobold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latoblack';
+    src: url('lato-bla-webfont.eot');
+    src: url('lato-bla-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lato-bla-webfont.woff2') format('woff2'),
+         url('lato-bla-webfont.woff') format('woff'),
+         url('lato-bla-webfont.ttf') format('truetype'),
+         url('lato-bla-webfont.svg#latoblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

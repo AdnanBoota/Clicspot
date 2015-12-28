@@ -36,10 +36,11 @@ class UsersController extends Controller {
 
         if ($request->ajax()) {
             $listVal = $request->input('listVal');
+            $gender = $request->input('gender');
             if ($listVal == '' AND Session::has('listId')) {
                 $listVal = Session::get('listId');
             }
-            $users = $this->getStatistics($listVal, 'datatable');
+            $users = $this->getStatistics($listVal, 'datatable', $gender);
             return Datatables::of($users)
                             ->editColumn('favoredconnection', function ($users) {
                                 if ($users->favoredconnection == '2')
@@ -70,7 +71,8 @@ class UsersController extends Controller {
         }
     }
 
-    public function getStatistics($listId = '', $callFrom = '') {
+    public function getStatistics($listId = '', $callFrom = '', $gender = '') {
+
         if ($callFrom == 'selList')
             Session::put('listId', $listId);
 
@@ -95,24 +97,47 @@ class UsersController extends Controller {
             $numVisitArr = ($inputs['numberofvisit']) ? explode(';', $inputs['numberofvisit']) : '';
             if (isset($inputs['router']))
                 $routerArr = $inputs['router'];
-            $firstName = $inputs['firstname'];
-            $lastName = $inputs['lastname'];
-            $isDateQkSel = $inputs['isdatequickselection'];
-            $dateQkSel = $inputs['datequickselection'];
+            if (isset($inputs['firstname']))
+                $firstName = $inputs['firstname'];
+            if (isset($inputs['lastname']))
+                $lastName = $inputs['lastname'];
+            if (isset($inputs['isdatequickselection']))
+                $isDateQkSel = $inputs['isdatequickselection'];
+            if (isset($inputs['datequickselection']))
+                $dateQkSel = $inputs['datequickselection'];
             if (isset($inputs['datefrom']))
                 $datefrom = $inputs['datefrom'];
             if (isset($inputs['dateto']))
                 $dateto = $inputs['dateto'];
+        }else if ($callFrom == 'datatable') {
+
+            $inputs = Input::all();
+            if (isset($inputs['gender']))
+                $gender = $inputs['gender'];
+            if (isset($inputs['recipientsFrom']))
+                $recipientsFromAge = $inputs['recipientsFrom'];
+            if (isset($inputs['recipientsTo']))
+                $recipientsToAge = $inputs['recipientsTo'];
+            if (isset($inputs['datequickselection'])) {
+                $dateQkSel = $inputs['datequickselection'];
+                $isDateQkSel = "1";
+            }
+            if (isset($inputs['numberofvisit'])) {
+              //  $visitorsArr = $inputs['numberofvisit'];
+                $numVisitArr = ($inputs['numberofvisit']) ? explode(';', $inputs['numberofvisit']) : '';
+             
+            }
         }
+
         if (Auth::user()->type == 'superadmin') {
-            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.profileurl,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
+            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.gender,users.profileurl,users.email,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
                     ->join('users', 'radacct.username', '=', 'users.username')
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
                     ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
                     ->groupBy('radacct.username')
                     ->orderBy('acctstarttime', 'desc');
         } else {
-            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.profileurl,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
+            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.gender,users.profileurl,users.email,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
                     ->join('users', 'radacct.username', '=', 'users.username')
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
                     ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
@@ -136,6 +161,7 @@ class UsersController extends Controller {
                 });
             });
         }
+
         if (isset($visitorsArr) AND $visitorsArr != '') {
             $users->where(function ($query) use ($visitorsArr) {
                 $query->orWhere(function ($query) use ($visitorsArr) {
@@ -148,6 +174,18 @@ class UsersController extends Controller {
                 });
             });
         }
+        if (isset($gender) AND $gender != '') {
+            if ($gender == 'male') {
+                $users->where(function ($query) use ($gender) {
+                    $query->orWhere('users.gender', 'male');
+                });
+            } else if ($gender == 'female') {
+                $users->where(function ($query) use ($gender) {
+                    $query->orWhere('users.gender', 'female');
+                });
+            }
+        }
+
         if (isset($firstName) AND $firstName != '') {
             $users->where('users.name', 'like', '%' . $firstName . '%');
         }
@@ -158,6 +196,7 @@ class UsersController extends Controller {
             $users->havingRaw('amountofvisit between ' . $numVisitArr[0] . ' and  ' . $numVisitArr[1] . '');
         }
         if (isset($isDateQkSel)) {
+
             if ($isDateQkSel) {
                 $users->whereRaw('acctstarttime >= DATE(NOW()) - INTERVAL ' . $dateQkSel . ' DAY');
             } else if (isset($datefrom) AND $datefrom != '' AND isset($dateto) AND $dateto != '') {
@@ -187,7 +226,8 @@ class UsersController extends Controller {
                 return $countRes;
             else
                 return Response::json($countRes);
-        } else if ($callFrom == 'datatable' OR $callFrom == 'expList') {
+        } else if ($callFrom == 'datatable' OR $callFrom == 'expList' OR $callFrom == 'emailSetup') {
+
             return $users;
         }
     }
@@ -244,10 +284,10 @@ class UsersController extends Controller {
                 ->groupBy('radacct.username')
                 ->orderBy('users.created_at', 'desc');
         $getLatestUsers = $latestUsers->take(8)->get();
-        $getRouterInformation=Radacct::select(DB::raw('radacct.radacctid,username,count(radacct.calledstationid) as totalVisit,DATE_FORMAT(max(radacct.acctstarttime),"%b %d %Y %h:%i %p") as LastVisitDate,nas.nasidentifier,nas.shortname as routerName'))
-                ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier') ->where('username', '=', $getProfile->username)->groupBy('radacct.calledstationid')->get();
+        $getRouterInformation = Radacct::select(DB::raw('radacct.radacctid,username,count(radacct.calledstationid) as totalVisit,DATE_FORMAT(max(radacct.acctstarttime),"%b %d %Y %h:%i %p") as LastVisitDate,nas.nasidentifier,nas.shortname as routerName'))
+                        ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')->where('username', '=', $getProfile->username)->groupBy('radacct.calledstationid')->get();
 
-        return view('users.profile', compact('getProfile', 'getLastVisit', 'getLatestUsers','totalConnections','getRouterInformation'));
+        return view('users.profile', compact('getProfile', 'getLastVisit', 'getLatestUsers', 'totalConnections', 'getRouterInformation'));
     }
 
 }

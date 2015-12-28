@@ -357,7 +357,7 @@ jQuery(document).ready(function () {
     
     $('form').on('change', 'input, select, textarea', function(){
         var myName = $(this).attr('name');
-        //console.log('myName',myName);
+       console.log('myName',myName);
        if(myName && myName != 'listname' && myName != 'age' && myName != 'datefrom' && myName != 'dateto' && myName != 'dateRange'){
             getProfileUpdate();
         }

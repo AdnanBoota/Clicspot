@@ -31,18 +31,18 @@
     </div>
     <div class="multitab">
         <ul class="tabpart">
-            <li class="active"><a href="javascript:void(0)" class="automaticMailForm"><i class="fa fa-pencil"></i>Automatic Mailing</a></li>
-            <li><a href="javascript:void(0)" class="manualMailingForm"><i class="fa fa-pencil-square-o"></i>Manual Mailing</a></li>
+            <li class="active"><a href="#"><i class="fa fa-pencil"></i>Automatic Mailing</a></li>
+            <li><a href="#"><i class="fa fa-pencil-square-o"></i>Manual Mailing</a></li>
         </ul>
     </div>
 </section>
-<section class="creatpart automaticMailing">
+<section class="creatpart">
     <div class="titleblock">
         <i class="fa fa-envelope"></i>
-        <h1>Automatic Mailing</h1>
+        <h1>Manual Mailing</h1>
     </div>
     <div class="automailingblock">
-        <a href="{{url('emails/emailSetup')}}">Create Campaign</a>
+        <a href="{{url('emails/create')}}">Create Campaign</a>
         <div class="mailingtabledtl">
             <a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>
             <table class="mailingtable" id="emailTemplate-table">
@@ -56,37 +56,6 @@
                         <th>Template Name</th>
                         <th>Template Description</th>
                         <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
-</section>
-<section class="creatpart manualMailing" style="display: none;">
-    <div class="titleblock">
-        <i class="fa fa-envelope"></i>
-        <h1>Manual Mailing</h1>
-    </div>
-    <div class="automailingblock">
-        <a href="{{url('emails/create')}}">Create Campaign</a>
-        <div class="mailingtabledtl">
-            <a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>
-            <table class="mailingtable" id="campaign-table">
-                <thead>
-                    <tr>
-                        <th class="tchackboc">
-                            <label class="">
-                                <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
-                            </label>
-                        </th>
-                        <th>Campaign Name</th>
-                        <th>Statistics</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,24 +95,6 @@ $(function() {
             {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
             {data: 'templateName', name: 'templateName'},
             {data: 'description', name: 'description'},
-            {data: 'edit', name: 'edit', orderable: false, searchable: false}
-        ]
-    });
-});
-
-$(function() {
-    oTable = $('#campaign-table').DataTable({
-        sDom: 'lrftip',
-        processing: true,
-        serverSide: true,
-        responsive: true,
-        info: false,
-        bFilter: false,
-        ajax: '/emails/campaignTable',
-        columns: [
-            {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
-            {data: 'campaignName', name: 'campaignName'},
-            {data: 'statistics', name: 'statistics'},
             {data: 'edit', name: 'edit', orderable: false, searchable: false}
         ]
     });
@@ -264,20 +215,6 @@ $(document).ready(function() {
                         });
                     }
                 });
-    });
-    
-    $(document).on("click",".automaticMailForm",function(){
-        $(".automaticMailing").show();
-        $(".manualMailing").hide();
-        $(this).parents(".tabpart").find(".active").removeClass("active");
-        $(this).parent().addClass("active");
-    });
-      $(document).on("click",".manualMailingForm",function(){
-        $(".automaticMailing").hide();
-        $(".manualMailing").show();
-           $(this).parents(".tabpart").find(".active").removeClass("active");
-        $(this).parent().addClass("active");
-     
     });
 });
 </script>

@@ -16,6 +16,7 @@ use Input;
 use Response;
 use Session;
 use yajra\Datatables\Datatables;
+use App\EmailCampaign;
 use Mail;
 
 class EmailsController extends Controller {
@@ -101,14 +102,14 @@ class EmailsController extends Controller {
         foreach ($files as $file) {
             $images[] = "/" . (string) $file;
         }
-         $directory = 'uploads/defaultTemplate/images';
+        $directory = 'uploads/defaultTemplate/images';
         $files = File::files($directory);
         foreach ($files as $file) {
             $defaultTemplate[] = "/" . (string) $file;
         }
         $getFileName = scandir($directory, 0);
         $templateFileName = array_diff($getFileName, array('.', '..'));
-        return View::make('email.create', compact('getAllTemplates', 'images','defaultTemplate','templateFileName'));
+        return View::make('email.create', compact('getAllTemplates', 'images', 'defaultTemplate', 'templateFileName'));
     }
 
     public function edit($id) {
@@ -120,14 +121,14 @@ class EmailsController extends Controller {
         foreach ($files as $file) {
             $images[] = "/" . (string) $file;
         }
-           $directory = 'uploads/defaultTemplate/images';
+        $directory = 'uploads/defaultTemplate/images';
         $files = File::files($directory);
         foreach ($files as $file) {
             $defaultTemplate[] = "/" . (string) $file;
         }
         $getFileName = scandir($directory, 0);
         $templateFileName = array_diff($getFileName, array('.', '..'));
-        return View::make('email.create', compact('templates', 'userId', 'images','defaultTemplate','templateFileName'));
+        return View::make('email.create', compact('templates', 'userId', 'images', 'defaultTemplate', 'templateFileName'));
     }
 
     /**
@@ -256,10 +257,10 @@ class EmailsController extends Controller {
         $email = $EmailTemplates->get();
         $input['templateName'] = $number;
         $input['description'] = $originalTemplate[0]['description'];
-         $input['adminid'] = $originalTemplate[0]['adminid'];
-         $emailsResult = new Emails($input);
-     $res=$emailsResult->save($input);
-      if ($res) {
+        $input['adminid'] = $originalTemplate[0]['adminid'];
+        $emailsResult = new Emails($input);
+        $res = $emailsResult->save($input);
+        if ($res) {
             $success = true;
             $msg = "Record Duplicated Successfully.";
         } else {
@@ -277,6 +278,38 @@ class EmailsController extends Controller {
         $templates = Emails::findOrFail($id);
 
         $templates->update($input);
+    }
+
+    public function campaignTable() {
+        if (Auth::user()->type == 'superadmin') {
+            $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName']);
+        } else {
+            $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName']);
+        }
+
+        return Datatables::of($campaignList)
+                        ->addColumn('checkbox', function ($campaignList) {
+                            return ' <label class="">
+                              <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="' . $campaignList->id . '" name="emailTemplateDelete[]"  class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
+                            </label>';
+                        })
+                            ->addColumn('statistics', function ($campaignList) {
+                                return 'Statistics';
+                            })
+                        ->addColumn('edit', function ($campaignList) {
+                            return '  <td class="tselectbox">
+                        <div class="dropdown editbtn">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span>Actions</span>
+                      <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><span><a href="' . url("emails/emailSetup/{$campaignList->id}/edit") . '">Edit</a></span></li>
+                        <li><span><a href="javascript:void(0)" class="duplicateTemplate" id="' . $campaignList->id . '">Duplicate</a></span></li>
+                        <li><span><a href="javascript:void(0)" class="renameTemplate" id="' . $campaignList->id . '" templateName="' . $campaignList->campaignName . '">Rename</a></span></li>
+                      </ul>
+                    </div>
+                    </td>';
+                        })
+                        ->make(true);
     }
 
 }
