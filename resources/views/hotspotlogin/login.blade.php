@@ -18,11 +18,11 @@ $pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
         <meta http-equiv="Cache-control" content="no-cache">
         <meta http-equiv="Pragma" content="no-cache">
 
-    
+        <meta http-equiv="refresh" content="0;url=http://{{$uamip}}:{{$uamport}}/logon?username={{$username}}&password={{$pappassword}}">
         <link href="{{ asset('/css/loginnew.css') }}" rel="stylesheet" type="text/css"/>      
     </head>
-    <body style="background: #0090FF;">
-        <div class="timerblock">
+    <body>
+        <div class="timerblock" style="background:#0090FF;">
             <div class="logo">
                 <img src="{{ asset("/img/logo-white.png") }}">
             </div>
@@ -38,7 +38,7 @@ $pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
                 </div>
             </div>
 
-            <h1>You will be redirected in. . .<span class="countTimerClock">5</span></h1>
+            <h1>You will be redirected in. . .<span class="countTimerClock"></span></h1>
         </div>
     <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
         <script type="text/javascript">
@@ -50,14 +50,14 @@ $pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
                     // Display 'counter' wherever you want to display it.
                     if (counter == 0) {
                         // Display a login box
-                     //   window.location = "{url('/')}";
+                    //    window.location = "{url('/')}";
                         clearInterval(interval);
 
                     }
                 }, 1000);
             }
             $(document).ready(function() {
-               
+
             });
         </script>
     </body>
