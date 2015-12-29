@@ -117,7 +117,41 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="memberbox">
+                   <div class="box box-danger">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Latest Members</h3>
+                      <div class="box-tools pull-right">
+                        <span class="label label-danger">8 New Members</span>
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div><!-- /.box-header -->
+                    <div class="box-body no-padding">
+                      <ul class="users-list clearfix">
+                           @if (count($getLatestUsers) > 0)
+                            @foreach ($getLatestUsers as $latestUser)
+                            <li>
+                                @if($latestUser->avatar!='')
+                                <img alt="User Image" src="{{$latestUser->avatar}}">
+                                @else
+                                @if($latestUser->gender=='male')
+                                <img src="{{ asset("img/male.png") }}" />
+                                @else
+                                <img src="{{ asset("img/female.png") }}" />
+                                @endif
+                                @endif
+                                <a href="#" class="users-list-name">{{$latestUser->name}}</a>
+                                <span class="users-list-date">{{ $latestUser->joinDate }}</span>
+                            </li>
+                            @endforeach
+                            @endif
+                      </ul><!-- /.users-list -->
+                    </div><!-- /.box-body -->
+                    <div class="box-footer text-center">
+                      <a href="javascript::" class="uppercase">View All Users</a>
+                    </div><!-- /.box-footer -->
+                  </div><!--/.box -->
+<!--            <div class="memberbox">
                 <div class="box box-danger">
                     <div class="box-header with-border">
                         <h3 class="box-title">Latest Members</h3>
@@ -144,7 +178,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="col-md-6">
                 <div class="box box-success">
