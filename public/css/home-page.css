@@ -35,6 +35,9 @@ ul{
     background: #12d59d none repeat scroll 0 0;
     color: #fff;
 }
+.users-list > li img {
+    width: 100% !important;
+}
 .box-widget .info-box h2{
     float: left;
     font-size: 35px;
