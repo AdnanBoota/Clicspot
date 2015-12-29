@@ -1,5 +1,5 @@
 <input type="hidden" name="campaignStatus" value="draft" id="emailDraft"/>
-<div class="col-md-9">
+<div class="col-md-9 campaingnState">
     {!!  Form::hidden('currentForm', null, array('id'=>'currentFormIndex')) !!}
 
     <div class="col-md-9 stepform1 {{isset($campaignData->currentForm) ? '':'currentForm' }}{{isset($campaignData->currentForm) && $campaignData->currentForm == '1' ? 'currentForm':''}}" id="1">

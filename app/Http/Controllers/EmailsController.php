@@ -6,17 +6,17 @@ use App\Campaign;
 use App\Emails;
 use App\Hotspot;
 use App\HotspotAttributes;
-use Auth;
-use DB;
-use File;
+use App\EmailCampaign;
+use yajra\Datatables\Datatables;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Auth;
+use DB;
+use File;
 use Input;
 use Response;
 use Session;
-use yajra\Datatables\Datatables;
-use App\EmailCampaign;
 use Mail;
 
 class EmailsController extends Controller {
@@ -32,14 +32,16 @@ class EmailsController extends Controller {
     }
 
     public function index(Request $request) {
-        if ($request->ajax()) {
-
+         $draftCount=EmailCampaign::select(DB::raw('count(campaignStatus) as totalDraftCount')) ->where('campaignStatus', '=', 'draft')->get();
+         $sentCount=EmailCampaign::select(DB::raw('count(campaignStatus) as totalSentCountCount')) ->where('campaignStatus', '=', 'sent')->get();
+         if ($request->ajax()) {
+            
             if (Auth::user()->type == 'superadmin') {
                 $emailTemplate = Emails::select(['id', 'adminid', 'templateName', 'description']);
             } else {
                 $emailTemplate = Auth::user()->emailTemplates()->select(['id', 'adminid', 'templateName', 'description']);
             }
-
+           
             return Datatables::of($emailTemplate)
                             ->addColumn('checkbox', function ($emailTemplate) {
                                 return ' <label class="">
@@ -65,7 +67,7 @@ class EmailsController extends Controller {
                             ->make(true);
         } else {
 
-            return view('email.index');
+            return view('email.index',compact('draftCount','sentCount'));
         }
     }
 
@@ -280,11 +282,20 @@ class EmailsController extends Controller {
         $templates->update($input);
     }
 
-    public function campaignTable() {
+    public function campaignTable(Request $request) {
+         $dataToFetch = $request->input('mailType');
         if (Auth::user()->type == 'superadmin') {
-            $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName']);
+            if($dataToFetch==""){
+            $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName','campaignStatus']);
+            }else{
+                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName','campaignStatus'])->where('campaignStatus','=',$dataToFetch);
+            }
         } else {
-            $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName']);
+              if($dataToFetch==""){
+            $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName','campaignStatus']);
+            }else{
+                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName','campaignStatus'])->where('campaignStatus','=',$dataToFetch);
+            }
         }
 
         return Datatables::of($campaignList)

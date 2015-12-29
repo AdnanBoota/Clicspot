@@ -46,6 +46,7 @@ Route::post('emails/duplicateTemplate/{id}', 'EmailsController@duplicateTemplate
 Route::post('emails/rename/{id}', 'EmailsController@rename');
 Route::get('emails/emailSetup/emailTemplate','EmailCampaignController@getTemplate');
 Route::post('emails/emailSetup/sendCampaignMail', 'EmailCampaignController@sendEmail');
+Route::post('emails/emailSetup/{id}/sendCampaignMail', 'EmailCampaignController@sendEmail');
 Route::resource('emails/emailSetup', 'EmailCampaignController');
 
 //Route::post('emails/emailSetup/users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');

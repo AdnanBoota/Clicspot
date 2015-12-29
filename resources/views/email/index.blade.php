@@ -41,8 +41,12 @@
         <i class="fa fa-envelope"></i>
         <h1>Automatic Mailing</h1>
     </div>
-    <div class="automailingblock">
-        <a href="{{url('emails/emailSetup')}}">Create Campaign</a>
+      <div class="automailingblock">
+        <a href="{{url('emails/emailSetup')}}"><img src="{{ asset("img/addicon.png") }}" /> Create Campaign</a>
+        <div class="manualbtn">
+<!--               <a href="#" class="sentbtn active"><i></i>Sent<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
+            <a href="#" class="draftbtn "><i></i>Drafts<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>-->
+        </div>
         <div class="mailingtabledtl">
             <a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>
             <table class="mailingtable" id="emailTemplate-table">
@@ -74,8 +78,13 @@
     </div>
     <div class="automailingblock">
         <a href="{{url('emails/emailSetup')}}">Create Campaign</a>
+         <div class="manualbtn">
+            <a href="javascript:void(0)" class="sentbtn active"><i></i>Sent<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
+            <a href="javascript:void(0)" class="draftbtn "><i></i>Drafts<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>
+        </div>
         <div class="mailingtabledtl">
             <a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>
+            <input type="hidden" value="" name="mailType" id="mailType">
             <table class="mailingtable" id="campaign-table">
                 <thead>
                     <tr>
@@ -110,8 +119,8 @@
 <script type="text/javascript" src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.responsive.js') }}"></script>
-
-<script>
+<script type="text/javascript">
+var oTableCampaign;
 
 $(function() {
     oTable = $('#emailTemplate-table').DataTable({
@@ -130,16 +139,22 @@ $(function() {
         ]
     });
 });
-
 $(function() {
-    oTable = $('#campaign-table').DataTable({
+            oTableCampaign = $('#campaign-table').DataTable({
         sDom: 'lrftip',
         processing: true,
         serverSide: true,
         responsive: true,
         info: false,
         bFilter: false,
-        ajax: '/emails/campaignTable',
+        ajax: {
+            url:'/emails/campaignTable',
+            "data":function(d) {
+                    mailType = $("#mailType").val();
+                       if (mailType)
+                    d.mailType = mailType;
+            }
+         },
         columns: [
             {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
             {data: 'campaignName', name: 'campaignName'},
@@ -149,6 +164,8 @@ $(function() {
     });
 });
 $(document).ready(function() {
+   var dataToFetch="";
+
     $(document).on("change", ".emailDelCheckBox", function() {
         if ($(this).is(":checked")) {
             $(this).parent().addClass("checked");
@@ -278,6 +295,23 @@ $(document).ready(function() {
            $(this).parents(".tabpart").find(".active").removeClass("active");
         $(this).parent().addClass("active");
      
+    });
+    $(document).on("click",".draftbtn",function(){
+        $(this).addClass("active");
+        if($(".sentbtn").hasClass("active")){
+            $(".sentbtn").removeClass("active");
+        }
+       $("#mailType").val("draft");
+        oTableCampaign.draw();
+    });
+    
+    $(document).on("click",".sentbtn",function(){
+        $(this).addClass("active");
+        if($(".draftbtn").hasClass("active")){
+            $(".draftbtn").removeClass("active");
+        }
+         $("#mailType").val("sent");
+         oTableCampaign.draw();
     });
 });
 </script>

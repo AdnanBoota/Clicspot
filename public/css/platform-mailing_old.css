@@ -17,32 +17,22 @@
     margin: 30px 0 30px 45px;
 }*/
 .automailingblock a ,.automailingblock a.emailbtn{
-    background: #34495e none repeat scroll 0 0;
+    background: #1abc9c none repeat scroll 0 0;
     border-radius: 8px;
     color: #fff;
     display: inline-block;
-    font-size: 18px;
-    margin: 10px 20px 10px 45px;
-    padding: 10px 15px;
-    float: right;
-}
-.automailingblock a img{
-    margin-right: 5px;    
+/*    font-size: 18px;
+    font-weight: bold;*/
+    margin: 10px 0 10px 45px;
+    padding: 5px 10px;
 }
 .mailingtabledtl{
-    width: 100%;
-    clear: both;
-}
-.dataTables_wrapper.form-inline.dt-bootstrap.no-footer {
-    clear: both;
-    overflow: hidden;
+    
 }
 .mailingtabledtl a.deletebtn{
     padding: 0;
     background: none;
     margin: 0;
-    float: none;
-    font-size: 0;
 }
 .mailingtabledtl a.deletebtn img{
     height: auto;
@@ -194,60 +184,6 @@
 }
 
 
-.manualbtn{
-    width: 100%;
-    clear: both;
-}
-.manualbtn a {
-    float: left;
-    padding: 15px 25px;
-    background: none;
-    display: inline-block;
-    color: #95a0aa;
-    border-radius: 5px;
-}
-.manualbtn a:last-child{
-    margin-left: 5px;
-    margin-right: 0;
-}
-
-.manualbtn a.sentbtn i{
-    background: url('../img/senticon.png') no-repeat;
-    padding: 5px 22px;
-}
-.manualbtn a.draftbtn i{
-    background: url('../img/drafticon.png') no-repeat;
-    padding: 3px 22px;
-}
-.manualbtn a .notiblk{
-    background: #95a0aa none repeat scroll 0 0;
-    border-radius: 14px;
-    color: #fff;
-    display: inline-block;
-    font-size: 16px;
-    height: 20px;
-    line-height: normal;
-    margin-left: 10px;
-    padding: 0;
-    text-align: center;
-    width: 20px;
-}
-.manualbtn a.active ,.manualbtn a:hover{
-    background: #1abc9c;
-    color: #fff;
-}
-.manualbtn a.sentbtn.active i ,.manualbtn a.sentbtn:hover i{
-    background: url('../img/senticon_active.png') no-repeat;
-}
-.manualbtn a.draftbtn.active i , .manualbtn a.draftbtn:hover i {
-    background: url('../img/drafticon_active.png') no-repeat;
-}
-
-.manualbtn a.active .notiblk ,.manualbtn a:hover .notiblk{
-    background: #fff;
-    color: #1abc9c;
-}
-
 
 @media screen and (max-width:1330px){
     .mailingtable .tchackboc {width: 25px;}
@@ -257,12 +193,6 @@
     .mailingstatic p{font-size: 18px;}
     .mailingstaticlft{width: 100px;}
 }
-@media screen and (max-width:1280px){
-    .manualbtn a.draftbtn i{background-size: 26px auto !important;}
-    .manualbtn a.sentbtn i{background-size: 32px auto !important;}
-    .manualbtn a{padding: 10px 20px;}
-}
-
 @media screen and (max-width:1150px){
     .mailingtable tr td{padding: 15px 10px;}
 }
@@ -274,10 +204,7 @@
 @media screen and (max-width:460px){
     .mailingtable{overflow: auto;}
     .editbtn button{width: 130px;}
-    .manualbtn a{margin-left: 15px;margin-right: 10px;}
-    .manualbtn a.draftbtn i{background-size: 20px auto !important;padding: 0px 15px;}
-    .manualbtn a.sentbtn i{background-size: 25px auto !important;padding: 1px 18px;}
-    .manualbtn a {padding: 10px 15px;}
+
 }
 
 

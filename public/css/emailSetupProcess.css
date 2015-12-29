@@ -47,7 +47,10 @@ a:hover{
 .setupstep ul li i{
     margin:0 0 0 5px;
 }
-.setupstep li.active::before {
+.setupstep .editLink{
+    color: #f86b4f !important;
+}
+.setupstep li.setupno::before {
     background: #f86b4f none repeat scroll 0 0;
     /*box-shadow: 0 0 0 3px white, 0 0 0 4px #f86b4f;*/
     color: #ffffff;

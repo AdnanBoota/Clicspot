@@ -21,7 +21,7 @@
                 <!--Begin :: progressbar -->
                 <div class="setupstep">
                     <ul>
-                        <li class="current active">Setup<i class="fa fa-pencil pencil-show"></i>
+                        <li class="current setupno">Setup<i class="fa fa-pencil pencil-show"></i>
                             <dl class="subdetail">
                                 <dt>Name: </dt>
                                 <dd class="ng-binding">MyCampaign</dd>
@@ -239,10 +239,10 @@ $(document).ready(function() {
         var valid = $('form').valid();
         if (valid) {
             $(document).find(".currentForm").removeClass("currentForm").next().addClass("currentForm");
-            $(document).find(".current").next().addClass("current active");
+            $(document).find(".setupno").addClass("active").next().addClass("current setupno");
             $(".backbtn").prop("href", "javascript:void(0)");
             console.log($(document).find(".currentForm").attr("id"));
-            $("#currentFormIndex").val("he;llo",$(document).find(".currentForm").attr("id"));
+            $("#currentFormIndex").val($(document).find(".currentForm").attr("id"));
             if ($(".stepform4").hasClass("currentForm")) {
                 $(this).removeClass("nextbtn").addClass("sendMail").find(".nxtButton").html("Send");
             }
@@ -252,7 +252,7 @@ $(document).ready(function() {
         var valid = $('form').valid();
         if (valid) {
             $(document).find(".currentForm").removeClass("currentForm").prev().addClass("currentForm");
-            $(".setupstep").find(".current").last().removeClass("current active");
+            $(".setupstep").find(".setupno").last().removeClass("current active setupno").prev().removeClass("active");
             if ($(".stepform1").hasClass("currentForm")) {
                 setTimeout(function() {
                     $(".backbtn").prop("href", "/emails");
