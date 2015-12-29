@@ -1,6 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\View;
+use App\Users;
+use App\EmailList;
+use App\Radacct;
+use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -34,7 +39,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       
+       $users = app('App\Http\Controllers\UsersController')->getStatistics('', 'indexCount');
+           $emailList = Auth::user()->emailList()->select('listname', 'id')->get();
+              $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(created_at,"%b %d") as joinDate'))
+                ->join('users', 'radacct.username', '=', 'users.username')
+                ->groupBy('radacct.username')
+                ->orderBy('users.created_at', 'desc');
+        $getLatestUsers = $latestUsers->take(8)->get();
+           return view('home',['facebookCount' => $users['fbCount'], 'googleCount' => $users['gCount'], 'emailCount' => $users['eCount'], 'emailList' => $emailList,'getLatestUsers'=>$getLatestUsers]);
     }
     
 
