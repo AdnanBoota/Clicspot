@@ -1,0 +1,174 @@
+@import url('../fonts/stylesheet.css');
+
+
+.login-page, .register-pageP{
+    background: #0090ff;
+}
+.login-box{
+    width: 360px;
+    max-width: 96%;
+}
+.hideMessage{
+    display: none;
+      text-align: left;
+}
+.login-box-body{
+    position: relative;
+    background: #ecf0f1;
+    border-radius: 5px;
+    text-align: center;
+}
+.login-box-body:before{
+    position: absolute;
+    display: block;
+    content: '';
+    border-top: 13px solid transparent;
+    border-right: 16px solid #ecf0f1;
+    border-bottom: 13px solid transparent;
+    left: -16px;
+}
+.welimg {
+    left: -150px;
+    position: absolute;
+    top: 0;
+}
+.has-feedback input[type="email"] ,input[type="password"]{
+    height: 44px;
+    border-radius: 4px !important;
+    border: none;
+    line-height: 44px;
+}
+.has-feedback input[type="email"]{
+    background: url('../img/usericon.png') no-repeat right center #fff;
+}
+input[type="password"]{
+    background: url('../img/pswicon.png') no-repeat right center #fff;
+}
+.loginbtn{
+    
+}
+.checkbtn{
+    display: none;
+}
+.loginbtn .btn-primary{
+    background: #40d47e;
+    height: 44px;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.frgbtn{
+    color:#bfc5ca;
+    text-decoration: underline;
+    margin-top: 14px;
+    padding: 0;
+}
+.notaccount {
+    bottom: -45px;
+    color: #fff;
+    left: 0;
+    position: absolute;
+    right: 0;
+    font-size: 17px;
+    font-weight: bold;
+}
+.notaccount a{
+    padding: 0;
+    color: #fff;
+    text-decoration: underline;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.timerblock{
+    width: 600px;
+    margin: 0 auto;
+    padding: 50px 10px ;
+    text-align: center;
+    max-width: 98%;
+}
+.timerblock .logo img{
+    width: 280px;
+    height: auto;
+}
+.timerblock h1{
+    color: #fff;
+    font-size:32px;
+    font-family: 'latoblack';
+}
+.timerdtl{
+    width: 400px;
+    max-width: 98%;
+    margin: 60px auto;
+}
+.timerdtllft{
+    width: 50%;
+    float: left;
+}
+.timerdtlrgt {
+    overflow: hidden;
+    width: 50%;
+}
+.timercmn{
+    text-align: center;
+}
+.timercmn span{
+    color: #fff;
+    font-size:32px;
+    font-family: 'latoblack';
+    display: block;
+    margin-top: 20px;
+}
+.logo {
+    margin-bottom: 45px;
+}
+
+
+
+@media screen and (max-width:1280px){
+    .timerblock .logo img{width: 260px;}
+    .timerblock h1{font-size: 29px;}
+    .timerdtl {margin: 50px auto;}
+    .timercmn img {height: 60px;width: auto;}
+    .timercmn span{font-size: 29px;}
+}    
+@media screen and (max-width:991px){
+    .timerblock .logo img{width: 230px;}
+    .timerblock h1{font-size: 25px;}
+    .timerdtl {margin: 40px auto;}
+    .timercmn img {height: 60px;width: auto;}
+    .timercmn span{font-size: 25px;}
+    .welimg img {height: auto;width: 90px;}
+    .welimg {left: -120px;}
+} 
+@media screen and (max-width:767px){
+    .timerblock .logo img{width: 210px;}
+    .timerblock h1{font-size: 22px;}
+    .timerdtl {margin: 40px auto;}
+    .timercmn img {height: 50px;width: auto;}
+    .timercmn span{font-size: 22px;}
+    .welimg img {height: auto;width: 75px;}
+    .welimg {left: -100px;}
+}
+@media screen and (max-width:620px){
+    .welimg {left: -80px;}
+    .welimg img{width: 60px;}
+}
+@media screen and (max-width:550px){
+    .welimg img {width: 50px;}
+    .welimg {left: 0;right: 0;top: -85px;}
+    .login-box-body{margin-top: 95px;}
+    .login-box-body::before{
+        border-right: 13px solid transparent;
+        border-bottom: 16px solid #ecf0f1;
+        border-left: 13px solid transparent;
+        border-top: 0;
+        left: 0;
+        margin: auto;
+        right: 0;
+        top: -15px;
+        width: 15px;
+    }
+}

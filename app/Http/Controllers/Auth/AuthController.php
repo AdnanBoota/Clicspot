@@ -125,23 +125,32 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email', 'password' => 'required',
-        ]);
-
+     
+//        $this->validate($request, [
+//            'email' => 'required|email', 'password' => 'required',
+//        ]);
+           $credentials = $request->only('email', 'password');
+      
         $credentials = $request->only('email', 'password');
         $credentials['isemailconfirmed'] = 1;
         $credentials['isactivated'] = 1;
         //return json_encode($credentials);
         if ($this->auth->attempt($credentials, $request->has('remember'))) {
-            return redirect()->intended($this->redirectPath());
+            return response()->json([
+            'success' =>"true"
+        ]);
+//            return redirect()->intended($this->redirectPath());
+        }else{
+            return response()->json([
+            'success' => $this->getFailedLoginMessage()
+        ]);
         }
-
-        return redirect($this->loginPath())
-            ->withInput($request->only('email', 'remember'))
-            ->withErrors([
-                'email' => $this->getFailedLoginMessage(),
-            ]);
+     
+//        return redirect($this->loginPath())
+//            ->withInput($request->only('email', 'remember'))
+//            ->withErrors([
+//                'email' => $this->getFailedLoginMessage(),
+//            ]);
     }
 
     public function verify($confirmation_code)
