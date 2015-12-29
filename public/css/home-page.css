@@ -36,7 +36,7 @@ ul{
     color: #fff;
 }
 .users-list > li img {
-    width: 100% !important;
+    width: 50px !important;
 }
 .box-widget .info-box h2{
     float: left;
