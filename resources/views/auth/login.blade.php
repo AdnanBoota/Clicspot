@@ -186,8 +186,9 @@ function countTimer() {
         // Display 'counter' wherever you want to display it.
         if (counter == 0) {
             // Display a login box
+            window.location="{url('/')}";
             clearInterval(interval);
-            window.location.reload(true);
+          
         }
     }, 1000);
 }
