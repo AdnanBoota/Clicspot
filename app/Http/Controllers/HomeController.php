@@ -78,9 +78,9 @@ class HomeController extends Controller {
             $router = $users->get();
             //        To fetch the data according to Month
             $month = '';
-            $months=array();
-            $totalConnection=array();
-            $routerConnections=array();
+            $months = array();
+            $totalConnection = array();
+            $routerConnections = array();
             foreach ($router as $item) {
                 $date = new Carbon($item['lastvisit']);
                 $months[$date->format("F")][] = $item;
@@ -103,10 +103,10 @@ class HomeController extends Controller {
             foreach ($months as $key => $item) {
                 $totalConnection[$key] = count($item);
             }
-            
+
             $tempConnections = array_merge($month, $totalConnection);
             $i = 0;
-            
+
             foreach ($tempConnections as $key => $item) {
                 $routerConnections[$i][$key] = $item;
                 $i++;
@@ -191,8 +191,8 @@ class HomeController extends Controller {
 
     function routerStatus(Request $request) {
         $routerStatus = array();
-        $activeCount = 0;
-        $deActiveCount = 0;
+        $activeCount = $activeCountPercentage = 0;
+        $deActiveCount = $deActiveCountPercentage = 0;
         if (Auth::user()->type == 'superadmin') {
             $hotspot = Hotspot::with(['status'])->select(['id', 'shortname', 'nasidentifier'])->get();
         } else {
@@ -206,8 +206,10 @@ class HomeController extends Controller {
                 $deActiveCount++;
             }
         }
-        $activeCountPercentage = ($activeCount / $totalRoter) * 100;
-        $deActiveCountPercentage = ($deActiveCount / $totalRoter) * 100;
+        if ($totalRoter != 0) {
+            $activeCountPercentage = ($activeCount / $totalRoter) * 100;
+            $deActiveCountPercentage = ($deActiveCount / $totalRoter) * 100;
+        }
         $routerStatus[0]["label"] = "Active";
         $routerStatus[0]["value"] = $activeCountPercentage . "%";
         $routerStatus[1]["label"] = "InActive";
