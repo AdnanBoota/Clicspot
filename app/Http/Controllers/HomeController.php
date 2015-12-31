@@ -62,7 +62,7 @@ class HomeController extends Controller {
         $routerConnections = array();
         if (Auth::user()->type == 'superadmin') {
             $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
-                    ->join('users', 'radacct.username', '=', 'users.username') 
+                    ->join('users', 'radacct.username', '=', 'users.username')
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier');
         } else {
             $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
@@ -70,7 +70,7 @@ class HomeController extends Controller {
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
                     ->where('nas.adminid', '=', Auth::user()->id);
         }
-        
+
 
 
         if ($input['type'] == "months") {
@@ -163,29 +163,40 @@ class HomeController extends Controller {
             $users->whereRaw("acctstarttime between date_sub(now(),INTERVAL 1 WEEK) and now()");
             $users->groupBy(DB::raw('DATE(`acctstarttime`)'));
             $router = $users->get();
+
+            $m = date("m");
+            $de = date("d");
+            $y = date("Y");
+
+            for ($i = 0; $i <= 6; $i++) {
+                $dateArray[] = date('Y-m-d', mktime(0, 0, 0, $m, ($de - $i), $y));
+            }
+            $LidtofDates = array_reverse($dateArray);
+
             $dayList = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
             for ($i = 0; $i < count($router); $i++) {
-                $timestamp = strtotime($router[$i]['day']);
-                $day = date('D', $timestamp);
-                if (in_array($day, $dayList)) {
 
-                    $routerData[$i]['day'] = $day;
+                if (in_array($router[$i]['day'], $LidtofDates)) {
+
+                    $routerData[$i]['day'] = $router[$i]['day'];
                     $routerData[$i]['totalAccess'] = $router[$i]['totalAccess'];
                 }
             }
 
-            for ($i = 0; $i < count($dayList); $i++) {
+            for ($i = 0; $i < count($LidtofDates); $i++) {
                 foreach ($routerData as $key => $value) {
-                    if ($value['day'] == $dayList[$i]) {
-                        $routerDayData[$i][$dayList[$i]] = $value['totalAccess'];
+                    $timestamp = strtotime($LidtofDates[$i]);
+                    $day = date('D', $timestamp);
+                    if ($value['day'] == $LidtofDates[$i]) {
+                        $routerDayData[$i][$day] = $value['totalAccess'];
                     } else {
-                        if (!isset($routerDayData[$i][$dayList[$i]])) {
-                            $routerDayData[$i][$dayList[$i]] = 0;
+                        if (!isset($routerDayData[$i][$LidtofDates[$i]])) {
+                            $routerDayData[$i][$day] = 0;
                         }
                     }
                 }
             }
-
+          
             return Response::json($routerDayData);
         }
     }

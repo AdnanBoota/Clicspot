@@ -337,6 +337,8 @@ function printChart(myArrayValue, myArrayKey) {
         getChartAjax(chartOfData);
         barChart();
         $(document).on("click", ".getDataby", function() {
+            $(".reviewButtons").find(".active").removeClass("active");
+            $(this).addClass("active");
             $("#lineChart").remove();
             $('.lineChart').append('<canvas id="lineChart"><canvas>');
             chartOfData = $(this).attr("id");
