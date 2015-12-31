@@ -206,7 +206,7 @@ class HomeController extends Controller {
                 $deActiveCount++;
             }
         }
-        if ($totalRoter != 0) {
+        if ($totalRoter != 0 && !empty($totalRoter)) {
             $activeCountPercentage = ($activeCount / $totalRoter) * 100;
             $deActiveCountPercentage = ($deActiveCount / $totalRoter) * 100;
         }
