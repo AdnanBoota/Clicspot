@@ -61,7 +61,7 @@ class HomeController extends Controller {
 
         $routerConnections = array();
         if (Auth::user()->type == 'superadmin') {
-            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId, users.gender,users.profileurl,users.email,users.type as favoredconnection,users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
+            $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
                     ->join('users', 'radacct.username', '=', 'users.username')
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier');
         } else {
