@@ -50,17 +50,19 @@ Licensed under the BSD-2-Clause License.
   })();
 
   Morris.commas = function(num) {
-    var absnum, intnum, ret, strabsnum;
+     var absnum, intnum, ret, strabsnum,persNum;
     if (num != null) {
       ret = num < 0 ? "-" : "";
       absnum = Math.abs(num);
+      persNum=num;
       intnum = Math.floor(absnum).toFixed(0);
-      ret += intnum.replace(/(?=(?:\d{3})+$)(?!^)/g, ',');
+      ret += intnum.replace(/(?=(?:\d{3})+$)(?!^%)/g, ',');
       strabsnum = absnum.toString();
+       strabsnum = persNum.toString();
       if (strabsnum.length > intnum.length) {
         ret += strabsnum.slice(intnum.length);
       }
-      return ret;
+      return persNum;
     } else {
       return '-';
     }

@@ -93,17 +93,17 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <div class="chart">
+                            <div class="chart lineChart">
                                 <canvas id="lineChart" style="height:250px"></canvas>
                             </div>
                         </div><!-- /.box-body -->
                         <div class="reviewButtons">
-                    <a href="javascript:void(0)" class="btn active">Months</a>
-                    <a href="javascript:void(0)" class="btn">Weeks</a>
-                    <a href="javascript:void(0)" class="btn">Days</a>
-                </div>
+                            <a href="javascript:void(0)" class="btn active getDataby" id="months">Months</a>
+                            <a href="javascript:void(0)" class="btn getDataby" id="weeks">Weeks</a>
+                            <a href="javascript:void(0)" class="btn getDataby" id="days">Days</a>
+                        </div>
                     </div><!-- /.box -->
-                     
+
                 </div>
             </div>
         </div>
@@ -117,89 +117,61 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-                   <div class="box box-danger">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Latest Members</h3>
-                      <div class="box-tools pull-right">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Latest Members</h3>
+                    <div class="box-tools pull-right">
                         <span class="label label-danger">8 New Members</span>
                         <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                      </div>
-                    </div><!-- /.box-header -->
-                    <div class="box-body no-padding">
-                      <ul class="users-list clearfix">
-                           @if (count($getLatestUsers) > 0)
-                            @foreach ($getLatestUsers as $latestUser)
-                            <li>
-                                @if($latestUser->avatar!='')
-                                <img alt="User Image" src="{{$latestUser->avatar}}">
-                                @else
-                                @if($latestUser->gender=='male')
-                                <img src="{{ asset("img/male.png") }}" />
-                                @else
-                                <img src="{{ asset("img/female.png") }}" />
-                                @endif
-                                @endif
-                                <a href="#" class="users-list-name">{{$latestUser->name}}</a>
-                                <span class="users-list-date">{{ $latestUser->joinDate }}</span>
-                            </li>
-                            @endforeach
-                            @endif
-                      </ul><!-- /.users-list -->
-                    </div><!-- /.box-body -->
-                    <div class="box-footer text-center">
-                      <a href="javascript::" class="uppercase">View All Users</a>
-                    </div><!-- /.box-footer -->
-                  </div><!--/.box -->
-<!--            <div class="memberbox">
-                <div class="box box-danger">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Latest Members</h3>
                     </div>
-                    <div class="box-body no-padding">
-                        <ul class="users-list clearfix">
-                            @if (count($getLatestUsers) > 0)
-                            @foreach ($getLatestUsers as $latestUser)
-                            <li>
-                                @if($latestUser->avatar!='')
-                                <img alt="User Image" src="{{$latestUser->avatar}}">
-                                @else
-                                @if($latestUser->gender=='male')
-                                <img src="{{ asset("img/male.png") }}" />
-                                @else
-                                <img src="{{ asset("img/female.png") }}" />
-                                @endif
-                                @endif
-                                <a href="#" class="users-list-name">{{$latestUser->name}}</a>
-                                <span class="users-list-date">{{ $latestUser->joinDate }}</span>
-                            </li>
-                            @endforeach
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <ul class="users-list clearfix">
+                        @if (count($getLatestUsers) > 0)
+                        @foreach ($getLatestUsers as $latestUser)
+                        <li>
+                            @if($latestUser->avatar!='')
+                            <img alt="User Image" src="{{$latestUser->avatar}}">
+                            @else
+                            @if($latestUser->gender=='male')
+                            <img src="{{ asset("img/male.png") }}" />
+                            @else
+                            <img src="{{ asset("img/female.png") }}" />
                             @endif
-                        </ul>
-                    </div>
-                </div>
-            </div>-->
+                            @endif
+                            <a href="#" class="users-list-name">{{$latestUser->name}}</a>
+                            <span class="users-list-date">{{ $latestUser->joinDate }}</span>
+                        </li>
+                        @endforeach
+                        @endif
+                    </ul><!-- /.users-list -->
+                </div><!-- /.box-body -->
+                <div class="box-footer text-center">
+                    <a href="javascript::" class="uppercase">View All Users</a>
+                </div><!-- /.box-footer -->
+            </div><!--/.box -->
         </div>
         <div class="col-md-6">
-                <div class="box box-success">
+            <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Reviews</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
+                    <h3 class="box-title">Reviews</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
                 </div>
                 <div class="box-body">
-                  <div class="chart">
-                    <canvas id="barChart" style="height:230px"></canvas>
-                  </div>
+                    <div class="chart barChart">
+                        <canvas id="barChart" style="height:230px"></canvas>
+                    </div>
                 </div><!-- /.box-body -->
                 <div class="reviewButtons">
                     <a href="javascript:void(0)" class="btn active">Months</a>
                     <a href="javascript:void(0)" class="btn">Weeks</a>
                     <a href="javascript:void(0)" class="btn">Days</a>
                 </div>
-              </div>
+            </div>
         </div>
     </div>
 </section>
@@ -207,23 +179,59 @@
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script type="text/javascript" src="{{ asset('/plugins/chartjs/Chart.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/plugins/morris/morris.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/plugins/morris/morris.js') }}"></script>
 <script type="text/javascript">
-$(function() {
-//      =====================================This is Line Chart===========================================================================
+var monthValueArray = [];
+var monthKeyArray = [];
+function getChartAjax(typeOfData) {
 
-    var areaChartData = {
+    jQuery.ajax({
+        url: '/routerConnections',
+        type: 'post',
+        data: {
+            "_token": '{{csrf_token()}}',
+            "type": typeOfData
+
+        },
+        success: function(result) {
+            monthValueArray.length = 0;
+            monthKeyArray.length = 0;
+            monthValueArray = [];
+            monthKeyArray = [];
+            for (var i = 0; i < result.length; i++) {
+                jQuery.each(result[i], function(index, value) {
+                    monthValueArray.push(value);
+                    monthKeyArray.push(index);
+                });
+            }
+            printChart(monthValueArray, monthKeyArray);
+        }
+    });
+}
+function donutChart(myVal) {
+    console.log(myVal);
+    var donut = new Morris.Donut({
+        element: 'sales-chart',
+        resize: true,
+        colors: ["#3c8dbc", "#f56954", "#00a65a"],
+        data: myVal,
+        hideHover: 'auto'
+    });
+}
+
+function barChart() {
+    var barAreaChartData = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
-          {
-              label: "Electronics",
-              fillColor: "rgba(210, 214, 222, 1)",
-              strokeColor: "rgba(210, 214, 222, 1)",
-              pointColor: "rgba(210, 214, 222, 1)",
-              pointStrokeColor: "#c1c7d1",
-              pointHighlightFill: "#fff",
-              pointHighlightStroke: "rgba(220,220,220,1)",
-              data: [65, 59, 80, 81, 56, 55, 40]
+            {
+                label: "Electronics",
+                fillColor: "rgba(210, 214, 222, 1)",
+                strokeColor: "rgba(210, 214, 222, 1)",
+                pointColor: "rgba(210, 214, 222, 1)",
+                pointStrokeColor: "#c1c7d1",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [65, 59, 80, 81, 56, 55, 40]
             },
             {
                 label: "Digital Goods",
@@ -237,12 +245,17 @@ $(function() {
             }
         ]
     };
-
-    var areaChartOptions = {
-        //Boolean - If we should show the scale at all
-        showScale: true,
+    var barChartCanvas = $("#barChart").get(0).getContext("2d");
+    var barChart = new Chart(barChartCanvas);
+    var barChartData = barAreaChartData;
+    barChartData.datasets[1].fillColor = "#00a65a";
+    barChartData.datasets[1].strokeColor = "#00a65a";
+    barChartData.datasets[1].pointColor = "#00a65a";
+    var barChartOptions = {
+        //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+        scaleBeginAtZero: true,
         //Boolean - Whether grid lines are shown across the chart
-        scaleShowGridLines: false,
+        scaleShowGridLines: true,
         //String - Colour of the grid lines
         scaleGridLineColor: "rgba(0,0,0,.05)",
         //Number - Width of the grid lines
@@ -251,90 +264,100 @@ $(function() {
         scaleShowHorizontalLines: true,
         //Boolean - Whether to show vertical lines (except Y axis)
         scaleShowVerticalLines: true,
-        //Boolean - Whether the line is curved between points
-        bezierCurve: true,
-        //Number - Tension of the bezier curve between points
-        bezierCurveTension: 0.3,
-        //Boolean - Whether to show a dot for each point
-        pointDot: false,
-        //Number - Radius of each point dot in pixels
-        pointDotRadius: 4,
-        //Number - Pixel width of point dot stroke
-        pointDotStrokeWidth: 1,
-        //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-        pointHitDetectionRadius: 20,
-        //Boolean - Whether to show a stroke for datasets
-        datasetStroke: true,
-        //Number - Pixel width of dataset stroke
-        datasetStrokeWidth: 2,
-        //Boolean - Whether to fill the dataset with a color
-        datasetFill: true,
+        //Boolean - If there is a stroke on each bar
+        barShowStroke: true,
+        //Number - Pixel width of the bar stroke
+        barStrokeWidth: 2,
+        //Number - Spacing between each of the X value sets
+        barValueSpacing: 5,
+        //Number - Spacing between data sets within X values
+        barDatasetSpacing: 1,
         //String - A legend template
+        legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+        //Boolean - whether to make the chart responsive
+        responsive: true,
+        maintainAspectRatio: true
+    };
+
+    barChartOptions.datasetFill = false;
+    barChart.Bar(barChartData, barChartOptions);
+}
+function printChart(myArrayValue, myArrayKey) {
+//============================================ This is ChartData from Where Chart is initialize================================================
+    var areaChartData = {
+        labels: myArrayKey,
+        datasets: [
+            {
+                label: "Electronics",
+                fillColor: "rgba(60,141,188,0.9)",
+                strokeColor: "rgba(60,141,188,0.8)",
+                pointColor: "#3b8bba",
+                pointStrokeColor: "rgba(60,141,188,1)",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(60,141,188,1)",
+                data: myArrayValue
+            }
+        ]
+    };
+//============================================ This is ChartArea from Where Chart Options generated================================================
+    var areaChartOptions = {
+        showScale: true,
+        scaleShowGridLines: false,
+        scaleGridLineColor: "rgba(0,0,0,.05)",
+        scaleGridLineWidth: 1,
+        scaleShowHorizontalLines: true,
+        scaleShowVerticalLines: true,
+        bezierCurve: true,
+        bezierCurveTension: 0.3,
+        pointDot: false,
+        pointDotRadius: 4,
+        pointDotStrokeWidth: 1,
+        pointHitDetectionRadius: 20,
+        datasetStroke: true,
+        datasetStrokeWidth: 2,
+        datasetFill: true,
         legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-        //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
         maintainAspectRatio: true,
-        //Boolean - whether to make the chart responsive to window resizing
         responsive: true
     };
 
-    //-------------
-    //- LINE CHART -
-    //--------------
+//=================================================Line Chart Starts===========================================================================   
     var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
     var lineChart = new Chart(lineChartCanvas);
+
     var lineChartOptions = areaChartOptions;
     lineChartOptions.datasetFill = false;
     lineChart.Line(areaChartData, lineChartOptions);
-
-//     ========================================This is Bar chart==========================================================================
-  var barChartCanvas = $("#barChart").get(0).getContext("2d");
-        var barChart = new Chart(barChartCanvas);
-        var barChartData = areaChartData;
-        barChartData.datasets[1].fillColor = "#00a65a";
-        barChartData.datasets[1].strokeColor = "#00a65a";
-        barChartData.datasets[1].pointColor = "#00a65a";
-        var barChartOptions = {
-          //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-          scaleBeginAtZero: true,
-          //Boolean - Whether grid lines are shown across the chart
-          scaleShowGridLines: true,
-          //String - Colour of the grid lines
-          scaleGridLineColor: "rgba(0,0,0,.05)",
-          //Number - Width of the grid lines
-          scaleGridLineWidth: 1,
-          //Boolean - Whether to show horizontal lines (except X axis)
-          scaleShowHorizontalLines: true,
-          //Boolean - Whether to show vertical lines (except Y axis)
-          scaleShowVerticalLines: true,
-          //Boolean - If there is a stroke on each bar
-          barShowStroke: true,
-          //Number - Pixel width of the bar stroke
-          barStrokeWidth: 2,
-          //Number - Spacing between each of the X value sets
-          barValueSpacing: 5,
-          //Number - Spacing between data sets within X values
-          barDatasetSpacing: 1,
-          //String - A legend template
-          legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-          //Boolean - whether to make the chart responsive
-          responsive: true,
-          maintainAspectRatio: true
-        };
-
-        barChartOptions.datasetFill = false;
-        barChart.Bar(barChartData, barChartOptions);
-//     =====================================This is DONUT CHART===============================================================================
-    var donut = new Morris.Donut({
-        element: 'sales-chart',
-        resize: true,
-        colors: ["#3c8dbc", "#f56954", "#00a65a"],
-        data: [
-            {label: "Download Sales", value: 12},
-            {label: "In-Store Sales", value: 30},
-            {label: "Mail-Order Sales", value: 20}
-        ],
-        hideHover: 'auto'
+}
+//=================================================Line Chart Ends=============================================================================
+</script>
+<script type="text/javascript">
+    var chartOfData = "months";
+    $(document).ready(function() {
+        getChartAjax(chartOfData);
+        barChart();
+        $(document).on("click", ".getDataby", function() {
+            $("#lineChart").remove();
+            $('.lineChart').append('<canvas id="lineChart"><canvas>');
+            chartOfData = $(this).attr("id");
+            getChartAjax(chartOfData);
+        });
+        setTimeout(function() {
+            jQuery.ajax({
+                url: '/routerStatus',
+                type: 'post',
+                data: {
+                    "_token": '{{csrf_token()}}'
+                },
+                success: function(data) {
+                    var routerData = [];
+                    for (var i = 0; i < (data.length); i++) {
+                        routerData.push({label: data[i].label, value: data[i].value});
+                    }
+                    donutChart(routerData);
+                }
+            });
+        }, 1000);
     });
-});
 </script>
 @endpush
