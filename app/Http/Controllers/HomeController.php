@@ -79,6 +79,8 @@ class HomeController extends Controller {
             //        To fetch the data according to Month
             $month = '';
             $months=array();
+            $totalConnection=array();
+            $routerConnections=array();
             foreach ($router as $item) {
                 $date = new Carbon($item['lastvisit']);
                 $months[$date->format("F")][] = $item;
@@ -101,8 +103,10 @@ class HomeController extends Controller {
             foreach ($months as $key => $item) {
                 $totalConnection[$key] = count($item);
             }
+            
             $tempConnections = array_merge($month, $totalConnection);
             $i = 0;
+            
             foreach ($tempConnections as $key => $item) {
                 $routerConnections[$i][$key] = $item;
                 $i++;
