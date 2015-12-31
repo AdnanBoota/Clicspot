@@ -58,8 +58,11 @@ class HomeController extends Controller {
 
     public function routerConnections(Request $request) {
         $input = $request->only('type');
-
+        $type = $input['type'];
+        $getAllData = $request->only('AllData');
         $routerConnections = array();
+        $allData = array();
+        $routerStatus = array();
         if (Auth::user()->type == 'superadmin') {
             $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
                     ->join('users', 'radacct.username', '=', 'users.username')
@@ -71,9 +74,36 @@ class HomeController extends Controller {
                     ->where('nas.adminid', '=', Auth::user()->id);
         }
 
+        if ($getAllData['AllData'] == "all") {
+            $routerStatus = array();
+            $activeCount = $activeCountPercentage = 0;
+            $deActiveCount = $deActiveCountPercentage = 0;
+            // Router Status Data for Router Chart Starts Here========================================================
+            if (Auth::user()->type == 'superadmin') {
+                $hotspot = Hotspot::with(['status'])->select(['id', 'shortname', 'nasidentifier'])->get();
+            } else {
+                $hotspot = Auth::user()->hotspots()->with(['status'])->select(['id', 'shortname', 'nasidentifier'])->get();
+            }
+            $totalRoter = $hotspot->count();
+            foreach ($hotspot as $key => $value) {
+                if ((time() - strtotime($value->status->updated_at)) < 180) {
+                    $activeCount++;
+                } else {
+                    $deActiveCount++;
+                }
+            }
+            if ($totalRoter != 0 && !empty($totalRoter)) {
+                $activeCountPercentage = ($activeCount / $totalRoter) * 100;
+                $deActiveCountPercentage = ($deActiveCount / $totalRoter) * 100;
+            }
+            $routerStatus[0]["label"] = "Active";
+            $routerStatus[0]["value"] = $activeCountPercentage . "%";
+            $routerStatus[1]["label"] = "InActive";
+            $routerStatus[1]["value"] = $deActiveCountPercentage . "%";
 
-
-        if ($input['type'] == "months") {
+            // Router Status Data for Router Chart Ends Here========================================================
+        }
+        if ($type == "months") {
             $users->groupBy('radacct.username');
             $users->orderBy('acctstarttime', 'desc');
             $router = $users->get();
@@ -84,27 +114,26 @@ class HomeController extends Controller {
             $routerConnections = array();
             foreach ($router as $item) {
                 $date = new Carbon($item['lastvisit']);
-                $months[$date->format("F")][] = $item;
+                $months[$date->format("M")][] = $item;
             }
 //        Count Actual Data according to month
             $month = array(
-                "January" => 0,
-                "February" => 0,
-                "March" => 0,
-                "April" => 0,
+                "Jan" => 0,
+                "Feb" => 0,
+                "Mar" => 0,
+                "Apr" => 0,
                 "May" => 0,
                 "June" => 0,
                 "July" => 0,
-                "August" => 0,
-                "September" => 0,
-                "October" => 0,
-                "November" => 0,
-                "December" => 0
+                "Aug" => 0,
+                "Sept" => 0,
+                "Oct" => 0,
+                "Nov" => 0,
+                "Dec" => 0
             );
             foreach ($months as $key => $item) {
                 $totalConnection[$key] = count($item);
             }
-
             $tempConnections = array_merge($month, $totalConnection);
             $i = 0;
 
@@ -112,8 +141,7 @@ class HomeController extends Controller {
                 $routerConnections[$i][$key] = $item;
                 $i++;
             }
-            return Response::json($routerConnections);
-        } elseif ($input['type'] == "weeks") {
+        } elseif ($type == "weeks") {
 
             $users->whereRaw("acctstarttime >= date_sub(now(),INTERVAL 4 WEEK) and now()");
             $users->orderBy('period', 'ASC');
@@ -149,17 +177,15 @@ class HomeController extends Controller {
                 foreach ($var as $key => $value) {
 
                     if ($value['period'] == $weekNoOne[$i]['period']) {
-                        $weekData[$i][$weekNoOne[$i]['week']] = $value['totalAccess'];
+                        $routerConnections[$i][$weekNoOne[$i]['week']] = $value['totalAccess'];
                     } else {
                         if (!isset($weekData[$i][$weekNoOne[$i]['week']])) {
-                            $weekData[$i][$weekNoOne[$i]['week']] = 0;
+                            $routerConnections[$i][$weekNoOne[$i]['week']] = 0;
                         }
                     }
                 }
             }
-
-            return Response::json($weekData);
-        } elseif ($input['type'] == "days") {
+        } elseif ($type == "days") {
             $users->whereRaw("acctstarttime between date_sub(now(),INTERVAL 1 WEEK) and now()");
             $users->groupBy(DB::raw('DATE(`acctstarttime`)'));
             $router = $users->get();
@@ -188,17 +214,18 @@ class HomeController extends Controller {
                     $timestamp = strtotime($LidtofDates[$i]);
                     $day = date('D', $timestamp);
                     if ($value['day'] == $LidtofDates[$i]) {
-                        $routerDayData[$i][$day] = $value['totalAccess'];
+                        $routerConnections[$i][$day] = $value['totalAccess'];
                     } else {
                         if (!isset($routerDayData[$i][$LidtofDates[$i]])) {
-                            $routerDayData[$i][$day] = 0;
+                            $routerConnections[$i][$day] = 0;
                         }
                     }
                 }
             }
-          
-            return Response::json($routerDayData);
         }
+        $allData['routerConnection'] = $routerConnections;
+        $allData['routerStatus'] = $routerStatus;
+        return Response::json($allData);
     }
 
     function routerStatus(Request $request) {

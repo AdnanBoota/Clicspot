@@ -183,33 +183,46 @@
 <script type="text/javascript">
 var monthValueArray = [];
 var monthKeyArray = [];
-function getChartAjax(typeOfData) {
 
+//========================================================== Ajax Call for fetch the data for Chart============================================
+function getChartAjax(typeOfData, getAllData) {
     jQuery.ajax({
         url: '/routerConnections',
         type: 'post',
         data: {
             "_token": '{{csrf_token()}}',
-            "type": typeOfData
+            "type": typeOfData,
+            "AllData": getAllData
 
         },
         success: function(result) {
-            monthValueArray.length = 0;
-            monthKeyArray.length = 0;
-            monthValueArray = [];
-            monthKeyArray = [];
-            for (var i = 0; i < result.length; i++) {
-                jQuery.each(result[i], function(index, value) {
-                    monthValueArray.push(value);
-                    monthKeyArray.push(index);
-                });
+            if (result['routerConnection']) {
+                monthValueArray.length = 0;
+                monthKeyArray.length = 0;
+                monthValueArray = [];
+                monthKeyArray = [];
+                for (var i = 0; i < result['routerConnection'].length; i++) {
+                    jQuery.each(result['routerConnection'][i], function(index, value) {
+                        monthValueArray.push(value);
+                        monthKeyArray.push(index);
+                    });
+                }
+                amountOfConnectionsChart(monthValueArray, monthKeyArray);
             }
-            printChart(monthValueArray, monthKeyArray);
+            if (result['routerStatus']) {
+                var routerData = [];
+                for (var i = 0; i < (result['routerStatus'].length); i++) {
+                    routerData.push({label: result['routerStatus'][i].label, value: result['routerStatus'][i].value});
+                }
+                routerStatusChart(routerData);
+            }
+
         }
     });
 }
-function donutChart(myVal) {
-    console.log(myVal);
+
+//========================================================== Donut chart for Router Status====================================================
+function routerStatusChart(myVal) {
     var donut = new Morris.Donut({
         element: 'sales-chart',
         resize: true,
@@ -219,12 +232,13 @@ function donutChart(myVal) {
     });
 }
 
-function barChart() {
+//========================================================== Bar chart for Customer Reviews============================================
+function customerReviews() {
     var barAreaChartData = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
             {
-                label: "Electronics",
+                label: "Reviews",
                 fillColor: "rgba(210, 214, 222, 1)",
                 strokeColor: "rgba(210, 214, 222, 1)",
                 pointColor: "rgba(210, 214, 222, 1)",
@@ -234,7 +248,7 @@ function barChart() {
                 data: [65, 59, 80, 81, 56, 55, 40]
             },
             {
-                label: "Digital Goods",
+                label: "FeedBack",
                 fillColor: "rgba(60,141,188,0.9)",
                 strokeColor: "rgba(60,141,188,0.8)",
                 pointColor: "#3b8bba",
@@ -252,96 +266,82 @@ function barChart() {
     barChartData.datasets[1].strokeColor = "#00a65a";
     barChartData.datasets[1].pointColor = "#00a65a";
     var barChartOptions = {
-        //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
         scaleBeginAtZero: true,
-        //Boolean - Whether grid lines are shown across the chart
         scaleShowGridLines: true,
-        //String - Colour of the grid lines
         scaleGridLineColor: "rgba(0,0,0,.05)",
-        //Number - Width of the grid lines
         scaleGridLineWidth: 1,
-        //Boolean - Whether to show horizontal lines (except X axis)
         scaleShowHorizontalLines: true,
-        //Boolean - Whether to show vertical lines (except Y axis)
         scaleShowVerticalLines: true,
-        //Boolean - If there is a stroke on each bar
         barShowStroke: true,
-        //Number - Pixel width of the bar stroke
         barStrokeWidth: 2,
-        //Number - Spacing between each of the X value sets
         barValueSpacing: 5,
-        //Number - Spacing between data sets within X values
         barDatasetSpacing: 1,
-        //String - A legend template
         legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-        //Boolean - whether to make the chart responsive
-        responsive: true,
-        maintainAspectRatio: true
-    };
+                    responsive: true,
+                    maintainAspectRatio: true
+                };
 
-    barChartOptions.datasetFill = false;
-    barChart.Bar(barChartData, barChartOptions);
-}
-function printChart(myArrayValue, myArrayKey) {
-//============================================ This is ChartData from Where Chart is initialize================================================
-    var areaChartData = {
-        labels: myArrayKey,
-        datasets: [
-            {
-                label: "Electronics",
-                fillColor: "rgba(60,141,188,0.9)",
-                strokeColor: "rgba(60,141,188,0.8)",
-                pointColor: "#3b8bba",
-                pointStrokeColor: "rgba(60,141,188,1)",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(60,141,188,1)",
-                data: myArrayValue
+                barChartOptions.datasetFill = false;
+                barChart.Bar(barChartData, barChartOptions);
             }
-        ]
-    };
-//============================================ This is ChartArea from Where Chart Options generated================================================
-    var areaChartOptions = {
-        showScale: true,
-        scaleShowGridLines: false,
-        scaleGridLineColor: "rgba(0,0,0,.05)",
-        scaleGridLineWidth: 1,
-        scaleShowHorizontalLines: true,
-        scaleShowVerticalLines: true,
-          scaleOverride: true,
-           scaleSteps: 4,
-             scaleStepWidth: 5,
-    // Number - The scale starting value
-    scaleStartValue: 0,
-        bezierCurve: true,
-        bezierCurveTension: 0.3,
-        pointDot: true,
-        pointDotRadius: 4,
-        pointDotStrokeWidth: 1,
-        pointHitDetectionRadius: 20,
-        datasetStroke: true,
-        datasetStrokeWidth: 2,
-        datasetFill: true,
-        legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-        maintainAspectRatio: true,
-        responsive: true
-    };
 
-//=================================================Line Chart Starts===========================================================================   
-    var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
-    var lineChart = new Chart(lineChartCanvas);
-
-    var lineChartOptions = areaChartOptions;
-    lineChartOptions.datasetFill = false;
-    lineChart.Line(areaChartData, lineChartOptions);
-}
-//=================================================Line Chart Ends=============================================================================
+//========================================================== Line chart for Amount of router Connections=======================================
+            function amountOfConnectionsChart(myArrayValue, myArrayKey) {
+                var areaChartData = {
+                    labels: myArrayKey,
+                    datasets: [
+                        {
+                            label: "Amount Of Connections",
+                            fillColor: "rgba(60,141,188,0.9)",
+                            strokeColor: "rgba(60,141,188,0.8)",
+                            pointColor: "#3b8bba",
+                            pointStrokeColor: "rgba(60,141,188,1)",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(60,141,188,1)",
+                            data: myArrayValue
+                        }
+                    ]
+                };
+                var areaChartOptions = {
+                    showScale: true,
+                    scaleShowGridLines: false,
+                    scaleGridLineColor: "rgba(0,0,0,.05)",
+                    scaleGridLineWidth: 1,
+                    scaleShowHorizontalLines: true,
+                    scaleShowVerticalLines: true,
+                    scaleOverride: true,
+                    scaleSteps: 4,
+                    scaleStepWidth: 5,
+                    // Number - The scale starting value
+                    scaleStartValue: 0,
+                    bezierCurve: true,
+                    bezierCurveTension: 0.3,
+                    pointDot: true,
+                    pointDotRadius: 4,
+                    pointDotStrokeWidth: 1,
+                    pointHitDetectionRadius: 20,
+                    datasetStroke: true,
+                    datasetStrokeWidth: 2,
+                    datasetFill: true,
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+                                maintainAspectRatio: true,
+                                responsive: true
+                            };
+                            var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
+                            var lineChart = new Chart(lineChartCanvas);
+                            var lineChartOptions = areaChartOptions;
+                            lineChartOptions.datasetFill = false;
+                            lineChart.Line(areaChartData, lineChartOptions);
+                        }
 </script>
 <script type="text/javascript">
     var chartOfData = "months";
+    var getData = "all";
     $(document).ready(function() {
-        getChartAjax(chartOfData);
-        barChart();
+        getChartAjax(chartOfData, getData);
+        customerReviews();
         $(document).on("click", ".getDataby", function() {
+            getData = "";
             $(".reviewButtons").find(".active").removeClass("active");
             $(this).addClass("active");
             $("#lineChart").remove();
@@ -349,22 +349,6 @@ function printChart(myArrayValue, myArrayKey) {
             chartOfData = $(this).attr("id");
             getChartAjax(chartOfData);
         });
-        setTimeout(function() {
-            jQuery.ajax({
-                url: '/routerStatus',
-                type: 'post',
-                data: {
-                    "_token": '{{csrf_token()}}'
-                },
-                success: function(data) {
-                    var routerData = [];
-                    for (var i = 0; i < (data.length); i++) {
-                        routerData.push({label: data[i].label, value: data[i].value});
-                    }
-                    donutChart(routerData);
-                }
-            });
-        }, 1000);
     });
 </script>
 @endpush
