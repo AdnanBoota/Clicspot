@@ -70,6 +70,7 @@ class HomeController extends Controller {
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
                     ->where('nas.adminid', '=', Auth::user()->id);
         }
+        
 
 
         if ($input['type'] == "months") {
