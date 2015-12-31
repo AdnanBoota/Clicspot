@@ -78,6 +78,7 @@ class HomeController extends Controller {
             $router = $users->get();
             //        To fetch the data according to Month
             $month = '';
+            $months=array();
             foreach ($router as $item) {
                 $date = new Carbon($item['lastvisit']);
                 $months[$date->format("F")][] = $item;
