@@ -107,7 +107,9 @@ class HomeController extends Controller {
             $routerStatus[0]["value"] = $activeCountPercentage . "%";
             $routerStatus[1]["label"] = "InActive";
             $routerStatus[1]["value"] = $deActiveCountPercentage . "%";
-
+            if ($routerStatus[0]["value"] == "0%" && $routerStatus[1]["value"] == "0%") {
+                $routerStatus[1]["value"] = "100%";
+            }
             // Router Status Data for Router Chart Ends Here========================================================
         }
         if ($type == "months") {
@@ -192,11 +194,10 @@ class HomeController extends Controller {
                     }
                 }
             }
-            if(empty($routerConnections)){
-                for($i=0;$i<count($Week);$i++){
-                    $routerConnections[$i][$Week[$i]['date']]=0;
+            if (empty($routerConnections)) {
+                for ($i = 0; $i < count($Week); $i++) {
+                    $routerConnections[$i][$Week[$i]['date']] = 0;
                 }
-           
             }
         } elseif ($type == "days") {
             $users->whereRaw("acctstarttime between date_sub(now(),INTERVAL 1 WEEK) and now()");
@@ -235,11 +236,10 @@ class HomeController extends Controller {
                     }
                 }
             }
-            if(empty($routerConnections)){
-                for($i=0;$i<count($dayList);$i++){
-                    $routerConnections[$i][$dayList[$i]]=0;
+            if (empty($routerConnections)) {
+                for ($i = 0; $i < count($dayList); $i++) {
+                    $routerConnections[$i][$dayList[$i]] = 0;
                 }
-           
             }
         }
         $allData['routerConnection'] = $routerConnections;
