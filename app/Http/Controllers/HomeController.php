@@ -63,6 +63,13 @@ class HomeController extends Controller {
         $routerConnections = array();
         $allData = array();
         $routerStatus = array();
+        $tempData = array();
+        $weekNoOne = array();
+        $routerDayData = array();
+        $routerData = array();
+        $dateArray = array();
+        $weekData = array();
+        $week = array();
         if (Auth::user()->type == 'superadmin') {
             $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
                     ->join('users', 'radacct.username', '=', 'users.username')
@@ -168,15 +175,15 @@ class HomeController extends Controller {
             for ($i = 0; $i < count($router); $i++) {
                 if (in_array($router[$i]['period'], $week)) {
 
-                    $var[$i]['period'] = $router[$i]['period'];
-                    $var[$i]['totalAccess'] = $router[$i]['totalAccess'];
+                    $tempData[$i]['period'] = $router[$i]['period'];
+                    $tempData[$i]['totalAccess'] = $router[$i]['totalAccess'];
                 }
             }
 
             for ($i = 0; $i < count($weekNoOne); $i++) {
-                foreach ($var as $key => $value) {
+                foreach ($tempData as $key => $value) {
 
-                    if ($value['period'] == $weekNoOne[$i]['period']) {
+                    if ($tempData['period'] == $weekNoOne[$i]['period']) {
                         $routerConnections[$i][$weekNoOne[$i]['week']] = $value['totalAccess'];
                     } else {
                         if (!isset($weekData[$i][$weekNoOne[$i]['week']])) {
