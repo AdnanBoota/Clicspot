@@ -231,7 +231,7 @@ class HomeController extends Controller {
             }
             if(empty($routerConnections)){
                 for($i=0;$i<count($dayList);$i++){
-                    $routerConnections[$dayList[$i]]=0;
+                    $routerConnections[$i][$dayList[$i]]=0;
                 }
            
             }
