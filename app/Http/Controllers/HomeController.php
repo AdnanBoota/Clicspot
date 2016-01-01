@@ -229,6 +229,9 @@ class HomeController extends Controller {
                     }
                 }
             }
+            if(empty($routerConnections)){
+                $routerConnections=$dayList;
+            }
         }
         $allData['routerConnection'] = $routerConnections;
         $allData['routerStatus'] = $routerStatus;
