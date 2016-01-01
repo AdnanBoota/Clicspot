@@ -230,7 +230,10 @@ class HomeController extends Controller {
                 }
             }
             if(empty($routerConnections)){
-                $routerConnections=$dayList;
+                for($i=0;$i<count($dayList);$i++){
+                    $routerConnections[$dayList[$i]]=0;
+                }
+           
             }
         }
         $allData['routerConnection'] = $routerConnections;
