@@ -107,7 +107,7 @@ class HomeController extends Controller {
             $routerStatus[0]["value"] = number_format($activeCountPercentage,2) . "%";
             $routerStatus[1]["label"] = "InActive";
             $routerStatus[1]["value"] = number_format($deActiveCountPercentage,2) . "%";
-            if ($routerStatus[0]["value"] == "0%" && $routerStatus[1]["value"] == "0%") {
+            if ($routerStatus[0]["value"] == "0.00%" && $routerStatus[1]["value"] == "0.00%") {
                 $routerStatus[1]["value"] = "100%";
             }
             // Router Status Data for Router Chart Ends Here========================================================
