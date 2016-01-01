@@ -156,13 +156,14 @@ class HomeController extends Controller {
             $users->orderBy('period', 'ASC');
             $router = $users->get();
             $users->groupBy('period');
-            $Week[0]['date'] = Date('Y-m-d', strtotime("-28 days"));
+            $Week[0]['date'] = Date('Y-m-d', strtotime("-21 days"));
             $Week[0]['week'] = '1';
-            $Week[1]['date'] = Date('Y-m-d', strtotime("-21 days"));
+            $Week[1]['date'] = Date('Y-m-d', strtotime("-14 days"));
             $Week[1]['week'] = '2';
-            $Week[2]['date'] = Date('Y-m-d', strtotime("-14 days"));
+            $Week[2]['date'] = Date('Y-m-d', strtotime("-7 days"));
             $Week[2]['week'] = '3';
-            $Week[3]['date'] = Date('Y-m-d', strtotime("-7 days"));
+//            $Week[3]['date'] = Date('Y-m-d', strtotime("-7 days"));
+            $Week[3]['date'] = Date('Y-m-d');
             $Week[3]['week'] = '4';
 
             for ($i = 0; $i < count($Week); $i++) {
@@ -181,11 +182,10 @@ class HomeController extends Controller {
                     $tempData[$i]['totalAccess'] = $router[$i]['totalAccess'];
                 }
             }
-
             for ($i = 0; $i < count($weekNoOne); $i++) {
                 foreach ($tempData as $key => $value) {
 
-                    if ($tempData['period'] == $weekNoOne[$i]['period']) {
+                    if ($value['period'] == $weekNoOne[$i]['period']) {
                         $routerConnections[$i][$weekNoOne[$i]['week']] = $value['totalAccess'];
                     } else {
                         if (!isset($weekData[$i][$weekNoOne[$i]['week']])) {
