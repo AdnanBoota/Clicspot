@@ -125,27 +125,47 @@ class HomeController extends Controller {
                 $date = new Carbon($item['lastvisit']);
                 $months[$date->format("M")][] = $item;
             }
+          
 //        Count Actual Data according to month
-            $month = array(
-                "Jan" => 0,
-                "Feb" => 0,
-                "Mar" => 0,
-                "Apr" => 0,
-                "May" => 0,
-                "June" => 0,
-                "July" => 0,
-                "Aug" => 0,
-                "Sept" => 0,
-                "Oct" => 0,
-                "Nov" => 0,
-                "Dec" => 0
-            );
+           
+            for ($i=0; $i<=12; $i++) { 
+               $month[date("M",strtotime(date('Y-m-d', strtotime("-$i month"))))]=0;
+            }
+            $month=  array_reverse($month);
+//            $month = array(
+//                "Jan" => 0,
+//                "Feb" => 0,
+//                "Mar" => 0,
+//                "Apr" => 0,
+//                "May" => 0,
+//                "June" => 0,
+//                "July" => 0,
+//                "Aug" => 0,
+//                "Sept" => 0,
+//                "Oct" => 0,
+//                "Nov" => 0,
+//                "Dec" => 0
+//            );
+         
             foreach ($months as $key => $item) {
                 $totalConnection[$key] = count($item);
             }
+           
             $tempConnections = array_merge($month, $totalConnection);
             $i = 0;
-
+//           foreach ($month as $keyMonth => $valueMonth) {
+//                foreach ($tempConnections as $key => $value) {
+//
+//                    if ($key == $keyMonth) {
+//                        $routerConnections[$i][$key] =$value;
+//                    } else {
+//                        if (!isset($routerConnections[$i][$key])) {
+//                             $routerConnections[$i][$key] =0;
+//                        }
+//                    }
+//                }
+//            }
+               
             foreach ($tempConnections as $key => $item) {
                 $routerConnections[$i][$key] = $item;
                 $i++;
