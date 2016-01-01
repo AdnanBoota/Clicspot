@@ -17,6 +17,9 @@ ul{
 .content-wrapper .p30{
     padding: 30px;
 }
+.statisticsBg{
+    background: #fff;
+}
 .reviewButtons a{
      background: #abb0b9 none repeat scroll 0 0;
     border-radius: 5px;

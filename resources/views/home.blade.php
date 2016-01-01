@@ -67,43 +67,45 @@
         </div>
     </div>
     <div class="userprofileblock">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="box box-danger">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Router Status</h3>
-                        <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                    <div class="box-body chart-responsive">
-                        <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="memberbox">
-                    <div class="box box-info">
+        <div class="statisticsBg">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-danger">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Amount of connections</h3>
+                            <h3 class="box-title">Router Status</h3>
                             <div class="box-tools pull-right">
                                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                                 <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                             </div>
                         </div>
-                        <div class="box-body">
-                            <div class="chart lineChart">
-                                <canvas id="lineChart" style="height:250px"></canvas>
-                            </div>
-                        </div><!-- /.box-body -->
-                        <div class="reviewButtons">
-                            <a href="javascript:void(0)" class="btn active getDataby" id="months">Months</a>
-                            <a href="javascript:void(0)" class="btn getDataby" id="weeks">Weeks</a>
-                            <a href="javascript:void(0)" class="btn getDataby" id="days">Days</a>
+                        <div class="box-body chart-responsive">
+                            <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
                         </div>
-                    </div><!-- /.box -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="memberbox">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Amount of connections</h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="chart lineChart">
+                                    <canvas id="lineChart" style="height:250px"></canvas>
+                                </div>
+                            </div><!-- /.box-body -->
+                            <div class="reviewButtons">
+                                <a href="javascript:void(0)" class="btn active getDataby" id="months">Months</a>
+                                <a href="javascript:void(0)" class="btn getDataby" id="weeks">Weeks</a>
+                                <a href="javascript:void(0)" class="btn getDataby" id="days">Days</a>
+                            </div>
+                        </div><!-- /.box -->
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,61 +117,63 @@
             <i class="fa fa-fw fa-user"></i><span>Member Statistics</span>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Latest Members</h3>
-                    <div class="box-tools pull-right">
-                        <span class="label label-danger">8 New Members</span>
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                    </div>
-                </div><!-- /.box-header -->
-                <div class="box-body no-padding">
-                    <ul class="users-list clearfix">
-                        @if (count($getLatestUsers) > 0)
-                        @foreach ($getLatestUsers as $latestUser)
-                        <li>
-                            @if($latestUser->avatar!='')
-                            <img alt="User Image" src="{{$latestUser->avatar}}">
-                            @else
-                            @if($latestUser->gender=='male')
-                            <img src="{{ asset("img/male.png") }}" />
-                            @else
-                            <img src="{{ asset("img/female.png") }}" />
+    <div class="statisticsBg">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Latest Members</h3>
+                        <div class="box-tools pull-right">
+                            <span class="label label-danger">8 New Members</span>
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div><!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <ul class="users-list clearfix">
+                            @if (count($getLatestUsers) > 0)
+                            @foreach ($getLatestUsers as $latestUser)
+                            <li>
+                                @if($latestUser->avatar!='')
+                                <img alt="User Image" src="{{$latestUser->avatar}}">
+                                @else
+                                @if($latestUser->gender=='male')
+                                <img src="{{ asset("img/male.png") }}" />
+                                @else
+                                <img src="{{ asset("img/female.png") }}" />
+                                @endif
+                                @endif
+                                <a href="#" class="users-list-name">{{$latestUser->name}}</a>
+                                <span class="users-list-date">{{ $latestUser->joinDate }}</span>
+                            </li>
+                            @endforeach
                             @endif
-                            @endif
-                            <a href="#" class="users-list-name">{{$latestUser->name}}</a>
-                            <span class="users-list-date">{{ $latestUser->joinDate }}</span>
-                        </li>
-                        @endforeach
-                        @endif
-                    </ul><!-- /.users-list -->
-                </div><!-- /.box-body -->
-                <div class="box-footer text-center">
-                    <a href="javascript::" class="uppercase">View All Users</a>
-                </div><!-- /.box-footer -->
-            </div><!--/.box -->
-        </div>
-        <div class="col-md-6">
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Reviews</h3>
-                    <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </ul><!-- /.users-list -->
+                    </div><!-- /.box-body -->
+                    <div class="box-footer text-center">
+                        <a href="javascript::" class="uppercase">View All Users</a>
+                    </div><!-- /.box-footer -->
+                </div><!--/.box -->
+            </div>
+            <div class="col-md-6">
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Reviews</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
                     </div>
-                </div>
-                <div class="box-body">
-                    <div class="chart barChart">
-                        <canvas id="barChart" style="height:230px"></canvas>
+                    <div class="box-body">
+                        <div class="chart barChart">
+                            <canvas id="barChart" style="height:230px"></canvas>
+                        </div>
+                    </div><!-- /.box-body -->
+                    <div class="reviewButtons">
+                        <a href="javascript:void(0)" class="btn active">Months</a>
+                        <a href="javascript:void(0)" class="btn">Weeks</a>
+                        <a href="javascript:void(0)" class="btn">Days</a>
                     </div>
-                </div><!-- /.box-body -->
-                <div class="reviewButtons">
-                    <a href="javascript:void(0)" class="btn active">Months</a>
-                    <a href="javascript:void(0)" class="btn">Weeks</a>
-                    <a href="javascript:void(0)" class="btn">Days</a>
                 </div>
             </div>
         </div>
@@ -277,62 +281,62 @@ function customerReviews() {
         barValueSpacing: 5,
         barDatasetSpacing: 1,
         legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-                    responsive: true,
-                    maintainAspectRatio: true
-                };
+        responsive: true,
+        maintainAspectRatio: true
+    };
 
-                barChartOptions.datasetFill = false;
-                barChart.Bar(barChartData, barChartOptions);
-            }
+    barChartOptions.datasetFill = false;
+    barChart.Bar(barChartData, barChartOptions);
+}
 
 //========================================================== Line chart for Amount of router Connections=======================================
-            function amountOfConnectionsChart(myArrayValue, myArrayKey) {
-                var areaChartData = {
-                    labels: myArrayKey,
-                    datasets: [
-                        {
-                            label: "Amount Of Connections",
-                            fillColor: "rgba(60,141,188,0.9)",
-                            strokeColor: "rgba(60,141,188,0.8)",
-                            pointColor: "#3b8bba",
-                            pointStrokeColor: "rgba(60,141,188,1)",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(60,141,188,1)",
-                            data: myArrayValue
-                        }
-                    ]
-                };
-                var areaChartOptions = {
-                    showScale: true,
-                    scaleShowGridLines: false,
-                    scaleGridLineColor: "rgba(0,0,0,.05)",
-                    scaleGridLineWidth: 1,
-                    scaleShowHorizontalLines: true,
-                    scaleShowVerticalLines: true,
-                    scaleOverride: true,
-                    scaleSteps: 4,
-                    scaleStepWidth: 5,
-                    // Number - The scale starting value
-                    scaleStartValue: 0,
-                    bezierCurve: true,
-                    bezierCurveTension: 0.3,
-                    pointDot: true,
-                    pointDotRadius: 4,
-                    pointDotStrokeWidth: 1,
-                    pointHitDetectionRadius: 20,
-                    datasetStroke: true,
-                    datasetStrokeWidth: 2,
-                    datasetFill: true,
-                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-                                maintainAspectRatio: true,
-                                responsive: true
-                            };
-                            var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
-                            var lineChart = new Chart(lineChartCanvas);
-                            var lineChartOptions = areaChartOptions;
-                            lineChartOptions.datasetFill = false;
-                            lineChart.Line(areaChartData, lineChartOptions);
-                        }
+function amountOfConnectionsChart(myArrayValue, myArrayKey) {
+    var areaChartData = {
+        labels: myArrayKey,
+        datasets: [
+            {
+                label: "Amount Of Connections",
+                fillColor: "rgba(60,141,188,0.9)",
+                strokeColor: "rgba(60,141,188,0.8)",
+                pointColor: "#3b8bba",
+                pointStrokeColor: "rgba(60,141,188,1)",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(60,141,188,1)",
+                data: myArrayValue
+            }
+        ]
+    };
+    var areaChartOptions = {
+        showScale: true,
+        scaleShowGridLines: false,
+        scaleGridLineColor: "rgba(0,0,0,.05)",
+        scaleGridLineWidth: 1,
+        scaleShowHorizontalLines: true,
+        scaleShowVerticalLines: true,
+        scaleOverride: true,
+        scaleSteps: 4,
+        scaleStepWidth: 5,
+        // Number - The scale starting value
+        scaleStartValue: 0,
+        bezierCurve: true,
+        bezierCurveTension: 0.3,
+        pointDot: true,
+        pointDotRadius: 4,
+        pointDotStrokeWidth: 1,
+        pointHitDetectionRadius: 20,
+        datasetStroke: true,
+        datasetStrokeWidth: 2,
+        datasetFill: true,
+        legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+        maintainAspectRatio: true,
+        responsive: true
+    };
+    var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
+    var lineChart = new Chart(lineChartCanvas);
+    var lineChartOptions = areaChartOptions;
+    lineChartOptions.datasetFill = false;
+    lineChart.Line(areaChartData, lineChartOptions);
+}
 </script>
 <script type="text/javascript">
     var chartOfData = "months";
