@@ -237,8 +237,10 @@ class HomeController extends Controller {
                 }
             }
             if (empty($routerConnections)) {
-                for ($i = 0; $i < count($dayList); $i++) {
-                    $routerConnections[$i][$dayList[$i]] = 0;
+                for ($i = 0; $i < count($LidtofDates); $i++) {
+                    $timestamp = strtotime($LidtofDates[$i]);
+                    $day = date('D', $timestamp);
+                    $routerConnections[$i][$day] = 0;
                 }
             }
         }
