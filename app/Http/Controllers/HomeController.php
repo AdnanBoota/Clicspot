@@ -104,9 +104,9 @@ class HomeController extends Controller {
                 $deActiveCountPercentage = ($deActiveCount / $totalRoter) * 100;
             }
             $routerStatus[0]["label"] = "Active";
-            $routerStatus[0]["value"] = $activeCountPercentage . "%";
+            $routerStatus[0]["value"] = number_format($activeCountPercentage,2) . "%";
             $routerStatus[1]["label"] = "InActive";
-            $routerStatus[1]["value"] = $deActiveCountPercentage . "%";
+            $routerStatus[1]["value"] = number_format($deActiveCountPercentage,2) . "%";
             if ($routerStatus[0]["value"] == "0%" && $routerStatus[1]["value"] == "0%") {
                 $routerStatus[1]["value"] = "100%";
             }
