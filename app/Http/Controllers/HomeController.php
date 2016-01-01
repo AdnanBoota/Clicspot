@@ -192,6 +192,12 @@ class HomeController extends Controller {
                     }
                 }
             }
+            if(empty($routerConnections)){
+                for($i=0;$i<count($Week);$i++){
+                    $routerConnections[$i][$Week[$i]['date']]=0;
+                }
+           
+            }
         } elseif ($type == "days") {
             $users->whereRaw("acctstarttime between date_sub(now(),INTERVAL 1 WEEK) and now()");
             $users->groupBy(DB::raw('DATE(`acctstarttime`)'));
