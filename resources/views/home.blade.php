@@ -70,7 +70,7 @@
         <div class="statisticsBg">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="box box-danger">
+                    <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">Router Status</h3>
                             <div class="box-tools pull-right">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="memberbox">
-                        <div class="box box-info">
+                        <div class="box box-primary">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Amount of connections</h3>
                                 <div class="box-tools pull-right">
@@ -156,7 +156,7 @@
                 </div><!--/.box -->
             </div>
             <div class="col-md-6">
-                <div class="box box-success">
+                <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Reviews</h3>
                         <div class="box-tools pull-right">
