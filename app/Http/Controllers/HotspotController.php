@@ -106,7 +106,8 @@ class HotspotController extends Controller {
         $this->validate($request, [
             'shortname' => 'required',
             'nasidentifier' => $nasRule,
-            'address' => 'required']
+            'address' => 'required',
+            "redirectUrl" => "required|url"]
         );
         $hotspot = new Hotspot($input);
         Auth::user()->hotspots()->save($hotspot);

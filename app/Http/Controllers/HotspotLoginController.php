@@ -1,21 +1,23 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Campaign;
 use App\Hotspot;
 use App\Http\Requests;
+use App\HotspotAttributes;
 use Request;
 use Session;
+use DB;
 
-class HotspotLoginController extends Controller
-{
+class HotspotLoginController extends Controller {
 
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index()
-    {
+    public function index() {
         $mac = Request::get('called');
         $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
         if ($hotspot) {
@@ -26,16 +28,26 @@ class HotspotLoginController extends Controller
                 return $this->display_success(Request::all(), $hotspot);
             }
         } else {
-            Session::put('mac',$mac);
+            Session::put('mac', $mac);
             return redirect('/hotspot/create');
         }
     }
 
-    public function login()
-    {
+    public function login() {
+        //     echo Session::get('uamip');
+        $mac = Session::get('mac');
+        $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
+        $hotspotAttr = HotspotAttributes::select(DB::raw('users.username,users.type,nas_attributes.nasid,nas_attributes.type,nas_attributes.attribute,nas_attributes.value'))
+                ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
+                ->join('users', 'nas_attributes.type', '=', 'users.type')
+                ->where('users.username', '=', Request::get('username'))
+                ->where('nas.id','=',$hotspot->id)
+                ->get();
+     
+        $redirectURL = $hotspot->redirectUrl;
         $username = Request::get('username');
         $password = 1;
-        return view('hotspotlogin.login', compact('username', 'password'));
+        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL','hotspotAttr'));
     }
 
     /**
@@ -43,18 +55,17 @@ class HotspotLoginController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function display_notyet($request, $hotspot)
-    {
+    public function display_notyet($request, $hotspot) {
         session(
-            [
-                'uamip' => $request['uamip'],
-                'uamport' => $request['uamport'],
-                'mac' => $request['mac'],
-                'challenge' => $request['challenge']
-            ]
+                [
+                    'uamip' => $request['uamip'],
+                    'uamport' => $request['uamport'],
+                    'mac' => $request['mac'],
+                    'challenge' => $request['challenge']
+                ]
         );
         $campaign = $hotspot->campaign;
-        return view('hotspotlogin.notyet', compact('request', 'hotspot','campaign'));
+        return view('hotspotlogin.notyet', compact('request', 'hotspot', 'campaign'));
     }
 
     /**
@@ -62,10 +73,8 @@ class HotspotLoginController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function display_success($request, $hotspot)
-    {
+    public function display_success($request, $hotspot) {
         return view('hotspotlogin.success', compact('request', 'hotspot'));
     }
-
 
 }

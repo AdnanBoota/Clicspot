@@ -48,148 +48,110 @@
                 </a>
             </div>
             <!-- /.login-logo -->
-  <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
-        <div class="welimg">
-            <img src="{{ asset("/img/welimg.png") }}">
-        </div>
-        @include('errors.flash')
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
+            <div class="login-box-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <div class="welimg">
+                    <img src="{{ asset("/img/welimg.png") }}">
+                </div>
+                @include('errors.flash')
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @if (session('registerError'))
-            <div class="alert alert-danger">
-                <strong>Whoops! </strong>{{session('registerError')}}
-            </div>
-        @endif
-        @if (session('registerSuccess'))
-            <div class="alert alert-success">
-                {{ session('registerSuccess')}}
-            </div>
-        @endif
-        @if (session('verifyError'))
-            <div class="alert alert-danger">
-                <strong>Whoops! </strong>{{session('verifyError')}}
-            </div>
-        @endif
-        @if (session('verifySuccess'))
-            <div class="alert alert-success">
-                {{ session('verifySuccess')}}
-            </div>
-        @endif
-        <form class="" role="form" method="POST" action="{{ url('/auth/login') }}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-            <div class="form-group has-feedback">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
-            </div>
-
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
-            </div>
-
-            <div class="row loginbtn">
-                <div class="col-xs-8 checkbtn">
-                    <input type="checkbox"/> Remember Me
+                        @endforeach
+                    </ul>
                 </div>
-                <!-- /.col -->
-                <div class="col-xs-12">
-                    <button class="btn btn-primary btn-block btn-flat" type="submit">Login</button>
+                @endif
+                @if (session('registerError'))
+                <div class="alert alert-danger">
+                    <strong>Whoops! </strong>{{session('registerError')}}
                 </div>
-                <!-- /.col -->
+                @endif
+                @if (session('registerSuccess'))
+                <div class="alert alert-success">
+                    {{ session('registerSuccess')}}
+                </div>
+                @endif
+                @if (session('verifyError'))
+                <div class="alert alert-danger">
+                    <strong>Whoops! </strong>{{session('verifyError')}}
+                </div>
+                @endif
+                @if (session('verifySuccess'))
+                <div class="alert alert-success">
+                    {{ session('verifySuccess')}}
+                </div>
+                @endif
+                <form class="" role="form" method="POST" action="{{ url('/auth/login') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="form-group has-feedback">
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="row loginbtn">
+                        <div class="col-xs-8 checkbtn">
+                            <input type="checkbox"/> Remember Me
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xs-12">
+                            <button class="btn btn-primary btn-block btn-flat" type="submit">Login</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <a class="btn btn-link frgbtn" href="{{ url('/password/email') }}">Lost your password?</a><br>
+                <p class="notaccount">Don't have an account? <a class="btn btn-link " href="{{ url('/auth/register') }}">Sign Up</a></p>
+
             </div>
-        </form>
-        <a class="btn btn-link frgbtn" href="{{ url('/password/email') }}">Lost your password?</a><br>
-        <p class="notaccount">Don't have an account? <a class="btn btn-link " href="{{ url('/auth/register') }}">Sign Up</a></p>
-
-    </div>
-            </div>
+        </div>
 
 
 
 
-            <!-- jQuery 2.1.3 -->
-            <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
-            <!-- jQuery UI 1.11.2 -->
-            <!--<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>-->
-            <script src="{{ asset('/js/jquery-ui.min.js') }}" type="text/javascript"></script>
-            <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-            <script>
-    $.widget.bridge('uibutton', $.ui.button);
-            </script>
-            <!-- Bootstrap 3.3.2 JS -->
-            <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-            <!-- Morris.js charts -->
-            <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
-            <script src="{{ asset('/js/raphael-min.js') }}"></script>
-            <script src="{{ asset('/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
-            <!-- Sparkline -->
-            <script src="{{ asset('/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
-            <!-- jvectormap -->
-            <script src="{{ asset('/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}" type="text/javascript"></script>
-            <!-- jQuery Knob Chart -->
-            <script src="{{ asset('/plugins/knob/jquery.knob.js') }}" type="text/javascript"></script>
-            <!-- daterangepicker -->
-            <script src="{{ asset('/plugins/daterangepicker/daterangepicker.js') }}" type="text/javascript"></script>
-            <!-- datepicker -->
-            <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
-            <!-- Bootstrap WYSIHTML5 -->
-            <script src="{{ asset('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"
-            type="text/javascript"></script>
-            <!-- iCheck -->
-            <script src="{{ asset('/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-            <!-- Slimscroll -->
-            <script src="{{ asset('/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-            <!-- FastClick -->
-            <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}"></script>
-            <!-- AdminLTE App -->
-            <script src="{{ asset('/dist/js/app.min.js') }}" type="text/javascript"></script>
-            <script type="text/javascript">
-    function countTimer() {
-        var counter = 6;
-        var interval = setInterval(function() {
-            counter--;
-            $(".countTimerClock").html(counter);
-            // Display 'counter' wherever you want to display it.
-            if (counter == 0) {
-                // Display a login box
-                window.location = "{url('/')}";
-                clearInterval(interval);
-
-            }
-        }, 1000);
-    }
-    $(document).ready(function() {
-        $(".submitLogin").on("click", function() {
-            jQuery.ajax({
-                url: '/auth/login',
-                type: 'post',
-                data: $('form').serialize(),
-                success: function(result) {
-                    //   var data=jQuery.parseJSON(result);
-                    if (result.success == "true") {
-                        $(".login-box").fadeOut("slow");
-                        $(".timerblock").fadeIn("slow");
-                        countTimer();
-                    } else {
-                        var errorMessage = result.success;
-                        $(".errorMessage").html(errorMessage);
-                        $(".hideMessage").show();
-                    }
-
-                }
-            });
-        })
-    });
-            </script>
+        <!-- jQuery 2.1.3 -->
+        <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
+        <!-- jQuery UI 1.11.2 -->
+        <!--<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>-->
+        <script src="{{ asset('/js/jquery-ui.min.js') }}" type="text/javascript"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+$.widget.bridge('uibutton', $.ui.button);
+        </script>
+        <!-- Bootstrap 3.3.2 JS -->
+        <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <!-- Morris.js charts -->
+        <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
+        <script src="{{ asset('/js/raphael-min.js') }}"></script>
+        <script src="{{ asset('/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
+        <!-- Sparkline -->
+        <script src="{{ asset('/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+        <!-- jvectormap -->
+        <script src="{{ asset('/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}" type="text/javascript"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="{{ asset('/plugins/knob/jquery.knob.js') }}" type="text/javascript"></script>
+        <!-- daterangepicker -->
+        <script src="{{ asset('/plugins/daterangepicker/daterangepicker.js') }}" type="text/javascript"></script>
+        <!-- datepicker -->
+        <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="{{ asset('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"
+        type="text/javascript"></script>
+        <!-- iCheck -->
+        <script src="{{ asset('/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+        <!-- Slimscroll -->
+        <script src="{{ asset('/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+        <!-- FastClick -->
+        <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{ asset('/dist/js/app.min.js') }}" type="text/javascript"></script>
     </body>
 </html>
 

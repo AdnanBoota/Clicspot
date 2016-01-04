@@ -17,8 +17,9 @@ CKEDITOR.editorConfig = function( config ) {
 //		{ name: 'styles' },//
 //		{ name: 'colors'},
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ]},//, 'cleanup'//
-		{ name: 'links' },
+//		{ name: 'links' },
 	];
+        
 	config.extraPlugins = 'sourcedialog';
 	
 

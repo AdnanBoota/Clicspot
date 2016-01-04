@@ -1,4 +1,4 @@
-
+$(function() {
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
             $("#dpmenu1 li").removeClass("active");
@@ -913,7 +913,6 @@
             stop: function(e, t) {
                 //   console.log($n.html());
                 ci(t);
-                console.log($n.html);
                 CKDM = $n.html();
                 $("#iframe div[rev]").ckeditor();
                 if (OptS == 1) {
@@ -2913,7 +2912,7 @@
         }, 50)
 
     }
-
+});
 if (top.location != location)
     top.location.href = location.href
 $(document).ready(function() {

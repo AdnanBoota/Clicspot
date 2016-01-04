@@ -7,7 +7,7 @@ class Hotspot extends Model
 
     protected $table = 'nas';
     public $timestamps = false;
-    protected $fillable = ['adminid', 'shortname', 'nasidentifier', 'campaignid', 'address', 'latitude', 'longitude'];
+    protected $fillable = ['adminid', 'shortname', 'nasidentifier', 'campaignid', 'address', 'latitude', 'longitude','redirectUrl'];
 
     /**
      * The attributes excluded from the model's JSON form.

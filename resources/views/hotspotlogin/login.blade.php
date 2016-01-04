@@ -1,15 +1,16 @@
-<?php //
-$uamsecret = "hotspot";
-
-$uamip = Session::get('uamip');
-$uamport = Session::get('uamport');
-$challenge = Session::get('challenge');
-
-
-$hexchal = pack("H32", $challenge);
-$newchal = $uamsecret ? pack("H*", md5($hexchal . $uamsecret)) : $hexchal;
-$newpwd = pack("a32", $password);
-$pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
+<?php
+//
+//$uamsecret = "hotspot";
+//
+//$uamip = Session::get('uamip');
+//$uamport = Session::get('uamport');
+//$challenge = Session::get('challenge');
+//
+//
+//$hexchal = pack("H32", $challenge);
+//$newchal = $uamsecret ? pack("H*", md5($hexchal . $uamsecret)) : $hexchal;
+//$newpwd = pack("a32", $password);
+//$pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -18,7 +19,7 @@ $pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
         <meta http-equiv="Cache-control" content="no-cache">
         <meta http-equiv="Pragma" content="no-cache">
 
-        <meta http-equiv="refresh" content="0;url=http://{{$uamip}}:{{$uamport}}/logon?username={{$username}}&password={{$pappassword}}">
+
         <link href="{{ asset('/css/loginnew.css') }}" rel="stylesheet" type="text/css"/>      
     </head>
     <body>
@@ -28,37 +29,48 @@ $pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
             </div>
             <h1>Your location offer you today</h1>
             <div class="timerdtl">
+                @foreach ($hotspotAttr as $hotspot)
+                @if ($hotspot->attribute=="Session-Timeout")
                 <div class="timercmn timerdtllft">
                     <img src="{{ asset("/img/locimg1.png") }}">
-                    <span>2 hours</span>
+
+                    <span>{{gmdate("H",$hotspot->value)}} Hours</span>
+
                 </div>
+                @endif
+                @endforeach
+                @foreach ($hotspotAttr as $hotspot)
+                @if ($hotspot->attribute=="ChilliSpot-Bandwidth-Max-Up")
+
                 <div class="timercmn timerdtlrgt">
                     <img src="{{ asset("/img/locimg2.png") }}">
-                    <span>5 Mpbs</span>
+                    <span>{{$hotspot->value/1024}} Mpbs</span>
                 </div>
+                @endif
+                @endforeach
             </div>
 
-            <h1>You will be redirected in. . .<span class="countTimerClock"></span></h1>
+            <h1>You will be redirected in. . .<span class="countTimerClock">5</span></h1>
         </div>
-    <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
+        <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
         <script type="text/javascript">
-            function countTimer() {
-                var counter = 6;
-                var interval = setInterval(function() {
-                    counter--;
-                    $(".countTimerClock").html(counter);
-                    // Display 'counter' wherever you want to display it.
-                    if (counter == 0) {
-                        // Display a login box
-                    //    window.location = "{url('/')}";
-                        clearInterval(interval);
+function countTimer() {
+    var counter = 5;
+    var interval = setInterval(function() {
+        counter--;
+        $(".countTimerClock").html(counter);
+        // Display 'counter' wherever you want to display it.
+        if (counter == 0) {
+            // Display a login box
+            window.location.href = "{{$redirectURL}}";
+            clearInterval(interval);
 
-                    }
-                }, 1000);
-            }
-            $(document).ready(function() {
-
-            });
+        }
+    }, 1000);
+}
+$(document).ready(function() {
+countTimer();
+});
         </script>
     </body>
 </html>

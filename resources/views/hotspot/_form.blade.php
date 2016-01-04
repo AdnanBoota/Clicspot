@@ -27,6 +27,12 @@
         {!!  Form::text('address', null, array('id'=>'address','class'=>'form-control','required'=>'true')) !!}
     </div>
 </div>
+<div class="form-group">
+    {!! Form::label('redirectUrl', 'Redirect Location', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!!  Form::text('redirectUrl', null, array('id'=>'redirectUrl','class'=>'form-control','required'=>'true')) !!}
+    </div>
+</div>
 
 <!--<div class="form-group">
     {!! Form::label('map_canvas', 'Map', array('class' => 'col-sm-2 control-label')) !!}
