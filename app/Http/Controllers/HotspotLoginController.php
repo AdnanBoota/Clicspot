@@ -41,13 +41,18 @@ class HotspotLoginController extends Controller {
                 ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
                 ->join('users', 'nas_attributes.type', '=', 'users.type')
                 ->where('users.username', '=', Request::get('username'))
-                ->where('nas.id','=',$hotspot->id)
+                ->where('nas.id', '=', $hotspot->id)
                 ->get();
-     
-        $redirectURL = $hotspot->redirectUrl;
+
+        if ($hotspot->redirectUrl && $hotspot->redirectUrl != "") {
+            $redirectURL = $hotspot->redirectUrl;
+        } else {
+            $redirectURL = "https://www.google.co.in";
+        }
+
         $username = Request::get('username');
         $password = 1;
-        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL','hotspotAttr'));
+        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
     }
 
     /**
