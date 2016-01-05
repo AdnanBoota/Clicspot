@@ -49,7 +49,9 @@
                 @endif
                 @endforeach
             </div>
-
+            @if(empty($hotspotAttr))
+            <h1>You need to create the hostpost for more information</h1>
+            @endif
             <h1>You will be redirected in. . .<span class="countTimerClock">5</span></h1>
         </div>
         <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>

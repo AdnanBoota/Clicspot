@@ -34,22 +34,25 @@ class HotspotLoginController extends Controller {
     }
 
     public function login() {
-        //     echo Session::get('uamip');
+        //  echo Session::get('mac');
         $mac = Session::get('mac');
         $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
-        $hotspotAttr = HotspotAttributes::select(DB::raw('users.username,users.type,nas_attributes.nasid,nas_attributes.type,nas_attributes.attribute,nas_attributes.value'))
-                ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
-                ->join('users', 'nas_attributes.type', '=', 'users.type')
-                ->where('users.username', '=', Request::get('username'))
-                ->where('nas.id', '=', $hotspot->id)
-                ->get();
+        $hotspotAttr=array();
+        $redirectURL="https://www.google.com";
+        if ($hotspot) {
+            $hotspotAttr = HotspotAttributes::select(DB::raw('users.username,users.type,nas_attributes.nasid,nas_attributes.type,nas_attributes.attribute,nas_attributes.value'))
+                    ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
+                    ->join('users', 'nas_attributes.type', '=', 'users.type')
+                    ->where('users.username', '=', Request::get('username'))
+                    ->where('nas.id', '=', $hotspot->id)
+                    ->get();
 
-        if ($hotspot->redirectUrl && $hotspot->redirectUrl != "") {
-            $redirectURL = $hotspot->redirectUrl;
-        } else {
-            $redirectURL = "https://www.google.co.in";
+            if ($hotspot->redirectUrl && $hotspot->redirectUrl != "") {
+                $redirectURL = $hotspot->redirectUrl;
+            } else {
+                $redirectURL = "https://www.google.com";
+            }
         }
-
         $username = Request::get('username');
         $password = 1;
         return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
