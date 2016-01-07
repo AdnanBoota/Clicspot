@@ -10,11 +10,11 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use GoCardless;
 use Mail;
 use Session;
 
-class AuthController extends Controller
-{
+class AuthController extends Controller {
     /*
       |--------------------------------------------------------------------------
       | Registration & Login Controller
@@ -26,7 +26,7 @@ class AuthController extends Controller
       |
      */
 
-    use AuthenticatesAndRegistersUsers;
+use AuthenticatesAndRegistersUsers;
 
     /**
      * Create a new authentication controller instance.
@@ -35,8 +35,7 @@ class AuthController extends Controller
      * @param  \Illuminate\Contracts\Auth\Registrar $registrar
      * @return void
      */
-    public function __construct(Guard $auth, Registrar $registrar)
-    {
+    public function __construct(Guard $auth, Registrar $registrar) {
         $this->auth = $auth;
         $this->registrar = $registrar;
 
@@ -48,8 +47,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getRegister()
-    {
+    public function getRegister() {
         return view('auth.register');
     }
 
@@ -59,20 +57,20 @@ class AuthController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function postRegister(Request $request)
-    {
-        $this->validate($request,
-            [
-                'username' => 'required|unique:admin_user',
-                'businessname' => 'required',
-                'email' => 'required|email|unique:admin_user',
-                'password' => 'required|confirmed',
-                //'password_confirmation' => 'required|same:password',
-                'phone' => 'required',
-                'address' => 'required',
-                'city' => 'required',
-                'zip' => 'required',
-                'country' => 'required']
+    public function postRegister(Request $request) {
+
+
+        $this->validate($request, [
+            'username' => 'required|unique:admin_user',
+            'businessname' => 'required',
+            'email' => 'required|email|unique:admin_user',
+            'password' => 'required|confirmed',
+            //'password_confirmation' => 'required|same:password',
+            'phone' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'zip' => 'required',
+            'country' => 'required']
         );
         $formFields = Input::all();
 
@@ -112,8 +110,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getLogin()
-    {
+    public function getLogin() {
         return view('auth.login');
     }
 
@@ -123,31 +120,29 @@ class AuthController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function postLogin(Request $request)
-    {
-     
+    public function postLogin(Request $request) {
+
         $this->validate($request, [
             'email' => 'required|email', 'password' => 'required',
         ]);
-           $credentials = $request->only('email', 'password');
-      
+        $credentials = $request->only('email', 'password');
+
         $credentials = $request->only('email', 'password');
         $credentials['isemailconfirmed'] = 1;
         $credentials['isactivated'] = 1;
         //return json_encode($credentials);
         if ($this->auth->attempt($credentials, $request->has('remember'))) {
-          return redirect()->intended($this->redirectPath());
-       }
-     
+            return redirect()->intended($this->redirectPath());
+        }
+
         return redirect($this->loginPath())
-            ->withInput($request->only('email', 'remember'))
-            ->withErrors([
-                'email' => $this->getFailedLoginMessage(),
-            ]);
+                        ->withInput($request->only('email', 'remember'))
+                        ->withErrors([
+                            'email' => $this->getFailedLoginMessage(),
+        ]);
     }
 
-    public function verify($confirmation_code)
-    {
+    public function verify($confirmation_code) {
         $valid = "true";
         if (!$confirmation_code) {
             $valid = "verifyError";
@@ -170,13 +165,57 @@ class AuthController extends Controller
             $msg = "There is a Problem in verifying Your Account .";
         return redirect($this->loginPath())->with($valid, $msg);
     }
-    
-    public function getLogout()
-	{
-        Session::flush('listId');
-		$this->auth->logout();
 
-		return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
-	}
+    public function getLogout() {
+        Session::flush('listId');
+        $this->auth->logout();
+
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+    }
+
+    public function goCardlessDemo(Request $request) {
+
+        $account_details = array(
+            'app_id' => "5SJ55WHN3JFTKBHA4PG682K71EQGRVR1J0Y2SV5FDW7Z929AAR3AFPXM595F74PN",
+            'app_secret' => "F23GVSVSMB5HFW4CTPDX8644MDRN16R85DYFSWDP7FJAW32TJXNQ2ACSJ57XNFM8",
+            'merchant_id' => "12BP5Z9GEW",
+            'access_token' => "SWAY299T209S0FW04DN755GSSXCR5YK586W6YMN9QXYT4H1EH6TBPFB1E0T1B065"
+        );
+        \GoCardless::set_account_details($account_details);
+
+        if (isset($_GET['resource_id']) && isset($_GET['resource_type'])) {
+            $confirm_params = array(
+                'resource_id' => $_GET['resource_id'],
+                'resource_type' => $_GET['resource_type'],
+                'resource_uri' => $_GET['resource_uri'],
+                'signature' => $_GET['signature']
+            );
+          
+// State is optional
+            if (isset($_GET['state'])) {
+                $confirm_params['state'] = $_GET['state'];
+            }
+              echo '<pre>';
+            print_r($confirm_params);
+           
+            $confirmed_resource =  \GoCardless::confirm_resource($confirm_params);
+        }
+
+        $payment_details = array(
+            'max_amount' => '100.00',
+            'interval_length' => 12,
+            'interval_unit' => 'month',
+            'user' => array(
+                'first_name' => 'jay',
+                'last_name' => 'bhupatani',
+                'email' => 'jay@logisticinfotech.com',
+                'address_line1' => 'rajkot',
+                'address_line1' => 'rajkot',
+                'city' => 'rajkot',
+            )
+        );
+        $pre_auth_url = \GoCardless::new_pre_authorization_url($payment_details);
+        return redirect($pre_auth_url);
+    }
 
 }

@@ -1,5 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
 
+namespace App\Http\Controllers;
 
 use App\Campaign;
 use App\CampaignAttributes;
@@ -12,16 +13,14 @@ use Response;
 use Session;
 use yajra\Datatables\Datatables;
 
-class CampaignController extends Controller
-{
+class CampaignController extends Controller {
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
         View::share('projectTitle', 'ClicSpot');
     }
@@ -31,8 +30,7 @@ class CampaignController extends Controller
      *
      * @return Response
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         if ($request->ajax()) {
             if (Auth::user()->type == 'superadmin') {
                 $campaign = Campaign::all();
@@ -40,16 +38,16 @@ class CampaignController extends Controller
                 $campaign = Auth::user()->campaigns()->select(['id', 'name', 'backgroundimage', 'logoimage', 'fontcolor']);
             }
             return Datatables::of($campaign)
-                ->editColumn('backgroundimage', '<img src="uploads/campaign/{{$backgroundimage}}" height="150" width="300" />')
-                ->editColumn('logoimage', '<img src="uploads/campaign/{{$logoimage}}" height="75" width="150" />')
-                ->editColumn('fontcolor', '<span class="btn btn-default"><i class="fa fa-font" style="color: {{$fontcolor}}"></i></span> {{$fontcolor}}')
-                ->addColumn('edit', function ($campaign) {
-                    return '<a href="' . url("campaign/{$campaign->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
-                })
-                ->addColumn('delete', function ($campaign) {
-                    return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $campaign->id . '><i class="glyphicon glyphicon-trash"></i></a>';
-                })
-                ->make(true);
+                            ->editColumn('backgroundimage', '<img src="uploads/campaign/{{$backgroundimage}}" height="150" width="300" />')
+                            ->editColumn('logoimage', '<img src="uploads/campaign/{{$logoimage}}" height="75" width="150" />')
+                            ->editColumn('fontcolor', '<span class="btn btn-default"><i class="fa fa-font" style="color: {{$fontcolor}}"></i></span> {{$fontcolor}}')
+                            ->addColumn('edit', function ($campaign) {
+                                return '<a href="' . url("campaign/{$campaign->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
+                            })
+                            ->addColumn('delete', function ($campaign) {
+                                return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $campaign->id . '><i class="glyphicon glyphicon-trash"></i></a>';
+                            })
+                            ->make(true);
         } else {
             return view('campaign.index');
         }
@@ -60,14 +58,13 @@ class CampaignController extends Controller
      *
      * @return Response
      */
-    public function create()
-    {
+    public function create() {
         //return View::make('campaign.create');
         $images = array();
         $directory = 'uploads/gallery';
         $files = File::files($directory);
         foreach ($files as $file) {
-            $images[] = "/" . (string)$file;
+            $images[] = "/" . (string) $file;
         }
         $directory = 'uploads/gallery/' . Auth::user()->id;
         if (!File::exists($directory)) {
@@ -75,22 +72,20 @@ class CampaignController extends Controller
         } else {
             $files = File::files($directory);
             foreach ($files as $file) {
-                $images[] = "/" . (string)$file;
+                $images[] = "/" . (string) $file;
             }
         }
         return View::make('campaign.create', compact('images'));
     }
-
 
     /**
      * Store a newly created resource in storage.
      *
      * @return Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
 
-        $input = $request->only('name', 'fontcolor', 'description','logoposition','backgroundzoom');
+        $input = $request->only('name', 'fontcolor', 'description', 'logoposition', 'backgroundzoom');
         $bgfileName = "";
         if ($request->input('backgroundimage')) {
 //            $bgdestinationPath = 'uploads/campaign'; // upload path
@@ -116,10 +111,9 @@ class CampaignController extends Controller
             File::copy(ltrim($request->input('logoimage'), '/'), $logodestinationPath . '/' . $logofileName);
         }
 
-        $this->validate($request,
-            [
-                'name' => 'required',
-                'fontcolor' => 'required']
+        $this->validate($request, [
+            'name' => 'required',
+            'fontcolor' => 'required']
         );
 
         $input['backgroundimage'] = $bgfileName;
@@ -137,8 +131,7 @@ class CampaignController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -148,8 +141,7 @@ class CampaignController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $campaign = Campaign::findOrFail($id);
         $attributes = $campaign->campaignAttributes;
         foreach ($attributes as $key => $value) {
@@ -159,7 +151,7 @@ class CampaignController extends Controller
         $directory = 'uploads/gallery';
         $files = File::files($directory);
         foreach ($files as $file) {
-            $images[] = "/" . (string)$file;
+            $images[] = "/" . (string) $file;
         }
         $directory = 'uploads/gallery/' . Auth::user()->id;
         if (!File::exists($directory)) {
@@ -167,7 +159,7 @@ class CampaignController extends Controller
         } else {
             $files = File::files($directory);
             foreach ($files as $file) {
-                $images[] = "/" . (string)$file;
+                $images[] = "/" . (string) $file;
             }
         }
 
@@ -180,15 +172,14 @@ class CampaignController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id, Request $request)
-    {
+    public function update($id, Request $request) {
         if (Auth::user()->type == 'superadmin') {
             $campaign = Campaign::findOrFail($id);
         } else {
             $campaign = Auth::user()->campaigns()->findOrFail($id);
         }
 
-        $input = $request->only('name', 'fontcolor', 'description','logoposition','backgroundzoom');
+        $input = $request->only('name', 'fontcolor', 'description', 'logoposition', 'backgroundzoom');
         //dd($request->input('description'));
         $bgfileName = $request->input('oldbackgroundimage');
         if ($request->input('oldbackgroundimage') != $request->input('backgroundimage')) {
@@ -201,7 +192,6 @@ class CampaignController extends Controller
             if (File::exists($bgdestinationPath . '/' . $request->input('oldbackgroundimage'))) {
                 File::delete($bgdestinationPath . '/' . $request->input('oldbackgroundimage'));
             }
-
         }
 
         $logofileName = $request->input('oldlogoimage');
@@ -216,13 +206,11 @@ class CampaignController extends Controller
             if (File::exists($logodestinationPath . '/' . $request->input('oldlogoimage'))) {
                 File::delete($logodestinationPath . '/' . $request->input('oldlogoimage'));
             }
-
         }
-        $this->validate($request,
-            [
-                'name' => 'required',
-                'fontcolor' => 'required'
-            ]
+        $this->validate($request, [
+            'name' => 'required',
+            'fontcolor' => 'required'
+                ]
         );
         $input['backgroundimage'] = $bgfileName;
         $input['logoimage'] = $logofileName;
@@ -239,8 +227,7 @@ class CampaignController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $campaign = Campaign::find($id);
         $res = $campaign->delete();
         if ($res) {
@@ -251,18 +238,16 @@ class CampaignController extends Controller
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-            'success' => $success,
-            'message' => $msg,
+                    'success' => $success,
+                    'message' => $msg,
         ));
     }
 
-    public function datatable()
-    {
+    public function datatable() {
         return "";
     }
 
-    public function gallery()
-    {
+    public function gallery() {
         $images = array();
         $directory = 'uploads/gallery/' . Auth::user()->id;
         if (!File::exists($directory)) {
@@ -270,20 +255,18 @@ class CampaignController extends Controller
         } else {
             $files = File::files($directory);
             foreach ($files as $file) {
-                $images[] = (string)$file;
+                $images[] = (string) $file;
             }
         }
 
         return View::make('campaign.galleryList', compact('images'));
     }
 
-    public function addgallery()
-    {
+    public function addgallery() {
         return View::make('campaign.gallery');
     }
 
-    public function galleryFileUpload(Request $request)
-    {
+    public function galleryFileUpload(Request $request) {
         if ($request->ajax()) {
             if (Input::hasFile('upl')) {
                 $gallerydestinationPath = 'uploads/gallery/' . Auth::user()->id;
@@ -293,13 +276,12 @@ class CampaignController extends Controller
                 $gextension = Input::file('upl')->getClientOriginalExtension(); // getting image extension
                 $gfileName = md5(time()) . rand(11111, 99999) . '.' . $gextension; // renameing image
                 Input::file('upl')->move($gallerydestinationPath, $gfileName); // uploading file to given path
-                return Response::json(array('success' => true,'filePath'=>"/".$gallerydestinationPath.'/'.$gfileName));
+                return Response::json(array('success' => true, 'filePath' => "/" . $gallerydestinationPath . '/' . $gfileName));
             }
         }
     }
 
-    public function deleteImage(Request $request)
-    {
+    public function deleteImage(Request $request) {
 
         if ($request->input('imagePath')) {
             if (File::exists($request->input('imagePath'))) {
@@ -315,9 +297,10 @@ class CampaignController extends Controller
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-            'success' => $success,
-            'message' => $msg,
+                    'success' => $success,
+                    'message' => $msg,
         ));
     }
+
 
 }

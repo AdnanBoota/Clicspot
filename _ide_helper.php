@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.33 on 2015-09-11.
+ * Generated for Laravel 5.0.34 on 2016-01-07.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12412,6 +12412,17 @@ namespace {
     class Facebook extends \SammyK\LaravelFacebookSdk\FacebookFacade{
         
         /**
+         * 
+         *
+         * @param array $config
+         * @return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk 
+         * @static 
+         */
+        public static function newInstance($config){
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::newInstance($config);
+        }
+        
+        /**
          * Generate an OAuth 2.0 authorization URL for authentication.
          *
          * @param array $scope
@@ -12758,6 +12769,110 @@ namespace {
             return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::videoToUpload($pathToFile);
         }
         
+        /**
+         * Upload a video in chunks.
+         *
+         * @param int $target The id of the target node before the /videos edge.
+         * @param string $pathToFile The full path to the file.
+         * @param array $metadata The metadata associated with the video file.
+         * @param string|null $accessToken The access token.
+         * @param int $maxTransferTries The max times to retry a failed upload chunk.
+         * @param string|null $graphVersion The Graph API version to use.
+         * @return array 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function uploadVideo($target, $pathToFile, $metadata = array(), $accessToken = null, $maxTransferTries = 5, $graphVersion = null){
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::uploadVideo($target, $pathToFile, $metadata, $accessToken, $maxTransferTries, $graphVersion);
+        }
+        
+    }
+
+
+    class Socialize extends \Laravel\Socialite\Facades\Socialite{
+        
+        /**
+         * Get a driver instance.
+         *
+         * @param string $driver
+         * @return mixed 
+         * @static 
+         */
+        public static function with($driver){
+            return \Laravel\Socialite\SocialiteManager::with($driver);
+        }
+        
+        /**
+         * Build an OAuth 2 provider instance.
+         *
+         * @param string $provider
+         * @param array $config
+         * @return \Laravel\Socialite\Two\AbstractProvider 
+         * @static 
+         */
+        public static function buildProvider($provider, $config){
+            return \Laravel\Socialite\SocialiteManager::buildProvider($provider, $config);
+        }
+        
+        /**
+         * Format the Twitter server configuration.
+         *
+         * @param array $config
+         * @return array 
+         * @static 
+         */
+        public static function formatConfig($config){
+            return \Laravel\Socialite\SocialiteManager::formatConfig($config);
+        }
+        
+        /**
+         * Get the default driver name.
+         *
+         * @throws \InvalidArgumentException
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultDriver(){
+            return \Laravel\Socialite\SocialiteManager::getDefaultDriver();
+        }
+        
+        /**
+         * Get a driver instance.
+         *
+         * @param string $driver
+         * @return mixed 
+         * @static 
+         */
+        public static function driver($driver = null){
+            //Method inherited from \Illuminate\Support\Manager            
+            return \Laravel\Socialite\SocialiteManager::driver($driver);
+        }
+        
+        /**
+         * Register a custom driver creator Closure.
+         *
+         * @param string $driver
+         * @param \Closure $callback
+         * @return $this 
+         * @static 
+         */
+        public static function extend($driver, $callback){
+            //Method inherited from \Illuminate\Support\Manager            
+            return \Laravel\Socialite\SocialiteManager::extend($driver, $callback);
+        }
+        
+        /**
+         * Get all of the created "drivers".
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getDrivers(){
+            //Method inherited from \Illuminate\Support\Manager            
+            return \Laravel\Socialite\SocialiteManager::getDrivers();
+        }
+        
     }
 
 
@@ -12779,6 +12894,15 @@ namespace {
          */
         public static function process($input_file, $output_file = false, $format = array(), $parameters = array(), $db_connection = array(), $background = true, $redirect_output = true){
             return \JasperPHP\JasperPHP::process($input_file, $output_file, $format, $parameters, $db_connection, $background, $redirect_output);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function list_parameters($input_file){
+            return \JasperPHP\JasperPHP::list_parameters($input_file);
         }
         
         /**
