@@ -15,7 +15,8 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::post("/routerConnections",'HomeController@routerConnections');
 Route::post("/routerStatus","HomeController@routerStatus");
-Route::get("/gocardlessDemo","Auth\AuthController@goCardlessDemo");
+Route::get("/gocardlessDemo","Auth\AuthController@goCardlessPayment");
+Route::get("/createBill","Auth\AuthController@createBill");
 //Start::API/v1/ar71xx
 Route::group(array('prefix' => 'api/v1/ar71xx'), function () {
     Route::get('/', 'RouterControllerAR71XX@index');

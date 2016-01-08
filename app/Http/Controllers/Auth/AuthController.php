@@ -48,6 +48,7 @@ use AuthenticatesAndRegistersUsers;
      * @return \Illuminate\Http\Response
      */
     public function getRegister() {
+
         return view('auth.register');
     }
 
@@ -65,44 +66,24 @@ use AuthenticatesAndRegistersUsers;
             'businessname' => 'required',
             'email' => 'required|email|unique:admin_user',
             'password' => 'required|confirmed',
-            //'password_confirmation' => 'required|same:password',
+            'password_confirmation' => 'required|same:password',
             'phone' => 'required',
             'address' => 'required',
             'city' => 'required',
             'zip' => 'required',
-            'country' => 'required']
+            'country' => 'required',
+            'siren'=>'required',
+            'nvat'=>'required'
+            ]
         );
         $formFields = Input::all();
-
-        $user = new User();
-        $confirmationCode = str_random(60);
-        $user->confirmationcode = $confirmationCode;
-        $user->username = $formFields["username"];
-        $user->password = Hash::make($formFields["password"]);
-        $user->email = $formFields["email"];
-        $user->businessname = $formFields["businessname"];
-        $user->address = $formFields["address"];
-        $user->city = $formFields["city"];
-        $user->zip = $formFields["zip"];
-        $user->country = $formFields["country"];
-        $user->phone = $formFields["phone"];
-        if ($user->save()) {
-            $valid = "registerSuccess";
-            $email = $formFields["email"];
-            $firstName = $formFields["businessname"];
-            Mail::send('emails.activationTemplate', array('confirmationCode' => $confirmationCode), function ($message) use ($email, $firstName) {
-                $message->to($email, $firstName);
-                $message->from('activation@clicspot.com', 'Clicspot');
-                $message->subject('Thank you for registering for Clicspot! Please confirm your email');
-            });
-        } else {
-            $valid = "registerError";
-        }
-        if ($valid == "registerSuccess")
-            $msg = "Your Account is Registered Successfully.";
-        else
-            $msg = "There is a Problem in Register Your Account .";
-        return redirect($this->loginPath())->with($valid, $msg);
+        session(
+                [
+                    'formFields' => $formFields
+                ]
+        );
+        $paBill = url("/") . "/gocardlessDemo";
+        return redirect($paBill);
     }
 
     /**
@@ -173,32 +154,36 @@ use AuthenticatesAndRegistersUsers;
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 
-    public function goCardlessDemo(Request $request) {
+    public function goCardlessPayment(request $request) {
 
+        $formValue = Session::get('formFields');
         $account_details = array(
             'app_id' => "5SJ55WHN3JFTKBHA4PG682K71EQGRVR1J0Y2SV5FDW7Z929AAR3AFPXM595F74PN",
-            'app_secret' => "F23GVSVSMB5HFW4CTPDX8644MDRN16R85DYFSWDP7FJAW32TJXNQ2ACSJ57XNFM8",
+            'app_secret' => "5PDQFQESW198M4B33FYTF3CAF4K9JS7V2EZ0NYGF2M9ECC00YNYQ0BCAFB7Q9BC3",
             'merchant_id' => "12BP5Z9GEW",
             'access_token' => "SWAY299T209S0FW04DN755GSSXCR5YK586W6YMN9QXYT4H1EH6TBPFB1E0T1B065"
         );
         \GoCardless::set_account_details($account_details);
 
         if (isset($_GET['resource_id']) && isset($_GET['resource_type'])) {
+            session([
+                'resource_id' => $_GET['resource_id']
+            ]);
             $confirm_params = array(
                 'resource_id' => $_GET['resource_id'],
                 'resource_type' => $_GET['resource_type'],
                 'resource_uri' => $_GET['resource_uri'],
                 'signature' => $_GET['signature']
             );
-          
+
 // State is optional
             if (isset($_GET['state'])) {
                 $confirm_params['state'] = $_GET['state'];
             }
-              echo '<pre>';
-            print_r($confirm_params);
-           
-            $confirmed_resource =  \GoCardless::confirm_resource($confirm_params);
+            $confirmed_resource = \GoCardless::confirm_resource($confirm_params);
+            $this->registerGoCartUser($confirm_params);
+            $paBill = url("/") . "/auth/login";
+            return redirect($paBill);
         }
 
         $payment_details = array(
@@ -206,16 +191,70 @@ use AuthenticatesAndRegistersUsers;
             'interval_length' => 12,
             'interval_unit' => 'month',
             'user' => array(
-                'first_name' => 'jay',
-                'last_name' => 'bhupatani',
-                'email' => 'jay@logisticinfotech.com',
-                'address_line1' => 'rajkot',
-                'address_line1' => 'rajkot',
-                'city' => 'rajkot',
+                'first_name' => $formValue['username'],
+                'last_name' => $formValue['username'],
+                'email' => $formValue['email'],
+                'address_line1' => $formValue['address'],
+                'city' => $formValue['city'],
+                'postal_code' => $formValue['zip'],
             )
         );
+
         $pre_auth_url = \GoCardless::new_pre_authorization_url($payment_details);
         return redirect($pre_auth_url);
+    }
+
+    public function createBill() {
+        $pre_auth = \GoCardless_PreAuthorization::find($_GET['resource_id']);
+        $bill_details = array(
+            'name' => 'asdasd tras',
+            'amount' => '15.00',
+            'charge_customer_at' => '2016-01-08'
+        );
+
+        $bill = $pre_auth->create_bill($bill_details);
+    }
+
+    public function registerGoCartUser($param) {
+        $formFields = Session::get('formFields');
+        $user = new User();
+        $confirmationCode = str_random(60);
+        $user->confirmationcode = $confirmationCode;
+        $user->username = $formFields["username"];
+        $user->password = Hash::make($formFields["password"]);
+        $user->email = $formFields["email"];
+        $user->businessname = $formFields["businessname"];
+        $user->address = $formFields["address"];
+        $user->city = $formFields["city"];
+        $user->zip = $formFields["zip"];
+        $user->country = $formFields["country"];
+        $user->phone = $formFields["phone"];
+        $user->siren = $formFields["siren"];
+        $user->nvat = $formFields["nvat"];
+        $user->resourceid =Session::get('resource_id');
+        if ($user->save()) {
+            $valid = "registerSuccess";
+            $email = $formFields["email"];
+            $firstName = $formFields["businessname"];
+            Mail::send('emails.activationTemplate', array('confirmationCode' => $confirmationCode), function ($message) use ($email, $firstName) {
+                $message->to($email, $firstName);
+                $message->from('activation@clicspot.com', 'Clicspot');
+                $message->subject('Thank you for registering for Clicspot! Please confirm your email');
+            });
+        } else {
+            $valid = "registerError";
+        }
+        //  echo $valid;exit;
+        if ($valid == "registerSuccess")
+            $msg = "Your Account is Registered Successfully.";
+        else
+            $msg = "There is a Problem in Register Your Account .";
+
+        session([
+            'registerSuccess' => $msg
+        ]);
+
+        //  return redirect($this->loginPath())->with($valid, $msg);
     }
 
 }
