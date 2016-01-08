@@ -72,15 +72,15 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="formrow">
                             <label>Email :</label>
-                            <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>Password :</label>
-                            <input type="password" name="password"  id="password" class="form-control" placeholder="Password">
+                            <input type="password" name="password"  id="password" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>Retype Password :</label>
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Retype password">
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                         </div>
 
                         <a href="javascript:void(0)" id="step2">GO TO STEP 2</a>
@@ -89,39 +89,39 @@
 
                         <div class="formrow">
                             <label>Full Name :</label>
-                            <input type="text" name="username" id="username" value="{{ old('username') }}" class="form-control" placeholder="User Name">
+                            <input type="text" name="username" id="username" value="{{ old('username') }}" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>Buisness Name :</label>
-                            <input type="text" name="businessname" id="businessname" value="{{ old('businessname') }}" class="form-control" placeholder="Business Name">
+                            <input type="text" name="businessname" id="businessname" value="{{ old('businessname') }}" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>Adress :</label>
-                            <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control" placeholder="Adress">
+                            <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>City  :</label>
-                            <input type="text" name="city" value="{{ old('city') }}" id="city" class="form-control" placeholder="City">
+                            <input type="text" name="city" value="{{ old('city') }}" id="city" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>Zip code :</label>
-                            <input type="text" name="zip" value="{{ old('zip') }}" id="zip" class="form-control" placeholder="zip">
+                            <input type="text" name="zip" value="{{ old('zip') }}" id="zip" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>Country :</label>
-                            <input type="text" name="country" value="{{ old('country') }}" id="country" class="form-control" placeholder="Country">
+                            <input type="text" name="country" value="{{ old('country') }}" id="country" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>Phone Number :</label>
-                            <input type="text" name="phone" value="{{ old('phone') }}" id="phone" class="form-control" placeholder="Phone Number">
+                            <input type="text" name="phone" value="{{ old('phone') }}" id="phone" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>SIREN :</label>
-                            <input type="text" name="siren" value="{{ old('siren') }}" id="siren" class="form-control" placeholder="SIREN">
+                            <input type="text" name="siren" value="{{ old('siren') }}" id="siren" class="form-control">
                         </div>
                         <div class="formrow">
                             <label>N°VAT  :</label>
-                            <input type="nvat" name="nvat" value="{{ old('nvat') }}" id="nvat" class="form-control" placeholder="N°VAT">
+                            <input type="nvat" name="nvat" value="{{ old('nvat') }}" id="nvat" class="form-control">
                         </div>
 
                         <a href="javascript:void(0)" id="step3">GO TO STEP 3</a>
