@@ -209,7 +209,7 @@ $(document).ready(function() {
             "password": "required",
             "password_confirmation": {
                 "required": true,
-                "equalto": "#password",
+                "equalTo": "#password",
             },
             "email": {
                 "required": true,
