@@ -130,7 +130,7 @@
                                 You will need your IBAN information.</p>
                             <button type="submit" class="btn btn-primary btn-block btn-flat">GO TO GoCardLess</button>
                           <!--<input type="submit" id="submit" name="submit" value="GO TO GoCardLess">;-->
-                            <span>By signing up you agree to our <a href="#">terms &amp; conditions</a></span>
+                            <span>By signing up you agree to our <a href="javascript:void(0)">terms &amp; conditions</a></span>
                         </div>
                     </div>
                 </form>
