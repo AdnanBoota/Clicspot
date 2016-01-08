@@ -184,13 +184,13 @@ $.widget.bridge('uibutton', $.ui.button);
 $(document).ready(function() {
     $("#step2").click(function() {
 
-        // if (validator.element('#email') && validator.element('#password') && validator.element('#password_confirmation')) {
-        $(".setupstep").find(".activestep").removeClass("activestep");
-        $(".setupstep").find(".second").addClass("active activestep");
-        $('html, body').animate({
-            scrollTop: $("#formstep2").offset().top
-        }, 2000);
-        //}
+        if (validator.element('#email') && validator.element('#password') && validator.element('#password_confirmation')) {
+            $(".setupstep").find(".activestep").removeClass("activestep");
+            $(".setupstep").find(".second").addClass("active activestep");
+            $('html, body').animate({
+                scrollTop: $("#formstep2").offset().top
+            }, 2000);
+        }
     });
     $("#step3").click(function() {
 
