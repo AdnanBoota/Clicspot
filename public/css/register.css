@@ -29,6 +29,9 @@
 .formstep2{
     
 }
+.has-error{
+    border: 1px solid #ff0000;
+}
 .formstep {
     margin: 100px 0;
     text-align: center;
