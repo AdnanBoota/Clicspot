@@ -46,7 +46,7 @@ class HotspotLoginController extends Controller {
                 ->join('admin_user', 'admin_user.id', '=', 'nas.adminid')
                 ->where('nas.nasidentifier', "=", Request::get('username'))
                 ->get();
-        $resourceid = $userId[0]->resourceid;
+        //$resourceid = $userId[0]->resourceid;
 //        $getSubScribedUser = SubscriptionHistory::select('*')
 //                ->where('nextpaymentdate', '=', new \DateTime('today'))
 //                ->whereRaw("resourceid='" . $resourceid . "'")
@@ -107,7 +107,7 @@ class HotspotLoginController extends Controller {
             } else {
                 $redirectURL = "https://www.google.com";
             }
-            $this->redirectURL = $redirectURL;
+            //$this->redirectURL = $redirectURL;
             session(
                     [
                         'redirectURL' => $redirectURL
