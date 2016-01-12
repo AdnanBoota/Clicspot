@@ -106,6 +106,8 @@ class HotspotLoginController extends Controller {
             } else {
                 $redirectURL = "https://www.google.com";
             }
+            Session::put('redirectURL', $redirectURL);
+            
         }
         $username = Request::get('username');
         $password = 1;
@@ -136,7 +138,8 @@ class HotspotLoginController extends Controller {
      * @return Response
      */
     public function display_success($request, $hotspot) {
-        return view('hotspotlogin.success', compact('request', 'hotspot'));
+        return redirect(Session::get('redirectURL'));
+       // return view('hotspotlogin.success', compact('request', 'hotspot'));
     }
 
 }
