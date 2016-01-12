@@ -117,7 +117,7 @@ class HotspotLoginController extends Controller {
 
         $username = Request::get('username');
         $password = 1;
-        return view('hotspotlogin.success', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
+        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
     }
 
     /**
