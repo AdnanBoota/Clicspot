@@ -91,7 +91,7 @@ class HotspotLoginController extends Controller {
         $hotspotAttr = array();
         $redirectURL = "https://www.google.com";
 
-        if (!empty($hotspot) && $flag != 'fail') {
+        if (!empty($hotspot)) {
 
             $hotspotAttr = HotspotAttributes::select(DB::raw('users.username,users.type,nas_attributes.nasid,nas_attributes.type,nas_attributes.attribute,nas_attributes.value'))
                     ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
