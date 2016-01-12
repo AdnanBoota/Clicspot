@@ -141,7 +141,7 @@ class HotspotLoginController extends Controller {
      * @return Response
      */
     public function display_success($request, $hotspot) {
-        echo Session::get('redirectURL');
+      //  echo Session::get('redirectURL');
         echo '<pre>';
         print_r(Session::get('redirectURL'));
         return redirect(Session::get('redirectURL'));
