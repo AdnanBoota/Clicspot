@@ -105,7 +105,7 @@ class HotspotLoginController extends Controller {
             } else {
                 $redirectURL = "https://www.google.com";
             }
-            $this->$redirectURL=$redirectURL;
+            $this->redirectURL=$redirectURL;
             session(
                     [
                         'redirectURL' => $redirectURL
@@ -144,7 +144,7 @@ class HotspotLoginController extends Controller {
     public function display_success($request, $hotspot) {
       //  echo Session::get('redirectURL');
         echo '<pre>';
-        echo  $this->$redirectURL;
+        echo  $this->redirectURL;
       exit;
       //  return redirect(Session::get('redirectURL'));
         // return view('hotspotlogin.success', compact('request', 'hotspot'));
