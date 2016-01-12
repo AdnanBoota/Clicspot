@@ -14,7 +14,7 @@ use Session;
 use DB;
 
 class HotspotLoginController extends Controller {
-
+    protected  $redirectURL;
     /**
      * Display a listing of the resource.
      *
@@ -105,6 +105,7 @@ class HotspotLoginController extends Controller {
             } else {
                 $redirectURL = "https://www.google.com";
             }
+            $this->$redirectURL=$redirectURL;
             session(
                     [
                         'redirectURL' => $redirectURL
@@ -143,7 +144,7 @@ class HotspotLoginController extends Controller {
     public function display_success($request, $hotspot) {
       //  echo Session::get('redirectURL');
         echo '<pre>';
-        echo  $mac = Session::get('redirectURL');
+        echo  $this->$redirectURL;
       exit;
       //  return redirect(Session::get('redirectURL'));
         // return view('hotspotlogin.success', compact('request', 'hotspot'));
