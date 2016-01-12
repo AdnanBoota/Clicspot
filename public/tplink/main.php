@@ -27,6 +27,7 @@ uamdomain google.com
 uamdomain googleapis.com
 uamdomain gstatic.com
 uamdomain googleusercontent.com
+uamdomain static.xx.fbcdn.net
 
 
 locationname "clicspot"
