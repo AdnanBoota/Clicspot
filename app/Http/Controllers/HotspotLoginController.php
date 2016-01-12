@@ -14,7 +14,9 @@ use Session;
 use DB;
 
 class HotspotLoginController extends Controller {
-    protected  $redirectURL;
+
+    protected $redirectURL;
+
     /**
      * Display a listing of the resource.
      *
@@ -92,7 +94,6 @@ class HotspotLoginController extends Controller {
         $redirectURL = "https://www.google.com";
 
         if ($hotspot) {
-            echo "hello";
 
             $hotspotAttr = HotspotAttributes::select(DB::raw('users.username,users.type,nas_attributes.nasid,nas_attributes.type,nas_attributes.attribute,nas_attributes.value'))
                     ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
@@ -106,17 +107,17 @@ class HotspotLoginController extends Controller {
             } else {
                 $redirectURL = "https://www.google.com";
             }
-            $this->redirectURL=$redirectURL;
+            $this->redirectURL = $redirectURL;
             session(
                     [
                         'redirectURL' => $redirectURL
                     ]
             );
-           
         }
+
         $username = Request::get('username');
         $password = 1;
-        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
+        return view('hotspotlogin.success', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
     }
 
     /**
@@ -143,11 +144,11 @@ class HotspotLoginController extends Controller {
      * @return Response
      */
     public function display_success($request, $hotspot) {
-      //  echo Session::get('redirectURL');
-        echo '<pre>';
-        echo  $this->redirectURL;
-      exit;
-      //  return redirect(Session::get('redirectURL'));
+        $redirectPathToSite = Session::get('redirectURL');
+        return redirect("{$redirectPathToSite}");
+        //  echo Session::get('redirectURL');
+        // return redirect("{$redirectPathToSite}");
+        //  return redirect(Session::get('redirectURL'));
         // return view('hotspotlogin.success', compact('request', 'hotspot'));
     }
 
