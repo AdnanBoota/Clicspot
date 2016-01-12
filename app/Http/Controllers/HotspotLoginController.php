@@ -49,7 +49,6 @@ class HotspotLoginController extends Controller {
 //                ->where('nextpaymentdate', '=', new \DateTime('today'))
 //                ->whereRaw("resourceid='" . $resourceid . "'")
 //                ->first();
-
 //        if (empty($getSubScribedUser)) {
 //            $account_details = array(
 //                'app_id' => "5SJ55WHN3JFTKBHA4PG682K71EQGRVR1J0Y2SV5FDW7Z929AAR3AFPXM595F74PN",
@@ -106,8 +105,12 @@ class HotspotLoginController extends Controller {
             } else {
                 $redirectURL = "https://www.google.com";
             }
-            Session::put('redirectURL', $redirectURL);
-            
+            session(
+                    [
+                        'redirectURL' => $redirectURL
+                    ]
+            );
+           
         }
         $username = Request::get('username');
         $password = 1;
@@ -142,7 +145,7 @@ class HotspotLoginController extends Controller {
         echo '<pre>';
         print_r(Session::get('redirectURL'));
         return redirect(Session::get('redirectURL'));
-       // return view('hotspotlogin.success', compact('request', 'hotspot'));
+        // return view('hotspotlogin.success', compact('request', 'hotspot'));
     }
 
 }
