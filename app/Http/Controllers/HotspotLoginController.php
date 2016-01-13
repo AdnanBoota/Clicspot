@@ -22,6 +22,7 @@ class HotspotLoginController extends Controller {
      *
      * @return Response
      */
+    
     public function index() {
         $mac = Request::get('called');
         $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
