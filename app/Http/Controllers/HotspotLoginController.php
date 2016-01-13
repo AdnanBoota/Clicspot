@@ -22,10 +22,16 @@ class HotspotLoginController extends Controller {
      *
      * @return Response
      */
-    
     public function index() {
         $mac = Request::get('called');
         $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
+        $redirectURLOnSuccess = $hotspot->redirectUrl;
+        session(
+                [
+                    'redirectURL' => $redirectURLOnSuccess
+                ]
+        );
+
         if ($hotspot) {
             $res = Request::get('res');
             if ($res == 'notyet' || $res == 'failed' || $res == 'logoff') {
