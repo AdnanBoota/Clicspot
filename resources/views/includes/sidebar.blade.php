@@ -36,6 +36,11 @@
                     <i><img src="{{ asset("img/portalicon.png") }}" /></i> <span>Emails</span><span class="act"></span>
                 </a>
             </li>
+            <li class="{{Request::path() == 'payment' ? 'active' : ''}}">
+                <a href="{{url("payment")}}">
+                    <i><img src="{{ asset("img/portalicon.png") }}" /></i> <span>Payment</span><span class="act"></span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
