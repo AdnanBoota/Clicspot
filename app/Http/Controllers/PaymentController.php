@@ -26,7 +26,7 @@ class PaymentController extends Controller {
 
     public function index() {
         $adminId = Auth::user()->id;
-        $nextBillingDate = "User is not Subscribed";
+        $nextBillingDate = "13/01/2017";
         $paymentDetails = SubscriptionHistory::where('adminid', "=", $adminId)->orderBy('id', 'desc')->first();
         if ($paymentDetails) {
             $nextBillingDate = Carbon\Carbon::parse($paymentDetails[0]->nextpaymentdate)->format('d/m/Y');
