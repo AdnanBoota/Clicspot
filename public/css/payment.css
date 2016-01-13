@@ -1,0 +1,84 @@
+
+.small-box{
+    border: 2px solid #E5E5E5;
+    box-shadow: none;
+}
+.box2 ,.box3{
+   border: 2px solid #E5E5E5 !important; 
+   margin: 10px;
+   padding: 0 20px;
+}
+.box3{
+    margin-top: 20px;
+}
+.nav-tabs-custom > .tab-content{
+    overflow: auto;
+    border: 2px solid #E5E5E5;
+}
+.nav-tabs-custom > .nav-tabs > li{
+    border-left: 2px solid #E5E5E5;
+    border-right:2px solid #E5E5E5;
+    margin-bottom: -3px;
+}
+.box1 .inner{
+    padding: 15px 10px;
+}
+.tab-content h3{
+    padding-left: 15px;
+}
+.box1{}
+.box1 .col-md-6{
+    padding: 0 0 0 15px;
+}
+.bankDetails .table-bordered tr{
+    border: none;
+}
+.bankDetails .table-bordered th ,.bankDetails .table-bordered td{
+    padding:5px 0;
+}
+.table-bordered tr{
+    border-bottom: 2px solid #e5e5e5;
+}
+.table-bordered th ,.table-bordered td{
+    padding: 10px 0;
+}
+.small-box:hover {
+    color: #000;
+    text-decoration: none;
+}
+.inner h3,.inner p {
+    text-align: center;
+}
+.inner h3{
+    font-size: 20px;
+}
+.small-box p {
+    font-size: 38px;
+}
+.paymentSection {
+    background: #fff none repeat scroll 0 0;
+    padding: 60px;
+    width: 100%;
+}
+.box{
+    border: none;
+    box-shadow: none;
+}
+.nav-tabs-custom{
+    margin-top: 25px;
+}
+.col-md-8 p{
+    margin: 0px;
+}
+.bankDetails {
+  float: left;
+  padding-top: 20px;
+  width: 100%;
+  padding-left: 15px;
+}
+table{
+    width: 100%;
+}
+table td{
+    padding-top: 10px;
+}
