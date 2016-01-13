@@ -77,3 +77,8 @@ Route::get('/google/login', 'GoogleLogin@login');
 Route::get('/google/callback', 'GoogleLogin@callback');
 
 Route::post('/email/login', 'EMailLoginController@login');
+
+//Payment Routes Start here
+
+Route::resource('payment','PaymentController');
+
