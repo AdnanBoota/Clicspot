@@ -30,15 +30,15 @@ class PaymentController extends Controller {
     public function index() {
         $adminId = Auth::user()->id;
         $nextBillingDate = "13/01/2017";
-        $paymentDetails = SubscriptionHistory::where('adminid', "=", $adminId)->where("amount", "!=", '3000')->orderBy('id', 'desc')->get();
+        $paymentDetails = SubscriptionHistory::where('adminid', "=", $adminId)->where("amount", "!=", '3000')->orderBy('id', 'desc')->first();
         $billingDetails = SubscriptionHistory::where('adminid', "=", $adminId)->get();
 
         if ($paymentDetails) {
-            $nextBillingDate = Carbon\Carbon::parse($paymentDetails[0]->nextpaymentdate)->format('d/m/Y');
-            $len = strlen($paymentDetails[0]->resourceid);
+            $nextBillingDate = Carbon\Carbon::parse($paymentDetails->nextpaymentdate)->format('d/m/Y');
+            $len = strlen($paymentDetails->resourceid);
 
 
-            $resourceID = substr($paymentDetails[0]->resourceid, 0, 1) . str_repeat('*', $len - 2) . substr($paymentDetails[0]->resourceid, $len - 1, 1);
+            $resourceID = substr($paymentDetails->resourceid, 0, 1) . str_repeat('*', $len - 2) . substr($paymentDetails->resourceid, $len - 1, 1);
         }
         return view('payment.index', compact('nextBillingDate', 'resourceID', 'billingDetails'));
     }
