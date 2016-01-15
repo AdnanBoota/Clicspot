@@ -30,6 +30,7 @@ class PaymentController extends Controller {
     public function index() {
         $adminId = Auth::user()->id;
         $nextBillingDate = "13/01/2017";
+        $resourceID="XXXXXXXXXXXXNIL";
         $paymentDetails = SubscriptionHistory::where('adminid', "=", $adminId)->where("amount", "!=", '3000')->orderBy('id', 'desc')->first();
         $billingDetails = SubscriptionHistory::where('adminid', "=", $adminId)->get();
 
