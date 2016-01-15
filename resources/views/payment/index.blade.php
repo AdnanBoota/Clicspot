@@ -72,26 +72,17 @@
                                         <p>A minimum of one bank is necessary to make the platform working.</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <a href="javascript:void(0)" class="btn btn-block btn-default btn-lg">Add Bank Account</a>
+                                        <a href="javascript:void(0)" class="btn btn-block btn-default btn-lg" id="addAccount">Add Bank Account</a>
                                     </div>
                                     <div class="bankDetails">
                                         <table class="table-bordered">
                                             <tr>
                                                 <td>
-                                                    ClicSpot XXXXX7816
+                                                    CLICSPOT {{$resourceID}}
                                                 </td>
-                                                <td>
-                                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm">X</a>
-                                                </td>
+                                            
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    ClicSpot XXXXX2671
-                                                </td>
-                                                <td>
-                                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm">X</a>
-                                                </td>
-                                            </tr>
+                                          
                                         </table>
                                     </div>
                                 </div><!-- /.tab-pane -->
@@ -104,16 +95,16 @@
         <div class="box box3">
             <div class="box-body">
                 <div class="row margin-bottom">
-                     <div class="col-md-8">
+                    <div class="col-md-8">
                         <h1>Billing History</h1>
-                     </div>
+                    </div>
                     <div class="col-md-4">
-                          <a href="javascript:void(0)" class="btn btn-block btn-default btn-lg">Edit Profile</a>
+                        <a href="{{"/payment/4"}}" class="btn btn-block btn-default btn-lg">Edit Profile</a>
                     </div>
                 </div>
                 <div class="row margin-bottom">
                     <div class="col-md-12">
-                       
+
                         <!-- Custom Tabs -->
                         <table class="table-bordered">
                             <tr>
@@ -122,70 +113,31 @@
                                 <th>Amount</th>
                                 <th></th>
                             </tr>
+                            @foreach($billingDetails as $bill)
                             <tr>
                                 <td>
-                                   January 5, 2016
+                                   {{date('M-d-Y', strtotime($bill->nextpaymentdate))}}
                                 </td>
                                 <td>
-                                   Payment (Clicspot)
+                                     {{$bill->description}}
                                 </td>
                                 <td>
-                                    $13.00
+                                   ${{$bill->amount}}
                                 </td>
                                 <td>
-                                     <a href="javascript:void(0)" class="viewInvoice">View Invoice</a>
+<!--                                    <a href="javascript:void(0)" class="viewInvoice">View Invoice</a>-->
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    January 1, 2016
-                                </td>
-                                <td>
-                                    Payment (Clicspot)
-                                </td>
-                                <td>
-                                    $30.25
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)" class="viewInvoice">View Invoice</a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>
-                                    January 1, 2016
-                                </td>
-                                <td>
-                                    Payment (Clicspot)
-                                </td>
-                                <td>
-                                    $30.25
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)" class="viewInvoice">View Invoice</a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>
-                                    January 1, 2016
-                                </td>
-                                <td>
-                                    Payment (Clicspot)
-                                </td>
-                                <td>
-                                    $30.25
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)" class="viewInvoice">View Invoice</a>
-                                </td>
-                            </tr>
+                            @endforeach
+                     
                         </table>
                     </div><!-- /.col -->
                 </div>
-                <div class="row margin-bottom">
+<!--                <div class="row margin-bottom">
                     <div class="col-md-12">
-                          <a href="javascript:void(0)" class="btn btn-block btn-default btn-lg">View Complete History</a>
+                        <a href="javascript:void(0)" class="btn btn-block btn-default btn-lg">View Complete History</a>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -195,3 +147,24 @@
 
 </section>
 @endsection
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on("click", "#addAccount", function() {
+            jQuery.ajax({
+                url: '/payment/goCardless',
+                type: 'post',
+                data: {
+                 
+                    "_token": '{{csrf_token()}}'
+
+                },
+                success: function(result) {
+                   window.location.href=result;
+
+                }
+            });
+        });
+    });
+</script>
+@endpush
