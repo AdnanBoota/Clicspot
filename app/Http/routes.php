@@ -79,6 +79,9 @@ Route::get('/google/callback', 'GoogleLogin@callback');
 Route::post('/email/login', 'EMailLoginController@login');
 
 //Payment Routes Start here
-
+Route::post('/payment/goCardless','PaymentController@goCardlessNewRegistration');
+Route::get('/payment/{id}', 'PaymentController@editUser');
+Route::post('/payment/updateUser', 'PaymentController@updateUser');
+Route::get('/payment/goCardlessConfirm','PaymentController@goCardlessNewRegistrationConfirm');
 Route::resource('payment','PaymentController');
 
