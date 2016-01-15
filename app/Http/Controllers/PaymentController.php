@@ -179,21 +179,21 @@ class PaymentController extends Controller {
     }
 
     public function updateUser(Request $request) {
-        $this->validate($request, [
-            'username' => 'required|unique:admin_user',
-            'businessname' => 'required',
-            'email' => 'required|email|unique:admin_user',
-            'password' => 'required|confirmed',
-            'password_confirmation' => 'required|same:password',
-            'phone' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'zip' => 'required',
-            'country' => 'required',
-            'siren'=>'required',
-            'nvat'=>'required'
-            ]
-        );
+//        $this->validate($request, [
+//            'username' => 'required|unique:admin_user',
+//            'businessname' => 'required',
+//            'email' => 'required|unique:admin_user|email,'. Auth::user()->id,
+//            'password' => 'required|confirmed',
+//            'password_confirmation' => 'required|same:password',
+//            'phone' => 'required',
+//            'address' => 'required',
+//            'city' => 'required',
+//            'zip' => 'required',
+//            'country' => 'required',
+//            'siren'=>'required',
+//            'nvat'=>'required'
+//            ]
+//        );
         $input = Input::all();
         $formField = array(
             'username' => $input['username'],
