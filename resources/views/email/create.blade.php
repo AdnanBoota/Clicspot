@@ -37,10 +37,10 @@
                     <li id="choose-module" class="menuu active" title="Choose Module"></li>
                     <input type="hidden" value="<?php echo csrf_token(); ?>" name="_token">
     
-                    <li id="download-btn" class="menuu" title="Save"><span>Save</span></li>
-                    <li id="imageUpload" class="menuu" title="Image Upload"><span>Image Upload</span></li>
+                    <li id="download-btnq" class="menuu" title="Save"><span>Save</span></li>
+                    <li id="imageUploadq" class="menuu" title="Image Upload"><span>Image Upload</span></li>
     
-                    <li id="backbtn" class="menuu" title="Back"><span><a href="{{url('emails')}}">Back</a></span></li>
+                    <li id="backbtnq" class="menuu" title="Back"><span><a href="{{url('emails')}}">Back</a></span></li>
     
                 </ul>
             </div>
