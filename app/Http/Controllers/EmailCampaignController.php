@@ -195,6 +195,7 @@ class EmailCampaignController extends Controller {
 
     public function updateForm() {
         $input = Input::all();
+      
         if (isset($input['id'])) {
             $EmailCampaign = EmailCampaign::findOrFail($input['id']);
             $EmailCampaign->update($input);
@@ -212,5 +213,7 @@ class EmailCampaignController extends Controller {
           
         }
     }
+    
+    
 
 }

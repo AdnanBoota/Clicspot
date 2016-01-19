@@ -32,16 +32,16 @@ class EmailsController extends Controller {
     }
 
     public function index(Request $request) {
-         $draftCount=EmailCampaign::select(DB::raw('count(campaignStatus) as totalDraftCount')) ->where('campaignStatus', '=', 'draft')->get();
-         $sentCount=EmailCampaign::select(DB::raw('count(campaignStatus) as totalSentCountCount')) ->where('campaignStatus', '=', 'sent')->get();
-         if ($request->ajax()) {
-            
+        $draftCount = EmailCampaign::select(DB::raw('count(campaignStatus) as totalDraftCount'))->where('campaignStatus', '=', 'draft')->get();
+        $sentCount = EmailCampaign::select(DB::raw('count(campaignStatus) as totalSentCountCount'))->where('campaignStatus', '=', 'sent')->get();
+        if ($request->ajax()) {
+
             if (Auth::user()->type == 'superadmin') {
                 $emailTemplate = Emails::select(['id', 'adminid', 'templateName', 'description']);
             } else {
                 $emailTemplate = Auth::user()->emailTemplates()->select(['id', 'adminid', 'templateName', 'description']);
             }
-           
+
             return Datatables::of($emailTemplate)
                             ->addColumn('checkbox', function ($emailTemplate) {
                                 return ' <label class="">
@@ -67,7 +67,7 @@ class EmailsController extends Controller {
                             ->make(true);
         } else {
 
-            return view('email.index',compact('draftCount','sentCount'));
+            return view('email.index', compact('draftCount', 'sentCount'));
         }
     }
 
@@ -166,17 +166,18 @@ class EmailsController extends Controller {
         if ($data['templateId'] == '') {
             $emails = new Emails($input);
             Auth::user()->emailTemplates()->save($emails);
+            $id = $emails->id;
         } else {
             $templates = Auth::user()->emailTemplates()->findOrFail($id);
 
             $templates->update($input);
+            $id = $templates->id;
         }
         //$emails->save();
 
 
         return Response::json(array(
-                    'success' => "hi",
-                    'message' => "called",
+                    'id' => $id
         ));
     }
 
@@ -283,18 +284,18 @@ class EmailsController extends Controller {
     }
 
     public function campaignTable(Request $request) {
-         $dataToFetch = $request->input('mailType');
+        $dataToFetch = $request->input('mailType');
         if (Auth::user()->type == 'superadmin') {
-            if($dataToFetch==""){
-            $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName','campaignStatus']);
-            }else{
-                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName','campaignStatus'])->where('campaignStatus','=',$dataToFetch);
+            if ($dataToFetch == "") {
+                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName', 'campaignStatus']);
+            } else {
+                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName', 'campaignStatus'])->where('campaignStatus', '=', $dataToFetch);
             }
         } else {
-              if($dataToFetch==""){
-            $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName','campaignStatus']);
-            }else{
-                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName','campaignStatus'])->where('campaignStatus','=',$dataToFetch);
+            if ($dataToFetch == "") {
+                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName', 'campaignStatus']);
+            } else {
+                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName', 'campaignStatus'])->where('campaignStatus', '=', $dataToFetch);
             }
         }
 
@@ -304,9 +305,9 @@ class EmailsController extends Controller {
                               <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="' . $campaignList->id . '" name="emailTemplateDelete[]"  class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>';
                         })
-                            ->addColumn('statistics', function ($campaignList) {
-                                return 'Statistics';
-                            })
+                        ->addColumn('statistics', function ($campaignList) {
+                            return 'Statistics';
+                        })
                         ->addColumn('edit', function ($campaignList) {
                             return '  <td class="tselectbox">
                         <div class="dropdown editbtn">
@@ -321,7 +322,7 @@ class EmailsController extends Controller {
                         })
                         ->make(true);
     }
+
     //  <li><span><a href="javascript:void(0)" class="duplicateTemplate" id="' . $campaignList->id . '">Duplicate</a></span></li>
 //                        <li><span><a href="javascript:void(0)" class="renameTemplate" id="' . $campaignList->id . '" templateName="' . $campaignList->campaignName . '">Rename</a></span></li>
-
 }
