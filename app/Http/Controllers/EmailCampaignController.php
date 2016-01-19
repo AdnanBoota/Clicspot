@@ -66,14 +66,14 @@ class EmailCampaignController extends Controller {
      */
     public function create() {
 
-
+   $adminid= Auth::user()->id;
 
         //  $emailTemplate = Emails::select(DB::raw('id,adminid,templateName'))->get();
         $emailTemplate = Auth::user()->emailCampaign()->select('templateName', 'id')->lists('templateName', 'id');
         $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
         $emailList = Auth::user()->emailList()->select('listname', 'id')->lists('listname', 'id');
         //    $emailList = Auth::user()->emailList()->select('listname', 'id')->get();
-        return View::make('email.emailSetup', compact('emailTemplate', 'emailList', 'routers'));
+        return View::make('email.emailSetup', compact('emailTemplate', 'emailList', 'routers','adminid'));
     }
 
     /**
@@ -120,14 +120,15 @@ class EmailCampaignController extends Controller {
      * @return Response
      */
     public function edit($id) {
+        $adminid= Auth::user()->id;
         $campaignData = EmailCampaign::findOrFail($id);
         $campaignData->recipientNoOfVisit = explode(';', $campaignData->recipientNoOfVisit);
-         $campaignData->router = explode(',', $campaignData->router);
+        $campaignData->router = explode(',', $campaignData->router);
         $campaignData->age = explode(';', $campaignData->age);
         $emailTemplate = Auth::user()->emailCampaign()->select('templateName', 'id')->lists('templateName', 'id');
         $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
         $emailList = Auth::user()->emailList()->select('listname', 'id')->lists('listname', 'id');
-        return View::make('email.emailSetupEdit', compact('campaignData', 'emailTemplate', 'emailList', 'routers'));
+        return View::make('email.emailSetupEdit', compact('campaignData', 'emailTemplate', 'emailList', 'routers','adminid'));
     }
 
     /**
@@ -140,7 +141,7 @@ class EmailCampaignController extends Controller {
 
         $EmailCampaign = EmailCampaign::findOrFail($id);
         $data = Input::all();
-         if (isset($data['router'])) {
+        if (isset($data['router'])) {
             $data['router'] = implode(",", $data['router']);
         }
         if (isset($data['checkbox'])) {
@@ -152,8 +153,8 @@ class EmailCampaignController extends Controller {
         if ($data['numberofvisit'] == "") {
             $data['numberofvisit'] = "1;20";
         }
-      $EmailCampaign->update($data);
-         return redirect('emails');
+        $EmailCampaign->update($data);
+        return redirect('emails');
     }
 
     /**
@@ -191,16 +192,25 @@ class EmailCampaignController extends Controller {
 //        View::addExtension('html', 'php');
 //        return View::make('email.emailTemplate');
     }
-    
+
     public function updateForm() {
         $input = Input::all();
-        
-        $EmailCampaign = EmailCampaign::findOrFail($input['id']);
-        $EmailCampaign->update($input);
-        return Response::json(array(
-                    'success' => true,
-                    'message' => "Form Update Successfully",
-        ));
+        if (isset($input['id'])) {
+            $EmailCampaign = EmailCampaign::findOrFail($input['id']);
+            $EmailCampaign->update($input);
+            return Response::json(array(
+                        'success' => true,
+                        'message' => "Form Update Successfully",
+            ));
+        } else {
+            $emailCampaign = new EmailCampaign($input);
+            $result = $emailCampaign->save();
+              return Response::json(array(
+               
+                        'id' => $emailCampaign->id
+            ));
+          
+        }
     }
 
 }
