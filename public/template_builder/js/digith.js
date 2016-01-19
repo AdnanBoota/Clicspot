@@ -2853,7 +2853,7 @@ jQuery(function($) {
         }
         swal({
             title: "Template Info",
-            text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name"><br><textarea class="visibleInput templateDesc" id="templateDesc" name="templateDesc" placeholder="Template Description">' + templateDescription + '</textarea>',
+            text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name">',
             html: true,
             showCancelButton: true,
         },
@@ -2870,7 +2870,7 @@ jQuery(function($) {
                                 "_token": $("input[name=_token]").val(),
                                 "templateId": templateId,
                                 "templateName": templateName,
-                                "templateDescription": templateDescription
+                                "templateDescription": " "
 
 
                             },
