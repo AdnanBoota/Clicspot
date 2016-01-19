@@ -30,6 +30,7 @@
     <link href="{{asset('/css/templateBuilder.css')}}" rel="stylesheet"/>
 </head>
 <body id="builder" class="lightt">
+    <input type="hidden" value="<?php echo csrf_token(); ?>" name="token" id="token">
     <div id="mask2"></div>
       <div id="top-barr">
             <div id="top-bar-box">

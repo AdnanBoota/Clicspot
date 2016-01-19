@@ -310,7 +310,7 @@ $(document).ready(function() {
                 "campaignName": cmpName,
                 "senderEmail": sndrEmail,
                 "fromName": frmName,
-                "currentForm": '2'
+                "currentForm": '3'
 
             },
             success: function(result) {

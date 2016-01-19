@@ -351,7 +351,7 @@ $(document).on("click", ".editLink", function() {
             "senderEmail": sndrEmail,
             "fromName": frmName,
             "id":{{$campaignData->id}},
-            "currentForm": '2'
+            "currentForm": '3'
 
         },
         success: function(result) {

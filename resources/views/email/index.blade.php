@@ -41,18 +41,20 @@
         <i class="fa fa-envelope"></i>
         <h1>Automatic Mailing</h1>
     </div>
-      <div class="automailingblock">
+    <div class="automailingblock">
         <a href="{{url('emails/emailSetup')}}"><img src="{{ asset("img/addicon.png") }}" /> Create Campaign</a>
         <div class="manualbtn">
 <!--               <a href="#" class="sentbtn active"><i></i>Sent<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
             <a href="#" class="draftbtn "><i></i>Drafts<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>-->
         </div>
         <div class="mailingtabledtl">
-            <a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>
+
             <table class="mailingtable" id="emailTemplate-table">
                 <thead>
                     <tr>
+
                         <th class="tchackboc">
+                            <a class="deletebtn" href="javascript:void(0)" style="display: none;"><img src="{{ asset("img/deleteimg.png") }}" /></a>
                             <label class="">
                                 <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>
@@ -78,7 +80,7 @@
     </div>
     <div class="automailingblock">
         <a href="{{url('emails/emailSetup')}}">Create Campaign</a>
-         <div class="manualbtn">
+        <div class="manualbtn">
             <a href="javascript:void(0)" class="sentbtn active"><i></i>Sent<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
             <a href="javascript:void(0)" class="draftbtn "><i></i>Drafts<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>
         </div>
@@ -121,7 +123,16 @@
 <script type="text/javascript" src="{{ asset('/js/dataTables.responsive.js') }}"></script>
 <script type="text/javascript">
 var oTableCampaign;
+function  countChecked() {
+    var n = $("input:checked").length; //n now contains the number of checked elements.
+ //  $("#count").text(n + (n === 1 ? " is" : " zijn") + " aangevinkt!"); //show some text
+    if (n == 0) {
+        $(".deletebtn").fadeOut(); //if there are none checked, hide only visible elements
+    } else {
+        $(".deletebtn").fadeIn(); //otherwise (some are selected) fadeIn - if the div is hidden.
+    }
 
+}
 $(function() {
     oTable = $('#emailTemplate-table').DataTable({
         sDom: 'lrftip',
@@ -140,7 +151,7 @@ $(function() {
     });
 });
 $(function() {
-            oTableCampaign = $('#campaign-table').DataTable({
+    oTableCampaign = $('#campaign-table').DataTable({
         sDom: 'lrftip',
         processing: true,
         serverSide: true,
@@ -148,13 +159,13 @@ $(function() {
         info: false,
         bFilter: false,
         ajax: {
-            url:'/emails/campaignTable',
-            "data":function(d) {
-                    mailType = $("#mailType").val();
-                       if (mailType)
+            url: '/emails/campaignTable',
+            "data": function(d) {
+                mailType = $("#mailType").val();
+                if (mailType)
                     d.mailType = mailType;
             }
-         },
+        },
         columns: [
             {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
             {data: 'campaignName', name: 'campaignName'},
@@ -164,18 +175,23 @@ $(function() {
     });
 });
 $(document).ready(function() {
-   var dataToFetch="";
+    var dataToFetch = "";
 
-    $(document).on("change", ".emailDelCheckBox", function() {
+    $(document).on("click", ".emailDelCheckBox", function() {
+        countChecked();
         if ($(this).is(":checked")) {
             $(this).parent().addClass("checked");
+            $(".deletebtn").show();
         } else {
             $(this).parent().removeClass("checked");
+            // $(".deletebtn").hide("slow", !$('input[type="checkbox"]').is(":checked"));
         }
     });
+
     $(document).on("change", "#multicheck", function() {
 //        alert("hello");
         if ($(this).is(":checked")) {
+            $(".deletebtn").fadeIn();
 
             $('.emailDelCheckBox').each(function() {
                 $(this).prop('checked', true);
@@ -186,6 +202,7 @@ $(document).ready(function() {
             $('.emailDelCheckBox').each(function() {
                 $(this).prop('checked', false);
             });
+            $(".deletebtn").fadeOut();
             $(".emailDelCheckBox").parent().removeClass("checked");
         }
     });
@@ -282,36 +299,36 @@ $(document).ready(function() {
                     }
                 });
     });
-    
-    $(document).on("click",".automaticMailForm",function(){
+
+    $(document).on("click", ".automaticMailForm", function() {
         $(".automaticMailing").show();
         $(".manualMailing").hide();
         $(this).parents(".tabpart").find(".active").removeClass("active");
         $(this).parent().addClass("active");
     });
-      $(document).on("click",".manualMailingForm",function(){
+    $(document).on("click", ".manualMailingForm", function() {
         $(".automaticMailing").hide();
         $(".manualMailing").show();
-           $(this).parents(".tabpart").find(".active").removeClass("active");
+        $(this).parents(".tabpart").find(".active").removeClass("active");
         $(this).parent().addClass("active");
-     
+
     });
-    $(document).on("click",".draftbtn",function(){
+    $(document).on("click", ".draftbtn", function() {
         $(this).addClass("active");
-        if($(".sentbtn").hasClass("active")){
+        if ($(".sentbtn").hasClass("active")) {
             $(".sentbtn").removeClass("active");
         }
-       $("#mailType").val("draft");
+        $("#mailType").val("draft");
         oTableCampaign.draw();
     });
-    
-    $(document).on("click",".sentbtn",function(){
+
+    $(document).on("click", ".sentbtn", function() {
         $(this).addClass("active");
-        if($(".draftbtn").hasClass("active")){
+        if ($(".draftbtn").hasClass("active")) {
             $(".draftbtn").removeClass("active");
         }
-         $("#mailType").val("sent");
-         oTableCampaign.draw();
+        $("#mailType").val("sent");
+        oTableCampaign.draw();
     });
 });
 </script>
