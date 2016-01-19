@@ -190,7 +190,9 @@
 }
 .tchackboc a.deletebtn{
     display: block;
+    left: -25px;
     margin-bottom: 10px;
+    position: absolute;
 }
 
 
