@@ -5,17 +5,17 @@
     <div class="col-md-9 stepform1 {{isset($campaignData->currentForm) ? '':'currentForm' }}{{isset($campaignData->currentForm) && $campaignData->currentForm == '1' ? 'currentForm':''}}" id="1">
         <div class="form-group formrow">
             <label>Campaign Name</label><a href="#"><i class="anyque"></i></a>
-            {!!  Form::text('campaignName', null, array('id'=>'campaignName','placeholder'=>'MyCampaign','class'=>'form-control','required'=>'true')) !!}
+            {!!  Form::text('campaignName', null, array('id'=>'campaignName','placeholder'=>'MyCampaign','class'=>'form-control')) !!}
             
         </div>
         <div class="form-group formrow">
             <label>Sender Email</label><a href="#"><i class="anyque"></i></a>
-            {!!  Form::text('senderEmail', null, array('id'=>'senderEmail','placeholder'=>'Email Address','class'=>'form-control','required'=>'true')) !!}
+            {!!  Form::text('senderEmail', null, array('id'=>'senderEmail','placeholder'=>'Email Address','class'=>'form-control')) !!}
     
         </div>
         <div class="form-group formrow">
             <label>From Name</label><a href="#"><i class="anyque"></i></a>
-            {!!  Form::text('fromName', null, array('id'=>'senderName','placeholder'=>'Your Name','class'=>'form-control','required'=>'true')) !!}
+            {!!  Form::text('fromName', null, array('id'=>'senderName','placeholder'=>'Your Name','class'=>'form-control')) !!}
     
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="form-group formrow">
             <div class="selectbox">
                 <i class="fa fa-caret-down droparrow"></i>
-                {!!  Form::select('templateId', $emailTemplate, null, ['id'=>'templateId','required'=>'true']) !!}
+                {!!  Form::select('templateId', $emailTemplate, null, ['id'=>'templateId']) !!}
 
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="col-md-6">
                 <div class="selectbox">
                     <i class="fa fa-caret-down droparrow"></i>
-                    {!!  Form::select('emailListId', $emailList, null, ['id'=>'emailListId','required'=>'true']) !!}
+               {!!  Form::select('emailListId', $emailList, null, ['id'=>'emailListId']) !!}
 
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <div class="col-md-6">
                         <div class="selectbox">
                             <i class="fa fa-caret-down droparrow"></i>
-                            {!!  Form::select('gender', array('both' => 'Male & Female','male' => 'Male', 'female' => 'Female') , null, ['id'=>'gender','required'=>'true']) !!}
+                            {!!  Form::select('gender', array('both' => 'Male & Female','male' => 'Male', 'female' => 'Female') , null, ['id'=>'gender']) !!}
 
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                     <div class="col-md-6">
                         <div class="ageblock">
                             <div class="col-md-6">
-                                {!!  Form::text('age', "", array('data-from'=>isset($campaignData->age[0])? $campaignData->age[0]:'15','data-to'=>isset($campaignData->age[1])? $campaignData->age[1]:'55','data-type'=>'double','id'=>'age','class'=>'','required'=>'true')) !!}
+                                {!!  Form::text('age', "", array('data-from'=>isset($campaignData->age[0])? $campaignData->age[0]:'15','data-to'=>isset($campaignData->age[1])? $campaignData->age[1]:'55','data-type'=>'double','id'=>'age')) !!}
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         <div class="row">
                             <div class="selectbox">
                                
-                                {!!  Form::select('router[]', $routers, null, ['multiple' => 'multiple','id'=>'router','required'=>'true']) !!}
+                                {!!  Form::select('router[]', $routers, null, ['multiple' => 'multiple','id'=>'router']) !!}
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                     <div class="col-md-6">
                         <div class="ageblock">
                             <div class="col-md-6">
-                                {!!  Form::text('numberofvisit', "", array('data-from'=>isset($campaignData->numberofvisit[0])? $campaignData->numberofvisit[0]:'1','data-to'=>isset($campaignData->numberofvisit[1])? $campaignData->numberofvisit[1]:'20','data-type'=>'double','id'=>'numberofvisit','class'=>'form-control','required'=>'true')) !!}
+                                {!!  Form::text('numberofvisit', "", array('data-from'=>isset($campaignData->numberofvisit[0])? $campaignData->numberofvisit[0]:'1','data-to'=>isset($campaignData->numberofvisit[1])? $campaignData->numberofvisit[1]:'20','data-type'=>'double','id'=>'numberofvisit','class'=>'form-control')) !!}
                             </div>
                         </div>
                     </div>
@@ -115,14 +115,14 @@
                     <div class="col-md-6">
                         <div class="ageblock">
                             <div class="col-md-6">
-                                {!!  Form::text('duringRecipientLastVisit', null, array('id'=>'duringRecipientLastVisit','placeholder'=>'0','class'=>'form-control','required'=>'true')) !!}
+                                {!!  Form::text('duringRecipientLastVisit', null, array('id'=>'duringRecipientLastVisit','placeholder'=>'0','class'=>'form-control')) !!}
 
                             </div>
                             <div class="col-md-6">
                                 <input type="hidden" name="datequickselection" value="" id="datequickselection">
                                 <div class="selectbox">
                                     <i class="fa fa-caret-down droparrow"></i>
-                                    {!!  Form::select('noOfDays', array('1' => 'Day(s)','7' => 'Week(s)', '30' => 'Month(s)','365' => 'year(s)'), null , ['id'=>'noOfDays','required'=>'true']) !!}
+                                    {!!  Form::select('noOfDays', array('1' => 'Day(s)','7' => 'Week(s)', '30' => 'Month(s)','365' => 'year(s)'), null , ['id'=>'noOfDays']) !!}
                                 </div>
                             </div>
                         </div>

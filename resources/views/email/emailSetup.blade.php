@@ -124,39 +124,31 @@ function validationForm() {
                 required: true
             },
             'emailListId': {
-                required: function(element) {
-                    return $("input:radio[name='selectList']:checked").val() == 'customList';
-                }
+                required: "#radio1:checked"
             },
-            ' gender': {
-                required: function(element) {
-                    return $("input:radio[name='selectList']:checked").val() == 'quickList';
-                }
+            'gender': {
+                required:"#radio2:checked"
             },
-//            'age': {
-//                required: function(element) {
-//                    return $("input:radio[name='selectList']:checked").val() == 'quickList';
-//                }
-//            },
-//            'numberofvisit': {
-//                required: function(element) {
-//                    return $("input:radio[name='selectList']:checked").val() == 'quickList';
-//                }
-//            },
-            'recipientVisitVenue': {
-                required: function(element) {
-                    return $("input:radio[name='selectList']:checked").val() == 'quickList';
-                }
+            'age': {
+                required:"#radio2:checked"
+            },
+            'router[]':{
+                 required:"#radio2:checked"
+            },
+            'duringRecipientLastVisit':{
+                 required:"#radio2:checked"
             },
             'numberofvisit': {
-                required: function(element) {
-                    return $("input:radio[name='selectList']:checked").val() == 'quickList';
-                }
+                 required:"#radio2:checked"
+            },
+            'recipientVisitVenue': {
+                required:"#radio2:checked"
+            },
+            'numberofvisit': {
+                required:"#radio2:checked"
             },
             'noOfDays': {
-                required: function(element) {
-                    return $("input:radio[name='selectList']:checked").val() == 'quickList';
-                }
+               required:"#radio2:checked"
             },
         },
         errorClass: "text-red",
