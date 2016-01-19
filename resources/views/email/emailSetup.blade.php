@@ -240,8 +240,7 @@ $(document).ready(function() {
         }
     });
     $(document).on("click", ".backbtn", function() {
-        var valid = $('form').valid();
-        if (valid) {
+     
             $(document).find(".currentForm").removeClass("currentForm").prev().addClass("currentForm");
             $(".setupstep").find(".setupno").last().removeClass("current active setupno").prev().removeClass("active");
             if ($(".stepform1").hasClass("currentForm")) {
@@ -252,7 +251,7 @@ $(document).ready(function() {
             if ($(".stepbtn").find(".sendMail")) {
                 $(".sendMail").removeClass("sendMail").addClass("nextbtn").find(".nxtButton").html("Next");
             }
-        }
+       
     });
     $(document).on("click", ".sendMail", function() {
         $.each($("input[name='checkbox[]']"), function() {
