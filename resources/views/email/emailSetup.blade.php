@@ -6,7 +6,7 @@
 <link href="{{ asset('/css/bootstrap-multiselect.css') }}" rel="stylesheet" type="text/css"/>
 <!--<link href="{{ asset('/css/datepicker3.css') }}" rel="stylesheet" type="text/css"/>-->
 <link href="{{ asset('/plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('/css/sweetalert.css')}}" rel="stylesheet" type="text/css"/>
+<link href="{{ asset('/css/sweetalert.css')}}" rel="stylesheet" type="text/css"/>
 @endpush
 @section('content')
 <!--<img src="{{asset("img/cameraiconwhite.png")}}" />-->
@@ -52,7 +52,7 @@
                 <!--End :: progressbar --> 
             </div>
             {!! Form::open(array("method"=>"POST","class"=>"form-horizontal","url"=> url('emails/emailSetup'))) !!}
-                     @include('email._form')
+            @include('email._form')
             {!! Form::close() !!}
         </div>
     </div>
@@ -180,7 +180,7 @@ function validationForm() {
     });
 }
 
-function sendCampaignMail(id, name, email,fromName,fromEmail) {
+function sendCampaignMail(id, name, email, fromName, fromEmail) {
     jQuery.ajax({
         url: 'sendCampaignMail',
         type: 'post',
@@ -189,27 +189,26 @@ function sendCampaignMail(id, name, email,fromName,fromEmail) {
             "templateId": id,
             "templateName": name,
             "emailAddress": email,
-            "fromName":fromName,
-            "fromEmail":fromEmail
+            "fromName": fromName,
+            "fromEmail": fromEmail
 
         },
         success: function(result) {
-            
-                emailAddress = [];
-                  swal({
-                                title: "Campaign Send",
-                                text: "",
-                                type: "success",
-                                confirmButtonColor: "#DD6B55",
-                                confirmButtonText: "Ok",
-                                closeOnConfirm: true
 
-                            },
-                            function(response) {
-                               
+            emailAddress = [];
+            swal({
+                title: "Campaign Send",
+                text: "",
+                type: "success",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Ok",
+                closeOnConfirm: true
 
-                            });
-            
+            },
+            function(response) {
+
+
+            });
         }
     });
 }
@@ -235,7 +234,7 @@ $(document).ready(function() {
     });
     validationForm();
     $(document).on("click", ".nextbtn", function() {
-        
+
         var valid = $('form').valid();
         if (valid) {
             $(document).find(".currentForm").removeClass("currentForm").next().addClass("currentForm");
@@ -263,7 +262,6 @@ $(document).ready(function() {
             }
         }
     });
-
     $(document).on("click", ".sendMail", function() {
         $.each($("input[name='checkbox[]']"), function() {
             if ($(this).is(":checked")) {
@@ -273,15 +271,13 @@ $(document).ready(function() {
         var senderEmail = $("#senderEmail").val();
         var senderName = $("#senderName").val();
         sendCampaignMail(templateID, templateName, emailAddress, senderName, senderEmail);
-
     });
     $(document).on('change', '#templateId', function(e) {
-        
+
         templateID = this.value;
-       
-        templateName =  $("#templateId option:selected").text();
-        $("#templatePreviewHidden").val(APP_URL + "/template_builder/html/4/" + templateName + ".html");
-        $("#templatePreview").attr("src", APP_URL + "/template_builder/html/4/" + templateName + ".html");
+        templateName = $("#templateId option:selected").text();
+        $("#templatePreviewHidden").val(APP_URL + "/template_builder/html/"+{{$adminid}}+"/" + templateName + ".html");
+        $("#templatePreview").attr("src", APP_URL + "/template_builder/html/"+{{$adminid}}+"/" + templateName + ".html");
     });
     $('#emailListId').on('change', function() {
         myVal = this.selectedOptions[0].value;
@@ -290,10 +286,8 @@ $(document).ready(function() {
     $('form').on('change', '#gender,#age,#recipientVisitVenue,#numberofvisit,#duringRecipientLastVisit,#noOfDays', function() {
         var myName = $(this).attr('name');
         var fromAge = $("#recipientsFrom").val();
-
         var visitAmout = $("#amountVisit").val();
         var dateQickSelection = $("#noOfDays").val();
-
         if (dateQickSelection != "") {
             $("#datequickselection").val(dateQickSelection);
         } else {
@@ -313,28 +307,38 @@ $(document).ready(function() {
         }
     });
     $("#currentFormIndex").val('1');
-    $('#crtTempBtn').on('click',function(){
+    $('#crtTempBtn').on('click', function() {
         var cmpName = $('input[name=campaignName]').val();
         var sndrEmail = $('input[name=senderEmail]').val();
         var frmName = $('input[name=fromName]').val();
-//        console.log("cmpName: ",cmpName);
-//        console.log("sndrEmail: ",sndrEmail);
-//        console.log("frmName: ",frmName);
-        expiry = new Date();
-        expiry.setTime( expiry.getTime()+(3600*60*1000) );
-//        document.cookie='cmpName='+cmpName+'; expires='+ expiry.toGMTString() + ';path=/';
-//        document.cookie='sndrEmail='+sndrEmail+'; expires='+ expiry.toGMTString() + ';path=/';
-//        document.cookie='frmName='+frmName+'; expires='+ expiry.toGMTString() + ';path=/';
-         document.cookie='camEmailSetup=13; expires='+ expiry.toGMTString() + ';path=/';
-        //location.reload(true);
-        window.location.replace('/emails/create/');
+        jQuery.ajax({
+            url: '/emails/emailSetup/updateForm',
+            type: 'post',
+            data: {
+                "_token": '{{csrf_token()}}',
+                "campaignName": cmpName,
+                "senderEmail": sndrEmail,
+                "fromName": frmName,
+                "currentForm": '2'
+
+            },
+            success: function(result) {
+                //  console.log(result.id);
+                expiry = new Date();
+                expiry.setTime(expiry.getTime() + (3600 * 60 * 1000));
+                document.cookie = 'camEmailSetup=' + result.id + '; expires=' + expiry.toGMTString() + ';path=/';
+                window.location.replace('/emails/create/');
+            }
+
+
+        });
     });
 });
-    function delete_cookie(name) {
-        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-   }
-    delete_cookie('camEmailSetup');
-     console.log("oon loassssd  sds sds:");
+function delete_cookie(name) {
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+delete_cookie('camEmailSetup');
+console.log("oon loassssd  sds sds:");
 </script>
 
 @endpush

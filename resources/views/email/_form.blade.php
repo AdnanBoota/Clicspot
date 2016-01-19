@@ -73,7 +73,7 @@
                     <div class="col-md-6">
                         <div class="ageblock">
                             <div class="col-md-6">
-                                {!!  Form::text('age', "", array('data-from'=>isset($campaignData)? $campaignData->age[0]:'15','data-to'=>isset($campaignData)? $campaignData->age[1]:'55','data-type'=>'double','id'=>'age','class'=>'','required'=>'true')) !!}
+                                {!!  Form::text('age', "", array('data-from'=>isset($campaignData->age[0])? $campaignData->age[0]:'15','data-to'=>isset($campaignData->age[1])? $campaignData->age[1]:'55','data-type'=>'double','id'=>'age','class'=>'','required'=>'true')) !!}
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                     <div class="col-md-6">
                         <div class="ageblock">
                             <div class="col-md-6">
-                                {!!  Form::text('numberofvisit', "", array('data-from'=>isset($campaignData)? $campaignData->numberofvisit[0]:'1','data-to'=>isset($campaignData)? $campaignData->numberofvisit[1]:'20','data-type'=>'double','id'=>'numberofvisit','class'=>'form-control','required'=>'true')) !!}
+                                {!!  Form::text('numberofvisit', "", array('data-from'=>isset($campaignData->numberofvisit[0])? $campaignData->numberofvisit[0]:'1','data-to'=>isset($campaignData->numberofvisit[1])? $campaignData->numberofvisit[1]:'20','data-type'=>'double','id'=>'numberofvisit','class'=>'form-control','required'=>'true')) !!}
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
             <div class="form-group">
                 <div class="sendbox">
                     <input class="form-control" type="email" placeholder="Enter an email address" name="testEmailAddress" id="testEmailAddress"/>
-                    <button href="javascript:void(0)" id="sendTestAddress">Send</button>
+                    <a href="javascript:void(0)" id="sendTestAddress">Send</a>
                 </div>
             </div>
         </div>

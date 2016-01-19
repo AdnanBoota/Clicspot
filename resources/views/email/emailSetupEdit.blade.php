@@ -219,11 +219,16 @@ var getName = "";
 $(document).ready(function() {
     var list = $('.setupstep ul li');
             var lengthLi = {{isset($campaignData->currentForm)? $campaignData->currentForm :''}};
-        //   console.log("length" + lengthLi);
+      //     console.log("length" + lengthLi);
         $(list).each(function(i) {
     if (i < lengthLi) {
+        if(i!=lengthLi-1){
         $(this).find(".setup").after('<a href="javascript:void(0)" class="editLink" id="' + (i+1) + '"><i class="fa fa-pencil pencil-show"></i></a>');
         $(this).addClass('current active setupno');
+    }else{
+           $(this).find(".setup").after('<a href="javascript:void(0)" class="editLink" id="' + (i+1) + '"><i class="fa fa-pencil pencil-show"></i></a>');
+        $(this).addClass('current  setupno');
+    }
     }
 });
  if ($(".stepform4").hasClass("currentForm")) {
@@ -264,8 +269,8 @@ $(document).on("click", ".nextbtn", function() {
     }
 });
 $(document).on("click", ".backbtn", function() {
-    var valid = $('form').valid();
-    if (valid) {
+   
+   
         $(document).find(".currentForm").removeClass("currentForm").prev().addClass("currentForm");
        // $(".setupstep").find(".current").last().removeClass("current active");
          $(".setupstep").find(".setupno").last().removeClass("current active setupno").prev().removeClass("active");
@@ -277,7 +282,7 @@ $(document).on("click", ".backbtn", function() {
         if ($(".stepbtn").find(".sendMail")) {
             $(".sendMail").removeClass("sendMail").addClass("nextbtn").find(".nxtButton").html("Next");
         }
-    }
+   
 });
 
 $(document).on("click", ".sendMail", function() {
@@ -296,8 +301,8 @@ $(document).on('change', '#templateId', function(e) {
     templateID = this.value;
 
     templateName = $("#templateId option:selected").text();
-    $("#templatePreviewHidden").val(APP_URL + "/template_builder/html/4/" + templateName + ".html");
-    $("#templatePreview").attr("src", APP_URL + "/template_builder/html/4/" + templateName + ".html");
+    $("#templatePreviewHidden").val(APP_URL + "/template_builder/html/"+{{$adminid}}+"/" + templateName + ".html");
+    $("#templatePreview").attr("src", APP_URL + "/template_builder/html/"+{{$adminid}}+"/" + templateName + ".html");
 });
 $('#emailListId').on('change', function() {
     myVal = this.selectedOptions[0].value;
