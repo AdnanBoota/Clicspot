@@ -341,7 +341,38 @@ $(document).on("click", ".editLink", function() {
             }
         });
     });
-});
+    $('#crtTempBtn').on('click',function(){
+        var cmpName = $('input[name=campaignName]').val();
+        var sndrEmail = $('input[name=senderEmail]').val();
+        var frmName = $('input[name=fromName]').val();
+        jQuery.ajax({
+        url: '/emails/emailSetup/updateForm',
+        type: 'post',
+        data: {
+            "_token": '{{csrf_token()}}',
+            "campaignName": cmpName,
+            "senderEmail": sndrEmail,
+            "fromName": frmName,
+            "id":{{$campaignData->id}},
+            "currentForm": '2'
+
+        },
+        success: function(result) {
+            expiry = new Date();
+            expiry.setTime( expiry.getTime()+(3600*60*1000) );
+            document.cookie='camEmailSetup='+{{$campaignData->id}}+'; expires='+ expiry.toGMTString() + ';path=/';
+            window.location.replace('/emails/create/');
+        }
+
+        
+    });
+    });    
+    });
+    function delete_cookie(name) {
+     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+    delete_cookie('camEmailSetup');
+
 </script>
 
 @endpush

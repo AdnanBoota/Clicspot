@@ -51,7 +51,7 @@
                 </div>
                 <!--End :: progressbar --> 
             </div>
-            {!! Form::open(array("class"=>"form-horizontal","url"=> url('/emails/emailSetup'))) !!}
+            {!! Form::open(array("method"=>"POST","class"=>"form-horizontal","url"=> url('emails/emailSetup'))) !!}
                      @include('email._form')
             {!! Form::close() !!}
         </div>
@@ -312,8 +312,29 @@ $(document).ready(function() {
             sendCampaignMail(templateID, templateName, testEmailAddress, senderName, senderEmail);
         }
     });
-
+    $("#currentFormIndex").val('1');
+    $('#crtTempBtn').on('click',function(){
+        var cmpName = $('input[name=campaignName]').val();
+        var sndrEmail = $('input[name=senderEmail]').val();
+        var frmName = $('input[name=fromName]').val();
+//        console.log("cmpName: ",cmpName);
+//        console.log("sndrEmail: ",sndrEmail);
+//        console.log("frmName: ",frmName);
+        expiry = new Date();
+        expiry.setTime( expiry.getTime()+(3600*60*1000) );
+//        document.cookie='cmpName='+cmpName+'; expires='+ expiry.toGMTString() + ';path=/';
+//        document.cookie='sndrEmail='+sndrEmail+'; expires='+ expiry.toGMTString() + ';path=/';
+//        document.cookie='frmName='+frmName+'; expires='+ expiry.toGMTString() + ';path=/';
+         document.cookie='camEmailSetup=13; expires='+ expiry.toGMTString() + ';path=/';
+        //location.reload(true);
+        window.location.replace('/emails/create/');
+    });
 });
+    function delete_cookie(name) {
+        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+   }
+    delete_cookie('camEmailSetup');
+     console.log("oon loassssd  sds sds:");
 </script>
 
 @endpush

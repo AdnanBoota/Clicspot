@@ -2885,7 +2885,15 @@ my_function=ti;
                             },
                             function(response) {
                                 if (response == true) {
-                                    window.location = APP_URL + "/emails";
+                                    
+                                    
+                                    //console.log("camEmailSetup: ",getCookie("camEmailSetup"))
+                                    var retPageId = getCookie("camEmailSetup");
+                                    if(retPageId)
+                                        window.location = APP_URL + "/emails/emailSetup/"+retPageId+"/edit";
+                                    else
+                                        window.location = APP_URL + "/emails";
+                                    return false;
                                 }
                                 else {
                                     return false;

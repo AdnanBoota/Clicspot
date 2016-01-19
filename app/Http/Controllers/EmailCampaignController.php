@@ -191,5 +191,16 @@ class EmailCampaignController extends Controller {
 //        View::addExtension('html', 'php');
 //        return View::make('email.emailTemplate');
     }
+    
+    public function updateForm() {
+        $input = Input::all();
+        
+        $EmailCampaign = EmailCampaign::findOrFail($input['id']);
+        $EmailCampaign->update($input);
+        return Response::json(array(
+                    'success' => true,
+                    'message' => "Form Update Successfully",
+        ));
+    }
 
 }

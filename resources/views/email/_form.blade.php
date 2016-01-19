@@ -23,7 +23,8 @@
         <div class="form-group formrow">
             <label>Campaign Name</label>
             <p>Create a mobile-friendly email that looks great on any device or screen size.</p>
-            <a href="{{url('emails/create')}}" class="crtbtn">Create Campaign</a>
+            <!--<a href="{{url('emails/create')}}" class="crtbtn">Create Campaign</a>-->
+            <a href="javascript:void(0);" id='crtTempBtn' class="crtbtn">Create Campaign</a>
         </div>
         <div class="form-group formrow">
             <div class="selectbox">
@@ -162,7 +163,7 @@
             <div class="form-group">
                 <div class="sendbox">
                     <input class="form-control" type="email" placeholder="Enter an email address" name="testEmailAddress" id="testEmailAddress"/>
-                    <a href="javascript:void(0)" id="sendTestAddress">Send</button>
+                    <button href="javascript:void(0)" id="sendTestAddress">Send</button>
                 </div>
             </div>
         </div>
@@ -170,8 +171,7 @@
     <div class="col-md-12"></div>
     <div class="col-md-12">
         <div class="stepbtn">
-
-            <button class="savebtn" type="submit"><i><img src="{{asset("img/savebtn.png")}}" /></i> Save &amp; Exit</button>
+            <button class="backbtnaa" type="submit"><i><img src="{{asset("img/savebtn.png")}}" /></i> Save &amp; Exit</button>
             <a href="javascript:void(0)" class="backbtn"> <i><img src="{{asset("img/backicon.png")}}" /></i> Back </a>
             <a href="javascript:void(0)" class="nextbtn"><i><img src="{{asset("img/sendallicon.png")}}" /></i><span class="nxtButton">Next </span></a>
 
