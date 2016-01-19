@@ -1,7 +1,7 @@
 jQuery(function($) {
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
-           
+
             $("#dpmenu1 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu1").find(".selected").text(e);
@@ -14,7 +14,7 @@ jQuery(function($) {
             })
         });
         $("#dpmenu2").find("li").live("click", function() {
-             
+
             $("#dpmenu2 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu2").find(".selected").text(e);
@@ -188,7 +188,7 @@ jQuery(function($) {
     }
 
     function Ur() {
-         
+
         ur.click(function() {
             ir.slideUp("fast");
             rr.removeClass("active");
@@ -387,7 +387,7 @@ jQuery(function($) {
                 Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)
             }
             setTimeout(function() {
-                
+
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"
                 }).ckeditor();
@@ -404,19 +404,19 @@ jQuery(function($) {
                     $(this).addClass("this-module").find(opt).hide()
                 }).live("mouseleave", function() {
                     $(this).css("border", "none")
-                }); 
-                     setTimeout(function() {
-                      console.log("Enable");
-                $('.dropableCLass tbody tr img').droppable({
-                    hoverClass: "container-img-drop-hover",
-                    disabled: false,
-                    drop: function(ev, ui) {
-                        $(this).attr("src", $(drag_obj).attr('src'));
-
-                    }
                 });
-                 },10000);
-               
+                setTimeout(function() {
+                    console.log("Enable");
+                    $('.dropableCLass tbody tr img').droppable({
+                        hoverClass: "container-img-drop-hover",
+                        disabled: false,
+                        drop: function(ev, ui) {
+                            $(this).attr("src", $(drag_obj).attr('src'));
+
+                        }
+                    });
+                }, 10000);
+
             }, 500);
         });
         rr.click(function() {
@@ -559,7 +559,7 @@ jQuery(function($) {
     }
 
     function ei(e) {
-         
+
         CKDM = $n.html();
         var t = jsflay.test(CKDM);
         if (t != 1) {
@@ -584,7 +584,7 @@ jQuery(function($) {
         }
         pH = fn.val();
         Zn.find(".preheader").remove();
-        console.log("ph=============>"+H);
+        console.log("ph=============>" + H);
         $(tCK + " " + ".BGtable").before('<div class="preheader" style="display:none; visibility:hidden; height:0px; font-size:0px; line-height:0px;">' + pH + "</div>" + "\n");
         Xn.html("Preheader has been added...").css("display", "none").fadeIn(1e3);
         tCKDM = Zn.html();
@@ -716,7 +716,7 @@ jQuery(function($) {
     }
 
     function ti(e) {
-     
+
         repk = 0;
         if (zhixingfou == undefined) {
             if (location.protocol !== "http:") {
@@ -791,9 +791,9 @@ jQuery(function($) {
             }
         })
     }
-my_function=ti;
+    my_function = ti;
     function ni(e) {
-          
+
         $.get(e, function(e) {
             var t = jsflay.test(e);
             if (t != 1) {
@@ -813,9 +813,9 @@ my_function=ti;
     }
 
     function ri() {
-       
+
         In.click(function(e) {
-           
+
             if (isDemo == false) {
 
                 mLg = $n.find(Id).length;
@@ -844,7 +844,7 @@ my_function=ti;
     }
 
     function ii() {
-         
+
         if (zhixingshu == 1) {
             return false
         }
@@ -862,7 +862,7 @@ my_function=ti;
     }
 
     function si() {
-          
+
         $(BJ + " a").each(function(e) {
             br[e] = $(this).attr("id");
             Er = br[0];
@@ -876,7 +876,7 @@ my_function=ti;
     }
 
     function oi() {
-       
+
         if (OptS == 1) {
             return false
         }
@@ -892,7 +892,7 @@ my_function=ti;
             items: Id,
             placeholder: "placehold",
             receive: function(e, t) {
-               $(CK + " li.item").css({
+                $(CK + " li.item").css({
                     "list-style-type": "none",
                     display: "none"
                 }).after(colne_M).next(Id).css({
@@ -948,14 +948,14 @@ my_function=ti;
             },
             revert: "invalid",
             stop: function(e, t) {
-                
+
                 scrollPosi = $n.scrollTop();
                 $n.scrollTop(scrollPosi);
                 var n = $(this).attr("id");
                 colne_M = Jn.find("[rev=" + n + "]").clone()
-                       
-            
-        }
+
+
+            }
         })
 
     }
@@ -964,13 +964,13 @@ my_function=ti;
         $.each(RQz, function(e) {
             var t = RQz.length - 1;
             $("#" + RQz[e] + "Content" + " .item").click(function() {
-            //   colne_M
-         //   alert("hello");
+                //   colne_M
+                //   alert("hello");
                 var n = $(this).attr("id");
                 colne_M = Jn.find("[rev=" + n + "]").clone();
-                
+
                 var r = $(CK + " " + RQm[e]).find(".this-module").length;
-           //     alert("length of r" + e);
+                //     alert("length of r" + e);
                 if (r != 0) {
                     $(colne_M).css({
                         display: "none"
@@ -986,7 +986,7 @@ my_function=ti;
                     }, 300)
                 } else {
                     if (e == t) {
-                      
+
                         $(CK + " " + RQm[e]).append(colne_M).find(Id + ":last").css({
                             opacity: 0
                         }).animate({
@@ -997,7 +997,7 @@ my_function=ti;
                             opacity: 1
                         }, 600)
                     } else {
-                       
+
                         $(CK + " " + RQm[e]).prepend(colne_M).find(Id + ":first").css({
                             opacity: 0
                         }).animate({
@@ -1017,7 +1017,7 @@ my_function=ti;
                     }, 1e3)
                 }
                 Xn.html("module: [ " + n + " ] has been added to the email page.").css("display", "none").fadeIn(1e3);
-               
+
                 CKDM = $n.html()
             });
             $("#" + RQz[e] + "Content" + " .item").live("mousemove", function() {
@@ -2844,66 +2844,80 @@ my_function=ti;
 //            alert("**** Please enter all the required config options!")
 //        }
 
-      console.log(templateName);
-    if (templateName != '') {
-        var title = "Email Template Updated SuccessFully";
-    } else {
-        var title = "Email Template Saved SuccessFully";
-    }
-    swal({
-        title: "Template Info",
-        text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name"><br><textarea class="visibleInput templateDesc" id="templateDesc" name="templateDesc" placeholder="Template Description">' + templateDescription + '</textarea>',
-        html: true,
-        showCancelButton: true,
-    },
-            function(response) {
-                if (response == true) {
-                    templateName = $("#templateName").val();
-                    var templateDescription = $("#templateDesc").val();
+        console.log(templateName);
+        var templaeIDInsert = "";
+        if (templateName != '') {
+            var title = "Email Template Updated SuccessFully";
+        } else {
+            var title = "Email Template Saved SuccessFully";
+        }
+        swal({
+            title: "Template Info",
+            text: '<input class="visibleInput" id="templateName" type="text" name="templateName" value="' + templateName + '" placeholder="Enter Template Name"><br><textarea class="visibleInput templateDesc" id="templateDesc" name="templateDesc" placeholder="Template Description">' + templateDescription + '</textarea>',
+            html: true,
+            showCancelButton: true,
+        },
+                function(response) {
+                    if (response == true) {
+                        templateName = $("#templateName").val();
+                        var templateDescription = $("#templateDesc").val();
 
-                    $.ajax({
-                        url: '/emails',
-                        type: 'post',
-                        data: {
-                            "content": e.content,
-                            "_token": $("input[name=_token]").val(),
-                            "templateId": templateId,
-                            "templateName": templateName,
-                            "templateDescription": templateDescription
+                        $.ajax({
+                            url: '/emails',
+                            type: 'post',
+                            data: {
+                                "content": e.content,
+                                "_token": $("input[name=_token]").val(),
+                                "templateId": templateId,
+                                "templateName": templateName,
+                                "templateDescription": templateDescription
 
-
-                        },
-                        success: function(result) {
-                            swal({
-                                title: title,
-                                text: "",
-                                type: "success",
-                                confirmButtonColor: "#DD6B55",
-                                confirmButtonText: "Ok",
-                                closeOnConfirm: true
 
                             },
-                            function(response) {
-                                if (response == true) {
-                                    
-                                    
-                                    //console.log("camEmailSetup: ",getCookie("camEmailSetup"))
-                                    var retPageId = getCookie("camEmailSetup");
-                                    if(retPageId)
-                                        window.location = APP_URL + "/emails/emailSetup/"+retPageId+"/edit";
-                                    else
-                                        window.location = APP_URL + "/emails";
-                                    return false;
-                                }
-                                else {
-                                    return false;
-                                }
+                            success: function(result) {
+                                templaeIDInsert = result.id;
 
-                            });
-                        }
-                    });
-                }
-            });
+                                swal({
+                                    title: title,
+                                    text: "",
+                                    type: "success",
+                                    confirmButtonColor: "#DD6B55",
+                                    confirmButtonText: "Ok",
+                                    closeOnConfirm: true
+
+                                },
+                                function(response) {
+                                    if (response == true) {
+                                        var retPageId = getCookie("camEmailSetup");
+                                        $.ajax({
+                                            url: '/emails/emailSetup/updateForm',
+                                            type: 'post',
+                                            data: {
+                                                "_token": $("#token").val(),
+                                                "templateId": templaeIDInsert,
+                                                "id": retPageId,
+                                            },
+                                            success: function(result) {
+                                                if (retPageId)
+                                                    window.location = APP_URL + "/emails/emailSetup/" + retPageId + "/edit";
+                                                else
+                                                    window.location = APP_URL + "/emails";
+                                                return false;
+                                            }
+                                        });
+                                        //console.log("camEmailSetup: ",getCookie("camEmailSetup"))
+
+
+                                    }
+                                    else {
+                                        return false;
+                                    }
+
+                                });
+                            }
+                        });
+                    }
+                });
         var t = $("<iframe>", {
             width: 1,
             height: 1,
