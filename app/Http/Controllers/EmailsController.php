@@ -213,6 +213,7 @@ class EmailsController extends Controller {
     }
 
     public function destroy($id) {
+
         $emailTemplateId = explode(",", $id);
         $EmailTemplates = Emails::whereIn('id', $emailTemplateId);
         $email = $EmailTemplates->get();
@@ -220,6 +221,32 @@ class EmailsController extends Controller {
         foreach ($email as $templateName) {
             unlink(public_path("/template_builder/html/{$templateName['adminid']}/{$templateName['templateName']}.html"));
             $EmailTemplatesDelete = Emails::find($templateName['id']);
+            $res = $EmailTemplatesDelete->delete();
+        }
+        if ($res) {
+            $success = true;
+            $msg = "Record Deleted Successfully.";
+        } else {
+            $success = false;
+            $msg = "Something went wrong , Please try again later.";
+        }
+        return Response::json(array(
+                    'success' => $success,
+                    'message' => $msg,
+        ));
+    }
+
+    public function destroyEmailcampaign(Request $request) {
+        $data = Input::all();
+
+        $emailTemplateId = $data['checkBoxValue'];
+
+        $EmailTemplates = EmailCampaign::whereIn('id', $emailTemplateId);
+        $email = $EmailTemplates->get();
+        //Delete File From Server
+        foreach ($email as $templateName) {
+            //    unlink(public_path("/template_builder/html/{$templateName['adminid']}/{$templateName['templateName']}.html"));
+            $EmailTemplatesDelete = EmailCampaign::find($templateName['id']);
             $res = $EmailTemplatesDelete->delete();
         }
         if ($res) {
