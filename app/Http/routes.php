@@ -43,6 +43,9 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
     Route::get('/vendorList', 'VendorController@index');
     Route::get('/vendorAction/{id}', 'VendorController@getAction');
 });
+
+Route::get('hotspot/sendtestCron','HotspotController@sendmailTestCron');
+Route::get('hotspot/allcheck','HotspotController@allUserSubscriptionCheck');
 Route::get('hotspot/datatable', 'HotspotController@datatable');
 Route::get('emails', 'EmailsController@getEmail');
 Route::post('emails/duplicateTemplate/{id}', 'EmailsController@duplicateTemplate');
@@ -80,6 +83,7 @@ Route::get('/google/callback', 'GoogleLogin@callback');
 Route::post('/email/login', 'EMailLoginController@login');
 
 //Payment Routes Start here
+Route::get('payment/billdetails','PaymentController@goCardlessNewRegistration');
 Route::post('/payment/goCardless','PaymentController@goCardlessNewRegistration');
 Route::get('/payment/{id}', 'PaymentController@editUser');
 Route::post('/payment/updateUser', 'PaymentController@updateUser');
