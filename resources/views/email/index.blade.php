@@ -85,12 +85,13 @@
             <a href="javascript:void(0)" class="draftbtn "><i></i>Drafts<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>
         </div>
         <div class="mailingtabledtl">
-            <a class="deletebtn" href="#"><img src="{{ asset("img/deleteimg.png") }}" /></a>
+          
             <input type="hidden" value="" name="mailType" id="mailType">
             <table class="mailingtable" id="campaign-table">
                 <thead>
                     <tr>
                         <th class="tchackboc">
+                            <a class="deletebtn" href="javascript:void(0)" style="display: none;"><img src="{{ asset("img/deleteimg.png") }}" /></a>
                             <label class="">
                                 <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>
