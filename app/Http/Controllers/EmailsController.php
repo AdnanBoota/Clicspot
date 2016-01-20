@@ -320,9 +320,9 @@ class EmailsController extends Controller {
             }
         } else {
             if ($dataToFetch == "") {
-                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName', 'campaignStatus']);
+                $campaignList = Auth::user()->emailCampaign()->select(['id', 'adminid', 'campaignName', 'campaignStatus']);
             } else {
-                $campaignList = EmailCampaign::select(['id', 'adminid', 'campaignName', 'campaignStatus'])->where('campaignStatus', '=', $dataToFetch);
+                $campaignList = Auth::user()->emailCampaign()->select(['id', 'adminid', 'campaignName', 'campaignStatus'])->where('campaignStatus', '=', $dataToFetch);
             }
         }
 

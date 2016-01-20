@@ -2845,6 +2845,7 @@ jQuery(function($) {
 //        }
 
         console.log(templateName);
+        console.log("template id:",templateId);
         var templaeIDInsert = "";
         if (templateName != '') {
             var title = "Email Template Updated SuccessFully";
@@ -2889,6 +2890,7 @@ jQuery(function($) {
                                 function(response) {
                                     if (response == true) {
                                         var retPageId = getCookie("camEmailSetup");
+                                        if(templateId == ''){
                                         $.ajax({
                                             url: '/emails/emailSetup/updateForm',
                                             type: 'post',
@@ -2905,6 +2907,9 @@ jQuery(function($) {
                                                 return false;
                                             }
                                         });
+                                        }
+                                        window.location = APP_URL + "/emails";
+                                        return false;
                                         //console.log("camEmailSetup: ",getCookie("camEmailSetup"))
 
 

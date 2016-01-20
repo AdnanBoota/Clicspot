@@ -72,7 +72,7 @@ class EmailCampaignController extends Controller {
     $email=$userDetails->email;
     $username=$userDetails->username;
         //  $emailTemplate = Emails::select(DB::raw('id,adminid,templateName'))->get();
-        $emailTemplate = Auth::user()->emailCampaign()->select('templateName', 'id')->lists('templateName', 'id');
+        $emailTemplate = Auth::user()->emailTemplates()->select('templateName', 'id')->lists('templateName', 'id');
         $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
         $emailList = Auth::user()->emailList()->select('listname', 'id')->lists('listname', 'id');
         //    $emailList = Auth::user()->emailList()->select('listname', 'id')->get();
@@ -123,15 +123,19 @@ class EmailCampaignController extends Controller {
      * @return Response
      */
     public function edit($id) {
+        
         $adminid= Auth::user()->id;
+         $userDetails = User::findOrFail($adminid);
+        $email=$userDetails->email;
+        $username=$userDetails->username;
         $campaignData = EmailCampaign::findOrFail($id);
         $campaignData->recipientNoOfVisit = explode(';', $campaignData->recipientNoOfVisit);
         $campaignData->router = explode(',', $campaignData->router);
         $campaignData->age = explode(';', $campaignData->age);
-        $emailTemplate = Auth::user()->emailCampaign()->select('templateName', 'id')->lists('templateName', 'id');
+        $emailTemplate = Auth::user()->emailTemplates()->select('templateName', 'id')->lists('templateName', 'id');
         $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
         $emailList = Auth::user()->emailList()->select('listname', 'id')->lists('listname', 'id');
-        return View::make('email.emailSetupEdit', compact('campaignData', 'emailTemplate', 'emailList', 'routers','adminid'));
+        return View::make('email.emailSetupEdit', compact('campaignData', 'emailTemplate', 'emailList', 'routers','adminid','email','username'));
     }
 
     /**
