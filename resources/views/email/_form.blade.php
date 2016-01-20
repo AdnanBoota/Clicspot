@@ -5,17 +5,17 @@
     <div class="col-md-9 stepform1 {{isset($campaignData->currentForm) ? '':'currentForm' }}{{isset($campaignData->currentForm) && $campaignData->currentForm == '1' ? 'currentForm':''}}" id="1">
         <div class="form-group formrow">
             <label>Campaign Name</label><a href="#"><i class="anyque"></i></a>
-            {!!  Form::text('campaignName', null, array('id'=>'campaignName','placeholder'=>'MyCampaign','class'=>'form-control')) !!}
+            {!!  Form::text('campaignName', null, array('id'=>'campaignName','placeholder'=>'MyCampaign','class'=>'form-control','tabindex'=>'1')) !!}
             
         </div>
         <div class="form-group formrow">
             <label>Sender Email</label><a href="#"><i class="anyque"></i></a>
-            {!!  Form::text('senderEmail', null, array('id'=>'senderEmail','placeholder'=>'Email Address','class'=>'form-control')) !!}
+            {!!  Form::text('senderEmail', $email, array('id'=>'senderEmail','placeholder'=>'Email Address','class'=>'form-control','readonly','tabindex'=>'2')) !!}
     
         </div>
         <div class="form-group formrow">
             <label>From Name</label><a href="#"><i class="anyque"></i></a>
-            {!!  Form::text('fromName', null, array('id'=>'senderName','placeholder'=>'Your Name','class'=>'form-control')) !!}
+            {!!  Form::text('fromName', $username, array('id'=>'senderName','placeholder'=>'Your Name','class'=>'form-control','readonly','tabindex'=>'3')) !!}
     
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="form-group formrow">
             <div class="selectbox">
                 <i class="fa fa-caret-down droparrow"></i>
-                {!!  Form::select('templateId', $emailTemplate, null, ['id'=>'templateId']) !!}
+                {!!  Form::select('templateId', $emailTemplate, null, ['id'=>'templateId','tabindex'=>'4']) !!}
 
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="col-md-6">
                 <div class="selectbox">
                     <i class="fa fa-caret-down droparrow"></i>
-               {!!  Form::select('emailListId', $emailList, null, ['id'=>'emailListId']) !!}
+               {!!  Form::select('emailListId', $emailList, null, ['id'=>'emailListId','tabindex'=>'5']) !!}
 
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <div class="col-md-6">
                         <div class="selectbox">
                             <i class="fa fa-caret-down droparrow"></i>
-                            {!!  Form::select('gender', array('both' => 'Male & Female','male' => 'Male', 'female' => 'Female') , null, ['id'=>'gender']) !!}
+                            {!!  Form::select('gender', array('both' => 'Male & Female','male' => 'Male', 'female' => 'Female') , null, ['id'=>'gender','tabindex'=>'6']) !!}
 
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                     <div class="col-md-6">
                         <div class="ageblock">
                             <div class="col-md-6">
-                                {!!  Form::text('age', "", array('data-from'=>isset($campaignData->age[0])? $campaignData->age[0]:'15','data-to'=>isset($campaignData->age[1])? $campaignData->age[1]:'55','data-type'=>'double','id'=>'age')) !!}
+                                {!!  Form::text('age', "", array('data-from'=>isset($campaignData->age[0])? $campaignData->age[0]:'15','data-to'=>isset($campaignData->age[1])? $campaignData->age[1]:'55','data-type'=>'double','id'=>'age','tabindex'=>'7')) !!}
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         <div class="row">
                             <div class="selectbox">
                                
-                                {!!  Form::select('router[]', $routers, null, ['multiple' => 'multiple','id'=>'router']) !!}
+                                {!!  Form::select('router[]', $routers, null, ['multiple' => 'multiple','id'=>'router','tabindex'=>'8']) !!}
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                     <div class="col-md-6">
                         <div class="ageblock">
                             <div class="col-md-6">
-                                {!!  Form::text('numberofvisit', "", array('data-from'=>isset($campaignData->numberofvisit[0])? $campaignData->numberofvisit[0]:'1','data-to'=>isset($campaignData->numberofvisit[1])? $campaignData->numberofvisit[1]:'20','data-type'=>'double','id'=>'numberofvisit','class'=>'form-control')) !!}
+                                {!!  Form::text('numberofvisit', "", array('data-from'=>isset($campaignData->numberofvisit[0])? $campaignData->numberofvisit[0]:'1','data-to'=>isset($campaignData->numberofvisit[1])? $campaignData->numberofvisit[1]:'20','data-type'=>'double','id'=>'numberofvisit','class'=>'form-control','tabindex'=>'9')) !!}
                             </div>
                         </div>
                     </div>
@@ -115,14 +115,14 @@
                     <div class="col-md-6">
                         <div class="ageblock">
                             <div class="col-md-6">
-                                {!!  Form::text('duringRecipientLastVisit', null, array('id'=>'duringRecipientLastVisit','placeholder'=>'0','class'=>'form-control')) !!}
+                                {!!  Form::text('duringRecipientLastVisit', null, array('id'=>'duringRecipientLastVisit','placeholder'=>'0','class'=>'form-control','tabindex'=>'10')) !!}
 
                             </div>
                             <div class="col-md-6">
                                 <input type="hidden" name="datequickselection" value="" id="datequickselection">
                                 <div class="selectbox">
                                     <i class="fa fa-caret-down droparrow"></i>
-                                    {!!  Form::select('noOfDays', array('1' => 'Day(s)','7' => 'Week(s)', '30' => 'Month(s)','365' => 'year(s)'), null , ['id'=>'noOfDays']) !!}
+                                    {!!  Form::select('noOfDays', array('1' => 'Day(s)','7' => 'Week(s)', '30' => 'Month(s)','365' => 'year(s)'), null , ['id'=>'noOfDays','tabindex'=>'11']) !!}
                                 </div>
                             </div>
                         </div>
@@ -171,9 +171,9 @@
     <div class="col-md-12"></div>
     <div class="col-md-12">
         <div class="stepbtn">
-            <button class="backbtnaa" type="submit"><i><img src="{{asset("img/savebtn.png")}}" /></i> Save &amp; Exit</button>
-            <a href="javascript:void(0)" class="backbtn"> <i><img src="{{asset("img/backicon.png")}}" /></i> Back </a>
-            <a href="javascript:void(0)" class="nextbtn"><i><img src="{{asset("img/sendallicon.png")}}" /></i><span class="nxtButton">Next </span></a>
+            <button class="backbtnaa" type="submit" tabindex="13"><i><img src="{{asset("img/savebtn.png")}}" /></i> Save &amp; Exit</button>
+            <a href="javascript:void(0)" class="backbtn" tabindex="14"> <i><img src="{{asset("img/backicon.png")}}" /></i> Back </a>
+            <a href="javascript:void(0)" class="nextbtn" tabindex="15"><i><img src="{{asset("img/sendallicon.png")}}" /></i><span class="nxtButton">Next </span></a>
 
         </div>
     </div>
