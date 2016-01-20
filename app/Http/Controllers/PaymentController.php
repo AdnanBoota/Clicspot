@@ -30,7 +30,7 @@ class PaymentController extends Controller {
     public function index() {
         $adminId = Auth::user()->id;
         $nextBillingDate = "13/01/2017";
-        $resourceID="XXXXXXXXXXXXNIL";
+        $resourceID = "XXXXXXXXXXXXNIL";
         $paymentDetails = SubscriptionHistory::where('adminid', "=", $adminId)->where("amount", "!=", '3000')->orderBy('id', 'desc')->first();
         $billingDetails = SubscriptionHistory::where('adminid', "=", $adminId)->get();
 
@@ -210,7 +210,20 @@ class PaymentController extends Controller {
         );
         $adminUSer = new User();
         $adminUSer->update($formField);
-       return redirect("/payment");
+        return redirect("/payment");
+    }
+
+    public function billDetails() {
+          $account_details = array(
+            'app_id' => "5SJ55WHN3JFTKBHA4PG682K71EQGRVR1J0Y2SV5FDW7Z929AAR3AFPXM595F74PN",
+            'app_secret' => "5PDQFQESW198M4B33FYTF3CAF4K9JS7V2EZ0NYGF2M9ECC00YNYQ0BCAFB7Q9BC3",
+            'merchant_id' => "12BP5Z9GEW",
+            'access_token' => "SWAY299T209S0FW04DN755GSSXCR5YK586W6YMN9QXYT4H1EH6TBPFB1E0T1B065"
+        );
+        \GoCardless::set_account_details($account_details);
+        $bill = \GoCardless_Bill::find('PM0000ZZRACXT0');
+        echo '<pre>';
+        print_r($bill);
     }
 
 }
