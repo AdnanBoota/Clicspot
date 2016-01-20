@@ -18,6 +18,7 @@ use App\Radacct;
 use yajra\Datatables\Datatables;
 use App\EmailList;
 use App\Users;
+use App\User;
 use Mail;
 use App\Hotspot;
 
@@ -67,13 +68,15 @@ class EmailCampaignController extends Controller {
     public function create() {
 
    $adminid= Auth::user()->id;
-
+    $userDetails = User::findOrFail($adminid);
+    $email=$userDetails->email;
+    $username=$userDetails->username;
         //  $emailTemplate = Emails::select(DB::raw('id,adminid,templateName'))->get();
         $emailTemplate = Auth::user()->emailCampaign()->select('templateName', 'id')->lists('templateName', 'id');
         $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
         $emailList = Auth::user()->emailList()->select('listname', 'id')->lists('listname', 'id');
         //    $emailList = Auth::user()->emailList()->select('listname', 'id')->get();
-        return View::make('email.emailSetup', compact('emailTemplate', 'emailList', 'routers','adminid'));
+        return View::make('email.emailSetup', compact('emailTemplate', 'emailList', 'routers','adminid','email','username'));
     }
 
     /**
