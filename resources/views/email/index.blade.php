@@ -54,7 +54,7 @@
                     <tr>
 
                         <th class="tchackboc">
-                            <a class="deletebtn" href="javascript:void(0)" style="display: none;"><img src="{{ asset("img/deleteimg.png") }}" /></a>
+                            <a class="deletebtn" href="javascript:void(0)" style="display: none;" id="deletebtn"><img src="{{ asset("img/deleteimg.png") }}" /></a>
                             <label class="">
                                 <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>
@@ -91,7 +91,7 @@
                 <thead>
                     <tr>
                         <th class="tchackboc">
-                            <a class="deletebtn" href="javascript:void(0)" style="display: none;"><img src="{{ asset("img/deleteimg.png") }}" /></a>
+                            <a class="deletebtn" href="javascript:void(0)" style="display: none;" id="campaignDelete"><img src="{{ asset("img/deleteimg.png") }}" /></a>
                             <label class="">
                                 <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>
@@ -129,8 +129,10 @@ function  countChecked() {
  //  $("#count").text(n + (n === 1 ? " is" : " zijn") + " aangevinkt!"); //show some text
     if (n == 0) {
         $(".deletebtn").fadeOut(); //if there are none checked, hide only visible elements
+        $(".campaignDelete").fadeOut();
     } else {
         $(".deletebtn").fadeIn(); //otherwise (some are selected) fadeIn - if the div is hidden.
+        $(".campaignDelete").fadeIn();
     }
 
 }
@@ -183,6 +185,7 @@ $(document).ready(function() {
         if ($(this).is(":checked")) {
             $(this).parent().addClass("checked");
             $(".deletebtn").show();
+             $(".campaignDelete").show();
         } else {
             $(this).parent().removeClass("checked");
             // $(".deletebtn").hide("slow", !$('input[type="checkbox"]').is(":checked"));
@@ -208,7 +211,7 @@ $(document).ready(function() {
         }
     });
 
-    $(document).on("click", ".deletebtn", function() {
+    $(document).on("click", "#deletebtn", function() {
 
         var checkBoxValue = $(".emailDelCheckBox:checked").map(function() {
             return $(this).val();
@@ -226,10 +229,40 @@ $(document).ready(function() {
                 if (result.success) {
                     swal("success!", "Email Template  deleted successfully.", "success");
                     oTable.draw();
+                    
                 } else {
                     alert('false');
                     swal("ohh snap!", "something went wrong", "error");
                 }
+                 $(".deletebtn").fadeOut();
+
+            }
+        });
+    });
+        $(document).on("click", "#campaignDelete", function() {
+
+        var checkBoxValue = $(".emailDelCheckBox:checked").map(function() {
+            return $(this).val();
+        }).toArray();
+        console.log(checkBoxValue);
+        jQuery.ajax({
+            url: '/campaignTemplate/' ,
+            type: 'post',
+            data: {
+                "_method": 'post',
+                "_token": '{{csrf_token()}}',
+                "checkBoxValue":checkBoxValue
+
+            },
+            success: function(result) {
+                if (result.success) {
+                    swal("success!", "Email Campaign  deleted successfully.", "success");
+                    oTableCampaign.draw();
+                } else {
+                    alert('false');
+                    swal("ohh snap!", "something went wrong", "error");
+                }
+                 $(".deletebtn").fadeOut();
 
             }
         });
