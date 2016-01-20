@@ -11,7 +11,7 @@ class SubscriptionHistory extends Model {
      *
      * @var array
      */
-    protected $fillable = ['adminid','resourceid', 'amount', 'description', 'nextpaymentdate'];
+    protected $fillable = ['adminid','resourceid', 'amount', 'description', 'nextpaymentdate','billid','paymentstatus'];
 
     /**
      * The attributes excluded from the model's JSON form.
