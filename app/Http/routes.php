@@ -23,6 +23,7 @@ Route::group(array('prefix' => 'api/v1/ar71xx'), function () {
     Route::get('/config', 'RouterControllerAR71XX@config');
     Route::get('/update/{mac}', 'RouterControllerAR71XX@update');
 });
+Route::post('/campaignTemplate/','EmailsController@destroyEmailcampaign');
 //End::API/v1/ar71xx
 //Start::hotspot/hotspotlogin
 Route::group(array('prefix' => 'hotspot'), function () {
