@@ -32,6 +32,4 @@ rm /tmp/crontab
 
 /etc/init.d/cron restart
 
-rm /etc/rc.d/S60dnsmasq
-
 reboot
