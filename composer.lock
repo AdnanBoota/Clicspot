@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1a3fbd139f699fb07ac8f04ef9c8c349",
+    "hash": "811e5d3ce157cb0dcec49db7a74c590c",
     "content-hash": "16453212d37c24b83949c5892da2fa00",
     "packages": [
         {
@@ -72,16 +72,16 @@
         },
         {
             "name": "caouecs/laravel4-lang",
-            "version": "2.0.28",
+            "version": "2.0.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "46e4754a0ff40c0d7ebd9bf7dc1d23cb407f440d"
+                "reference": "bfd1fc786129f07d1a3b5272f577f39a15117cc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/46e4754a0ff40c0d7ebd9bf7dc1d23cb407f440d",
-                "reference": "46e4754a0ff40c0d7ebd9bf7dc1d23cb407f440d",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/bfd1fc786129f07d1a3b5272f577f39a15117cc3",
+                "reference": "bfd1fc786129f07d1a3b5272f577f39a15117cc3",
                 "shasum": ""
             },
             "require-dev": {
@@ -108,7 +108,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2015-11-27 13:53:54"
+            "time": "2016-01-13 22:10:00"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1537,6 +1537,54 @@
             "time": "2015-09-19 14:15:08"
         },
         {
+            "name": "paragonie/random_compat",
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2016-01-06 13:31:20"
+        },
+        {
             "name": "phpdocumentor/reflection-docblock",
             "version": "2.0.4",
             "source": {
@@ -1905,16 +1953,16 @@
         },
         {
             "name": "symfony/class-loader",
-            "version": "v2.8.1",
+            "version": "v2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
-                "reference": "ec74b0a279cf3a9bd36172b3e3061591d380ce6c"
+                "reference": "98e9089a428ed0e39423b67352c57ef5910a3269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/class-loader/zipball/ec74b0a279cf3a9bd36172b3e3061591d380ce6c",
-                "reference": "ec74b0a279cf3a9bd36172b3e3061591d380ce6c",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/98e9089a428ed0e39423b67352c57ef5910a3269",
+                "reference": "98e9089a428ed0e39423b67352c57ef5910a3269",
                 "shasum": ""
             },
             "require": {
@@ -1953,11 +2001,11 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-05 17:37:59"
+            "time": "2016-01-03 15:33:41"
         },
         {
             "name": "symfony/console",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
@@ -2015,7 +2063,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
@@ -2076,16 +2124,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.1",
+            "version": "v2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "a5eb815363c0388e83247e7e9853e5dbc14999cc"
+                "reference": "ee278f7c851533e58ca307f66305ccb9188aceda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a5eb815363c0388e83247e7e9853e5dbc14999cc",
-                "reference": "a5eb815363c0388e83247e7e9853e5dbc14999cc",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ee278f7c851533e58ca307f66305ccb9188aceda",
+                "reference": "ee278f7c851533e58ca307f66305ccb9188aceda",
                 "shasum": ""
             },
             "require": {
@@ -2132,20 +2180,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2015-10-30 20:15:42"
+            "time": "2016-01-13 10:28:07"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.1",
+            "version": "v2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "a7ad724530a764d70c168d321ac226ba3d2f10fc"
+                "reference": "637b64d0ee10f44ae98dbad651b1ecdf35a11e8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/a7ad724530a764d70c168d321ac226ba3d2f10fc",
-                "reference": "a7ad724530a764d70c168d321ac226ba3d2f10fc",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/637b64d0ee10f44ae98dbad651b1ecdf35a11e8c",
+                "reference": "637b64d0ee10f44ae98dbad651b1ecdf35a11e8c",
                 "shasum": ""
             },
             "require": {
@@ -2181,11 +2229,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-22 10:25:57"
+            "time": "2016-01-13 10:28:07"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
@@ -2235,7 +2283,7 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
@@ -2289,17 +2337,17 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/HttpKernel",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "498866a8ca0bcbcd3f3824b1520fa568ff7ca3b6"
+                "reference": "cdd991d304fed833514dc44d6aafcf19397c26cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/498866a8ca0bcbcd3f3824b1520fa568ff7ca3b6",
-                "reference": "498866a8ca0bcbcd3f3824b1520fa568ff7ca3b6",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/cdd991d304fed833514dc44d6aafcf19397c26cb",
+                "reference": "cdd991d304fed833514dc44d6aafcf19397c26cb",
                 "shasum": ""
             },
             "require": {
@@ -2363,7 +2411,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2015-11-23 11:37:53"
+            "time": "2016-01-14 10:11:16"
         },
         {
             "name": "symfony/polyfill-php56",
@@ -2475,7 +2523,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/Process",
             "source": {
                 "type": "git",
@@ -2525,7 +2573,7 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
@@ -2594,20 +2642,21 @@
         },
         {
             "name": "symfony/security-core",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/Security/Core",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "05f58bb3814e8a853332dc448e3b7addaa87679c"
+                "reference": "813cf2aaacccbbe1a4705aef8d4ac0d79d993a76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/05f58bb3814e8a853332dc448e3b7addaa87679c",
-                "reference": "05f58bb3814e8a853332dc448e3b7addaa87679c",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/813cf2aaacccbbe1a4705aef8d4ac0d79d993a76",
+                "reference": "813cf2aaacccbbe1a4705aef8d4ac0d79d993a76",
                 "shasum": ""
             },
             "require": {
+                "paragonie/random_compat": "~1.0",
                 "php": ">=5.3.3"
             },
             "require-dev": {
@@ -2654,11 +2703,11 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
-            "time": "2015-07-22 10:08:40"
+            "time": "2016-01-14 09:04:34"
         },
         {
             "name": "symfony/translation",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/Translation",
             "source": {
                 "type": "git",
@@ -2717,7 +2766,7 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v2.6.12",
+            "version": "v2.6.13",
             "target-dir": "Symfony/Component/VarDumper",
             "source": {
                 "type": "git",
@@ -2884,12 +2933,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cossou/JasperPHP.git",
-                "reference": "6e222fb5cf7b3b0f7118060784919c229c63b4bf"
+                "reference": "1a4c5331cdfd8f6b2078eab80bdd5b1e4c3e3bcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cossou/JasperPHP/zipball/6e222fb5cf7b3b0f7118060784919c229c63b4bf",
-                "reference": "6e222fb5cf7b3b0f7118060784919c229c63b4bf",
+                "url": "https://api.github.com/repos/cossou/JasperPHP/zipball/1a4c5331cdfd8f6b2078eab80bdd5b1e4c3e3bcc",
+                "reference": "1a4c5331cdfd8f6b2078eab80bdd5b1e4c3e3bcc",
                 "shasum": ""
             },
             "type": "library",
@@ -2917,7 +2966,7 @@
                 "pdf",
                 "reports"
             ],
-            "time": "2015-10-16 09:07:06"
+            "time": "2016-01-14 15:27:49"
         },
         {
             "name": "doctrine/instantiator",

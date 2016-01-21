@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Routers extends Model {
+class Routers extends Model
+{
 
     protected $table = 'routers';
     protected $fillable = ['model', 'macaddress', 'ssid', 'configversion'];
@@ -16,12 +17,14 @@ class Routers extends Model {
      */
     protected $hidden = ['configversion'];
 
-    public function status() {
+    public function status()
+    {
         return $this->hasOne('App\RouterStatus', 'macaddress', 'macaddress');
     }
 
-    public function hotspot() {
-        return $this->hasOne('App\Hotspot', 'macaddress', 'nasidentifier');
+    public function hotspot()
+    {
+        return $this->hasOne('App\Hotspot', 'nasidentifier', 'macaddress');
     }
 
 }
