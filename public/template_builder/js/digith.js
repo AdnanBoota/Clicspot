@@ -2877,7 +2877,7 @@ jQuery(function($) {
                             },
                             success: function(result) {
                                 templaeIDInsert = result.id;
-
+                                //console.log("now goes for swal");
                                 swal({
                                     title: title,
                                     text: "",
@@ -2890,6 +2890,7 @@ jQuery(function($) {
                                 function(response) {
                                     if (response == true) {
                                         var retPageId = getCookie("camEmailSetup");
+                                         //console.log("template id fsdfd:",templateId);
                                         if(templateId == ''){
                                         $.ajax({
                                             url: '/emails/emailSetup/updateForm',
@@ -2907,9 +2908,10 @@ jQuery(function($) {
                                                 return false;
                                             }
                                         });
+                                        }else{
+                                            window.location = APP_URL + "/emails";
+                                            return false;
                                         }
-                                        window.location = APP_URL + "/emails";
-                                        return false;
                                         //console.log("camEmailSetup: ",getCookie("camEmailSetup"))
 
 
