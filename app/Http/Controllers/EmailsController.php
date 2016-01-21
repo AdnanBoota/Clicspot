@@ -32,8 +32,14 @@ class EmailsController extends Controller {
     }
 
     public function index(Request $request) {
-        $draftCount = EmailCampaign::select(DB::raw('count(campaignStatus) as totalDraftCount'))->where('campaignStatus', '=', 'draft')->get();
-        $sentCount = EmailCampaign::select(DB::raw('count(campaignStatus) as totalSentCountCount'))->where('campaignStatus', '=', 'sent')->get();
+        if (Auth::user()->type == 'superadmin') {
+            $draftCount = EmailCampaign::select(DB::raw('count(campaignStatus) as totalDraftCount'))->where('campaignStatus', '=', 'draft')->get();
+            $sentCount = EmailCampaign::select(DB::raw('count(campaignStatus) as totalSentCountCount'))->where('campaignStatus', '=', 'sent')->get();
+        }else{
+            $draftCount = Auth::user()->emailCampaign()->select(DB::raw('count(campaignStatus) as totalDraftCount'))->where('campaignStatus', '=', 'draft')->get();
+            $sentCount = Auth::user()->emailCampaign()->select(DB::raw('count(campaignStatus) as totalSentCountCount'))->where('campaignStatus', '=', 'sent')->get();
+        }
+            
         if ($request->ajax()) {
 
             if (Auth::user()->type == 'superadmin') {

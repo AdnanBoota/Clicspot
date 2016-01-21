@@ -202,7 +202,7 @@ class EmailCampaignController extends Controller {
 
     public function updateForm() {
         $input = Input::all();
-      
+        //print_r($input);exit;
         if (isset($input['id'])) {
             $EmailCampaign = EmailCampaign::findOrFail($input['id']);
             $EmailCampaign->update($input);
@@ -212,7 +212,8 @@ class EmailCampaignController extends Controller {
             ));
         } else {
             $emailCampaign = new EmailCampaign($input);
-            $result = $emailCampaign->save();
+            //$result = $emailCampaign->save();
+            Auth::user()->emailCampaign()->save($emailCampaign);
               return Response::json(array(
                
                         'id' => $emailCampaign->id
