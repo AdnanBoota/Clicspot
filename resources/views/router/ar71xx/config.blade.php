@@ -7,6 +7,8 @@ wifi
 opkg update
 opkg install coova-chilli
 
+
+
 WLANMAC=$(ifconfig wlan0 | awk '/HWaddr/ { print $5 }' | sed 's/:/-/g')
 
 wget {{ url('') }}/tplink/defaults.php -O /etc/chilli/defaults
@@ -29,5 +31,7 @@ crontab /tmp/crontab
 rm /tmp/crontab
 
 /etc/init.d/cron restart
+
+rm /etc/rc.d/S60dnsmasq
 
 reboot
