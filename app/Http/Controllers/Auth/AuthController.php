@@ -187,7 +187,7 @@ use AuthenticatesAndRegistersUsers;
         }
 
         $payment_details = array(
-            'max_amount' => '100.00',
+            'max_amount' => '3000.00',
             'interval_length' => 12,
             'interval_unit' => 'month',
             'user' => array(
