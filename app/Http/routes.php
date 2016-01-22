@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
 });
 
 Route::get('sendtestCron','CronController@sendmailTestCron');
-Route::get('hotspot/allSubscriptioncheck','HotspotController@allUserSubscriptionCheck');
+Route::get('allSubscriptioncheck','CronController@allUserSubscriptionCheck');
 Route::get('hotspot/datatable', 'HotspotController@datatable');
 Route::get('emails', 'EmailsController@getEmail');
 Route::post('emails/duplicateTemplate/{id}', 'EmailsController@duplicateTemplate');
