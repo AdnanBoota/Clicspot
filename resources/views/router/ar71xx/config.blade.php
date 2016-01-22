@@ -8,7 +8,7 @@ opkg install coova-chilli
 
 
 
-WLANMAC=$(ifconfig wlan0 | awk '/HWaddr/ { print $5 }' | sed 's/:/-/g')
+WLANMAC=$(ifconfig br-lan | awk '/HWaddr/ { print $5 }' | sed 's/:/-/g')
 
 wget {{ url('') }}/tplink/defaults.php -O /etc/chilli/defaults
 
