@@ -116,7 +116,8 @@ class HotspotController extends Controller {
         );
         $hotspot = new Hotspot($input);
         Auth::user()->hotspots()->save($hotspot);
-        $this->userSubscription();
+        // This function is need to call for charging cutomer on hotspot adding and commented for testing 
+    //    $this->userSubscription();     
         Session::remove('mac');
         $hotAttrArr = array(
             new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 1, 'value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
