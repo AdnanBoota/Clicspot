@@ -117,7 +117,7 @@ class HotspotController extends Controller {
         $hotspot = new Hotspot($input);
         Auth::user()->hotspots()->save($hotspot);
         // This function is need to call for charging cutomer on hotspot adding and commented for testing 
-    //    $this->userSubscription();     
+        //    $this->userSubscription();     
         Session::remove('mac');
         $hotAttrArr = array(
             new HotspotAttributes(array('attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 1, 'value' => $request->input('ChilliSpot-Bandwidth-Max-Up'))),
@@ -356,8 +356,8 @@ class HotspotController extends Controller {
     }
 
     public function sendmailTestCron() {
-            $userId['userId'] =Auth::user()->id;
-             $userId['templateName'] ="temp";
+        $userId['userId'] ="1";
+        $userId['templateName'] = "sdfs";
         Mail::send('email.emailTemplate', $userId, function ($message) {
             $message->to('bindeshpandya@hotmail.com', 'example_name')->subject('Welcome!');
         });
