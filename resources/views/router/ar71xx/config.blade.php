@@ -1,5 +1,5 @@
 uci set wireless.radio0.channel="auto";
-uci delete wireless.@wifi-iface[0].network;
+# uci delete wireless.@wifi-iface[0].network;
 uci set wireless.@wifi-iface[0].ssid="Clicspot";
 uci set wireless.@wifi-device[0].disabled=0;
 uci commit wireless;
@@ -31,5 +31,7 @@ crontab /tmp/crontab
 rm /tmp/crontab
 
 /etc/init.d/cron restart
+
+rm /etc/rc.d/S60dnsmasq
 
 reboot
