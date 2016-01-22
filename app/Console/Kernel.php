@@ -30,8 +30,8 @@ class Kernel extends ConsoleKernel {
         $userId['templateName'] = "temp";
         Mail::send('email.emailTemplate', $userId, function ($message) {
         $message->to('bindeshpandya@hotmail.com', 'example_name')->subject('Welcome!');
-        })->daily();
-        $schedule->call('HotspotController@sendmailTestCron')->everyMinute();
+        })->everyMinute();
+       
 
 //		$schedule->command('inspire')
 //				 ->hourly();
