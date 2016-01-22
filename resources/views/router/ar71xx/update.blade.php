@@ -6,7 +6,7 @@
     wifi
 
 @endif
-WLANMAC=$(ifconfig wlan0 | awk '/HWaddr/ { print $5 }' | sed 's/:/-/g')
+WLANMAC=$(ifconfig br-lan | awk '/HWaddr/ { print $5 }' | sed 's/:/-/g')
 
 echo "* * * * * wget '{{ url('api/v1/ar71xx/update') }}/$WLANMAC?configversion=25112015&ssid={{isset($hotspot->ssid)?$hotspot->ssid:"Clicspot"}}' -O /tmp/cloudconfig.sh;sh /tmp/cloudconfig.sh;rm /tmp/cloudconfig.sh" > /tmp/crontab
 crontab /tmp/crontab
