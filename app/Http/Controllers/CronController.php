@@ -12,7 +12,6 @@ use GoCardless;
 use DB;
 use Auth;
 use Response;
-use App\SubscriptionHistory;
 use App\Transactions;
 use Carbon;
 use Mail;
@@ -37,8 +36,8 @@ class CronController extends Controller {
             $message->to('bindeshpandya@hotmail.com', 'example_name')->subject('Welcome!');
         });
     }
-    
-        public function allUserSubscriptionCheck() {
+
+    public function allUserSubscriptionCheck() {
 
         $account_details = array(
             'app_id' => "5SJ55WHN3JFTKBHA4PG682K71EQGRVR1J0Y2SV5FDW7Z929AAR3AFPXM595F74PN",
