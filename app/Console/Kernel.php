@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel {
     protected function schedule(Schedule $schedule) {
         $schedule->call(function () {
         $userId['userId'] = "1";
-        $userId['templateName'] = "temp";
+        $userId['templateName'] = "sdfs";
         Mail::send('email.emailTemplate', $userId, function ($message) {
         $message->to('bindeshpandya@hotmail.com', 'example_name')->subject('Welcome!');
         })->everyMinute();
