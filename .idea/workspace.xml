@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/hotspot/_form.blade.php" afterPath="$PROJECT_DIR$/resources/views/hotspot/_form.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/tplink/main.php" afterPath="$PROJECT_DIR$/public/tplink/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -45,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/tplink/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0421053">
-              <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.53571427">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -119,8 +119,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/RouterControllerAR71XX.php" />
         <option value="$PROJECT_DIR$/resources/views/router/ar71xx/update.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/router/ar71xx/config.blade.php" />
-        <option value="$PROJECT_DIR$/public/tplink/main.php" />
         <option value="$PROJECT_DIR$/resources/views/hotspot/_form.blade.php" />
+        <option value="$PROJECT_DIR$/public/tplink/main.php" />
       </list>
     </option>
   </component>
@@ -210,7 +210,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="cre&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/create.blade.php&#10;main&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/tplink/main.php&#10;con&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/router/ar71xx/config.blade.php&#10;Rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;ar71&#9;null&#9;null&#10;hotspot&#9;null&#9;null&#10;server&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/routes.php&#10;notyet&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;campai&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/_form.blade.php&#10;create&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/create.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/edit.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/edit.blade.php&#10;hotspotLo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotLoginController.php&#10;face&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;Em&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/EMailLoginController.php&#10;for&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;noty&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;use&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/User.php&#10;hotspotc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;campaign&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;_&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;input.&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/plugins/input-mask/jquery.inputmask.extensions.js&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;notye&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;not&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;edit.bl&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/edit.blade.php&#10;gall&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/gallery.blade.php&#10;adminLte&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/dist/css/AdminLTE.min.css&#10;hotspotL&#9;null&#9;null&#10;_form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;campa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspotC&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hots&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;routersta&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/RouterStatus.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;login&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;fa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;authcon&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php" />
+    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/tplink/main.php&#10;hotspotlo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotLoginController.php&#10;hotspot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;hotspotC&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;cre&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/create.blade.php&#10;con&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/router/ar71xx/config.blade.php&#10;Rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;ar71&#9;null&#9;null&#10;server&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;rout&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/routes.php&#10;notyet&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;campai&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/_form.blade.php&#10;create&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/create.blade.php&#10;edit&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/edit.blade.php&#10;edi&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/edit.blade.php&#10;hotspotLo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotLoginController.php&#10;face&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;Em&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/EMailLoginController.php&#10;for&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;noty&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;use&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/User.php&#10;hotspotc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;campaign&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hotspo&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;_&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;input.&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/plugins/input-mask/jquery.inputmask.extensions.js&#10;hot&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;notye&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;not&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspotlogin/notyet.blade.php&#10;edit.bl&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/edit.blade.php&#10;gall&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/campaign/gallery.blade.php&#10;adminLte&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/public/dist/css/AdminLTE.min.css&#10;hotspotL&#9;null&#9;null&#10;_form&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/_form.blade.php&#10;campa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/CampaignController.php&#10;hots&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Hotspot.php&#10;routersta&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/RouterStatus.php&#10;router&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Routers.php&#10;login&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;fa&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/FacebookLogin.php&#10;authc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;authcon&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;inde&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/hotspot/index.blade.php&#10;contr&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/HotspotController.php&#10;auth&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Auth/AuthController.php&#10;login.b&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/resources/views/auth/login.blade.php&#10;ser&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/clickspot/app/Http/Controllers/Server.php&#10;subs&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php&#10;subsc&#9;FILE&#9;file:///Applications/XAMPP/xamppfiles/htdocs/Rashmin/app/Http/Controllers/SubscriberController.php" />
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -269,12 +269,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00187" summary="ssh">
-      <created>1444519390450</created>
-      <option name="number" value="00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1444519390450</updated>
     </task>
     <task id="LOCAL-00188" summary="ssh">
       <created>1444519514467</created>
@@ -564,7 +558,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453468511534</updated>
     </task>
-    <option name="localTasksCounter" value="236" />
+    <task id="LOCAL-00236" summary="ssh">
+      <created>1453471194339</created>
+      <option name="number" value="00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1453471194339</updated>
+    </task>
+    <option name="localTasksCounter" value="237" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -578,9 +578,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299045" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35315984" sideWeight="0.49905124" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35315984" sideWeight="0.5009488" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32549506" sideWeight="0.50257164" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19182156" sideWeight="0.49905124" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19182156" sideWeight="0.5009488" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32484075" sideWeight="0.50257164" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32866243" sideWeight="0.49742836" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -663,13 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7440273">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35836178">
@@ -698,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.027726432">
-          <caret line="186" column="14" selection-start-line="186" selection-start-column="8" selection-end-line="186" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1056338">
@@ -730,13 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0528169">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6901408">
-          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -952,14 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/tplink/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35714287">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3753541">
@@ -985,10 +956,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3983629">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hotspot/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0421053">
+        <state vertical-scroll-proportion="1.1924686">
           <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.5197818">
+          <caret line="196" column="33" selection-start-line="196" selection-start-column="33" selection-end-line="196" selection-end-column="33" />
+          <folding>
+            <marker date="1453468555000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1453468555000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HotspotLoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.99181443">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tplink/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53571427">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding />
         </state>
       </provider>
