@@ -13,8 +13,8 @@ uamallowed      "www.coova.org,192.168.182.1,www.coova.org"
 uamanydns
 
 domain "lan"
-dns1 "208.67.222.222"
-dns2 "208.67.220.220"
+dns1 "208.67.222.123"
+dns2 "208.67.220.123"
 uamhomepage http://192.168.182.1:3990/www/coova.html
 wwwdir /etc/chilli/www
 wwwbin /etc/chilli/wwwsh
