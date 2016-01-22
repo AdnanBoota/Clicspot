@@ -357,7 +357,7 @@ class HotspotController extends Controller {
 
     public function sendmailTestCron() {
             $userId['userId'] =Auth::user()->id;
-             $userId['templateName'] ="test3";
+             $userId['templateName'] ="temp";
         Mail::send('email.emailTemplate', $userId, function ($message) {
             $message->to('bindeshpandya@hotmail.com', 'example_name')->subject('Welcome!');
         });
