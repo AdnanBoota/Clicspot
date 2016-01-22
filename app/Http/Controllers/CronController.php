@@ -16,7 +16,7 @@ use App\Transactions;
 use Carbon;
 use Mail;
 use Illuminate\Support\Facades\Input;
-use GoCardless;
+
 
 class CronController extends Controller {
 
