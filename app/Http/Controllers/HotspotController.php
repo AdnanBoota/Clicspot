@@ -105,9 +105,9 @@ class HotspotController extends Controller {
         $input = Input::all();
         $nasRule = 'required|exists:routers,macaddress|unique:nas';
 
-        if ($id) {
-            $nasRule .= ',nasidentifier,' . $id;
-        }
+//        if ($id) {
+//            $nasRule .= ',nasidentifier,' . $id;
+//        }
         $this->validate($request, [
             'shortname' => 'required',
             'nasidentifier' => $nasRule,
