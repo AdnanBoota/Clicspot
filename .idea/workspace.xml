@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc3d5d6-061a-479c-9791-b8833ca66d95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/RouterControllerAR71XX.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/RouterControllerAR71XX.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/router/ar71xx/update.blade.php" afterPath="$PROJECT_DIR$/resources/views/router/ar71xx/update.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laravel5.iws" />
@@ -45,20 +45,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="update.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="update.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/router/ar71xx/update.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.34736842">
+              <caret line="11" column="141" selection-start-line="11" selection-start-column="141" selection-end-line="11" selection-end-column="141" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RouterControllerAR71XX.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RouterControllerAR71XX.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RouterControllerAR71XX.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69473684">
+            <state vertical-scroll-proportion="-13.75">
               <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
               <folding />
             </state>
@@ -128,9 +128,9 @@
         <option value="$PROJECT_DIR$/resources/views/hotspot/_form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/router/ar71xx/config.blade.php" />
         <option value="$PROJECT_DIR$/public/tplink/main.php" />
-        <option value="$PROJECT_DIR$/resources/views/router/ar71xx/update.blade.php" />
         <option value="$PROJECT_DIR$/app/Routers.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RouterControllerAR71XX.php" />
+        <option value="$PROJECT_DIR$/resources/views/router/ar71xx/update.blade.php" />
       </list>
     </option>
   </component>
@@ -279,12 +279,6 @@
       <created>1437936904815</created>
       <option name="number" value="Default" />
       <updated>1437936904815</updated>
-    </task>
-    <task id="LOCAL-00193" summary="ssh">
-      <created>1444520297410</created>
-      <option name="number" value="00193" />
-      <option name="project" value="LOCAL" />
-      <updated>1444520297410</updated>
     </task>
     <task id="LOCAL-00194" summary="ssh">
       <created>1444521077716</created>
@@ -574,7 +568,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453472502546</updated>
     </task>
-    <option name="localTasksCounter" value="242" />
+    <task id="LOCAL-00242" summary="ssh">
+      <created>1453472541316</created>
+      <option name="number" value="00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1453472541316</updated>
+    </task>
+    <option name="localTasksCounter" value="243" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -987,14 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/router/ar71xx/update.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Routers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8210526">
@@ -1005,8 +997,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RouterControllerAR71XX.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69473684">
+        <state vertical-scroll-proportion="-13.75">
           <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/router/ar71xx/update.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34736842">
+          <caret line="11" column="141" selection-start-line="11" selection-start-column="141" selection-end-line="11" selection-end-column="141" />
           <folding />
         </state>
       </provider>
