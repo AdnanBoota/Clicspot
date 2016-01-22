@@ -72,8 +72,6 @@ class RouterControllerAR71XX extends Controller
         $configVersion = Request::get('configversion');
         $ssid = Request::get('ssid');
         $router = Routers::where('macaddress', '=', $mac)->first();
-        $hotspot = $router->hotspot;
-        return $hotspot;
         if ($router) {
             $router->update(["configversion" => $configVersion]);
             $router->status()->update(['publicip' => Request::getClientIp(), 'updated_at' => Carbon::now()]);
@@ -81,6 +79,7 @@ class RouterControllerAR71XX extends Controller
             $router = Routers::create(['macaddress' => $mac, 'model' => 1, 'configversion' => $configVersion]);
             $router->status()->save(new RouterStatus(['publicip' => Request::getClientIp()]));
         }
+        $hotspot = $router->hotspot;
         return response()->view('router.ar71xx.update', compact('hotspot', 'ssid'))->header('Content-Type', "text/plain");
     }
 
