@@ -30,7 +30,7 @@
 <div class="form-group">
     {!! Form::label('ssid', 'SSID', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!!  Form::text('ssid', Session::get('mac'), array('id'=>'ssid','class'=>'form-control','required'=>'true')) !!}
+        {!!  Form::text('ssid', null, array('id'=>'ssid','class'=>'form-control','required'=>'true')) !!}
     </div>
 </div>
 <div class="form-group">
@@ -42,25 +42,25 @@
 
 <!--<div class="form-group">
     {!! Form::label('map_canvas', 'Map', array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        <div id="map_canvas" class="mapping"
-             style="width:100%;max-width: 350px; height: 350px"></div>
-    </div>
-</div>-->
+        <div class="col-sm-10">
+            <div id="map_canvas" class="mapping"
+                 style="width:100%;max-width: 350px; height: 350px"></div>
+        </div>
+    </div>-->
 
 <!--<div class="form-group">
     {!! Form::label('latitude', 'Latitude', array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('latitude', null, array('id'=>'latitude','class'=>'form-control','required'=>'true')) !!}
+        <div class="col-sm-10">
+            {!!  Form::text('latitude', null, array('id'=>'latitude','class'=>'form-control','required'=>'true')) !!}
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-    {!! Form::label('longitude', 'Longitude', array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('longitude', null, array('id'=>'longitude','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>-->
+    <div class="form-group">
+        {!! Form::label('longitude', 'Longitude', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!!  Form::text('longitude', null, array('id'=>'longitude','class'=>'form-control','required'=>'true')) !!}
+        </div>
+    </div>-->
 <div class="box box-info no-border">
     <div class="box-header with-border">
         <h3 class="box-title">Social</h3>
@@ -127,7 +127,7 @@
 <script src="{{ asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function () {
-            $("#ChilliSpot-Bandwidth-Max-Up").ionRangeSlider({
+        $("#ChilliSpot-Bandwidth-Max-Up").ionRangeSlider({
             min: 256,
             max: 10240,
             step: 256,
@@ -167,7 +167,7 @@
                 return Math.round(value / 60) + ' min';
             }
         });
-        
+
         $("#EMail_ChilliSpot-Bandwidth-Max-Up").ionRangeSlider({
             min: 256,
             max: 10240,
