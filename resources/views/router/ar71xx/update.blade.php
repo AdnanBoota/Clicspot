@@ -1,4 +1,4 @@
-@if($ssid != $hotspot->ssid)
+@if(isset($hotspot->ssid) && $ssid != $hotspot->ssid)
     uci set wireless.radio0.channel="auto";
     uci delete wireless.@wifi-iface[0].network;
     uci set wireless.@wifi-iface[0].ssid="{{ $hotspot->ssid }}";
