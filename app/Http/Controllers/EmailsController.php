@@ -78,8 +78,8 @@ class EmailsController extends Controller {
     }
 
     public function getEmail() {
-        echo "hii";
-        exit;
+//        echo "hii";
+//        exit;
         return View::make('email.email');
     }
 
@@ -88,18 +88,24 @@ class EmailsController extends Controller {
         $msgBody = $request->msgBody;
         $subject = $request->subject;
 //        dd($request);
-        $sendToUser = array(array('email' => 'pritesh@logisticinfotech.com', 'firstName' => 'pritesh'), array('email' => 'nans.noel@gmail.com', 'firstName' => 'Nans'));
-        Mail::send('emails.emailTemplate', array('msgBody' => $msgBody), function ($message) use ($sendToUser, $subject) {
+        $sendToUser = array(array('email' => 'pritesh@logisticinfotech.com', 'firstName' => 'pritesh'));
+        $res = Mail::send('emails.emailTemplate', array('msgBody' => $msgBody), function ($message) use ($sendToUser, $subject) {
             foreach ($sendToUser as $singleUser) {
                 $message->to($singleUser['email'], $singleUser['firstName']);
             }
+            //set track open true header text
+           // $headers = $message->getHeaders();
+            //$headers->addTextHeader('X-MC-MergeVars', json_encode($mergevars));
+            //$headers->addTextHeader('X-MC-Template', 'my-template');
+           // $headers->addTextHeader('X-MC-Track', 'opens');
             $message->from('info@clicspot.com', 'Clicspot');
             $message->subject($subject);
         });
 
         $successMsg = "Email send successfully";
-        Session::flash('flash_message_success', $successMsg);
-        return redirect('emails');
+        return $res;
+        //Session::flash('flash_message_success', $successMsg);
+        //return redirect('emails');
     }
 
     public function create() {

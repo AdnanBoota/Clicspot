@@ -34,7 +34,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                {!! Form::open(array("class"=>"form-horizontal","url"=> url('emails'))) !!}
+                {!! Form::open(array("method" =>"post","class"=>"form-horizontal","url"=> url('emails/postEmail'))) !!}
                 <div class="box-body">
                     <div class="form-group">
                         {!! Form::label('subject', 'Subject', array('class' => 'col-sm-2 control-label')) !!}

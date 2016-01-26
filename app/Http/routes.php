@@ -48,7 +48,8 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
 Route::get('sendtestCron','CronController@sendmailTestCron');
 Route::get('allSubscriptioncheck','CronController@allUserSubscriptionCheck');
 Route::get('hotspot/datatable', 'HotspotController@datatable');
-Route::get('emails', 'EmailsController@getEmail');
+Route::get('emails/getEmail', 'EmailsController@getEmail');
+Route::post('emails/postEmail', 'EmailsController@postEmail');
 Route::post('emails/duplicateTemplate/{id}', 'EmailsController@duplicateTemplate');
 Route::post('emails/rename/{id}', 'EmailsController@rename');
 Route::get('emails/emailSetup/emailTemplate','EmailCampaignController@getTemplate');
