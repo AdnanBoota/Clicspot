@@ -16,6 +16,7 @@ use App\Transactions;
 use Carbon;
 use Mail;
 use Illuminate\Support\Facades\Input;
+use App\UsersFeedback;
 
 
 class CronController extends Controller {
@@ -91,6 +92,38 @@ class CronController extends Controller {
                 $res = $trans->save();
             }
         }
+    }
+    
+    public function feedbackMandrillReview(){
+        $usrFeedData = UsersFeedback::where("status","=",'0')->where("feedback_confirm","=","0")->get();
+        //$usrFeedData = UsersFeedback::where("status","=",'0')->get();
+        echo "<pre>";
+        //print_r(count($usrFeedData));
+        //exit;
+        foreach ($usrFeedData as $key=>$usrFeed){
+            echo "<br>";
+            //echo $usrFeed['id'];
+            echo "<br>";
+            //$usrFeed['message_id'];
+            
+            $response = \MandrillMail::messages()->info($usrFeed['message_id']);
+            if($response){
+                $userFeedUpdate = UsersFeedback::find($usrFeed['id']);
+                if($response['opens'])
+                    $userFeedUpdate->review = 2;
+//                if($response['clicks'])
+//                    $userFeedUpdate->review = 3;
+                $userFeedUpdate->status = 1;
+                $userFeedUpdate->update();
+            }
+            
+            
+            echo "<br>";
+            print_r($response);
+//            exit;
+        }
+        exit;
+        
     }
 
 }

@@ -146,6 +146,28 @@ use AuthenticatesAndRegistersUsers;
             $msg = "There is a Problem in verifying Your Account .";
         return redirect($this->loginPath())->with($valid, $msg);
     }
+    
+    public function feedback($feedback_code) {
+        $valid = "true";
+        if (!$feedback_code) {
+            $valid = "verifyError";
+        }
+        $userfeedback = \App\UsersFeedback::where('feedback_code', '=', $feedback_code)->first();
+        if (!$userfeedback) {
+            $valid = "verifyError";
+        } else {
+            if ($userfeedback->feedback_confirm) {
+                $valid = 'verifySuccess';
+            } else {
+                $userfeedback->feedback_confirm = 1;
+                $userfeedback->review = 3;
+                $userfeedback->status = 1;
+                $userfeedback->save();
+                $valid = "verifySuccess";
+            }
+        }
+        return view('email.feedthankyou');
+    }
 
     public function getLogout() {
         Session::flush('listId');

@@ -39,6 +39,7 @@ Route::controllers([
 ]);
 
 Route::get('verify/{verification_code}', 'Auth\AuthController@verify');
+Route::get('feedback/{feedback_code}', 'Auth\AuthController@feedback');
 
 Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], function () {
     Route::get('/vendorList', 'VendorController@index');
@@ -47,6 +48,7 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], 
 
 Route::get('sendtestCron','CronController@sendmailTestCron');
 Route::get('allSubscriptioncheck','CronController@allUserSubscriptionCheck');
+Route::get('feedbackMandrillReview','CronController@feedbackMandrillReview');
 Route::get('hotspot/datatable', 'HotspotController@datatable');
 Route::get('emails/getEmail', 'EmailsController@getEmail');
 Route::post('emails/postEmail', 'EmailsController@postEmail');
