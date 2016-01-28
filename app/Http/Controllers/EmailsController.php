@@ -80,6 +80,11 @@ class EmailsController extends Controller {
     public function getEmail() {
 //        echo "hii";
 //        exit;
+//        $id = "b470705790394325a4a53c81be49fd25";
+//        $response = \MandrillMail::messages()->info($id);
+//        echo "<pre>";
+//        print_r($response);
+//        exit;
         return View::make('email.email');
     }
 
@@ -89,7 +94,7 @@ class EmailsController extends Controller {
         $subject = $request->subject;
 //        dd($request);
         $sendToUser = array(array('email' => 'pritesh@logisticinfotech.com', 'firstName' => 'pritesh'));
-        $res = Mail::send('emails.emailTemplate', array('msgBody' => $msgBody), function ($message) use ($sendToUser, $subject) {
+        $response = Mail::send('emails.emailTemplate', array('msgBody' => $msgBody), function ($message) use ($sendToUser, $subject) {
             foreach ($sendToUser as $singleUser) {
                 $message->to($singleUser['email'], $singleUser['firstName']);
             }
@@ -103,7 +108,14 @@ class EmailsController extends Controller {
         });
 
         $successMsg = "Email send successfully";
-        return $res;
+        echo "<pre>";
+        //dd($response->getBody()->getContents());
+        $resBody = json_decode($response->getBody()->getContents());
+        print_r($resBody);
+        echo $resBody[0]->status;
+        echo $resBody[0]->_id;
+        exit;
+        return $response;
         //Session::flash('flash_message_success', $successMsg);
         //return redirect('emails');
     }

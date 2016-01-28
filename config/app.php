@@ -151,6 +151,7 @@ return [
 		'JasperPHP\JasperPHPServiceProvider',
 		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
+        'Weblee\Mandrill\MandrillServiceProvider',
 	],
 
 	/*
@@ -203,6 +204,7 @@ return [
 		'Datatables' => 'yajra\Datatables\Datatables',
 		'Facebook' => 'SammyK\LaravelFacebookSdk\FacebookFacade',
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
+        'MandrillMail'  => 'Weblee\Mandrill\MandrillFacade',
 	],
 
 ];
