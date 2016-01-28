@@ -80,11 +80,11 @@ class EmailsController extends Controller {
     public function getEmail() {
 //        echo "hii";
 //        exit;
-//        $id = "b470705790394325a4a53c81be49fd25";
-//        $response = \MandrillMail::messages()->info($id);
-//        echo "<pre>";
-//        print_r($response);
-//        exit;
+        $id = "b470705790394325a4a53c81be49fd25";
+        $response = \MandrillMail::messages()->info($id);
+        echo "<pre>";
+        print_r($response);
+        exit;
         return View::make('email.email');
     }
 
