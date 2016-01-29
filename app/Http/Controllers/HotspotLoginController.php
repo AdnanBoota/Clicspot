@@ -12,6 +12,9 @@ use App\Transactions;
 use Request;
 use Session;
 use DB;
+use Mail;
+use App\UsersFeedback;
+use App\Users;
 
 class HotspotLoginController extends Controller {
 
@@ -76,7 +79,42 @@ class HotspotLoginController extends Controller {
         }
 
         $username = Request::get('username');
+        /*
+        //$username = "2C-D0-5A-91-3A-A6";
+        //$mac = "14-CC-20-44-0D-68";
+        $usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$mac)->first(); 
+        if(!$usrFeedData){ 
+            $userDetail = Users::where('username', "=", $username)->first();
+            $feedback_code = str_random(60);
+            //send feedback mail
+            if($userDetail){
+                $response = Mail::send('emails.feedbackTemplate', array('feedback_code' => $feedback_code ,'userDetail' => $userDetail,'hotspot' => $hotspot), function ($message) use ($userDetail) {
+                    $message->to($userDetail->email, $userDetail->name);
+                    $message->from('info@clicspot.com', 'Clicspot');
+                    $message->subject("Clicspot wifi Feedback");
+                });
+
+                if($response){
+                    $resBody = json_decode($response->getBody()->getContents());
+                    if(count($resBody) > 0){
+//                        echo "<pre>";
+//                        print_r($resBody);
+                        if($resBody[0]->status == "sent"){ 
+                            $usrFeedback = new UsersFeedback();
+                            $usrFeedback->message_id =  $resBody[0]->_id;
+                            $usrFeedback->username =  $username;
+                            $usrFeedback->nasidentifier =  $mac;
+                            $usrFeedback->feedback_code =  $feedback_code;
+                            $usrFeedback->save();
+                            //exit;
+                        }
+                    }
+                }
+            }
+        }    
+         */
         $password = 1;
+        //exit;
         return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
     }
 
