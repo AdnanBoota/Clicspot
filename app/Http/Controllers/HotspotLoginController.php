@@ -79,7 +79,7 @@ class HotspotLoginController extends Controller {
         }
 
         $username = Request::get('username');
-        /*
+        ///*
         //$username = "2C-D0-5A-91-3A-A6";
         //$mac = "14-CC-20-44-0D-68";
         $usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$mac)->first(); 
@@ -112,7 +112,7 @@ class HotspotLoginController extends Controller {
                 }
             }
         }    
-         */
+        // */
         $password = 1;
         //exit;
         return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
