@@ -112,6 +112,7 @@ class HotspotController extends Controller {
             'shortname' => 'required',
             'nasidentifier' => $nasRule,
             'address' => 'required',
+            'tripAdvisorId' => 'required',
             "redirectUrl" => "required|url"]
         );
         $hotspot = new Hotspot($input);
@@ -186,6 +187,7 @@ class HotspotController extends Controller {
         $this->validate($request, [
             'shortname' => 'required',
             'nasidentifier' => $nasRule,
+            'tripAdvisorId' => 'required',
             'address' => 'required']
         );
         if (Auth::user()->type == 'superadmin') {

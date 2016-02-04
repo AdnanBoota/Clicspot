@@ -39,6 +39,12 @@
         {!!  Form::text('redirectUrl', null, array('id'=>'redirectUrl','class'=>'form-control','required'=>'true')) !!}
     </div>
 </div>
+<div class="form-group">
+    {!! Form::label('tripAdvisorId', 'Trip Advisor Id', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!!  Form::text('tripAdvisorId', null, array('id'=>'tripAdvisorId','class'=>'form-control','required'=>'true')) !!}
+    </div>
+</div>
 
 <!--<div class="form-group">
     {!! Form::label('map_canvas', 'Map', array('class' => 'col-sm-2 control-label')) !!}
