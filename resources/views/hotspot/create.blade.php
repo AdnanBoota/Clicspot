@@ -98,7 +98,11 @@
     jQuery(document).ready(function () {
         $('#nasidentifier').inputmask("mac");
         $('form').validate({
-            rules: {},
+            rules: {
+                  tripAdvisorId:{
+                    url:true
+                }
+            },
             errorClass: "text-red",
             errorElement: "span",
             errorPlacement: function (error, element) {

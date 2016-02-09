@@ -40,10 +40,21 @@
     </div>
 </div>
 <div class="form-group">
-    {!! Form::label('tripAdvisorId', 'Trip Advisor Id', array('class' => 'col-sm-2 control-label')) !!}
+    <!--{!! Form::label('tripAdvisorId', 'Trip Advisor Id', array('class' => 'col-sm-2 control-label')) !!} -->
+    {!! Form::label('tripAdvisorId', 'Review URL', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!!  Form::text('tripAdvisorId', null, array('id'=>'tripAdvisorId','class'=>'form-control','required'=>'true')) !!}
+        {!!  Form::text('tripAdvisorId', null, array('id'=>'tripAdvisorId','class'=>'form-control')) !!}
     </div>
+    
+</div>
+<div class="form-group">
+    <!--{!! Form::label('tripAdvisorId', 'Trip Advisor Id', array('class' => 'col-sm-2 control-label')) !!} -->
+    {!! Form::label('reviewstatus', 'Review Status', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        ON {!!  Form::radio('reviewstatus','0',false,array('class' => '','required'=>'true')) !!}
+        OFF {!!  Form::radio('reviewstatus', '1') !!}
+    </div>
+    
 </div>
 
 <!--<div class="form-group">

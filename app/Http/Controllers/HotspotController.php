@@ -112,7 +112,7 @@ class HotspotController extends Controller {
             'shortname' => 'required',
             'nasidentifier' => $nasRule,
             'address' => 'required',
-            'tripAdvisorId' => 'required',
+            'reviewstatus' => 'required',
             "redirectUrl" => "required|url"]
         );
         $hotspot = new Hotspot($input);
@@ -187,7 +187,7 @@ class HotspotController extends Controller {
         $this->validate($request, [
             'shortname' => 'required',
             'nasidentifier' => $nasRule,
-            'tripAdvisorId' => 'required',
+            'reviewstatus' => 'required',
             'address' => 'required']
         );
         if (Auth::user()->type == 'superadmin') {
@@ -195,7 +195,7 @@ class HotspotController extends Controller {
         } else {
             $hotspot = Auth::user()->hotspots()->findOrFail($id);
         }
-
+        
         $hotspot->update($input);
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 1])
@@ -223,6 +223,8 @@ class HotspotController extends Controller {
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Idle-Timeout', 'type' => 2])
                 ->update(['value' => $request->input('EMail_Idle-Timeout')]);
 
+        
+        
         $successMsg = "Hotspot updated successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('hotspot');

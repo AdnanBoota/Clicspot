@@ -10,7 +10,7 @@
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Hotspot</li>
-        <li class="active">Edit Hotspot</li>
+        <li class="active">Edit Hotspot </li>
     </ol>
 </section>
 <!-- Main content -->
@@ -97,7 +97,11 @@
     jQuery(document).ready(function () {
         $('#nasidentifier').inputmask("mac");
         $('form').validate({
-            rules: {},
+            rules: {
+                tripAdvisorId:{
+                    url:true
+                }
+            },
             errorClass: "text-red",
             errorElement: "span",
             errorPlacement: function (error, element) {

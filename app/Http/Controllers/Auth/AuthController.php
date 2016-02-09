@@ -157,16 +157,31 @@ use AuthenticatesAndRegistersUsers;
             $valid = "verifyError";
         } else {
             if ($userfeedback->feedback_confirm) {
+                
                 $valid = 'verifySuccess';
             } else {
+                
+                $hotspotDetail = \App\Hotspot::where("nasidentifier","=",$userfeedback->nasidentifier)->first();
+                $redUrl = "";
+                $reviewStat = 0;
+       
+                if($hotspotDetail){
+                    $redUrl = $hotspotDetail->tripAdvisorId;
+                    $reviewStat = $hotspotDetail->reviewstatus;
+                }
                 $userfeedback->feedback_confirm = 1;
                 $userfeedback->review = 3;
                 $userfeedback->status = 1;
                 $userfeedback->save();
                 $valid = "verifySuccess";
+               
+                if($reviewStat==1 && $redUrl!=""){
+                     return redirect($redUrl);
+                }
             }
-        }
         return view('email.feedthankyou');
+        }
+        
     }
 
     public function getLogout() {
