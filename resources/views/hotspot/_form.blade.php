@@ -51,8 +51,8 @@
     <!--{!! Form::label('tripAdvisorId', 'Trip Advisor Id', array('class' => 'col-sm-2 control-label')) !!} -->
     {!! Form::label('reviewstatus', 'Review Status', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        ON {!!  Form::radio('reviewstatus','0',false,array('class' => '','required'=>'true')) !!}
-        OFF {!!  Form::radio('reviewstatus', '1') !!}
+        ON {!!  Form::radio('reviewstatus','1',false,array('class' => '','required'=>'true')) !!}
+        OFF {!!  Form::radio('reviewstatus', '0') !!}
     </div>
     
 </div>
