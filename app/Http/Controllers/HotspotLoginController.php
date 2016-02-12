@@ -97,7 +97,7 @@ class HotspotLoginController extends Controller {
                     $response = Mail::send('emails.feedbackTemplate', array('feedback_code' => $feedback_code ,'userDetail' => $userDetail,'hotspot' => $hotspotData), function ($message) use ($userDetail,$hotspotData) {
                         $message->to($userDetail->email, $userDetail->name);
                         $message->from($hotspotData->user->email, $hotspotData->user->businessname);
-                        $message->subject("Thank you for visiting ".$hotspotData->shortname);
+                        $message->subject("Thank you for visiting ".$hotspotData->shortname." !");
                     });
 
                     if($response){
