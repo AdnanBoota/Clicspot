@@ -87,35 +87,38 @@ class HotspotLoginController extends Controller {
         $calledmac = Session::get('calledmac'); 
         $usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$calledmac)->first(); 
         $hotspotData = Hotspot::where('nasidentifier', "=", $calledmac)->first();
-        if(!$usrFeedData){ 
-            $userDetail = Users::where('username', "=", $username)->first();
-            $feedback_code = str_random(60);
-            //send feedback mail
-            if($userDetail){
-                $response = Mail::send('emails.feedbackTemplate', array('feedback_code' => $feedback_code ,'userDetail' => $userDetail,'hotspot' => $hotspotData), function ($message) use ($userDetail,$hotspotData) {
-                    $message->to($userDetail->email, $userDetail->name);
-                    $message->from($hotspotData->user->email, $hotspotData->user->businessname);
-                    $message->subject("Clicspot wifi Feedback");
-                });
+       
+        if($hotspotData AND $hotspotData->reviewstatus){
+            if(!$usrFeedData){ 
+                $userDetail = Users::where('username', "=", $username)->first();
+                $feedback_code = str_random(60);
+                //send feedback mail
+                if($userDetail){
+                    $response = Mail::send('emails.feedbackTemplate', array('feedback_code' => $feedback_code ,'userDetail' => $userDetail,'hotspot' => $hotspotData), function ($message) use ($userDetail,$hotspotData) {
+                        $message->to($userDetail->email, $userDetail->name);
+                        $message->from($hotspotData->user->email, $hotspotData->user->businessname);
+                        $message->subject("Thank you for visiting ".$hotspotData->shortname);
+                    });
 
-                if($response){
-                    $resBody = json_decode($response->getBody()->getContents());
-                    if(count($resBody) > 0){
-//                        echo "<pre>";
-//                        print_r($resBody);
-                        if($resBody[0]->status == "sent"){ 
-                            $usrFeedback = new UsersFeedback();
-                            $usrFeedback->message_id =  $resBody[0]->_id;
-                            $usrFeedback->username =  $username;
-                            $usrFeedback->nasidentifier =  $calledmac;
-                            $usrFeedback->feedback_code =  $feedback_code;
-                            $usrFeedback->save(); 
-                            //exit;
+                    if($response){
+                        $resBody = json_decode($response->getBody()->getContents());
+                        if(count($resBody) > 0){
+    //                        echo "<pre>";
+    //                        print_r($resBody);
+                            if($resBody[0]->status == "sent"){ 
+                                $usrFeedback = new UsersFeedback();
+                                $usrFeedback->message_id =  $resBody[0]->_id;
+                                $usrFeedback->username =  $username;
+                                $usrFeedback->nasidentifier =  $calledmac;
+                                $usrFeedback->feedback_code =  $feedback_code;
+                                $usrFeedback->save(); 
+                                //exit;
+                            }
                         }
                     }
                 }
-            }
-        }    
+            } 
+        }
         // */
         $password = 1;
         //exit;
