@@ -27,6 +27,8 @@ class HotspotLoginController extends Controller {
      */
     public function index() {
         $mac = Request::get('called');
+        //put in session for feedback review url
+        Session::put('calledmac', $mac);
         $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
         if ($hotspot) {
             $redirectURLOnSuccess = $hotspot->redirectUrl;
@@ -82,15 +84,17 @@ class HotspotLoginController extends Controller {
         ///*
         //$username = "2C-D0-5A-91-3A-A6";
         //$mac = "14-CC-20-44-0D-68";
-        $usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$mac)->first(); 
+        $calledmac = Session::get('calledmac'); 
+        $usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$calledmac)->first(); 
+        $hotspotData = Hotspot::where('nasidentifier', "=", $calledmac)->first();
         if(!$usrFeedData){ 
             $userDetail = Users::where('username', "=", $username)->first();
             $feedback_code = str_random(60);
             //send feedback mail
             if($userDetail){
-                $response = Mail::send('emails.feedbackTemplate', array('feedback_code' => $feedback_code ,'userDetail' => $userDetail,'hotspot' => $hotspot), function ($message) use ($userDetail) {
+                $response = Mail::send('emails.feedbackTemplate', array('feedback_code' => $feedback_code ,'userDetail' => $userDetail,'hotspot' => $hotspotData), function ($message) use ($userDetail,$hotspotData) {
                     $message->to($userDetail->email, $userDetail->name);
-                    $message->from('info@clicspot.com', 'Clicspot');
+                    $message->from($hotspotData->user->email, $hotspotData->user->businessname);
                     $message->subject("Clicspot wifi Feedback");
                 });
 
@@ -103,9 +107,9 @@ class HotspotLoginController extends Controller {
                             $usrFeedback = new UsersFeedback();
                             $usrFeedback->message_id =  $resBody[0]->_id;
                             $usrFeedback->username =  $username;
-                            $usrFeedback->nasidentifier =  $mac;
+                            $usrFeedback->nasidentifier =  $calledmac;
                             $usrFeedback->feedback_code =  $feedback_code;
-                            $usrFeedback->save();
+                            $usrFeedback->save(); 
                             //exit;
                         }
                     }
