@@ -7,7 +7,7 @@
 <section class="statistics-box">
     <div class="row">
         <div class="statistics">
-            <i class="fa fa-fw fa-pie-chart"></i><span>Statistics</span>
+            <i class="fa fa-fw fa-pie-chart"></i><span>{{ Lang::get('auth.statistics') }}</span>
         </div>
     </div>
     <div class="box box-widget p30">
@@ -63,7 +63,7 @@
 <section class="profilepart">
     <div class="row">
         <div class="statistics">
-            <i class="fa fa-fw fa-user"></i><span>Router Statistics</span>
+            <i class="fa fa-fw fa-user"></i><span>{{ Lang::get('auth.routerstatistics') }}</span>
         </div>
     </div>
     <div class="userprofileblock">
@@ -72,7 +72,7 @@
                 <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Router Status</h3>
+                            <h3 class="box-title">{{ Lang::get('auth.routerstatus') }} </h3>
                             <div class="box-tools pull-right">
                                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                                 <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -87,7 +87,7 @@
                     <div class="memberbox">
                         <div class="box box-primary">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Amount of connections</h3>
+                                <h3 class="box-title">{{ Lang::get('auth.amountconnection') }}</h3>
                                 <div class="box-tools pull-right">
                                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -114,7 +114,7 @@
 <section>
     <div class="row">
         <div class="statistics">
-            <i class="fa fa-fw fa-user"></i><span>Member Statistics</span>
+            <i class="fa fa-fw fa-user"></i><span>{{ Lang::get('auth.memberstatistics') }}</span>
         </div>
     </div>
     <div class="statisticsBg">
@@ -122,7 +122,7 @@
             <div class="col-md-6">
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Latest Members</h3>
+                        <h3 class="box-title">{{ Lang::get('auth.latestmember') }}</h3>
                         <div class="box-tools pull-right">
                             <span class="label label-danger">8 New Members</span>
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -158,7 +158,7 @@
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Reviews</h3>
+                        <h3 class="box-title">{{ Lang::get('auth.reviews') }}</h3>
                         <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                             <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
