@@ -19,7 +19,7 @@ return [
     'lostpassword'=>'Mot de passe perdu?',
     'email'=>'Adresse Email',
     'password'=>'Mot de passe',
-    'haveaccount'=>'Vous avez déjà un compte',
+    'haveaccount'=>'Vous avez déjà un compte ?',
     'signin'=>'Connectez-vous',
     'retypepass'=>'Confirmer le mot de passe',
     'fullnm'=>'Nom complet',
