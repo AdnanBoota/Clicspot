@@ -6,7 +6,7 @@
         <ul class="sidebar-menu">
             <li class="{{Request::path() == '/' ? 'active' : ''}}">
                 <a href="{{url("")}}">
-                    <i><img src="{{ asset("img/homeicon.png") }}" /></i> <span>Dashboard</span><span class="act"></span>
+                    <i><img src="{{ asset("img/homeicon.png") }}" /></i> <span>{{ Lang::get('auth.dashboard') }}</span><span class="act"></span>
                 </a>
             </li>
             @if(Auth::user()->type == "superadmin")
@@ -18,27 +18,27 @@
             @endif
             <li class="{{Request::path() == 'hotspot' ? 'active' : ''}}">
                 <a href="{{url("hotspot")}}">
-                    <i><img src="{{ asset("img/email.png") }}" /></i> <span>Hotspots</span><span class="act"></span>
+                    <i><img src="{{ asset("img/email.png") }}" /></i> <span>{{ Lang::get('auth.hotspot') }}</span><span class="act"></span>
                 </a>
             </li>
             <li class="{{Request::path() == 'campaign' ? 'active' : ''}}">
                 <a href="{{url("campaign")}}">
-                    <i class="fa fa fa-files-o"></i> <span>Campaign</span><span class="act"></span>
+                    <i class="fa fa fa-files-o"></i> <span>{{ Lang::get('auth.campaign') }}</span><span class="act"></span>
                 </a>
             </li>
             <li class="{{Request::path() == 'users' ? 'active' : ''}}">
                 <a href="{{url("users")}}">
-                    <i><img src="{{ asset("img/ulicon.png") }}" /></i> <span>Users</span><span class="act"></span>
+                    <i><img src="{{ asset("img/ulicon.png") }}" /></i> <span>{{ Lang::get('auth.user') }}</span><span class="act"></span>
                 </a>
             </li>
             <li class="{{Request::path() == 'emails' ? 'active' : ''}}">
                 <a href="{{url("emails")}}">
-                    <i><img src="{{ asset("img/portalicon.png") }}" /></i> <span>Emails</span><span class="act"></span>
+                    <i><img src="{{ asset("img/portalicon.png") }}" /></i> <span>{{ Lang::get('auth.emails') }}</span><span class="act"></span>
                 </a>
             </li>
             <li class="{{Request::path() == 'payment' ? 'active' : ''}}">
                 <a href="{{url("payment")}}">
-                    <i><img src="{{ asset("img/portalicon.png") }}" /></i> <span>Payment</span><span class="act"></span>
+                    <i><img src="{{ asset("img/portalicon.png") }}" /></i> <span>{{ Lang::get('auth.payment') }}</span><span class="act"></span>
                 </a>
             </li>
         </ul>
