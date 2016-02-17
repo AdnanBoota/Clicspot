@@ -57,89 +57,99 @@
                 </div>
                 @endif
                 <div class="mainformblock">
+                    <form action="{{ URL::route('language')  }}" method="post" id="language">
+                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                    <input name="page" type="hidden" value="register">
+                    <select name="locale" id="locale">
+                        <option value="en" {{  (App::getLocale()=='en') ? 'selected' : '' }}>English</option>
+                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} >French</option>
+                    </select>
+                   
+                    
+                </form>
                     <form role="form" method="POST" action="{{ url('/auth/register') }}" id="multidtepForm">
                         <section data-title="Home" data-icon="fa-home">
-                            <div class="stepblock stepfirst active ">Profile Infos</div>
+                            <div class="stepblock stepfirst active ">{{ Lang::get('auth.profileinfo') }}</div>
                             <div class="register-logo">
                                 <a href="{{url()}}">
                                     <img src="{{ asset("/img/logo-white.png ") }}" class="center-block">
                                 </a>
-                                <p>Already have an account? <a href="#">Sign in</a></p>
+                                <p>{{ Lang::get('auth.haveaccount') }} <a href="#">{{ Lang::get('auth.signin') }}</a></p>
                             </div>
 
                             <div class="formstep formstep1">
 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="formrow">
-                                    <label>Email :</label>
+                                    <label>{{ Lang::get('auth.email') }} :</label>
                                     <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>Password :</label>
+                                    <label>{{ Lang::get('auth.password') }} :</label>
                                     <input type="password" name="password" id="password" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>Retype Password :</label>
+                                    <label>{{ Lang::get('auth.retypepass') }} :</label>
                                     <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                                 </div>
 
-                                <a href="javascript:void(0)" id="step2">GO TO STEP 2</a>
+                                <a href="javascript:void(0)" id="step2">{{ Lang::get('auth.step2') }}</a>
                             </div>
                         </section>
 
                         <section data-title="Home" data-icon="fa-home">
-                            <div class="stepblock stepsecond">Business Infos</div>
+                            <div class="stepblock stepsecond">{{ Lang::get('auth.businessinfo') }}</div>
                             <div class="formstep formstep2" id="formstep2">
 
                                 <div class="formrow">
-                                    <label>Full Name :</label>
+                                    <label>{{ Lang::get('auth.fullnm') }} :</label>
                                     <input type="text" name="username" id="username" value="{{ old('username') }}" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>Buisness Name :</label>
+                                    <label>{{ Lang::get('auth.business') }} :</label>
                                     <input type="text" name="businessname" id="businessname" value="{{ old('businessname') }}" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>Adress :</label>
+                                    <label>{{ Lang::get('auth.adress') }} :</label>
                                     <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>City :</label>
+                                    <label>{{ Lang::get('auth.city') }} :</label>
                                     <input type="text" name="city" value="{{ old('city') }}" id="city" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>Zip code :</label>
+                                    <label>{{ Lang::get('auth.zipcode') }} :</label>
                                     <input type="text" name="zip" value="{{ old('zip') }}" id="zip" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>Country :</label>
+                                    <label>{{ Lang::get('auth.country') }} :</label>
                                     <input type="text" name="country" value="{{ old('country') }}" id="country" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>Phone Number :</label>
+                                    <label>{{ Lang::get('auth.phone') }} :</label>
                                     <input type="text" name="phone" value="{{ old('phone') }}" id="phone" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>SIREN :</label>
+                                    <label>{{ Lang::get('auth.SIREN') }} :</label>
                                     <input type="text" name="siren" value="{{ old('siren') }}" id="siren" class="form-control">
                                 </div>
                                 <div class="formrow">
-                                    <label>N°VAT :</label>
+                                    <label>{{ Lang::get('auth.vat') }} :</label>
                                     <input type="nvat" name="nvat" value="{{ old('nvat') }}" id="nvat" class="form-control">
                                 </div>
 
-                                <a href="javascript:void(0)" id="step3">GO TO STEP 3</a>
+                                <a href="javascript:void(0)" id="step3">{{ Lang::get('auth.step3') }}</a>
 
                             </div>
                         </section>
 
                         <section data-title="Home" data-icon="fa-home">
-                            <div class="stepblock stepthired">Payment Infos</div>
+                            <div class="stepblock stepthired">{{ Lang::get('auth.paymentinfo') }}</div>
                             <div class="rgtbottom formstep3" id="formstep3">
-                                <p>To finalize your acount, you will be redirected to our Direct Bank provider GoCardLess. You will need your IBAN information.</p>
-                                <button type="submit" class="btn btn-primary btn-block btn-flat">GO TO GoCardLess</button>
+                                <p>{{ Lang::get('auth.paragraph') }}</p>
+                                <button type="submit" class="btn btn-primary btn-block btn-flat">{{ Lang::get('auth.cardless') }}</button>
                                 <!--<input type="submit" id="submit" name="submit" value="GO TO GoCardLess">;-->
-                                <span>By signing up you agree to our <a href="#">terms &amp; conditions</a></span>
+                                <span>{{ Lang::get('auth.agree') }}</span>
                             </div>
                         </section>
                     </form>
@@ -261,6 +271,15 @@ $(document).ready(function() {
         }
     });
 });
+        </script>
+        <script>
+        $(function(){
+           $("#locale").change(function(){
+               
+           $("#language").submit();
+            });
+           
+        });
         </script>
     </body>
 
