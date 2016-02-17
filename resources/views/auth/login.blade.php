@@ -47,9 +47,23 @@
                     <img src="{{ asset("/img/logo.png") }}" class="center-block" style="height: 50px;">
                 </a>
             </div>
+            <div class="language">
+<!--                {{  App::getLocale() }} -->
+                <form action="{{ URL::route('language')  }}" method="post" id="language">
+                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                    <input name="page" type="hidden" value="login">
+                    <select name="locale" id="locale">
+                        <option value="en" {{  (App::getLocale()=='en') ? 'selected' : '' }}>English</option>
+                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} >French</option>
+                    </select>
+                   
+                    
+                </form>
+            </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+<!--                <p class="login-box-msg">Sign in to start your session</p>-->
+                <p class="login-box-msg">{{ Lang::get('auth.loginTitle')  }}</p>
                 <div class="welimg">
                     <img src="{{ asset("/img/welimg.png") }}">
                 </div>
@@ -85,14 +99,15 @@
                 </div>
                 @endif
                 <form class="" role="form" method="POST" action="{{ url('/auth/login') }}">
+                    
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                       
                     <div class="form-group has-feedback">
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="{{ Lang::get('auth.email') }}">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="{{ Lang::get('auth.password') }}">
                     </div>
 
                     <div class="row loginbtn">
@@ -101,13 +116,13 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-12">
-                            <button class="btn btn-primary btn-block btn-flat" type="submit">Login</button>
+                            <button class="btn btn-primary btn-block btn-flat" type="submit">{{ Lang::get('auth.login')  }}</button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
-                <a class="btn btn-link frgbtn" href="{{ url('/password/email') }}">Lost your password?</a><br>
-                <p class="notaccount">Don't have an account? <a class="btn btn-link " href="{{ url('/auth/register') }}">Sign Up</a></p>
+                <a class="btn btn-link frgbtn" href="{{ url('/password/email') }}"> {{ Lang::get('auth.lostpassword') }} </a><br>
+                <p class="notaccount">{{ Lang::get('auth.donthaveaccount')  }} <a class="btn btn-link " href="{{ url('/auth/register') }}">{{ Lang::get('auth.signup')  }}</a></p>
 
             </div>
         </div>
@@ -152,6 +167,15 @@ $.widget.bridge('uibutton', $.ui.button);
         <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('/dist/js/app.min.js') }}" type="text/javascript"></script>
+        <script>
+        $(function(){
+           $("#locale").change(function(){
+               
+           $("#language").submit();
+            });
+           
+        });
+        </script>
     </body>
 </html>
 
