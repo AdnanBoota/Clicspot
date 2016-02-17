@@ -93,4 +93,6 @@ Route::get('/payment/{id}', 'PaymentController@editUser');
 Route::post('/payment/updateUser', 'PaymentController@updateUser');
 Route::get('/payment/goCardlessConfirm','PaymentController@goCardlessNewRegistrationConfirm');
 Route::resource('payment','PaymentController');
+//language
+Route::post('/language',array('before'=>'csrf','as'=>'language','uses'=>'LanguageController@store'));
 
