@@ -1,7 +1,7 @@
 <?php namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-
+use App;
 class Kernel extends HttpKernel {
 
 	/**
@@ -16,6 +16,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
 		'App\Http\Middleware\VerifyCsrfToken',
+        'App\Http\Middleware\BeforeMiddleware',
 	];
 
 	/**
