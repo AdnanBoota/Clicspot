@@ -5,11 +5,11 @@
         <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Hotspot
+        {{ Lang::get('auth.hotspot') }}
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Hotspot</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> {{ Lang::get('auth.home') }}</a></li>
+        <li class="active">{{ Lang::get('auth.hotspot') }}</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -19,8 +19,8 @@
             @include('errors.flash')
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Hotspot List</h3>
-                    <a href="{{url('hotspot/create')}}" class="btn btn-info pull-right">Add Hotspot</a>
+                    <h3 class="box-title">{{ Lang::get('auth.hotspot') }} {{ Lang::get('auth.list') }}</h3>
+                    <a href="{{url('hotspot/create')}}" class="btn btn-info pull-right">{{ Lang::get('auth.addhotspot') }} </a>
                 </div>
 
                 <!-- /.box-header -->
