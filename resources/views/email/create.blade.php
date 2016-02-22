@@ -49,6 +49,19 @@
     <div class="mainhead">
         <div class="mainlogo">
             <a href="#"><img src="{{asset("img/logo1.png")}}" /></a>
+               <div class="language pull-right">
+<!--                {{  App::getLocale() }} -->
+                <form action="{{ URL::route('language')  }}" method="post" id="language">
+                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                    <input name="page" type="hidden" value="login">
+                    <select name="locale" id="locale">
+                        <option value="en" {{  (App::getLocale()=='en') ? 'selected' : '' }}>English</option>
+                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} >French</option>
+                    </select>
+                   
+                    
+                </form>
+            </div>
         </div>
         <div class="topmenubar">
             <div class="topmenuleft">
@@ -68,26 +81,26 @@
                 <ul>
                     <li>
                         <a href="javascript:void(0);" id="editLayoutButton">
-                          Edit Layout
+                           {{ Lang::get('auth.editlayout') }}
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" id="editContentButton">Edit Content</a>
+                        <a href="javascript:void(0);" id="editContentButton">{{ Lang::get('auth.editcont') }}</a>
                     </li>
                     <li>
                         <a href="javascript:void(0);" data-toggle="modal" data-target="#templateList">
                             <img src="{{asset("img/templateicon.png")}}" />
-                            Template
+                            {{ Lang::get('auth.template') }}
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('emails/create')}}"><img src="{{asset("img/reseticon.png")}}" />Reset</a>
+                        <a href="{{url('emails/create')}}"><img src="{{asset("img/reseticon.png")}}" />{{ Lang::get('auth.reset') }}</a>
                     </li>
                     <li>
-                        <a href="#"><img src="{{asset("img/quiticon.png")}}" />Quit Without Saving</a>
+                        <a href="#"><img src="{{asset("img/quiticon.png")}}" />{{ Lang::get('auth.quite') }}</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" id="download-btn"><img src="{{asset("img/saveicon.png")}}" />Save & Quit</a>
+                        <a href="javascript:void(0)" id="download-btn"><img src="{{asset("img/saveicon.png")}}" />{{ Lang::get('auth.savequite') }}</a>
                     </li>
                 </ul>
             </div>
@@ -106,9 +119,9 @@
      <form id="upload" method="post" action="{{url('emails/ImageFileUpload')}}" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <div id="drop">
-                    Drop Here
+                    {{ Lang::get('auth.drophere') }}
 
-                    <a>Browse</a>
+                    <a>{{ Lang::get('auth.browse') }}</a>
                     <input type="file" name="upl" multiple accept="image/*" />
                 </div>
                 <img src="{{asset("img/loading.gif")}}" id="loadingImage" style="display: none;"/>
@@ -149,11 +162,11 @@
                 <h4>
                     <button aria-hidden="true" class="close pull-right closeOptions" type="button">×</button>
                     <img class="titleimg" src="{{asset("img/linkimg.png")}}" />
-                    Link
+                    {{ Lang::get('auth.link') }}
                 </h4>
                 <div class="form-group">
-                    <label>Mirror link</label>
-                    <input type="text" http-prefix="" placeholder="[MIRROR]" value="" class="form-control" id="mirrorLink">
+                    <label>{{ Lang::get('auth.mirrorlink') }}</label>
+                    <input type="text" http-prefix="" placeholder="{{ Lang::get('auth.mirror') }}" value="" class="form-control" id="mirrorLink">
                 </div>
                 <div style="display: none">
                     <div class="form-group">
@@ -300,8 +313,8 @@
     <div id="gongNeng">
         <div id="gongNengBox">
              <div class="leftsidetitle">
-                <h2>Elements</h2>
-                <button class="imgbtn"><img src="{{asset("img/cameraiconwhite.png")}}" />Image Gallery</button>
+                <h2>{{ Lang::get('auth.element')}}</h2>
+                <button class="imgbtn"><img src="{{asset("img/cameraiconwhite.png")}}" />{{ Lang::get('auth.imggallery')}}</button>
             </div>
             <div id="choose-module-box" class="gnn">
                 <div id="accordion-module" class="accordion"></div>
@@ -394,7 +407,7 @@
                 </div>
                 <div class="imgaddrgt">
                     <a href="javascript:void(0);" data-toggle="modal"
-                       data-target="#templateList" class="dftbtn">Default Template</a>
+                       data-target="#templateList" class="dftbtn">{{ Lang::get('auth.defaulttemp') }}</a>
                 </div>
             </div>
         </div>
@@ -412,7 +425,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Default Template</h4>
+                    <h4 class="modal-title" id="myModalLabel">{{ Lang::get('auth.defaulttemp') }}</h4>
                     <img src="{{asset("img/loading.gif")}}" class="templateLoad" style="display: none;"/>
                 </div>
                 <div class="modal-body">
@@ -534,6 +547,14 @@
    
    
     console.log("oon load: ",getCookie('camEmailSetup'));
+    
+    
+           $("#locale").change(function(){
+               
+           $("#language").submit();
+            });
+           
+    
     
     </script>
 </body>
