@@ -27,22 +27,22 @@
 <section class="creatpart">
     <div class="titleblock">
         <i class="fa fa-envelope"></i>
-        <h1>E-Mail Platform</h1>
+        <h1>{{ Lang::get('auth.emailplatform') }}</h1>
     </div>
     <div class="multitab">
         <ul class="tabpart">
-            <li class="active"><a href="javascript:void(0)" class="automaticMailForm"><i class="fa fa-pencil"></i>Automatic Mailing</a></li>
-            <li><a href="javascript:void(0)" class="manualMailingForm"><i class="fa fa-pencil-square-o"></i>Manual Mailing</a></li>
+            <li class="active"><a href="javascript:void(0)" class="automaticMailForm"><i class="fa fa-pencil"></i>{{ Lang::get('auth.automail') }}</a></li>
+            <li><a href="javascript:void(0)" class="manualMailingForm"><i class="fa fa-pencil-square-o"></i>{{ Lang::get('auth.manumail') }}</a></li>
         </ul>
     </div>
 </section>
 <section class="creatpart automaticMailing">
     <div class="titleblock">
         <i class="fa fa-envelope"></i>
-        <h1>Automatic Mailing</h1>
+        <h1>{{ Lang::get('auth.automail') }}</h1>
     </div>
     <div class="automailingblock">
-        <a href="{{url('emails/emailSetup')}}"><img src="{{ asset("img/addicon.png") }}" /> Create Campaign</a>
+        <a href="{{url('emails/emailSetup')}}"><img src="{{ asset("img/addicon.png") }}" /> {{ Lang::get('auth.createCampaign') }}</a>
         <div class="manualbtn">
 <!--               <a href="#" class="sentbtn active"><i></i>Sent<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
             <a href="#" class="draftbtn "><i></i>Drafts<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>-->
@@ -76,13 +76,13 @@
 <section class="creatpart manualMailing" style="display: none;">
     <div class="titleblock">
         <i class="fa fa-envelope"></i>
-        <h1>Manual Mailing</h1>
+        <h1>{{ Lang::get('auth.manumail') }}</h1>
     </div>
     <div class="automailingblock">
-        <a href="{{url('emails/emailSetup')}}">Create Campaign</a>
+        <a href="{{url('emails/emailSetup')}}">{{ Lang::get('auth.createCampaign') }}</a>
         <div class="manualbtn">
-            <a href="javascript:void(0)" class="sentbtn active"><i></i>Sent<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
-            <a href="javascript:void(0)" class="draftbtn "><i></i>Drafts<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>
+            <a href="javascript:void(0)" class="sentbtn active"><i></i>{{ Lang::get('auth.sent') }}<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
+            <a href="javascript:void(0)" class="draftbtn "><i></i>{{ Lang::get('auth.draft') }}<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>
         </div>
         <div class="mailingtabledtl">
           
