@@ -5,11 +5,11 @@
         <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Campaign
+        {{ Lang::get('auth.campaignn') }}
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Campaign</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> {{ Lang::get('auth.home') }}</a></li>
+        <li class="active">{{ Lang::get('auth.campaignn') }}</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -19,8 +19,8 @@
             @include('errors.flash')
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Campaign List</h3>
-                    <a href="{{url('campaign/create')}}" class="btn btn-info pull-right">Add Campaign</a>
+                    <h3 class="box-title">{{ Lang::get('auth.compaginlist') }}</h3>
+                    <a href="{{url('campaign/create')}}" class="btn btn-info pull-right">{{ Lang::get('auth.addcompagin') }}</a>
                 </div>
 
                 <!-- /.box-header -->
