@@ -71,8 +71,8 @@
                                         <p>{{ Lang::get('auth.bankcharg') }}</p>
                                         <p>{{ Lang::get('auth.onebank') }}</p>
                                     </div>
-                                    <div class="col-md-4">
-                                        <a href="javascript:void(0)" class="btn btn-block btn-default btn-lg" id="addAccount">{{ Lang::get('auth.addbank') }}</a>
+                                    <div class="col-md-4"><!-- btn-lg-->
+                                        <a href="javascript:void(0)" class="btn btn-block btn-default " id="addAccount" style="">{{ Lang::get('auth.addbank') }}</a>
                                     </div>
                                     <div class="bankDetails">
                                         <table class="table-bordered">
