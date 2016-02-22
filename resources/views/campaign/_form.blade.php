@@ -503,7 +503,7 @@
         <div class="col-xs-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Campaign</h3>
+                    <h3 class="box-title">{{ Lang::get('auth.campaignn') }}</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
@@ -511,7 +511,7 @@
                             <div class="form-group">
 
                                 <div class="col-sm-12">
-                                    <p>Name</p>
+                                    <p>{{ Lang::get('auth.name') }}</p>
                                     {!!  Form::text('name', null, array('id'=>'name','class'=>'form-control','required'=>'true')) !!}
                                 </div>
                             </div>
@@ -520,17 +520,17 @@
                             <ul class="cpnavigaion">
                                 <li>
                                     <a href="javascript:void(0);" class="active"><i class="campnavicon1"></i>
-                                        <span>Customize</span>
+                                        <span>{{ Lang::get('auth.customize') }}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);"><i class="campnavicon2"></i>
-                                        <span>Setting</span>
+                                        <span>{{ Lang::get('auth.setting') }}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);"><i class="campnavicon3"></i>
-                                        <span>Preview</span>
+                                        <span>>{{ Lang::get('auth.preview') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -540,27 +540,27 @@
                         <div class="col-md-3 lefControls">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active"><a href="#header" aria-controls="home" role="tab"
-                                                                          data-toggle="tab">Header</a></li>
+                                                                          data-toggle="tab">{{ Lang::get('auth.header') }}</a></li>
                                 <li role="presentation"><a href="#center" aria-controls="profile" role="tab"
-                                                           data-toggle="tab">center</a></li>
+                                                           data-toggle="tab">{{ Lang::get('auth.center') }}</a></li>
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="header">
                                     <div class="tabcontendtl">
-                                        <p>Logo position</p>
+                                        <p>{{ Lang::get('auth.logoposition') }}</p>
 
                                         <div class="imgbtn imgbtnlogo">
                                             <a class="{{ isset($campaign->logoposition) && $campaign->logoposition == 'left' ? 'active' : '' }}"
-                                               val='left' href="javascript:void(0)">left</a>
+                                               val='left' href="javascript:void(0)">{{ Lang::get('auth.left') }}</a>
                                             <a class="{{ isset($campaign->logoposition) && $campaign->logoposition == 'center' ? 'active' : '' }}"
-                                               href="javascript:void(0)" val='center'>center</a>
+                                               href="javascript:void(0)" val='center'>{{ Lang::get('auth.center') }}</a>
                                             <a class="{{ isset($campaign->logoposition) && $campaign->logoposition == 'right' ? 'active' : '' }}"
-                                               href="javascript:void(0)" val='right'>right</a>
+                                               href="javascript:void(0)" val='right'>{{ Lang::get('auth.right') }}</a>
                                         </div>
                                         <div class="headcolor">
-                                            <p>Header Background Color</p>
+                                            <p>{{ Lang::get('auth.headerbackcolor') }}</p>
                                             {!!  Form::hidden('fontcolor', null, array('id'=>'fontcolor','class'=>'form-control my-colorpicker','required'=>'true')) !!}
                                             <div id="colorpicker"></div>
 
@@ -569,13 +569,13 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="center">
                                     <div class="tabcontendtl">
-                                        <p>Media Social Connection</p>
+                                        <p>{{ Lang::get('auth.media') }}</p>
 
                                         <div class="imgbtn imgbtn2">
-                                            <a href="javascript:void(0);">left</a>
-                                            <a href="javascript:void(0);" class="active">right</a>
+                                            <a href="javascript:void(0);">{{ Lang::get('auth.left') }}</a>
+                                            <a href="javascript:void(0);" class="active">{{ Lang::get('auth.right') }}</a>
                                         </div>
-                                        <p>Zoom Background Image</p>
+                                        <p>{{ Lang::get('auth.zoom') }}</p>
                                         {!!  Form::text('backgroundzoom', null, array('data-from'=>isset($campaign->backgroundzoom) ? $campaign->backgroundzoom : '100','id'=>'backgroundzoom','class'=>'form-control','required'=>'true')) !!}
                                     </div>
                                 </div>
@@ -706,7 +706,7 @@
                                     <div class="imageslider">
 
                                         <div class="col-md-9">
-                                            <p>Drag and drop the picture into to replace the background or the logo.</p>
+                                            <p>{{ Lang::get('auth.dragdroplogo')}}</p>
 
                                             <div class="selectimg">
                                                 <div id="myCarousel" class="carousel slide">
@@ -770,8 +770,8 @@
                 </div>
                 <div class="box-footer">
                     <!--<button type="submit" class="btn btn-default">Cancel</button>-->
-                    <a href="{{url('campaign')}}" class="btn btn-default">Cancel</a>
-                    <button type="submit" class="btn btn-info pull-right">Submit</button>
+                    <a href="{{url('campaign')}}" class="btn btn-default">{{ Lang::get('auth.cancel')}}</a>
+                    <button type="submit" class="btn btn-info pull-right">{{ Lang::get('auth.submit')}}</button>
                 </div>
                 <!-- /.box-footer -->
             </div>
