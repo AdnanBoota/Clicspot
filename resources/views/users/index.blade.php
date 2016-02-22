@@ -22,7 +22,7 @@
 <section class="statistics-box">
     <div class="row">
         <div class="statistics">
-            <i class="fa fa-fw fa-pie-chart"></i><span>Statistics</span>
+            <i class="fa fa-fw fa-pie-chart"></i><span>{{ Lang::get('auth.statistics') }}</span>
 
         </div>
     </div>
@@ -85,7 +85,7 @@
                             <div style="width: 70%" class="progress-bar"></div>
                         </div>
                         <div class="remain-title">
-                            <p><span>10</span>Days Remaining</p>
+                            <p><span>10</span>{{ Lang::get('auth.dayremaining') }}</p>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
 <section class="statistics-box">
     <div class="row">
         <div class="statistics">
-            <i class="fa fa-fw  fa-list-alt"></i><span>Manage Lists</span>
+            <i class="fa fa-fw  fa-list-alt"></i><span>{{ Lang::get('auth.dayremaining') }}</span>
 
         </div>
     </div>
@@ -112,7 +112,7 @@
                                 <img src="img/select-list.png" alt="">
                             </div>
                             <div class="list-title">
-                                <span>Select List</span>
+                                <span>{{ Lang::get('auth.selectlist') }}</span>
                             </div>
                         </a>
                         @if (count($emailList) > 0)
@@ -129,7 +129,7 @@
                                 <img src="img/create-list.png" alt="">
                             </div>
                             <div class="list-title">
-                                <span>Create List</span>
+                                <span>{{ Lang::get('auth.createlist') }}</span>
                             </div>
                         </a>
                     </li>
@@ -139,7 +139,7 @@
                                 <img src="img/edit-list.png" alt="">
                             </div>
                             <div class="list-title">
-                                <span>Edit List</span>
+                                <span>{{ Lang::get('auth.editlist') }}</span>
                             </div>
                         </a>
                         @if (count($emailList) > 0)
@@ -156,7 +156,7 @@
                                 <img src="img/export-list.png" alt="">
                             </div>
                             <div class="list-title">
-                                <span>Export List</span>
+                                <span>{{ Lang::get('auth.exportlist') }}</span>
                             </div>
                         </a>
                          <div class="selectlistblock expList">
@@ -174,7 +174,7 @@
 <section>
     <div class="row">
         <div class="statistics user-list">
-            <img src="img/user-icon-black.png" alt="" class="user-icon-black"></i><span>User Lists</span>
+            <img src="img/user-icon-black.png" alt="" class="user-icon-black"></i><span>{{ Lang::get('auth.userlist') }}</span>
 
         </div>
     </div>
