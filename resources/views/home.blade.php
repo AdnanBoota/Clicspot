@@ -50,7 +50,7 @@
                                     <div style="width: 70%" class="progress-bar"></div>
                                 </div>
                                 <div class="remain-title">
-                                    <p><span>10</span>Days Remaining</p>
+                                    <p><span>10</span>{{ Lang::get('auth.dayremaining') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -99,9 +99,9 @@
                                 </div>
                             </div><!-- /.box-body -->
                             <div class="reviewButtons">
-                                <a href="javascript:void(0)" class="btn active getDataby" id="months">Months</a>
-                                <a href="javascript:void(0)" class="btn getDataby" id="weeks">Weeks</a>
-                                <a href="javascript:void(0)" class="btn getDataby" id="days">Days</a>
+                                <a href="javascript:void(0)" class="btn active getDataby" id="months">{{ Lang::get('auth.month')}}</a>
+                                <a href="javascript:void(0)" class="btn getDataby" id="weeks">{{ Lang::get('auth.week') }}</a>
+                                <a href="javascript:void(0)" class="btn getDataby" id="days">{{ Lang::get('auth.day') }}</a>
                             </div>
                         </div><!-- /.box -->
 
@@ -124,7 +124,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">{{ Lang::get('auth.latestmember') }}</h3>
                         <div class="box-tools pull-right">
-                            <span class="label label-danger">8 New Members</span>
+                            <span class="label label-danger">8 {{ Lang::get('auth.newmemeber') }}</span>
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                             <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                         </div>
@@ -151,7 +151,7 @@
                         </ul><!-- /.users-list -->
                     </div><!-- /.box-body -->
                     <div class="box-footer text-center">
-                        <a href="javascript::" class="uppercase">View All Users</a>
+                        <a href="javascript::" class="uppercase">{{ Lang::get('auth.alluser') }}</a>
                     </div><!-- /.box-footer -->
                 </div><!--/.box -->
             </div>
@@ -170,9 +170,9 @@
                         </div>
                     </div><!-- /.box-body -->
                     <div class="reviewButtons">
-                        <a href="javascript:void(0)" class="btn active">Months</a>
-                        <a href="javascript:void(0)" class="btn">Weeks</a>
-                        <a href="javascript:void(0)" class="btn">Days</a>
+                        <a href="javascript:void(0)" class="btn active">{{ Lang::get('auth.month')}}</a>
+                        <a href="javascript:void(0)" class="btn">{{ Lang::get('auth.week') }}</a>
+                        <a href="javascript:void(0)" class="btn">{{ Lang::get('auth.day') }}</a>
                     </div>
                 </div>
             </div>
