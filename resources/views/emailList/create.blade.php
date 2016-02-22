@@ -17,20 +17,20 @@
 <section class="creatpart">
     <div class="titleblock">
         <i class="fa fa-pencil-square-o"></i>
-        <h1>Create List</h1>
+        <h1>{{ Lang::get('auth.createlist') }}</h1>
     </div>
     <div class="multitab">
         <ul class="tabpart">
-            <li class="active"><a href="javascript:void(0);"><i class="fa fa-pencil"></i>Create list</a></li>
-            <li><a href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>Edit list</a></li>
-            <li><a href="{{url('users')}}"><i class="fa fa-list-alt"></i>User list</a></li>
+            <li class="active"><a href="javascript:void(0);"><i class="fa fa-pencil"></i>{{ Lang::get('auth.createlist') }}</a></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>{{ Lang::get('auth.editlist') }}</a></li>
+            <li><a href="{{url('users')}}"><i class="fa fa-list-alt"></i>{{ Lang::get('auth.userlist') }}</a></li>
         </ul>
     </div>
 </section>
 <section class="profilepart">
     <div class="titleblock">
         <i class="fa fa-search"></i>
-        <h1>Profiles found</h1>
+        <h1>{{ Lang::get('auth.profilefound') }}</h1>
     </div>
     <div class="row profilefound">
         <div class="col-md-4">
@@ -63,7 +63,7 @@
 
 <section class="filterpart">
     <div class="titleblock">
-        <h1>Filters</h1>
+        <h1>{{ Lang::get('auth.filter') }}</h1>
     </div>
     <div class="row">
         <div class="col-xs-12">
@@ -100,8 +100,8 @@
         <!--    <a href="javascript:void(0);">Update</a>
             <a href="javascript:void(0);">Reset Preferences</a>
             <a href="javascript:void(0);">Save List</a>-->
-            <a href="{{url('emailList/create')}}" >Reset Preferences</a>
-            <button type="submit" class="">Save List</button>
+            <a href="{{url('emailList/create')}}" >{{ Lang::get('auth.resetpref') }}</a>
+            <button type="submit" class="">{{ Lang::get('auth.savelist') }}</button>
         </div>
         <!-- /.box-footer -->
         {!! Form::close() !!}
