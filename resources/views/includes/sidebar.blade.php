@@ -12,7 +12,7 @@
             @if(Auth::user()->type == "superadmin")
             <li class="{{Request::path() == 'vendorList' ? 'active' : ''}}">
                 <a href="{{url("vendorList")}}">
-                    <i class="fa fa fa-files-o"></i> <span>Vendors</span><span class="act"></span>
+                    <i class="fa fa fa-files-o"></i> <span>{{ Lang::get('auth.vendor') }}</span><span class="act"></span>
                 </a>
             </li>
             @endif
