@@ -12,7 +12,7 @@
     <div class="col-md-4">
        <div class="frmlabel">
             <div class="lblfirst">abc</div>
-            <label>List Name :</label>
+            <label>{{ Lang::get('auth.lastnm') }} :</label>
             <a href="javascript:void(0);" class="infowindow"><i class="fa fa-info-circle"></i></a>
         </div>
     </div>
@@ -38,7 +38,7 @@
     <div class="col-md-4">
         <div class="frmlabel">
             <div class="lblfirst">abc</div>
-            {!! Form::label('listname', 'List Name :', array('class' => '')) !!}
+            {!! Form::label('listname', Lang::get("auth.lastnm"), array('class' => '')) !!} 
             <a href="javascript:void(0);" class="infowindow"><i class="fa fa-info-circle"></i></a>
             
         </div>
@@ -46,7 +46,7 @@
     <div class="col-md-8">
         <div class="editb">
             <i class="fa fa-pencil"></i>
-            {!!  Form::text('listname', null, array('id'=>'listname','class'=>'','required'=>'true','placeholder'=>'My list 01')) !!}
+            {!!  Form::text('listname', null, array('id'=>'listname','class'=>'','required'=>'true','placeholder'=>Lang::get("auth.mylist"))) !!}
         </div>
     </div>
 </div>
@@ -55,7 +55,7 @@
     <div class="col-md-4">
         <div class="frmlabel">
             <div class="lblfirst"><i class="pingicon fa fa-thumb-tack"></i></div>
-            {!! Form::label('favoredconnection', 'Favored connection :', array('class' => '')) !!}
+            {!! Form::label('favoredconnection', Lang::get("auth.favconnection"), array('class' => '')) !!}
             <a href="javascript:void(0);" class="infowindow"><i class="fa fa-info-circle"></i></a>
         </div>
     </div>
@@ -82,7 +82,7 @@
             <div class="lblfirst">
                 <i class="visiticon"><img src="{{ asset("img/visitorsicon.png") }}" /></i>
             </div>
-            {!! Form::label('visitors', 'Visitors :', array('class' => '')) !!}
+            {!! Form::label('visitors',Lang::get("auth.visitor"), array('class' => '')) !!}
             <a href="javascript:void(0);" class="infowindow"><i class="fa fa-info-circle"></i></a>
         </div>
     </div>
@@ -108,7 +108,7 @@
                 <div class="ageslider">
                     <div class="row">
                         <div class="col-md-2">
-                            <span class="agecl">Age:</span>
+                            <span class="agecl">{{ Lang::get("auth.age") }}</span>
                         </div>
                         <div class="col-md-10">{!!  Form::text('age', "", array('data-from'=>isset($emailList)? $emailList->age[0]:'15','data-to'=>isset($emailList)? $emailList->age[1]:'55','data-type'=>'double','id'=>'age','class'=>'','required'=>'true')) !!}
                         </div>
@@ -130,7 +130,7 @@
             <div class="lblfirst">
                 <i class="visiticon"><img src="{{ asset("img/amtvisit.png") }}" /></i>
             </div>
-            <label>Amount of visits :</label>
+            <label>{{ Lang::get('auth.noofvisit') }} </label>
             <a href="javascript:void(0);" class="infowindow"><i class="fa fa-info-circle"></i></a>
         </div>
     </div>
@@ -148,7 +148,7 @@
             <div class="lblfirst">
                 <i class="visiticon"><img src="{{ asset("img/dateicon.png") }}" /></i>
             </div>
-            <label>Date :</label>
+            <label>{{ Lang::get('auth.date') }} </label>
             <a href="javascript:void(0);" class="infowindow"><i class="fa fa-info-circle"></i></a>
         </div>
     </div>
@@ -157,7 +157,7 @@
             <div class="col-md-4">
                 <div class="selectbox">
                     <i class="fa fa-caret-down"></i>
-                    {!!  Form::select('datequickselection', array('' => 'Quick Selection','1' => 'Last Day', '7' => 'Last Week','30' => 'Last Month', '365' => 'Last Year'), null, ['placeholder' => 'Quick Selection','id'=>'datequickselection','class'=>'dateGrp']) !!}
+                    {!!  Form::select('datequickselection', array('' => 'Quick Selection','1' => Lang::get("auth.lastday"), '7' => Lang::get("auth.lastweek"),'30' => Lang::get("auth.lastmonth"), '365' => Lang::get("auth.lastyear")), null, ['placeholder' => Lang::get("auth.quickselect"),'id'=>'datequickselection','class'=>'dateGrp']) !!}
                     {!!  Form::hidden('isdatequickselection') !!}
                 </div>
             </div>
@@ -192,7 +192,7 @@
             <div class="lblfirst">
                 <i class="routericon"><img src="{{ asset("img/routericon.png") }}" /></i>
             </div>
-            <label>Router :</label>
+            <label>{{ Lang::get('auth.router') }}</label>
             <a href="javascript:void(0);" class="infowindow"><i class="fa fa-info-circle"></i></a>
         </div>
     </div>
@@ -211,7 +211,7 @@
     <div class="col-md-4">
         <div class="frmlabel">
             <div class="lblfirst"><i class="fa fa-star"></i></div>
-            <label>Review Status :</label>
+            <label>{{ Lang::get('auth.reviewstatus') }}</label>
             <a href="javascript:void(0);" class="infowindow"><i class="fa fa-info-circle"></i></a>
         </div>
     </div>
