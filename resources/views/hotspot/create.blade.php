@@ -5,12 +5,12 @@
         <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Hotspot
+        {{ Lang::get('auth.hotspot') }}
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Hotspot</li>
-        <li class="active">Add Hotspot</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> {{ Lang::get('auth.home') }}</a></li>
+        <li class="active">{{ Lang::get('auth.hotspot') }}</li>
+        <li class="active">{{ Lang::get('auth.addhotspot') }}</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -30,7 +30,7 @@
             @endif
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Add Hotspot</h3>
+                    <h3 class="box-title">{{ Lang::get('auth.addhotspot') }}</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
@@ -40,8 +40,8 @@
                 </div>
                 <div class="box-footer">
                     <!--<button type="submit" class="btn btn-default">Cancel</button>-->
-                    <a href="{{url('hotspot')}}" class="btn btn-default">Cancel</a>
-                    <button type="submit" class="btn btn-info pull-right">Submit</button>
+                    <a href="{{url('hotspot')}}" class="btn btn-default">{{ Lang::get('auth.cancel') }}</a>
+                    <button type="submit" class="btn btn-info pull-right">{{ Lang::get('auth.submit') }}</button>
                 </div>
                 <!-- /.box-footer -->
                 {!! Form::close() !!}
