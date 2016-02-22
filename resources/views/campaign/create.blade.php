@@ -14,12 +14,12 @@
 @endif
 <section class="content-header">
     <h1>
-        Campaign
+        {{ Lang::get('auth.campaignn') }}
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Campaign</li>
-        <li class="active">Add Campaign</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> {{ Lang::get('auth.home') }}</a></li>
+        <li class="active">{{ Lang::get('auth.campaignn') }}</li>
+        <li class="active">{{ Lang::get('auth.addcompagin') }}</li>
     </ol>
 </section>
 {!! Form::open(array("class"=>"form-horizontal","url"=> url('campaign'),"files"=>"true")) !!}
