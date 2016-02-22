@@ -23,7 +23,7 @@
 <section class="statistics-box">
     <div class="row">
         <div class="statistics">
-            <i class="fa fa-fw fa-pie-chart"></i><span>Payment</span>
+            <i class="fa fa-fw fa-pie-chart"></i><span>{{ Lang::get('auth.payment') }}</span>
 
         </div>
     </div>
@@ -37,7 +37,7 @@
                     <div class="col-md-6">
                         <div class="small-box">
                             <div class="inner">
-                                <h3>Next Billing</h3>
+                                <h3>{{ Lang::get('auth.nextbill') }}</h3>
                                 <p>{{$nextBillingDate}}</p>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                     <div class="col-md-6">
                         <div class="small-box border-radius-none">
                             <div class="inner">
-                                <h3>Amount</h3>
+                                <h3>{{ Lang::get('auth.amount') }}</h3>
                                 <p>199&euro;</p>
                             </div>
                         </div>
@@ -57,22 +57,22 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>Payment Methods</h3>
-                        <p>Please enter your preferred payment mehotd below </p>
+                        <h3>{{ Lang::get('auth.paymentmethod') }}</h3>
+                        <p>{{ Lang::get('auth.paymentbelow') }}</p>
                         <!-- Custom Tabs -->
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab_1" data-toggle="tab">Debit Card</a></li>
+                                <li class="active"><a href="#tab_1" data-toggle="tab">{{ Lang::get('auth.debit') }}</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1">
-                                    <h3>Direct Debit</h3>
+                                    <h3>{{ Lang::get('auth.debit') }}</h3>
                                     <div class="col-md-8">
-                                        <p>Bank account will be charged annually depending on the number of subscription.</p>
-                                        <p>A minimum of one bank is necessary to make the platform working.</p>
+                                        <p>{{ Lang::get('auth.bankcharg') }}</p>
+                                        <p>{{ Lang::get('auth.onebank') }}</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <a href="javascript:void(0)" class="btn btn-block btn-default btn-lg" id="addAccount">Add Bank Account</a>
+                                        <a href="javascript:void(0)" class="btn btn-block btn-default btn-lg" id="addAccount">{{ Lang::get('auth.addbank') }}</a>
                                     </div>
                                     <div class="bankDetails">
                                         <table class="table-bordered">
@@ -96,10 +96,10 @@
             <div class="box-body">
                 <div class="row margin-bottom">
                     <div class="col-md-8">
-                        <h1>Billing History</h1>
+                        <h1>{{ Lang::get('auth.billhistory') }}</h1>
                     </div>
                     <div class="col-md-4">
-                        <a href="{{"/payment/4"}}" class="btn btn-block btn-default btn-lg">Edit Profile</a>
+                        <a href="{{"/payment/4"}}" class="btn btn-block btn-default btn-lg">{{ Lang::get('auth.editprofile') }}</a>
                     </div>
                 </div>
                 <div class="row margin-bottom">
