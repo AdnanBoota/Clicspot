@@ -12,7 +12,7 @@
 <!--<img src="{{asset("img/cameraiconwhite.png")}}" />-->
 
 <div class="titleblock">
-    <h1><i class="fa fa-send"></i>Send E-mail</h1>
+    <h1><i class="fa fa-send"></i>{{ Lang::get('auth.sendmail')}}</h1>
 </div>
 <div class="page_content">
     <div class="container mainsection">
@@ -21,32 +21,32 @@
                 <!--Begin :: progressbar -->
                 <div class="setupstep">
                     <ul>
-                        <li class="current setupno">Setup<i class="fa fa-pencil pencil-show"></i>
+                        <li class="current setupno">{{ Lang::get('auth.setup')}}<i class="fa fa-pencil pencil-show"></i>
                             <dl class="subdetail">
-                                <dt>Name: </dt>
-                                <dd class="ng-binding">MyCampaign</dd>
+                                <dt>{{ Lang::get('auth.name')}}: </dt>
+                                <dd class="ng-binding">{{ Lang::get('auth.mycampaign')}}</dd>
 
-                                <dt>From Name:</dt>
+                                <dt>{{ Lang::get('auth.Formname')}}:</dt>
                                 <dd class="ng-binding">Nans</dd>
 
-                                <dt>Email From Sender: </dt>
+                                <dt>{{ Lang::get('auth.emailfromsender')}}: </dt>
                                 <dd class="ng-binding">nans.noel@gmail.com</dd>
                             </dl>
                         </li>
-                        <li>Build
+                        <li>{{ Lang::get('auth.temp')}}
                             <dl class="subdetail">
-                                <dt>Template used: </dt>
-                                <dd class="ng-binding">Template 01</dd>    
+                                <dt>{{ Lang::get('auth.tempuse')}}: </dt>
+                                <dd class="ng-binding">{{ Lang::get('auth.temp')}} 01</dd>    
                             </dl>
                         </li>
-                        <li>Recipients
+                        <li>{{ Lang::get('auth.recipients')}} 
                             <dl class="subdetail">
-                                <dt>Mailing lists:</dt>
-                                <dd class="ng-binding">Email List 1</dd>    
-                                <dd class="ng-binding">Email List 2</dd>    
+                                <dt>{{ Lang::get('auth.maillist')}}:</dt>
+                                <dd class="ng-binding">{{ Lang::get('auth.emaillist')}} 1</dd>    
+                                <dd class="ng-binding">{{ Lang::get('auth.emaillist')}} 2</dd>    
                             </dl>
                         </li>
-                        <li class="last">Confirm</li>
+                        <li class="last">{{ Lang::get('auth.confirm')}}</li>
                     </ul>
                 </div>
                 <!--End :: progressbar --> 
