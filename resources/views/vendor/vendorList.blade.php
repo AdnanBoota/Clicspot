@@ -5,11 +5,11 @@
         <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Vendors
+        {{ Lang::get('auth.vendor') }}
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Vendors</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> {{ Lang::get('auth.home') }}</a></li>
+        <li class="active">{{ Lang::get('auth.vendor') }}</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -19,7 +19,7 @@
             @include('errors.flash')
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Vendor List</h3>
+                    <h3 class="box-title">{{ Lang::get('auth.vendorList') }}</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
