@@ -380,7 +380,7 @@ $(document).ready(function() {
             "city": "required",
             "zip": "required",
             "country": "required",
-            "phone": "required",
+            "phone":{ "required":true, "number": true} ,
             "nvat": "required",
             "siren": "required",
             "term":"required"
