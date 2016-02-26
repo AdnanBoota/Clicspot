@@ -38,6 +38,19 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
             <![endif]-->
+        <style>
+            .errormsg{
+                color:red;
+                border:2px solid red !important
+            }
+            .successmsg{
+                color:green;
+                border:2px solid lawngreen !important
+            }
+            .redText{ color:red }
+            .hidemsg{ display: none}
+            
+        </style>
     </head>
 
     <body class="hold-transition register-page">
@@ -74,82 +87,122 @@
                                 <a href="{{url()}}">
                                     <img src="{{ asset("/img/logo-white.png ") }}" class="center-block">
                                 </a>
-                                <p>{{ Lang::get('auth.haveaccount') }} <a href="#">{{ Lang::get('auth.signin') }}</a></p>
+                                <p class="smalltext">{{ Lang::get('auth.haveaccount') }} <a href="#">{{ Lang::get('auth.signin') }}</a></p>
+                                <h3>THANK YOU FOR YOUR ORDER !</h3>
+                                <p>Very last step before enjoying your new Clicspot administration interface. </br>Make sure that you have your VAT number, Company number and IBAN to complete the registration process.</br>Follow the next 3 steps below.</p>
                             </div>
 
                             <div class="formstep formstep1">
 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="formrow">
-                                    <label>{{ Lang::get('auth.email') }} :</label>
-                                    <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control">
+<!--                                    <label>{{ Lang::get('auth.email') }} :</label>-->
+                                    <input class="emailicon" type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="formrow">
-                                    <label>{{ Lang::get('auth.password') }} :</label>
-                                    <input type="password" name="password" id="password" class="form-control">
+<!--                                    <label>{{ Lang::get('auth.password') }} :</label>-->
+                                    <input class="passwordicon" type="password" name="password" id="password" class="form-control" placeholder="Password">
                                 </div>
                                 <div class="formrow">
-                                    <label>{{ Lang::get('auth.retypepass') }} :</label>
-                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+<!--                                    <label>{{ Lang::get('auth.retypepass') }} :</label>-->
+                                    <input class="passwordicon" type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Retype Password">
                                 </div>
-
+                                 <div class="wrongmsg hidemsg step1warnig">
+                                <img class="rightimg" src="{{ asset("/img/righticon_red.png ") }}" class="center-block">
+                                <h3>WARNING !</h3>
+                                <p>Make sure you enter the information correctly.</p>
+                               </div>
+                                <div class="sucessmsg hidemsg step1">
+                                
+                                <img class="rightimg" src="{{ asset("/img/righticon_green.png ") }}" class="center-block">
+                                <p>Enter the business informations above to complete this step.</p>
+                                </div> 
                                 <a href="javascript:void(0)" id="step2">{{ Lang::get('auth.step2') }}</a>
+                               
                             </div>
                         </section>
 
                         <section data-title="Home" data-icon="fa-home">
                             <div class="stepblock stepsecond">{{ Lang::get('auth.businessinfo') }}</div>
                             <div class="formstep formstep2" id="formstep2">
-
-                                <div class="formrow">
+                                <div class="formstep2mainblock">
+                                    <div class="formstep2left">
+                                        <div class="formrow">
+    <!--                                    <label>{{ Lang::get('auth.fullnm') }} :</label>-->
+                                            <input class="nameicon" type="text" name="username" id="username" value="{{ old('username') }}" class="form-control" placeholder="Full Name">
+                                        </div>
+                                        <div class="formrow">
+    <!--                                    <label>{{ Lang::get('auth.business') }} :</label>-->
+                                            <input class="bnameicon" type="text" name="businessname" id="businessname" value="{{ old('businessname') }}" class="form-control" placeholder="Business Name">
+                                        </div>
+                                        <div class="formrow">
+    <!--                                    <label>{{ Lang::get('auth.SIREN') }} :</label>-->
+                                            <input class="siranicon" type="text" name="siren" value="{{ old('siren') }}" id="siren" class="form-control" placeholder="SIREN">
+                                        </div>
+                                        <div class="formrow">
+    <!--                                    <label>{{ Lang::get('auth.vat') }} :</label>-->
+                                        <input class="vaticon" type="text" name="nvat" value="{{ old('nvat') }}" id="nvat" class="form-control" placeholder="VAT NUMBER">
+                                        </div>
+                                        <div class="formrow">
+    <!--                                    <label>{{ Lang::get('auth.phone') }} :</label>-->
+                                            <input class="phicon" type="text" name="phone" value="{{ old('phone') }}" id="phone" class="form-control" placeholder="Phone Number">
+                                        </div>
+                                    </div>
+                                    <div class="formstep2right">
+                                         <div class="formrow">
+    <!--                                    <label>{{ Lang::get('auth.adress') }} :</label>-->
+                                            <input class="addicon" type="text" name="address" value="{{ old('address') }}" id="autocomplete" onFocus="geolocate()" class="form-control" placeholder="Enter your address">
+                                        </div>
+                                        <div class="formrow">
+    <!--                                    <label>{{ Lang::get('auth.adress') }} :</label>-->
+                                            <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control" placeholder="Address">
+                                        </div>
+                                        <div class="formrow zipblock">
+        <!--                                    <label>{{ Lang::get('auth.zipcode') }} :</label>-->
+                                            <input type="text" name="zip" value="{{ old('zip') }}" id="postal_code" class="form-control" placeholder="Zip Code">
+                                        </div>
+                                        <div class="formrow cityblock">
+    <!--                                    <label>{{ Lang::get('auth.city') }} :</label>-->
+                                            <input type="text" name="city" value="{{ old('city') }}" id="locality" class="form-control" placeholder="City">
+                                        </div> 
+                                        <div class="formrow">
+        <!--                                    <label>{{ Lang::get('auth.country') }} :</label>-->
+                                            <input type="text" name="country" value="{{ old('country') }}" id="country" class="form-control" placeholder="Country">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="formrow">
                                     <label>{{ Lang::get('auth.fullnm') }} :</label>
                                     <input type="text" name="username" id="username" value="{{ old('username') }}" class="form-control">
-                                </div>
-                                <div class="formrow">
-                                    <label>{{ Lang::get('auth.business') }} :</label>
-                                    <input type="text" name="businessname" id="businessname" value="{{ old('businessname') }}" class="form-control">
-                                </div>
-                                <div class="formrow">
-                                    <label>{{ Lang::get('auth.adress') }} :</label>
-                                    <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control">
-                                </div>
-                                <div class="formrow">
-                                    <label>{{ Lang::get('auth.city') }} :</label>
-                                    <input type="text" name="city" value="{{ old('city') }}" id="city" class="form-control">
-                                </div>
-                                <div class="formrow">
-                                    <label>{{ Lang::get('auth.zipcode') }} :</label>
-                                    <input type="text" name="zip" value="{{ old('zip') }}" id="zip" class="form-control">
-                                </div>
-                                <div class="formrow">
-                                    <label>{{ Lang::get('auth.country') }} :</label>
-                                    <input type="text" name="country" value="{{ old('country') }}" id="country" class="form-control">
-                                </div>
-                                <div class="formrow">
-                                    <label>{{ Lang::get('auth.phone') }} :</label>
-                                    <input type="text" name="phone" value="{{ old('phone') }}" id="phone" class="form-control">
-                                </div>
-                                <div class="formrow">
-                                    <label>{{ Lang::get('auth.SIREN') }} :</label>
-                                    <input type="text" name="siren" value="{{ old('siren') }}" id="siren" class="form-control">
-                                </div>
-                                <div class="formrow">
-                                    <label>{{ Lang::get('auth.vat') }} :</label>
-                                    <input type="nvat" name="nvat" value="{{ old('nvat') }}" id="nvat" class="form-control">
-                                </div>
-
+                                </div>-->
+                                 <div class="wrongmsg hidemsg ">
+                                <img class="rightimg" src="{{ asset("/img/righticon_red.png ") }}" class="center-block">
+                                <h3>WARNING !</h3>
+                                <p>Make sure you enter the information correctly.</p>
+                               </div>
+                                   <div class="sucessmsg hidemsg">
+                                
+                                <img class="rightimg" src="{{ asset("/img/righticon_green.png ") }}" class="center-block">
+                                <p>Enter the business informations above to complete this step.</p>
+                                </div> 
                                 <a href="javascript:void(0)" id="step3">{{ Lang::get('auth.step3') }}</a>
 
                             </div>
                         </section>
 
                         <section data-title="Home" data-icon="fa-home">
-                            <div class="stepblock stepthired">{{ Lang::get('auth.paymentinfo') }}</div>
-                            <div class="rgtbottom formstep3" id="formstep3">
-                                <p>{{ Lang::get('auth.paragraph') }}</p>
-                                <button type="submit" class="btn btn-primary btn-block btn-flat">{{ Lang::get('auth.cardless') }}</button>
+                            <div class="stepblock stepthired">{{ Lang::get('auth.paymentinfo') }}</div> 
+                            <div class="rgtbottom formstep formstep3" id="formstep3">
+                                <img class="thumbimg" src="{{ asset("/img/thumbicon.png ") }}" class="center-block">
+<!--                                <p>{{ Lang::get('auth.paragraph') }}</p>-->
+                                <h3>CONGRATULATION  ! ONE MORE LEFT !</h3>
+                                <p>To complete the account registration make sure you have your IBAN with you.</br>You will be redirected to our Direct Debit partner GoCardLess </p>
+                                <div class="termblock">
+                                    <input type="checkbox" class="" id="term" name="term"/><p class="termdetail">By signing up you agree to our <a href="#">terms & conditions</a></p>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block btn-flat disabled">{{ Lang::get('auth.cardless') }}</button>
                                 <!--<input type="submit" id="submit" name="submit" value="GO TO GoCardLess">;-->
-                                <span>{{ Lang::get('auth.agree') }}</span>
+                               <!-- <span>{{ Lang::get('auth.agree') }}</span>-->
                             </div>
                         </section>
                     </form>
@@ -202,6 +255,76 @@ $.widget.bridge('uibutton', $.ui.button);
 
         <script src="{{ asset('/js/jquery.vpagescroll.js') }}" type="text/javascript"></script>
 
+<script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+       // street_number: 'short_name',
+        //route: 'long_name',
+        locality: 'long_name',
+        //administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&signed_in=true&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
 
 
@@ -209,27 +332,38 @@ $.widget.bridge('uibutton', $.ui.button);
 $(document).ready(function() {
     $(".vscrollmain").vpagescroll();
     $("#step2").click(function() {
-    //    if (validator.element('#email') && validator.element('#password') && validator.element('#password_confirmation')) {
+        if (validator.element('#email') && validator.element('#password') && validator.element('#password_confirmation')) {
             $("section").find(".stepfirst").addClass("actives");
             $("section").find(".stepsecond").addClass("active");
             $("#navigation li:nth-child(2) a").trigger("click");
-//                $('html, body').animate({
-//                    scrollTop: $("#formstep2").offset().top
-//                }, 2000);
- //       }
+            $(".sucessmsg").addClass("hidemsg");
+            $(".step1").removeClass("hidemsg");
+            $(".step1").removeClass('sucessmsg');
+            $(".step1warnig").removeClass("wrongmsg");
+            
+        }
     });
     $("#step3").click(function() {
 
-    //    if (validator.form()) {
+    if (validator.element('#username') && validator.element('#businessname') && validator.element('#autocomplete') && validator.element('#locality') && validator.element('#postal_code') && validator.element('#country') && validator.element('#phone') && validator.element('#siren') && validator.element('#nvat')) {
           $("section").find(".stepsecond").addClass("actives");
             $("section").find(".stepthired").addClass("active");
             $("#navigation li:nth-child(3) a").trigger("click");
 //                $('html, body').animate({
 //                    scrollTop: $("#formstep3").offset().top
 //                }, 2000);
-   //     }
+        }
     });
-    var validator = $('form').validate({
+    $("#term").click(function(){
+       if($(this).prop("checked")==true)
+       {
+           $(".btn-flat").removeClass("disabled");
+       }else{
+           $(".btn-flat").addClass("disabled");
+       }
+    });
+    
+    var validator = $('#multidtepForm').validate({
         rules: {
             "password": "required",
             "password_confirmation": {
@@ -247,28 +381,34 @@ $(document).ready(function() {
             "zip": "required",
             "country": "required",
             "phone": "required",
-            "siren": "required",
             "nvat": "required",
+            "siren": "required",
+            "term":"required"
         },
-        errorClass: "text-red",
-        errorElement: "span",
-        errorPlacement: function(error, element) {
-            console.log("hello");
-            if (element.context.name == 'x') {
-                error.appendTo(element.parents(".formrow"));
-            }
-            else {
-                error.appendTo(element.parents("formrow"));
-            }
+        
+        errorPlacement: function (error, element) {
+          return true
         },
-        highlight: function(element, errorClass, validClass) {
-            $(element).parents('.formrow').addClass('has-error');
-            $(element).parents('.formrow').removeClass('has-success');
+         highlight: function (element) {
+             $(element).removeClass('successmsg'),
+            $(element).addClass('errormsg'),
+             $(element).css('color','red'),
+             $(".sucessmsg").addClass('hidemsg'),
+             $(".wrongmsg").removeClass('hidemsg')
         },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).parents('.formrow').removeClass('has-error');
-            $(element).parents('.formrow').addClass('has-success');
+        unhighlight: function (element) {
+            $(element).removeClass('errormsg'),
+            $(element).addClass('successmsg'),
+            $(element).css('color','lawngreen'),
+            $(".wrongmsg").addClass('hidemsg'),
+            $(".sucessmsg").removeClass('hidemsg')
+              
         }
+        
+         
+       // errorElement: "span",
+      
+        
     });
 });
         </script>
