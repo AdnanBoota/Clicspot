@@ -210,6 +210,21 @@ return [
     'mirror'=>'[MIRROR]',
     'drophere'=>'Drop here',
     'browse'=>'BROWSE',
-    'defaulttemp'=>'Default Template'
+    'defaulttemp'=>'Default Template',
+    //register
+    "thankyou"=>'THANK YOU FOR YOUR ORDER !',
+    'registerparagraph'=>'Very last step before enjoying your new Clicspot administration interface.',
+    'IBAN'=>'Make sure that you have your VAT number, Company number and IBAN to complete the registration process',
+    'follow'=>'Follow the next 3 steps below.',
+    'warning'=>'WARNING !',
+    'successmsg'=>'Make sure you enter the information correctly.',
+    'wariningmsg'=>'Enter the business informations above to complete this step.',
+    'enteraddress'=>'Enter Your Address',
+    'congratulation'=>'CONGRATULATION  ! ONE MORE LEFT !',
+    'IBANcomplete'=>'To complete the account registration make sure you have your IBAN with you.',
+    'redirectgocard'=>'You will be redirected to our Direct Debit partner GoCardLess',
+    'bysigning'=>'By signing up you agree to our',
+    'termcondition'=>'terms & conditions'
+    
 
 ];
