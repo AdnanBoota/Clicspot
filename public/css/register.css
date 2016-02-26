@@ -4,27 +4,63 @@
     background: #0090ff;
 }
 .login-box, .register-box{
-    width: 670px;
+    width: 1050px;
 }
 .register-logo a img{
-    width: 400px;
+    width: 285px;
     height: auto;
 }
-.register-logo p{
+.register-logo p.smalltext{
     color: #fff;
     font-family: 'latoregular';
-    font-size: 30px;
-    margin-top: 30px;
+    font-size: 13px;
+    margin-top: 0 ;
 }
-.register-logo p a{
+.formstep3 p.termdetail a{
+    background: none;
+    padding: 0;
+    font-size: 18px;
+    text-decoration: underline;
+    margin: 0;
+    line-height: normal;
+    height: auto;
+}
+.termblock{
+    
+}
+.termblock input{
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.formstep3 p.termdetail { 
+    font-size: 18px;
+    display: inline-block;
+}
+.register-logo h3 ,.formstep h3{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'latoregular';
+}
+.register-logo p ,.formstep p{ 
+    font-size: 20px; 
+    color: #fff;
+    font-family: 'latoregular';
+    line-height: 48px;
+}
+.register-logo p.smalltext a{
     text-decoration: underline;
     color: #fff;
 }
 .mainformblock{
     position: relative;
 }
-.formstep1{
-    
+.rightimg{
+    margin: 30px 0 20px;
+}
+.formstep1 {
+    padding-top: 50px !important;
 }
 .has-error{
     border: 1px solid #ff0000 !important;
@@ -39,17 +75,38 @@
 .formstep3{
     padding-top: 50px;
 }
-.formrow{
-    border: 1px solid #fff;
-    height: 52px;
-    display: inline-flex;
-    flex: 1 1 0;
+.formstep1 .formrow{
+    width:48%;
+    max-width: 100%;
+    margin: 0 auto 15px;
+}
+.formstep2{
+    
+}
+.formstep2mainblock{
+    width: 100%;
+    overflow: hidden;
+}
+.formstep2left{
+    width: 48%;
+    float: left;
+    margin: 0 auto;
+}
+.formstep2right{
+    width: 48%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.formrow{  
+   /* display: inline-flex;
+    flex: 1 1 0;*/
     flex-flow: row nowrap;
     margin-bottom: 15px;
     text-align: left;
     width: 100%;
     padding: 0 20px;
 }
+/*
 .formrow label{
     color: #fff;
     font-family: 'latoregular';
@@ -58,16 +115,104 @@
     line-height: 52px;
     white-space: nowrap;
 }
-.formrow input[type="text"], .formrow input[type="email"], .formrow input[type="password"], .formrow input[type="nvat"]{
-    background: none;
-    border: none;
+*/
+.formrow input[type="text"], .formrow input[type="email"], .formrow input[type="password"], .formrow input[type="nvat"]{ 
+    border: 2px solid #bdc3c7;
     width: 100%;
-    color: #fff;
+    color: rgba(52,73,94,0.6);
     font-family: 'latoregular';
-    font-size: 24px;
+    font-size: 14px;
     padding-left: 10px;
-    height: 52px;
+    padding-right:30px;
+    height: 40px;
+    border-radius: 6px !important;
 }
+
+.emailicon {
+    background: #fff url("../img/mailicon.png") no-repeat scroll right center;
+}
+.passwordicon{
+    background: #fff url("../img/lockicon.png") no-repeat scroll right center;
+}
+.nameicon {
+    background: #fff url("../img/nameicon.png") no-repeat scroll right center;
+}
+.bnameicon{
+    background: #fff url("../img/b_nameicon.png") no-repeat scroll right center;
+}
+.siranicon {
+    background: #fff url("../img/sirenicon.png") no-repeat scroll right center;
+}
+.vaticon{
+    background: #fff url("../img/vatnumicon.png") no-repeat scroll right center;
+}
+.phicon{
+    background: #fff url("../img/phoneicon.png") no-repeat scroll right center;
+}
+.addicon{
+    background: #fff url("../img/locationicon.png") no-repeat scroll right center;
+}
+
+.errormsg.emailicon {
+    background: #fff url("../img/active_mailicon.png") no-repeat scroll right center;
+}
+.errormsg.passwordicon{
+    background: #fff url("../img/active_lockicon.png") no-repeat scroll right center;
+}
+.errormsg.nameicon {
+    background: #fff url("../img/active_nameicon.png") no-repeat scroll right center;
+}
+.errormsg.bnameicon{
+    background: #fff url("../img/active_b_nameicon.png") no-repeat scroll right center;
+}
+.errormsg.siranicon {
+    background: #fff url("../img/active_sirenicon.png") no-repeat scroll right center;
+}
+.errormsg.vaticon{
+    background: #fff url("../img/active_vatnumicon.png") no-repeat scroll right center;
+}
+.errormsg.phicon{
+    background: #fff url("../img/active_phoneicon.png") no-repeat scroll right center;
+}
+.errormsg.addicon{
+    background: #fff url("../img/active_locationicon.png") no-repeat scroll right center;
+}
+
+.successmsg.emailicon {
+    background: #fff url("../img/green_mailicon.png") no-repeat scroll right center;
+}
+.successmsg.passwordicon{
+    background: #fff url("../img/green_lockicon.png") no-repeat scroll right center;
+}
+.successmsg.nameicon {
+    background: #fff url("../img/green_nameicon.png") no-repeat scroll right center;
+}
+.successmsg.bnameicon{
+    background: #fff url("../img/green_b_nameicon.png") no-repeat scroll right center;
+}
+.successmsg.siranicon {
+    background: #fff url("../img/green_sirenicon.png") no-repeat scroll right center;
+}
+.successmsg.vaticon{
+    background: #fff url("../img/green_vatnumicon.png") no-repeat scroll right center;
+}
+.successmsg.phicon{
+    background: #fff url("../img/green_phoneicon.png") no-repeat scroll right center;
+}
+.successmsg.addicon{
+    background: #fff url("../img/green_locationicon.png") no-repeat scroll right center;
+}
+
+
+.formrow.cityblock {
+    overflow: hidden;
+    width: 55%;
+}
+.formrow.zipblock {
+    float: left;
+    width: 45%;
+}
+
 .formstep a, .rgtbottom button{
     border-radius: 4px;
     background:#f86b4f;
@@ -86,28 +231,8 @@
     margin: 0 auto 40px;
     max-width: 94%;
 }
-.rgtbottom p{
-    font-size: 30px;
-    color: #fff;
-}
-.rgtbottom a{
-    margin: 40px 0;
-}
-.rgtbottom span{
-    color: #fff;
-    font-size: 18px;
-    font-family: 'latoregular';
-    display: block;
-}
-.rgtbottom span a{
-    background: none;
-    height: auto;
-    line-height: normal;
-    margin: 0;
-    text-decoration: underline;
-    padding: 0;
-    color: #fff;
-}
+ 
+ 
 
 .rgtbottom button{
     width: auto;
@@ -237,67 +362,82 @@
 }
 
 
+
 .stepblock.stepthired::before {
     top: 0px;
+} 
+.errormsg ,.successmsg{
+    border: none !important;
+}
+.errormsg.formrow input[type="text"], .errormsg.formrow input[type="email"], .errormsg.formrow input[type="password"], .errormsg.formrow input[type="nvat"]{
+    border: 2px solid #e74c3c;
 }
 
-
+@media screen and (max-width:1450px){
+    .login-box, .register-box{width: 60%;}
+}
 
 
 @media screen and (max-width:1280px){
-    .login-box, .register-box{margin: 3% auto;}
-    .register-logo a img{width: 320px;}
-    .formstep {margin: 70px 0;}
-    .formrow{height: 48px;}
-    .formrow label{line-height: 48px;font-size: 22px;}
-    .formrow input[type="text"], .formrow input[type="email"], .formrow input[type="password"], .formrow input[type="nvat"]{font-size: 22px;height: 48px;}
-    .formstep a, .rgtbottom button{height: 48px;line-height: 48px;margin-top: 50px;}
-    .rgtbottom p ,.register-logo p{font-size: 26px;}
-    .register-logo p{margin-top: 15px;}
+    .register-logo p, .formstep p{font-size: 18px;line-height: 35px;}
+    .login-box, .register-box{margin: 3% auto;}   
+    .formrow label{line-height: 48px;font-size: 22px;} 
+    .formstep a, .rgtbottom button{height: 48px;line-height: 48px;margin-top: 50px;} 
+    .thumbimg{width: 120px;height: auto;}
+    .register-logo h3, .formstep h3{font-size: 18px;}
     /*.setupstep li{min-height: 610px;}*/
     /*.setupstep li.second {min-height: 690px;}*/
 }
-@media screen and (max-width:1150px){
-    .login-box, .register-box {width: 580px;}
-    .formstep {margin: 50px 0;}
-    .rgtbottom p, .register-logo p {font-size: 22px;}
-    .formstep a, .rgtbottom button {font-size: 16px;height: 42px;line-height: 42px;}
-    .register-logo a img {width: 260px;}
+@media screen and (max-width:1150px){  
+    .formstep a, .rgtbottom button {font-size: 16px;height: 42px;line-height: 42px;} 
+    .register-logo p, .formstep p {font-size: 16px;line-height: 25px;}
     /*.setupstep li{min-height: 320px;}
     .setupstep li.second {min-height: 670px;}*/
 }
-@media screen and (max-width:1050px){
-    .login-box, .register-box {width: 490px;}
+@media screen and (max-width:1050px){ 
     .setupstep{right: -170px;}
+    .formstep2right ,.formstep2left{width: 50%;}
+    .formstep1 .formrow{width: 50%;}
+}
+@media screen and (max-width:991px){ 
+    .formstep2right ,.formstep2left{width: 90%;float: none;}
+    .formstep1 .formrow{width: 90%;}
 }
 @media screen and (max-width:860px){
-    .rgtbottom{overflow: hidden;}
-    .login-box, .register-box{width: 96%;}
-    .mainformblock{width: 75%;}
-    .setupstep{top: -15px}
-    .register-logo a img {width: 200px;}
-    .rgtbottom p, .register-logo p {font-size: 18px;}
-    .formrow input[type="text"], .formrow input[type="email"], .formrow input[type="password"], .formrow input[type="nvat"]{font-size: 19px;height: 42px;}
-    .formrow label {font-size: 19px;line-height: 42px;}
-    .formrow {height: 42px;}
-    .formstep {margin: 30px 0 20px;}
-    .formstep a, .rgtbottom button{margin-top: 20px;}
-    .rgtbottom a{margin-bottom: 20px;}
+    .login-box, .register-box {width: 50%;}
+    .rgtbottom{overflow: hidden;}  
+    .setupstep{top: -15px}  
+    .formrow label {font-size: 19px;line-height: 42px;} 
+    .formstep a, .rgtbottom button{margin-top: 20px;} 
+    .register-logo a img{width: 220px;}
     /*.setupstep li {min-height: 270px;}
     .setupstep li.second {min-height: 570px;}*/
 }
-@media screen and (max-width:767px){
-    .mainformblock {width: 65%;}
-    .setupstep {right: -50%;}
-    .rgtbottom span{font-size: 16px;}
+@media screen and (max-width:767px){ 
+    .setupstep {right: -50%;} 
+    .rightimg {margin: 10px 0;}
+    .register-logo h3, .formstep h3 {font-size: 16px;}
+    .register-logo p, .formstep p {font-size: 14px;line-height: 20px;}
+}
+@media screen and (max-width:700px){
+    .formstep2right, .formstep2left, .formstep1 .formrow{width: 100%;}
+    .stepblock{display: none;}
+    .login-box, .register-box {width: 80%;}
+    .formstep {padding: 30px 0;}
+    .thumbimg{width: 70px;}
+    .formstep1 {padding-top: 30px !important;}
+    .formrow{margin-bottom: 10px;}
 }
 @media screen and (max-width:480px){
-    .formrow{padding: 0 10px;}
-    .formrow label ,.rgtbottom p, .register-logo p{font-size: 16px;}
-    .formrow input[type="text"], .formrow input[type="email"], .formrow input[type="password"], .formrow input[type="nvat"]{font-size: 16px;}
+    .formrow{padding: 0 10px;}  
     .formstep a, .rgtbottom button {font-size: 14px;height: 36px;line-height: 36px;}
     .setupstep{display: none;}
     .mainformblock{width: 100%;}
+}
+@media screen and (max-width:420px){
+    .login-box, .register-box {
+        width: 100%;
+    }
 }
 
 
