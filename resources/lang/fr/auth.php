@@ -209,7 +209,22 @@ Vous aurez besoin de votre IBAN pour compléter la procédure.',
     'mirror'=>'[MIROIR]',
     'drophere'=>'déposez ici',
     'browse'=>'Feuilleter',
-    'defaulttemp'=>'modèle par défaut'
+    'defaulttemp'=>'modèle par défaut',
+    //register
+    'thankyou'=>'NOUS VOUS REMERCIONS DE VOTRE COMMANDE !',
+    'registerparagraph'=>'Très dernière étape avant de profiter de votre nouvelle interface d\'administration de Clicspot.',
+    'IBAN'=>'Assurez-vous que vous avez votre numéro de TVA, numéro d\'entreprise et IBAN pour terminer le processus d\'inscription',
+    'follow'=>'Suivez les 3 prochaines étapes ci-dessous.',
+    'warning'=>'ATTENTION !',
+    'successmsg'=>'Assurez-vous que vous entrez les informations correctement.',
+    'wariningmsg'=>'Entrez les informations d\'affaires ci-dessus pour terminer cette étape.',
+    'enteraddress'=>'Entrez votre adresse',
+    'congratulation'=>'FELICITATIONS! ONE MORE GAUCHE!',
+    'IBANcomplete'=>'Pour terminer l\'enregistrement de compte assurez-vous que vous avez votre IBAN avec vous.',
+    'redirectgocard'=>'Vous serez redirigé vers votre partenaire Direct Debit GoCardLess',
+    'bysigning'=>'En vous inscrivant vous acceptez nos',
+    'termcondition'=>'termes et conditions'
+    
     
     
 ];
