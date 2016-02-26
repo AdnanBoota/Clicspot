@@ -88,8 +88,8 @@
                                     <img src="{{ asset("/img/logo-white.png ") }}" class="center-block">
                                 </a>
                                 <p class="smalltext">{{ Lang::get('auth.haveaccount') }} <a href="login">{{ Lang::get('auth.signin') }}</a></p>
-                                <h3>THANK YOU FOR YOUR ORDER !</h3>
-                                <p>Very last step before enjoying your new Clicspot administration interface. </br>Make sure that you have your VAT number, Company number and IBAN to complete the registration process.</br>Follow the next 3 steps below.</p>
+                                <h3>{{ Lang::get("auth.thankyou") }}</h3>
+                                <p>{{ Lang::get("auth.registerparagraph")}} </br>{{ Lang::get("auth.IBAN")}}</br>{{ Lang::get("auth.follow")}}</p>
                             </div>
 
                             <div class="formstep formstep1">
@@ -97,25 +97,25 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="formrow">
 <!--                                    <label>{{ Lang::get('auth.email') }} :</label>-->
-                                    <input class="emailicon" type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
+                                    <input class="emailicon" type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="{{ Lang::get('auth.email') }}"> <!--Email -->
                                 </div>
                                 <div class="formrow">
 <!--                                    <label>{{ Lang::get('auth.password') }} :</label>-->
-                                    <input class="passwordicon" type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                    <input class="passwordicon" type="password" name="password" id="password" class="form-control" placeholder="{{ Lang::get('auth.password') }}"> <!-- Password-->
                                 </div>
                                 <div class="formrow">
 <!--                                    <label>{{ Lang::get('auth.retypepass') }} :</label>-->
-                                    <input class="passwordicon" type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Retype Password">
+                                    <input class="passwordicon" type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ Lang::get('auth.retypepass') }}"> <!-- Retype Password -->
                                 </div>
                                  <div class="wrongmsg hidemsg step1warnig">
                                 <img class="rightimg" src="{{ asset("/img/righticon_red.png ") }}" class="center-block">
-                                <h3>WARNING !</h3>
-                                <p>Make sure you enter the information correctly.</p>
+                                <h3>{{ Lang::get('auth.warning') }}</h3>
+                                <p>{{ Lang::get('auth.successmsg') }}</p>
                                </div>
                                 <div class="sucessmsg hidemsg step1">
                                 
                                 <img class="rightimg" src="{{ asset("/img/righticon_green.png ") }}" class="center-block">
-                                <p>Enter the business informations above to complete this step.</p>
+                                <p>{{ Lang::get('auth.wariningmsg') }}</p>
                                 </div> 
                                 <a href="javascript:void(0)" id="step2">{{ Lang::get('auth.step2') }}</a>
                                
@@ -129,45 +129,45 @@
                                     <div class="formstep2left">
                                         <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.fullnm') }} :</label>-->
-                                            <input class="nameicon" type="text" name="username" id="username" value="{{ old('username') }}" class="form-control" placeholder="Full Name">
+                                            <input class="nameicon" type="text" name="username" id="username" value="{{ old('username') }}" class="form-control" placeholder="{{ Lang::get('auth.fullnm') }}">
                                         </div>
                                         <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.business') }} :</label>-->
-                                            <input class="bnameicon" type="text" name="businessname" id="businessname" value="{{ old('businessname') }}" class="form-control" placeholder="Business Name">
+                                            <input class="bnameicon" type="text" name="businessname" id="businessname" value="{{ old('businessname') }}" class="form-control" placeholder="{{ Lang::get('auth.business') }}">
                                         </div>
                                         <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.SIREN') }} :</label>-->
-                                            <input class="siranicon" type="text" name="siren" value="{{ old('siren') }}" id="siren" class="form-control" placeholder="SIREN">
+                                            <input class="siranicon" type="text" name="siren" value="{{ old('siren') }}" id="siren" class="form-control" placeholder="{{ Lang::get('auth.SIREN') }}">
                                         </div>
                                         <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.vat') }} :</label>-->
-                                        <input class="vaticon" type="text" name="nvat" value="{{ old('nvat') }}" id="nvat" class="form-control" placeholder="VAT NUMBER">
+                                        <input class="vaticon" type="text" name="nvat" value="{{ old('nvat') }}" id="nvat" class="form-control" placeholder="{{ Lang::get('auth.vat') }}">
                                         </div>
                                         <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.phone') }} :</label>-->
-                                            <input class="phicon" type="text" name="phone" value="{{ old('phone') }}" id="phone" class="form-control" placeholder="Phone Number">
+                                            <input class="phicon" type="text" name="phone" value="{{ old('phone') }}" id="phone" class="form-control" placeholder="{{ Lang::get('auth.phone') }}">
                                         </div>
                                     </div>
                                     <div class="formstep2right">
                                          <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.adress') }} :</label>-->
-                                            <input class="addicon" type="text" name="address" value="{{ old('address') }}" id="autocomplete" onFocus="geolocate()" class="form-control" placeholder="Enter your address">
+                                            <input class="addicon" type="text" name="address" value="{{ old('address') }}" id="autocomplete" onFocus="geolocate()" class="form-control" placeholder="{{ Lang::get('auth.enteraddress') }}">
                                         </div>
                                         <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.adress') }} :</label>-->
-                                            <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control" placeholder="Address">
+                                            <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control" placeholder="{{ Lang::get('auth.adress') }}">
                                         </div>
                                         <div class="formrow zipblock">
         <!--                                    <label>{{ Lang::get('auth.zipcode') }} :</label>-->
-                                            <input type="text" name="zip" value="{{ old('zip') }}" id="postal_code" class="form-control" placeholder="Zip Code">
+                                            <input type="text" name="zip" value="{{ old('zip') }}" id="postal_code" class="form-control" placeholder="{{ Lang::get('auth.zipcode') }}">
                                         </div>
                                         <div class="formrow cityblock">
     <!--                                    <label>{{ Lang::get('auth.city') }} :</label>-->
-                                            <input type="text" name="city" value="{{ old('city') }}" id="locality" class="form-control" placeholder="City">
+                                            <input type="text" name="city" value="{{ old('city') }}" id="locality" class="form-control" placeholder="{{ Lang::get('auth.city') }}">
                                         </div> 
                                         <div class="formrow">
         <!--                                    <label>{{ Lang::get('auth.country') }} :</label>-->
-                                            <input type="text" name="country" value="{{ old('country') }}" id="country" class="form-control" placeholder="Country">
+                                            <input type="text" name="country" value="{{ old('country') }}" id="country" class="form-control" placeholder="{{ Lang::get('auth.country') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -177,13 +177,13 @@
                                 </div>-->
                                  <div class="wrongmsg hidemsg ">
                                 <img class="rightimg" src="{{ asset("/img/righticon_red.png ") }}" class="center-block">
-                                <h3>WARNING !</h3>
-                                <p>Make sure you enter the information correctly.</p>
+                                <h3>{{ Lang::get('auth.warning') }}</h3>
+                                <p>{{ Lang::get('auth.successmsg') }}</p>
                                </div>
                                    <div class="sucessmsg hidemsg">
                                 
                                 <img class="rightimg" src="{{ asset("/img/righticon_green.png ") }}" class="center-block">
-                                <p>Enter the business informations above to complete this step.</p>
+                                <p>{{ Lang::get('auth.wariningmsg') }}</p>
                                 </div> 
                                 <a href="javascript:void(0)" id="step3">{{ Lang::get('auth.step3') }}</a>
 
@@ -195,10 +195,10 @@
                             <div class="rgtbottom formstep formstep3" id="formstep3">
                                 <img class="thumbimg" src="{{ asset("/img/thumbicon.png ") }}" class="center-block">
 <!--                                <p>{{ Lang::get('auth.paragraph') }}</p>-->
-                                <h3>CONGRATULATION  ! ONE MORE LEFT !</h3>
-                                <p>To complete the account registration make sure you have your IBAN with you.</br>You will be redirected to our Direct Debit partner GoCardLess </p>
+                                <h3>{{ Lang::get('auth.congratulation') }}</h3>
+                                <p>{{ Lang::get('auth.IBANcomplete') }}</br>{{ Lang::get('auth.redirectgocard') }} </p>
                                 <div class="termblock">
-                                    <input type="checkbox" class="" id="term" name="term"/><p class="termdetail">By signing up you agree to our <a href="#">terms & conditions</a></p>
+                                    <input type="checkbox" class="" id="term" name="term"/><p class="termdetail">{{ Lang::get('auth.bysigning') }} <a href="#">{{ Lang::get('auth.termcondition') }}</a></p>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block btn-flat disabled">{{ Lang::get('auth.cardless') }}</button>
                                 <!--<input type="submit" id="submit" name="submit" value="GO TO GoCardLess">;-->
