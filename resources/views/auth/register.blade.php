@@ -87,7 +87,7 @@
                                 <a href="{{url()}}">
                                     <img src="{{ asset("/img/logo-white.png ") }}" class="center-block">
                                 </a>
-                                <p class="smalltext">{{ Lang::get('auth.haveaccount') }} <a href="#">{{ Lang::get('auth.signin') }}</a></p>
+                                <p class="smalltext">{{ Lang::get('auth.haveaccount') }} <a href="login">{{ Lang::get('auth.signin') }}</a></p>
                                 <h3>THANK YOU FOR YOUR ORDER !</h3>
                                 <p>Very last step before enjoying your new Clicspot administration interface. </br>Make sure that you have your VAT number, Company number and IBAN to complete the registration process.</br>Follow the next 3 steps below.</p>
                             </div>
