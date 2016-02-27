@@ -186,6 +186,7 @@ use AuthenticatesAndRegistersUsers;
 
     public function getLogout() {
         Session::flush('listId');
+        Session::flush('locale');
         $this->auth->logout();
 
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
@@ -236,7 +237,7 @@ use AuthenticatesAndRegistersUsers;
                 'postal_code' => $formValue['zip'],
             )
         );
-
+        echo 'gocard';
         $pre_auth_url = \GoCardless::new_pre_authorization_url($payment_details);
         return redirect($pre_auth_url);
     }
