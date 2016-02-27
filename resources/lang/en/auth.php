@@ -25,7 +25,7 @@ return [
     'retypepass'=>'Retype Password',
     'fullnm'=>'Full Name',
     'business'=>'Buisness Name',
-    'address'=>'Adress',
+    'adress'=>'Adress',
     'city'=>'City',
     'zipcode'=>'Zip code',
     'country'=>'Country',
