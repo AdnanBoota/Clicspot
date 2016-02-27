@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Users;
 use Socialize;
+use App;
 
 class GoogleLogin extends Controller
 {
@@ -30,9 +31,11 @@ class GoogleLogin extends Controller
             'gender' => $user->user['gender'],
             'profileurl' => $user->user['url'],
             'avatar'=>$user->getAvatar(),
-            'birthday'=>isset($user->user['birthday'])?$user->user['birthday']:''
+            'birthday'=>isset($user->user['birthday'])?$user->user['birthday']:'',
+            'language'=>App::getLocale()
         );
         //dd($data);
+        
         $users = Users::where('username', $data['username'])->first();
         if ($users) {
             $users->update($data);
