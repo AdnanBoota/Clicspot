@@ -154,7 +154,7 @@
                                             <input class="addicon" type="text" name="address" value="{{ old('address') }}" id="autocomplete" onFocus="geolocate()" class="form-control" placeholder="{{ Lang::get('auth.enteraddress') }}">
                                         </div>
                                         <div class="formrow">
-    <!--                                    <label>{{ Lang::get('auth.adress') }} :</label>-->
+    <!--                                    <label>{{ Lang::get('auth.adress') }} :</label>--> 
                                             <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control" placeholder="{{ Lang::get('auth.adress') }}">
                                         </div>
                                         <div class="formrow zipblock">
