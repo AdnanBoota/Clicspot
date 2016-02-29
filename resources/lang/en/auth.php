@@ -224,7 +224,21 @@ return [
     'IBANcomplete'=>'To complete the account registration make sure you have your IBAN with you.',
     'redirectgocard'=>'You will be redirected to our Direct Debit partner GoCardLess',
     'bysigning'=>'By signing up you agree to our',
-    'termcondition'=>'terms & conditions'
-    
+    'termcondition'=>'terms & conditions',
+    //hotspot
+    'loginwithfb'=>'Login with Facebook',
+    'loginwithgoogle'=>'Login with Google+',
+    'loginwithemail'=>'Login with Email',
+    'firstname'=>'First Name',
+    'lastname'=>'Last Name',
+    'getconn'=>'Get Connected',
+    'or'=>'OR',
+    'practical'=>'Practical information',
+    'join'=>'Join us',
+    'termcondition'=>'Terms and Conditions',
+    'privacy'=>'Privacy',
+    'support'=>'Support',
+    'support24by7'=>'Support 24/7',
+    'securepayment'=>'Secure Payment'
 
 ];
