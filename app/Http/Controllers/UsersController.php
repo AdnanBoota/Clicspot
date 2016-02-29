@@ -130,14 +130,14 @@ class UsersController extends Controller {
         }
 
         if (Auth::user()->type == 'superadmin') {
-            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.gender,users.profileurl,users.email,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
+            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.gender,users.profileurl,users.email,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,users.language as language,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
                     ->join('users', 'radacct.username', '=', 'users.username')
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
                     ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
                     ->groupBy('radacct.username')
                     ->orderBy('acctstarttime', 'desc');
         } else {
-            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.gender,users.profileurl,users.email,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
+            $users = Radacct::select(DB::raw('radacct.radacctid,users.id as userId,users.gender,users.profileurl,users.email,users.type as favoredconnection,campaign.name as campaignName, users.name as visitor,users.language as language,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'))
                     ->join('users', 'radacct.username', '=', 'users.username')
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
                     ->join('campaign', 'nas.campaignid', '=', 'campaign.id')
