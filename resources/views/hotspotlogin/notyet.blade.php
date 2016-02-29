@@ -96,6 +96,8 @@
         .input-lg {
             border-radius: 0px;
         }
+        p a{ color:#fff}
+        p a:hover{ color:#fff}
     </style>
 </head>
 <body>
@@ -142,18 +144,18 @@
                             <div class="pull-left">
                                 <i class="fa fa-facebook-square"></i>
                             </div>
-                            Login with Facebook
+                            {{ Lang::get('auth.loginwithfb') }} <!--Login with Facebook -->
                         </a>
                         <a href="{{ url("/google/login") }}" class="btn btn-block btn-flat bg-red btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-google-plus"></i>
                             </div>
-                            Login with Google+
+                            {{ Lang::get('auth.loginwithgoogle') }} <!--Login with Google+ -->
                         </a>
                     </div>
                     <div class="box-body">
                         <div class="strike">
-                            <span style="color: white;"><b>OR</b></span>
+                            <span style="color: white;"><b>{{ Lang::get('auth.or')}}</b></span>
                         </div>
                     </div>
                     <div class="box-body">
@@ -161,7 +163,7 @@
                             <div class="pull-left">
                                 <i class="fa fa-envelope"></i>
                             </div>
-                            Login with Email
+                            {{ Lang::get('auth.loginwithemail') }} <!--Login with Email -->
                         </button>
                     </div>
                 </div>
@@ -171,22 +173,21 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="text" name="fname" class="input-lg col-xs-6"
                                    style="margin-bottom: 5px;"
-                                   placeholder="First Name" required>
+                                   placeholder="{{ Lang::get('auth.firstname') }}" required>
                             <input type="text" name="lname" class="input-lg col-xs-6"
-                                   placeholder="Last Name"
+                                   placeholder="{{ Lang::get('auth.lastname') }}"
                                    required>
                             <input type="email" name="email" class="input-lg col-xs-12" placeholder="Email"
                                    required>
                         </div>
                         <div class="box-body">
-                            <button class="btn btn-lg btn-flat btn-block btn-success col-xs-12" type="submit">Get
-                                Connected
+                            <button class="btn btn-lg btn-flat btn-block btn-success col-xs-12" type="submit">{{ Lang::get('auth.getconn') }}
                             </button>
                         </div>
                     </form>
                     <div class="box-body">
                         <div class="strike">
-                            <span style="color: white;"><b>OR</b></span>
+                            <span style="color: white;"><b>{{ Lang::get('auth.or')}}</b></span>
                         </div>
                     </div>
                     <div class="pull-right">
@@ -214,23 +215,23 @@
                 <img src="{{ asset("img/Clicspot-Grey.png") }}" class="img-responsive" style="max-height: 60px;">
             </div>
             <div class="col-xs-12 col-md-3 hidden-xs">
-                <h4>Practical information</h4>
+                <h4>{{ Lang::get('auth.practical')}}</h4>
 
-                <p> Join us</p>
+                <p><a href="javascript:void(0)"> {{ Lang::get('auth.join')}} </a></p>
 
-                <p>Terms and Conditions</p>
+                <p><a href="javascript:void(0)">{{ Lang::get('auth.termcondition')}} </a></p>
 
-                <p>Privacy</p>
+                <p><a href="javascript:void(0)">{{ Lang::get('auth.privacy')}}</a></p>
             </div>
             <div class="col-xs-12 col-md-2">
-                <h4>Support</h4>
+                <h4>{{ Lang::get('auth.support') }}</h4>
 
-                <p>Support 24/7</p>
+                <p><a href="javascript:void(0)">{{ Lang::get('auth.support24by7') }}</a></p>
 
-                <p>FAQ</p>
+                <p><a href="javascript:void(0)">FAQ</a></p>
             </div>
             <div class="col-xs-12 col-md-2">
-                <h4>Secure Payment</h4>
+                <h4>{{ Lang::get('auth.securepayment') }} </h4>
 
                 <div>
                     <i class="fa fa-cc-visa" style="font-size: 40px;color: white"></i>
