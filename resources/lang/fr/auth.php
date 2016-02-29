@@ -223,7 +223,22 @@ Vous aurez besoin de votre IBAN pour compléter la procédure.',
     'IBANcomplete'=>'Pour terminer l\'enregistrement de compte assurez-vous que vous avez votre IBAN avec vous.',
     'redirectgocard'=>'Vous serez redirigé vers votre partenaire Direct Debit GoCardLess',
     'bysigning'=>'En vous inscrivant vous acceptez nos',
-    'termcondition'=>'termes et conditions'
+    'termcondition'=>'termes et conditions',
+    //hotspot
+    'loginwithfb'=>'Se connecter avec Facebook',
+    'loginwithgoogle'=>'Connexion avec Google+',
+    'loginwithemail'=>'Se connecter avec Email',
+    'firstname'=>'Prénom',
+    'lastname'=>'Nom de famille',
+    'getconn'=>'Soyez connectés',
+    'or'=>'OU',
+    'practical'=>'Informations pratiques',
+    'join'=>'Rejoignez-nous',
+    'termcondition'=>'Termes et conditions',
+    'privacy'=>'Intimité',
+    'support'=>'Soutien',
+    'support24by7'=>'Soutien 24/7',
+    'securepayment'=>'Paiement sécurisé'
     
     
     
