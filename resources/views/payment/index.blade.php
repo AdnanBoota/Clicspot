@@ -72,7 +72,7 @@
                                         <p>{{ Lang::get('auth.onebank') }}</p>
                                     </div>
                                     <div class="col-md-4"><!-- btn-lg-->
-                                        <a href="javascript:void(0)" target="_blank" class="btn btn-block btn-default " id="addAccount" style="">{{ Lang::get('auth.addbank') }} </a>
+                                        <a href="javascript:void(0)"  class="btn btn-block btn-default " id="addAccount" style="">{{ Lang::get('auth.addbank') }} </a>
 <!--                                        <a href="" style="visibility: hidden" id="payment" target="_blank"></a>-->
                                         </div>
                                     <div class="bankDetails">
@@ -160,11 +160,13 @@
                     "_token": '{{csrf_token()}}'
 
                 },
+                async: false,
                 success: function(result) {
                     //$("#payment").attr("href",result);
                     //$("#payment").trigger("click");
-                    //console.log(result);
-                    window.open('','_blank').location.href=result;
+                    console.log(result);
+                    
+                    window.open(result);
                   // window.location.href=result;
                    //window.open(result);
 
