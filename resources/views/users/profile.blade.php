@@ -131,9 +131,9 @@
                                     <img alt="User Image" src="{{$latestUser->avatar}}">
                                     @else
                                     @if($latestUser->gender=='male')
-                                    <img src="{{ asset("img/male.png") }}" />
+                                    <img src="{{ asset("img/male.png") }}" height="50" width="50" />
                                     @else
-                                    <img src="{{ asset("img/female.png") }}" />
+                                    <img src="{{ asset("img/female.png") }}"  height="50" width="50"  />
                                     @endif
                                     @endif
 
