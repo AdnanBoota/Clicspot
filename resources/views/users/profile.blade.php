@@ -60,8 +60,8 @@
                             <div class="socialsharing">
 
                                 <a class="mailicon {{($getProfile->type==2) ? 'emailHover':''}}" href="javascript:void(0)"><i><img src="{{ asset("img/emailicon.png") }}"/></i></a>
-                                <a class="fbicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? 'facebookHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? $getProfile->profileurl :'javascipt:void(0)' }}"><i class="fa fa-facebook"></i></a>
-                                <a class="gplusicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? 'gplusHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? $getProfile->profileurl : 'javascript:void(0)'}}"><i class="fa fa-google-plus"></i></a>
+                                <a class="fbicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? 'facebookHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? $getProfile->profileurl :'javascipt:void(0)' }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a class="gplusicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? 'gplusHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? $getProfile->profileurl : 'javascript:void(0)'}}" target="_blank"><i class="fa fa-google-plus"></i></a>
 
 
                             </div>
