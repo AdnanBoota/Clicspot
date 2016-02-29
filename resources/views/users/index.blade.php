@@ -191,6 +191,7 @@
                         <th>Last Visit</th>
                         <th>Campaign</th>
                         <th>Review Status</th>
+                        <th>Language</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -231,7 +232,8 @@ $(function () {
             {data: 'amountofvisit', name: 'amountofvisit', orderable: false, searchable: true},
             {data: 'lastvisit', name: 'lastvisit', orderable: false, searchable: false},
             {data: 'campaign', name: 'campaign', orderable: false, searchable: false},
-            {data: 'review', name: 'review', orderable: false, searchable: false}
+            {data: 'review', name: 'review', orderable: false, searchable: false},
+            {data: 'language', name: 'language', orderable: false, searchable: false}
         ]
     });
     
