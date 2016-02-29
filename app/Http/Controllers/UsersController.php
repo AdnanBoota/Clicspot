@@ -277,12 +277,27 @@ class UsersController extends Controller {
     }
 
     public function getProfile($id) {
+        
         $getProfile = Users::findOrFail($id);
+        
         $getLastVisit = Radacct::select(DB::raw('username, DATEDIFF(now(),max(acctstarttime)) as lastvisit,count(radacct.username) as connections,calledstationid'))->where('username', '=', $getProfile->username)->get();
-        $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(created_at,"%b %d") as joinDate'))
+        if (Auth::user()->type == 'superadmin') {
+         
+            $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(users.created_at,"%b %d") as joinDate'))
                 ->join('users', 'radacct.username', '=', 'users.username')
+                ->join('nas','radacct.calledstationid','=','nas.nasidentifier')
                 ->groupBy('radacct.username')
                 ->orderBy('users.created_at', 'desc');
+        
+        }else{
+                $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(users.created_at,"%b %d") as joinDate'))
+                ->where('nas.adminid', '=', Auth::user()->id)
+                ->join('users', 'radacct.username', '=', 'users.username')
+                ->join('nas','radacct.calledstationid','=','nas.nasidentifier')
+                ->groupBy('radacct.username')
+                ->orderBy('users.created_at', 'desc');
+        }
+        
         $getLatestUsers = $latestUsers->take(8)->get();
         $getRouterInformation = Radacct::select(DB::raw('radacct.radacctid,username,count(radacct.calledstationid) as totalVisit,DATE_FORMAT(max(radacct.acctstarttime),"%b %d %Y %h:%i %p") as LastVisitDate,nas.nasidentifier,nas.shortname as routerName'))
                         ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')->where('username', '=', $getProfile->username)->groupBy('radacct.calledstationid')->get();
