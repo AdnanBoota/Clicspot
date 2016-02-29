@@ -23,7 +23,7 @@
 <section class="statistics-box">
     <div class="row">
         <div class="statistics">
-            <i class="fa fa-fw fa-pie-chart"></i><span>{{ Lang::get('auth.payment') }}</span>
+            <i class="fa fa-fw fa-pie-chart"></i><span>{{ Lang::get('auth.payment') }} </span>
 
         </div>
     </div>
@@ -72,8 +72,9 @@
                                         <p>{{ Lang::get('auth.onebank') }}</p>
                                     </div>
                                     <div class="col-md-4"><!-- btn-lg-->
-                                        <a href="javascript:void(0)" class="btn btn-block btn-default " id="addAccount" style="">{{ Lang::get('auth.addbank') }}</a>
-                                    </div>
+                                        <a href="javascript:void(0)" target="_blank" class="btn btn-block btn-default " id="addAccount" style="">{{ Lang::get('auth.addbank') }} </a>
+<!--                                        <a href="" style="visibility: hidden" id="payment" target="_blank"></a>-->
+                                        </div>
                                     <div class="bankDetails">
                                         <table class="table-bordered">
                                             <tr>
@@ -160,11 +161,21 @@
 
                 },
                 success: function(result) {
-                   window.location.href=result;
+                    //$("#payment").attr("href",result);
+                    //$("#payment").trigger("click");
+                    //console.log(result);
+                    window.open('','_blank').location.href=result;
+                  // window.location.href=result;
+                   //window.open(result);
 
                 }
             });
         });
+//        $("#payment").click(function(){
+//             window.open($(this).attr("href"),"","");
+//            
+//        });
+        
     });
 </script>
 @endpush
