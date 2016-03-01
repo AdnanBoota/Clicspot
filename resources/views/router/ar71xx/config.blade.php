@@ -1,3 +1,4 @@
+wget http://blog.clicspot.com/router/opkg.conf -O /etc/opkg.conf
 uci set wireless.radio0.channel="auto";
 uci set wireless.@wifi-iface[0].ssid="Clicspot";
 uci set wireless.@wifi-device[0].disabled=0;
