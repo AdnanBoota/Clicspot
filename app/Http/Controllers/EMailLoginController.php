@@ -15,11 +15,14 @@ class EMailLoginController extends Controller
             'name' => $request->input('fname')." ".$request->input('lname'),
             'email' => $request->input('email'),
             'gender' => null,
-            'profileurl' => null
+            'profileurl' => null,
+            'language'=>App::getLocale()
         );
         $users = Users::where('username', $data['username'])->first();
         if ($users) {
-            $users->update($data);
+            if($users['type']==2){
+                 $users->update($data);
+            }
         } else {
             Users::create($data);
         }
