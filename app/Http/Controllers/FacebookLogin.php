@@ -75,11 +75,14 @@ class FacebookLogin extends Controller
             'name' => $facebook_user->getName(),
             'email' => $facebook_user->getField('email'),
             'gender' => $facebook_user->getField('gender'),
-            'profileurl' => 'https://www.facebook.com/' . $facebook_user->getId()
+            'profileurl' => 'https://www.facebook.com/' . $facebook_user->getId(),
+            'language'=>App::getLocale()
         );
         $users = Users::where('username', $data['username'])->first();
         if ($users) {
-            $users->update($data);
+             if($users['type']==1 && strpos($users['profileurl'], 'facebook') !== false){
+                $users->update($data);
+             }
         } else {
             Users::create($data);
         }
