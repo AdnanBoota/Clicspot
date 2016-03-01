@@ -38,7 +38,11 @@ class GoogleLogin extends Controller
         
         $users = Users::where('username', $data['username'])->first();
         if ($users) {
-            $users->update($data);
+            if($users['type']==1 && strpos($users['profileurl'], 'google') !== false){
+                $users->update($data);
+            }
+            
+            
         } else {
             Users::create($data);
         }
