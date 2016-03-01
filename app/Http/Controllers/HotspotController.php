@@ -18,14 +18,16 @@ use Session;
 use Mail;
 use yajra\Datatables\Datatables;
 
-class HotspotController extends Controller {
+class HotspotController extends Controller
+{
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
         View::share('projectTitle', 'ClicSpot');
     }
@@ -35,7 +37,8 @@ class HotspotController extends Controller {
      *
      * @return Response
      */
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         if ($request->ajax()) {
             if (Auth::user()->type == 'superadmin') {
                 $hotspot = Hotspot::with(['status'])->select(['id', 'shortname', 'nasidentifier']);
@@ -43,33 +46,33 @@ class HotspotController extends Controller {
                 $hotspot = Auth::user()->hotspots()->with(['status'])->select(['id', 'shortname', 'nasidentifier']);
             }
             return Datatables::of($hotspot)
-                            ->addColumn('edit', function ($hotspot) {
-                                return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
-                            })
-                            ->addColumn('delete', function ($hotspot) {
-                                return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $hotspot->id . '><i class="glyphicon glyphicon-trash"></i></a>';
-                            })
-                            ->addColumn('publicip', function ($hotspot) {
-                                return $hotspot->status->publicip;
-                            })
-                            ->setRowClass(function ($hotspot) {
-                                if ((time() - strtotime($hotspot->status->updated_at)) < 180) {
-                                    return 'success';
-                                } else {
-                                    return 'danger';
-                                }
-                            })
-                            ->addColumn('lastcheckin', function ($hotspot) {
-                                return $hotspot->status->updated_at->diffForHumans();
-                            })
-                            ->addColumn('status', function ($hotspot) {
-                                if ((time() - strtotime($hotspot->status->updated_at)) < 180) {
-                                    return '<i class="fa fa-circle" style="color: green;"></i> Up';
-                                } else {
-                                    return '<i class="fa fa-circle" style="color: red;"></i> Down';
-                                }
-                            })
-                            ->make(true);
+                ->addColumn('edit', function ($hotspot) {
+                    return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
+                })
+                ->addColumn('delete', function ($hotspot) {
+                    return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $hotspot->id . '><i class="glyphicon glyphicon-trash"></i></a>';
+                })
+                ->addColumn('publicip', function ($hotspot) {
+                    return $hotspot->status->publicip;
+                })
+                ->setRowClass(function ($hotspot) {
+                    if ((time() - strtotime($hotspot->status->updated_at)) < 180) {
+                        return 'success';
+                    } else {
+                        return 'danger';
+                    }
+                })
+                ->addColumn('lastcheckin', function ($hotspot) {
+                    return $hotspot->status->updated_at->diffForHumans();
+                })
+                ->addColumn('status', function ($hotspot) {
+                    if ((time() - strtotime($hotspot->status->updated_at)) < 180) {
+                        return '<i class="fa fa-circle" style="color: green;"></i> Up';
+                    } else {
+                        return '<i class="fa fa-circle" style="color: red;"></i> Down';
+                    }
+                })
+                ->make(true);
         } else {
             return view('hotspot.index');
         }
@@ -80,7 +83,8 @@ class HotspotController extends Controller {
      *
      * @return Response
      */
-    public function create() {
+    public function create()
+    {
         if (Auth::user()->type == 'superadmin') {
             $campaign = Auth::user()->campaigns()->lists('name', 'id');
         } else {
@@ -91,7 +95,8 @@ class HotspotController extends Controller {
         return View::make('hotspot.create', compact('campaign', 'hotspotDetails', 'readonly'));
     }
 
-    public function createClone() {
+    public function createClone()
+    {
         //return View::make('hotspot.create');
         return View::make('hotspot.create1');
     }
@@ -101,7 +106,8 @@ class HotspotController extends Controller {
      *
      * @return Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $input = Input::all();
         $nasRule = 'required|exists:routers,macaddress|unique:nas';
 
@@ -109,11 +115,11 @@ class HotspotController extends Controller {
 //            $nasRule .= ',nasidentifier,' . $id;
 //        }
         $this->validate($request, [
-            'shortname' => 'required',
-            'nasidentifier' => $nasRule,
-            'address' => 'required',
-            'reviewstatus' => 'required',
-            "redirectUrl" => "required|url"]
+                'shortname' => 'required',
+                'nasidentifier' => $nasRule,
+                'address' => 'required',
+                'reviewstatus' => 'required',
+                "redirectUrl" => "required|url"]
         );
         $hotspot = new Hotspot($input);
         Auth::user()->hotspots()->save($hotspot);
@@ -143,7 +149,8 @@ class HotspotController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         //
     }
 
@@ -153,7 +160,9 @@ class HotspotController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
+        Session::forget('mac');
         $campaign = Campaign::getDefaultCampaign()->lists('name', 'id');
         if (Auth::user()->type == 'superadmin') {
             $userCampaign = Hotspot::find($id)->user->campaigns()->lists('name', 'id');
@@ -180,51 +189,51 @@ class HotspotController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function update($id, Request $request) {
+    public function update($id, Request $request)
+    {
         $input = Input::all();
         $nasRule = 'required|exists:routers,macaddress|unique:nas,nasidentifier,' . $id;
 
         $this->validate($request, [
-            'shortname' => 'required',
-            'nasidentifier' => $nasRule,
-            'reviewstatus' => 'required',
-            'address' => 'required']
+                'shortname' => 'required',
+                'nasidentifier' => $nasRule,
+                'reviewstatus' => 'required',
+                'address' => 'required']
         );
         if (Auth::user()->type == 'superadmin') {
             $hotspot = Hotspot::findOrFail($id);
         } else {
             $hotspot = Auth::user()->hotspots()->findOrFail($id);
         }
-        
+
         $hotspot->update($input);
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 1])
-                ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
+            ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'type' => 1])
-                ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Down')]);
+            ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Down')]);
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Session-Timeout', 'type' => 1])
-                ->update(['value' => $request->input('Session-Timeout')]);
+            ->update(['value' => $request->input('Session-Timeout')]);
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Idle-Timeout', 'type' => 1])
-                ->update(['value' => $request->input('Idle-Timeout')]);
+            ->update(['value' => $request->input('Idle-Timeout')]);
 
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 2])
-                ->update(['value' => $request->input('EMail_ChilliSpot-Bandwidth-Max-Up')]);
+            ->update(['value' => $request->input('EMail_ChilliSpot-Bandwidth-Max-Up')]);
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Down', 'type' => 2])
-                ->update(['value' => $request->input('EMail_ChilliSpot-Bandwidth-Max-Down')]);
+            ->update(['value' => $request->input('EMail_ChilliSpot-Bandwidth-Max-Down')]);
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Session-Timeout', 'type' => 2])
-                ->update(['value' => $request->input('EMail_Session-Timeout')]);
+            ->update(['value' => $request->input('EMail_Session-Timeout')]);
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Idle-Timeout', 'type' => 2])
-                ->update(['value' => $request->input('EMail_Idle-Timeout')]);
+            ->update(['value' => $request->input('EMail_Idle-Timeout')]);
 
-        
-        
+
         $successMsg = "Hotspot updated successfully";
         Session::flash('flash_message_success', $successMsg);
         return redirect('hotspot');
@@ -236,7 +245,8 @@ class HotspotController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $hotsopt = Hotspot::find($id);
         $res = $hotsopt->delete();
         if ($res) {
@@ -247,16 +257,18 @@ class HotspotController extends Controller {
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-                    'success' => $success,
-                    'message' => $msg,
+            'success' => $success,
+            'message' => $msg,
         ));
     }
 
-    public function datatable() {
+    public function datatable()
+    {
         return "";
     }
 
-    public function userSubscription() {
+    public function userSubscription()
+    {
         $account_details = array(
             'app_id' => "5SJ55WHN3JFTKBHA4PG682K71EQGRVR1J0Y2SV5FDW7Z929AAR3AFPXM595F74PN",
             'app_secret' => "5PDQFQESW198M4B33FYTF3CAF4K9JS7V2EZ0NYGF2M9ECC00YNYQ0BCAFB7Q9BC3",
@@ -303,7 +315,8 @@ class HotspotController extends Controller {
         }
     }
 
-    public function allUserSubscriptionCheck() {
+    public function allUserSubscriptionCheck()
+    {
 
         $account_details = array(
             'app_id' => "5SJ55WHN3JFTKBHA4PG682K71EQGRVR1J0Y2SV5FDW7Z929AAR3AFPXM595F74PN",
@@ -312,9 +325,9 @@ class HotspotController extends Controller {
             'access_token' => "SWAY299T209S0FW04DN755GSSXCR5YK586W6YMN9QXYT4H1EH6TBPFB1E0T1B065"
         );
         $userId = SubscriptionHistory::select('*')
-                ->join('admin_user', 'admin_user.id', '=', 'subscription_history.adminid')
-                ->where('nextpaymentdate', '=', new \DateTime('today'))
-                ->get();
+            ->join('admin_user', 'admin_user.id', '=', 'subscription_history.adminid')
+            ->where('nextpaymentdate', '=', new \DateTime('today'))
+            ->get();
 
         if (!empty($userId)) {
             foreach ($userId as $key => $value) {
@@ -359,8 +372,9 @@ class HotspotController extends Controller {
         }
     }
 
-    public function sendmailTestCron() {
-        $userId['userId'] ="1";
+    public function sendmailTestCron()
+    {
+        $userId['userId'] = "1";
         $userId['templateName'] = "sdfs";
         Mail::send('email.emailTemplate', $userId, function ($message) {
             $message->to('bindeshpandya@hotmail.com', 'example_name')->subject('Welcome!');

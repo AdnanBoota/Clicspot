@@ -12,7 +12,7 @@
 <div class="form-group">
     {!! Form::label('nasidentifier',Lang::get("auth.macaddress"), array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!!  Form::text('nasidentifier', Session::get('mac'), array('id'=>'nasidentifier','class'=>'form-control','required'=>'true',$readonly,'minlength'=>'17')) !!}
+        {!!  Form::text('nasidentifier', (Session::has('mac')) ? Session::get('mac') : null, array('id'=>'nasidentifier','class'=>'form-control','required'=>'true',$readonly,'minlength'=>'17')) !!}
     </div>
 </div>
 <div class="form-group">
@@ -45,7 +45,7 @@
     <div class="col-sm-10">
         {!!  Form::text('tripAdvisorId', null, array('id'=>'tripAdvisorId','class'=>'form-control')) !!}
     </div>
-    
+
 </div>
 <div class="form-group">
     <!--{!! Form::label('tripAdvisorId', 'Trip Advisor Id', array('class' => 'col-sm-2 control-label')) !!} -->
@@ -54,7 +54,7 @@
         ON {!!  Form::radio('reviewstatus','1',false,array('class' => '','required'=>'true')) !!}
         OFF {!!  Form::radio('reviewstatus', '0') !!}
     </div>
-    
+
 </div>
 
 <!--<div class="form-group">
