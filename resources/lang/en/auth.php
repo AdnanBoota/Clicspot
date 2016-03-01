@@ -239,6 +239,25 @@ return [
     'privacy'=>'Privacy',
     'support'=>'Support',
     'support24by7'=>'Support 24/7',
-    'securepayment'=>'Secure Payment'
+    'securepayment'=>'Secure Payment',
+    //profile
+    'userlist'=>'User list',
+    'userprofile'=>'User Profile',
+    'sendmemail'=>'Send me an Email !',
+    'unkonwn'=>'Unkonwn',
+    'firstlist'=>'First visit',
+    'latmember'=>'Latest Members',
+    'latestaction'=>'Latest Actions',
+    'opened'=>'Opened',
+    'lastvisit'=>'Last Visit',
+    'dayago'=>'Days ago',
+    'connections'=>'Connections',
+    'history'=>'History',
+    'latestmail'=>'Latest Email',
+    'campagnreview'=>'Campagn Name_Review',
+    'latestvenu'=>'Latest Venues',
+    'visits'=>'Visits',
+    'status'=>'Status'
+    
 
 ];
