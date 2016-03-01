@@ -81,7 +81,7 @@
     <div class="automailingblock">
         <a href="{{url('emails/emailSetup')}}">{{ Lang::get('auth.createCampaign') }}</a>
         <div class="manualbtn">
-            <a href="javascript:void(0)" class="sentbtn active"><i></i>{{ Lang::get('auth.sent') }}<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
+            <a href="javascript:void(0)" class="sentbtn active" id="sentbtn"><i></i>{{ Lang::get('auth.sent') }}<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
             <a href="javascript:void(0)" class="draftbtn "><i></i>{{ Lang::get('auth.draft') }}<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>
         </div>
         <div class="mailingtabledtl">
@@ -137,6 +137,7 @@ function  countChecked() {
 
 }
 $(function() {
+    
     oTable = $('#emailTemplate-table').DataTable({
         sDom: 'lrftip',
         processing: true,
@@ -180,6 +181,8 @@ $(function() {
 $(document).ready(function() {
     var dataToFetch = "";
 
+       
+    
     $(document).on("click", ".emailDelCheckBox", function() {
         countChecked();
         if ($(this).is(":checked")) {
@@ -341,6 +344,7 @@ $(document).ready(function() {
         $(this).parent().addClass("active");
     });
     $(document).on("click", ".manualMailingForm", function() {
+       $("#sentbtn").trigger("click");
         $(".automaticMailing").hide();
         $(".manualMailing").show();
         $(this).parents(".tabpart").find(".active").removeClass("active");
@@ -355,8 +359,9 @@ $(document).ready(function() {
         $("#mailType").val("draft");
         oTableCampaign.draw();
     });
-
-    $(document).on("click", ".sentbtn", function() {
+    
+    
+    $(document).on("click", "#sentbtn", function() {
         $(this).addClass("active");
         if ($(".draftbtn").hasClass("active")) {
             $(".draftbtn").removeClass("active");
@@ -365,6 +370,7 @@ $(document).ready(function() {
         oTableCampaign.draw();
     });
 });
+
 </script>
 
 @endpush
