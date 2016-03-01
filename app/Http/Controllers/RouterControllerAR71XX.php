@@ -14,6 +14,12 @@ class RouterControllerAR71XX extends Controller
      *
      * @return Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(['except' => ['BeforeMiddleware']]);
+    }
+
     public function index()
     {
         return "Welcome to API v1";
