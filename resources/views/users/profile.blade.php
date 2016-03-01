@@ -6,19 +6,19 @@
 <section class="creatpart">
     <div class="titleblock">
         <i class="fa fa-user"></i>
-        <h1>Profile</h1>
+        <h1>{{ Lang::get('auth.profile')}}</h1>
     </div>
     <div class="multitab">
         <ul class="tabpart">
-            <li class="active"><a href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>Profile</a></li>
-            <li><a href="{{url('users')}}"><i class="fa fa-list-alt"></i>User list</a></li>
+            <li class="active"><a href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>{{ Lang::get('auth.profile')}}</a></li>
+            <li><a href="{{url('users')}}"><i class="fa fa-list-alt"></i>{{ Lang::get('auth.userlist')}}</a></li>
         </ul>
     </div>
 </section>
 <section class="profilepart">
     <div class="titleblock">
         <i class="fa fa-user"></i>
-        <h1>User Profile</h1>
+        <h1>{{ Lang::get('auth.userprofile')}}</h1>
     </div>
     <div class="userprofileblock">
         <div class="row">
@@ -50,7 +50,7 @@
                                 </div>
                                 <a class="sendbtn" href="mailto:{{$getProfile->email}}">
                                     <i class="fa fa-envelope"></i>
-                                    <span>Send me an Email !</span>
+                                    <span>{{ Lang::get('auth.sendmemail') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                             <div class="socialsharing">
 
                                 <a class="mailicon {{($getProfile->type==2) ? 'emailHover':''}}" href="javascript:void(0)"><i><img src="{{ asset("img/emailicon.png") }}"/></i></a>
-                                <a class="fbicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? 'facebookHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? $getProfile->profileurl :'javascipt:void(0)' }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a class="fbicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? 'facebookHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'facebook') !== false) ? $getProfile->profileurl :'javascript:void(0)' }}" target="_blank"><i class="fa fa-facebook"></i></a>
                                 <a class="gplusicon {{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? 'gplusHover':''}}" href="{{($getProfile->type==1 AND strpos($getProfile->profileurl, 'google') !== false) ? $getProfile->profileurl : 'javascript:void(0)'}}" target="_blank"><i class="fa fa-google-plus"></i></a>
 
 
@@ -69,19 +69,19 @@
                                 <div class="row userprodtlrow">
                                     <div class="col-md-4">
                                         <div class="prolabel">
-                                            <label>Age :</label>
+                                            <label>{{ Lang::get('auth.age') }} :</label>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="prolbldetail">
-                                            <span>Unkonwn</span>
+                                            <span>{{ Lang::get('auth.unkonwn') }}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row userprodtlrow">
                                     <div class="col-md-4">
                                         <div class="prolabel">
-                                            <label>First visit :</label>
+                                            <label>{{ Lang::get('auth.firstlist') }} :</label>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
@@ -93,12 +93,12 @@
                                 <div class="row userprodtlrow">
                                     <div class="col-md-4">
                                         <div class="prolabel">
-                                            <label>E-mail :</label>
+                                            <label>{{ Lang::get('auth.email') }} :</label>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="prolbldetail">
-                                            <span>{{ isset($getProfile->email)? $getProfile->email : 'Unkonwn' }}</span>
+                                            <span>{{ isset($getProfile->email)? $getProfile->email : Lang::get('auth.unkonwn')  }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                 <div class="memberbox">
                     <div class="box box-danger">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Latest Members</h3>
+                            <h3 class="box-title">{{ Lang::get('auth.latmember')}}</h3>
 
                             <!--                            <div class="box-tools pull-right">
                                                             <span class="label label-danger">8 New Members</span>
@@ -161,13 +161,13 @@
 <section class="actionblock">
     <div class="titleblock">
         <img src="{{ asset("img/labelimg.png") }}" />
-        <h1>Latest Actions</h1>
+        <h1>{{ Lang::get('auth.latestaction')}}</h1>
     </div>
     <div class="ltaction">
         <div class="info-box mainlabox mailbox ">
             <span class="info-box-icon bg-aqua">5</span>
             <div class="info-box-content">
-                <span>E-mails</br><span>Opened</span></span>
+                <span>{{ Lang::get('auth.email') }}</br><span>{{ Lang::get('auth.opened')}}</span></span>
             </div>
             <span class="info-box-icon rgticon">
                 <img src="{{ asset("img/mailimg.png") }}" />
@@ -176,7 +176,7 @@
         <div class="info-box mainlabox visitbox">
             <span class="info-box-icon bg-aqua">{{$getLastVisit[0]->lastvisit}}</span>
             <div class="info-box-content">
-                <span>Last Visit</br><span>Days ago</span></span>
+                <span>{{ Lang::get('auth.lastvisit')}}</br><span> {{ Lang::get('auth.dayago') }}</span></span>
             </div>
             <span class="info-box-icon rgticon">
                 <img src="{{ asset("img/watchimg.png") }}" />
@@ -185,7 +185,7 @@
         <div class="info-box mainlabox wifibox">
             <span class="info-box-icon bg-aqua">{{$getLastVisit[0]->connections}}</span>
             <div class="info-box-content">
-                <span>Connections</span></span>
+                <span>{{ Lang::get('auth.connections') }}</span></span>
             </div>
             <span class="info-box-icon rgticon">
                 <img src="{{ asset("img/wifiimg.png") }}" />
@@ -197,7 +197,7 @@
 <section class="actionblock">
     <div class="titleblock">
         <img src="{{ asset("img/labelimg.png") }}" />
-        <h1>History</h1>
+        <h1>{{ Lang::get('auth.history') }}</h1>
     </div>
     <div class="historyblock">
         <div class="row">
@@ -205,16 +205,16 @@
                 <div class="historuydtl historyblock_left">
                     <div class="htitle">
                         <div class="numblock">2</div>
-                        <h2>Latest Email</h2>
+                        <h2>{{ Lang::get('auth.latestmail') }}</h2>
                     </div>
                     <div class="hismaildetail">
                         <div class="hismaildetail_img">
                             <img src="{{ asset("img/rated.png") }}" />
                         </div>
                         <div class="hismaildesc">
-                            <h3>Campagn Name_Review</h3>
-                            <p><span>Sent</span> on Mon 7th Feb 2015, 9:33:27</p>
-                            <p><label>Status :</label>Rated</p>
+                            <h3>{{ Lang::get('auth.campagnreview') }}</h3>
+                            <p><span>{{ Lang::get('auth.sent') }}</span> on Mon 7th Feb 2015, 9:33:27</p>
+                            <p><label>{{ Lang::get('auth.status') }} :</label>Rated</p>
                         </div>
                     </div>
                     <div class="hismaildetail">
@@ -223,8 +223,8 @@
                         </div>
                         <div class="hismaildesc">
                             <h3>Campagn Name_Review</h3>
-                            <p><span>Sent</span> on Mon 7th Feb 2015, 9:33:27</p>
-                            <p><label>Status :</label>Read</p>
+                            <p><span>{{ Lang::get('auth.sent') }}</span> on Mon 7th Feb 2015, 9:33:27</p>
+                            <p><label>{{ Lang::get('auth.status') }} :</label>Read</p>
                         </div>
                     </div>
                 </div>
@@ -234,7 +234,7 @@
 
                     <div class="htitle">
                         <div class="numblock">1</div>
-                        <h2>Latest Venues</h2>
+                        <h2>{{ Lang::get('auth.latestvenu')}}</h2>
                     </div>
                     @if (count($getRouterInformation) > 0)
                     @foreach ($getRouterInformation as $getRounterInfo)
@@ -245,8 +245,8 @@
 
                         <div class="hismaildesc">
                             <h3>{{$getRounterInfo->routerName}}</h3>
-                            <p><label>Visits :</label>{{$getRounterInfo->totalVisit}}</p>
-                            <p><label>Last visit :</label>{{$getRounterInfo->LastVisitDate}}</p>
+                            <p><label>{{ Lang::get('auth.visits')}} :</label>{{$getRounterInfo->totalVisit}}</p>
+                            <p><label>{{ Lang::get('auth.lastvisit')}} :</label>{{$getRounterInfo->LastVisitDate}}</p>
                         </div>
                         <div class="hismaildetail_img plusimg">
                             <a href="#"><i class="fa fa-plus"></i></a>
