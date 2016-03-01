@@ -14,6 +14,11 @@ class BeforeMiddleware
      * @param  \Closure $next
      * @return mixed
      */
+
+    protected $except_urls = [
+        'api/*'
+    ];
+
     public function handle($request, Closure $next)
     {
         $langArr = array("en", "fr");
