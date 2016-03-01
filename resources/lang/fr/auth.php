@@ -238,7 +238,25 @@ Vous aurez besoin de votre IBAN pour compléter la procédure.',
     'privacy'=>'Intimité',
     'support'=>'Soutien',
     'support24by7'=>'Soutien 24/7',
-    'securepayment'=>'Paiement sécurisé'
+    'securepayment'=>'Paiement sécurisé',
+    //profile
+    'userlist'=>'Liste d\'utilisateur',
+    'userprofile'=>'Profil de l\'utilisateur',
+    'sendmemail'=>'Envoie-moi un email !',
+    'unkonwn'=>'Inconnu',
+    'firstlist'=>'Première visite',
+    'latmember'=>'Dernières visites',
+    'latestaction'=>'Dernières actions',
+    'opened'=>'Ouvert',
+    'lastvisit'=>'Derniere visite',
+    'dayago'=>'Il y a quelques jours',
+    'connections'=>'Les liaisons',
+    'history'=>'Histoire',
+    'latestmail'=>'Dernières Email',
+    'campagnreview'=>'Nom de la campagne examen',
+    'latestvenu'=>'Derniers Salles',
+    'visits'=>'Visites',
+    'status'=>'statut'
     
     
     
