@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Users;
 use Illuminate\Http\Request;
-
+use App;
 class EMailLoginController extends Controller
 {
     public function login(Request $request)
