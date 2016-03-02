@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Users;
 use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
-
+use App;
 class FacebookLogin extends Controller
 {
 
