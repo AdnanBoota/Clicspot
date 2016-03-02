@@ -19,11 +19,11 @@ class EMailLoginController extends Controller
             'language'=>App::getLocale()
         );
         $users = Users::where('username', $data['username'])->first();
-        if ($users) {
+        if($users){
             if($users['type']==2){
                  $users->update($data);
             }
-        } else {
+        }else{
             Users::create($data);
         }
         return redirect(action('HotspotLoginController@login') . "?username=" . $data['username']);
