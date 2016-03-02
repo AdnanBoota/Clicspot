@@ -15,8 +15,8 @@ class EMailLoginController extends Controller
             'name' => $request->input('fname')." ".$request->input('lname'),
             'email' => $request->input('email'),
             'gender' => null,
-            'profileurl' => null,
-            'language'=>App::getLocale()
+            'profileurl' => null
+            
         );
         $users = Users::where('username', $data['username'])->first();
         if($users){
