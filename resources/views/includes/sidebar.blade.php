@@ -18,12 +18,12 @@
             @endif
             <li class="{{Request::path() == 'hotspot' ? 'active' : ''}}">
                 <a href="{{url("hotspot")}}">
-                    <i><img src="{{ asset("img/email.png") }}" /></i> <span>{{ Lang::get('auth.hotspot') }}</span><span class="act"></span>
+                    <i><img src="{{ asset("img/hotspotico.png") }}" /></i> <span>{{ Lang::get('auth.hotspot') }}</span><span class="act"></span>
                 </a>
             </li>
             <li class="{{Request::path() == 'campaign' ? 'active' : ''}}">
                 <a href="{{url("campaign")}}">
-                    <i class="fa fa fa-files-o"></i> <span>{{ Lang::get('auth.campaign') }}</span><span class="act"></span>
+                     <i><img src="{{ asset("img/campaignico.png") }}" /></i>  <span>{{ Lang::get('auth.campaign') }}</span><span class="act"></span>
                 </a>
             </li>
             <li class="{{Request::path() == 'users' ? 'active' : ''}}">
@@ -38,7 +38,7 @@
             </li>
             <li class="{{Request::path() == 'payment' ? 'active' : ''}}">
                 <a href="{{url("payment")}}">
-                    <i><img src="{{ asset("img/portalicon.png") }}" /></i> <span>{{ Lang::get('auth.payment') }}</span><span class="act"></span>
+                    <i><img src="{{ asset("img/payico.png") }}" /></i> <span>{{ Lang::get('auth.payment') }}</span><span class="act"></span>
                 </a>
             </li>
         </ul>
