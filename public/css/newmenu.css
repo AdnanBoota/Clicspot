@@ -3,8 +3,9 @@
 }
 .newmenu .sidebar-menu i img {
     height: auto;
-    margin-right: 8px;
-    width: 15px;
+    margin-top: 14px;
+    margin-right: 15px;
+    width: 17px;
 }
 .newmenu .sidebar-menu li a{
     overflow: auto;
@@ -14,18 +15,25 @@
 }
 .newmenu .sidebar-menu li span{
     float: left;
-    margin-top: 2px;
+    margin-top: 12px;
 }
 .newmenu .sidebar-menu li span.act{
-    display: none;
-}
-.newmenu .sidebar-menu li.active span.act{
     background: #95a0aa;
     height: 15px;
     width: 15px;
     border-radius: 50px;
     float: right;
-    margin: 3px 5px 0 0;
+    margin: 12px 13px 0 0;
+    display: block;
+
+}
+.newmenu .sidebar-menu li.active span.act{
+    background: #f86b4f;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    float: right;
+    margin: 12px 13px 0 0;
     display: block;
 }
 
@@ -41,7 +49,7 @@
     color: #fff;
 }
 .skin-black .main-header.newheader a.sidebar-toggle{
-    padding: 16px 15px 17px;
+    padding: 16px 10px 17px;
     background: url('../img/btmdecore.png') no-repeat;
     background-position: center center;
 }
@@ -98,7 +106,7 @@
     border-top: 9px solid #5f6e7c;
 }
 .newheader .headnav {
-    margin: 0 0 0 15px;
+    margin: 0 0 0 25px;
 }
 .newheader .headnav li{
     float: left;
@@ -106,7 +114,7 @@
 }
 .newheader .headnav a {
     display: inline-block;
-    padding: 13px 15px 14px;
+    padding: 20px 30px 14px;
     position: relative;
 }
 .newheader .headnav a:hover {
@@ -120,9 +128,9 @@
     background: #f86b4f none repeat scroll 0 0;
     border-radius: 50px;
     color: #fff;
-    font-size: 11px;
-    height: 16px;
-    line-height: 15px;
+    font-size: 10px;
+    height: 17px;
+    line-height: 17px;
     position: absolute;
     text-align: center;
     width: 16px;
@@ -136,7 +144,6 @@
 .skin-black .main-header > .navbar .nav > li > a:hover, .skin-black .main-header > .navbar .nav > li > a:active, .skin-black .main-header > .navbar .nav > li > a:focus, .skin-black .main-header > .navbar .nav .open > a, .skin-black .main-header > .navbar .nav .open > a:hover, .skin-black .main-header > .navbar .nav .open > a:focus{
     background: #1e282c;
 }
-
 
 
 
