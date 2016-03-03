@@ -48,7 +48,7 @@ return [
     'since'=>'Since',
     'dashboard'=>'Dashboard',
     'hotspot'=>'Hotspot',
-    'campaign'=>'Campaign ( Captival Portal )',
+    'campaign'=>'Captive Portal',
     'user'=>'Users',
     'emails'=>'Emails',
     'payment'=>'Payment',
