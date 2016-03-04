@@ -48,10 +48,27 @@ class HomeController extends Controller {
 
         $users = app('App\Http\Controllers\UsersController')->getStatistics('', 'indexCount');
         $emailList = Auth::user()->emailList()->select('listname', 'id')->get();
-        $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(created_at,"%b %d") as joinDate'))
+//        $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(created_at,"%b %d") as joinDate'))
+//                ->join('users', 'radacct.username', '=', 'users.username')
+//                ->groupBy('radacct.username')
+//                ->orderBy('users.created_at', 'desc');
+        
+        if (Auth::user()->type == 'superadmin') {
+         
+            $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(users.created_at,"%b %d") as joinDate'))
                 ->join('users', 'radacct.username', '=', 'users.username')
+                ->join('nas','radacct.calledstationid','=','nas.nasidentifier')
                 ->groupBy('radacct.username')
                 ->orderBy('users.created_at', 'desc');
+        
+        }else{
+                $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(users.created_at,"%b %d") as joinDate'))
+                ->where('nas.adminid', '=', Auth::user()->id)
+                ->join('users', 'radacct.username', '=', 'users.username')
+                ->join('nas','radacct.calledstationid','=','nas.nasidentifier')
+                ->groupBy('radacct.username')
+                ->orderBy('users.created_at', 'desc');
+        }
         $getLatestUsers = $latestUsers->take(8)->get();
         return view('home', ['facebookCount' => $users['fbCount'], 'googleCount' => $users['gCount'], 'emailCount' => $users['eCount'], 'emailList' => $emailList, 'getLatestUsers' => $getLatestUsers]);
     }
