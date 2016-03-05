@@ -26,7 +26,7 @@
     <div class="multitab">
         <ul class="tabpart">
             <li class="active"><a href="#"><i class="accounticon"></i>Account</a></li>
-            <li><a href="#"><i class="seetingicon"></i>Setting</a></li> 
+            <li class="settingFirst"><a href="#"><i class="seetingicon"></i>Setting</a></li> 
         </ul>
     </div>
     <div class="continaer-fluid"> 
@@ -38,8 +38,8 @@
       <div class="netspeeddetail" style="display: none"> <!-- style -->
         <div class="multitab">
             <ul class="tabpart">
-                <li class="active"><a href="#"><i class="accounticon"></i>Account</a></li>
-                <li><a href="#"><i class="seetingicon"></i>Setting</a></li> 
+                <li class="account active"><a href="#"><i class="accounticon"></i>Account</a></li>
+                <li class="setting"><a href="#"><i class="seetingicon"></i>Setting</a></li> 
             </ul>
         </div>
         <div class="speedblock">
@@ -265,6 +265,8 @@
                   $(".rocket").removeAttr("style");
                   $(".socialmedia").removeClass('successfully');
                   $(".socialmedia").addClass('active');
+                  $(".account").removeClass('active');
+                  $(".setting").addClass("active");
                   $('html, body').animate({
                     scrollTop: $(".netspeeddetail").offset().top
                 }, 2000);
@@ -301,6 +303,16 @@
                 $('html, body').animate({
                     scrollTop: $(".job_block").offset().top
                 }, 2000);
+            });
+            $(".account").click(function(){
+                $('html, body').animate({
+                    scrollTop: $(".routerblocktop").offset().top
+                }, 2000); 
+            });
+            $(".settingFirst").click(function(){
+                $('html, body').animate({
+                    scrollTop: $(".netspeeddetail").offset().top
+                }, 2000); 
             });
             
             
