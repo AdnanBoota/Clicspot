@@ -240,7 +240,7 @@ class HotspotController extends Controller
 
         $successMsg = "Hotspot updated successfully";
         Session::flash('flash_message_success', $successMsg);
-        return redirect('hotspot');
+        return redirect('hotspot'); 
     }
 
     /**
