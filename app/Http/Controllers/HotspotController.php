@@ -92,7 +92,7 @@ class HotspotController extends Controller
         }
         $hotspotDetails = array();
         $readonly = Session::has('mac') ? "readonly" : "";
-        return View::make('hotspot.create', compact('campaign', 'hotspotDetails', 'readonly'));
+        return View::make('router.create', compact('campaign', 'hotspotDetails', 'readonly'));
     }
 
     public function createClone()
@@ -117,10 +117,14 @@ class HotspotController extends Controller
         $this->validate($request, [
                 'shortname' => 'required',
                 'nasidentifier' => $nasRule,
-                'address' => 'required',
-                'reviewstatus' => 'required',
-                "redirectUrl" => "required|url"]
+                'address' => 'required'
+               ]
         );
+//        echo '<pre>';
+//        print_r($input); exit;
+        // 'reviewstatus' => 'required',
+                //"redirectUrl" => "required|url"
+        
         $hotspot = new Hotspot($input);
         Auth::user()->hotspots()->save($hotspot);
         // This function is need to call for charging cutomer on hotspot adding and commented for testing 
@@ -140,7 +144,7 @@ class HotspotController extends Controller
         $hotspot->hotspotAttributes()->saveMany($hotAttrArr);
         $successMsg = "New Hotspot added successfully";
         Session::flash('flash_message_success', $successMsg);
-        return redirect('hotspot');
+        return redirect('campaign');
     }
 
     /**
@@ -197,7 +201,7 @@ class HotspotController extends Controller
         $this->validate($request, [
                 'shortname' => 'required',
                 'nasidentifier' => $nasRule,
-                'reviewstatus' => 'required',
+                //'reviewstatus' => 'required',
                 'address' => 'required']
         );
         if (Auth::user()->type == 'superadmin') {
