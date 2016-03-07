@@ -201,7 +201,7 @@ class HotspotController extends Controller
         $this->validate($request, [
                 'shortname' => 'required',
                 'nasidentifier' => $nasRule,
-                //'reviewstatus' => 'required',
+                'reviewstatus' => 'required',
                 'address' => 'required']
         );
         if (Auth::user()->type == 'superadmin') {
