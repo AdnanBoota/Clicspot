@@ -29,12 +29,12 @@
                     <table class="table table-bordered table-striped dt-responsive" id="hotspot-table" width="100%">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>BackGround Image</th>
-                            <th>Logo Image</th>
-                            <th>Font Color</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>{{ Lang::get('auth.name') }}</th>
+                            <th>{{ Lang::get('auth.backimg')}}</th>
+                            <th>{{ Lang::get('auth.logoimg')}}</th>
+                            <th>{{ Lang::get('auth.fontcolor')}}</th>
+                            <th>{{ Lang::get('auth.edit')}}</th>
+                            <th>{{ Lang::get('auth.delete')}}</th>
                         </tr>
                         </thead>
                         <tbody>
