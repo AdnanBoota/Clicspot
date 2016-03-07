@@ -132,6 +132,9 @@ return [
     'reviewstatus'=>'Review Status',
     'resetpref'=>'Reset Preferences',
     'savelist'=>'Save List',
+    'favconn'=>'Favored Connection',
+    'amountvisit'=>'Amount of Visits',
+    'lang'=>'Language',
     //Emails Page
     'emailplatform'=>'E-Mail Platform',
     'automail'=>'Automatic Mailing',
@@ -186,6 +189,9 @@ return [
     'month'=>'Month(s)',
     'send'=>'send',
     'enteremail'=>'Enter an Email Address',
+    'emailtemp'=>'Template Name',
+    'tempdesc'=>'Template Description',
+    'subjectemail'=>'Subject Email',
     //payment
     'nextbill'=>'Next Billing',
     'amount'=>'Amount',
@@ -240,6 +246,12 @@ return [
     'support'=>'Support',
     'support24by7'=>'Support 24/7',
     'securepayment'=>'Secure Payment',
+    'publicip'=>'Public IP',
+    'lastcheck'=>'Last Checkin',
+    'delete'=>'Delete',
+    'backimg'=>'BackGround Image',
+    'logoimg'=>'Logo Image',
+    'fontcolor'=>'Font Color',
     //profile
     'userlist'=>'User list',
     'userprofile'=>'User Profile',
@@ -257,7 +269,14 @@ return [
     'campagnreview'=>'Campagn Name_Review',
     'latestvenu'=>'Latest Venues',
     'visits'=>'Visits',
-    'status'=>'Status'
-    
-
+    'status'=>'Status',
+    //activation template
+    'activeTemplate'=>'Thank you for registering for ClickSpot WIFI , please click the following link to confirm your account and access the
+website:',
+    //email template
+    'big'=>'Something Big...',
+    'wondering'=>'By the way, if you\'re wondering where you can find more of this fine meaty filler, visit',
+    'shareawesome'=>'Share the Awesomeness',
+    'cmpnynm'=>'Company Name',
+    'unsubscribe'=>'Unsubscribe'
 ];
