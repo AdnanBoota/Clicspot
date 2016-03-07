@@ -31,7 +31,8 @@ class EmailListController extends Controller
     
     public function create()
     {
-       $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier','nasidentifier'); 
+//       $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier','nasidentifier'); 
+       $routers = Auth::user()->hotspots()->select('ssid')->lists('ssid','ssid'); 
        $profileCount = array('fbCount'=> 0,'gCount'=> 0,'eCount'=>0);
        return view('emailList.create',  compact('routers','profileCount'));
     }
