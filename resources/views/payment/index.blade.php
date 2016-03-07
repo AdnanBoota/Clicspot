@@ -100,7 +100,7 @@
                         <h1>{{ Lang::get('auth.billhistory') }}</h1>
                     </div>
                     <div class="col-md-4">
-                        <a href="{{"/payment/4"}}" class="btn btn-block btn-default btn-lg">{{ Lang::get('auth.editprofile') }}</a>
+                        <a href="{{"/payment/4"}}" class="btn btn-block btn-default">{{ Lang::get('auth.editprofile') }}</a>
                     </div>
                 </div>
                 <div class="row margin-bottom">
