@@ -59,9 +59,9 @@
                                 <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>
                         </th>
-                        <th>Template Name</th>
-                        <th>Template Description</th>
-                        <th>Edit</th>
+                        <th>{{ Lang::get("auth.emailtemp") }}</th>
+                        <th>{{ Lang::get("auth.tempdesc") }}</th>
+                        <th>{{ Lang::get('auth.edit')}}</th>
                     </tr>
                 </thead>
                 <tbody>
