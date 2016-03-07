@@ -62,6 +62,7 @@
                     <h2>SOCIAL MEDIA </h2>  
                     <div class="control">
                         <div id="ChilliSpot-Bandwidth-Max-Down"></div>
+                        <div style="margin-top:10px;color: #fff">(In MB)</div>
                     </div>
                      <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i> NEXT</a>
                 </div>
@@ -69,6 +70,7 @@
                     <h2>E MAIL</h2>  
                     <div class="control">
                         <div id="Session-Timeout"></div>
+                        <div style="margin-top:10px;color: #fff">(In MB)</div>
                     </div>
                      <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i> SUBMIT</a>
                 </div>
@@ -82,6 +84,7 @@
                     <h2>SOCIAL MEDIA </h2>  
                     <div class="control">
                         <div id="EMail_ChilliSpot-Bandwidth-Max-Down"></div>
+                         <div style="margin-top:10px;color: #fff">(In Minutes)</div>
                     </div>
                      <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i> NEXT</a>
                 </div>
@@ -89,6 +92,7 @@
                     <h2>E MAIL</h2>  
                     <div class="control">
                         <div id="EMail_Session-Timeout"></div>
+                         <div style="margin-top:10px;color: #fff">(In Minutes)</div>
                     </div>
                       <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i> SUBMIT</a>
                 </div>
@@ -112,45 +116,6 @@
         
     </div>
  {!! Form::close() !!}
- <script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: -34.397, lng: 150.644}
-        });
-        var geocoder = new google.maps.Geocoder();
-
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map);
-        });
-        
-      }
-
-      function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
-        
-        geocoder.geocode({'address': address}, function(results, status) {
-            
-          if (status === google.maps.GeocoderStatus.OK) {
-            var lat=results[0].geometry.location.lat();
-            var long=results[0].geometry.location.lng();
-            $("#lat").val(lat);
-            $("#long").val(long);
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });
-      }
-      
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?callback=initMap">
-    </script>
                     </section>  
  @push('scripts')
   
@@ -158,6 +123,36 @@
 <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.extensions.js') }}" type="text/javascript"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+ <script src="{{ asset('/js/jquery.geocomplete.min.js') }}"></script>
+    <script src="{{ asset('/js/logger.js') }}"></script>
+<script>
+      $(function(){
+        
+        var options = {
+          map: "#map"
+          
+        };
+        
+        $("#address").geocomplete(options)
+          .bind("geocode:result", function(event, result){
+              $(".mapimg").hide();
+              $("#map").show();
+            $.log("Result: " + result.formatted_address);
+            $("#lat").val(result.geometry.location.lat());
+			$("#long").val(result.geometry.location.lng());
+          })
+          .bind("geocode:error", function(event, status){
+            $.log("ERROR: " + status);
+          });
+         
+        
+        
+        
+        
+        
+      });
+    </script>
 <script type="text/javascript">
         $(document).ready(function () {
             
@@ -174,7 +169,7 @@
                 sliderType: "min-range",
                 max:10,
                 min:1,
-                step:.25,
+                step:1,
                 change: function (args) {
                  var value=args.value * 1024; 
                  $("[name=ChilliSpot-Bandwidth-Max-Down]").val(value);
@@ -184,29 +179,31 @@
             });
             $("#Session-Timeout").roundSlider({
                 value:1,
-                max:240,
-                step:1,
-                sliderType: "min-range",
-                change: function (args) {
-                 var value=args.value * 60; 
-                 $("[name=Session-Timeout]").val(value);
-            }
-            });
-            $("#EMail_ChilliSpot-Bandwidth-Max-Down").roundSlider({
-                value:1,
                 max:10,
                 min:1,
                 step:1,
                 sliderType: "min-range",
-                 change: function (args) {
+                change: function (args) {
                  var value=args.value * 1024; 
+                 $("[name=Session-Timeout]").val(value);
+            }
+            });
+            $("#EMail_ChilliSpot-Bandwidth-Max-Down").roundSlider({
+                value:5,
+                max:240,
+                min:5,
+                step:5,
+                sliderType: "min-range",
+                 change: function (args) {
+                 var value=args.value * 60; 
                  $("[name=EMail_ChilliSpot-Bandwidth-Max-Down]").val(value);
             }
             });
             $("#EMail_Session-Timeout").roundSlider({
-                value:1,
+                value:5,
                 max:240,
-                min:1,
+                min:5,
+                step:5,
                 sliderType: "min-range",
                 change: function (args) {
                  var value=args.value * 60; 
@@ -255,10 +252,13 @@
                     $(".addlocation").removeClass("successfully").addClass("active");
                     $(".addlocation .routerbtn").css("background","#11a8ab !important");
                     $(".locationdetail").css("display","block").removeClass("successfully");
+                    $("#map").hide();
                 }
             });
             $(".addlocation .routerbtn").click(function(){
                 if(validator.element('.rlocation')){
+                       $(".mapimg").hide();
+              $("#map").show();
                   $(".addlocation").removeClass("active"); 
                   $(".locationdetail").removeClass("active");
                     $(".addlocation").addClass("successfully");
@@ -269,7 +269,9 @@
             });
             $(".routeradded .routerbtn").click(function(){
                 if(validator.element('.lname') && validator.element(".wirelessnm") && validator.element(".router") && validator.element('.rlocation')){
-                $(".addlocation").removeClass("active");
+                    $(".mapimg").hide();
+                    $("#map").show();
+            $(".addlocation").removeClass("active");
                 $(".addlocation").addClass("successfully");
                 $(".routeradded").removeClass("active"); 
                 $(".routeradded").addClass("successfully"); 
@@ -286,12 +288,16 @@
                 }
             });
             $(".socialmedia .routerbtn").click(function(){
+                 $(".mapimg").hide();
+                    $("#map").show();
                   $(".socialmedia").removeClass('active');
                   $(".socialmedia").addClass('successfully');
                $(".email").removeClass("successfully");
                 $(".email").addClass("active");
             });
             $(".email .routerbtn").click(function(){
+                 $(".mapimg").hide();
+                    $("#map").show();
                 $(".email").removeClass('active');
                 $(".email").addClass("successfully");
                 $(".stepsecond").addClass("active");
@@ -303,12 +309,16 @@
                 }, 2000);
             });
             $(".sessionsocial .routerbtn").click(function(){
+                 $(".mapimg").hide();
+                    $("#map").show();
                 $(".sessionsocial").removeClass("active");
                 $(".sessionsocial").addClass("successfully");
                 $(".sessionemail").removeClass("successfully");
                 $(".sessionemail").addClass("active");
             });
              $(".sessionemail .routerbtn").click(function(){
+                  $(".mapimg").hide();
+                    $("#map").show();
                  $(".sessionemail").removeClass("active");
                  $(".sessionemail").addClass("successfully");
                  $(".stepthired").addClass("active");
@@ -318,11 +328,15 @@
                 }, 2000);
             });
             $(".account").click(function(){
+                 $(".mapimg").hide();
+                    $("#map").show();
                 $('html, body').animate({
                     scrollTop: $(".routerblocktop").offset().top
                 }, 2000); 
             });
             $(".settingFirst").click(function(){
+                 $(".mapimg").hide();
+                    $("#map").show();
                 $('html, body').animate({
                     scrollTop: $(".netspeeddetail").offset().top
                 }, 2000); 
