@@ -185,13 +185,13 @@
             <table class="table table-bordered table-striped dt-responsive" id="user-table" width="100%">
                 <thead>
                     <tr>
-                        <th>Favored Connection</th>
-                        <th>Visitor</th>
-                        <th>Amount of Visits</th>
-                        <th>Last Visit</th>
-                        <th>Campaign</th>
-                        <th>Review Status</th>
-                        <th>Language</th>
+                        <th>{{ Lang::get('auth.favconn') }}</th>
+                        <th>{{ Lang::get('auth.visitor') }}</th>
+                        <th>{{ Lang::get('auth.amountvisit') }}</th>
+                        <th>{{ Lang::get('auth.lastvisit') }}</th>
+                        <th>{{ Lang::get('auth.campaignn') }}</th>
+                        <th>{{ Lang::get('auth.reviewstatus') }}</th>
+                        <th>{{ Lang::get('auth.lang') }}</th>
                     </tr>
                 </thead>
                 <tbody>
