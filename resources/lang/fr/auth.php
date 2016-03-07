@@ -86,6 +86,12 @@ Vous aurez besoin de votre IBAN pour compléter la procédure.',
     'downloadspeed'=>'Débit descendant',
     'sessionout'=>'Durée de sessions',
     'idleout'=>'Période d\'inactivité',
+    'publicip'=>'IP publique',
+    'lastcheck'=>'Dernière arrivée',
+    'delete'=>'Effacer',
+    'backimg'=>'Image de fond',
+    'logoimg'=>'Image logo',
+    'fontcolor'=>'Couleur de la police',
      //Campaign Page
     'compaginlist'=>'Liste des campagnes',
     'addcompagin'=>'Ajouter un portail',
@@ -185,6 +191,12 @@ Vous aurez besoin de votre IBAN pour compléter la procédure.',
     'month'=>'mois(s)',
     'send'=>'Envoyer',
     'enteremail'=>'Entrez une adresse email',
+    'favconn'=>'Connexion favorisée',
+    'amountvisit'=>'Montant des visites',
+    'lang'=>'La langue',
+    'emailtemp'=>'Nom du modèle',
+    'tempdesc'=>'Description du modèle',
+    'subjectemail'=>'Objet Email',
     //payment
     'nextbill'=>'Prochaine facture',
     'amount'=>'Montant',
@@ -256,8 +268,15 @@ Vous aurez besoin de votre IBAN pour compléter la procédure.',
     'campagnreview'=>'Nom de la campagne',
     'latestvenu'=>'Derniers visites',
     'visits'=>'Visites',
-    'status'=>'Status'
-    
-    
+    'status'=>'Status',
+    //activation template
+    'activeTemplate'=>'Merci de votre inscription pour ClickSpot WIFI, s\'il vous plaît cliquez sur le lien suivant pour confirmer votre compte et accéder à la
+site Internet:',
+    //email template
+    'big'=>'Quelque chose Big ...',
+    'wondering'=>'Par ailleurs, si vous vous demandez où vous pouvez trouver plus de cette belle viande de remplissage, visite',
+    'shareawesome'=>'Partagez le Awesomeness',
+    'cmpnynm'=>'Nom de la compagnie',
+    'unsubscribe'=>'Se désabonner'
     
 ];
