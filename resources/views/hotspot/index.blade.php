@@ -29,13 +29,13 @@
                     <table class="table table-bordered table-striped dt-responsive" id="hotspot-table" width="100%">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>MAC Address</th>
-                            <th>Public IP</th>
-                            <th>Last Checkin</th>
-                            <th>Status</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>{{ Lang::get('auth.name') }}</th>
+                            <th>{{ Lang::get('auth.macaddress')}}</th>
+                            <th>{{ Lang::get('auth.publicip')}}</th>
+                            <th>{{ Lang::get('auth.lastcheck')}}</th>
+                            <th>{{ Lang::get('auth.status')}}</th>
+                            <th>{{ Lang::get('auth.edit')}}</th>
+                            <th>{{ Lang::get('auth.delete')}}</th>
                         </tr>
                         </thead>
                         <tbody>
