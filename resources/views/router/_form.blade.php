@@ -31,12 +31,14 @@
 <!--                         <input id="address" type="text"  class="rlocation" name="rlocation" placeholder="Address, City, Country" value="">-->
                         
                     </div>
-                    <a  href="javascript:void(0)" class="routerbtn" id="submit"><i class="nextbtn"></i> SUBMIT</a> 
+                    
+                    <a  href="javascript:void(0)" class="routerbtn" id="find"><i class="nextbtn"></i> SUBMIT</a> 
                 </div>  
                 
                 <div class="locationdetail active successfully"  >
+                     <img  src="{{ asset("/img/mapimg.png ") }}" class=" mapimg center-block" style="height: 300px;width: 300px;">
                     <div id="map" style="height: 300px;width: 300px;"></div>
-<!--                   <img class="mapimg" src="{{ asset("/img/mapimg.png ") }}" class="center-block">-->
+
 <!--                     <div class="searchlocation">
                          <input class="searchicon" type="text" placeholder="Search locations" id="locations"/>
                         <a href="javascript:void(0)" class="" id="search">Get directors</a>
