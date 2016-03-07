@@ -9,6 +9,10 @@
             
         </div>
         <div class="form-group formrow">
+            <label>{{ Lang::get('auth.subjectemail')}}</label><a href="#"><i class="anyque"></i></a>
+            {!!  Form::text('subjectEmail', null, array('id'=>'subjectEmail','placeholder'=>Lang::get("auth.subjectemail"),'class'=>'form-control','tabindex'=>'1')) !!}
+        </div>
+        <div class="form-group formrow">
             <label>{{ Lang::get('auth.sendermail')}}</label><a href="#"><i class="anyque"></i></a>
             {!!  Form::text('senderEmail', $email, array('id'=>'senderEmail','placeholder'=>'Email Address','class'=>'form-control','readonly','tabindex'=>'2')) !!}
     
