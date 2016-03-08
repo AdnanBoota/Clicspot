@@ -215,7 +215,7 @@ function getChartAjax(typeOfData, getAllData) {
                 if(typeOfData=="months")
                     amountOfConnectionsChart(monthValueArray, monthKeyArray,10,100);
                 else if(typeOfData=="weeks" || typeOfData=="days")
-                    amountOfConnectionsChart(monthValueArray, monthKeyArray,5,50);
+                    amountOfConnectionsChart(monthValueArray, monthKeyArray,5,20);
             }
             if (result['routerStatus']) {
                 var routerData = [];
