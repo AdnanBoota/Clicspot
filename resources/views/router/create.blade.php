@@ -257,7 +257,7 @@
             });
             $(".addlocation .routerbtn").click(function(){
                 if(validator.element('.rlocation')){
-                       $(".mapimg").hide();
+                $(".mapimg").hide();
               $("#map").show();
                   $(".addlocation").removeClass("active"); 
                   $(".locationdetail").removeClass("active");
@@ -290,6 +290,8 @@
             $(".socialmedia .routerbtn").click(function(){
                  $(".mapimg").hide();
                     $("#map").show();
+                    $(".addlocation").removeClass("active");
+                    $(".addlocation").addClass('successfully');
                   $(".socialmedia").removeClass('active');
                   $(".socialmedia").addClass('successfully');
                $(".email").removeClass("successfully");
@@ -298,6 +300,8 @@
             $(".email .routerbtn").click(function(){
                  $(".mapimg").hide();
                     $("#map").show();
+                    $(".addlocation").removeClass("active");
+                    $(".addlocation").addClass('successfully');
                 $(".email").removeClass('active');
                 $(".email").addClass("successfully");
                 $(".stepsecond").addClass("active");
@@ -311,6 +315,8 @@
             $(".sessionsocial .routerbtn").click(function(){
                  $(".mapimg").hide();
                     $("#map").show();
+                    $(".addlocation").removeClass("active");
+                    $(".addlocation").addClass('successfully');
                 $(".sessionsocial").removeClass("active");
                 $(".sessionsocial").addClass("successfully");
                 $(".sessionemail").removeClass("successfully");
@@ -319,6 +325,8 @@
              $(".sessionemail .routerbtn").click(function(){
                   $(".mapimg").hide();
                     $("#map").show();
+                    $(".addlocation").removeClass("active");
+                    $(".addlocation").addClass('successfully');
                  $(".sessionemail").removeClass("active");
                  $(".sessionemail").addClass("successfully");
                  $(".stepthired").addClass("active");
@@ -330,6 +338,8 @@
             $(".account").click(function(){
                  $(".mapimg").hide();
                     $("#map").show();
+                    $(".addlocation").removeClass("active");
+                    $(".addlocation").addClass('successfully');
                 $('html, body').animate({
                     scrollTop: $(".routerblocktop").offset().top
                 }, 2000); 
@@ -337,6 +347,8 @@
             $(".settingFirst").click(function(){
                  $(".mapimg").hide();
                     $("#map").show();
+                    $(".addlocation").removeClass("active");
+                    $(".addlocation").addClass('successfully');
                 $('html, body').animate({
                     scrollTop: $(".netspeeddetail").offset().top
                 }, 2000); 
