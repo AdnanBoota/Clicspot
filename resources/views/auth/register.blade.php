@@ -98,6 +98,7 @@
                                 <div class="formrow">
 <!--                                    <label>{{ Lang::get('auth.email') }} :</label>-->
                                     <input class="emailicon" type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="{{ Lang::get('auth.email') }}"> <!--Email -->
+                                  <div id="status"></div>  
                                 </div>
                                 <div class="formrow">
 <!--                                    <label>{{ Lang::get('auth.password') }} :</label>-->
@@ -151,11 +152,12 @@
                                     <div class="formstep2right">
                                          <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.adress') }} :</label>-->
-                                            <input class="addicon" type="text" name="address" value="{{ old('address') }}" id="autocomplete" onFocus="geolocate()" class="form-control" placeholder="{{ Lang::get('auth.enteraddress') }}">
+    <input type="hidden" id="street_number" value="">
+                                        <input class="addicon" type="text" name="address" value="{{ old('address') }}" id="autocomplete" onFocus="geolocate()" class="form-control" placeholder="{{ Lang::get('auth.enteraddress') }}">
                                         </div>
                                         <div class="formrow">
     <!--                                    <label>{{ Lang::get('auth.adress') }} :</label>--> 
-                                            <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control" placeholder="{{ Lang::get('auth.adress') }}">
+                                        <input type="text" name="address" value="{{ old('address') }}"  id="route" class="form-control" placeholder="{{ Lang::get('auth.adress') }}">
                                         </div>
                                         <div class="formrow zipblock">
         <!--                                    <label>{{ Lang::get('auth.zipcode') }} :</label>-->
@@ -265,8 +267,8 @@ $.widget.bridge('uibutton', $.ui.button);
 
       var placeSearch, autocomplete;
       var componentForm = {
-       // street_number: 'short_name',
-        //route: 'long_name',
+       street_number: 'short_name',
+        route: 'long_name',
         locality: 'long_name',
         //administrative_area_level_1: 'short_name',
         country: 'long_name',
@@ -299,8 +301,19 @@ $.widget.bridge('uibutton', $.ui.button);
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
           if (componentForm[addressType]) {
-            var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
+                var val,value;
+              if(addressType=="street_number")
+              {
+                     val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+              }else if(addressType=="route"){
+                   var value = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val+" "+value;
+              }else{
+                   var vale = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value =vale;
+              }
+
           }
         }
       }
@@ -326,13 +339,17 @@ $.widget.bridge('uibutton', $.ui.button);
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&signed_in=true&libraries=places&callback=initAutocomplete"
         async defer></script>
 
-
-
+<!-- EMail Mailgun Validation-->
+ <script src="{{ asset('/js/mailgun_validator.js') }}"></script>
+   
+<!-- OVER MAIL -->
         <script type="text/javascript">
 $(document).ready(function() {
     $(".vscrollmain").vpagescroll();
     $("#step2").click(function() {
         if (validator.element('#email') && validator.element('#password') && validator.element('#password_confirmation')) {
+   //     if (validator.element('#password') && validator.element('#password_confirmation')) {
+            $('#email').trigger('focusout');
             $("section").find(".stepfirst").addClass("actives");
             $("section").find(".stepsecond").addClass("active");
             $("#navigation li:nth-child(2) a").trigger("click");
@@ -412,6 +429,59 @@ $(document).ready(function() {
     });
 });
         </script>
+         <script>
+      // document ready
+//      $(function() {
+//
+//       
+//        // attach jquery plugin to validate address
+//        $('#email').mailgun_validator({
+//          api_key: 'pubkey-095fad922b91de86774c827c167f9875', // replace this with your Mailgun public API key
+//          success: validation_success,
+//          error: validation_error,
+//        });
+//
+//      });
+//      
+//      // if email successfull validated
+//      function validation_success(data) {
+//     
+//        $('#status').html(get_suggestion_str(data['is_valid'], data['did_you_mean']));
+//      }
+//
+//
+//
+//      // if email is invalid
+//      function validation_error(error_message) {
+//          
+//        $('#status').html(error_message);
+//      }
+//
+//
+//
+//      // suggest a valid email
+//      function get_suggestion_str(is_valid, alternate) {
+//        if (is_valid) {
+//            
+//          var result = '<span class="success">Address is valid.</span>';
+//          if (alternate) {
+//            result += '<span class="warning"> (Though did you mean <em>' + alternate + '</em>?)</span>';
+//          }
+//          return result
+//        } else if (alternate) {
+//          return '<span class="warning">Did you mean <em>' +  alternate + '</em>?</span>';
+//        } else {
+//             $("#email").removeClass('successmsg');
+//            $("#email").addClass('errormsg');
+//             $("#email").css('color','red');
+//             $(".sucessmsg").addClass('hidemsg');
+//             $(".wrongmsg").removeClass('hidemsg');
+//          return '<span class="error">Address is invalid.</span>';
+//        }
+//      }
+
+
+    </script>
         <script>
         $(function(){
            $("#locale").change(function(){
