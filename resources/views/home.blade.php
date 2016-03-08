@@ -291,7 +291,8 @@ function customerReviews() {
 
 //========================================================== Line chart for Amount of router Connections=======================================
 function amountOfConnectionsChart(myArrayValue, myArrayKey) {
-    var areaChartData = {
+   
+        var areaChartData = {
         labels: myArrayKey,
         datasets: [
             {
@@ -314,8 +315,8 @@ function amountOfConnectionsChart(myArrayValue, myArrayKey) {
         scaleShowHorizontalLines: true,
         scaleShowVerticalLines: true,
         scaleOverride: true,
-        scaleSteps: 4,
-        scaleStepWidth: 5,
+        scaleSteps: 6,
+        scaleStepWidth: 50,
         // Number - The scale starting value
         scaleStartValue: 0,
         bezierCurve: true,
