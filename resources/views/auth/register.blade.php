@@ -308,7 +308,12 @@ $.widget.bridge('uibutton', $.ui.button);
                     document.getElementById(addressType).value = val;
               }else if(addressType=="route"){
                    var value = place.address_components[i][componentForm[addressType]];
-                    document.getElementById(addressType).value = val+" "+value;
+                    if(val==undefined){
+                    document.getElementById(addressType).value = value;
+                 }
+                    else{
+                        document.getElementById(addressType).value =val+" "+value;
+                     }
               }else{
                    var vale = place.address_components[i][componentForm[addressType]];
                     document.getElementById(addressType).value =vale;
