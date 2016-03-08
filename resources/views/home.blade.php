@@ -190,6 +190,7 @@ var monthKeyArray = [];
 
 //========================================================== Ajax Call for fetch the data for Chart============================================
 function getChartAjax(typeOfData, getAllData) {
+    
     jQuery.ajax({
         url: '/routerConnections',
         type: 'post',
@@ -211,7 +212,10 @@ function getChartAjax(typeOfData, getAllData) {
                         monthKeyArray.push(index);
                     });
                 }
-                amountOfConnectionsChart(monthValueArray, monthKeyArray);
+                if(typeOfData=="months")
+                    amountOfConnectionsChart(monthValueArray, monthKeyArray,10,100);
+                else if(typeOfData=="weeks" || typeOfData=="days")
+                    amountOfConnectionsChart(monthValueArray, monthKeyArray,5,50);
             }
             if (result['routerStatus']) {
                 var routerData = [];
@@ -290,7 +294,7 @@ function customerReviews() {
 }
 
 //========================================================== Line chart for Amount of router Connections=======================================
-function amountOfConnectionsChart(myArrayValue, myArrayKey) {
+function amountOfConnectionsChart(myArrayValue, myArrayKey,step,width) {
    
         var areaChartData = {
         labels: myArrayKey,
@@ -315,8 +319,8 @@ function amountOfConnectionsChart(myArrayValue, myArrayKey) {
         scaleShowHorizontalLines: true,
         scaleShowVerticalLines: true,
         scaleOverride: true,
-        scaleSteps: 10,
-        scaleStepWidth: 100,
+        scaleSteps: step,
+        scaleStepWidth: width,
         // Number - The scale starting value
         scaleStartValue: 0,
         bezierCurve: true,
