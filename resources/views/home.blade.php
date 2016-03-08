@@ -316,7 +316,7 @@ function amountOfConnectionsChart(myArrayValue, myArrayKey) {
         scaleShowVerticalLines: true,
         scaleOverride: true,
         scaleSteps: 10,
-        scaleStepWidth: 50,
+        scaleStepWidth: 100,
         // Number - The scale starting value
         scaleStartValue: 0,
         bezierCurve: true,
