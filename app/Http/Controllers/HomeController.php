@@ -110,11 +110,12 @@ class HomeController extends Controller {
             }
             $totalRoter = $hotspot->count();
             foreach ($hotspot as $key => $value) {
+               
                 if ((time() - strtotime($value->status->updated_at)) < 180) {
                     $activeCount++;
                 } else {
                     $deActiveCount++;
-                }
+            }
             }
             if ($totalRoter != 0 && !empty($totalRoter)) {
                 $activeCountPercentage = ($activeCount / $totalRoter) * 100;
@@ -202,84 +203,91 @@ class HomeController extends Controller {
 //            $Week[3]['date'] = Date('Y-m-d', strtotime("-7 days"));
             $Week[3]['date'] = Date('Y-m-d');
             $Week[3]['week'] = '4';
-
+          
             for ($i = 0; $i < count($Week); $i++) {
                 $date = new \DateTime($Week[$i]['date']);
                 $weekNoOne[$i]['period'] = $date->format("W");
                 $weekNoOne[$i]['week'] = $Week[$i]['date'];
-                $weekNoOne[$i]['totalAccess'] = "0";
+                $weekNoOne[$i]['count']=0;
+               // $weekNoOne[$i]['totalAccess'] = "0";
                 $week[$i] = $date->format("W");
             }
-
-
-            for ($i = 0; $i < count($router); $i++) {
-                if (in_array($router[$i]['period'], $week)) {
-
-                    $tempData[$i]['period'] = $router[$i]['period'];
-                    $tempData[$i]['totalAccess'] = $router[$i]['totalAccess'];
-                }
-            }
-            for ($i = 0; $i < count($weekNoOne); $i++) {
-                foreach ($tempData as $key => $value) {
-
-                    if ($value['period'] == $weekNoOne[$i]['period']) {
-                        $routerConnections[$i][$weekNoOne[$i]['week']] = $value['totalAccess'];
-                    } else {
-                        if (!isset($weekData[$i][$weekNoOne[$i]['week']])) {
-                            $routerConnections[$i][$weekNoOne[$i]['week']] = 0;
-                        }
+            for($i=0;$i<count($router);$i++){
+                for($j=0;$j<count($weekNoOne);$j++){
+                    if($router[$i]['period']==$weekNoOne[$j]['period']){
+                        $weekNoOne[$j]['count'] = $weekNoOne[$j]['count'] + 1;
                     }
                 }
             }
-            if (empty($routerConnections)) {
-                for ($i = 0; $i < count($Week); $i++) {
-                    $routerConnections[$i][$Week[$i]['date']] = 0;
+            
+            for($j=0;$j<count($weekNoOne);$j++){
+                    $routerConnections[$j][$weekNoOne[$j]['week']] = $weekNoOne[$j]['count'];
                 }
-            }
+            
         } elseif ($type == "days") {
             $users->whereRaw("acctstarttime between date_sub(now(),INTERVAL 1 WEEK) and now()");
-            $users->groupBy(DB::raw('DATE(`acctstarttime`)'));
+             $users->groupBy(DB::raw('DATE_FORMAT(`acctstarttime`,"%Y-%d-%c %H:%i:%s")'));
             $router = $users->get();
-
             $m = date("m");
             $de = date("d");
             $y = date("Y");
 
             for ($i = 0; $i <= 6; $i++) {
-                $dateArray[] = date('Y-m-d', mktime(0, 0, 0, $m, ($de - $i), $y));
+                $dateArray[$i]['day'] = date('Y-m-d', mktime(0, 0, 0, $m, ($de - $i), $y));
+                 $dateArray[$i]['count']=0;
             }
             $LidtofDates = array_reverse($dateArray);
-
-            $dayList = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
+//            print_r($LidtofDates); 
+            //print_r($router); exit;
             for ($i = 0; $i < count($router); $i++) {
-
-                if (in_array($router[$i]['day'], $LidtofDates)) {
-
-                    $routerData[$i]['day'] = $router[$i]['day'];
-                    $routerData[$i]['totalAccess'] = $router[$i]['totalAccess'];
-                }
-            }
-
-            for ($i = 0; $i < count($LidtofDates); $i++) {
-                foreach ($routerData as $key => $value) {
-                    $timestamp = strtotime($LidtofDates[$i]);
-                    $day = date('D', $timestamp);
-                    if ($value['day'] == $LidtofDates[$i]) {
-                        $routerConnections[$i][$day] = $value['totalAccess'];
-                    } else {
-                        if (!isset($routerDayData[$i][$LidtofDates[$i]])) {
-                            $routerConnections[$i][$day] = 0;
-                        }
+                for($j=0;$j<count($LidtofDates);$j++){
+                    if($router[$i]['day']==$LidtofDates[$j]['day'])
+                    {
+                        $LidtofDates[$j]['count']=$LidtofDates[$j]['count']+1;
                     }
                 }
             }
-            if (empty($routerConnections)) {
-                for ($i = 0; $i < count($LidtofDates); $i++) {
-                    $timestamp = strtotime($LidtofDates[$i]);
-                    $day = date('D', $timestamp);
-                    $routerConnections[$i][$day] = 0;
-                }
+            //print_r($LidtofDates); exit;
+            //$dayList = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
+            for($day=0;$day<count($LidtofDates);$day++){
+                
+                  $LidtofDates[$day]['day']=date('D',strtotime($LidtofDates[$day]['day']));
             }
+            for($days=0;$days<count($LidtofDates);$days++){
+                $routerConnections[$days][$LidtofDates[$days]['day']]=$LidtofDates[$days]['count'];
+            }
+//            print_r($routerConnections);
+//            exit;
+//            
+//            for ($i = 0; $i < count($router); $i++) {
+//                if (in_array($router[$i]['day'], $LidtofDates)) {
+//
+//                    $routerData[$i]['day'] = $router[$i]['day'];
+//                    $routerData[$i]['totalAccess'] = $router[$i]['totalAccess'];
+//                }
+//            }
+//            print_r($routerData); exit;
+//            
+//            for ($i = 0; $i < count($LidtofDates); $i++) {
+//                foreach ($routerData as $key => $value) {
+//                    $timestamp = strtotime($LidtofDates[$i]);
+//                    $day = date('D', $timestamp);
+//                    if ($value['day'] == $LidtofDates[$i]) {
+//                        $routerConnections[$i][$day] = $value['totalAccess'];
+//                    } else {
+//                        if (!isset($routerDayData[$i][$LidtofDates[$i]])) {
+//                            $routerConnections[$i][$day] = 0;
+//                        }
+//                    }
+//                }
+//            }
+//            if (empty($routerConnections)) {
+//                for ($i = 0; $i < count($LidtofDates); $i++) {
+//                    $timestamp = strtotime($LidtofDates[$i]);
+//                    $day = date('D', $timestamp);
+//                    $routerConnections[$i][$day] = 0;
+//                }
+//            }
         }
         $allData['routerConnection'] = $routerConnections;
         $allData['routerStatus'] = $routerStatus;
