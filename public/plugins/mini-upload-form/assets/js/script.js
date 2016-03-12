@@ -77,9 +77,11 @@ $(function(){
                 var newImg = "<div class='span3'><a class='thumbnail' href='javascript:void(0);'><img src='"+data.result.filePath+"' height='100' width='150' alt='...' class='margin' style='height:100px;width:100px;' /></a></div>";
                 var divLength = $('#myCarousel .item:last-child .row-fluid .span3').length;
                 if(divLength == 3)
-                    $('#myCarousel .carousel-inner').append("<div class='item'><div class='row-fluid'>"+newImg+"</div></div>")
+//                    $('#myCarousel .carousel-inner').append("<div class='item'><div class='row-fluid'>"+newImg+"</div></div>")
+                    $('#myCarousel').append("<div class='item'><div class='row-fluid'>"+newImg+"</div></div>")
+
                 else
-                    $('#myCarousel .carousel-inner .item:last-child .row-fluid').append(newImg);
+                    $('#myCarousel  .item:last-child .row-fluid').append(newImg);
             }
         }
         
