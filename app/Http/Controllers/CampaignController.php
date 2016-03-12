@@ -126,7 +126,9 @@ class CampaignController extends Controller {
         }
           $this->validate($request, [
             'name' => 'required',
-            'fontcolor' => 'required']
+            'fontcolor' => 'required',
+            'fakebrowser'=>'required'  
+              ]
         );
         $input['backgroundimage'] = $bgfileName;
         $input['logoimage'] = $logofileName;
@@ -196,7 +198,8 @@ class CampaignController extends Controller {
 
         $this->validate($request, [
             'name' => 'required',
-            'fontcolor' => 'required']
+            'fontcolor' => 'required',
+            'fakebrowser'=>'required' ]
         );
 
         $input['backgroundimage'] = $bgfileName;
