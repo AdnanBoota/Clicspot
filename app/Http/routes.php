@@ -77,7 +77,7 @@ Route::get('gallery/create', 'CampaignController@addgallery');
 Route::post('gallery/deleteImage', 'CampaignController@deleteImage');
 Route::post('galleryFileUpload', 'CampaignController@galleryFileUpload');
 Route::resource('campaign', 'CampaignController');
-
+Route::get('updatecampaign/{id}/{campid}','CampaignController@updatecampaign');
 Route::get('/facebook/login', 'FacebookLogin@login');
 Route::get('/facebook/callback', 'FacebookLogin@callback');
 
