@@ -527,6 +527,7 @@
         min-height: 260px;
         width: 100%;
         z-index: 10;
+        
         @if(isset($campaign->backgroundzoom))
                       background-size: {{$campaign->backgroundzoom}}%;
         @else
@@ -948,9 +949,9 @@
                             <div class="advertblock">
                                 <p>L’accès Internet vous est offert par</p>
                                <?php if(isset($campaign->advertcheck) && $campaign->advertcheck==1){ ?>
-                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php echo isset($campaign->adverturl) ? $campaign->adverturl :asset("/img/pizzaimg.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
+                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php echo isset($campaign->adverturl) ? $campaign->adverturl :asset("/img/Clicspot-Grey.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
                                <?php }else{ ?>
-                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php echo isset($campaign->advertimage) && $campaign->advertimage!="" ? asset('/uploads/campaign/'.$campaign->advertimage) :asset("/img/pizzaimg.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
+                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php echo isset($campaign->advertimage) && $campaign->advertimage!="" ? asset('/uploads/campaign/'.$campaign->advertimage) :asset("/img/Clicspot-Grey.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
                                <?php } ?> 
                                 <!--                               
                                             <img src="{{ asset("/img/pizzaimg.png") }}" alt="logo" id="advertimg" width="100" height="100"> -->
