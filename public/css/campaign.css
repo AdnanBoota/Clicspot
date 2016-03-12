@@ -1,0 +1,895 @@
+@import url('../fonts/stylesheet.css');
+
+li{
+    list-style: none;
+}
+
+
+#preview {
+    width: 180px;
+    height: 180px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+
+#preview #logo {
+    width: 90px;
+    height: 90px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+
+#preview {
+    width: 100%;
+    height: 80%;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3); 
+}
+
+#preview #logo {
+    width: 90px;
+    height: 90px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+
+#preview .navbar {
+    height: 60px;
+    background: #222222;
+    margin: 0px;
+}
+
+#preview h1, #preview h2, #preview h3, #preview h4, #preview h5, #preview p {
+    color: white;
+}
+
+/*    body {
+                margin-top: 60px;
+        background: #222222;
+    }*/
+#preview .container {
+    width: 80%;
+}
+
+#preview .container-img {
+    @if(isset($campaign->backgroundimage) AND $campaign->backgroundimage != '')
+                  background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+    @else
+                  background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+    @endif
+
+
+                  padding-top: 4%;
+    padding-bottom: 20px;
+    max-height: 1335px;
+    min-height: 260px;
+    width: 100%;
+    z-index: 10;
+    background-size:cover;
+    @if(isset($campaign->backgroundzoom))
+                  background-size: {{$campaign->backgroundzoom}}%;
+    @else
+                background-size: 100%;
+@endif
+
+
+
+
+}
+
+#preview .footer_preview {
+    padding: 12px 5px;
+    background: #222222;
+    position: relative;
+}
+
+#preview .footer_preview p {
+    font-size: 9px;
+    margin-bottom: 0px;
+}
+
+#preview .footer_preview h4 {
+    font-size: 9px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+#preview .footer_preview img.img-responsive {
+    height: auto;
+    width: 80px;
+}
+
+.galleryList img {
+    display: inline-block;
+    width: 43%;
+}
+
+#preview .fa {
+    font-size: 20px;
+}
+
+#preview .btn.btn-block {
+    font-size: 13px;
+    padding: 7px;
+}
+
+#preview .strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#preview .strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+#preview .strike > span:before,
+#preview .strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #222222;
+}
+
+#preview .strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+#preview .strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+#preview .input-lg {
+    border-radius: 0px;
+}
+
+.closegallery {
+    cursor: pointer;
+}
+
+#myModal .modal-dialog {
+    width: 100%;
+    /*      height: 100%;*/
+    padding: 0;
+}
+
+#myModal .modal-content {
+    /*      height: 100%;*/
+    border-radius: 0;
+}
+
+.container-img-drop-hover, .header-img-drop-hover {
+    background-color: rgba(18, 213, 157, 0.35) !important;
+}
+
+#container-img {
+    position: relative;
+}
+
+.headerlogodrop {
+    width: 100%;
+    height: 58px;
+    /*margin-left: -15px !important;*/
+}
+
+.container-img-drop-hover:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    bottom: 0;
+    background-color: rgba(18, 213, 157, 0.35);
+    z-index: 10000000;
+}
+
+#preview .footer_preview i {
+    font-size: 22px !important;
+    margin-right: 4px;
+}
+
+.champtitle h3 {
+    color: #585858;
+    font-size: 17px;
+}
+
+.campnav {
+
+}
+
+ul.cpnavigaion {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+ul.cpnavigaion li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 5%;
+}
+
+ul.cpnavigaion li a {
+    display: inline-block;
+    position: relative;
+}
+
+.cpnavigaion li a:hover::after {
+    border: 1px solid #12d59d;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+}
+
+.cpnavigaion li a i {
+    width: 67px;
+    height: 58px;
+    display: block;
+    margin: 0 auto;
+}
+
+.cpnavigaion li a .campnavicon1 {
+    background: url('../img/customizeicon.png') no-repeat;
+}
+
+.cpnavigaion li a .campnavicon2 {
+    background: url('../img/settingicon.png') no-repeat;
+}
+
+.cpnavigaion li a .campnavicon3 {
+    background: url('../img/previewicon.png') no-repeat;
+}
+
+.cpnavigaion li a:hover .campnavicon1, .cpnavigaion li a.active .campnavicon1 {
+    background: url('../img/customizeicon_hover.png') no-repeat;
+}
+
+.cpnavigaion li a:hover .campnavicon2, .cpnavigaion li a.active .campnavicon2 {
+    background: url('../img/settingicon_hover.png') no-repeat;
+}
+
+.cpnavigaion li a:hover .campnavicon3, .cpnavigaion li a.active .campnavicon3 {
+    background: url('../img/previewicon_hover.png') no-repeat;
+}
+
+.cpnavigaion li a span {
+    display: block;
+    color: #b7b7b7;
+    font-size: 17px;
+    margin: 3px 0;
+}
+
+.cpnavigaion li a:hover span, .cpnavigaion li a.active span {
+    color: #12d59d;
+}
+
+.camp_page {
+    background: #fff none repeat scroll 0 0;
+    padding-top: 23px;
+}
+
+.nav-tabs > li > a {
+    border: none;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-right: 1px solid #c2c5cb;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    background: none;
+    border: medium none;
+    color: #12d59d;
+    border-right: 1px solid #c2c5cb;
+}
+
+.nav.nav-tabs {
+    padding: 8px 0;
+    border-bottom: 1px solid #c2c5cb;
+    border-top: 1px solid #c2c5cb;
+}
+
+.navbar-brand > img {
+    display: inline-block;
+}
+
+.tabcontendtl {
+}
+
+.navbar-brand {
+    text-align: left;
+    width: 100%;
+}
+
+.tabcontendtl p {
+    color: #555555;
+    font-size: 18px;   
+    font-family: 'latolight';
+}
+
+.imgbtn {
+    margin: 6px 0 12px;
+}
+
+.imgbtn a {
+    background: #abb0b9;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    font-size: 15px;
+    margin-right: 3px;
+    margin-top: 6px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+
+.imgbtn2 a {
+    margin-right: 8%;
+}
+
+.imgbtn a:hover, .imgbtn a.active {
+    background: #12d59d;
+}
+
+.headcolor {
+    border-bottom: 1px solid #c2c5cb;
+    border-top: 1px solid #c2c5cb;
+}
+
+.imageslider {
+    margin: 25px 0 0;
+    overflow: auto;
+    height: 600px;
+    overflow: auto;
+}
+
+.selectimg {
+
+}
+
+.imageslider a {
+    float: right;
+}
+
+a .addimg {
+    background: url('../img/addimgbtn.png') no-repeat;
+    height: 30px;
+    width: 30px;
+    display: block;
+}
+
+a .addimg:hover {
+    background: url(..'/img/addimgicon_hover.png') no-repeat;
+}
+
+.imageslider p {
+    color: #585858;
+    font-size: 14px;
+    /*padding-left: 50px;*/
+    text-align: center
+}
+
+.carousel {
+    margin-bottom: 0;
+    padding: 0 40px;
+}
+
+/* Reposition the controls slightly */
+.carousel-control {
+    left: -12px;
+}
+
+.carousel-control.left, .carousel-control.right {
+    height: 39px;
+    width: 39px;
+    top: 36px;
+    text-indent: -9999px;
+}
+
+.carousel-control.right {
+    right: -12px;
+    background: url('../img/rightarrow.png') no-repeat !important;
+}
+
+.carousel-control.left {
+    background: url('../img/leftarrow.png') no-repeat !important;
+}
+
+.carousel-control.right:hover {
+    background: url('../img/rightarrow_hover.png') no-repeat !important;
+}
+
+.carousel-control .left:hover {
+    background: url('../img/leftarrow_hover.png') no-repeat !important;
+}
+
+.selectimg .span3 {
+    float: left;
+    width: 48%;
+    margin: 1%;
+}
+
+.selectimg .span3 a {
+    padding: 0;
+    border: 2px solid transparent;
+    max-width: 100%;
+}
+
+.selectimg .span3 a:hover, .selectimg .span3 a:active, .selectimg .span3 a:focus {
+    border: 2px solid #12d59d;
+}
+
+.champtitle p {
+    font-size: 17px;
+    color: #585858;
+}
+.imgaddrgt {
+    right: 0px;
+    position: absolute;
+    top: 0;
+}
+
+
+/*----- Create Campaign css start -----*/
+.content-wrapper, .right-side, .main-footer{
+    margin: 0;
+}
+aside.newmenu.main-sidebar {
+    display: none;
+}
+.campaignbox{
+    width: 45%;
+}
+.campaigncontrol{
+    width: 20%;
+}
+
+.campaignmain{
+    padding: 60px 0 50px;
+    position: relative;
+    background: #f5f5f5;
+    min-height:950px;
+}
+.portalpage{
+    padding-top:20px !important;
+
+}
+.portalpage.campaignmain .box-body{
+    padding-top:20px;
+}
+.portalpage.campaignmain .campaignbox .box-body{
+    padding-top:20px;
+}
+.campaignmain .box-body{
+    padding: 80px 8px 20px; 
+}
+.campaignmain .box.box-info{border: none;box-shadow: none;}
+.campaignmain .box{
+    background:none;
+}
+.campaignheader.content-header{
+    background: #ecf0f1;
+    text-align: center;
+    padding: 10px;
+}
+.stickyheader{
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10000;
+}
+.campaignlogo{
+    display: inline-block;
+}
+ul.camheaderleft{
+    float: left;
+}
+ul.camheaderleft{
+    margin: 0;
+}
+ul.camheaderleft li{
+    float: left;
+}
+ul.camheaderleft li a{
+    background: #1abc9c;
+    padding:8px;
+    display: inline-block;
+}
+ul.camheaderleft li a:hover{
+    background: #16a085;
+}
+ul.camheaderleft li:first-child a{
+    border-radius: 3px 0 0 3px;
+}
+ul.camheaderleft li:last-child a{
+    border-radius:0 3px 3px 0;
+}
+.camheaderright{
+    float: right;
+}
+.camheaderright li{
+    display: inline-block;
+}
+.camheaderright li a{
+    background: #95a0aa;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.camheaderright li a span{
+    font-family: 'latobold';
+    color: #fff;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.gallerybox{
+    text-align: center;
+}
+.gallerybox button{
+    background: #1abc9c;
+    font-size: 13px;
+    color: #fff;
+    border: none;
+    padding:7px 10px;
+    border-radius: 5px;
+    font-family: 'latobold';
+}
+.gallerybox button img{margin-right: 3px;}
+ 
+.lefControls{
+    background: #e6e6e6;
+    border-radius: 5px;
+    box-shadow: 3px 4px 0 #cdcdcd;
+    min-height: 400px;
+    padding: 10px 10px 30px;
+}
+.portaltitle{
+    border-bottom: 2px solid #d8d8d8;
+    padding-bottom: 10px;
+}
+.portaltitle h2{
+    font-size: 18px;
+    font-family: 'latoregular';
+    color: #555555; 
+}
+.portaltitle img{
+    float: left;
+    margin-right: 5px;
+}
+.portalform{  
+    margin-top: 10px; 
+}
+.portalform .portalsearch{
+    background: url('../img/portalimg2.png') no-repeat right center #fff;
+    color: rgba(52,73,94,0.6);
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 40px 0 10px;
+    font-size: 14px;
+    font-family: 'latoregular';
+    border: 2px solid #bdc3c7;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.portalform .linkicon{
+    background: url('../img/linkicon.png') no-repeat right center #fff;
+}
+.portalform p ,.lefControls p{
+    font-size: 18px;
+    color: #555555;
+    font-family: 'latolight';
+}
+.campaignstep{
+    position: absolute;
+    right: 10px;
+    top: 125px;
+    z-index: 1;
+    text-align: center;
+    height: 100%;
+    width: 230px;
+}
+.portalpage .campaignstep{
+    top:30px;
+}
+.campsteptop .cmstep1{
+    background: #f86b4f;
+    color: #fff;
+    font-size: 25px;
+    font-family: 'open_sansbold';
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    border-radius: 50%;
+    margin: 0 auto; 
+    position: relative;
+    z-index: 10;
+}
+.campaignstep .campsteptop{ 
+}
+.campaignstep .campsteptop::after {
+    background: #f86b4f none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    width: 10px;
+}
+.campsteptop span ,.campstepbottom span{
+    font-size: 25px;
+    color: #f86b4f;
+    font-family: 'ubuntumedium'; 
+    display: block;
+}
+.campstepbottom {
+    bottom: -60px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+}
+
+.campstepbottom{
+    
+}
+
+.mainstep{
+    position: relative;
+    height:75%;
+}
+.advertblock{
+    width: 100%;
+    background: #f3f3f3; 
+    box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.32);  
+    text-align: center;
+    overflow: hidden; 
+    min-height: 550px;
+}
+.advertblock p{
+    font-size: 14px;
+    color: #000;
+    font-family: 'latolight';
+    margin: 15px 0;
+}
+.advertblock iframe{
+    max-width: 100%;
+    min-height: 545px;
+    width: 600px;
+}
+.routerconfigblock{
+    padding: 15px 20px;
+}
+.routerconfigblock p{
+    margin: 30px 0 20px; 
+}
+.routertable{
+    width: 90%;
+}
+.routertable th{
+    font-size: 16px;
+    font-family: "latolight";
+    color: #555555;
+    padding: 5px;
+}
+.routertable th a{
+    float: right;
+}
+.routertable tr td{
+    font-size: 14px;
+    color: #555555;
+    font-family: 'latolight';
+    padding: 5px;
+}
+.routertable tr{
+    border-bottom: 1px solid #fff;
+}
+
+.routertable tr td label{
+    text-indent: -9999px;
+}
+.routertable tr td input[type=checkbox]:not(old){
+  width   : 28px;
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
+}
+
+.routertable tr td input[type=checkbox]:not(old) + label {
+  display      : inline-block;
+  margin-left  : -28px;
+  padding-left : 28px;
+  background   : url('../img/champbtn.png') no-repeat 0 0;
+  line-height  : 24px;
+  background-position: 0px -3px;
+  margin-bottom: 0;
+}
+
+.routertable tr td input[type=checkbox]:not(old):checked + label{
+  background-position : 0 -27px;
+} 
+
+.completeblock{
+    background: #f86b4f; 
+    padding: 60px 20px 80px;
+    overflow: hidden;
+}
+.comblockleft{
+    width: 45%;
+    float: left;
+    text-align: center;
+}
+.comblockleft img {
+    width: 500px;
+    height: auto;
+    margin: 0 auto;
+}
+.comblockright{
+    width: 55%;
+    overflow: hidden;
+}
+.comrightdetail{
+    padding-top: 45%;
+}
+.comrightdetail .goneblock {
+    text-align: center;
+    width: 300px;
+    float: left;
+}
+.comrightdetail .goneblock p ,.gonedetailblock a{
+    font-size: 25px;
+    font-family: 'latoregular';
+    color: #fff;
+}
+.gonedetailblock{
+    padding-left: 20px;
+    overflow: hidden;
+}
+.gonedetailblock a{
+    display: block;
+    margin-bottom: 50px;
+    color: #ffccbc;
+}
+
+.switch input.cmn-toggle-round + label{
+    height: 25px;
+    width: 87px; 
+}
+.switch input.cmn-toggle-round + label::before{
+    border-radius: 5px;
+    background: url('../img/crossicon.png') no-repeat #bdc3c7;
+    background-position:60% center;
+}
+.switch  input.cmn-toggle-round:checked + label::before{
+    background: url('../img/righticon_green1.png') no-repeat #2c3e50;
+    background-position: center;
+    background-position:40% center;
+}
+.switch input.cmn-toggle-round + label::after{
+    width: 25px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: none;
+    background: #7f8c8d;
+}
+.switch input.cmn-toggle-round:checked + label::after{
+    width: 25px;
+    border-radius:0 5px 5px 0;
+    box-shadow: none;
+    background: #1abc9c;
+}
+
+
+.linkswitch.switch input.cmn-toggle-round + label::before{
+    border-radius: 5px;
+    background: url('../img/cameraicon_white.png') no-repeat #bdc3c7;
+    background-position:60% center;
+}
+.linkswitch.switch  input.cmn-toggle-round:checked + label::before{
+    background: url('../img/linkicon_green.png') no-repeat #2c3e50;
+    background-position: center;
+    background-position:40% center;
+}
+
+
+
+.stickygallery {
+    position: fixed;
+    left: 0;
+    width: 200px;
+    top:145px;
+    z-index:10;
+}
+.stickygallerytop{
+    top:70px;
+}
+
+
+/*----- Create Campaign css end -----*/
+
+
+
+@media screen and (max-width: 1420px) {
+    .imgbtn a { 
+        margin-right: 1px;
+    }
+}
+@media screen and (max-width: 1350px) {
+    .campsteptop span, .campstepbottom span{font-size: 21px;}
+    .campsteptop .cmstep1{height: 50px;width: 50px;line-height: 50px;font-size: 21px;}
+    .campaignstep .campsteptop::after{top: 75px;}
+    .campstepbottom img{width: 50px;height: auto;}
+    .portaltitle h2{font-size: 16px;}
+    .portaltitle img{width: 21px;height: auto;}
+    .portalform p, .lefControls p{font-size: 16px;}
+    .imgbtn a{font-size: 14px;}
+    .portalform .portalsearch{height: 35px;line-height: 35px;}
+    .campaignstep{width: 180px;}
+    .routertable th{font-size: 14px;}
+    .comrightdetail .goneblock p, .gonedetailblock a{font-size: 21px;}
+    .goneblock > img {width: 145px;}
+    .gonedetailblock img {height: auto;width: 100px;}
+}
+
+@media screen and (max-width: 1350px) {
+    .campaigncontrol{width: 22%;}
+}
+@media screen and (max-width: 1050px) {
+    .nav-tabs > li > a {
+        font-size: 15px;
+        padding: 5px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    .imgaddrgt {
+        text-align: center;
+        width: 100%;
+    }
+
+    .imgaddrgt a {
+        float: none;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .cpnavigaion li a i {
+        background-size: 50px auto !important;
+        width: 50px;
+    }
+
+    ul.cpnavigaion li {
+        padding: 0 5%;
+    }
+
+    .thumbnail > img {
+        width: 70px !important;
+    }
+
+    .selectimg .left, .carousel-control.right {
+        background-size: 30px auto;
+        top: 20px;
+    }
+}
+
