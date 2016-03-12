@@ -75,7 +75,14 @@ class CampaignController extends Controller {
                 $images[] = "/" . (string) $file;
             }
         }
-        return View::make('campaign.create', compact('images'));
+        
+        $campaignnas= \App\Hotspot::where("nas.adminid",Auth::user()->id)
+                    ->select('nas.ssid','campaign.name','nas.id as nasid')
+                    ->leftJoin('campaign','campaign.id','=','nas.campaignid')
+                    ->get();
+        
+        $campaign=array();
+        return View::make('campaign.create', compact('images','campaignnas','campaign'));
     }
 
     /**
@@ -85,7 +92,80 @@ class CampaignController extends Controller {
      */
     public function store(Request $request) {
 
-        $input = $request->only('name', 'fontcolor', 'description', 'logoposition', 'backgroundzoom');
+        $input=Input::all();
+//        echo '<pre>';
+//        print_r($input); exit;
+         $campaign = new Campaign();
+         if($input['backgroundimage']){
+             $bgdestinationPath = 'uploads/campaign'; // upload path
+            $bgpath_parts = pathinfo($input['backgroundimage']);
+            $bgextension = $bgpath_parts['extension']; // getting image extension
+            $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // re-nameing image
+            File::copy(ltrim($input['backgroundimage'], '/'), $bgdestinationPath . '/' . $bgfileName);
+         }
+         $logofileName = "";
+        if ($request->input('logoimage')) {
+//            $logodestinationPath = 'uploads/campaign'; // upload path
+//            $logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
+//            $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // renameing image
+//            Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
+            $logodestinationPath = 'uploads/campaign'; // upload path
+            $lgpath_parts = pathinfo($input['logoimage']);
+            $logoextension = $lgpath_parts['extension'];
+            $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
+            File::copy(ltrim($input['logoimage'], '/'), $logodestinationPath . '/' . $logofileName);
+        }
+        $adfileName="";
+         if ($request->input('advertimage')) {
+             
+            $addestinationPath = 'uploads/campaign'; // upload path
+            $adpath_parts = pathinfo($input['advertimage']);
+            $adextension = $adpath_parts['extension'];
+            $adfileName = md5(time()) . rand(11111, 99999) . '.' . $adextension; // re-nameing image
+            File::copy(ltrim($input['advertimage'], '/'), $addestinationPath . '/' . $adfileName);
+        }
+          $this->validate($request, [
+            'name' => 'required',
+            'fontcolor' => 'required']
+        );
+        $input['backgroundimage'] = $bgfileName;
+        $input['logoimage'] = $logofileName;
+        $input['advertimage']=$adfileName;
+         $campaign->adminid=Auth::user()->id;
+         $campaign->name=$input['name'];
+         $campaign->backgroundimage=$input['backgroundimage'];
+         $campaign->logoimage=$input['logoimage'];
+         $campaign->fontcolor=$input['fontcolor'];
+         $campaign->description=$input['description'];
+         $campaign->logoposition=$input['logoposition'];
+         $campaign->backgroundzoom=$input['backgroundzoom'];
+         $campaign->blurImg=$input['blurImg'];
+         $campaign->advertcheck=$input['advertcheck'];
+        $campaign->advertimage=$input['advertimage'];
+        $campaign->delayPeriod=$input['delayPeriod'];
+        $campaign->fakebrowser=$input['fakebrowser'];
+        if(isset($input['fkNasId']))
+            $campaign->fkNasId=  implode(",",$input['fkNasId']);
+        
+        $campaign->adverturl=$input['adverturl'];
+        $campaign->save();
+        $campaginId=$campaign->id; 
+        if(!empty($campaign->fkNasId)){
+            $nascamp=explode(",",$campaign->fkNasId);
+            $count=count($nascamp); 
+            if($count>0){
+                foreach($nascamp as $nasval){
+                    $hotspot= \App\Hotspot::find($nasval);
+                    $hotspot->campaignid=$campaginId;
+                    $hotspot->save();
+                }
+            }
+        }
+         $successMsg = "New Campaign added successfully";
+        Session::flash('flash_message_success', $successMsg);
+        return redirect('campaign');
+        exit;
+         $input = $request->only('name', 'fontcolor', 'description', 'logoposition', 'backgroundzoom');
         $bgfileName = "";
         if ($request->input('backgroundimage')) {
 //            $bgdestinationPath = 'uploads/campaign'; // upload path
@@ -109,6 +189,9 @@ class CampaignController extends Controller {
             $logoextension = $lgpath_parts['extension'];
             $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
             File::copy(ltrim($request->input('logoimage'), '/'), $logodestinationPath . '/' . $logofileName);
+        }
+        if($input['advertimage']){
+            
         }
 
         $this->validate($request, [
@@ -142,6 +225,7 @@ class CampaignController extends Controller {
      * @return Response
      */
     public function edit($id) {
+        
         $campaign = Campaign::findOrFail($id);
         $attributes = $campaign->campaignAttributes;
         foreach ($attributes as $key => $value) {
@@ -162,8 +246,11 @@ class CampaignController extends Controller {
                 $images[] = "/" . (string) $file;
             }
         }
-
-        return view('campaign.edit', compact('campaign', 'images'));
+         $campaignnas= \App\Hotspot::where("nas.adminid",Auth::user()->id)
+                    ->select('nas.ssid','campaign.name','nas.id as nasid')
+                    ->leftJoin('campaign','campaign.id','=','nas.campaignid')
+                    ->get();
+        return view('campaign.edit', compact('campaign', 'images','campaignnas'));
     }
 
     /**
@@ -173,13 +260,106 @@ class CampaignController extends Controller {
      * @return Response
      */
     public function update($id, Request $request) {
+//        echo '<pre>';
+//        $input=Input::all();
+//        print_r($input); exit;
+       $input=Input::all();
         if (Auth::user()->type == 'superadmin') {
             $campaign = Campaign::findOrFail($id);
         } else {
             $campaign = Auth::user()->campaigns()->findOrFail($id);
         }
-
-        $input = $request->only('name', 'fontcolor', 'description', 'logoposition', 'backgroundzoom');
+        $bgfileName = $input['oldbackgroundimage'];
+        
+        if ($input['oldbackgroundimage'] != $input['backgroundimage']) {
+            $bgdestinationPath = 'uploads/campaign'; // upload path
+            
+            $bgpath_parts = pathinfo($input['backgroundimage']);
+            $bgextension = $bgpath_parts['extension']; // getting image extension
+            $bgfileName = md5(time()) . rand(11111, 99999) . '.' . $bgextension; // re-nameing image
+            File::copy(ltrim($input['backgroundimage'], '/'), $bgdestinationPath . '/' . $bgfileName);
+            
+            //Input::file('backgroundimage')->move($bgdestinationPath, $bgfileName); // uploading file to given path
+            if (File::exists($bgdestinationPath . '/' . $input['oldbackgroundimage'])) {
+                File::delete($bgdestinationPath . '/' . $input['oldbackgroundimage']);
+            }
+            }
+        
+        
+            $logofileName = $input['oldlogoimage'];
+            if ($input['oldlogoimage'] != $input['logoimage']) {
+                $logodestinationPath = 'uploads/campaign'; // upload path
+                $lgpath_parts = pathinfo($input['logoimage']);
+                $logoextension = $lgpath_parts['extension'];
+                //$logoextension = Input::file('logoimage')->getClientOriginalExtension(); // getting image extension
+                $logofileName = md5(time()) . rand(11111, 99999) . '.' . $logoextension; // re-nameing image
+                //Input::file('logoimage')->move($logodestinationPath, $logofileName); // uploading file to given path
+                File::copy(ltrim($input['logoimage'], '/'), $logodestinationPath . '/' . $logofileName);
+                if (File::exists($logodestinationPath . '/' . $input['oldlogoimage'])) {
+                    File::delete($logodestinationPath . '/' . $input['oldlogoimage']);
+                }
+            }
+        
+        $adfileName=$input['oldadvertimage'];
+         if ($input['oldadvertimage'] != $input['advertimage']) {
+             
+            $addestinationPath = 'uploads/campaign'; // upload path
+            $adpath_parts = pathinfo($input['advertimage']);
+            $adextension = $adpath_parts['extension'];
+            $adfileName = md5(time()) . rand(11111, 99999) . '.' . $adextension; // re-nameing image
+            File::copy(ltrim($input['advertimage'], '/'), $addestinationPath . '/' . $adfileName);
+            if (File::exists($addestinationPath . '/' . $input['oldadvertimage'])) {
+                File::delete($addestinationPath . '/' . $input['oldadvertimage']);
+            }
+        }
+       
+//        if($input['backgroundimage']!="")
+//            $input['backgroundimage'] = $bgfileName;
+//        else
+//            $input['backgroundimage'] = $input['oldbackgroundimage'];
+//        
+//        if($input['logoimage']!=""){
+//            
+//            $input['logoimage'] = $logofileName;
+//        }else
+//            $input['logoimage'] = $input['oldlogoimage'];
+//        
+        if($input['adverturl']!=""){
+            
+        }
+        else if($input['advertimage']!=""){
+            $input['adverturl']="";
+            $input['advertimage'] = $adfileName;
+        }
+//        }else
+//            $input['advertimage'] = $input['oldadvertimage'];
+//        
+        if(isset($input['fkNasId']))
+            $input['fkNasId']=  implode (",",$input['fkNasId']);
+        
+        $input['backgroundimage'] = $bgfileName;
+        $input['logoimage'] = $logofileName;
+        $input['advertimage'] = $adfileName;
+        
+         $campaign->update($input);
+//          $campaginId=$campaign->id; 
+//          if(!empty($campaign->fkNasId)){
+//            $nascamp=explode(",",$campaign->fkNasId);
+//            $count=count($nascamp); 
+//            if($count>0){
+//                foreach($nascamp as $nasval){
+//                    $hotspot= \App\Hotspot::find($nasval);
+//                    $hotspot->campaignid=$campaginId;
+//                    $hotspot->save();
+//                }
+//            }
+//        }
+        $successMsg = "Campaign updated successfully";
+        Session::flash('flash_message_success', $successMsg);
+        return redirect('campaign');
+        exit;
+        
+        $input = $request->only('name', 'fontcolor', 'description', 'logoposition', 'backgroundzoom','blurImg','advertcheck','advertimage','delayPeriod','delayPeriod','fakebrowser','fkNasId');
         //dd($request->input('description'));
         $bgfileName = $request->input('oldbackgroundimage');
         if ($request->input('oldbackgroundimage') != $request->input('backgroundimage')) {
@@ -300,6 +480,11 @@ class CampaignController extends Controller {
                     'success' => $success,
                     'message' => $msg,
         ));
+    }
+    public function updatecampaign($id,$campid){
+         $hotspot= \App\Hotspot::find($id);
+                    $hotspot->campaignid=$campid;
+                    $hotspot->save();
     }
 
 
