@@ -12,17 +12,31 @@
     </ul>
 </div>
 @endif
-<section class="content-header">
-    <h1>
+<section class="content-header campaignheader">
+    <ul class="camheaderleft">
+        <li><a href="#"><img src="{{ asset("img/deskicon.png") }}"></a></li>
+        <li><a href="#"><img src="{{ asset("img/tableticon.png") }}"></a></li>
+        <li><a href="#"><img src="{{ asset("img/mobileicon.png") }}"></a></li>
+    </ul>
+    <ul class="camheaderright">
+        <li><a href="javascript:void(0);" id="reset"><img src="{{ asset("img/reseticon.png") }}"><span>Reset</span></a></li>
+        <li><a href="javascript:void(0);" id="quite"><img src="{{ asset("img/quiticon.png") }}"><span>Quit Without Saving</span></a></li>
+        <li><a href="javascript:void(0)" id="save"><img src="{{ asset("img/saveicon.png") }}"><span>Save & Quit</span></a></li>
+    </ul>
+    <a href="#" class="campaignlogo">
+        <img src="{{ asset("img/campaign_logo.png") }}">
+    </a>
+    
+   <!-- <h1>
         {{ Lang::get('auth.campaignn') }}
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> {{ Lang::get('auth.home') }}</a></li>
         <li class="active">{{ Lang::get('auth.campaignn') }}</li>
         <li class="active">{{ Lang::get('auth.addcompagin') }}</li>
-    </ol>
+    </ol>-->
 </section>
-{!! Form::open(array("class"=>"form-horizontal","url"=> url('campaign'),"files"=>"true")) !!}
+{!! Form::open(array("class"=>"form-horizontal","url"=> url('campaign'),"files"=>"true","id"=>"campform")) !!}
 @include('campaign._form')
 {!! Form::close() !!}
 @include('campaign.gallery')
@@ -97,7 +111,28 @@
         $('.imgbtnlogo a:first').trigger('click');
         $("#backgroundzoom").val('100');
         $('#fontcolor').val('#222222');
+        $("#save").click(function(){
+            $("#campform").submit();
+        })
     });
 
 </script>
+
+
+<script type="text/javascript">
+            
+            var $window = $(window);
+                var nav = $('.campaignheader');
+                $window.scroll(function(){
+                    if ($window.scrollTop() >= 50) {
+                       nav.addClass('stickyheader');
+                    }
+                    else {
+                       nav.removeClass('stickyheader  ');
+                    }
+                }); 
+           
+        </script>
+
+
 @endpush

@@ -12,18 +12,31 @@
     </ul>
 </div>
 @endif
-<section class="content-header">
-    <h1>
+<section class="content-header campaignheader">
+    <ul class="camheaderleft">
+        <li><a href="#"><img src="{{ asset("img/deskicon.png") }}"></a></li>
+        <li><a href="#"><img src="{{ asset("img/tableticon.png") }}"></a></li>
+        <li><a href="#"><img src="{{ asset("img/mobileicon.png") }}"></a></li>
+    </ul>
+    <ul class="camheaderright">
+         <li><a href="javascript:void(0);" id="reset"><img src="{{ asset("img/reseticon.png") }}"><span>Reset</span></a></li>
+        <li><a href="javascript:void(0);" id="quite"><img src="{{ asset("img/quiticon.png") }}"><span>Quit Without Saving</span></a></li>
+        <li><a href="javascript:void(0)" id="save"><img src="{{ asset("img/saveicon.png") }}"><span>Save & Quit</span></a></li>
+    </ul>
+    <a href="#" class="campaignlogo">
+        <img src="{{ asset("img/campaign_logo.png") }}">
+    </a>
+<!--    <h1>
         Campaign
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Campaign</li>
         <li class="active">Edit Campaign</li>
-    </ol>
+    </ol>-->
 </section>
 <!-- form start -->
-{!! Form::model($campaign,["method"=>"PATCH","class"=>"form-horizontal","action"=> ['CampaignController@update',$campaign->id],"files"=>"true"]) !!}
+{!! Form::model($campaign,["method"=>"PATCH","class"=>"form-horizontal","action"=> ['CampaignController@update',$campaign->id],"files"=>"true","id"=>"campform"]) !!}
 @include('campaign._form')
 {!! Form::close() !!}
 @include('campaign.gallery')
@@ -55,7 +68,9 @@ jQuery(document).ready(function () {
         }
     });
 
-
+$("#save").click(function(){
+            $("#campform").submit();
+        })
     $('#headerBg').text($('#fontcolor').val());
     $('#preview .navbar').css('background-color', $('#fontcolor').val());
     $('#preview .navbar-brand').css('text-align', $('input[name=logoposition]').val());
@@ -64,6 +79,40 @@ jQuery(document).ready(function () {
 	
 
 });
+function checkboxCamp(id){
+var APP_URL = {!! json_encode(url('/')) !!};
+ var vale=$("#checkbox"+id).val();
+if($("#checkbox"+id).prop("checked")==true)
+{
+    var appurl=APP_URL+'/updatecampaign/'+vale+'/'+ {!! $campaign->id !!};
+}else{
+     var appurl=APP_URL+'/updatecampaign/'+vale+'/1';
+}
+
+    $.ajax({
+        url:appurl,
+        type:'get',
+        success:function(data){
+        } 
+    });
+}
 
 </script>
+
+
+<script type="text/javascript">
+            
+            var $window = $(window);
+                var nav = $('.campaignheader');
+                $window.scroll(function(){
+                    if ($window.scrollTop() >= 50) {
+                       nav.addClass('stickyheader');
+                    }
+                    else {
+                       nav.removeClass('stickyheader  ');
+                    }
+                }); 
+           
+        </script>
+
 @endpush
