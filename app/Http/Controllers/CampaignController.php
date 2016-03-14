@@ -143,13 +143,17 @@ class CampaignController extends Controller {
          $campaign->backgroundzoom=$input['backgroundzoom'];
          $campaign->blurImg=$input['blurImg'];
          $campaign->advertcheck=$input['advertcheck'];
-        $campaign->advertimage=$input['advertimage'];
+         if($input['advertcheck']==0)
+            $campaign->advertimage=$input['advertimage'];
+         else
+              $campaign->adverturl=$input['adverturl'];
+         
         $campaign->delayPeriod=$input['delayPeriod'];
         $campaign->fakebrowser=$input['fakebrowser'];
         if(isset($input['fkNasId']))
             $campaign->fkNasId=  implode(",",$input['fkNasId']);
         
-        $campaign->adverturl=$input['adverturl'];
+       
         $campaign->save();
         $campaginId=$campaign->id; 
         if(!empty($campaign->fkNasId)){
@@ -343,7 +347,11 @@ class CampaignController extends Controller {
         $input['backgroundimage'] = $bgfileName;
         $input['logoimage'] = $logofileName;
         $input['advertimage'] = $adfileName;
-        
+         $this->validate($request, [
+            'name' => 'required',
+            'fontcolor' => 'required',
+            'fakebrowser'=>'required' ]
+        );
          $campaign->update($input);
 //          $campaginId=$campaign->id; 
 //          if(!empty($campaign->fkNasId)){
