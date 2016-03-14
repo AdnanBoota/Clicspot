@@ -254,7 +254,7 @@ class CampaignController extends Controller {
             }
         }
          $campaignnas= \App\Hotspot::where("nas.adminid",Auth::user()->id)
-                    ->select('nas.ssid','campaign.name','nas.id as nasid')
+                    ->select('nas.ssid','campaign.name','nas.id as nasid','nas.campaignid')
                     ->leftJoin('campaign','campaign.id','=','nas.campaignid')
                     ->get();
         return view('campaign.edit', compact('campaign', 'images','campaignnas'));
@@ -496,6 +496,18 @@ class CampaignController extends Controller {
          $hotspot= \App\Hotspot::find($id);
                     $hotspot->campaignid=$campid;
                     $hotspot->save();
+                    if($hotspot){
+                        $success = true;
+                        $msg="Update successfully";
+                    }
+                    else{
+                        $success = false;
+                        $msg = "Something went wrong , Please try again later.";
+                    }
+                    return Response::json(array(
+                    'success' => $success,
+                    'message' => $msg,
+        ));
     }
 
 
