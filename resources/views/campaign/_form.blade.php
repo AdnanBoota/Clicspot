@@ -948,17 +948,20 @@
                         <div class="col-md-6 campaignbox">
                             <div class="advertblock">
                                 <p>L’accès Internet vous est offert par</p>
-                               <?php if(isset($campaign->advertcheck) && $campaign->advertcheck==1){ ?>
-                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php echo isset($campaign->adverturl) ? $campaign->adverturl :asset("/img/Clicspot-Grey.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
-                               <?php }else{ ?>
-                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php echo isset($campaign->advertimage) && $campaign->advertimage!="" ? asset('/uploads/campaign/'.$campaign->advertimage) :asset("/img/Clicspot-Grey.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
-                               <?php } ?> 
-                                <!--                               
-                                            <img src="{{ asset("/img/pizzaimg.png") }}" alt="logo" id="advertimg" width="100" height="100"> -->
-                                <p>Vous allez être connecté dans 5</p>
+                               <?php //if(isset($campaign->advertcheck) && $campaign->advertcheck==1){ ?>
+<!--                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php //echo isset($campaign->adverturl) ? $campaign->adverturl :asset("/img/Clicspot-Grey.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>-->
+                               <?php //}else{ ?>
+<!--                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php //echo isset($campaign->advertimage) && $campaign->advertimage!="" ? asset('/uploads/campaign/'.$campaign->advertimage) :asset("/img/Clicspot-Grey.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>-->
+                               <?php //} ?> 
                                 
-<!--                                 <iframe src="demo_iframe.htm" style="border:none"></iframe>-->
-                                
+                                 <div id="" width="100" height="100" style="background-image:url({{ asset('/img/Clicspot-Grey.png') }} );height:40px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
+                                 <p>Vous allez être connecté dans <span id="delayrange"><?php echo isset($campaign->delayPeriod) ? $campaign->delayPeriod : '0' ?></span></p>
+                                  <?php
+                                 
+                                  ?>
+                                  <iframe src="<?php echo isset($campaign->advertcheck) && $campaign->advertcheck==1 ? $campaign->adverturl : ''; ?>" id="iframeAdvert" style="border:none;max-width: 100%;min-height: 545px;width: 600px;"></iframe>
+                                  <div id="advertimg"  style="background-image: url(<?php echo isset($campaign->advertcheck) && $campaign->advertcheck==0 ? asset('/uploads/campaign/'.$campaign->advertimage) : '' ?>) ;height:500px;width:auto;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
+                               
                             </div>
                         </div>
                     <div class="col-md-2 campaigncontrol">
@@ -1326,7 +1329,10 @@
         $("#delayPeriod").ionRangeSlider({
             min: 0,
             max: 20,
-            step: 1
+            step: 1,
+            onChange: function (data) {
+                $('#delayrange').html(data.from);
+            }
             
         });
 
@@ -1424,21 +1430,33 @@ $(function(){
 //    $(".linkicon").focus(function(){
 //       $("#cmn-toggle-2").trigger("click");
 //    });
-    $("#dragurl").blur(function(){
-         var img=$(this).val();
-         if(img.length>0)
-         $("#advertimg").css("background-image", "url(" + img + ")");
-         
-    });
+     <?php if(isset($campaign->advertcheck) && $campaign->advertcheck==1){  ?>
+         $("#iframeAdvert").show(); $("#advertimg").hide();
+     <?php }else{ ?>
+        $("#iframeAdvert").hide();    
+     <?php }
+     ?>
+     
      $("#cmn-toggle-2").change(function(){
         $(this).attr("checked","checked");
         if($(this).prop("checked")==true){
+            
          $("#dragurl").removeAttr("readonly");  
          $("#myCarousel").addClass("disabledbutton");
          $("#advertcheck").val('1');
+         $("#advertimg").hide();
+         $("#iframeAdvert").show();
+         //$("#advertimg").css('background-image', 'none');
         }else{
             $(this).removeAttr("checked");
-            $("#dragurl").val(' ');
+             <?php if(isset($campaign->advertcheck) && $campaign->advertcheck==1){  ?>
+             <?php }else{ ?>
+             $("#dragurl").val(' ').css("border-color","none");
+                 <?php }?>
+           
+            //$("#iframeAdvert").attr('src','');
+             $("#advertimg").show();
+            $("#iframeAdvert").hide();
          $("#myCarousel").removeClass("disabledbutton");  
           $("#dragurl").attr("readonly","readonly");
           $("#advertcheck").val('0');
@@ -1459,6 +1477,21 @@ $(function(){
         $("#advertiframe").focus();
         return false;
     });
+    $("#dragurl").blur(function(){
+     var pattern = /^(http|https)?:\/\/[a-zA-Z0-9-\.]+\.[a-z]{2,4}/;
+     var url=$(this).val();
+        if(url.length>0){
+        if(pattern.test(url)){
+        $("#dragurl").css("border-color","green");
+    }else{
+        $("#dragurl").css("border-color","red");
+    }
+    }
+        $("#iframeAdvert").attr("src",url);
+        $("#iframeAdvert").focus();
+        return false;
+    });
+    
     
     $("#quite").click(function(){
         var APP_URL = {!! json_encode(url('/')) !!};
