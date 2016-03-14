@@ -31,7 +31,10 @@ class HotspotLoginController extends Controller {
         Session::put('calledmac', $mac);
         $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
         if ($hotspot) {
-            $redirectURLOnSuccess = $hotspot->redirectUrl;
+            $campaign = $hotspot->campaign;
+            //$redirectURLOnSuccess = $hotspot->redirectUrl;
+            if($campaign->fakebrowser && $campaign->fakebrowser != "")
+            $redirectURLOnSuccess = $campaign->fakebrowser;
             session(
                     [
                         'redirectURL' => $redirectURLOnSuccess
@@ -55,21 +58,25 @@ class HotspotLoginController extends Controller {
     public function login() {
         $flag = "true";
         $updateSubscriber = array();
+         $mac = Session::get('mac');
+        $calledmacd = Session::get('calledmac'); 
+        $hotspot = Hotspot::where('nasidentifier', "=", $calledmacd)->first();
         $mac = Session::get('mac');
-        $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
-        $mac = Session::get('mac');
-        $hotspotAttr = array();
+        $hotspotAttr = $campaign = array();
+        
         $redirectURL = "https://www.google.com";
         if ($hotspot) {
+            
             $hotspotAttr = HotspotAttributes::select(DB::raw('users.username,users.type,nas_attributes.nasid,nas_attributes.type,nas_attributes.attribute,nas_attributes.value'))
                     ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
                     ->join('users', 'nas_attributes.type', '=', 'users.type')
                     ->where('users.username', '=', Request::get('username'))
                     ->where('nas.id', '=', $hotspot->id)
                     ->get();
-
-            if ($hotspot->redirectUrl && $hotspot->redirectUrl != "") {
-                $redirectURL = $hotspot->redirectUrl;
+             $campaign = $hotspot->campaign;
+            if($campaign->fakebrowser && $campaign->fakebrowser != ""){
+                 //$redirectURL = $hotspot->redirectUrl;
+                 $redirectURL = $campaign->fakebrowser;
             } else {
                 $redirectURL = "https://www.google.com";
             }
@@ -122,7 +129,10 @@ class HotspotLoginController extends Controller {
         // */
         $password = 1;
         //exit;
-        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr'));
+        if(isset($campaign->delayPeriod) && $campaign->delayPeriod>0)
+        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr','campaign'));
+       else
+           return redirect("{$redirectURL}");
     }
 
     /**
