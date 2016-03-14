@@ -18,44 +18,30 @@ $pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
         <meta http-equiv="Cache-control" content="no-cache">
         <meta http-equiv="Pragma" content="no-cache">
           <meta http-equiv="refresh" content="0;url=http://{{$uamip}}:{{$uamport}}/logon?username={{$username}}&password={{$pappassword}}">
-        <link href="{{ asset('/css/loginnew.css') }}" rel="stylesheet" type="text/css"/>      
+        <link href="{{ asset('/css/loginnew.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css"/>  
+<link href="{{ asset('/css/campaign.css') }}" rel="stylesheet" type="text/css"/> 
+<style type="text/css">
+    .advertblock{
+        height: 100%;
+    }
+</style>
     </head>
     <body>
-        <div class="timerblock" style="background:#0090FF;">
-            <div class="logo">
-                <img src="{{ asset("/img/logo-white.png") }}">
-            </div>
-            <h1>Your location offer you today</h1>
-            <div class="timerdtl">
-                @foreach ($hotspotAttr as $hotspot)
-                @if ($hotspot->attribute=="Session-Timeout")
-                <div class="timercmn timerdtllft">
-                    <img src="{{ asset("/img/locimg1.png") }}">
-
-                    <span>{{gmdate("H",$hotspot->value)}} Hours</span>
-
-                </div>
-                @endif
-                @endforeach
-                @foreach ($hotspotAttr as $hotspot)
-                @if ($hotspot->attribute=="ChilliSpot-Bandwidth-Max-Up")
-
-                <div class="timercmn timerdtlrgt">
-                    <img src="{{ asset("/img/locimg2.png") }}">
-                    <span>{{$hotspot->value/1024}} Mpbs</span>
-                </div>
-                @endif
-                @endforeach
-            </div>
-            @if(empty($hotspotAttr))
-            <h1>You need to create the hostpost for more information</h1>
-            @endif
-            <h1>You will be redirected in. . .<span class="countTimerClock">5</span></h1>
-        </div>
+    <div class="advertblock">
+              <p>L’accès Internet vous est offert par</p>
+               <div id="" width="100" height="100" style="background-image:url(http://admin.clicspot.com/img/Clicspot-Grey.png );height:40px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
+               <p>Vous allez être connecté dans <span class="countTimerClock">{{ $campaign->delayPeriod }}</span></p>
+                <?php  if($campaign->advertcheck==1) { ?>
+                <iframe src="<?php echo $campaign->adverturl; ?> " id="iframeAdvert" style="border: none;width:100%;height:100%;"></iframe>
+                <?php }else{ ?>
+                <div id="advertimg" style="background-image: url({{ asset('/uploads/campaign/'.$campaign->advertimage) }}) ;width:100%;height:100%;background-repeat: no-repeat;margin: 0 auto;background-size:100%" class="ui-droppable"></div>
+                <?php } ?>
+    </div>
         <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
         <script type="text/javascript">
 function countTimer() {
-    var counter = 5;
+    var counter = {{ $campaign->delayPeriod }};
     var interval = setInterval(function() {
         counter--;
         $(".countTimerClock").html(counter);
