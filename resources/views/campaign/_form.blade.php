@@ -1094,7 +1094,7 @@
                                         $checked="";
                                         foreach ($campaignnas as $key => $value) { 
                                             
-                                            if($campaign->id==$value->campaignid){
+                                            if(isset($campaign->id) && $campaign->id ==$value->campaignid){
                                                 $checked="checked='checked'";
                                             }else{
                                                 $checked='';
