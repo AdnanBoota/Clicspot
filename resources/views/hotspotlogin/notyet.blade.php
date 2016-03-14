@@ -39,6 +39,11 @@
                         background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
             @endif
                             -webkit-background-size: cover;
+                            @if(isset($campaign->blurImg) && $campaign->blurImg==1)
+            opacity: .5;
+        @else
+            opacity: 1;
+            @endif
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
