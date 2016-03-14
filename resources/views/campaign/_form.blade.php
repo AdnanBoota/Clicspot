@@ -1082,12 +1082,9 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $nas=[];
+                                   
                                     
-                                        if(isset($campaign->fkNasId)){
-                                            $nas=explode(',',$campaign->fkNasId);
-                                        }
-//                                        echo '<pre>';
+                                         
 //                                        print_r($nas); 
 //                                        foreach ($campaignnas as $key => $value) { 
 //                                            echo $key;
@@ -1096,7 +1093,8 @@
                                         
                                         $checked="";
                                         foreach ($campaignnas as $key => $value) { 
-                                            if(in_array($value->nasid, $nas)){
+                                            
+                                            if($campaign->id==$value->campaignid){
                                                 $checked="checked='checked'";
                                             }else{
                                                 $checked='';
