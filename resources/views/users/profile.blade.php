@@ -137,7 +137,7 @@
                                     @endif
                                     @endif
 
-                                    <a href="#" class="users-list-name">{{$latestUser->name}}</a>
+                                    <a href="{{ $latestUser->userId }}" class="users-list-name">{{$latestUser->name}}</a>
                                     <span class="users-list-date">{{ $latestUser->joinDate }}</span>
                                 </li>
                                 @endforeach
@@ -247,7 +247,7 @@
                             <h3>{{$getRounterInfo->routerName}}</h3>
                             <p><label>{{ Lang::get('auth.visits')}} :</label>{{$getRounterInfo->totalVisit}}</p>
                             <p><label>{{ Lang::get('auth.lastvisit')}} :</label>{{$getRounterInfo->LastVisitDate}}</p>
-                        </div>
+                         </div>
                         <div class="hismaildetail_img plusimg">
                             <a href="#"><i class="fa fa-plus"></i></a>
                         </div>
