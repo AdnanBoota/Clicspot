@@ -24,7 +24,7 @@
                         <li class="current active"><span class="setup">Setup</span></i>
                             <dl class="subdetail">
                                 <dt>Name: </dt>
-                                <dd class="ng-binding">{{isset($campaignData->campaignName) && $campaignData->campaignName != '' ? $campaignData->campaignName:''}}</dd>
+                                <dd class="ng-binding" id="campaignGetName">{{isset($campaignData->campaignName) && $campaignData->campaignName != '' ? $campaignData->campaignName:''}}</dd>
 
                                 <dt>From Name:</dt>
                                 <dd class="ng-binding">{{isset($campaignData->fromName) && $campaignData->fromName != '' ? $campaignData->fromName:''}}</dd>
@@ -36,14 +36,14 @@
                         <li><span class="setup">Build</span>
                             <dl class="subdetail">
                                 <dt>Template used: </dt>
-                                <dd class="ng-binding">Template 01</dd>    
+                                <dd class="ng-binding" id="templateGetName">Template 01</dd>    
                             </dl>
                         </li>
                         <li><span class="setup">Recipients</span>
                             <dl class="subdetail">
                                 <dt>Mailing lists:</dt>
-                                <dd class="ng-binding">Email List 1</dd>    
-                                <dd class="ng-binding">Email List 2</dd>    
+                                <dd class="ng-binding" id="emailGetList">Email List 1</dd>    
+<!--                                <dd class="ng-binding">Email List 2</dd>    -->
                             </dl>
                         </li>
                         <li class="last"><span class="setup">Confirm</span></li>
@@ -174,7 +174,7 @@ function validationForm() {
     });
 }
 
-function sendCampaignMail(id, name, email, fromName, fromEmail) {
+function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
     jQuery.ajax({
         url: 'sendCampaignMail',
         type: 'post',
@@ -184,7 +184,8 @@ function sendCampaignMail(id, name, email, fromName, fromEmail) {
             "templateName": name,
             "emailAddress": email,
             "fromName": fromName,
-            "fromEmail": fromEmail
+            "fromEmail": fromEmail,
+            "subjectEmail":subjectEmail
 
         },
         success: function(result) {
@@ -285,7 +286,8 @@ $(document).on("click", ".sendMail", function() {
     });
     var senderEmail = $("#senderEmail").val();
     var senderName = $("#senderName").val();
-    sendCampaignMail(templateID, templateName, emailAddress, senderName, senderEmail);
+    var subjectEmail=$("#subjectEmail").val();
+    sendCampaignMail(templateID, templateName, emailAddress, senderName, senderEmail,subjectEmail);
 
 });
 $(document).on('change', '#templateId', function(e) {
@@ -297,6 +299,10 @@ $(document).on('change', '#templateId', function(e) {
     $("#templatePreview").attr("src", APP_URL + "/template_builder/html/"+{{$adminid}}+"/" + templateName + ".html");
 });
 $('#emailListId').on('change', function() {
+    var emailGetList=$("#emailListId option:selected").text();
+       if(emailGetList.length>0)
+           $("#emailGetList").html(emailGetList);
+       
     myVal = this.selectedOptions[0].value;
     oTable.draw();
 });
@@ -321,8 +327,9 @@ $(document).on("click", "#sendTestAddress", function() {
     testEmailAddress.push({"email": $("#testEmailAddress").val()});
     var senderEmail = $("#senderEmail").val();
     var senderName = $("#senderName").val();
+     var subjectEmail=$("#subjectEmail").val();
     if (testEmailAddress.length != 0) {
-        sendCampaignMail(templateID, templateName, testEmailAddress, senderName, senderEmail);
+        sendCampaignMail(templateID, templateName, testEmailAddress, senderName, senderEmail,subjectEmail);
     }
 });
 $(document).on("click", ".editLink", function() {
@@ -370,6 +377,12 @@ $(document).on("click", ".editLink", function() {
      document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
     delete_cookie('camEmailSetup');
+      
+    $("#campaignName").blur(function(){
+        var campaignGetName=$(this).val();
+        if(campaignGetName.length>0)
+            $("#campaignGetName").html(campaignGetName);
+    });
 
 </script>
 
