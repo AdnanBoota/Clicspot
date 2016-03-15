@@ -301,6 +301,7 @@ a:hover{
     right: 0;
     border: 2px solid #1abc9c;
     padding: 12px 0 0 30px !important;
+    margin-top: 3px !important;
 }
 .formrow .quiklistrow label{
     font-family: 'latobold'; 
