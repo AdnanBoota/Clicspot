@@ -70,6 +70,7 @@
 <script type="text/javascript">
 var oTable;
 $(function() {
+    
     oTable = $('#emailCampaign-Table').DataTable({
         processing: true,
         serverSide: true,
@@ -119,6 +120,10 @@ function validationForm() {
             },
             'fromName': {
                 required: true
+            },
+            'subjectEmail':{
+                required: true,
+                email:true
             },
             'templateId': {
                 required: true
@@ -172,7 +177,7 @@ function validationForm() {
     });
 }
 
-function sendCampaignMail(id, name, email, fromName, fromEmail) {
+function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
     jQuery.ajax({
         url: 'sendCampaignMail',
         type: 'post',
@@ -182,11 +187,11 @@ function sendCampaignMail(id, name, email, fromName, fromEmail) {
             "templateName": name,
             "emailAddress": email,
             "fromName": fromName,
-            "fromEmail": fromEmail
+            "fromEmail": fromEmail,
+            "subjectEmail":subjectEmail
 
         },
         success: function(result) {
-
             emailAddress = [];
             swal({
                 title: "Campaign Send",
@@ -226,7 +231,6 @@ $(document).ready(function() {
     });
     validationForm();
     $(document).on("click", ".nextbtn", function() {
-
         var valid = $('form').valid();
         if (valid) {
             $(document).find(".currentForm").removeClass("currentForm").next().addClass("currentForm");
@@ -261,7 +265,8 @@ $(document).ready(function() {
         });
         var senderEmail = $("#senderEmail").val();
         var senderName = $("#senderName").val();
-        sendCampaignMail(templateID, templateName, emailAddress, senderName, senderEmail);
+        var subjectEmail=$("#subjectEmail").val();
+        sendCampaignMail(templateID, templateName, emailAddress, senderName, senderEmail,subjectEmail);
     });
     $(document).on('change', '#templateId', function(e) {
 
@@ -293,8 +298,9 @@ $(document).ready(function() {
         testEmailAddress.push({"email": $("#testEmailAddress").val()});
         var senderEmail = $("#senderEmail").val();
         var senderName = $("#senderName").val();
+        var subjectEmail=$("#subjectEmail").val();
         if (testEmailAddress.length != 0) {
-            sendCampaignMail(templateID, templateName, testEmailAddress, senderName, senderEmail);
+            sendCampaignMail(templateID, templateName, testEmailAddress, senderName, senderEmail,subjectEmail);
         }
     });
     $("#currentFormIndex").val('1');
