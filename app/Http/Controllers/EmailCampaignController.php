@@ -177,10 +177,12 @@ class EmailCampaignController extends Controller {
 
     public function sendEmail() {
         $input = Input::all();
+        //return Response ::json(array('data'=>$input));
         $userId = Auth::user()->id;
-
+        
         $msgBody = "";
-        $subject = "Email Template For ClicSpot";
+        //$subject = "Email Template For ClicSpot";
+        $subject=$input['subjectEmail'];
         $message = "this is testing";
         $sendToUser = $input['emailAddress'];
         Mail::send('email.emailTemplate', array('msgBody' => $msgBody, 'templateId' => $input['templateId'], 'templateName' => $input['templateName'], 'userId' => $userId), function ($message) use ($sendToUser, $subject, $input) {
