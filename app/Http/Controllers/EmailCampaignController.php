@@ -134,7 +134,8 @@ class EmailCampaignController extends Controller {
         $campaignData->router = explode(',', $campaignData->router);
         $campaignData->age = explode(';', $campaignData->age);
         $emailTemplate = Auth::user()->emailTemplates()->select('templateName', 'id')->lists('templateName', 'id');
-        $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
+        //$routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
+        $routers = Auth::user()->hotspots()->select('ssid')->lists('ssid', 'ssid');
         $emailList = Auth::user()->emailList()->select('listname', 'id')->lists('listname', 'id');
         return View::make('email.emailSetupEdit', compact('campaignData', 'emailTemplate', 'emailList', 'routers','adminid','email','username'));
     }
