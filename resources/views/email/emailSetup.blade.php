@@ -24,7 +24,7 @@
                         <li class="current setupno">{{ Lang::get('auth.setup')}}<i class="fa fa-pencil pencil-show"></i>
                             <dl class="subdetail">
                                 <dt>{{ Lang::get('auth.name')}}: </dt>
-                                <dd class="ng-binding">{{ Lang::get('auth.mycampaign')}}</dd>
+                                <dd class="ng-binding" id="campaignGetName">{{ Lang::get('auth.mycampaign')}}</dd>
 
                                 <dt>{{ Lang::get('auth.Formname')}}:</dt>
                                 <dd class="ng-binding">Nans</dd>
@@ -36,14 +36,14 @@
                         <li>{{ Lang::get('auth.temp')}}
                             <dl class="subdetail">
                                 <dt>{{ Lang::get('auth.tempuse')}}: </dt>
-                                <dd class="ng-binding">{{ Lang::get('auth.temp')}} 01</dd>    
+                                <dd class="ng-binding" id="templateGetName">{{ Lang::get('auth.temp')}} 01</dd>    
                             </dl>
                         </li>
                         <li>{{ Lang::get('auth.recipients')}} 
                             <dl class="subdetail">
                                 <dt>{{ Lang::get('auth.maillist')}}:</dt>
-                                <dd class="ng-binding">{{ Lang::get('auth.emaillist')}} 1</dd>    
-                                <dd class="ng-binding">{{ Lang::get('auth.emaillist')}} 2</dd>    
+                                <dd class="ng-binding" id="emailGetList">{{ Lang::get('auth.emaillist')}} 1</dd>    
+<!--                                <dd class="ng-binding">{{ Lang::get('auth.emaillist')}} 2</dd>    -->
                             </dl>
                         </li>
                         <li class="last">{{ Lang::get('auth.confirm')}}</li>
@@ -272,10 +272,17 @@ $(document).ready(function() {
 
         templateID = this.value;
         templateName = $("#templateId option:selected").text();
+        if(templateName.length>0)
+            $("#templateGetName").html(templateName);
+    
         $("#templatePreviewHidden").val(APP_URL + "/template_builder/html/"+{{$adminid}}+"/" + templateName + ".html");
         $("#templatePreview").attr("src", APP_URL + "/template_builder/html/"+{{$adminid}}+"/" + templateName + ".html");
     });
     $('#emailListId').on('change', function() {
+       var emailGetList=$("#emailListId option:selected").text();
+       if(emailGetList.length>0)
+           $("#emailGetList").html(emailGetList);
+       
         myVal = this.selectedOptions[0].value;
         oTable.draw();
     });
@@ -332,6 +339,12 @@ $(document).ready(function() {
         });
     });
     $("#templateId").trigger('change');
+    
+    $("#campaignName").blur(function(){
+        var campaignGetName=$(this).val();
+        if(campaignGetName.length>0)
+            $("#campaignGetName").html(campaignGetName);
+    });
 });
 function delete_cookie(name) {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
