@@ -73,7 +73,8 @@ class EmailCampaignController extends Controller {
     $username=$userDetails->username;
         //  $emailTemplate = Emails::select(DB::raw('id,adminid,templateName'))->get();
         $emailTemplate = Auth::user()->emailTemplates()->select('templateName', 'id')->lists('templateName', 'id');
-        $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
+        //$routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier', 'nasidentifier');
+         $routers = Auth::user()->hotspots()->select('ssid')->lists('ssid', 'ssid');
         $emailList = Auth::user()->emailList()->select('listname', 'id')->lists('listname', 'id');
         //    $emailList = Auth::user()->emailList()->select('listname', 'id')->get();
         return View::make('email.emailSetup', compact('emailTemplate', 'emailList', 'routers','adminid','email','username'));
