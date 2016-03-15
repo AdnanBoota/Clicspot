@@ -230,6 +230,8 @@ $(document).ready(function() {
 console.log($(".setupstep ul").children().length);
 var templateID =$("#templateId").val();
 var templateName= $("#templateId option:selected").text();
+        if(templateName.length>0)
+            $("#templateGetName").html(templateName);
 var formName = "";
 var myVal;
         var APP_URL = {!! json_encode(url('/')) !!};
