@@ -143,7 +143,7 @@
                                 <img src="{{ asset("img/female.png") }}" />
                                 @endif
                                 @endif
-                                <a href="#" class="users-list-name">{{$latestUser->name}}</a>
+                                <a href="users/profile/{{ $latestUser->userId }}" class="users-list-name">{{$latestUser->name}}</a>
                                 <span class="users-list-date">{{ $latestUser->joinDate }}</span>
                             </li>
                             @endforeach
@@ -201,6 +201,7 @@ function getChartAjax(typeOfData, getAllData) {
 
         },
         success: function(result) {
+            console.log(result);
             if (result['routerConnection']) {
                 monthValueArray.length = 0;
                 monthKeyArray.length = 0;
