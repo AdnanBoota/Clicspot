@@ -42,8 +42,8 @@
                         <li>{{ Lang::get('auth.recipients')}} 
                             <dl class="subdetail">
                                 <dt>{{ Lang::get('auth.maillist')}}:</dt>
-                                <dd class="ng-binding" id="emailGetList">{{ Lang::get('auth.emaillist')}} 1</dd>    
-<!--                                <dd class="ng-binding">{{ Lang::get('auth.emaillist')}} 2</dd>    -->
+                                <dd class="ng-binding" id="emailGetList"></dd>    
+<!--                                <dd class="ng-binding">{{ Lang::get('auth.emaillist')}} 2</dd>    {{ Lang::get('auth.emaillist')}} 1-->
                             </dl>
                         </li>
                         <li class="last">{{ Lang::get('auth.confirm')}}</li>
