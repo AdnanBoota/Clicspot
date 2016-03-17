@@ -278,5 +278,20 @@ website:',
     'wondering'=>'By the way, if you\'re wondering where you can find more of this fine meaty filler, visit',
     'shareawesome'=>'Share the Awesomeness',
     'cmpnynm'=>'Company Name',
-    'unsubscribe'=>'Unsubscribe'
+    'unsubscribe'=>'Unsubscribe',
+    //review email
+    'visiting'=>'Thank you for visiting',
+    'hope'=>'we hope you\'re satisfied with the way we served you.',
+    'leavefeedback'=>'We would love to know more about your experience. To leave your feedback, please answer the question below',
+    'recommend'=>'Would you recommend your experience at',
+    'tofriend'=>'to your friends ?',
+    'goodtime'=>'Yes, I had a good times ! ',
+    'tellyou'=>'Not really, but I will tell you why.',
+    'notequestion'=>'(Please note: this question applies only to the service you received from your representative. To leave feedback on service or policies, please reply to this email.)',
+    'feedback-it'=>'Thanks for sharing your feedback—it will help to improve our services.',
+    'regards'=>'Best regards,',
+    'team'=>'Team',
+    'feb'=>'Feb'
+
+
 ];
