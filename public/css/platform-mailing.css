@@ -1,3 +1,6 @@
+@import url('../fonts/stylesheet.css');
+
+
 .tabpart li{
     width: 180px;
 }
@@ -243,12 +246,347 @@
 }
 .manualbtn a.draftbtn.active i , .manualbtn a.draftbtn:hover i {
     background: url('../img/drafticon_active.png') no-repeat;
-}
-
+} 
 .manualbtn a.active .notiblk ,.manualbtn a:hover .notiblk{
     background: #fff;
     color: #1abc9c;
 }
+
+
+/*----- email plateform automatic 14-march -----*/
+
+.mailingicon {
+    margin: 0 6px 0 0 !important;
+}
+.mailingicon img {
+    position: relative;
+    top: -3px;
+    width: 30px;
+}
+.newautomaticplatform{
+    padding: 90px 0;
+}
+.mailplateformnewtable{
+    width: 96%;
+    margin: 0 auto;
+}
+.mailplateformnewtable thead{
+    border-bottom: 2px solid #d7dcde;
+}
+.mailplateformnewtable thead th{
+    font-family: 'latobold';
+    font-size: 24px;
+    color: #2c3e50; 
+    padding:10px 5px;
+    text-align: center;
+}
+.mailplateformnewtable thead th:first-child{
+    width: 30%;
+}
+.mailplateformnewtable thead th:nth-child(2){
+    width: 40%;
+    text-align: left;
+}
+.mailplateformnewtable thead th:nth-child(3){
+    width: 15%;
+}
+.mailplateformnewtable thead th:last-child{
+    width: 15%;
+}
+.mailplateformnewtable tbody tr td:nth-child(3){
+    text-align: center;
+}
+.mailplateformnewtable tbody tr td:first-child{
+    text-align: center;
+}
+.mailplateformnewtable tbody tr td{
+    padding: 10px 5px;
+    font-size: 22px;
+    font-family: 'latoregular';
+    color: #95a0aa;
+}
+.mailplateformnewtable tbody tr td img{
+    float: left;
+}
+.mailplateformnewtable tbody tr td span{ 
+    font-family: 'latobold';
+    color: #1abc9c; 
+    margin-right: 15px;
+    display: inline-block;
+    margin-top: 12px;
+}
+.mailplateformnewtable tbody tr{
+    border-bottom: 2px solid #d7dcde;
+}
+.mailplateformnewtable tbody tr td canvas {
+    height: 50px !important;
+    width: 100px !important;
+}
+.switch {
+    margin: auto;
+    width: 90px;
+}
+.switch input.cmn-toggle-round + label{
+    height: 25px;
+    width: 87px; 
+}
+.switch input.cmn-toggle-round + label::before{
+    border-radius: 5px;
+    background: url('../img/crossicon.png') no-repeat #bdc3c7;
+    background-position:60% center;
+}
+.switch  input.cmn-toggle-round:checked + label::before{
+    background: url('../img/righticon_green1.png') no-repeat #2c3e50;
+    background-position: center;
+    background-position:40% center;
+}
+.switch input.cmn-toggle-round + label::after{
+    width: 25px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: none;
+    background: #7f8c8d;
+}
+.switch input.cmn-toggle-round:checked + label::after{
+    width: 25px;
+    border-radius:0 5px 5px 0;
+    box-shadow: none;
+    background: #1abc9c;
+}
+
+
+
+.emailreviewblock{
+    border: 2px dotted #d7dcde;
+    margin: 40px 30px;
+    padding: 25px 15px;
+    overflow: hidden;
+}
+.reviewblockdetail{
+    
+}
+.reviewtitle{
+    float: left;
+    width: 100%;
+}
+.reviewtitle .switch {
+    float: left;
+    margin: 3px 10px 0 0;
+}
+.reviewtitle h2{
+    font-size: 32px;
+    font-family: 'proxima_novalight';
+}
+.emailreviewblock .box-title{ 
+    font-family: 'proxima_nova_rgregular';
+}
+.reviewblockdetail p{
+    color: #646262;
+    font-size: 16px;
+    font-family: 'proxima_novalight';
+    margin: 15px 0;
+    display: inline-block;
+}
+.urlreviewblock{
+    
+}
+.urlreviewblock .urlreview input{
+    background: url('../img/linkicon.png') no-repeat right center #fff;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px 40px 5px 10px;
+    color: #34495e;
+    float: left;
+    margin-top: 10px;
+    width: 100%; 
+}
+.urlreview{
+    width: 50%;
+    float: left;
+    position: relative;
+}
+.urlreviewblock.successful .urlreview:after ,.urlreviewblock.error .urlreview:after{
+    content: "";
+    display: block;
+    height: 25px;
+    position: absolute;
+    right: -40px;
+    top: 17px;
+    width: 31px;
+    z-index: 100;
+}
+.urlreviewblock.successful .urlreview:after{
+    background: url('../img/rightgreenicon.png') no-repeat;
+}
+.urlreviewblock.error .urlreview:after{
+    background: url('../img/crossred.png') no-repeat;
+}
+.reviewimg{
+    overflow: hidden;
+    float:right;
+}
+.reviewimg li{
+    display: inline-block;
+}
+.reviewimg li i{
+    width: 54px;
+    height: 54px;
+    display: block;
+    background: url('../img/reviewimg.png') no-repeat; 
+}
+.urlreviewblock p{
+    display: none;  
+}
+.urlreviewblock.successful input{ 
+    border-color: #16a085;
+    color: #16a085;
+}
+.urlreviewblock.error input{
+    border-color: #e74c3c;
+    color: #e74c3c;
+} 
+.urlreviewblock.successful .successnote  ,.urlreviewblock.error .errornote{
+    color: rgba(26,188,156,0.6);
+    font-size: 15px;
+    font-family: 'proxima_novalight';
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+}
+.urlreviewblock.successful .successnote{
+    color: rgba(26,188,156,0.6); 
+}
+.urlreviewblock.error .errornote{
+    color: rgba(231,76,60,0.6);
+}
+.urlreviewblock.successful .errornote{
+    display: none;
+}
+.urlreviewblock.error .successnote{
+    display: none;
+}
+.emailreviewblock .box{
+    box-shadow: none;
+}
+.reviewimg li i.tripimg{ 
+    background-position: 0 0;
+}
+.reviewimg li i.yoffimg{ 
+    background-position: -54px 0;
+}
+.reviewimg li i.gplusimg{
+    background-position: -108px 0;
+}
+.reviewimg li i.fbimg{
+    background-position: -162px 0;
+}
+.reviewimg li.active i.tripimg{ 
+    background-position: 0 -56px;
+}
+.reviewimg li.active i.yoffimg{ 
+    background-position: -54px -56px;
+}
+.reviewimg li.active i.gplusimg{ 
+    background-position: -108px -56px;
+}
+.reviewimg li.active i.fbimg{ 
+    background-position: -162px -56px;
+}
+
+.reviewblockdetail .selectbox{
+    width: 100%;
+}
+.reviewblockdetail .selectbox select{
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none; 
+    border-radius: 6px;
+    background:url('../img/downarrow.png') no-repeat right #1abc9c; 
+    width: 215px;
+    height: 40px; 
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'latoregular';
+    padding-left: 10px;
+    line-height: 40px;
+    position: relative;
+} 
+.reviewblockdetail .selectbox select option{
+    background: #1abc9c;
+    padding: 8px;
+}
+.reviewblockdetail .selectbox select option:hover{
+    background-color: #34495e !important;
+}
+.reviewtabdetial{
+    margin: 15px;
+}
+.reviewtabdetial .tab-pane{
+    padding: 30px 30px 15px 30px;
+}
+.tabdetailtitle{
+    border-top: 1px solid #f3f0f0;
+    border-bottom: 1px solid #f3f0f0;
+    padding: 10px 0;
+    overflow: hidden;
+}
+.tabdetailtitleleft{
+    float: left;
+}
+.tabdetailtitleleft h3{
+    font-size: 21px;
+    color: #646262;
+    font-family: 'proxima_nova_rgregular';
+}
+.tabdetailtitleleft span ,.tabdetailtitleright span ,.rtabcontentdetail p{
+    font-size: 14px;
+    color: #646262;
+    font-family: 'proxima_nova_rgregular';
+}
+.tabdetailtitleright{
+    float: right;
+}
+.tabdetailtitleright span {
+    display: inline-block;
+    margin-top: 12px;
+}
+.rtabcontentdetail{
+    border-top: 1px solid #f3f0f0;
+    margin:20px 0; 
+}
+.rtabcontentdetail p{
+    margin: 10px 0;
+}
+.reviewtabdetial .nav.nav-tabs a{
+    font-size: 23px;
+    color: #5d5d5d;
+    font-family: 'proxima_nova_rgregular';
+}
+.reviewtabdetial .nav-tabs{
+    border-bottom: 1px dotted #d7dcde;
+}
+.reviewtabdetial .nav-tabs > li.active > a, .reviewtabdetial .nav-tabs > li.active > a:focus, .reviewtabdetial .nav-tabs > li.active > a:hover{
+    border-color: #067cde #d7dcde transparent;
+    border-style: dotted;
+    border-width: 2px 1px 0;
+}
+.reviewtabdetial .tab-content {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #d7dcde #d7dcde;
+    border-image: none;
+    border-style: none dotted dotted;
+    border-width: 0 1px 1px;
+}
+
+
+/*----- email plateform automatic 14-march -----*/
+
+
 
 
 @media screen and (max-width:1330px){
@@ -258,21 +596,72 @@
     .mailingtable tr td p{font-size: 20px;}
     .mailingstatic p{font-size: 18px;}
     .mailingstaticlft{width: 100px;}
+    .newautomaticplatform {padding: 65px 0;}
+    .mailplateformnewtable thead th ,.mailplateformnewtable tbody tr td{font-size: 22px;}
+    .mailplateformnewtable tbody tr td img{height: 50px;width: auto;}
+    .reviewimg li i{width: 43px;height: 43px;background-size: 170px 85px;}
+    .reviewimg li i.yoffimg {background-position: -43px 0;}
+    .reviewimg li i.gplusimg {background-position: -84px 0;}
+    .reviewimg li i.fbimg {background-position: -127px 0;}
+    .reviewimg li.active i.tripimg {background-position: 0 -43px;}
+    .reviewimg li.active i.yoffimg {background-position: -43px -43px;}
+    .reviewimg li.active i.gplusimg {background-position: -84px -43px;}
+    .reviewimg li.active i.fbimg {background-position: -127px -43px;}
+    .reviewimg{margin-top: 8px;}
 }
 @media screen and (max-width:1280px){
     .manualbtn a.draftbtn i{background-size: 26px auto !important;}
     .manualbtn a.sentbtn i{background-size: 32px auto !important;}
     .manualbtn a{padding: 10px 20px;}
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 20px;}
+    .mailplateformnewtable tbody tr td span{margin-top: 8px;}
+    .emailreviewblock{margin: 25px 20px;padding: 20px 10px;}
+    .urlreviewblock.successful .urlreview::after{background-size: auto 20px;right: -35px;}
+    .reviewtitle h2{font-size: 28px;}
+    .reviewtabdetial .nav.nav-tabs a{font-size: 20px;}
+    .tabdetailtitleleft h3{font-size: 20px;}
 }
 
 @media screen and (max-width:1150px){
     .mailingtable tr td{padding: 15px 10px;}
 }
+@media screen and (max-width:1100px){
+    .reviewimg li i {background-size: 140px 70px;height: 35px;width: 35px;}
+    .reviewimg li i.yoffimg {background-position: -35px 0;}
+    .reviewimg li i.gplusimg {background-position: -70px 0;}
+    .reviewimg li i.fbimg {background-position: -105px 0;}
+    .reviewimg li.active i.tripimg {background-position: 0 -35px;}
+    .reviewimg li.active i.yoffimg {background-position: -35px -35px;}
+    .reviewimg li.active i.gplusimg {background-position: -70px -35px;}
+    .reviewimg li.active i.fbimg {background-position: -105px -35px;}
+}
 @media screen and (max-width:991px){
     .mailingtable tr td p {font-size: 18px;}
     .mailingstaticlft {width: 60px;}
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 18px;}
+    .mailplateformnewtable tbody tr td img {height: 45px;}
+    .mailplateformnewtable tbody tr td span {margin-top: 5px;}
+    .newautomaticplatform{padding: 50px 0;}
+    .reviewtabdetial .nav.nav-tabs a{font-size: 18px;}
+    .reviewtabdetial .tab-pane {padding: 20px 20px 15px;}
 }
-
+@media screen and (max-width:930px){
+    .mailplateformnewtable tbody tr td img{float: none;}
+    .mailplateformnewtable tbody tr td span{display: block;margin-right: 0;}
+    .reviewtitle h2 {font-size: 25px;}
+}
+@media screen and (max-width:767px){
+    .newautomaticplatform{padding: 35px 0;}
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 16px;}
+    .mailplateformnewtable tbody tr td img{height: 40px;}
+    .reviewblockdetail .selectbox select ,.urlreviewblock .urlreview input{height: 35px;line-height: 35px;}
+    .reviewblockdetail p{font-size: 14px;margin: 10px 0;}
+    .tabdetailtitleleft h3{font-size: 18px;}
+}
+@media screen and (max-width:600px){
+    .tabdetailtitleleft{width: 100%;}
+    .tabdetailtitleright{width: 100%;float: none;}
+}
 @media screen and (max-width:460px){
     .mailingtable{overflow: auto;}
     .editbtn button{width: 130px;}
@@ -280,8 +669,17 @@
     .manualbtn a.draftbtn i{background-size: 20px auto !important;padding: 0px 15px;}
     .manualbtn a.sentbtn i{background-size: 25px auto !important;padding: 1px 18px;}
     .manualbtn a {padding: 10px 15px;}
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 14px;}
+    .mailplateformnewtable tbody tr td img {height: 35px;}
+    .switch input.cmn-toggle-round + label{width: 75px;}
+    input.cmn-toggle-round:checked + label::after {margin-left: 48px;}
+    .urlreview{width: 90%;}
+    .reviewimg {display: inline-block;float: none;width: 100%;}
+    .emailreviewblock{padding: 10px 0;}
 }
-
-
+@media screen and (max-width:320px){
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td {font-size: 13px;}
+    .mailplateformnewtable tbody tr td canvas {height: 37px !important;width: 75px !important;}
+}
 
 
