@@ -39,7 +39,8 @@ class EmailsController extends Controller {
             $draftCount = Auth::user()->emailCampaign()->select(DB::raw('count(campaignStatus) as totalDraftCount'))->where('campaignStatus', '=', 'draft')->get();
             $sentCount = Auth::user()->emailCampaign()->select(DB::raw('count(campaignStatus) as totalSentCountCount'))->where('campaignStatus', '=', 'sent')->get();
         }
-            
+        $userId=Auth::user()->id;
+        $hotspot=  Hotspot::where("adminid","=",$userId)->select('reviewstatus')->first();    
         if ($request->ajax()) {
 
             if (Auth::user()->type == 'superadmin') {
@@ -47,7 +48,7 @@ class EmailsController extends Controller {
             } else {
                 $emailTemplate = Auth::user()->emailTemplates()->select(['id', 'adminid', 'templateName', 'description']);
             }
-
+            
             return Datatables::of($emailTemplate)
                             ->addColumn('checkbox', function ($emailTemplate) {
                                 return ' <label class="">
@@ -71,9 +72,10 @@ class EmailsController extends Controller {
                     </td>';
                             })
                             ->make(true);
+                             
         } else {
 
-            return view('email.index', compact('draftCount', 'sentCount'));
+            return view('email.index', compact('draftCount', 'sentCount','hotspot'));
         }
     }
 
@@ -372,6 +374,63 @@ class EmailsController extends Controller {
                     </td>';
                         })
                         ->make(true);
+    }
+    
+    public function reviewState($id){
+        $userId=Auth::user()->id;
+        $hotspot=  Hotspot::where("adminid","=",$userId)->get();
+        foreach($hotspot as $hotspot){
+            $hotspot->reviewstatus=$id;
+            $hotspot->save();
+        }
+        if($hotspot){
+            return Response::json(array(
+            'status'=>'success'
+        ));
+        }else{
+            return Response::json(array(
+            'status'=>'Fail'
+        ));
+        }
+        
+        
+    }
+    public function emailReviews(){
+        $routers = Auth::user()->hotspots()->select('shortname','id')->lists('shortname', 'id');
+        $email=Auth::user()->email;
+        //$routers = Auth::user()->hotspots()->select('ssid')->lists('ssid', 'ssid');
+        //$calledmac = Session::get('calledmac'); 
+        //$usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$calledmac)->first(); 
+        $routers=array(''=>"Select Router")+$routers;
+        return View::make("email.review",compact("routers","email"));
+        
+    }
+    //public function emailReviewsUpdate($nasId,$fieldName,$fieldVal) {
+    public function emailReviewsUpdate() {
+        $input=Input::all();
+        $id=$input['nasId'];
+        $fieldName=$input['fieldName'];
+        $fieldVal=$input['fieldVal'];
+        $hotspot=Hotspot::where("id","=",$id)->first();
+        $hotspot->$fieldName=$fieldVal;
+        $hotspot->save();
+        if($hotspot)
+        {
+            return Response::json(array(
+            'status'=>'success'
+            ));
+        }else{
+            return Response::json(array(
+            'status'=>'fail'
+            ));
+        }
+
+    }
+    public function getHotspotDetail($routerID){
+         $hotspot=Hotspot::where("id","=",$routerID)->first();
+         return Response::json(array(
+             'hotspot'=>$hotspot
+         ));
     }
 
     //  <li><span><a href="javascript:void(0)" class="duplicateTemplate" id="' . $campaignList->id . '">Duplicate</a></span></li>
