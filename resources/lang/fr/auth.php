@@ -277,6 +277,18 @@ site Internet:',
     'wondering'=>'Par ailleurs, si vous vous demandez où vous pouvez trouver plus de cette belle viande de remplissage, visite',
     'shareawesome'=>'Partagez le Awesomeness',
     'cmpnynm'=>'Nom de la compagnie',
-    'unsubscribe'=>'Se désabonner'
-    
+    'unsubscribe'=>'Se désabonner',
+    //review email
+    'visiting'=>'Merci pour votre visite',
+    'hope'=>'nous espérons que vous êtes satisfait de la façon dont nous vous servi.',
+    'leavefeedback'=>'Nous aimerions en savoir plus sur votre expérience. Pour laisser vos commentaires, s\'il vous plaît répondre à la question ci-dessous',
+    'recommend'=>'Recommanderiez-vous votre expérience à',
+    'tofriend'=>'à vos amis?',
+    'goodtime'=>'Oui, j\'ai eu de bons moments!',
+    'tellyou'=>'Pas vraiment, mais je vais vous dire pourquoi.',
+    'notequestion'=>'(S\'il vous plaît noter:. Cette question concerne uniquement le service que vous avez reçu de votre représentant Pour laisser des commentaires sur les services ou les politiques, s\'il vous plaît répondez à ce message.)',
+    'feedback-it'=>'Merci de partager vos commentaires-il aidera à améliorer nos services.',
+    'regards'=>'Meilleures salutations,',
+    'team'=>'Équipe',
+    'feb'=>'Février'
 ];
