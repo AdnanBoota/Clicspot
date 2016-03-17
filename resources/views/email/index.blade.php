@@ -1,7 +1,7 @@
 @extends('app')
 @push('styles')
 <link href="{{ asset('/css/list.css') }}" rel="stylesheet" type="text/css"/>
-
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/css/platform-mailing.css') }}" rel="stylesheet" type="text/css"/>
 
 @endpush
@@ -32,11 +32,74 @@
     <div class="multitab">
         <ul class="tabpart">
             <li class="active"><a href="javascript:void(0)" class="automaticMailForm"><i class="fa fa-pencil"></i>{{ Lang::get('auth.automail') }}</a></li>
-            <li><a href="javascript:void(0)" class="manualMailingForm"><i class="fa fa-pencil-square-o"></i>{{ Lang::get('auth.manumail') }}</a></li>
+            <li><a href="javascript:void(0)" class="manualMailingForm "  ><i class="fa fa-pencil-square-o"></i>{{ Lang::get('auth.manumail') }}</a></li>
         </ul>
     </div>
 </section>
+
 <section class="creatpart automaticMailing">
+    <div class="titleblock">
+        <i class="mailingicon">
+            <img src="{{ asset("img/mailingicon.png") }}" />
+        </i>
+        <h1>{{ Lang::get('auth.automail') }}</h1>
+    </div>
+    
+     
+    
+    <div class="newautomaticplatform">
+       <table class="mailplateformnewtable">
+            <thead>
+                <th>Template</th>
+                <th>Description</th>
+                <th>Report</th>
+                <th>Status</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="{{ asset("img/riviewicon.png") }}" /><span><a href="{{ URL::to('emails/review') }}" style="color:#1abc9c">Review</a></span></td>
+                    <td>Send a review email automatically after first time connexion. </td>
+                    <td><canvas id="pieChart1"></canvas></td>
+                    <td>
+                        <div class="switch">
+                            <input type="checkbox" class="cmn-toggle cmn-toggle-round" id="cmn-toggle-1" {{ isset($hotspot->reviewstatus) && $hotspot->reviewstatus==1 ? 'checked="checked"' : '' }}>
+                            <label for="cmn-toggle-1"></label>
+                          </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="{{ asset("img/birthdayimg.png") }}" /><span>Birthday</span></td>
+                    <td>Send out an email automatically for Users Birthday.</br> Works only with Facebook profile.  </td>
+                    <td><canvas id="pieChart2"></canvas></td>
+                    <td>
+                        <div class="switch">
+                            <input type="checkbox" class="cmn-toggle cmn-toggle-round" id="cmn-toggle-2">
+                            <label for="cmn-toggle-2"></label>
+                          </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="{{ asset("img/fblikeicon.png") }}" /><span>Facebook Like</span></td>
+                    <td>Increase your Facebook fans by asking them to like your page.</td>
+                    <td><canvas id="pieChart3" ></canvas></td>
+                    <td>
+                        <div class="switch">
+                            <input type="checkbox" class="cmn-toggle cmn-toggle-round" id="cmn-toggle-3">
+                            <label for="cmn-toggle-3"></label>
+                          </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+ 
+    
+    
+</section>
+
+
+<section class="creatpart automaticMailing" style="display: none;" id="emailTemplate">
     <div class="titleblock">
         <i class="fa fa-envelope"></i>
         <h1>{{ Lang::get('auth.automail') }}</h1>
@@ -59,9 +122,9 @@
                                 <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>
                         </th>
-                        <th>{{ Lang::get("auth.emailtemp") }}</th>
-                        <th>{{ Lang::get("auth.tempdesc") }}</th>
-                        <th>{{ Lang::get('auth.edit')}}</th>
+                        <th>Template Name</th>
+                        <th>Template Description</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,7 +134,7 @@
         </div>
     </div>
 
-
+     
 </section>
 <section class="creatpart manualMailing" style="display: none;">
     <div class="titleblock">
@@ -118,6 +181,8 @@
 <!-- DataTables -->
 <script src="{{ asset('/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 <script src="{{ asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
+<script src="{{ asset('/plugins/chartjs/Chart.js') }}"></script>
+<!--<script src="{{ asset('/plugins/chartjs/Chart.min.js') }}"></script>-->
 <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
 <script type="text/javascript" src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script>
@@ -137,7 +202,6 @@ function  countChecked() {
 
 }
 $(function() {
-    
     oTable = $('#emailTemplate-table').DataTable({
         sDom: 'lrftip',
         processing: true,
@@ -180,9 +244,7 @@ $(function() {
 });
 $(document).ready(function() {
     var dataToFetch = "";
-
-       
-    
+    var APP_URL = {!! json_encode(url('/')) !!};
     $(document).on("click", ".emailDelCheckBox", function() {
         countChecked();
         if ($(this).is(":checked")) {
@@ -339,12 +401,13 @@ $(document).ready(function() {
 
     $(document).on("click", ".automaticMailForm", function() {
         $(".automaticMailing").show();
+        $("#emailTemplate").hide();
         $(".manualMailing").hide();
         $(this).parents(".tabpart").find(".active").removeClass("active");
         $(this).parent().addClass("active");
     });
     $(document).on("click", ".manualMailingForm", function() {
-       $("#sentbtn").trigger("click");
+         $("#sentbtn").trigger("click");
         $(".automaticMailing").hide();
         $(".manualMailing").show();
         $(this).parents(".tabpart").find(".active").removeClass("active");
@@ -359,8 +422,7 @@ $(document).ready(function() {
         $("#mailType").val("draft");
         oTableCampaign.draw();
     });
-    
-    
+
     $(document).on("click", "#sentbtn", function() {
         $(this).addClass("active");
         if ($(".draftbtn").hasClass("active")) {
@@ -369,8 +431,173 @@ $(document).ready(function() {
         $("#mailType").val("sent");
         oTableCampaign.draw();
     });
+    
+     $("#cmn-toggle-1").change(function(){
+        $(this).attr("checked","checked");
+        if($(this).prop("checked")==true){
+         $(this).val("1");
+        }else{
+            $(this).removeAttr("checked");
+            $(this).val("0");
+        }
+         $.ajax({
+               url:APP_URL+'/emails/reviewState/'+$(this).val(),
+               type:'get',
+               success:function(result){
+                console.log(result);   
+               }   
+            });
+    });
+    $("#cmn-toggle-2").change(function(){
+        $(this).attr("checked","checked");
+        if($(this).prop("checked")==true){
+        }else{
+            $(this).removeAttr("checked");
+        }
+    });
+    $("#cmn-toggle-3").change(function(){
+        $(this).attr("checked","checked");
+        if($(this).prop("checked")==true){
+        }else{
+            $(this).removeAttr("checked");
+        }
+    });
 });
+    
+    var pieChartCanvas1 = $("#pieChart1").get(0).getContext("2d");
+    var pieChart1 = new Chart(pieChartCanvas1);
+    var PieData = [
+      {
+        value: 700,
+        color: "#f56954",
+        highlight: "#f56954",
+        label: "Chrome"
+      },
+      {
+        value: 500,
+        color: "#00a65a",
+        highlight: "#00a65a",
+        label: "IE"
+      }, 
+      {
+        value: 600,
+        color: "#00c0ef",
+        highlight: "#00c0ef",
+        label: "Safari"
+      } 
+    ];
+    var pieOptions = {
+      //Boolean - Whether we should show a stroke on each segment
+      segmentShowStroke: true,
+      //String - The colour of each segment stroke
+      segmentStrokeColor: "#fff",
+      //Number - The width of each segment stroke
+      segmentStrokeWidth: 2,
+      //Number - The percentage of the chart that we cut out of the middle
+      percentageInnerCutout: 50, // This is 0 for Pie charts
+      //Number - Amount of animation steps
+      animationSteps: 100,
+      //String - Animation easing effect
+      animationEasing: "easeOutBounce",
+      //Boolean - Whether we animate the rotation of the Doughnut
+      animateRotate: true,
+      //Boolean - Whether we animate scaling the Doughnut from the centre
+      animateScale: false,
+      //Boolean - whether to make the chart responsive to window resizing
+      responsive: true,
+      // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+      maintainAspectRatio: true,
+      //String - A legend template
+      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+    };
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    pieChart1.Doughnut(PieData, pieOptions);
+    
+    var pieChartCanvas2 = $("#pieChart2").get(0).getContext("2d");
+    var pieChart2 = new Chart(pieChartCanvas2);
+    pieChart2.Doughnut(PieData, pieOptions);
+    
+    var pieChartCanvas3 = $("#pieChart3").get(0).getContext("2d");
+    var pieChart3 = new Chart(pieChartCanvas3);
+    pieChart3.Doughnut(PieData, pieOptions);
+    
+    
+    var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
+    var pieChart = new Chart(pieChartCanvas);
+    var PieData = [
+      {
+        value: 700,
+        color: "#f56954",
+        highlight: "#f56954",
+        label: "Chrome"
+      },
+      {
+        value: 500,
+        color: "#00a65a",
+        highlight: "#00a65a",
+        label: "IE"
+      },
+      {
+        value: 400,
+        color: "#f39c12",
+        highlight: "#f39c12",
+        label: "FireFox"
+      },
+      {
+        value: 600,
+        color: "#00c0ef",
+        highlight: "#00c0ef",
+        label: "Safari"
+      },
+      {
+        value: 300,
+        color: "#3c8dbc",
+        highlight: "#3c8dbc",
+        label: "Opera"
+      },
+      {
+        value: 100,
+        color: "#d2d6de",
+        highlight: "#d2d6de",
+        label: "Navigator"
+      }
+    ];
+    var pieOptions = {
+      //Boolean - Whether we should show a stroke on each segment
+      segmentShowStroke: true,
+      //String - The colour of each segment stroke
+      segmentStrokeColor: "#fff",
+      //Number - The width of each segment stroke
+      segmentStrokeWidth: 2,
+      //Number - The percentage of the chart that we cut out of the middle
+      percentageInnerCutout: 50, // This is 0 for Pie charts
+      //Number - Amount of animation steps
+      animationSteps: 100,
+      //String - Animation easing effect
+      animationEasing: "easeOutBounce",
+      //Boolean - Whether we animate the rotation of the Doughnut
+      animateRotate: true,
+      //Boolean - Whether we animate scaling the Doughnut from the centre
+      animateScale: false,
+      //Boolean - whether to make the chart responsive to window resizing
+      responsive: true,
+      // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+      maintainAspectRatio: true,
+      //String - A legend template
+      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+    };
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    pieChart.Doughnut(PieData, pieOptions);
 
+    
+    
+    
 </script>
+
+
+ 
+
 
 @endpush
