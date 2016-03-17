@@ -33,17 +33,7 @@
         }
 
         .container-img {
-            @if(isset($campaign->backgroundimage))
-                    background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
-            @else
-                        background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
-            @endif
-                            -webkit-background-size: cover;
-                            @if(isset($campaign->blurImg) && $campaign->blurImg==1)
-            opacity: .5;
-        @else
-            opacity: 1;
-            @endif
+            
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -103,6 +93,39 @@
         }
         p a{ color:#fff}
         p a:hover{ color:#fff}
+         .container-img:before{
+             top: 0;
+left: 0;
+bottom:0;
+right: 0;
+position: absolute;
+z-index: -1;
+content: "";
+@if(isset($campaign->backgroundimage) AND $campaign->backgroundimage != '')
+                      background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+        @else
+                      background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+        @endif
+        
+
+
+
+max-height: 100%;
+width: 100%;
+ @if(isset($campaign->blurImg) && $campaign->blurImg==1)
+            opacity: .5;
+        @else
+            opacity: 1;
+            @endif
+
+
+}
+.footer {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
     </style>
 </head>
 <body>
