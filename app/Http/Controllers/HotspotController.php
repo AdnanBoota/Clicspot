@@ -184,7 +184,8 @@ class HotspotController extends Controller
             }
         }
         $readonly = Session::has('mac') ? "readonly" : "";
-        return view('hotspot.edit', compact('hotspot', 'campaign', 'readonly'));
+         return view('router.edit', compact('hotspot', 'campaign', 'readonly'));
+       // return view('hotspot.edit', compact('hotspot', 'campaign', 'readonly'));
     }
 
     /**
@@ -196,22 +197,25 @@ class HotspotController extends Controller
     public function update($id, Request $request)
     {
         $input = Input::all();
+//        echo '<pre>';
+//        print_r($input); exit;
         $nasRule = 'required|exists:routers,macaddress|unique:nas,nasidentifier,' . $id;
 
-        $this->validate($request, [
-                'shortname' => 'required',
-                'nasidentifier' => $nasRule,
-                'reviewstatus' => 'required',
-                'address' => 'required']
-        );
+        
         if (Auth::user()->type == 'superadmin') {
             $hotspot = Hotspot::findOrFail($id);
         } else {
             $hotspot = Auth::user()->hotspots()->findOrFail($id);
         }
-
+        if($input['type']=="routerinfo"){
+            $this->validate($request, [
+                'shortname' => 'required',
+                'nasidentifier' => $nasRule,
+                //'reviewstatus' => 'required',
+                'address' => 'required']
+        );
         $hotspot->update($input);
-
+        }else if($input['type']=="routersetting"){
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'ChilliSpot-Bandwidth-Max-Up', 'type' => 1])
             ->update(['value' => $request->input('ChilliSpot-Bandwidth-Max-Up')]);
 
@@ -236,7 +240,7 @@ class HotspotController extends Controller
 
         $hotspot->hotspotAttributes()->firstOrCreate(['attribute' => 'Idle-Timeout', 'type' => 2])
             ->update(['value' => $request->input('EMail_Idle-Timeout')]);
-
+        }
 
         $successMsg = "Hotspot updated successfully";
         Session::flash('flash_message_success', $successMsg);
