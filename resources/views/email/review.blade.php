@@ -269,6 +269,20 @@ var slider = $("#range_5").data("ionRangeSlider");
            });
          }
           });
+          }else{
+          $("#socialmedia").val(' ');
+          var slider = $("#range_5").data("ionRangeSlider");
+                   slider.update({
+                        from:'0'
+                            });
+                            $("#trip").removeClass('active');
+                        $("#yoff").removeClass('active');
+                        $("#gplus").removeClass('active');
+                        $("#fb").removeClass('active');
+                        $(".shortname").html(' ');
+                        $(".urlreviewblock").removeClass('error');
+                        $(".urlreviewblock").removeClass('successful');
+                         $("#cmn-toggle-4").prop("checked",false);
           }
       });
       
