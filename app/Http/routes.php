@@ -64,6 +64,12 @@ Route::resource('emails/emailSetup', 'EmailCampaignController');
 //Route::post('emails/emailSetup/getStatistics/{listId}/{callFrom}', 'EmailCampaignController@getStatistics');
 Route::post('emails/ImageFileUpload', 'EmailsController@galleryFileUpload');
 Route::get('emails/campaignTable','EmailsController@campaignTable');
+Route::get('emails/review','EmailsController@emailReviews');
+Route::post('emails/reviewUpdate','EmailsController@emailReviewsUpdate');
+//Route::get('emails/reviewUpdate/{nasId}/{fieldName}/{fieldVal}','EmailsController@emailReviewsUpdate');
+Route::get('emails/getHotspotDetail/{routerID}','EmailsController@getHotspotDetail');
+
+Route::get('emails/reviewState/{id}','EmailsController@reviewState');
 Route::resource('emails', 'EmailsController');
 Route::post('users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
 Route::patch('users/getSt atistics/{listId}/{callFrom}', 'UsersController@getStatistics');
