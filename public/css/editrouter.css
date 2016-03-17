@@ -1,0 +1,145 @@
+@import url('../fonts/stylesheet.css');
+
+.editrouterblock{
+    background: #fff;
+}
+.editrouterblock .box.box-info{
+    border: none;
+}
+.editrouterblock .box{
+    box-shadow: none;
+}
+.editrtitle{
+    background: #ecf0f1;
+    padding: 15px 10px;
+}
+.editrtitle img{
+    float: left;
+}
+.editrtitle h1{
+    font-size: 24px;
+    color: #34495e;
+    font-family:'latobold';
+    display: inline-block;
+    margin: 0 0 0 10px;
+}
+.editboxinfo {
+    border: 2px dotted #e9eee9;
+    border-radius: 5px;
+    margin: 0 auto 60px;
+    max-width: 98%;
+    padding: 20px;
+    width: 1200px;
+    overflow: hidden;
+}
+.editboxinfo .box{
+    box-shadow: none;
+}
+.editboxinfo .box-body{
+    border-bottom:1px solid #f4f4f4;
+}
+.editboxinfo h1{
+    font-size: 32px;
+    color: #202220;
+    margin: 0 0 10px;
+    font-family: 'proxima_novalight';
+}
+.editboxinfo p{
+    font-size: 15px;
+    color: #646262;
+    font-family: 'proxima_novalight';
+}
+.editrouterform{
+    text-align: center;
+}
+.editformblock{
+    width: 50%;
+    margin: 2% 0;
+    float:left;
+    text-align: center;
+}
+.editformblock input{  
+    border: 2px solid #bdc3c7;
+    border-radius: 8px; 
+    height: 40px;
+    line-height: 40px;
+    color: rgba(52,73,94,0.6);
+    font-size: 14px;
+    padding: 0 60px 0 5px;
+    width: 350px;
+    max-width: 96%;
+    margin: 0 auto 15px;
+}
+.editformblock .lcname{
+    background: url(../img/routerlname.png) no-repeat right center #fff;
+}
+.editformblock .wifinnm{
+    background: url(../img/wireless.png) no-repeat right center #fff;
+}
+.editformblock .routericon{
+    background: url(../img/router.png) no-repeat right center #fff;
+}
+.editformblock .addicon{
+    background: url(../img/router_location.png) no-repeat right center #fff;
+}
+.editformrow{
+    width: 350px;
+    margin: 0 auto;
+    max-width: 96%;
+}
+.editformblock input.padnone{
+    padding-right: 10px;
+}
+.editformrow input:first-child{
+    width: 30%;
+    float: left;
+}
+.editformrow input:last-child{
+    width: 65%;
+    float: right;
+}
+.modifybtnblock{
+    width: 100%;
+    text-align: center;
+}
+.modifybtnblock .modifybtn{
+    background: #1abc9c;
+    font-size: 17px;
+    color: #fff;
+    font-family: 'latobold';
+    border: none;
+    border-radius: 3px;
+    width: 180px;
+    margin: 0 auto;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width:991px){
+    .editformblock input{height: 35px;line-height: 35px; background-size: auto 20px;} 
+    .modifybtnblock .modifybtn{height: 40px;line-height: 40px;width: 160px;font-size: 15px;}
+    .editboxinfo h1{font-size: 27px;}
+    .editrtitle img{width: 30px;height: auto;}
+    .editrtitle h1{font-size: 20px;}
+    .editrtitle{padding: 12px 10px;}
+}
+@media screen and (max-width:640px){
+    .editboxinfo h1{font-size: 22px;}
+    .editrtitle img{width: 27px;}
+    .editrtitle h1{font-size: 18px;}
+    .editrtitle{padding:10px;}
+}
+
+@media screen and (max-width:520px){
+    .editformblock{width: 100%;margin: 0;}
+    .editrouterblock .box-body{padding: 0;}
+    .editrtitle img{width: 25px;}
+    .editrtitle h1{font-size: 16px;}
+    .editrtitle{padding:8px;}
+    .editboxinfo{padding: 15px;}
+    .modifybtnblock .modifybtn{height: 35px;line-height: 35px;width: 140px;font-size: 14px;}
+}
+
