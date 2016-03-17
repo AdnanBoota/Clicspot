@@ -1,0 +1,144 @@
+.newmenu{
+    background: #34495e !important;
+}
+.newmenu .sidebar-menu i img {
+    height: auto;
+    margin-right: 8px;
+    width: 15px;
+}
+.newmenu .sidebar-menu li a{
+    overflow: auto;
+}
+.newmenu .sidebar-menu li i {
+    float: left;
+}
+.newmenu .sidebar-menu li span{
+    float: left;
+    margin-top: 2px;
+}
+.newmenu .sidebar-menu li span.act{
+    display: none;
+}
+.newmenu .sidebar-menu li.active span.act{
+    background: #95a0aa;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    float: right;
+    margin: 3px 5px 0 0;
+    display: block;
+}
+
+
+.newheader{
+    background: #2c3e50;
+}
+.skin-black .main-header.newheader .logo ,.skin-black .main-header.newheader .navbar{
+    background:none;
+}
+.skin-black .main-header.newheader a ,.skin-black .main-header.newheader a.sidebar-toggle{
+    border: none;
+    color: #fff;
+}
+.skin-black .main-header.newheader a.sidebar-toggle{
+    padding: 16px 15px 17px;
+    background: url('../img/btmdecore.png') no-repeat;
+    background-position: center center;
+}
+   /* color: #fff;
+    width: 100px;
+    height: 55px;
+    background: #5faee3;
+    position: relative;
+
+.skin-black .main-header.newheader a.sidebar-toggle:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid #5faee3;
+}
+.skin-black .main-header.newheader a.sidebar-toggle:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid #5faee3;
+}*/
+
+
+.userprofile{
+    
+}
+.userprofile a span{
+    color: #95a0aa;
+    border: none;
+    float: left;
+}
+.skin-black .main-header > .navbar .navbar-custom-menu .navbar-nav > li > a, .skin-black .main-header > .navbar .navbar-right > li > a{
+    border: none;
+    overflow: auto;
+}
+.userprofile .triangle-down{
+    float: right;
+    height: 0;
+    margin-left: 10px;
+    margin-top: 7px;
+    width: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid #5f6e7c;
+}
+.newheader .headnav {
+    margin: 0 0 0 15px;
+}
+.newheader .headnav li{
+    float: left;
+    list-style: none;
+}
+.newheader .headnav a {
+    display: inline-block;
+    padding: 13px 15px 14px;
+    position: relative;
+}
+.newheader .headnav a:hover {
+    background: #1e282c;
+}
+.newheader .headnav a span{
+    color: #95a0aa;
+    font-size: 18px;
+}
+.newheader .headnav a span.notidtl{
+    background: #f86b4f none repeat scroll 0 0;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 11px;
+    height: 16px;
+    line-height: 15px;
+    position: absolute;
+    text-align: center;
+    width: 16px;
+}
+.skin-black .main-header.newheader > .navbar .sidebar-toggle:hover{
+    background: url('../img/btmdecore.png') no-repeat #1e282c;
+    background-position: center center;
+    color: #fff;
+}
+
+.skin-black .main-header > .navbar .nav > li > a:hover, .skin-black .main-header > .navbar .nav > li > a:active, .skin-black .main-header > .navbar .nav > li > a:focus, .skin-black .main-header > .navbar .nav .open > a, .skin-black .main-header > .navbar .nav .open > a:hover, .skin-black .main-header > .navbar .nav .open > a:focus{
+    background: #1e282c;
+}
+
+
+
+
+
+

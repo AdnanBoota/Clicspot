@@ -1,0 +1,540 @@
+@import url('../fonts/stylesheet.css');
+
+
+.tabpart li{
+    width: 180px;
+}
+
+.automailingblock {
+    overflow: auto;
+}
+
+/*.automailingblock a ,.automailingblock a.emailbtn{
+    background: #1abc9c;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 30px 0 30px 45px;
+}*/
+.automailingblock a ,.automailingblock a.emailbtn{
+    background: #34495e none repeat scroll 0 0;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px 20px 10px 45px;
+    padding: 10px 15px;
+    float: right;
+}
+.automailingblock a img{
+    margin-right: 5px;    
+}
+.mailingtabledtl{
+    width: 100%;
+    clear: both;
+}
+.dataTables_wrapper.form-inline.dt-bootstrap.no-footer {
+    clear: both;
+    overflow: hidden;
+}
+.mailingtabledtl a.deletebtn{
+    padding: 0;
+    background: none;
+    margin: 0;
+    float: none;
+    font-size: 0;
+}
+.mailingtabledtl a.deletebtn img{
+    height: auto;
+    margin-left: 50px;
+    width: 25px;
+}
+.mailingtable {
+    margin: auto;
+    width: 94%;
+} 
+.mailingtable .tchackboc{
+    width: 50px;
+}
+.mailingtable .tselectbox {
+    width: 150px;
+}
+.mailingtable tr{
+    border-bottom: 2px solid #d7dcde;
+}
+.mailingtable tr th{
+    color: #2c3e50;
+    font-size: 16px;
+    /*font-weight: 600;*/
+    padding:10px; 
+}
+/*.mailingtable tr td{
+    padding: 20px 10px;
+}*/
+.mailingtable tr td.greenttxt h2{
+    color: #1abc9c;
+    font-size: 22px;
+    font-weight: 600;
+}
+.mailingtable tr td p{
+    color:#95a0aa;
+    font-size: 22px;
+}
+.icheckbox_flat-green.checked {
+    background-position: -22px 0;
+}
+.icheckbox_flat-green {
+    background-position: 0 0;
+}
+.icheckbox_flat-green, .iradio_flat-green {
+    background:url("../img/green.png") no-repeat scroll 0 0;
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 20px;
+}
+.editbtn button {
+    background: #bec3c7;
+    border: medium none;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 41px;
+    text-align: left;
+    width: 100%;
+}
+.editbtn button span {
+    float: left;
+}
+.editbtn button .caret {
+    border-width: 6px 6px 0;
+    float: right;
+    margin-top: 10px;
+}
+.editbtn .dropdown-menu {
+    border: 2px solid #1bbc9b;
+    width: 100%;
+}
+.editbtn .dropdown-menu > li {
+    overflow: auto;
+    padding: 5px 10px;
+}
+.editbtn .dropdown-menu li span {
+    color: #69737f;
+    float: left;
+    font-weight: bold;
+}
+.editbtn .dropdown-menu li:hover {
+    background: #1bbc9b none repeat scroll 0 0;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.hover, .btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    background: #1bbc9b;
+}
+
+.ttitleblock{
+    overflow: hidden;
+}
+.ttitleblock h2{
+    float: left;
+}
+.ttitleblock span{
+    background: #f86b4f;
+    border-radius: 50px;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+    margin: 6px 0 0 4px;
+    text-align: center;
+    width: 16px;
+}
+.greenttxt p{
+    color: #95a0aa;
+    font-size: 18px;
+    display: block;
+}
+.greenttxt p span{
+    font-weight: 600;
+}
+.mailingstatic{
+    
+}
+.mailingstatic p{
+    color: #95a0aa;
+    font-size: 18px;
+    display: block;
+}
+
+.mailingstatic span{
+    color: #95a0aa;
+    font-size: 18px;
+    display: block;
+    font-weight: 600;
+}
+
+
+.mailingstaticlft{
+    width: 130px;
+    float: left;
+}
+.automailingblock a.emailbtn{
+    float: right;
+    margin: 50px 45px 50px 0;
+}
+.tchackboc a.deletebtn img{
+    margin: 0;
+}
+.tchackboc a.deletebtn{
+    display: block;
+    left: -25px;
+    margin-bottom: 10px;
+    position: absolute;
+}
+
+
+.manualbtn{
+    width: 100%;
+    clear: both;
+}
+.manualbtn a {
+    float: left;
+    padding: 15px 25px;
+    background: none;
+    display: inline-block;
+    color: #95a0aa;
+    border-radius: 5px;
+}
+.manualbtn a:last-child{
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.manualbtn a.sentbtn i{
+    background: url('../img/senticon.png') no-repeat;
+    padding: 5px 22px;
+}
+.manualbtn a.draftbtn i{
+    background: url('../img/drafticon.png') no-repeat;
+    padding: 3px 22px;
+}
+.manualbtn a .notiblk{
+    background: #95a0aa none repeat scroll 0 0;
+    border-radius: 14px;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    height: 20px;
+    line-height: normal;
+    margin-left: 10px;
+    padding: 0;
+    text-align: center;
+    width: 20px;
+}
+.manualbtn a.active ,.manualbtn a:hover{
+    background: #1abc9c;
+    color: #fff;
+}
+.manualbtn a.sentbtn.active i ,.manualbtn a.sentbtn:hover i{
+    background: url('../img/senticon_active.png') no-repeat;
+}
+.manualbtn a.draftbtn.active i , .manualbtn a.draftbtn:hover i {
+    background: url('../img/drafticon_active.png') no-repeat;
+} 
+.manualbtn a.active .notiblk ,.manualbtn a:hover .notiblk{
+    background: #fff;
+    color: #1abc9c;
+}
+
+
+/*----- email plateform automatic 14-march -----*/
+
+.mailingicon {
+    margin: 0 6px 0 0 !important;
+}
+.mailingicon img {
+    position: relative;
+    top: -3px;
+    width: 30px;
+}
+.newautomaticplatform{
+    padding: 90px 0;
+}
+.mailplateformnewtable{
+    width: 96%;
+    margin: 0 auto;
+}
+.mailplateformnewtable thead{
+    border-bottom: 2px solid #d7dcde;
+}
+.mailplateformnewtable thead th{
+    font-family: 'latobold';
+    font-size: 24px;
+    color: #2c3e50; 
+    padding:10px 5px;
+    text-align: center;
+}
+.mailplateformnewtable thead th:first-child{
+    width: 30%;
+}
+.mailplateformnewtable thead th:nth-child(2){
+    width: 40%;
+    text-align: left;
+}
+.mailplateformnewtable thead th:nth-child(3){
+    width: 15%;
+}
+.mailplateformnewtable thead th:last-child{
+    width: 15%;
+}
+.mailplateformnewtable tbody tr td:nth-child(3){
+    text-align: center;
+}
+.mailplateformnewtable tbody tr td:first-child{
+    text-align: center;
+}
+.mailplateformnewtable tbody tr td{
+    padding: 10px 5px;
+    font-size: 22px;
+    font-family: 'latoregular';
+    color: #95a0aa;
+}
+.mailplateformnewtable tbody tr td img{
+    float: left;
+}
+.mailplateformnewtable tbody tr td span{ 
+    font-family: 'latobold';
+    color: #1abc9c; 
+    margin-right: 15px;
+    display: inline-block;
+    margin-top: 12px;
+}
+.mailplateformnewtable tbody tr{
+    border-bottom: 2px solid #d7dcde;
+}
+.mailplateformnewtable tbody tr td canvas {
+    height: 50px !important;
+    width: 100px !important;
+}
+.switch {
+    margin: auto;
+    width: 90px;
+}
+.switch input.cmn-toggle-round + label{
+    height: 25px;
+    width: 87px; 
+}
+.switch input.cmn-toggle-round + label::before{
+    border-radius: 5px;
+    background: url('../img/crossicon.png') no-repeat #bdc3c7;
+    background-position:60% center;
+}
+.switch  input.cmn-toggle-round:checked + label::before{
+    background: url('../img/righticon_green1.png') no-repeat #2c3e50;
+    background-position: center;
+    background-position:40% center;
+}
+.switch input.cmn-toggle-round + label::after{
+    width: 25px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: none;
+    background: #7f8c8d;
+}
+.switch input.cmn-toggle-round:checked + label::after{
+    width: 25px;
+    border-radius:0 5px 5px 0;
+    box-shadow: none;
+    background: #1abc9c;
+}
+
+
+
+.emailreviewblock{
+    border: 2px dotted #d7dcde;
+    margin: 40px 30px;
+    padding: 25px 15px;
+    overflow: hidden;
+}
+.reviewblockdetail{
+    
+}
+.reviewtitle{
+    float: left;
+    width: 100%;
+}
+.reviewtitle .switch {
+    float: left;
+    margin: 3px 10px 0 0;
+}
+.reviewtitle h2{
+    font-size: 32px;
+    font-family: 'proxima_novalight';
+}
+.emailreviewblock .box-title{ 
+    font-family: 'proxima_nova_rgregular';
+}
+.reviewblockdetail p{
+    color: #646262;
+    font-size: 16px;
+    font-family: 'proxima_novalight';
+    margin: 15px 0;
+    display: inline-block;
+}
+.urlreviewblock{
+    
+}
+.urlreviewblock input{
+    background: url('../img/linkicon.png') no-repeat right center #fff;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px 40px 5px 10px;
+    color: #34495e;
+    float: left;
+    margin-top: 10px;
+    width: 50%;
+    position: relative;
+}
+.reviewimg{
+    overflow: hidden;
+    float:right;
+}
+.reviewimg li{
+    display: inline-block;
+}
+.reviewimg li i{
+    width: 54px;
+    height: 54px;
+    display: block;
+    background: url('../img/reviewimg.png') no-repeat;
+}
+.urlreviewblock p{
+    display: none;  
+}
+.urlreviewblock.successful input{ 
+    border-color: #16a085;
+    color: #16a085;
+}
+.urlreviewblock.error input{
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+.urlreviewblock.successful input:after{
+    background: url('../img/rightgreenicon.png') no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    display: block;
+    content: '';
+}
+.urlreviewblock.successful .successnote  ,.urlreviewblock.successful .errornote{
+    color: rgba(26,188,156,0.6);
+    font-size: 15px;
+    font-family: 'proxima_novalight';
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+}
+.urlreviewblock.successful .successnote{
+    color: rgba(26,188,156,0.6); 
+}
+.urlreviewblock.error .errornote{
+    color: rgba(231,76,60,0.6);
+}
+.reviewimg li i.tripimg{ 
+    background-position: 0 0;
+}
+.reviewimg li i.yoffimg{ 
+    background-position: -54px 0;
+}
+.reviewimg li i.gplusimg{
+    background-position: -108px 0;
+}
+.reviewimg li i.fbimg{
+    background-position: -162px 0;
+}
+.reviewimg li.active i.tripimg{ 
+    background-position: 0 -56px;
+}
+.reviewimg li.active i.yoffimg{ 
+    background-position: -54px -56px;
+}
+.reviewimg li.active i.gplusimg{ 
+    background-position: -108px -56px;
+}
+.reviewimg li.active i.fbimg{ 
+    background-position: -162px -56px;
+}
+
+
+
+/*----- email plateform automatic 14-march -----*/
+
+
+
+
+@media screen and (max-width:1330px){
+    .mailingtable .tchackboc {width: 25px;}
+    .ttitleblock span{width: 15px;height: 15px;font-size: 11px;}
+    .mailingtable tr td.greenttxt h2{font-size: 20px;}
+    .mailingtable tr td p{font-size: 20px;}
+    .mailingstatic p{font-size: 18px;}
+    .mailingstaticlft{width: 100px;}
+    .newautomaticplatform {padding: 65px 0;}
+    .mailplateformnewtable thead th ,.mailplateformnewtable tbody tr td{font-size: 22px;}
+    .mailplateformnewtable tbody tr td img{height: 50px;width: auto;}
+}
+@media screen and (max-width:1280px){
+    .manualbtn a.draftbtn i{background-size: 26px auto !important;}
+    .manualbtn a.sentbtn i{background-size: 32px auto !important;}
+    .manualbtn a{padding: 10px 20px;}
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 20px;}
+    .mailplateformnewtable tbody tr td span{margin-top: 8px;}
+}
+
+@media screen and (max-width:1150px){
+    .mailingtable tr td{padding: 15px 10px;}
+}
+@media screen and (max-width:991px){
+    .mailingtable tr td p {font-size: 18px;}
+    .mailingstaticlft {width: 60px;}
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 18px;}
+    .mailplateformnewtable tbody tr td img {height: 45px;}
+    .mailplateformnewtable tbody tr td span {margin-top: 5px;}
+    .newautomaticplatform{padding: 50px 0;}
+}
+@media screen and (max-width:930px){
+    .mailplateformnewtable tbody tr td img{float: none;}
+    .mailplateformnewtable tbody tr td span{display: block;margin-right: 0;}
+}
+@media screen and (max-width:767px){
+    .newautomaticplatform{padding: 35px 0;}
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 16px;}
+    .mailplateformnewtable tbody tr td img{height: 40px;}
+}
+@media screen and (max-width:460px){
+    .mailingtable{overflow: auto;}
+    .editbtn button{width: 130px;}
+    .manualbtn a{margin-left: 15px;margin-right: 10px;}
+    .manualbtn a.draftbtn i{background-size: 20px auto !important;padding: 0px 15px;}
+    .manualbtn a.sentbtn i{background-size: 25px auto !important;padding: 1px 18px;}
+    .manualbtn a {padding: 10px 15px;}
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 14px;}
+    .mailplateformnewtable tbody tr td img {height: 35px;}
+    .switch input.cmn-toggle-round + label{width: 75px;}
+    input.cmn-toggle-round:checked + label::after {margin-left: 48px;}
+}
+@media screen and (max-width:320px){
+    .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td {font-size: 13px;}
+    .mailplateformnewtable tbody tr td canvas {height: 37px !important;width: 75px !important;}
+}
+
+
