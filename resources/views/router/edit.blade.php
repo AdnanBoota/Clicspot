@@ -59,7 +59,7 @@
         <div class="editformblock">
             {!!  Form::text('ssid', null, array('id'=>'shortname','class'=>'lcname','required'=>'true','placeholder'=>'Location Name','required'=>'true')) !!}
              {!!  Form::text('shortname', null, array('id'=>'shortname','class'=>'wifinnm','required'=>'true','placeholder'=>'Wireless Name','required'=>'true')) !!}
-             {!!  Form::text('nasidentifier', (Session::has('mac')) ? Session::get('mac') : null, array('id'=>'nasidentifier','class'=>'routericon','required'=>'true','minlength'=>'17','placeholder'=>'88:AC:45:45:87')) !!}
+             {!!  Form::text('nasidentifier', (Session::has('mac')) ? Session::get('mac') : null, array('id'=>'nasidentifier','class'=>'routericon','required'=>'true','minlength'=>'17','placeholder'=>'88:AC:45:45:87','readonly'=>'readonly')) !!}
              {!!  Form::hidden('type', 'routerinfo') !!}
 <!--            <input class="lcname" type="text" placeholder="Location Name">-->
 <!--            <input class="wifinnm" type="text" placeholder="Wireless Name">-->
