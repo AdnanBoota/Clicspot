@@ -36,7 +36,7 @@
                         <li><span class="setup">Build</span>
                             <dl class="subdetail">
                                 <dt>Template used: </dt>
-                                <dd class="ng-binding" id="templateGetName">Template 01</dd>    
+                                <dd class="ng-binding" id="templateGetName">{{ isset($emailTemp->templateName) ? $emailTemp->templateName : '' }}</dd>    
                             </dl>
                         </li>
                         <li><span class="setup">Recipients</span>
