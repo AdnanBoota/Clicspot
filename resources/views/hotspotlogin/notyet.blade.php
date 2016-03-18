@@ -46,11 +46,11 @@
             z-index: 10;
         }
 
-        .footer {
+/*        .footer {
             padding: 20px;
             background: #222222;
             position: relative;
-        }
+        }*/
 
         .fa {
             font-size: 25px;
@@ -125,6 +125,19 @@ width: 100%;
     position: absolute;
     bottom: 0;
     width: 100%;
+    background: #222222;
+}
+@media screen and (max-width:1000px){
+ .footer {
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background: #222222;
+}   
+}
+@media screen and (max-width:991px){
+    .container-img{min-height: 400px;}
 }
     </style>
 </head>
