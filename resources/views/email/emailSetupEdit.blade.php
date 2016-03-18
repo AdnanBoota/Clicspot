@@ -42,7 +42,7 @@
                         <li><span class="setup">Recipients</span>
                             <dl class="subdetail">
                                 <dt>Mailing lists:</dt>
-                                <dd class="ng-binding" id="emailGetList">Email List 1</dd>    
+                                <dd class="ng-binding" id="emailGetList"><?php echo isset($emailListId->listname) ? $emailListId->listname : ''; ?></dd>    
 <!--                                <dd class="ng-binding">Email List 2</dd>    -->
                             </dl>
                         </li>
@@ -210,6 +210,11 @@ function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
 }
 var getName = "";
 $(document).ready(function() {
+    $(window).load(function(){
+        $("#1").click();
+        $(".sendMail").removeClass("sendMail").addClass("nextbtn").find(".nxtButton").html("Next");
+    });
+    
     var list = $('.setupstep ul li');
             var lengthLi = {{isset($campaignData->currentForm)? $campaignData->currentForm :''}};
       //     console.log("length" + lengthLi);
