@@ -137,7 +137,7 @@ width: 100%;
 }   
 }
 @media screen and (max-width:991px){
-    .container-img{min-height: 400px;}
+    .container-img{ min-height: 400px; }
 }
     </style>
 </head>
