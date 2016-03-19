@@ -129,10 +129,9 @@ class HotspotLoginController extends Controller {
         // */
         $password = 1;
         //exit;
-        if(isset($campaign->delayPeriod) && $campaign->delayPeriod>0)
+        
         return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr','campaign'));
-       else
-           return redirect("{$redirectURL}");
+       
     }
 
     /**
