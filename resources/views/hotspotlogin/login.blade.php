@@ -24,6 +24,7 @@ $pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
 <style type="text/css">
     .advertblock{
         height: 100%;
+        display: none;
     }
 </style>
     </head>
@@ -41,7 +42,10 @@ $pappassword = implode('', unpack("H32", ($newpwd ^ $newchal)));
         <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
         <script type="text/javascript">
 function countTimer() {
+   
     var counter = {{ $campaign->delayPeriod }};
+    if(counter > 0)
+         $('.advertblock').css('display','block');
     var interval = setInterval(function() {
         counter--;
         $(".countTimerClock").html(counter);
@@ -54,8 +58,12 @@ function countTimer() {
         }
     }, 1000);
 }
+var counterOuter = {{ $campaign->delayPeriod }};
+    if (counterOuter == 0)
+        window.location.href = "{{$redirectURL}}";
+    
 $(document).ready(function() {
-countTimer();
+        countTimer();
 });
         </script>
     </body>
