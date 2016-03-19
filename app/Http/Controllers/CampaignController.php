@@ -96,6 +96,7 @@ class CampaignController extends Controller {
 //        echo '<pre>';
 //        print_r($input); exit;
          $campaign = new Campaign();
+          $bgfileName = "";
          if($input['backgroundimage']){
              $bgdestinationPath = 'uploads/campaign'; // upload path
             $bgpath_parts = pathinfo($input['backgroundimage']);
