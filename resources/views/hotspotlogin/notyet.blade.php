@@ -117,7 +117,11 @@ width: 100%;
         @else
             opacity: 1;
             @endif
-
+@if(isset($campaign->backgroundzoom))
+                      background-size: {{$campaign->backgroundzoom}}%;
+        @else
+                      background-size: cover;
+    @endif
 
 }
 .footer {
