@@ -71,6 +71,7 @@
 <script type="text/javascript">
 var oTable;
 var emailAddress = [];
+var dateshedule;
 $(function() {
     oTable = $('#emailCampaign-Table').DataTable({
         processing: true,
@@ -109,6 +110,16 @@ $(function() {
             {data: 'include', name: 'include', orderable: false, searchable: false}
         ]
     });
+    dateshedule="now";
+     $("[name=shedule]").change(function(){
+           if($(this).val()=="now"){
+               $(".date").hide();
+               dateshedule=$(this).val();
+           }else{
+               $(".date").show();
+               dateshedule=$(this).val();
+           } 
+        });
 });
 function validationForm() {
     $('form').validate({
@@ -185,11 +196,31 @@ function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
             "emailAddress": email,
             "fromName": fromName,
             "fromEmail": fromEmail,
-            "subjectEmail":subjectEmail
+            "subjectEmail":subjectEmail,
+            "campaignName":$("#campaignName").val(),
+            "subjectEmail":$("#subjectEmail").val(),
+            "templateId":$("#templateId").val(),
+            "emailListId":$("#emailListId").val(),
+            "gender":$("#gender").val(),
+            "age":$("#age").val(),
+            "router":$("#router").val(),
+            "numberofvisit":$("#numberofvisit").val(),
+            "duringRecipientLastVisit":$("#duringRecipientLastVisit").val(),
+            "noOfDays":$("#noOfDays").val(),
+            'scheduleTime':$("#scheduleTime").val(),
+            'shedule':dateshedule,
+            'campaignStatus':'send',
+            'radio1':$('#radio1').val(),
+            'radio2':$('#radio2').val(),
+            'datequickselection':$("#datequickselection").val(),
+            'currentForm':'4',
+            'templatePreview':$("#templatePreviewHidden").val(),
+            'testEmailAddress':$("#testEmailAddress").val(),
+            'campignId':<?php echo $campaignData->id; ?> 
 
         },
         success: function(result) {
-
+            console.log(result);
             emailAddress = [];
             swal({
                 title: "Campaign Send",
@@ -201,13 +232,47 @@ function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
 
             },
             function(response) {
-            emailAddress=[];
+
 
             });
-
         }
     });
 }
+
+//function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
+//    jQuery.ajax({
+//        url: 'sendCampaignMail',
+//        type: 'post',
+//        data: {
+//            "_token": '{{csrf_token()}}',
+//            "templateId": id,
+//            "templateName": name,
+//            "emailAddress": email,
+//            "fromName": fromName,
+//            "fromEmail": fromEmail,
+//            "subjectEmail":subjectEmail
+//
+//        },
+//        success: function(result) {
+//
+//            emailAddress = [];
+//            swal({
+//                title: "Campaign Send",
+//                text: "",
+//                type: "success",
+//                confirmButtonColor: "#DD6B55",
+//                confirmButtonText: "Ok",
+//                closeOnConfirm: true
+//
+//            },
+//            function(response) {
+//            emailAddress=[];
+//
+//            });
+//
+//        }
+//    });
+//}
 var getName = "";
 $(document).ready(function() {
     $(window).load(function(){
@@ -288,6 +353,7 @@ $(document).on("click", ".backbtn", function() {
 $(document).on("click", ".sendMail", function() {
     $.each($("input[name='checkbox[]']"), function() {
         if ($(this).is(":checked")) {
+             if($(this).val()!="")
             emailAddress.push({"email": $(this).val()});
         }
     });
