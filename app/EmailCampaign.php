@@ -7,7 +7,7 @@ class EmailCampaign extends Model
 
     protected $table = 'email_campaign';
     public $timestamps = false;
-    protected $fillable = ['adminid', 'emailListId', 'templateId','currentForm' ,'campaignName','templatePreview','campaignStatus','router','senderEmail','fromName','selectList','gender','age','checkbox','recipientNoOfVisit','duringRecipientLastVisit','datequickselection','noOfDays','testEmailAddress','createdDate'];
+    protected $fillable = ['adminid', 'emailListId', 'templateId','currentForm' ,'campaignName','templatePreview','campaignStatus','router','senderEmail','fromName','selectList','gender','age','checkbox','recipientNoOfVisit','duringRecipientLastVisit','datequickselection','noOfDays','testEmailAddress','createdDate','subjectEmail','scheduleTime'];
 
     /**
      * The attributes excluded from the model's JSON form.
