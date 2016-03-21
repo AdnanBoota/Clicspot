@@ -100,7 +100,13 @@ class EmailCampaignController extends Controller {
         if ($data['numberofvisit'] == "") {
             $data['numberofvisit'] = "1;20";
         }
-
+        if($data['shedule']=="latter")
+        {
+           $data['scheduleTime']=date("Y-m-d h:i:s",strtotime($data['scheduleTime'])); 
+        }else{
+            $data['scheduleTime']=date('Y-m-d');
+        }
+        //echo '<pre>'; print_r($data); exit;
         $EmailCampaign = new EmailCampaign($data);
 
         Auth::user()->emailCampaign()->save($EmailCampaign);
@@ -175,19 +181,87 @@ class EmailCampaignController extends Controller {
      * @return Response
      */
     public function destroy($id) {
+         $EmailCampaign = EmailCampaign::find($id);
+        $res = $EmailCampaign->delete();
+        if ($res) {
+            $success = true;
+            $msg = "Record Deleted Successfully.";
+        } else {
+            $success = false;
+            $msg = "Something went wrong , Please try again later.";
+        }
+        return Response::json(array(
+            'success' => $success,
+            'message' => $msg,
+        ));
         
     }
 
     public function sendEmail() {
         $input = Input::all();
-        //return Response ::json(array('data'=>$input));
+ // return Response ::json(array('data'=>$input));
         $userId = Auth::user()->id;
         
+        
+        
+        if (isset($input['router'])) {
+            $input['router'] = implode(",", $input['router']);
+        }
+        $emailAr=array();
+        if (isset($input['emailAddress'])) {
+            $emailAdd=$input['emailAddress'];
+            foreach($emailAdd as $emailadd){
+                $emailAr[]=$emailadd['email'];
+            }
+            
+            $input['checkbox'] = implode(",", $emailAr);
+        }
+        if ($input['age'] == "") {
+            $input['age'] = "15;55";
+        }
+        if ($input['numberofvisit'] == "") {
+            $input['numberofvisit'] = "1;20";
+        }
+        
+        if($input['shedule']=="latter")
+        {
+           $input['scheduleTime']=date("Y-m-d h:i:s",strtotime($input['scheduleTime'])); 
+        }else{
+            $input['scheduleTime']=date('Y-m-d h:i:s');
+        }
+        
+        if($input['fromEmail']){
+            $input['senderEmail']=$input['fromEmail'];
+        }
+        if($input['radio1']){
+            $input['selectList']=$input['radio1'];
+        }
+        if($input['radio2']){
+            $input['selectList']=$input['radio2'];
+        }
+            
+       if($input['testEmailAddress']==""){
+           $input['testEmailAddress']="";
+       }
+        
+        //return Response ::json(array('data'=>$input));
+        //echo '<pre>'; print_r($data); exit;
+       if(isset($input['campignId']) && $input['campignId']!=""){
+        $EmailCampaign = EmailCampaign::findOrFail($input['campignId']);
+        $EmailCampaign->update($input);
+       }else{
+       $EmailCampaign = new EmailCampaign($input);
+       Auth::user()->emailCampaign()->save($EmailCampaign);
+       }
+
+        
         $msgBody = "";
+        
         //$subject = "Email Template For ClicSpot";
         $subject=$input['subjectEmail'];
         $message = "this is testing";
         $sendToUser = $input['emailAddress'];
+        
         Mail::send('email.emailTemplate', array('msgBody' => $msgBody, 'templateId' => $input['templateId'], 'templateName' => $input['templateName'], 'userId' => $userId), function ($message) use ($sendToUser, $subject, $input) {
             foreach ($sendToUser as $singleUser) {
                 $message->to($singleUser['email']);
@@ -195,6 +269,7 @@ class EmailCampaignController extends Controller {
             $message->from($input['fromEmail'], $input['fromName']);
             $message->subject($subject);
         });
+        
 
         $successMsg = "Email send successfully";
         Session::flash('flash_message_success', $successMsg);
@@ -228,6 +303,26 @@ class EmailCampaignController extends Controller {
         }
     }
     
-    
+    public function manualMailing($id){
+        $emailData="";
+        if($id=="all")
+            $emailData=  EmailCampaign::all();
+        else
+            $emailData=  EmailCampaign::where('campaignStatus',$id)->get();
+        $eventArr=array();
+        foreach($emailData as $email){
+            $event=array();
+            $event['id']=$email->id;
+            $event['title']=$email->campaignName;
+            $event['start']=$email->scheduleTime;
+            $event['allDay'] =true;
+            $event['backgroundColor']=$email->campaignStatus=='draft' ? $event['className'][]="draft" : $event['className'][]="send" ;
+            
+               
+            array_push($eventArr, $event);
+        }
+        
+        return Response::json($eventArr);
+    }
 
 }
