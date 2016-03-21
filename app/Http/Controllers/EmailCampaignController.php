@@ -170,6 +170,12 @@ class EmailCampaignController extends Controller {
         if ($data['numberofvisit'] == "") {
             $data['numberofvisit'] = "1;20";
         }
+         if($data['shedule']=="latter")
+        {
+           $data['scheduleTime']=date("Y-m-d h:i:s",strtotime($data['scheduleTime'])); 
+        }else{
+            $data['scheduleTime']=date('Y-m-d');
+        }
         $EmailCampaign->update($data);
         return redirect('emails');
     }
