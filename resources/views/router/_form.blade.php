@@ -9,11 +9,11 @@
                     <div class="routerform">
                         
                      
-                      {!!  Form::text('ssid', null, array('id'=>'shortname','class'=>'lname','required'=>'true','placeholder'=>'Location Name','required'=>'true')) !!}
+                      {!!  Form::text('shortname', null, array('id'=>'shortname','class'=>'lname','required'=>'true','placeholder'=>'Location Name','required'=>'true')) !!}
 <!--                        <input class="lname" name="lname" type="text" placeholder="Location Name" value="">-->
-                      {!!  Form::text('shortname', null, array('id'=>'shortname','class'=>'wirelessnm','required'=>'true','placeholder'=>'Wireless Name','required'=>'true')) !!}
+                      {!!  Form::text('ssid', null, array('id'=>'shortname','class'=>'wirelessnm','required'=>'true','placeholder'=>'Wireless Name','required'=>'true')) !!}
 <!--                      <input class="wirelessnm" name="wirelessnm" type="text" placeholder="Wireless Name" value=""/>-->
-                  {!!  Form::text('nasidentifier', (Session::has('mac')) ? Session::get('mac') : null, array('id'=>'nasidentifier','class'=>'router','required'=>'true',$readonly,'minlength'=>'17','placeholder'=>'88:AC:45:45:87')) !!}
+                  {!!  Form::text('nasidentifier', (Session::has('mac')) ? Session::get('mac') : null, array('id'=>'nasidentifier','class'=>'router','required'=>'true','minlength'=>'17','placeholder'=>'88:AC:45:45:87')) !!}
 <!--                      <input class="router" name="router" type="text" placeholder="88:AC:45:45:87" value=""/>-->
                     </div>
                   <a  href="javascript:void(0)"class="routerbtn"><i class="nextbtn"></i> NEXT</a>
