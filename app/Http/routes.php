@@ -58,6 +58,7 @@ Route::get('emails/emailSetup/emailTemplate','EmailCampaignController@getTemplat
 Route::post('emails/emailSetup/sendCampaignMail', 'EmailCampaignController@sendEmail');
 Route::post('emails/emailSetup/updateForm', 'EmailCampaignController@updateForm');
 Route::post('emails/emailSetup/{id}/sendCampaignMail', 'EmailCampaignController@sendEmail');
+Route::get('emails/manualMailing/{id}','EmailCampaignController@manualMailing');
 Route::resource('emails/emailSetup', 'EmailCampaignController');
 
 //Route::post('emails/emailSetup/users/getStatistics/{listId}/{callFrom}', 'UsersController@getStatistics');
