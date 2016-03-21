@@ -1,3 +1,4 @@
+<?php //echo '<pre>'; print_r($campaignData); exit; ?>
 <input type="hidden" name="campaignStatus" value="draft" id="emailDraft"/>
 <div class="col-md-9 campaingnState">
     {!!  Form::hidden('currentForm', null, array('id'=>'currentFormIndex')) !!}
@@ -170,7 +171,19 @@
                     <a href="javascript:void(0)" id="sendTestAddress">{{ Lang::get('auth.send')}}</a>
                 </div>
             </div>
-        </div>
+            </div>
+            <div class="form-group formrow sendformrow">
+                 <label>Schedule</label>
+            <div class="form-group">
+                
+                Now <input type="radio" name="shedule" value="now" checked="checked" id="shedule">&nbsp;
+                SheduleDate<input type="radio" name="shedule" value="latter" id="shedule">
+                <div class="input-group date"  style="display: none">
+                    <input type="text" data-provide="datepicker" class="form-control " name="scheduleTime" id="scheduleTime" style="width: 145px">
+                </div>
+            </div>
+                </div>
+        
     </div>
     <div class="col-md-12"></div>
     <div class="col-md-12">
@@ -182,3 +195,7 @@
         </div>
     </div>
 </div>
+@push('scripts')
+<script type="text/javascript" src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+
+@endpush
