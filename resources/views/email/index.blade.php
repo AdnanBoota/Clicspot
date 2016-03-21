@@ -3,7 +3,8 @@
 <link href="{{ asset('/css/list.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/css/platform-mailing.css') }}" rel="stylesheet" type="text/css"/>
-
+<link rel="stylesheet" href="{{ asset('/plugins/fullcalendar/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/fullcalendar/fullcalendar.print.css') }}" media="print">
 @endpush
 @section('content')
 <style>
@@ -21,7 +22,79 @@
     }
     #templateName{
         display: block;
+    } 
+    #events-layer{
+        width: 100%;
     }
+    #events-layer li a{
+        font-size: 12px;
+        padding: 5px;
+        display: block;
+        width: 90%; 
+        border-radius: 3px;
+        margin: 0 !important;
+        background: #F5F5F5;
+        color: #333; 
+    }
+    #events-layer li a:hover{
+        background: #1B84B5;
+        color: #fff;
+    } 
+    #events-layer li a i{
+        margin-right: 5px;
+    }
+    .fc-day-grid-event.fc-event.fc-start.fc-end.draft{
+        background: none !important;
+        border: none !important;
+        margin-bottom: 0 !important;
+        margin-right: 20px;
+        margin-top: 0 !important;
+    }
+    .fc-day-grid-event.fc-event.fc-start.fc-end.send{
+        background: none !important;
+        border: none !important;
+        margin-bottom: 0 !important;
+        margin-right: 20px;
+        margin-top: 0 !important;
+    }
+    
+    .fc-day-grid-event.fc-event.fc-start.fc-end.draft .fc-content{
+        background-color: #0073b7;
+        border-color: #0073b7;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 3px;
+        padding: 5px;
+    } 
+    .fc-day-grid-event.fc-event.fc-start.fc-end.send .fc-content{
+        background-color: #3C8DBC;
+        border-color: #3C8DBC;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 3px;
+        padding: 5px;
+    }
+    .automailingblock a, .automailingblock .campaignbtn a.emailbtn{
+        color: #59B6E3;
+        border: 1px solid #59B6E3;
+        border-radius: 5px;
+        background: none;
+        font-size: 14px;
+    }
+    #statusData{
+        
+        border: 1px solid #E2E2E2;
+        padding: 10px;
+        -webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;
+   margin: 0px 20px 10px 10px;
+   background:rgba(0,0,0,0) url('../img/arrows.png') no-repeat right center; 
+    } 
+    .fc-content-skeleton table{
+        min-height: 130px;
+    }
+    
 </style>
 
 <section class="creatpart">
@@ -142,33 +215,7 @@
         <h1>{{ Lang::get('auth.manumail') }}</h1>
     </div>
     <div class="automailingblock">
-        <a href="{{url('emails/emailSetup')}}">{{ Lang::get('auth.createCampaign') }}</a>
-        <div class="manualbtn">
-            <a href="javascript:void(0)" class="sentbtn active" id="sentbtn"><i></i>{{ Lang::get('auth.sent') }}<span class="notiblk">{{  $sentCount[0]->totalSentCountCount }}</span></a>
-            <a href="javascript:void(0)" class="draftbtn "><i></i>{{ Lang::get('auth.draft') }}<span class="notiblk">{{$draftCount[0]->totalDraftCount}}</span></a>
-        </div>
-        <div class="mailingtabledtl">
-          
-            <input type="hidden" value="" name="mailType" id="mailType">
-            <table class="mailingtable" id="campaign-table">
-                <thead>
-                    <tr>
-                        <th class="tchackboc">
-                            <a class="deletebtn" href="javascript:void(0)" style="display: none;" id="campaignDelete"><img src="{{ asset("img/deleteimg.png") }}" /></a>
-                            <label class="">
-                                <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;" name="emailTemplateDelete[]" id="multicheck" value=""><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
-                            </label>
-                        </th>
-                        <th>Campaign Name</th>
-                        <th>Statistics</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
+        <div id="calendar"></div>
     </div>
 
 
@@ -178,6 +225,9 @@
 @endsection
 
 @push('scripts')
+<!-- calendar -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="{{ asset('/plugins/fullcalendar/fullcalendar.min.js') }}"></script>
 <!-- DataTables -->
 <script src="{{ asset('/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 <script src="{{ asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
@@ -187,6 +237,161 @@
 <script type="text/javascript" src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/dataTables.responsive.js') }}"></script>
+<script>
+     
+          var APP_URL = {!! json_encode(url('/')) !!};
+        /* initialize the external events
+         -----------------------------------------------------------------
+        function ini_events(ele) {
+          ele.each(function () {
+
+            // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+            // it doesn't need to have a start or end
+            var eventObject = {
+              title: $.trim($(this).text()) // use the element's text as the event title
+            };
+
+            // store the Event Object in the DOM element so we can get to it later
+            $(this).data('eventObject', eventObject);
+
+            // make the event draggable using jQuery UI
+           
+
+          });
+        }
+        ini_events($('#external-events div.external-event'));
+
+        /* initialize the calendar
+         -----------------------------------------------------------------*/
+        //Date for the calendar events (dummy data)
+  
+   function calendarData(id)
+   {
+        var date = new Date();
+        var d = date.getDate(),
+                m = date.getMonth(),
+                y = date.getFullYear();
+        var calendar =$('#calendar').fullCalendar({
+          header: {
+            left: '',
+            center: 'title',
+            right: 'prev,next today'
+          },
+          //Random default events
+         events: {
+            url: APP_URL+'/emails/manualMailing/'+id,
+            type: 'GET', // Send post data
+            cache: true,
+            error: function() {
+                alert('There was an error while fetching events.');
+            }
+        },
+          editable: false,
+          droppable: false, // this allows things to be dropped onto the calendar !!!
+        eventMouseover: function(event, domEvent) {
+    var layer =	'<div id="events-layer"><li><a href="emails/emailSetup/'+event.id+'/edit"><i class="fa fa-fw fa-pencil"></i>edit</a></li><li><a href="javascript:void(0);" data-token="{{ csrf_token() }}" val="'+event.id+'" id="delete"><i class="fa fa-fw fa-trash"></i>Delete</a></li></div>';
+				$(this).append(layer);
+				
+				$("#delbut"+event.id).fadeIn(300);
+				$("#delbut"+event.id).click(function() {
+					$.post("delete.php", {eventId: event.id});
+					calendar.fullCalendar('refetchEvents');
+				});
+				
+				$("#edbut"+event.id).fadeIn(300);
+				$("#edbut"+event.id).click(function() {
+					var title = prompt('Current Event Title: ' + event.title + '\n\nNew Event Title: ');
+					
+					if(title){
+						$.post("update_title.php", {eventId: event.id, eventTitle: title});
+						calendar.fullCalendar('refetchEvents');
+					}
+				});
+            
+},eventMouseout: function(calEvent, domEvent) {
+				$("#events-layer").remove();
+			},
+            eventRender: function (event, element) {
+                 element.attr('href', 'javascript:void(0);');
+                 $(element).css({'width':'100px','padding':'5px','font-size':'14px'});
+
+         
+
+            },
+                    
+        });
+
+        
+        
+        var selectDraft='';
+        var selectSend="";
+        if(id=="draft"){
+            selectDraft="selected";
+            
+        }else if(id=="send"){
+            selectSend="selected";
+            console.log('id',id);
+        }
+            
+        
+   var customButton="<div class='fc-button-group campaignbtn'><a href='{{url('emails/emailSetup')}}'>Create Campaign</a> <select id='statusData'><option value='all'>Select</option><option value='draft' "+selectDraft+">Draft</option><option value='send' "+selectSend+">Send</option></select><a href='javascript:void(0)'><i class='fa fa-paper-plane'></i> <b>4980</b>/<small>5000<small></a></div>";
+       $(".fc-left").append(customButton);
+    
+      }
+      $(document).ready(function(){
+    $("body").on('change','#statusData',function(e){
+         $('#calendar').fullCalendar('destroy');    
+         var data=$(this).val();
+         calendarData(data);
+     });  
+     $(document).on('click', '#delete', function () {
+            var $me = $(this);
+            swal({
+                        title: "Are you sure?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, Delete it!",
+                        cancelButtonText: "No, cancel!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            var id = jQuery($me).attr('val');
+                            var token = jQuery($me).attr('data-token');
+
+                            jQuery.ajax({
+                                url: 'emails/emailSetup/' + id,
+                                type: 'DELETE',
+                                data: {
+                                    "_token": token
+                                },
+                                success: function (result) {
+                                    if (result.success) {
+                                        swal("success!", "Campaign deleted successfully.", "success");
+                                          $('#calendar').fullCalendar('refetchEvents');
+                                    } else {
+                                        alert('false');
+                                        swal("ohh snap!", "something went wrong", "error");
+                                    }
+
+                                }
+                            });
+                        } else {
+                            swal("Cancelled", "Campaign delete is cancelled ", "error");
+                            //return true;
+                        }
+                    });
+            return false;
+        });
+      
+    });
+     
+    </script>
+ 
+
 <script type="text/javascript">
 var oTableCampaign;
 function  countChecked() {
@@ -407,9 +612,11 @@ $(document).ready(function() {
         $(this).parent().addClass("active");
     });
     $(document).on("click", ".manualMailingForm", function() {
-         $("#sentbtn").trigger("click");
+        $("#sentbtn").trigger("click");
         $(".automaticMailing").hide();
         $(".manualMailing").show();
+        //$('#calendar').fullCalendar('render');
+        calendarData('all');
         $(this).parents(".tabpart").find(".active").removeClass("active");
         $(this).parent().addClass("active");
 
@@ -595,7 +802,7 @@ $(document).ready(function() {
     
     
 </script>
-
+  
 
  
 
