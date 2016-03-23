@@ -216,7 +216,8 @@ function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
             'currentForm':'4',
             'templatePreview':$("#templatePreviewHidden").val(),
             'testEmailAddress':$("#testEmailAddress").val(),
-            'campignId':<?php echo $campaignData->id; ?> 
+            'campignId':<?php echo $campaignData->id; ?>,
+            'timepicker':$("#timepicker").val()
 
         },
         success: function(result) {
@@ -232,47 +233,66 @@ function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
 
             },
             function(response) {
-
-
+                    window.location.reload();
             });
         }
     });
 }
 
-//function sendCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
-//    jQuery.ajax({
-//        url: 'sendCampaignMail',
-//        type: 'post',
-//        data: {
-//            "_token": '{{csrf_token()}}',
-//            "templateId": id,
-//            "templateName": name,
-//            "emailAddress": email,
-//            "fromName": fromName,
-//            "fromEmail": fromEmail,
-//            "subjectEmail":subjectEmail
-//
-//        },
-//        success: function(result) {
-//
-//            emailAddress = [];
-//            swal({
-//                title: "Campaign Send",
-//                text: "",
-//                type: "success",
-//                confirmButtonColor: "#DD6B55",
-//                confirmButtonText: "Ok",
-//                closeOnConfirm: true
-//
-//            },
-//            function(response) {
-//            emailAddress=[];
-//
-//            });
-//
-//        }
-//    });
-//}
+function scheduleCampaignMail(id, name, email, fromName, fromEmail,subjectEmail) {
+    jQuery.ajax({
+        url: 'scheduleCampaignMail',
+        type: 'post',
+        data: {
+            "_token": '{{csrf_token()}}',
+            "templateId": id,
+            "templateName": name,
+            "emailAddress": email,
+            "fromName": fromName,
+            "fromEmail": fromEmail,
+            "subjectEmail":subjectEmail,
+            "campaignName":$("#campaignName").val(),
+            "subjectEmail":$("#subjectEmail").val(),
+            "templateId":$("#templateId").val(),
+            "emailListId":$("#emailListId").val(),
+            "gender":$("#gender").val(),
+            "age":$("#age").val(),
+            "router":$("#router").val(),
+            "numberofvisit":$("#numberofvisit").val(),
+            "duringRecipientLastVisit":$("#duringRecipientLastVisit").val(),
+            "noOfDays":$("#noOfDays").val(),
+            'scheduleTime':$("#scheduleTime").val(),
+            'campaignStatus':'schedule',
+            'radio1':$('#radio1').val(),
+            'radio2':$('#radio2').val(),
+            'datequickselection':$("#datequickselection").val(),
+            'currentForm':'4',
+            'templatePreview':$("#templatePreviewHidden").val(),
+            'testEmailAddress':$("#testEmailAddress").val(),
+            'campignId':<?php echo $campaignData->id; ?>,
+            'timepicker':$("#timepicker").val()
+
+        },
+        success: function(result) {
+            console.log(result);
+            emailAddress = [];
+            swal({
+                title: "Schedule updated successfully",
+                text: "",
+                type: "success",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Ok",
+                closeOnConfirm: true
+
+            },
+            function(response) {
+                    window.location.href='/emails';
+            });
+        }
+    });
+}
+
+
 var getName = "";
 $(document).ready(function() {
     $(window).load(function(){
@@ -363,6 +383,19 @@ $(document).on("click", ".sendMail", function() {
     sendCampaignMail(templateID, templateName, emailAddress, senderName, senderEmail,subjectEmail);
 
 });
+ $(document).on("click", ".schedule", function() {
+        $.each($("input[name='checkbox[]']"), function() {
+            if ($(this).is(":checked")) {
+                if($(this).val()!="")
+                emailAddress.push({"email": $(this).val()});
+            }
+        });
+        //console.log(emailAddress);
+        var senderEmail = $("#senderEmail").val();
+        var senderName = $("#senderName").val();
+        var subjectEmail=$("#subjectEmail").val();
+        scheduleCampaignMail(templateID, templateName, emailAddress, senderName, senderEmail,subjectEmail);
+    });
 $(document).on('change', '#templateId', function(e) {
 
     templateID = this.value;
