@@ -1267,18 +1267,31 @@
 //        $('.mygallerybox').slideToggle("slow");
 //    });
 //    $('.mygallerybox').hide();
+
         CKEDITOR.disableAutoInline = true;
-        CKEDITOR.inline(contentEditor, {
-            on: {
-                blur: function (event) {
-                    var data = event.editor.getData();
-                    $('input[name=description]').val(data);
+        var editor = CKEDITOR.inline( 'contentEditor', {
+    on: {
+        instanceReady: function() {
+            periodicData();
+        }
+    }
+} );
+var periodicData = ( function(){
+    var data, oldData;
 
+    return function() {
+        if ( ( data = editor.getData() ) !== oldData ) {
+            oldData = data;
+            //console.log( data );
+            $('input[name=description]').val(data);
+        }
 
-                }
-            }
-        });
-
+        setTimeout( periodicData, 1000 );
+    };
+})();
+        
+           
+      
         $('#name').on('blur', function () {
             $('#campaignName').text($(this).val());
         });
@@ -1360,6 +1373,10 @@
 </script>-->
 <script>
 $(function(){
+    var form=$('#campform')[0];
+    var urlAction="";
+    var method="";
+    var dataFrom="";
     $(".capitalportal").click(function(){
          $('html, body').animate({
                     scrollTop: $(".advertpage").offset().top
@@ -1375,10 +1392,53 @@ $(function(){
                     scrollTop: $(".routerconfig").offset().top
                 }, 2000);
     });
+    var $form = $("#campform");
+         dataFrom =$form.serialize();
+    
+        urlAction = $form.attr( "action");
+         method = $form.attr( "method" );
     $(".routerconfiglogo").click(function(){
-         $('html, body').animate({
+    
+        $("#campform").trigger("submit");
+        
+    });
+    
+    $('#campform').submit(function(e){
+    e.preventDefault();
+    var $form = $( this ),
+        dataFrom = $form.serialize(),
+        url = $form.attr( "action"),
+        method = $form.attr( "method" );
+
+    $.ajax({
+        url: url,
+        data: dataFrom,
+        type: method,
+        processData: false,
+        success:function(data){
+             swal({
+                  @if(isset($campaign->id))
+                      title: "Campaign  update successfully",
+                  @else
+                    title: "Campaign  create successfully",
+                @endif
+                text: "",
+                type: "success",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Ok",
+                closeOnConfirm: true
+
+            },
+            function(response) {
+                    $(".stickyheader").css("position","relative");
+                   $('html, body').animate({
                     scrollTop: $(".completeblock").offset().top
-                }, 2000);
+                }, 2000);    
+        
+            });
+        
+         }
+    });
     });
     
     $(window).scroll(function(e) {
