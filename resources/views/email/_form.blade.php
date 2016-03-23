@@ -1,3 +1,6 @@
+@push('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.min.css" type="text/css">
+@endpush
 <?php //echo '<pre>'; print_r($campaignData); exit; ?>
 <input type="hidden" name="campaignStatus" value="draft" id="emailDraft"/>
 <div class="col-md-9 campaingnState">
@@ -173,14 +176,14 @@
             </div>
             </div>
             <div class="form-group formrow sendformrow">
-                 <label>Schedule</label>
+                 <label>Select date & time</label>
             <div class="form-group">
-                
-                Now <input type="radio" name="shedule" value="now" checked="checked" id="shedule">&nbsp;
-                SheduleDate<input type="radio" name="shedule" value="latter" id="shedule">
-                <div class="input-group date"  style="display: none">
+                <div class="input-group date">
                     <input type="text" data-provide="datepicker" class="form-control " name="scheduleTime" id="scheduleTime" style="width: 145px">
+                    <input type="text" class="form-control timepicker" id="timepicker" name="timepicker" style="width: 100px;margin-left:10px">
+                    <span class="stepbtn" style=""><a href="javascript:void(0)" class="schedule" tabindex="16" style="margin-top:0px;position: absolute " >Schedule</a> </span>
                 </div>
+                
             </div>
                 </div>
         
@@ -191,11 +194,22 @@
             <button class="backbtnaa" type="submit" tabindex="13"><i><img src="{{asset("img/savebtn.png")}}" /></i>{{ Lang::get('auth.savequite')}}</button>
             <a href="javascript:void(0)" class="backbtn" tabindex="14"> <i><img src="{{asset("img/backicon.png")}}" /></i> {{ Lang::get('auth.back')}} </a>
             <a href="javascript:void(0)" class="nextbtn" tabindex="15"><i><img src="{{asset("img/sendallicon.png")}}" /></i><span class="nxtButton">{{ Lang::get('auth.next')}} </span></a>
-
+            
         </div>
     </div>
 </div>
 @push('scripts')
-<script type="text/javascript" src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
 
+
+<script type="text/javascript" src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+<script type="text/javascript">
+    $(function(){
+         //Timepicker
+         $("#timepicker").timepicker();
+         $('#scheduleTime').datepicker('setDate',new Date());
+    $('#timepicker').timepicker('setTime', new Date());
+});
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.min.js"></script>
 @endpush
