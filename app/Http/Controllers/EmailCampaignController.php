@@ -100,13 +100,12 @@ class EmailCampaignController extends Controller {
         if ($data['numberofvisit'] == "") {
             $data['numberofvisit'] = "1;20";
         }
-        if($data['shedule']=="latter")
-        {
-           $data['scheduleTime']=date("Y-m-d h:i:s",strtotime($data['scheduleTime'])); 
-        }else{
-            $data['scheduleTime']=date('Y-m-d');
-        }
-        //echo '<pre>'; print_r($data); exit;
+        
+        
+//            echo date('H:i:s', strtotime($data['timepicker']));
+              $data['scheduleTime']=date("Y-m-d H:i:s",strtotime($data['scheduleTime'].$data['timepicker'])); 
+        
+//        echo '<pre>'; print_r($data); exit;
         $EmailCampaign = new EmailCampaign($data);
 
         Auth::user()->emailCampaign()->save($EmailCampaign);
@@ -170,12 +169,9 @@ class EmailCampaignController extends Controller {
         if ($data['numberofvisit'] == "") {
             $data['numberofvisit'] = "1;20";
         }
-         if($data['shedule']=="latter")
-        {
-           $data['scheduleTime']=date("Y-m-d h:i:s",strtotime($data['scheduleTime'])); 
-        }else{
-            $data['scheduleTime']=date('Y-m-d');
-        }
+         
+          $data['scheduleTime']=date("Y-m-d H:i:s",strtotime($data['scheduleTime'].$data['timepicker'])); 
+        
         $EmailCampaign->update($data);
         return redirect('emails');
     }
@@ -203,6 +199,66 @@ class EmailCampaignController extends Controller {
         
     }
 
+    public function scheduleEmail() {
+        $input = Input::all();
+ // return Response ::json(array('data'=>$input));
+        $userId = Auth::user()->id;
+        
+        
+        
+        if (isset($input['router'])) {
+            $input['router'] = implode(",", $input['router']);
+        }
+        $emailAr=array();
+        if (isset($input['emailAddress'])) {
+            $emailAdd=$input['emailAddress'];
+            foreach($emailAdd as $emailadd){
+                $emailAr[]=$emailadd['email'];
+            }
+            
+            $input['checkbox'] = implode(",", $emailAr);
+        }
+        if ($input['age'] == "") {
+            $input['age'] = "15;55";
+        }
+        if ($input['numberofvisit'] == "") {
+            $input['numberofvisit'] = "1;20";
+        }
+        
+          $input['scheduleTime']=date("Y-m-d H:i:s",strtotime($input['scheduleTime'].$input['timepicker'])); 
+       
+       
+        
+        if($input['fromEmail']){
+            $input['senderEmail']=$input['fromEmail'];
+        }
+        if($input['radio1']){
+            $input['selectList']=$input['radio1'];
+        }
+        if($input['radio2']){
+            $input['selectList']=$input['radio2'];
+        }
+            
+       if($input['testEmailAddress']==""){
+           $input['testEmailAddress']="";
+       }
+        
+        //return Response ::json(array('data'=>$input));
+        //echo '<pre>'; print_r($data); exit;
+       if(isset($input['campignId']) && $input['campignId']!=""){
+        $EmailCampaign = EmailCampaign::findOrFail($input['campignId']);
+        $EmailCampaign->update($input);
+       }else{
+       $EmailCampaign = new EmailCampaign($input);
+       Auth::user()->emailCampaign()->save($EmailCampaign);
+       }
+
+        
+       
+        $successMsg = "Email schedule created successfully";
+        Session::flash('flash_message_success', $successMsg);
+    }
+    
     public function sendEmail() {
         $input = Input::all();
  // return Response ::json(array('data'=>$input));
@@ -229,12 +285,9 @@ class EmailCampaignController extends Controller {
             $input['numberofvisit'] = "1;20";
         }
         
-        if($input['shedule']=="latter")
-        {
-           $input['scheduleTime']=date("Y-m-d h:i:s",strtotime($input['scheduleTime'])); 
-        }else{
-            $input['scheduleTime']=date('Y-m-d h:i:s');
-        }
+          $input['scheduleTime']=date("Y-m-d H:i:s",strtotime($input['scheduleTime'].$input['timepicker'])); 
+       
+       
         
         if($input['fromEmail']){
             $input['senderEmail']=$input['fromEmail'];
@@ -281,6 +334,8 @@ class EmailCampaignController extends Controller {
         Session::flash('flash_message_success', $successMsg);
     }
 
+
+
     public function getTemplate() {
         //$contents['template'] = file_get_contents(url()."/template_builder/html/4/bindesh.html");
 //        View::addExtension('html', 'php');
@@ -292,6 +347,7 @@ class EmailCampaignController extends Controller {
         //print_r($input);exit;
         if (isset($input['id'])) {
             $EmailCampaign = EmailCampaign::findOrFail($input['id']);
+          $input['scheduleTime']=date("Y-m-d H:i:s",strtotime($input['scheduleTime'].$input['timepicker'])); 
             $EmailCampaign->update($input);
             return Response::json(array(
                         'success' => true,
