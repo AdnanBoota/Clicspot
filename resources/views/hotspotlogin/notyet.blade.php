@@ -150,11 +150,11 @@ width: 100%;
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                @if(isset($campaign->logoimage))
+                @if(isset($campaign->logoimage) && $campaign->logoimage!="")
                     <img src="/uploads/campaign/{!! $campaign->logoimage !!}" alt="logo"
                          style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
                 @else
-                    <img src="{{ asset("/img/Clicspot-Grey.png") }}" alt="logo"
+                    <img src="{{ asset("img/Clicspot-Grey.png") }}" alt="logo"
                          style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
                 @endif
             </a>
