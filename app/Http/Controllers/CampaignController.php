@@ -39,7 +39,7 @@ class CampaignController extends Controller {
             }
             return Datatables::of($campaign)
                             ->editColumn('backgroundimage', '<img src="uploads/campaign/{{$backgroundimage}}" height="150" width="300" />')
-                            ->editColumn('logoimage', '<img src="uploads/campaign/{{$logoimage}}" height="75" width="150" />')
+                            ->editColumn('logoimage', '@if($logoimage)<img src="uploads/campaign/{{$logoimage}}" height="75" width="150" /> @else <img src="img/Clicspot-Grey.png" height="75" width="150" /> @endif')
                             ->editColumn('fontcolor', '<span class="btn btn-default"><i class="fa fa-font" style="color: {{$fontcolor}}"></i></span> {{$fontcolor}}')
                             ->addColumn('edit', function ($campaign) {
                                 return '<a href="' . url("campaign/{$campaign->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
@@ -233,7 +233,6 @@ class CampaignController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        
         $campaign = Campaign::findOrFail($id);
         $attributes = $campaign->campaignAttributes;
         foreach ($attributes as $key => $value) {
@@ -353,6 +352,7 @@ class CampaignController extends Controller {
             'fontcolor' => 'required',
             'fakebrowser'=>'required' ]
         );
+         //echo '<pre>'; print_r($input); exit;
          $campaign->update($input);
 //          $campaginId=$campaign->id; 
 //          if(!empty($campaign->fkNasId)){
@@ -511,5 +511,10 @@ class CampaignController extends Controller {
         ));
     }
 
-
+    public function ajaxStore() {
+        
+        $input=Input::all();
+        echo'<pre>';
+        print_r($input);
+    }
 }
