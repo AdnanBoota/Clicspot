@@ -23,11 +23,11 @@
         <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Gallery
+        {{ Lang::get('campaign.gallary') }}
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Gallery</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>{{ Lang::get('auth.home') }}</a></li>
+        <li class="active">{{ Lang::get('campaign.gallary') }}</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -37,8 +37,8 @@
             @include('errors.flash')
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Gallery List</h3>
-                    <a href="{{url('gallery/create')}}" class="btn btn-info pull-right">Add Images</a>
+                    <h3 class="box-title">{{ Lang::get('campaign.gallerylist') }}</h3>
+                    <a href="{{url('gallery/create')}}" class="btn btn-info pull-right">{{ Lang::get('campaign.addimages') }}</a>
                 </div>
 
                 <!-- /.box-header -->
@@ -51,7 +51,7 @@
                         <img src="{{ $image }}" height="100" width="150" alt="..." class="">
                         <a href="javascript:void(0);" data-token="{{csrf_token()}}" id="delete" val="{{ $image }}" ><i class="fa fa-fw fa-close pull-right closegallery"></i></a>                        </div>
                         @empty
-                            <p>No Images</p>
+                            <p>{{ Lang::get('campaign.noimage') }}</p>
                         @endforelse
                         </div>
                     </div>

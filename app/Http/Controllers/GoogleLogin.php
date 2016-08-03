@@ -22,20 +22,31 @@ class GoogleLogin extends Controller
     function callback()
     {
         $user = Socialize::with('google')->user();
-        //dd($user);
+        //echo '<pre>'; print_r($user); exit;
+        //dd($user); exit;
+        $fullname=$user->getName();
+        $fullnm=explode(' ',$fullname);
+        //print_r($fullnm); exit;
+        $fname=""; $lname="";
+        $fname=$fullnm[0];
+        if(isset($fullnm[1]))
+            $lname=$fullnm[1];
+        else
+            $lname='';
         $data = array(
             'username' => \Session::get('mac'),
             'type' => 1,
-            'name' => $user->getName(),
+            'firstname'=>$fname,
+            'lastname'=>$lname,
             'email' => $user->getEmail(),
-            'gender' => $user->user['gender'],
-            'profileurl' => $user->user['url'],
+            'gender' => isset($user->user['gender']) ? $user->user['gender'] : '',
+            'profileurl' => isset($user->user['url']) ? $user->user['url'] : '',
             'avatar'=>$user->getAvatar(),
             'birthday'=>isset($user->user['birthday'])?$user->user['birthday']:'',
             'language'=>App::getLocale()
         );
-        //dd($data);
-        
+//        dd($data);
+//        exit;
         $users = Users::where('username', $data['username'])->first();
         if ($users) {
             if($users['type']==1 && strpos($users['profileurl'], 'google') !== false){

@@ -1,0 +1,502 @@
+@import url('../fonts/stylesheet.css');
+body{
+    
+}
+
+li{
+    list-style: none;
+}
+a:hover{
+    text-decoration: none;
+}
+
+.content-wrapper{
+    background: #fff;
+}
+
+.titleblock{
+    background: #ecf0f1;
+    padding: 15px 20px;
+}
+.titleblock h1{
+    margin: 0;
+    color: #34495e;
+    font-family: 'latoblack';
+    font-size: 24px;
+}
+.titleblock i {
+    font-size: 20px;
+    margin-right: 15px;
+}
+.page_content{
+    padding: 50px 0;
+}
+.mainsection{
+    width: 96%;
+    margin: 0 auto;
+}
+.setupstep{
+    counter-reset: step;
+    margin: 0 auto 35px;
+}
+.setupstep ul {
+    margin: 0;
+    padding-left: 10px;
+}
+.setupstep ul li i{
+    margin:0 0 0 5px;
+}
+.setupstep .editLink{
+    color: #f86b4f !important;
+}
+.setupstep li.setupno::before {
+    background: #f86b4f none repeat scroll 0 0;
+    /*box-shadow: 0 0 0 3px white, 0 0 0 4px #f86b4f;*/
+    color: #ffffff;
+    height: 30px;
+    left: -8px;
+    line-height: 30px;
+    width: 30px;
+}
+.setupstep li::before {
+    background: #dadada none repeat scroll 0 0;
+    border-radius: 15px;
+    color: #ffffff;
+    content: counter(step, decimal);
+    counter-increment: step;
+    display: block;
+    font-family: "colaboratelightregular",arial;
+    font-size: 13px;
+    font-weight: bold;
+    height: 24px;
+    left: -4px;
+    line-height: 22px;
+    margin: 5px auto;
+    position: absolute;
+    text-align: center;
+    top: -4px;
+    vertical-align: middle;
+    width: 24px;
+    z-index: 1;
+}
+.setupstepr li.current::after {
+    background: #dadada none repeat scroll 0 0 !important;
+    color: #ffffff;
+}
+.setupstep li.active::after {
+    background: #f86b4f none repeat scroll 0 0;
+    color: #ffffff;
+}
+.setupstep li::after {
+    background: #dadada none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 2%;
+    position: absolute;
+    top: 2px;
+    width: 5px;
+}
+.setupstep li.current {
+    color: #f86b4f;
+}
+.setupstep li.active {
+    color: #f86b4f;
+}
+.setupstep li {
+    color: #bbbbbb;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    list-style-type: none;
+    min-height: 82px;
+    padding: 0 0 15px 35px;
+    position: relative;
+    text-align: left;
+}
+.setupstep li.last {
+    min-height: 0;
+    padding-bottom: 0;
+}
+
+.mainstepblock{
+    min-height: 500px;
+}
+.stepform{
+     display: none;
+}
+.stepform1{
+    display: none;
+}
+.stepform2{
+    display: none;
+}
+.stepform3{
+     display: none;
+}
+.stepform4{
+    display: none;
+}
+.currentForm{
+    display: block;
+}
+.formrow{
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+.router selectbox{
+    position: relative;
+}
+.router .selectbox i{
+    font-size: 18px;
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    color: #fff;
+}
+.router .fliterrow .selectbox select ,.selectbox .btn-group{
+    background: #bdc3c7;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    padding: 9px 10px;
+    appearance:none;
+-moz-appearance:none; /* Firefox */
+-webkit-appearance:none; /* Safari and Chrome */
+}
+.router .fliterrow .selectbox select:hover ,.router .fliterrow .selectbox select:focus{
+    background: #1abc9c;
+}
+
+.formrow label{
+    color: #34495e;
+    font-size: 24px;
+    font-family: 'latoblack';
+    margin-bottom: 10px;
+}
+.formrow a i.anyque{
+    background: rgba(0, 0, 0, 0) url("../img/queicon.png") no-repeat scroll 0 0 / 21px auto;
+    margin-left: 9px;
+    padding: 5px 11px;
+}
+.formrow input[type="text"] ,.formrow input[type="email"]{
+    height: 55px;
+    border: 1px solid #95a0aa;
+    font-size: 22px;
+    font-family: 'latoregular';
+    border-radius: 5px !important;
+}
+.stepbtn{
+    text-align: right;
+}
+.savebtn {
+    width: 100% !important;
+}  
+.backbtn{}
+.nextbtn{}
+.stepbtn button , .stepbtn a ,.formrow button.crtbtn ,.sendbox a,a.crtbtn{
+    width: 30%;
+    border-radius: 5px;
+    height: 55px;
+    margin: 0 1.5%;
+    line-height: 55px;
+    color: #fff;
+    text-align: center;
+    font-family: 'latobold';
+    float: left;
+    background: #1abc9c;
+    border: none;
+    font-size: 22px;
+}
+.stepbtn a img {
+    float: left;
+    margin: 12px 0 0 12px;
+}
+.formrow p{
+    color: #34495e;
+    font-size: 18px;
+    font-family: 'latoregular';
+}
+.formrow button.crtbtn{
+    width: 250px;
+    margin: 0;
+}
+.selectbox .btn-group{
+    padding: 0;
+}
+.caret {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px dashed;
+    float: right;
+    margin: 20px 0 6px;
+}
+.multiselect-selected-text {
+    float: left;
+    line-height: 48px;
+}
+.selectbox .btn-default:hover, .selectbox .btn-default:active, .selectbox .btn-default.hover{
+    background: #1abc9c !important;
+    color: #fff;
+}
+
+.selectbox select ,.multiselect{
+    background: #1abc9c;
+    width: 310px;
+    height: 55px;
+    line-height: 55px;
+    color: #fff;
+    font-family: 'latobold';
+    font-size: 21px;
+    border: none;
+    border-radius: 5px;
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    padding: 5px 10px;
+}
+.selectbox select option{
+    background: #fff;
+    color: #2c3e50;
+    font-family: 'latoblack';
+    padding: 8px 5px;
+}
+.selectbox select option:hover{
+    background: #1abc9c !important;
+    color: #fff;
+}
+.selectbox i.droparrow {
+    color: #fff;
+    font-size: 21px;
+    position: absolute;
+    right: 15px;
+    top: 18px;
+}
+.selectbox{
+    position: relative;
+    width: 310px;
+}
+.stepform3 .selectbox ,.stepform3 .selectbox select{
+    max-width: 100%;
+    float: right;
+}
+.stepform3 .formrow label{
+    margin: 12px 0 0;
+    padding-left: 50px !important;
+}
+.stepform3 .formrow input[type="radio"]{
+    
+}
+.quiklistblock{
+    
+}
+.quiklistrow {
+    clear: both;
+    margin: 0;
+    padding: 20px 0;
+}
+.multiselect-container{
+    right: 0;
+    border: 2px solid #1abc9c;
+    padding: 12px 0 0 30px !important;
+    margin-top: 3px !important;
+}
+.formrow .quiklistrow label{
+    font-family: 'latobold'; 
+    padding: 0 !important;
+}
+.ageblock{
+    text-align: center;
+    float: right;
+    width: 320px;
+    max-width: 100%;
+}
+.ageblock label{
+    margin: 8px 0 !important;
+    font-family: 'latobold' !important; 
+}
+
+.ageblock .col-md-3{
+    padding: 0;
+}
+.confimgblk{
+    height: 500px;
+    border: 5px solid #f5f5f5;
+    overflow: auto;
+    padding: 10px;
+    background: #fff;
+}
+.sendbox{
+    width: 530px;
+    max-width: 96%;
+    position: relative;
+}
+.sendbox input[type="email"]{
+    padding-right: 130px;
+}
+.sendbox a{
+    border-radius: 0 5px 5px 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 120px !important;
+}
+
+#templatePreview{
+    width: 100%;
+    height: 100%;
+}
+#emailCampaign-Table{
+    width: 100% !important;
+}
+#emailCampaign-Table th,#emailCampaign-Table tr td{
+    padding: 10px 0px;
+}
+#emailCampaign-Table tr{
+    border-bottom: 1px solid #999;
+}
+#sendTestAddress img {
+    margin-right: 6px;
+}
+.sendformrow .form-group {
+    margin: 0;
+}
+
+input.includeRecipient[type=checkbox]:not(old),
+.rediobtn input[type=radio   ]:not(old){
+  width   : 28px;
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
+}
+
+input.includeRecipient[type=checkbox]:not(old) + label,
+.rediobtn input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -28px;
+  padding-left : 28px;
+  background   : url('../img/checks.png') no-repeat 0 0;
+  line-height  : 24px;
+}
+input.includeRecipient[type=checkbox]:not(old) + label{
+    background   : url('../img/checkbox.png') no-repeat 0 0;
+    text-indent: -9999px;
+}
+
+input.includeRecipient[type=checkbox]:not(old):checked + label{
+  background-position : 0px 0px;
+}
+input.includeRecipient[type=checkbox]:not(old) + label{
+  background-position : 0 -24px;
+}
+
+.rediobtn input[type=radio]:not(old):checked + label{
+  background-position : 0 -48px;
+}
+
+dl {
+    margin-bottom: 20px;
+}
+.setupstep li dl.subdetail dt {
+    color: #95a0aa;
+    font-size: 14px;
+    margin-top: 10px;
+    font-family: 'latoblack';
+    font-weight: 500;
+}
+.setupstep li dl.subdetail dd {
+    color: #000000;
+    font-size: 14px;
+    margin-bottom: 18px;
+    word-wrap: break-word;
+    font-family: 'latoregular';
+    font-weight: normal;
+}
+.includeRecipient{
+    
+}
+
+
+@media screen and (max-width:1400px){
+    .formrow label{font-size: 21px;}
+    .formrow input[type="text"], .formrow input[type="email"]{height: 45px;font-size: 19px;}
+    .formrow a i.anyque{background-size: 17px;padding: 0 9px;}
+    .stepbtn button, .stepbtn a, .formrow button.crtbtn, .sendbox a ,.selectbox select{height: 45px;line-height: 45px;font-size: 19px;}
+    .selectbox i.droparrow{font-size: 18px;top: 13px;}
+    .stepbtn a img {height: 22px;margin: 12px 0 0 15px;}
+}
+
+@media screen and (max-width:1280px){
+    .formrow label {font-size: 18px;}
+    .formrow input[type="text"], .formrow input[type="email"] {font-size: 18px;height: 40px;}
+    .stepbtn button, .stepbtn a, .formrow button.crtbtn, .sendbox a ,.selectbox select{height: 40px;line-height: 40px;font-size: 18px;}
+    .stepform3 .selectbox i.droparrow{top: 22px;}
+    .stepbtn a img {height: 18px;}
+}
+@media screen and (max-width:1199px){
+    
+}
+
+@media screen and (max-width:991px){
+    .stepform3 .selectbox, .stepform3 .selectbox select{float: none;margin-top: 10px;}
+    .ageblock{float: none;margin-top: 15px}
+    .ageblock .col-md-3 {float: left;width: 25% !important;}
+    .formrow {margin-bottom: 15px;}
+    .setupstep li.active::before{left: -3px;}
+    .setupstep li::after{left: 10px;}
+    .setupstep li::before{left: 0;}
+}
+@media screen and (max-width:767px){
+    .formrow input[type="text"], .formrow input[type="email"] {font-size: 16px;height: 35px;}
+    .stepbtn button, .stepbtn a , .formrow button.crtbtn, .sendbox a ,.selectbox select{height: 35px;line-height: 35px;font-size: 16px;}
+    .mainsection {margin: 0 auto;padding: 0 10px;width: 100%;}
+    .formrow label {font-size: 16px;}
+    .stepbtn a img {margin: 10px 0 0 10px;}
+}
+@media screen and (max-width:480px){
+    .stepbtn button ,.stepbtn a{font-size: 14px;}
+}
+@media screen and (max-width:440px){
+    .stepbtn img{display: none;}
+}
+
+@media screen and (max-width:380px){
+    .stepbtn > a:first-child {display: block;float: none;margin-bottom: 10px;width: 100px;margin: 0 auto;}
+    .stepbtn a {display: inline-block;float: none;font-size: 14px;margin-top: 8px;width: 100px !important;}
+    .stepbtn button{font-size: 14px;}
+    .stepbtn{text-align: center;}
+}
+
+
+
+
+
+
+/* siddhi developer*/
+
+.emailicon {
+    background: #fff url("../img/mailicon.png") no-repeat scroll right center;
+}
+.passwordicon{
+    background: #fff url("../img/lockicon.png") no-repeat scroll right center;
+}
+.nameicon {
+    background: #fff url("../img/nameicon.png") no-repeat scroll right center;
+}
+.bnameicon{
+    background: #fff url("../img/b_nameicon.png") no-repeat scroll right center;
+}
+.siranicon {
+    background: #fff url("../img/sirenicon.png") no-repeat scroll right center;
+}
+.vaticon{
+    background: #fff url("../img/vatnumicon.png") no-repeat scroll right center;
+}
+.phicon{
+    background: #fff url("../img/phoneicon.png") no-repeat scroll right center;
+}
+.addicon{
+    background: #fff url("../img/locationicon.png") no-repeat scroll right center;
+}

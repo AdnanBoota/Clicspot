@@ -14,6 +14,8 @@ use Auth;
 use Response;
 use Carbon;
 use Illuminate\Support\Facades\Input;
+use Hash;
+use Session;
 
 class PaymentController extends Controller {
 
@@ -174,7 +176,9 @@ class PaymentController extends Controller {
     }
 
     public function editUser($id) {
-        $userDetails = User::findOrFail($id);
+        $uid=Auth::user()->id; 
+        $userDetails = User::find($uid);
+        //print_r($userDetails); exit;
         return view('payment.editprofile', compact('userDetails'));
     }
 
@@ -195,9 +199,11 @@ class PaymentController extends Controller {
 //            ]
 //        );
         $input = Input::all();
-        $formField = array(
+        
+        if(isset($input['basic'])){
+        //print_r($input); 
+            $formField = array(
             'username' => $input['username'],
-            'password' => $input['password'],
             'email' => $input['email'],
             'businessname' => $input['businessname'],
             'address' => $input['address'],
@@ -208,9 +214,46 @@ class PaymentController extends Controller {
             'siren' => $input['siren'],
             'nvat' => $input['nvat']
         );
-        $adminUSer = new User();
-        $adminUSer->update($formField);
+        //print_r($formField); exit;
+           // echo Auth::user()->id; exit;
+            $adminUSer =User::find(Auth::user()->id);
+               $adminUSer->username=$input['username'];
+               $adminUSer->email=$input['email'];
+               $adminUSer->businessname=$input['businessname'];
+               $adminUSer->address=$input['address'];
+               $adminUSer->city=$input['city'];
+               $adminUSer->zip=$input['zip'];
+               $adminUSer->country=$input['country'];
+               $adminUSer->phone=$input['phone'];
+               $adminUSer->siren=$input['siren'];
+               $adminUSer->nvat=$input['nvat'];
+               $adminUSer->update();
+//$adminUSer->update($formField);
+            $successMsg = "Profile update successfully";
+            Session::flash('flash_message_success', $successMsg);
+        }
+        if(isset($input['pass'])){
+            
+            $user=User::where('id','=',Auth::user()->id)->first();
+            
+            $checkpass=Hash::check($input['oldpassword'], $user->password);
+            if($checkpass==1){
+            $formField = array(
+            'password'=>Hash::make($input['newpassword'])
+             );    
+            $adminUSer = User::find(Auth::user()->id);
+            $adminUSer->update($formField);
+            
+            $successMsg = "Password update successfully";
+            Session::flash('flash_message_success', $successMsg);
+            }else{
+                $successMsg = "Somthing wrong try again.";
+            Session::flash('flash_message_error', $successMsg);
+            }
+        }
+        
         return redirect("/payment");
+        
     }
 
     public function billDetails() {

@@ -6,6 +6,11 @@
 @section('content')
 <section class="statistics-box">
     <div class="row">
+        @if(Session::has('resetpass'))
+         <div class="alert alert-success">
+        <li>{{ Session::get('resetpass') }}</li>
+    </div>
+        @endif
         <div class="statistics">
             <i class="fa fa-fw fa-pie-chart"></i><span>{{ Lang::get('auth.statistics') }}</span>
         </div>
@@ -42,15 +47,15 @@
                             </span>
                             <div class="mail-info">
                                 <div class="mail-detail">
-                                    <h3>1327</h3>
-                                    <sub>/ 1500</sub>
+                                    <h3>5000</h3>
+                                    <sub>/ 5000</sub>
                                     <img src="img/mail-icon.png" alt="" class="mail-icon">
                                 </div>
                                 <div class="progress">
                                     <div style="width: 70%" class="progress-bar"></div>
                                 </div>
                                 <div class="remain-title">
-                                    <p><span>10</span>{{ Lang::get('auth.dayremaining') }}</p>
+                                    <p><span>30</span>{{ Lang::get('auth.dayremaining') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -216,7 +221,7 @@ function getChartAjax(typeOfData, getAllData) {
                 if(typeOfData=="months")
                     amountOfConnectionsChart(monthValueArray, monthKeyArray,10,100);
                 else if(typeOfData=="weeks" || typeOfData=="days")
-                    amountOfConnectionsChart(monthValueArray, monthKeyArray,5,20);
+                    amountOfConnectionsChart(monthValueArray, monthKeyArray,10,100);
             }
             if (result['routerStatus']) {
                 var routerData = [];
@@ -254,7 +259,7 @@ function customerReviews() {
                 pointStrokeColor: "#c1c7d1",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
+                data: [0, 0, 0, 0, 0, 0, 0]
             },
             {
                 label: "FeedBack",
@@ -264,7 +269,7 @@ function customerReviews() {
                 pointStrokeColor: "rgba(60,141,188,1)",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(60,141,188,1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
+                data: [0, 0, 0, 0, 0, 0, 0]
             }
         ]
     };
@@ -329,7 +334,7 @@ function amountOfConnectionsChart(myArrayValue, myArrayKey,step,width) {
         pointDot: true,
         pointDotRadius: 4,
         pointDotStrokeWidth: 1,
-        pointHitDetectionRadius: 20,
+        pointHitDetectionRadius: 30,
         datasetStroke: true,
         datasetStrokeWidth: 2,
         datasetFill: true,

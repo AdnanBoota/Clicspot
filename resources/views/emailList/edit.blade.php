@@ -85,6 +85,7 @@
             <a href="javascript:void(0);">Save List</a>-->
             
             <button type="submit" class="">Update</button>
+            <a href="{{ url('emailList/'.$emailList->id.'/delete') }}" id="deleterecord">Delete</a>
         </div>
                 <!-- /.box-footer -->
                 {!! Form::close() !!}
@@ -93,4 +94,15 @@
        
     <!-- /.row -->
 </section><!-- /.content -->
+@push('scripts')
+<script>
+    $(function(){
+       $("#deleterecord").click(function(){
+           if(confirm("Do you want to delete this record ?")==false)
+               return false
+           
+       });
+    });
+</script>
+@endpush
 @endsection

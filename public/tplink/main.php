@@ -9,7 +9,7 @@ net             192.168.182.0/255.255.255.0
 uamlisten       192.168.182.1
 uamport         3990
 dhcpif          br-lan
-uamallowed      "www.coova.org,192.168.182.1,www.coova.org"
+uamallowed      "192.168.182.1"
 uamanydns
 
 domain "lan"
@@ -23,11 +23,9 @@ uamdomain clicspot.com
 uamdomain facebook.com
 uamdomain facebook.net
 uamdomain akamaihd.net
-uamdomain google.com
-uamdomain googleapis.com
-uamdomain gstatic.com
-uamdomain googleusercontent.com
 uamdomain static.xx.fbcdn.net
+uamdomain gocardless.com
+uamdomain bouboule.com
 
 
 locationname "clicspot"

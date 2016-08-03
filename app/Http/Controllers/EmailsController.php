@@ -40,7 +40,7 @@ class EmailsController extends Controller {
             $sentCount = Auth::user()->emailCampaign()->select(DB::raw('count(campaignStatus) as totalSentCountCount'))->where('campaignStatus', '=', 'sent')->get();
         }
         $userId=Auth::user()->id;
-        $hotspot=  Hotspot::where("adminid","=",$userId)->select('reviewstatus')->first();    
+        $hotspot=  Hotspot::where("adminid","=",$userId)->select('reviewstatus')->first();
         if ($request->ajax()) {
 
             if (Auth::user()->type == 'superadmin') {
@@ -48,18 +48,18 @@ class EmailsController extends Controller {
             } else {
                 $emailTemplate = Auth::user()->emailTemplates()->select(['id', 'adminid', 'templateName', 'description']);
             }
-            
+
             return Datatables::of($emailTemplate)
-                            ->addColumn('checkbox', function ($emailTemplate) {
-                                return ' <label class="">
+                ->addColumn('checkbox', function ($emailTemplate) {
+                    return ' <label class="">
                               <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="' . $emailTemplate->id . '" name="emailTemplateDelete[]"  class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>';
-                            })
+                })
 //                            ->addColumn('edit', function ($emailTemplate) {
 //                                return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
 //                            })
-                            ->addColumn('edit', function ($emailTemplate) {
-                                return '  <td class="tselectbox">
+                ->addColumn('edit', function ($emailTemplate) {
+                    return '  <td class="tselectbox">
                         <div class="dropdown editbtn">
                       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span>Edit</span>
                       <span class="caret"></span></button>
@@ -70,9 +70,9 @@ class EmailsController extends Controller {
                       </ul>
                     </div>
                     </td>';
-                            })
-                            ->make(true);
-                             
+                })
+                ->make(true);
+
         } else {
 
             return view('email.index', compact('draftCount', 'sentCount','hotspot'));
@@ -101,10 +101,10 @@ class EmailsController extends Controller {
                 $message->to($singleUser['email'], $singleUser['firstName']);
             }
             //set track open true header text
-           // $headers = $message->getHeaders();
+            // $headers = $message->getHeaders();
             //$headers->addTextHeader('X-MC-MergeVars', json_encode($mergevars));
             //$headers->addTextHeader('X-MC-Template', 'my-template');
-           // $headers->addTextHeader('X-MC-Track', 'opens');
+            // $headers->addTextHeader('X-MC-Track', 'opens');
             $message->from('info@clicspot.com', 'Clicspot');
             $message->subject($subject);
         });
@@ -137,7 +137,35 @@ class EmailsController extends Controller {
         }
         $getFileName = scandir($directory, 0);
         $templateFileName = array_diff($getFileName, array('.', '..'));
-        return View::make('email.create', compact('getAllTemplates', 'images', 'defaultTemplate', 'templateFileName'));
+
+        //event
+        $directoryEvent = 'uploads/defaultTemplate/event';
+        $filesEvent = File::files($directoryEvent);
+        foreach ($filesEvent as $fileEvent) {
+            $eventTemplate[] = "/" . (string) $fileEvent;
+        }
+        $getFileNameEvent = scandir($directoryEvent, 0);
+        $templateFileNameEvent = array_diff($getFileNameEvent, array('.', '..'));
+
+        //info
+        $directoryInfo = 'uploads/defaultTemplate/info';
+        $filesInfo = File::files($directoryInfo);
+        foreach ($filesInfo as $fileInfo) {
+            $infoTemplate[] = "/" . (string) $fileInfo;
+        }
+        $getFileNameInfo = scandir($directoryInfo, 0);
+        $templateFileNameInfo = array_diff($getFileNameInfo, array('.', '..'));
+
+        //promotion
+        $directoryPromotion = 'uploads/defaultTemplate/promotion';
+        $filesPromotion = File::files($directoryPromotion);
+        foreach ($filesPromotion as $filePromotion) {
+            $promotionTemplate[] = "/" . (string) $filePromotion;
+        }
+        $getFileNamePromotion = scandir($directoryPromotion, 0);
+        $templateFileNamePromotion = array_diff($getFileNamePromotion, array('.', '..'));
+
+        return View::make('email.create', compact('getAllTemplates', 'images', 'defaultTemplate', 'templateFileName','eventTemplate','templateFileNameEvent','infoTemplate','templateFileNameInfo','promotionTemplate','templateFileNamePromotion'));
     }
 
     public function edit($id) {
@@ -156,7 +184,35 @@ class EmailsController extends Controller {
         }
         $getFileName = scandir($directory, 0);
         $templateFileName = array_diff($getFileName, array('.', '..'));
-        return View::make('email.create', compact('templates', 'userId', 'images', 'defaultTemplate', 'templateFileName'));
+
+        //event
+        $directoryEvent = 'uploads/defaultTemplate/event';
+        $filesEvent = File::files($directoryEvent);
+        foreach ($filesEvent as $fileEvent) {
+            $eventTemplate[] = "/" . (string) $fileEvent;
+        }
+        $getFileNameEvent = scandir($directoryEvent, 0);
+        $templateFileNameEvent = array_diff($getFileNameEvent, array('.', '..'));
+
+        //info
+        $directoryInfo = 'uploads/defaultTemplate/info';
+        $filesInfo = File::files($directoryInfo);
+        foreach ($filesInfo as $fileInfo) {
+            $infoTemplate[] = "/" . (string) $fileInfo;
+        }
+        $getFileNameInfo = scandir($directoryInfo, 0);
+        $templateFileNameInfo = array_diff($getFileNameInfo, array('.', '..'));
+
+        //promotion
+        $directoryPromotion = 'uploads/defaultTemplate/promotion';
+        $filesPromotion = File::files($directoryPromotion);
+        foreach ($filesPromotion as $filePromotion) {
+            $promotionTemplate[] = "/" . (string) $filePromotion;
+        }
+        $getFileNamePromotion = scandir($directoryPromotion, 0);
+        $templateFileNamePromotion = array_diff($getFileNamePromotion, array('.', '..'));
+
+        return View::make('email.create', compact('templates', 'userId', 'images', 'defaultTemplate', 'templateFileName','eventTemplate','templateFileNameEvent','infoTemplate','templateFileNameInfo','promotionTemplate','templateFileNamePromotion'));
     }
 
     /**
@@ -166,7 +222,7 @@ class EmailsController extends Controller {
      * @return Response
      */
     public function update($id, Request $request) {
-        
+
     }
 
     public function store(Request $request) {
@@ -178,6 +234,7 @@ class EmailsController extends Controller {
         $templateName = $data['templateName'];
         $input['description'] = $data['templateDescription'];
         $input['templateName'] = $templateName;
+        $input['firstname']=$data['firstname'];
         $directory = 'template_builder/html/' . Auth::user()->id . '/';
         if (!File::exists($directory)) {
             File::makeDirectory($directory, 0777, true, true);
@@ -203,7 +260,7 @@ class EmailsController extends Controller {
 
 
         return Response::json(array(
-                    'id' => $id
+            'id' => $id
         ));
     }
 
@@ -257,8 +314,8 @@ class EmailsController extends Controller {
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-                    'success' => $success,
-                    'message' => $msg,
+            'success' => $success,
+            'message' => $msg,
         ));
     }
 
@@ -283,8 +340,8 @@ class EmailsController extends Controller {
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-                    'success' => $success,
-                    'message' => $msg,
+            'success' => $success,
+            'message' => $msg,
         ));
     }
 
@@ -324,8 +381,8 @@ class EmailsController extends Controller {
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-                    'success' => $success,
-                    'message' => $msg,
+            'success' => $success,
+            'message' => $msg,
         ));
     }
 
@@ -353,16 +410,16 @@ class EmailsController extends Controller {
         }
 
         return Datatables::of($campaignList)
-                        ->addColumn('checkbox', function ($campaignList) {
-                            return ' <label class="">
+            ->addColumn('checkbox', function ($campaignList) {
+                return ' <label class="">
                               <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="' . $campaignList->id . '" name="emailTemplateDelete[]"  class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>';
-                        })
-                        ->addColumn('statistics', function ($campaignList) {
-                            return 'Statistics';
-                        })
-                        ->addColumn('edit', function ($campaignList) {
-                            return '  <td class="tselectbox">
+            })
+            ->addColumn('statistics', function ($campaignList) {
+                return 'Statistics';
+            })
+            ->addColumn('edit', function ($campaignList) {
+                return '  <td class="tselectbox">
                         <div class="dropdown editbtn">
                       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span>Actions</span>
                       <span class="caret"></span></button>
@@ -372,10 +429,10 @@ class EmailsController extends Controller {
                       </ul>
                     </div>
                     </td>';
-                        })
-                        ->make(true);
+            })
+            ->make(true);
     }
-    
+
     public function reviewState($id){
         $userId=Auth::user()->id;
         $hotspot=  Hotspot::where("adminid","=",$userId)->get();
@@ -385,15 +442,15 @@ class EmailsController extends Controller {
         }
         if($hotspot){
             return Response::json(array(
-            'status'=>'success'
-        ));
+                'status'=>'success'
+            ));
         }else{
             return Response::json(array(
-            'status'=>'Fail'
-        ));
+                'status'=>'Fail'
+            ));
         }
-        
-        
+
+
     }
     public function emailReviews(){
         $routers = Auth::user()->hotspots()->select('shortname','id')->lists('shortname', 'id');
@@ -402,8 +459,14 @@ class EmailsController extends Controller {
         //$calledmac = Session::get('calledmac'); 
         //$usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$calledmac)->first(); 
         $routers=array(''=>"Select Router")+$routers;
+
+
+        /*
+         * me@diegopucci.com
+         * Get Chart Data
+         */
         return View::make("email.review",compact("routers","email"));
-        
+
     }
     //public function emailReviewsUpdate($nasId,$fieldName,$fieldVal) {
     public function emailReviewsUpdate() {
@@ -417,20 +480,82 @@ class EmailsController extends Controller {
         if($hotspot)
         {
             return Response::json(array(
-            'status'=>'success'
+                'status'=>'success'
             ));
         }else{
             return Response::json(array(
-            'status'=>'fail'
+                'status'=>'fail'
             ));
         }
 
     }
     public function getHotspotDetail($routerID){
-         $hotspot=Hotspot::where("id","=",$routerID)->first();
-         return Response::json(array(
-             'hotspot'=>$hotspot
-         ));
+        $hotspot=Hotspot::where("id","=",$routerID)->first();
+        return Response::json(array(
+            'hotspot'=>$hotspot
+        ));
+    }
+
+    /*
+        * me@diegopucci.com
+        * Return transactionals report for logged in admin
+    */
+
+    public function reportTransactionals(){
+
+        $input = Input::all();
+
+        if(!isset($input["router"])) {
+            die;
+        }
+
+        $stats = [];
+        $reportData = \App\EmailEvents::reportData("transactionals", $input["router"]);
+
+        $statsArr = [];
+        if(count($reportData) > 0 ){
+            $stats = $reportData["statictic"];
+            foreach($stats as $stat => $value) {
+                switch($stat){
+                    /*
+                    case "deliver":
+                        array_push($statsArr, array(
+                            "value" => $value,
+                            "color" => "#00a65a",
+                            "highlight" => "#00a65a",
+                            "label" => "Delivered"
+                        ));
+                        break;
+                    */
+                    case "open":
+                        array_push($statsArr, array(
+                            "value" => $value,
+                            "color" => "#f39c12",
+                            "highlight" => "#f39c12",
+                            "label" => "Opened"
+                        ));
+                        break;
+                    case "click":
+                        array_push($statsArr, array(
+                            "value" => $value,
+                            "color" => "#00c0ef",
+                            "highlight" => "#00c0ef",
+                            "label" => "Clicked"
+                        ));
+                        break;
+                    case "bounce":
+                        array_push($statsArr, array(
+                            "value" => $value,
+                            "color" => "#3c8dbc",
+                            "highlight" => "#3c8dbc",
+                            "label" => "Bounced"
+                        ));
+                        break;
+                }
+            }
+        }
+        return json_encode($statsArr);
+        die;
     }
 
     //  <li><span><a href="javascript:void(0)" class="duplicateTemplate" id="' . $campaignList->id . '">Duplicate</a></span></li>

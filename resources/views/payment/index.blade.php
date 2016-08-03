@@ -17,6 +17,16 @@
 </section>-->
 <div class="row">
     <div class="col-xs-12">
+        @if(Session::has('flash_message_success'))
+    <div class="alert-box success">
+        <h2>{{ Session::get('flash_message_success') }}</h2>
+    </div>
+@endif
+  @if(Session::has('flash_message_error'))
+    <div class="alert-box danger">
+        <h2>{{ Session::get('flash_message_error') }}</h2>
+    </div>
+@endif
         @include('errors.flash')
     </div>
 </div>
@@ -46,7 +56,7 @@
                         <div class="small-box border-radius-none">
                             <div class="inner">
                                 <h3>{{ Lang::get('auth.amount') }}</h3>
-                                <p>199&euro;</p>
+                                <p>0</p>
                             </div>
                         </div>
                     </div>
@@ -100,7 +110,7 @@
                         <h1>{{ Lang::get('auth.billhistory') }}</h1>
                     </div>
                     <div class="col-md-4">
-                        <a href="{{"/payment/4"}}" class="btn btn-block btn-default">{{ Lang::get('auth.editprofile') }}</a>
+                        <a href="{{ url("/payment/4")}}" class="btn btn-block btn-default">{{ Lang::get('auth.editprofile') }}</a>
                     </div>
                 </div>
                 <div class="row margin-bottom">
@@ -109,9 +119,9 @@
                         <!-- Custom Tabs -->
                         <table class="table-bordered">
                             <tr>
-                                <th>Date</th>
-                                <th>Description</th>
-                                <th>Amount</th>
+                                <th>{{ Lang::get('auth.date') }}</th>
+                                <th>{{ Lang::get('auth.description') }}</th>
+                                <th>{{ Lang::get('auth.amount') }}</th>
                                 <th></th>
                             </tr>
                             @foreach($billingDetails as $bill)

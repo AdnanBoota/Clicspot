@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'fr',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'fr',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -152,6 +152,8 @@ return [
 		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'Weblee\Mandrill\MandrillServiceProvider',
+		'Maatwebsite\Excel\ExcelServiceProvider',
+
 	],
 
 	/*
@@ -205,6 +207,7 @@ return [
 		'Facebook' => 'SammyK\LaravelFacebookSdk\FacebookFacade',
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
         'MandrillMail'  => 'Weblee\Mandrill\MandrillFacade',
-	],
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+		],
 
 ];

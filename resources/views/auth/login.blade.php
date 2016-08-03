@@ -32,6 +32,8 @@
         <link href="{{ asset('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
               type="text/css"/>
         <link href="{{ asset('/css/loginnew.css') }}" rel="stylesheet" type="text/css"/>      
+<link rel="stylesheet" type="text/css" href="{{ asset('/cntry/css/msdropdown/dd.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('/cntry/css/msdropdown/flags.css') }}" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,9 +54,10 @@
                 <form action="{{ URL::route('language')  }}" method="post" id="language">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
                     <input name="page" type="hidden" value="login">
-                    <select name="locale" id="locale">
-                        <option value="en" {{  (App::getLocale()=='en') ? 'selected' : '' }}>English</option>
-                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} >French</option>
+                <select name="locale" id="countries">
+                        <option value="en" {{  (App::getLocale()=='en') ? 'selected' : '' }} data-image="{{ asset('/cntry/images/msdropdown/icons/blank.gif') }}" data-imagecss="flag us" data-title="England">English</option>
+
+                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} data-image="{{ asset('/cntry/images/msdropdown/icons/blank.gif') }}" data-imagecss="flag gf" data-title="French">Français></option>
                     </select>
                    
                     
@@ -70,7 +73,7 @@
                 @include('errors.flash')
                 @if (count($errors) > 0)
                 <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <strong>Whoops!</strong>{{ Lang::get('auth.problem') }}<br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -112,7 +115,7 @@
 
                     <div class="row loginbtn">
                         <div class="col-xs-8 checkbtn">
-                            <input type="checkbox"/> Remember Me
+                            <input type="checkbox"/>{{ Lang::get('auth.rememberme') }}
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-12">
@@ -167,9 +170,11 @@ $.widget.bridge('uibutton', $.ui.button);
         <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('/dist/js/app.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/cntry/js/msdropdown/jquery.dd.min.js') }}"></script>
         <script>
         $(function(){
-           $("#locale").change(function(){
+            $("#countries").msDropdown();
+           $("#countries").change(function(){
                
            $("#language").submit();
             });

@@ -44,16 +44,21 @@ class EmailListController extends Controller
         
         $this->validate($request,
             [
-                'listname' => 'required'
+                'listname' => 'required|unique:email_list'
                 ]
         );
+//        echo '<pre>';
+//        print_r($input); exit;
         if(isset($input['favoredconnection']))
             $input['favoredconnection'] = implode(';', $input['favoredconnection']);
         if(isset($input['visitors']))
             $input['visitors'] = implode(';', $input['visitors']);
         if(isset($input['router']))
             $input['router'] = implode(';', $input['router']);
-
+        if($input['datequickselection']==""){    //&& $input['dateRange']==""
+                $input['datequickselection']='365';
+                $input['isdatequickselection']='1';
+        }
         $emailList = new EmailList($input);
         Auth::user()->emailList()->save($emailList);
 
@@ -73,7 +78,8 @@ class EmailListController extends Controller
         $emailList->router = explode(';', $emailList->router);
         $emailList->datefrom = ($emailList->datefrom != '0000-00-00') ? $emailList->datefrom:'';
         $emailList->dateto = ($emailList->dateto != '0000-00-00') ? $emailList->dateto:'';
-        $routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier','nasidentifier'); 
+        $routers = Auth::user()->hotspots()->select('ssid')->lists('ssid','ssid'); 
+//$routers = Auth::user()->hotspots()->select('nasidentifier')->lists('nasidentifier','nasidentifier'); 
         $emailListSelctBox = Auth::user()->emailList()->select('listname','id')->get();
         $profileCount = (new UsersController)->getStatistics($id,'indexCount');
         return view('emailList.edit', compact('emailList','routers','emailListSelctBox','profileCount'));
@@ -103,6 +109,10 @@ class EmailListController extends Controller
         if(isset($input['router']))
             $input['router'] = implode(';', $input['router']);
 
+         if($input['datequickselection']==""){
+                $input['datequickselection']='365';
+                $input['isdatequickselection']='1';
+         }     
         $emailList->update($input);
 
         $successMsg = "Email List updated successfully";
@@ -114,19 +124,23 @@ class EmailListController extends Controller
     
     public function destroy($id)
     {
+        
         $emailList = EmailList::find($id);
         $res = $emailList->delete();
         if ($res) {
             $success = true;
-            $msg = "Record Deleted Successfully.";
+            $msg = "EmailList Deleted Successfully.";
+            Session::flash("deleteEmailList",$msg);
         } else {
             $success = false;
             $msg = "Something went wrong , Please try again later.";
+            Session::flash("deleteEmailListError",$msg);
         }
-        return Response::json(array(
-            'success' => $success,
-            'message' => $msg,
-        ));
+        return redirect('users');
+//        return Response::json(array(
+//            'success' => $success,
+//            'message' => $msg,
+//        ));
     }
 
 

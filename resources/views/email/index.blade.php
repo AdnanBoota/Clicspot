@@ -1,11 +1,17 @@
 @extends('app')
 @push('styles')
+<!-- EDIT BY DIEGO PUCCI me@diegopucci.com  -->
+<link rel="stylesheet" href="{{ asset('/plugins/animated-modal/css/jquery.sweet-modal.min.css') }}">
+<!-- EDIT BY DIEGO PUCCI me@diegopucci.com  -->
+
 <link href="{{ asset('/css/list.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('/css/platform-mailing.css') }}" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="{{ asset('/plugins/fullcalendar/fullcalendar.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/plugins/fullcalendar/fullcalendar.print.css') }}" media="print">
+<link rel="stylesheet" href="{{ asset('/plugins/fullcalendar/fullcalendar.print.css') }}" media="print">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.min.css" type="text/css">
 @endpush
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.min.js"></script>
 @section('content')
 <style>
     /*    .deletebtn{
@@ -100,17 +106,17 @@
 <section class="creatpart">
     <div class="titleblock">
         <i class="fa fa-envelope"></i>
-        <h1>{{ Lang::get('auth.emailplatform') }}</h1>
+        <h1>{{ Lang::get('auth.emailplatform')}}</h1>
     </div>
     <div class="multitab">
         <ul class="tabpart">
-            <li class="active"><a href="javascript:void(0)" class="automaticMailForm"><i class="fa fa-pencil"></i>{{ Lang::get('auth.automail') }}</a></li>
-            <li><a href="javascript:void(0)" class="manualMailingForm "  ><i class="fa fa-pencil-square-o"></i>{{ Lang::get('auth.manumail') }}</a></li>
+            <li class="active"><a href="javascript:void(0)" class="manualMailingForm "  ><i class="fa fa-pencil-square-o"></i>{{ Lang::get('auth.manumail') }}</a></li>
+            <li><a href="javascript:void(0)" class="automaticMailForm"><i class="fa fa-pencil"></i>{{ Lang::get('auth.automail') }}</a></li>
         </ul>
     </div>
 </section>
 
-<section class="creatpart automaticMailing">
+<section class="creatpart automaticMailing" style="display: none">
     <div class="titleblock">
         <i class="mailingicon">
             <img src="{{ asset("img/mailingicon.png") }}" />
@@ -123,15 +129,15 @@
     <div class="newautomaticplatform">
        <table class="mailplateformnewtable">
             <thead>
-                <th>Template</th>
-                <th>Description</th>
-                <th>Report</th>
-                <th>Status</th>
+                <th>{{ Lang::get('emails.template') }}</th>
+                <th>{{ Lang::get('emails.description') }}</th>
+                <th>{{ Lang::get('emails.report') }}</th>
+                <th>{{ Lang::get('emails.status') }}</th>
             </thead>
             <tbody>
                 <tr>
-                    <td><img src="{{ asset("img/riviewicon.png") }}" /><span><a href="{{ URL::to('emails/review') }}" style="color:#1abc9c">Review</a></span></td>
-                    <td>Send a review email automatically after first time connexion. </td>
+                    <td><img src="{{ asset("img/riviewicon.png") }}" /><span><a href="{{ URL::to('emails/review') }}" style="color:#1abc9c">{{ Lang::get('emails.review') }}</a></span></td>
+                    <td>{{ Lang::get('emails.sendreview') }} </td>
                     <td><canvas id="pieChart1"></canvas></td>
                     <td>
                         <div class="switch">
@@ -141,8 +147,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><img src="{{ asset("img/birthdayimg.png") }}" /><span>Birthday</span></td>
-                    <td>Send out an email automatically for Users Birthday.</br> Works only with Facebook profile.  </td>
+                    <td><img src="{{ asset("img/birthdayimg.png") }}" /><span>{{ Lang::get('emails.birthday') }}</span></td>
+                    <td>{{ Lang::get('emails.emailautobirth') }}.</br> {{ Lang::get('emails.emailautobirth2') }}  </td>
                     <td><canvas id="pieChart2"></canvas></td>
                     <td>
                         <div class="switch">
@@ -152,8 +158,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><img src="{{ asset("img/fblikeicon.png") }}" /><span>Facebook Like</span></td>
-                    <td>Increase your Facebook fans by asking them to like your page.</td>
+                    <td><img src="{{ asset("img/fblikeicon.png") }}" /><span>{{ Lang::get('emails.facebooklike') }}</span></td>
+                    <td>{{ Lang::get('emails.facebooklike2') }}</td>
                     <td><canvas id="pieChart3" ></canvas></td>
                     <td>
                         <div class="switch">
@@ -209,7 +215,7 @@
 
      
 </section>
-<section class="creatpart manualMailing" style="display: none;">
+<section class="creatpart manualMailing">
     <div class="titleblock">
         <i class="fa fa-envelope"></i>
         <h1>{{ Lang::get('auth.manumail') }}</h1>
@@ -225,9 +231,18 @@
 @endsection
 
 @push('scripts')
+<!-- EDIT BY DIEGO PUCCI me@diegopucci.com  -->
+<script src="{{ asset('/plugins/animated-modal/js/jquery.sweet-modal.min.js') }}"></script>
+<!-- EDIT BY DIEGO PUCCI me@diegopucci.com  -->
+
 <!-- calendar -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="{{ asset('/plugins/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('/plugins/fullcalendar/fullcalendar.js') }}"></script>
+	<script src="{{ asset('/plugins/fullcalendar/fr.js') }}"></script>
+	<script src="{{ asset('/plugins/fullcalendar/lang-all.js') }}"></script>
+	<script src="{{ asset('/plugins/fullcalendar/lib/jquery-ui.custom-datepicker.js') }}"></script>
+	<script src="{{ asset('/plugins/fullcalendar/lib/moment.js') }}"></script>
+
 <!-- DataTables -->
 <script src="{{ asset('/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 <script src="{{ asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
@@ -264,7 +279,107 @@
         /* initialize the calendar
          -----------------------------------------------------------------*/
         //Date for the calendar events (dummy data)
-  
+(function(){
+    function onload (moment, $) {
+
+        // RIPPED STRAIGHT FROM MOMENT'S SOURCE
+        // (https://github.com/moment/moment/blob/develop/lang/fr.js)
+        //
+        moment.lang('fr', {
+            months : "Janvier_Février_Mars_Avril_Mai_Juin_Juillet_Août_Septembre_Octobre_Novembre_Décembre".split("_"),
+            monthsShort : "Janv._Févr._Mars_Avr._Mai_Juin_Juil._Août_Sept._Oct._Nov._Déc.".split("_"),
+            weekdays : "Dimanche_Lundi_Mardi_Mercredi_Jeudi_Vendredi_Samedi".split("_"),
+            weekdaysShort : "Dim._Lun._Mar._Mer._Jeu._Ven._Sam.".split("_"),
+            weekdaysMin : "Di_Lu_Ma_Me_Je_Ve_Sa".split("_"),
+            longDateFormat : {
+                LT : "HH:mm",
+                L : "DD/MM/YYYY",
+                LL : "D MMMM YYYY",
+                LLL : "D MMMM YYYY LT",
+                LLLL : "dddd D MMMM YYYY LT"
+            },
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			   },
+            calendar : {
+                sameDay: "[Aujourd'hui à] LT",
+                nextDay: '[Demain à] LT',
+                nextWeek: 'dddd [à] LT',
+                lastDay: '[Hier à] LT',
+                lastWeek: 'dddd [dernier à] LT',
+                sameElse: 'L'
+            },
+            relativeTime : {
+                future : "dans %s",
+                past : "il y a %s",
+                s : "quelques secondes",
+                m : "une minute",
+                mm : "%d minutes",
+                h : "une heure",
+                hh : "%d heures",
+                d : "un jour",
+                dd : "%d jours",
+                M : "un mois",
+                MM : "%d mois",
+                y : "un an",
+                yy : "%d ans"
+            },
+            ordinal : function (number) {
+                return number + (number === 1 ? 'er' : '');
+            },
+            week : {
+                dow : 1, // Monday is the first day of the week.
+                doy : 4  // The week that contains Jan 4th is the first week of the year.
+            }
+        });
+        
+        
+        if ($.fullCalendar) {
+            $.fullCalendar.lang('fr', {
+                // strings we need that are neither in Moment nor datepicker
+                "day": "Jour",
+                "week": "Semaine",
+                "month": "Mois",
+                "list": "Mon planning"
+            }, {
+                // VALUES ARE FROM JQUERY-UI DATEPICKER'S TRANSLATIONS
+                // (https://github.com/jquery/jquery-ui/blob/master/ui/i18n/jquery.ui.datepicker-fr.js)
+                // 
+                // Values that are reduntant because of Moment are not included here.
+                //
+                // When fullCalendar's lang method is called, it will merge this config with Moment's
+                // and make this stuff available for jQuery UI's datepicker:
+                //
+                //     $.datepicker.regional['fr'] = ...
+                //
+                closeText: 'Fermer',
+                prevText: 'Précédent',
+                nextText: 'Suivant',
+                currentText: 'Aujourd\'hui',
+                dayNamesMin: ['D','L','M','M','J','V','S'],
+                weekHeader: 'Sem.',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            });
+        }
+
+    }
+
+    // we need Moment and jQuery before we can begin...
+    //
+    if (typeof define === "function" && define.amd) {
+        define(["moment", "jquery"], onload);
+    }
+    if (typeof window !== "undefined" && window.moment && window.jQuery) {
+        onload(window.moment, window.jQuery);
+    }
+
+})();
    function calendarData(id)
    {
         var date = new Date();
@@ -272,10 +387,11 @@
                 m = date.getMonth(),
                 y = date.getFullYear();
         var calendar =$('#calendar').fullCalendar({
-          header: {
+			
+          header: { 
             left: '',
             center: 'title',
-            right: 'prev,next today'
+            right: 'month,agendaWeek,prev,next today'
           },
           //Random default events
          events: {
@@ -286,12 +402,24 @@
                 alert('There was an error while fetching events.');
             }
         },
-          editable: false,
-          droppable: false, // this allows things to be dropped onto the calendar !!!
+        editable: true,
+        droppable: true, // this allows things to be dropped onto the calendar !!!
+        eventLimit: true,
         eventMouseover: function(event, domEvent) {
-    var layer =	'<div id="events-layer"><li><a href="emails/emailSetup/'+event.id+'/edit"><i class="fa fa-fw fa-pencil"></i>edit</a></li><li><a href="javascript:void(0);" data-token="{{ csrf_token() }}" val="'+event.id+'" id="delete"><i class="fa fa-fw fa-trash"></i>Delete</a></li></div>';
-				$(this).append(layer);
-				
+				var layer = '<div id="events-layer"><li><a href="emails/emailSetup/'+event.id+'/edit"><i class="fa fa-fw fa-pencil"></i>Modifier</a></li><li><a href="javascript:void(0);" data-token="{{ csrf_token() }}" val="'+event.id+'" id="delete"><i class="fa fa-fw fa-trash"></i>Effacer</a></li><li><a class="open-rapport-modal" href="javascript:void(0)" data-href="emails/report/'+event.id+'/view"><i class="fa fa-fw fa-eye"></i>Rapport</a></li></div>';				
+			
+				/* DIEGO PUCCI EDIT BEGIN me@diegopucci.com */
+      	$(this).append(layer).find(".open-rapport-modal").on("click", function(e){
+      	console.log("HERE");
+      		var link = this;
+      		e.preventDefault();
+      		var linkHref = $(link).attr("data-href");
+      		$.sweetModal({ 
+  				title: '<div class="titleblock"><i class="mailingicon"><img src="{{ asset("img/mailingicon1.png") }}" /></i><h1>Campaign Report</h1></div>',
+ 				content: '<iframe style="width:100%; height: 480px;" src="/'+ linkHref+'"></iframe>'
+			});
+      	})
+      /* DIEGO PUCCI EDIT END me@diegopucci.com */
 				$("#delbut"+event.id).fadeIn(300);
 				$("#delbut"+event.id).click(function() {
 					$.post("delete.php", {eventId: event.id});
@@ -318,6 +446,78 @@
          
 
             },
+            eventDrop: function(event, delta, revertFunc) {
+            	swal({
+                        title: 'Current Time <?php echo date('H:i');?> <br/>Please select Any time<br/><select id="dtimeslot" name="dtimeslot"><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select>',
+                        html:true,
+                        text: '',
+                        type: "success",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Continue",
+                        cancelButtonText: "No, cancel!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    },
+                    function (isConfirm) { 
+                    var dtimeslotv = jQuery('#dtimeslot').val();
+                    if (isConfirm) {
+                      swal({
+                        title: "Are you sure about this change?",
+                        html:true,
+                        text: '',
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, Change it!",
+                        cancelButtonText: "No, cancel!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            var id = event.id;
+                            var token = jQuery(this).attr('data-token');
+                            jQuery.ajax({                            	
+                                url: 'emails/emailSetup/' + id+'/campaignmove',
+                                type: 'POST',
+                                data: {
+                                    "_token": '{{csrf_token()}}',
+                                    "id": event.id,
+                                    "timeslot": dtimeslotv,
+                                    "edate": event.start.format()
+                                },
+                                success: function (result) {
+                                    if (result.success) {
+                                        swal("success!", "Campaign Change successfully.", "success");
+                                          $('#calendar').fullCalendar('refetchEvents');
+                                    } else {
+                                        swal("ohh snap!", "something went wrong", "error");
+                                        revertFunc();
+                                    }
+
+                                }
+                            });
+		                        } else {
+		                            swal("Cancelled", "Campaign Change is cancelled ", "error");
+		                            //return true;
+		                            revertFunc();
+		                        }
+		                    });
+                        } else {
+                            swal("Cancelled", "Campaign Change is cancelled ", "error");
+                            //return true;
+                            revertFunc();
+                        }
+                   
+            	
+            	 
+                    }); 
+                    /*if (!confirm("Are you sure about this change?")) {
+						revertFunc();
+					}*/
+            		return false;
+			},
                     
         });
 
@@ -325,20 +525,25 @@
         
         var selectDraft='';
         var selectSend="";
+        var selectSchedule="";
         if(id=="draft"){
             selectDraft="selected";
             
         }else if(id=="send"){
             selectSend="selected";
             console.log('id',id);
+        }else if(id=="schedule"){
+            selectSchedule="selected";
         }
             
         
-   var customButton="<div class='fc-button-group campaignbtn'><a href='{{url('emails/emailSetup')}}'>Create Campaign</a> <select id='statusData'><option value='all'>Select</option><option value='draft' "+selectDraft+">Draft</option><option value='send' "+selectSend+">Send</option></select><a href='javascript:void(0)'><i class='fa fa-paper-plane'></i> <b>4980</b>/<small>5000<small></a></div>";
-       $(".fc-left").append(customButton);
+   var customButton="<div class='fc-button-group campaignbtn'><a href='{{url('emails/emailSetup')}}'>{{ Lang::get('auth.createcamp') }}</a> <select id='statusData'><option value='all'>{{ Lang::get('auth.select') }}</option><option value='draft' "+selectDraft+">{{ Lang::get('auth.draft')}}</option><option value='send' "+selectSend+">{{ Lang::get('auth.send')}}</option></select><a href='javascript:void(0)'><i class='fa fa-paper-plane'></i> <b>5000</b>/<small>5000<small></a></div>";
+       $(".fc-left").html(customButton);
+	   
     
       }
       $(document).ready(function(){
+    
     $("body").on('change','#statusData',function(e){
          $('#calendar').fullCalendar('destroy');    
          var data=$(this).val();
@@ -370,7 +575,7 @@
                                 },
                                 success: function (result) {
                                     if (result.success) {
-                                        swal("success!", "Campaign deleted successfully.", "success");
+                                        swal("success!", "Campagne supprimé avec succès !", "success");
                                           $('#calendar').fullCalendar('refetchEvents');
                                     } else {
                                         alert('false');
@@ -380,7 +585,7 @@
                                 }
                             });
                         } else {
-                            swal("Cancelled", "Campaign delete is cancelled ", "error");
+                            swal("Cancelled", "Supression de la campagne annulé !", "error");
                             //return true;
                         }
                     });
@@ -448,6 +653,10 @@ $(function() {
     });
 });
 $(document).ready(function() {
+
+    calendarData('all');
+
+
     var dataToFetch = "";
     var APP_URL = {!! json_encode(url('/')) !!};
     $(document).on("click", ".emailDelCheckBox", function() {
@@ -497,7 +706,7 @@ $(document).ready(function() {
             },
             success: function(result) {
                 if (result.success) {
-                    swal("success!", "Email Template  deleted successfully.", "success");
+                    swal("success!", "Modèle supprimé avec succès !", "success");
                     oTable.draw();
                     
                 } else {
@@ -526,7 +735,7 @@ $(document).ready(function() {
             },
             success: function(result) {
                 if (result.success) {
-                    swal("success!", "Email Campaign  deleted successfully.", "success");
+                    swal("success!", "Campagne supprimé avec succès !", "success");
                     oTableCampaign.draw();
                 } else {
                     alert('false');
@@ -616,7 +825,6 @@ $(document).ready(function() {
         $(".automaticMailing").hide();
         $(".manualMailing").show();
         //$('#calendar').fullCalendar('render');
-        calendarData('all');
         $(this).parents(".tabpart").find(".active").removeClass("active");
         $(this).parent().addClass("active");
 

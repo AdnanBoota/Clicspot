@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Raleway:400,700,300" rel="stylesheet" type="text/css">
+<title>undefined-inline</title>
+<style type="text/css">
+        /*
+                                        *Project:	Corpo - Responsive Email Template
+                                        *Version:	1.0
+                                        *Creat:		09/05/14
+                                        *coder:		M.Beau
+                                        *Copyright: Digith Studio
+                                        *Website: 	http://themeforest.net/user/digith
+                                        */
+        /* Client-specific Styles */
+        
+        #outlook a {
+            padding: 0;
+        }
+        .ReadMsgBody {
+            width: 100%;
+        }
+        .ExternalClass {
+            width: 100%;
+        }
+        body {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+        .yshortcuts,
+        .yshortcuts a,
+        .yshortcuts a:link,
+        .yshortcuts a:visited,
+        .yshortcuts a:hover,
+        .yshortcuts a span {
+            text-decoration: none !important;
+            border-bottom: none !important;
+            background: none !important;
+        }
+        .ExternalClass * {
+            line-height: 100%
+        }
+		
+		table { border-spacing: 0; }
+		
+		a { color: #d32816; text-decoration: none; font-weight: bold; }
+		table[class="table3-3"] { 
+			width: 480px !important; 
+			text-align: center !important; 
+		}
+		
+		table[class="table3-1"] { 
+			width: 400px !important; 
+			text-align: center !important; 
+		}
+        /*link style*/
+       
+        a:hover {
+            text-decoration: underline !important;
+        }
+        .header a:hover,
+        .button a:hover,
+        .btn a:hover,
+        .footer a:hover,
+        .bottom a:hover,
+        .headerbanner2 a:hover {
+            text-decoration: none !important;
+        }
+        @media only screen and (max-width: 619px) {
+										table[class="table3-3"] { width: 98% !important; text-align: center !important; }
+										table[class="table3-1"] { width: 90% !important; text-align: center !important; }
+										table[class="table3-3"] div{ width: 70% !important; text-align: center !important;  }
+										/* Image */
+										img[class="img1"] { width: 95% !important; height: auto !important; }
+                                        
+        }
+        @media only screen and (max-width: 439px) {
+        
+
+										table[class="table3-3"] { width: 98% !important; text-align: center !important;  }
+										table[class="table3-1"] { width: 90% !important; text-align: center !important; }
+										table[class="table3-3"] div{ width: 75% !important; text-align: center !important;  }
+										/* image */
+										img[class="img1"] { width: 95% !important; }
+                                        
+        }
+        @media only screen and (max-width: 359px) {
+        
+										table[class="table3-3"] { width: 98% !important; text-align: center !important;  }
+										table[class="table3-1"] { width: 90% !important; text-align: center !important; }
+										table[class="table3-3"] div{ width: 75% !important; text-align: center !important;  }
+										/* image */
+										img[class="img1"] { width: 95% !important; }                                        
+        }
+</style>
+</head>
+<body style="margin:0;padding:0;width:100%;height:100%;">
+<!-- start ◆headerbanner_1s◆ -->
+<table align="center" bgcolor="#f0f0f0" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" valign="top">
+<table class="table3-3" style="font-size:8px;background-color: #404040" align="center" border="0" cellpadding="0" cellspacing="0" width="480">
+<tr border="0" style="border: none; border-color: #f0f0f0;">
+<td height="19" align="center" bgcolor="#f0f0f0" valign="top">
+                    &nbsp;
+</td>
+</tr>
+<tr>
+<td align="center" bgcolor="#f0f0f0" valign="top">
+                    <font style="font-size:11.5px;font-family:'Open Sans',sans-serif;font-weight: bold;color:#000000;"><img src="http://admin.clicspot.com/img/clicspot.png" alt="Clicspot" class="rnb-logo-img ui-droppable ui-droppable-disabled ui-state-disabled" style="max-width:120px;width:120px;height:auto;border:0;outline:0;" height="auto" width="120"></font>
+</td>
+</tr>
+<tr border="0" style="border: none; border-color: #f0f0f0;">
+<td height="28" align="center" bgcolor="#f0f0f0" valign="top">
+                    &nbsp;
+</td>
+</tr>
+<tr>
+<td align="center" bgcolor="#f0f0f0" valign="top" width="480">
+<table class="table3-3" style="border:1px solid #e7e7e7;border-radius: 10px; border-top:none; border-bottom:none;" align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0" width="480">
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td style="border-radius: 10px;" height="28" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td border="0" style="border: none; border-color: #ffffff;padding-left:29px" align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">
+                                           <font style="font-size:14px;font-family:'Open sans',sans-serif;color:#555555;">
+                                Bonjour {{$userDetail-&gt;name or ''}},
+                                </font>
+</td>
+</tr>
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td style="border: 1px solid #f0f0f0; border-top:none; border-right:none;border-left:none;" height="27" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td height="25" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td align="center" bgcolor="#ffffff" valign="top">
+<table class="table3-3" align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="480">
+<tr>
+<td style="padding-left:50px;padding-right:50px;" class="td-inner1" align="center" valign="top">
+                                       <font style="font-size:11px;font-family:'Open sans',sans-serif;color:#555555;">
+                                       Merci pour votre visite chez <b>{{$hotspot-&gt;shortname or ''}}</b> - nous espérons que vous avez passé un agréable moment dans notre établissement.
+<br>
+<br>
+
+                                       Nous aimerions en savoir plus sur votre expérience, ça ne vous prendra pas plus de 2 minutes.
+<br>
+                                       </font>
+</td>
+</tr>
+<!-- Spacer -->
+<tr>
+<td height="30" align="center" bgcolor="#ffffff" valign="top">
+                                        &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<tr>
+<td class="td-inner1" align="center" valign="top">
+                                       <font style="font-size:11px;font-family:'Open sans',sans-serif;color:#555555;">
+                                       <b>Recommanderiez-vous {{$hotspot-&gt;shortname or ''}} à vos amis?</b>
+                                       </font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td height="1" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<tr>
+<td align="center" bgcolor="#ffffff" valign="top">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="65">
+<tr>
+<td align="center" valign="top"><a style="" href="{{ url(" ")="" }}="" feedback="" {{="" $feedback_code="" }}"="" target="_blank" title="Oui, j'ai passé un agréable moment !"><font style="font-size:11.5px;font-family:'Open Sans',sans-serif;font-weight: bold;color:#000000;"><img src="http://admin.clicspot.com/img/agreeble.jpg" alt="Agreeble" style="max-width:244px;width:244px;height:auto;border:0;outline:0;" height="auto" width="244"></font></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td height="22" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<tr>
+<td align="center" bgcolor="#ffffff" valign="top">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="65">
+<tr>
+<td align="center" valign="top"><a href="mailto:{{$hotspot->email or 'survey@clicspot.fr'}}?subject=Thank you for taking the time to answer our survey!&amp;body=We appreciate the feedback.
+                            We strive to always provide the best services but sometimes it could happen that our client are not fully satisfied.
+                            Would you give us your opinion and your recommendation to improve our services ?
+                            Thank you
+                            {{$hotspot->shortname or ''}} Team
+                            Please, type your comment below:" target="_top" title="J'ai quelques recommendations à faire" style="text-decoration:none;color:#000000;"><font style="font-size:11.5px;font-family:'Open Sans',sans-serif;font-weight: bold;color:#000000;"><img src="http://admin.clicspot.com/img/recommond.jpg" alt="Recommond" style="max-width:257px;width:257px;height:auto;border:0;outline:0;" height="auto" width="257"></font></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td height="28" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td style="border: 1px solid #f0f0f0; border-top:none; border-right:none;border-left:none;" height="20" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td height="15" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td border="0" style="border: none; border-color: #ffffff;" align="left" valign="top">
+<table class="table3-3" align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="480">
+<tr>
+<td style="line-height:1.5;padding-left:50px;padding-right:50px;" class="td-inner2" align="center" valign="top">
+                                           <font style="font-size:10px;font-family:'Open sans',sans-serif;color:#555555;font-weight:bold;">
+                                <i>Cette question concerne uniquement le service que vous avez reçu de la part de l'établissement. Pour laisser des commentaires sur les services WIFI, envoyez nous un email à support@clicspot.fr</i> 
+<br>
+                                Merci de votre visite.
+<br>
+                                A bientôt,
+<br>
+<br>
+                                {{$hotspot-&gt;shortname or ''}}
+<br>
+                                </font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #ffffff;">
+<td style="border-radius: 10px;" height="20" align="center" bgcolor="#ffffff" valign="top">
+                                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+</table>
+</td>
+</tr>
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #f0f0f0;">
+<td height="10" align="center" bgcolor="#f0f0f0" valign="top">
+                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<tr>
+<td align="center" bgcolor="#f0f0f0" valign="top">
+<table class="table3-3" align="center" bgcolor="#f0f0f0" border="0" cellpadding="0" cellspacing="0" width="400">
+<tr>
+<td style="line-height:2" align="center" valign="top">
+                                <font style="font-size:11px;font-family:'Open Sans',sans-serif;color:#9b9b9b;"><i>Si vous n'êtes pas le destinataire de ce message, veuillez simplement le supprimer.</i></font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Spacer -->
+<tr border="0" style="border: none; border-color: #f0f0f0;">
+<td height="20" align="center" bgcolor="#f0f0f0" valign="top">
+                &nbsp;
+</td>
+</tr>
+<!-- End of Spacer -->
+<!-- end - ◆headerbanner_1s◆ -->
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

@@ -4,6 +4,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use App;
+use Mail;
+use Illuminate\Support\Facades\Input;
 
 class PasswordController extends Controller {
 
@@ -34,5 +38,76 @@ class PasswordController extends Controller {
 
 		$this->middleware('guest');
 	}
+    public function postEmail(Request $request)
+	{
+        //print_r($request->only('email')); exit;
+        $this->validate($request, ['email' => 'required|email']);
+       $user=  \App\User::where('email',$request->only('email'))->first();
+//        view()->share('name', $user->username);
+//        
+//		$response = $this->passwords->sendResetLink($request->only('email'), function($m) 
+//		{
+//			$m->subject($this->getEmailSubject());
+//		});
+       if(isset($user->username)){
+        $input=Input::all();
+        
+        $token=$input['_token'];
+        $email=$input['email'];
+//        print_r($input); exit;
+        if(App::getLocale()=="en"){
+             $languageTemplate='emails.password'; 
+            }else if(App::getLocale()=="fr"){
+               $languageTemplate='emails.passwordFR'; 
+            }
+            $data=array('name' => $user->username,'token'=>$token);
+            $response= Mail::send($languageTemplate, $data, function($message) use($email)
+{
+    $message->to($email)->subject($this->getEmailSubject());
+});
+       
+       
+            $password=new App\ResetPass();
+            $password->email=$email;
+            $password->token=$token;
+            $password->save();
+            if($password->id)
+            {
+                 $successMsg = "We have e-mailed your password reset link!";
+               
+                return view('auth.password',array('msg'=>$successMsg));
+            }
+            
+       }else{
+                 $errorMsg = "We can't find a user with that e-mail address.";
+               
+                return view('auth.password',array('errormsg'=>$errorMsg));
+       }
+       exit;
+		switch ($response)
+		{
+			case PasswordBroker::RESET_LINK_SENT:
+				return redirect()->back()->with('status', trans($response));
 
+			case PasswordBroker::INVALID_USER:
+				return redirect()->back()->withErrors(['email' => trans($response)]);
+		}
+	}
+function sparkDemo()
+        {
+   
+
+            //return "demo";
+            $email="gotecharavi123@gmail.com";
+              
+             $response= Mail::send([],[], function($message) use($email){
+                $message->to($email)->subject("this is Rvi to do {{name}}");
+                $message->subject("Thank you for visiting shortname !");
+                $message->from('postmaster@clicspot.com', 'Learningdd deLaravel');
+   
+             });
+             
+            echo "<pre>"; 
+            print_r($response);
+        }
 }

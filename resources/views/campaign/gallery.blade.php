@@ -9,15 +9,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Gallary</h4>
+                <h4 class="modal-title" id="myModalLabel">{{ Lang::get('campaign.gallary') }}</h4>
             </div>
             <div class="modal-body">
                <form id="upload" method="post" action="{{url('galleryFileUpload')}}" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <div id="drop">
-                    Drop Here
+                    {{ Lang::get('campaign.drophere') }}
 
-                    <a>Browse</a>
+                    <a>{{ Lang::get('campaign.browse') }}</a>
                     <input type="file" name="upl" multiple accept="image/*" />
                 </div>
 

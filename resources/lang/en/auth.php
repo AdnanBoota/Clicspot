@@ -24,7 +24,12 @@ return [
     'signin'=>'Sign in',
     'retypepass'=>'Retype Password',
     'fullnm'=>'Full Name',
-    'business'=>'Buisness Name',
+    'fnm'=>'First Name',
+    'firstnm'=>'{firstname}',
+    'lnm'=>'Last Name',
+    'locationnm'=>'Location Name',
+    'businessnm'=>'Buisness Name',
+    'businessname'=>'{business_name}',
     'adress'=>'Adress',
     'city'=>'City',
     'zipcode'=>'Zip code',
@@ -291,7 +296,23 @@ website:',
     'feedback-it'=>'Thanks for sharing your feedback—it will help to improve our services.',
     'regards'=>'Best regards,',
     'team'=>'Team',
-    'feb'=>'Feb'
-
-
+    'feb'=>'Feb',
+    'hi'=>'Hi',
+    //email template
+    'description'=>'Description',
+    'report'=>'Report',
+    'review'=>'Review',
+    'reviewdesc'=>'	Send a review email automatically after first time connexion.',
+    'birthday'=>'Birthday',
+    'birthdesc'=>'Send out an email automatically for Users Birthday.',
+    'birthfb'=>'Works only with Facebook profile.',
+    'fblike'=>'Increase your Facebook fans by asking them to like your page.',
+    'createcamp'=>'Create Campaign',
+    'draft'=>'draft',
+    'send'=>'send',
+    'select'=>'select',
+    'feedbackSubject'=>'Thank you for visiting',
+    //campaign template
+    'marketing'=>"Marketing",
+    'event'=>'Event'
 ];

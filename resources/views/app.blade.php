@@ -26,6 +26,11 @@
     <link href="{{ asset('/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/css/datepicker3.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/css/newmenu.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/css/flag/assets/docs.css') }}" rel='stylesheet' />
+<link href="{{ asset('/css/flag/css/flag-icon.min.css') }}" rel='stylesheet' />
+<!--<link rel="stylesheet" type="text/css" href="{{ asset('/cntry/css/msdropdown/dd.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('/cntry/css/msdropdown/flags.css') }}" />-->
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,6 +67,7 @@
 <script src="{{ asset('/dist/js/app.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/jquery.validate.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/sweetalert.min.js') }}" type="text/javascript"></script>
+
 @yield('script')
 @stack('scripts')
 </body>

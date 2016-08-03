@@ -1,7 +1,6 @@
 @import url('../fonts/stylesheet.css');
-
 body{
-    
+
 }
 
 li{
@@ -123,7 +122,7 @@ a:hover{
     min-height: 500px;
 }
 .stepform{
-     display: none;
+    display: none;
 }
 .stepform1{
     display: none;
@@ -132,7 +131,10 @@ a:hover{
     display: none;
 }
 .stepform3{
-     display: none;
+    display: none; padding-bottom: 50px;
+}
+.starsFilter{
+    padding-top: 10px;
 }
 .stepform4{
     display: none;
@@ -163,8 +165,8 @@ a:hover{
     width: 100%;
     padding: 9px 10px;
     appearance:none;
--moz-appearance:none; /* Firefox */
--webkit-appearance:none; /* Safari and Chrome */
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
 }
 .router .fliterrow .selectbox select:hover ,.router .fliterrow .selectbox select:focus{
     background: #1abc9c;
@@ -182,9 +184,9 @@ a:hover{
     padding: 5px 11px;
 }
 .formrow input[type="text"] ,.formrow input[type="email"]{
-    height: 55px;
+    height: 48px;
     border: 1px solid #95a0aa;
-    font-size: 22px;
+    font-size: 17px;
     font-family: 'latoregular';
     border-radius: 5px !important;
 }
@@ -193,24 +195,24 @@ a:hover{
 }
 .savebtn {
     width: 100% !important;
-}  
+}
 .backbtn{}
 .nextbtn{}
 .stepbtn button , .stepbtn a ,.formrow button.crtbtn ,.sendbox a,a.crtbtn{
     width: 30%;
     border-radius: 5px;
-    height: 55px;
+    height: 48px;
     margin: 0 1.5%;
-    line-height: 55px;
+    line-height: 48px;
     color: #fff;
     text-align: center;
     font-family: 'latobold';
     float: left;
-    background: #1abc9c;
+    background: #81c7e9;
     border: none;
-    font-size: 22px;
+    font-size: 17px;
 }
-.stepbtn a img {
+.stepbtn a img{
     float: left;
     margin: 12px 0 0 12px;
 }
@@ -226,6 +228,7 @@ a:hover{
 .selectbox .btn-group{
     padding: 0;
 }
+
 .caret {
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
@@ -238,18 +241,17 @@ a:hover{
     line-height: 48px;
 }
 .selectbox .btn-default:hover, .selectbox .btn-default:active, .selectbox .btn-default.hover{
-    background: #1abc9c !important;
+    background: #8BC4EA !important;
     color: #fff;
 }
 
 .selectbox select ,.multiselect{
-    background: #1abc9c;
+    background: #8BC4EA;
     width: 310px;
-    height: 55px;
-    line-height: 55px;
+    height: 48px;
     color: #fff;
     font-family: 'latobold';
-    font-size: 21px;
+    font-size: 17px;
     border: none;
     border-radius: 5px;
     appearance:none;
@@ -264,7 +266,7 @@ a:hover{
     padding: 8px 5px;
 }
 .selectbox select option:hover{
-    background: #1abc9c !important;
+    background: #8BC4EA !important;
     color: #fff;
 }
 .selectbox i.droparrow {
@@ -284,27 +286,27 @@ a:hover{
 }
 .stepform3 .formrow label{
     margin: 12px 0 0;
-    padding-left: 50px !important;
+    padding-left: 32px !important;
 }
 .stepform3 .formrow input[type="radio"]{
-    
+
 }
 .quiklistblock{
-    
+
 }
 .quiklistrow {
     clear: both;
     margin: 0;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 .multiselect-container{
     right: 0;
-    border: 2px solid #1abc9c;
+    border: 2px solid #8BC4EA;
     padding: 12px 0 0 30px !important;
     margin-top: 3px !important;
 }
 .formrow .quiklistrow label{
-    font-family: 'latobold'; 
+    font-family: 'latobold';
     padding: 0 !important;
 }
 .ageblock{
@@ -315,7 +317,7 @@ a:hover{
 }
 .ageblock label{
     margin: 8px 0 !important;
-    font-family: 'latobold' !important; 
+    font-family: 'latobold' !important;
 }
 
 .ageblock .col-md-3{
@@ -367,19 +369,20 @@ a:hover{
 
 input.includeRecipient[type=checkbox]:not(old),
 .rediobtn input[type=radio   ]:not(old){
-  width   : 28px;
-  margin  : 0;
-  padding : 0;
-  opacity : 0;
+    width   : 28px;
+    margin  : 0;
+    padding : 0;
+    opacity : 0;
 }
 
 input.includeRecipient[type=checkbox]:not(old) + label,
 .rediobtn input[type=radio   ]:not(old) + label{
-  display      : inline-block;
-  margin-left  : -28px;
-  padding-left : 28px;
-  background   : url('../img/checks.png') no-repeat 0 0;
-  line-height  : 24px;
+    display      : inline-block;
+    margin-left  : -28px;
+    padding-left : 28px;
+    background   : url('../img/checks.png') no-repeat 0 0;
+    line-height  : 24px;
+    width: 22px;
 }
 input.includeRecipient[type=checkbox]:not(old) + label{
     background   : url('../img/checkbox.png') no-repeat 0 0;
@@ -387,14 +390,14 @@ input.includeRecipient[type=checkbox]:not(old) + label{
 }
 
 input.includeRecipient[type=checkbox]:not(old):checked + label{
-  background-position : 0px 0px;
+    background-position : 0px 0px;
 }
 input.includeRecipient[type=checkbox]:not(old) + label{
-  background-position : 0 -24px;
+    background-position : 0 -24px;
 }
 
 .rediobtn input[type=radio]:not(old):checked + label{
-  background-position : 0 -48px;
+    background-position : 0 -48px;
 }
 
 dl {
@@ -416,7 +419,7 @@ dl {
     font-weight: normal;
 }
 .includeRecipient{
-    
+
 }
 
 
@@ -432,12 +435,11 @@ dl {
 @media screen and (max-width:1280px){
     .formrow label {font-size: 18px;}
     .formrow input[type="text"], .formrow input[type="email"] {font-size: 18px;height: 40px;}
-    .stepbtn button, .stepbtn a, .formrow button.crtbtn, .sendbox a ,.selectbox select{height: 40px;line-height: 40px;font-size: 18px;}
     .stepform3 .selectbox i.droparrow{top: 22px;}
     .stepbtn a img {height: 18px;}
 }
 @media screen and (max-width:1199px){
-    
+
 }
 
 @media screen and (max-width:991px){
@@ -473,3 +475,96 @@ dl {
 
 
 
+
+/* siddhi developer*/
+
+.emailicon {
+    background: #fff url("../img/mailicon.png") no-repeat scroll right center;
+}
+.passwordicon{
+    background: #fff url("../img/lockicon.png") no-repeat scroll right center;
+}
+.nameicon {
+    background: #fff url("../img/nameicon.png") no-repeat scroll right center;
+}
+.bnameicon{
+    background: #fff url("../img/b_nameicon.png") no-repeat scroll right center;
+}
+.siranicon {
+    background: #fff url("../img/sirenicon.png") no-repeat scroll right center;
+}
+
+.formstep2mainblock{
+    width: 100%;
+    overflow: hidden;
+}
+.formstep2left{
+    width: 48%;
+    float: left;
+    margin: 0 auto;
+}
+.formstep2right{
+    width: 48%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.campaingnState .stepform1 .form-group{margin-right:0px !important;margin-left:0px !important;}
+.campaingnState{border: 2px solid #ccc;padding: 40px 0px;}
+.center{text-align: center;}
+.padding5{padding:5px;}
+.padding10{padding:10px;}
+.padding20{padding:20px;}
+.backbtnaa img {float: left;margin: 6px 0 0 15px;}
+.selectbox i.droparrow {
+    color: #fff;
+    font-size: 21px;
+    position: absolute;
+    right: 15px;
+    top: 18px;
+}
+/*.campaingnState .selectbox select, .multiselect{width: 190px !important;}
+.campaingnState .selectbox {width: 190px !important;}*/
+.stepform1 .form-group a.crtbtn, .stepform1 .form-group .selectbox select {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #96a0aa;
+    font-weight: normal;
+    font-family: "latoregular";
+    color: #96a0aa;
+    line-height: 35px;
+}
+
+.stepform1 .form-group a.crtbtn, .stepform2 .form-group .selectbox select{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;border: 2px solid #96a0aa;font-weight: normal;font-family: "latoregular";color: #96a0aa;}
+
+.stepform1 .form-group a.crtbtn:hover, .stepform2 .form-group .selectbox select:hover{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;border: 2px solid #7fc8eb;color: #7fc8eb;font-weight: normal;font-family: "latoregular";}
+.stepform1 .form-group .selectbox i.droparrow{color:#999; top:12px; }
+.stepform1 .form-group .selectbox:hover i.droparrow{color:#7fc8eb;}
+.stepform3 .formrow label{ font-size: 14px; font-weight: normal; font-family: "latoregular"; color: #8d8d8d;}
+.stepform3 .form-group .selectbox{width: auto; float: left}
+.stepform3 .form-group .selectbox select{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;border: 2px solid #7fc8eb;font-weight: normal;font-family: "latoregular";color: #7fc8eb; float: none; width: auto; padding-right: 35px; font-size: 15px; line-height: normal;}
+.stepform3 .form-group .selectbox i.droparrow{color:#7fc8eb; top: 12px}
+.stepform3 .form-group.sel-rapid-selbox .selectbox select{border: 2px solid #96a0aa;color: #96a0aa; height: 40px}
+.stepform3 .form-group.sel-rapid-selbox .selectbox i.droparrow{color:#96a0aa; top: 10px}
+.step3-radio{float: left}
+.stepform3 .fliterrow .btn-group{width: auto;background: none; }
+.stepform3 .fliterrow .btn-group button.btn{background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;border: 2px solid #96a0aa;font-weight: normal;font-family: "latoregular";color: #96a0aa; float: none; width: auto; padding-right: 25px; font-size: 15px;  height: 40px;line-height: 40px;}
+.stepform3 .form-group, .stepform3 .fliterrow{margin-bottom: 5px;}
+.stepform3 .fliterrow .btn-group button.btn .multiselect-selected-text{line-height: normal;}
+.stepform3 .fliterrow .btn-group button.btn .caret{margin-top: 6px; margin-right: -20px;}
+.stepform3 .form-group .ageblock > div{padding-left: 0;padding-right: 5px;}
+.stepform3 .form-group .ageblock > div input, .stepform3 .form-group .ageblock > div select{border: 2px solid #96a0aa;color:#96a0aa; height: 40px; }
+.stepform3 .form-group .ageblock > div .selectbox i.fa{right: 7px ;color:#96a0aa; }
+.stepform3 table.dataTable thead th{ font-size: 12px; font-weight: normal;padding: 0;}
+.formrow label.step_title{font-size: 30px; font-family: "latoregular"; color: #000;}
+.formrow label.step_title_innner{color: #626262;font-size: 25px; font-family: "latoregular";padding-left: 12px; font-weight: normal; }
+
+
+.stepform4 label{color: #626262;font-size: 18px; font-family: "latoregular";font-weight: normal;}
+.stepform4 iframe #sf-resetcontent{width: 100% !important}
+.stepform4 .sendbox{width: 55%;}
+.stepform4 .sendbox input{border: 2px solid #bec3c7;  border-radius: 10px !important;}
+.stepform4 .sendbox a{border-radius: 0 10px 10px 0 !important;}
+.stepform4 .form-group{margin-left: 0;margin-right: 0;}
+
+.stepform4 .date{width: 100%;}
+.stepform4 .date input{border: 2px solid #bec3c7;  border-radius: 5px !important; color: #b7babf;}
+.stepform4 .stepbtn a.schedule{margin-left: 20px;width: 25% ;position: relative !important;}

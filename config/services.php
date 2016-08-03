@@ -33,6 +33,11 @@ return [
 		'model'  => 'User',
 		'secret' => '',
 	],
+	
+	'sparkpost' => [
+        'secret' => 'ac0acd4c1cb4665cd46edb4ada4aea6d24c2f278',
+    ],
+	
     
 //    'google' => [
 //        'client_id' => '418301101154-aetpt3gtumq14bjrt62jg7udahejhnfk.apps.googleusercontent.com',

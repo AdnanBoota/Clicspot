@@ -151,15 +151,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Template</h4>
+                <h4 class="modal-title" id="myModalLabel">{{ Lang::get('campaign.template') }}</h4>
             </div>
             <div class="modal-body">
                 <div class="col-md-4 lefControls">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>Campaign Name: <span id="campaignName"></span></p>
+                            <p>{{ Lang::get('campaign.campaignname') }}: <span id="campaignName"></span></p>
 <!--                            <p>Header Background: <span class="btn btn-default headerBgIcon"><i class="fa fa-font"></i></span><span id="headerBg"></span></p>-->
-                            <p>Header Background:
+                            <p>{{ Lang::get('campaign.headerbackground') }}:
                             <div class="col-sm-10">
                                 {!!  Form::text('fontcolor', null, array('id'=>'fontcolor','class'=>'form-control my-colorpicker','required'=>'true')) !!}
                             </div>
@@ -169,7 +169,7 @@
                     </div>
                     <div class="row ">
                         <div class="col-md-12 ">
-                            <h4>Gallery</h4>
+                            <h4>{{ Lang::get('campaign.gallary') }}</h4>
                             <div class="box box-info no-border mygallerybox" >
                                 
                                 <div class="box-body">
@@ -180,7 +180,7 @@
                                                     @forelse($images as $image)
                                                     <img src="{{ $image }}" height="100" width="150" alt="..." class="margin">
                                                     @empty
-                                                    <p>No Images</p>
+                                                    <p>{{ Lang::get('campaign.noimage') }}</p>
                                                     @endforelse
                             <!--                        <img src="/img/Clicspot-Grey.png" height="100" width="150" alt="..." class="margin">
                                                     <img src="/uploads/gallery/lg-logo.png" height="100" width="150" alt="..." class="margin">
@@ -222,13 +222,13 @@
                                         {!! $campaign->description !!}
                                         @else
                                         <h1 style="color: white;" class="text-center">
-                                            Need a room,<br>
-                                            for tonight ?
+                                            {{ Lang::get('campaign.title') }}<br>
+                                            {{ Lang::get('campaign.title2') }}
                                         </h1>
                                         <br>
                                         <h4 style="color: white;" class="text-center">
-                                            Up to 70% discount.<br>
-                                            Breakfast and late checkout included !
+                                            {{ Lang::get('campaign.subtitle') }}<br>
+                                            {{ Lang::get('campaign.subtitle2') }}
                                         </h4>
                                         @endif
 
@@ -243,13 +243,13 @@
                                                     <div class="pull-left">
                                                         <i class="fa fa-facebook-square"></i>
                                                     </div>
-                                                    Login with Facebook
+                                                    {{ Lang::get('campaign.loginfacebook') }}
                                                 </a>
                                                 <a href="javascript:void(0)" class="btn btn-block btn-flat bg-red btn-lg">
                                                     <div class="pull-left">
                                                         <i class="fa fa-google-plus"></i>
                                                     </div>
-                                                    Login with Google+
+                                                    {{ Lang::get('campaign.logingoogle') }}
                                                 </a>
                                             </div>
                                             <div class="box-body">
@@ -262,7 +262,7 @@
                                                     <div class="pull-left">
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
-                                                    Login with Email
+                                                    {{ Lang::get('campaign.loginemail') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -293,15 +293,6 @@
                                         <p>Support 24/7</p>
 
                                         <p>FAQ</p>
-                                    </div>
-                                    <div class="col-xs-12 col-md-3">
-                                        <h4>Secure Payment</h4>
-
-                                        <div>
-                                            <i class="fa fa-cc-visa" style="font-size: 40px;color: white"></i>
-                                            <i class="fa fa-cc-mastercard" style="font-size: 40px;color: white"></i>
-                                            <i class="fa fa-lock" style="font-size: 40px;color: white"></i>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

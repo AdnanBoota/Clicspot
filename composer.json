@@ -18,7 +18,9 @@
         "caouecs/laravel4-lang": "~2.0",
         "laravel/socialite": "~2.0",
         "gocardless/gocardless": ">=0.4.2",
-        "weblee/mandrill": "dev-master"
+        "weblee/mandrill": "dev-master",
+		"maatwebsite/excel": "~2.1.0",
+        "nwidart/db-exporter": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
