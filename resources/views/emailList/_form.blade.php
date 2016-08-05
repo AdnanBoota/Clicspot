@@ -73,6 +73,10 @@
                 <input type="checkbox" value="email" name="favoredconnection[]" id="email-conn" class="css-checkbox" {{ (isset($emailList) AND in_array('email',$emailList->favoredconnection))?'checked':''}} />
                 <label for="email-conn"  class="css-label"></label>
             </div>
+            <div class="maincheck importedimg">
+                <input type="checkbox" value="imported" name="favoredconnection[]" id="imported-conn" class="css-checkbox" {{ (isset($emailList) AND in_array('imported',$emailList->favoredconnection))?'checked':''}} />
+                <label for="imported-conn"  class="css-label"></label>
+            </div>
         </div>
     </div>
 </div>
@@ -219,11 +223,14 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="reviewblock">
+                    <!--
                     <a  val='1' class="{{(isset($emailList) AND $emailList->rate >= 1)? 'active':''}}" href="javascript:void(0);"><i></i></a>
                     <a  val='2' class="{{(isset($emailList) AND $emailList->rate >= 2)? 'active':''}}" href="javascript:void(0);"><i></i></a>
                     <a val='3' class="{{(isset($emailList) AND $emailList->rate == 3)? 'active':''}}" href="javascript:void(0);"><i></i></a>
+                    -->
+                    <div class="starsFilter" data-score="{{(isset($emailList)) ? $emailList->rate : 0}}"></div>
                 </div>
-                 {!!  Form::hidden('rate') !!}
+                 {!!  Form::hidden('stars') !!}
             </div>
         </div>
     </div>
@@ -239,10 +246,13 @@
 @push('scripts')
 <script src="{{ asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
 <script src="{{ asset('/js/bootstrap-multiselect.js') }}"></script>
-<!--<script src="{{ asset('/js/bootstrap-datepicker.js') }}"></script>-->
 <script src="/plugins/daterangepicker/moment.min.js"></script>
 <script src="{{ asset('/plugins/daterangepicker/daterangepicker.js') }}"></script>
-<!--<script src="{{ asset('/js/additional-methods.js') }}"></script>-->
+
+<!-- Raty plugin me@diegopucci.com pucci_diego -->
+<script type="text/javascript" src="{{ asset('/plugins/raty/jquery.raty.js') }}"></script>
+
+
 <script type="text/javascript">
 jQuery(document).ready(function () {
     $.validator.addMethod("eitherQuickRange", function(value, element) {
@@ -345,16 +355,31 @@ jQuery(document).ready(function () {
             $('input[name=isdatequickselection]').val('0');
             $('.date-txt').removeAttr('disabled');
         }
-    })
+    });
+
     $('#datequickselection').trigger('change');
-    
+
+    /* EDIT BY me@diegopucci.com*/
+    /*
     $('.reviewblock a').on('click',function(){
         $('.reviewblock a').removeClass('active');
         var myVal = $(this).attr('val');
         $('.reviewblock a:lt('+myVal+')').addClass('active');
         $('input[name=rate]').val(myVal);
-    })
-    
+    });
+*/
+    $(".starsFilter").raty({
+        score: function () {
+            return $(this).attr('data-score');
+        },
+        click: function(score, evt){
+            $(this).attr('data-score', score);
+            $('input[name=stars]').val(score);
+            getProfileUpdate();
+        }
+    });
+    /* EDIT BY me@diegopucci.com END */
+
     $('form').on('change', 'input, select, textarea', function(){
         var myName = $(this).attr('name');
        console.log('myName',myName);
@@ -375,10 +400,12 @@ jQuery(document).ready(function () {
 function getProfileUpdate(){
     //console.log('form url:',$('form').serialize())
     var myVal = 'static';
+    var theData = $('form').serialize();
+
     jQuery.ajax({
              url: '/users/getStatistics/' + myVal+'/formList',
              type: 'POST',
-             data: $('form').serialize(),
+             data: theData,
              success: function (result) {
                  if (result) {
                      $('.fbCount').text(result.fbCount);

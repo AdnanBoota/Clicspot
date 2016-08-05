@@ -126,18 +126,17 @@ var isDemo = false,
         },
 BJZ = ["1", "2", "3", "all"],
         Itm = {
-            header: "header",
-            headerbanner_1s: "headerbanner_1s",
-            headerbanner_2s: "headerbanner_2s",
-            headerbanner_3s: "headerbanner_3s",
-            service_1s: "service_1s",
-            who_we_are_1s:"who_we_are_1s",
-            col3_icon_bg:"col3_icon_bg",
-            management:"management",
-            skills:"skills",
-            strat_project:"strat_project",
-            testimonial_1s:"testimonial_1s",
-            price_1s:"price_1s",
+            headerbanner_1s: "Logo",
+            headerbanner_2s: "Bonjour",
+            headerbanner_3s: "Titre",
+            headerbanner_4s: "Phrase",
+            service_1s: "boutton",
+            who_we_are_1s:"A bientôt",
+            col3_icon_bg:"Image",
+            management:"Bas de page",
+            strat_project:"Infos légale",
+            testimonial_1s:"Réseau Sociaux",
+            price_1s:"Image",
             from_blog_1s:"from_blog_1s",
             portfolio:"portfolio",
            
@@ -148,7 +147,7 @@ BJZ = ["1", "2", "3", "all"],
         },
 BuFen = {
     MainModules: {
-        "Main Modules": ["header", "headerbanner_1s", "headerbanner_2s", "headerbanner_3s", "service_1s","who_we_are_1s","col3_icon_bg","management","skills","strat_project","testimonial_1s","price_1s","from_blog_1s","portfolio"]
+        "Main Modules": ["headerbanner_1s", "headerbanner_2s", "headerbanner_3s", "headerbanner_4s","col3_icon_bg","service_1s","who_we_are_1s","testimonial_1s","strat_project","price_1s","management"]
     }
 },
 RQz = ["MainModules"],

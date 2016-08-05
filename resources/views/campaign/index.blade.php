@@ -84,7 +84,7 @@
                         type: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes, Delete it!",
+                        confirmButtonText: "Yes, delete it",
                         cancelButtonText: "No, cancel!",
                         closeOnConfirm: false,
                         closeOnCancel: false

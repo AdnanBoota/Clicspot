@@ -1,0 +1,31 @@
+@import 'mixins';
+
+// VITAL CSS
+.gridder{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    font-size:0;
+}
+
+.gridder-list, .gridder-show{
+    font-size:16px;
+}
+
+.gridder-list{ 
+    display: inline-block;
+    vertical-align: top;
+}
+.gridder-show{ 
+    display: block;
+    float: left;
+    width: 100%;
+    position: relative;
+}
+.gridder-content{
+    display: none;
+}
+
+.gridder-list{
+    @include rowMachine(6,1%);
+}

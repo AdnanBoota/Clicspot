@@ -545,12 +545,12 @@
     <div class="campaignstep">
         <div class="mainstep">
             <div class="campsteptop">
-                <span>CAPTIVE PORTAL</span>
+                <span>{{ Lang::get('campaign.captiveportal') }}</span>
                 <div class="cmstep1">1</div> 
             </div>
             <div class="campstepbottom">
                 <a href="javascript:void(0)"><img src="{{ asset("/img/nextimg.png") }}" alt="logo" class="capitalportal"></a>
-                <span>NEXT STEP</span>
+                <span>{{ Lang::get('campaign.nextstep') }}</span>
             </div>
         </div>
     </div>
@@ -597,7 +597,7 @@
                         <div class="col-md-2">
                          <div class="stickygallery">
                             <div class="gallerybox">
-                                <button type="button"><img src="{{ asset("/img/cameraiconwhite.png") }}" alt="logo">Image Gallery</button>
+                                <button type="button"><img src="{{ asset("/img/cameraiconwhite.png") }}" alt="logo">{{ Lang::get('campaign.imagegallery') }}</button>
                                 <div class="imgaddrgt">
                                     <a href="javascript:void(0);" data-toggle="modal"
                                        data-target="#gallaryModal"><i
@@ -694,13 +694,13 @@
                                                             {!! $campaign->description !!}
                                                         @else
                                                             <h1 style="color: white;" class="text-center">
-                                                                Need a room,<br>
-                                                                for tonight ?
+                                                                {{ Lang::get('campaign.title') }}<br>
+                                                                {{ Lang::get('campaign.title2') }}
                                                             </h1>
                                                             <br>
                                                             <h4 style="color: white;" class="text-center">
-                                                                Up to 70% discount.<br>
-                                                                Breakfast and late checkout included !
+                                                                {{ Lang::get('campaign.subtitle') }}<br>
+                                                                {{ Lang::get('campaign.subtitle2') }}
                                                             </h4>
                                                         @endif
 
@@ -716,19 +716,19 @@
                                                                     <div class="pull-left">
                                                                         <i class="fa fa-facebook-square"></i>
                                                                     </div>
-                                                                    Login with Facebook
+                                                                    {{ Lang::get('campaign.loginfacebook') }}
                                                                 </a>
                                                                 <a href="javascript:void(0)"
                                                                    class="btn btn-block btn-flat bg-red btn-lg">
                                                                     <div class="pull-left">
                                                                         <i class="fa fa-google-plus"></i>
                                                                     </div>
-                                                                    Login with Google+
+                                                                    {{ Lang::get('campaign.logingoogle') }}
                                                                 </a>
                                                             </div>
                                                             <div class="box-body">
                                                                 <div class="strike">
-                                                                    <span style="color: white;"><b>OR</b></span>
+                                                                    <span style="color: white;"><b>{{ Lang::get('campaign.or') }}</b></span>
                                                                 </div>
                                                             </div>
                                                             <div class="box-body">
@@ -737,7 +737,7 @@
                                                                     <div class="pull-left">
                                                                         <i class="fa fa-envelope"></i>
                                                                     </div>
-                                                                    Login with Email
+                                                                    {{ Lang::get('campaign.loginemail') }}
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -770,18 +770,6 @@
                                                         <p>Support 24/7</p>
 
                                                         <p>FAQ</p>
-                                                    </div>
-                                                    <div class="col-xs-12 col-md-3">
-                                                        <h4>Secure Payment</h4>
-
-                                                        <div>
-                                                            <i class="fa fa-cc-visa"
-                                                               style="font-size: 40px;color: white"></i>
-                                                            <i class="fa fa-cc-mastercard"
-                                                               style="font-size: 40px;color: white"></i>
-                                                            <i class="fa fa-lock"
-                                                               style="font-size: 40px;color: white"></i>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -851,7 +839,7 @@
                         </div>
                     <div class="col-md-2 campaigncontrol">
                         <div class="lefControls">
-                            <div class="portaltitle"><img src="{{ asset("img/portalimg1.png") }}"><h2>CAPTIVE PORTAL</h2></div>
+                            <div class="portaltitle"><img src="{{ asset("img/portalimg1.png") }}"><h2>{{ Lang::get('campaign.captiveportal') }}</h2></div>
                             <div class="portalform">
                                 <input class="portalsearch" name="name" type="text" placeholder="Captive Portal Name" value="<?php echo isset($campaign->name) ? $campaign->name : '' ?>">
                             <!--<ul class="nav nav-tabs" role="tablist">
@@ -890,7 +878,7 @@
                                             <a href="javascript:void(0);">{{ Lang::get('auth.left') }}</a>
                                             <a href="javascript:void(0);" class="active">{{ Lang::get('auth.right') }}</a>
                                         </div>
-                                        <p>Blur the background :</p>
+                                        <p>{{ Lang::get('campaign.blurthebackground') }}:</p>
                                         <div class="switch">
                                             <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" <?php echo isset($campaign->blurImg) && $campaign->blurImg==1 ? "checked='checked'" : ''; ?> >
                                             <label for="cmn-toggle-1"></label>
@@ -925,12 +913,12 @@
     <div class="campaignstep">
         <div class="mainstep">
             <div class="campsteptop">
-                <span>ADVERT PAGE</span>
+                <span>{{ Lang::get('campaign.advertpage') }}</span>
                 <div class="cmstep1">2</div> 
             </div>
             <div class="campstepbottom">
                 <a href="javascript:void(0)" class="advertpagelogo"><img src="{{ asset("/img/nextimg.png") }}" alt="logo"></a>
-                <span>NEXT STEP</span>
+                <span>{{ Lang::get('campaign.nextstep') }}</span>
             </div>
         </div>
     </div>
@@ -947,7 +935,7 @@
                         </div>
                         <div class="col-md-6 campaignbox">
                             <div class="advertblock">
-                                <p>L’accès Internet vous est offert par</p>
+                                <p>{{ Lang::get('campaign.internetaccessis') }}</p>
                                <?php //if(isset($campaign->advertcheck) && $campaign->advertcheck==1){ ?>
 <!--                                <div id="advertimg" width="100" height="100" style="background-image:url(<?php //echo isset($campaign->adverturl) ? $campaign->adverturl :asset("/img/Clicspot-Grey.png") ?>);height:100px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>-->
                                <?php //}else{ ?>
@@ -955,7 +943,7 @@
                                <?php //} ?> 
                                 
                                  <div id="" width="100" height="100" style="background-image:url({{ asset('/img/Clicspot-Grey.png') }} );height:40px;width:110px;background-repeat: no-repeat;margin: 0 auto;background-size:100%"></div>
-                                 <p>Vous allez être connecté dans <span id="delayrange"><?php echo isset($campaign->delayPeriod) ? $campaign->delayPeriod : '0' ?></span></p>
+                                 <p>{{ Lang::get('campaign.youwillbeconnected') }} <span id="delayrange"><?php echo isset($campaign->delayPeriod) ? $campaign->delayPeriod : '0' ?></span></p>
                                   <?php
                                  
                                   ?>
@@ -966,7 +954,7 @@
                         </div>
                     <div class="col-md-2 campaigncontrol">
                         <div class="lefControls">
-                            <div class="portaltitle"><img src="{{ asset("img/adverticon.png") }}"><h2>ADVERT PAGE</h2></div>
+                            <div class="portaltitle"><img src="{{ asset("img/adverticon.png") }}"><h2>{{ Lang::get('campaign.advertpage') }}</h2></div>
                             <div class="portalform">
                                 
                                 <div class="switch linkswitch">
@@ -974,11 +962,11 @@
                                     <label for="cmn-toggle-2"></label>
                                   </div>
                                 {!!  Form::hidden('advertcheck',isset($campaign->advertcheck) ? $campaign->advertcheck : '0', array('id'=>'advertcheck','class'=>'form-control my-colorpicker','required'=>'true')) !!}
-                                <p>Enter an URL or drag and drop an image :</p>
+                                <p>{{ Lang::get('campaign.enterurl') }} :</p>
                                 <input class="portalsearch linkicon" id="dragurl" name="adverturl" type="text" placeholder="Enter the URL" <?php echo isset($campaign->advertcheck) && $campaign->advertcheck==1 ? '' : 'readonly="readonly"' ?> value="<?php echo isset($campaign->advertcheck) && $campaign->advertcheck==1 ? $campaign->adverturl : '' ?>">
                             <div class="tab-content">  
                                     <div class="tabcontendtl"> 
-                                        <p>Delay period :</p>
+                                        <p>{{ Lang::get('campaign.delayperiod') }}</p>
                                        {!!  Form::text('delayPeriod', null, array('data-from'=>isset($campaign->delayPeriod) ? $campaign->delayPeriod : '0','id'=>'delayPeriod','class'=>'form-control','required'=>'true')) !!}
                                     </div> 
                             </div>
@@ -997,12 +985,12 @@
     <div class="campaignstep">
         <div class="mainstep">
             <div class="campsteptop">
-                <span>LANDING PAGE</span>
+                <span>{{ Lang::get('campaign.landingpage') }}</span>
                 <div class="cmstep1">3</div> 
             </div>
             <div class="campstepbottom">
                 <a href="javascript:void(0)" class="landingpagelogo"><img src="{{ asset("/img/nextimg.png") }}" alt="logo"></a>
-                <span>NEXT STEP</span>
+                <span>{{ Lang::get('campaign.nextstep') }}</span>
             </div>
         </div>
     </div>
@@ -1028,9 +1016,9 @@
                         </div>
                     <div class="col-md-2 campaigncontrol">
                         <div class="lefControls">
-                            <div class="portaltitle"><img src="{{ asset("img/landingicon.png") }}"><h2>LANDING PAGE</h2></div>
+                            <div class="portaltitle"><img src="{{ asset("img/landingicon.png") }}"><h2>{{ Lang::get('campaign.landingpage') }}</h2></div>
                                 <div class="portalform">
-                                    <p>Redirection  URL:</p>
+                                    <p>{{ Lang::get('campaign.redirecturl') }}:</p>
                                     <input class="portalsearch linkicon" id="fackbrowse" name="fakebrowser"  type="text" placeholder="Enter the URL" tabindex="9999" value="<?php echo isset($campaign->fakebrowser) ? $campaign->fakebrowser : '' ?>"> 
                                 </div>
                             </div>
@@ -1049,12 +1037,12 @@
     <div class="campaignstep">
         <div class="mainstep">
             <div class="campsteptop">
-                <span>ROUTER CONFIG</span>
+                <span>{{ Lang::get('campaign.routerconfig') }}</span>
                 <div class="cmstep1">3</div> 
             </div>
             <div class="campstepbottom">
                 <a href="javascript:void(0);" class="routerconfiglogo"><img src="{{ asset("/img/doneimg.png") }}" alt="logo"></a>
-                <span>DONE</span>
+                <span>{{ Lang::get('campaign.done') }}</span>
             </div>
         </div>
     </div>
@@ -1072,13 +1060,13 @@
                         </div> 
                         <div class="col-md-6 campaignbox">
                             <div class="lefControls routerconfigblock">
-                                <div class="portaltitle"><img src="{{ asset("img/landingicon.png") }}"><h2>ROUTER CONFIG</h2></div>
-                                 <p>Select the routers that you want to apply the new campaign on</p>
+                                <div class="portaltitle"><img src="{{ asset("img/landingicon.png") }}"><h2>{{ Lang::get('campaign.routerconfig') }}</h2></div>
+                                 <p>{{ Lang::get('campaign.checkrouteur') }}</p>
                                 <table class="routertable">
                                     <thead>
-                                        <th>Location name <a href="#"><img src="{{ asset("img/shorticon.png") }}"></a></th>
-                                        <th>Current Campaign <a href="#"><img src="{{ asset("img/shorticon.png") }}"></a></th>
-                                        <th>Apply the new campaign<a href="#"><img src="{{ asset("img/shorticon.png") }}"></a></th>
+                                        <th>{{ Lang::get('campaign.locationame') }} <a href="#"><img src="{{ asset("img/shorticon.png") }}"></a></th>
+                                        <th>{{ Lang::get('campaign.currentcampaign') }} <a href="#"><img src="{{ asset("img/shorticon.png") }}"></a></th>
+                                        <th>{{ Lang::get('campaign.applynewcampaign') }}<a href="#"><img src="{{ asset("img/shorticon.png") }}"></a></th>
                                     </thead>
                                     <tbody>
                                     <?php
@@ -1152,11 +1140,11 @@
         <div class="comrightdetail">
             <div class="goneblock">
                 <img src="{{ asset("img/thumbimg.png") }}">
-                <p>Where are we going ?</p>
+                <p>{{ Lang::get('campaign.wherearewegoing') }}</p>
             </div>
             <div class="gonedetailblock">
-                <a href="javascript:void(0)" id="tour"><img src="{{ asset("img/touricon.png") }}">Take a tour</a>
-                <a href="javascript:void(0)" id="dashboard"><img src="{{ asset("img/dashboardicon.png") }}">Back to the Dashboard</a>
+                <a href="javascript:void(0)" id="tour"><img src="{{ asset("img/touricon.png") }}">{{ Lang::get('campaign.takeatour') }}</a>
+                <a href="javascript:void(0)" id="dashboard"><img src="{{ asset("img/dashboardicon.png") }}">{{ Lang::get('campaign.backto') }}</a>
             </div>
         </div>
     </div>

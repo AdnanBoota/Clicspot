@@ -26,7 +26,7 @@
         @include('errors.flash')
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <strong>Whoops!</strong> {{ Lang::get('auth.problem')}}<br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -38,8 +38,8 @@
      {!! Form::open(array("class"=>"routerform","url"=> url('hotspot'))) !!}
     <div class="multitab">
         <ul class="tabpart">
-            <li class="active"><a href="#"><i class="accounticon"></i>Account</a></li>
-            <li class="settingFirst"><a href="#"><i class="seetingicon"></i>Setting</a></li> 
+            <li class="active"><a href="#"><i class="accounticon"></i>{{ Lang::get('email.account') }}</a></li>
+            <li class="settingFirst"><a href="#"><i class="seetingicon"></i>{{ Lang::get('email.setting') }}</a></li> 
         </ul>
     </div>
     <div class="continaer-fluid"> 
@@ -51,55 +51,55 @@
       <div class="netspeeddetail" style="display: none"> <!-- style -->
         <div class="multitab">
             <ul class="tabpart">
-                <li class="account active"><a href="#"><i class="accounticon"></i>Account</a></li>
-                <li class="setting"><a href="#"><i class="seetingicon"></i>Setting</a></li> 
+                <li class="account active"><a href="#"><i class="accounticon"></i>{{ Lang::get('email.account') }}</a></li>
+                <li class="setting"><a href="#"><i class="seetingicon"></i>{{ Lang::get('email.setting') }}</a></li> 
             </ul>
         </div>
         <div class="speedblock">
-            <div class="stepblock stepfirst active ">INTERNET SPEED</div>
+            <div class="stepblock stepfirst active ">{{ Lang::get('email.internetspeed') }}</div>
             <div class="speedblockdetail">  
                 <div class="netdetial socialmedia routerdetail">
-                    <h2>SOCIAL MEDIA </h2>  
+                    <h2>{{ Lang::get('email.socialmedia') }}</h2>  
                     <div class="control">
                         <div id="ChilliSpot-Bandwidth-Max-Down"></div>
-                        <div style="margin-top:10px;color: #fff">(In MB)</div>
+                        <div style="margin-top:10px;color: #fff">{{ Lang::get('email.inmb') }}</div>
                     </div>
-                     <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i> NEXT</a>
+                     <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i>{{ Lang::get('email.next') }}</a>
                 </div>
                  <div class="netdetial email routerdetail">
-                    <h2>E MAIL</h2>  
+                    <h2>{{ Lang::get('email.email') }}</h2>  
                     <div class="control">
                         <div id="Session-Timeout"></div>
-                        <div style="margin-top:10px;color: #fff">(In MB)</div>
+                        <div style="margin-top:10px;color: #fff">{{ Lang::get('email.inmb') }}</div>
                     </div>
-                     <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i> SUBMIT</a>
+                     <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i>{{ Lang::get('email.submit') }}</a>
                 </div>
             </div>
             
         </div>
         <div class="speedblock">
-            <div class="stepblock stepsecond">SESSION TIME</div>
+            <div class="stepblock stepsecond">{{ Lang::get('email.sessiontime') }}</div>
             <div class="speedblockdetail sessiontime">  
                 <div class="netdetial sessionsocial  routerdetail">
-                    <h2>SOCIAL MEDIA </h2>  
+                    <h2>{{ Lang::get('email.socialmedia') }}</h2>  
                     <div class="control">
                         <div id="EMail_ChilliSpot-Bandwidth-Max-Down"></div>
-                         <div style="margin-top:10px;color: #fff">(In Minutes)</div>
+                         <div style="margin-top:10px;color: #fff">{{ Lang::get('email.inminutes') }}</div>
                     </div>
-                     <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i> NEXT</a>
+                     <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i>{{ Lang::get('email.next') }}</a>
                 </div>
                  <div class="netdetial sessionemail  routerdetail">
-                    <h2>E MAIL</h2>  
+                    <h2>{{ Lang::get('email.email') }}</h2>  
                     <div class="control">
                         <div id="EMail_Session-Timeout"></div>
-                         <div style="margin-top:10px;color: #fff">(In Minutes)</div>
+                         <div style="margin-top:10px;color: #fff">{{ Lang::get('email.inminutes') }}</div>
                     </div>
-                      <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i> SUBMIT</a>
+                      <a href="javascript:void(0)" class="routerbtn"><i class="nextbtn"></i>{{ Lang::get('email.submit') }}</a>
                 </div>
             </div>
         </div>
         <div class="speedblock rocket" style="display: none">
-            <div class="stepblock stepthired">DONE !</div>  
+            <div class="stepblock stepthired">{{ Lang::get('email.done') }}</div>  
             <div class="speedblockdetail">  
                 <img class="rightimg" src="{{ asset("/img/rocketimg.png ") }}" class="center-block">
             </div>
@@ -108,10 +108,10 @@
 
     <div class="job_block" style="display: none">
         <img class="rightimg" src="{{ asset("/img/clapimg.png ") }}" class="center-block">
-        <h2>Good Job !</h2>
+        <h2>{{ Lang::get('email.goodjob') }}</h2>
         <div class="movebtn">
             <input id="checkbox1" type="checkbox" name="checkbox" value="1" checked="checked"><label for="checkbox1">Option 1</label>
-            <button id="submithotspot" class="disabled">Let’s move on to the next part</button>
+            <button id="submithotspot" class="disabled">{{ Lang::get('email.letsmoveon') }}</button>
         </div>
         
     </div>
@@ -255,24 +255,12 @@
                     $("#map").hide();
                 }
             });
-            $(".addlocation .routerbtn").click(function(){
-                if(validator.element('.rlocation')){
-                $(".mapimg").hide();
-              $("#map").show();
-                  $(".addlocation").removeClass("active"); 
-                  $(".locationdetail").removeClass("active");
-                    $(".addlocation").addClass("successfully");
-                    $(".locationdetail").addClass("successfully");
-                  $(".routerblock ").removeClass("activestep2").addClass("activestep3");
-                  $(".routeradded").addClass("active");
-              }
-            });
+          
             $(".routeradded .routerbtn").click(function(){
-                if(validator.element('.lname') && validator.element(".wirelessnm") && validator.element(".router") && validator.element('.rlocation')){
-                    $(".mapimg").hide();
-                    $("#map").show();
-            $(".addlocation").removeClass("active");
-                $(".addlocation").addClass("successfully");
+                if(validator.element('.lname') && validator.element(".wirelessnm") && validator.element(".router")) {
+                    
+            
+                $(".routeradded").addClass("successfully");
                 $(".routeradded").removeClass("active"); 
                 $(".routeradded").addClass("successfully"); 
                 $(".netspeeddetail").removeAttr("style");

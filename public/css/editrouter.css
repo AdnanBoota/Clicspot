@@ -1,5 +1,8 @@
 @import url('../fonts/stylesheet.css');
 
+.content-wrapper{
+    background: #fff;
+}
 .editrouterblock{
     background: #fff;
 }
@@ -82,6 +85,35 @@
 .editformblock .addicon{
     background: url(../img/router_location.png) no-repeat right center #fff;
 }
+
+.editformblock .addmail{
+    background: url(../img/mailicon.png) no-repeat right center #fff;
+}
+.editformblock .fname{
+    background: url(../img/nameicon.png) no-repeat right center #fff;
+}
+.editformblock .bussname{
+    background: url(../img/b_nameicon.png) no-repeat right center #fff;
+}
+.editformblock .siranicon{
+    background: url(../img/sirenicon.png) no-repeat right center #fff;
+}
+.editformblock .vaticon{
+    background: url(../img/vatnumicon.png) no-repeat right center #fff;
+}
+.editformblock .phicon{
+    background: url(../img/phoneicon.png) no-repeat right center #fff;
+}
+.editformblock .addressicon{
+    background: url(../img/locationicon.png) no-repeat right center #fff;
+} 
+.editformblock .pswicon{
+    background: url(../img/lockicon.png) no-repeat right center #fff;
+} 
+.passwordblock{
+    float: none;
+    margin:2% auto;
+}
 .editformrow{
     width: 350px;
     margin: 0 auto;
@@ -101,6 +133,7 @@
 .modifybtnblock{
     width: 100%;
     text-align: center;
+    overflow: hidden;
 }
 .modifybtnblock .modifybtn{
     background: #1abc9c;

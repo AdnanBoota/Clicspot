@@ -16,9 +16,9 @@
         Hotspot
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Hotspot</li>
-        <li class="active">Edit Hotspot </li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> {{ Lang::get('auth.home') }}</a></li>
+        <li class="active">{{ Lang::get('router.hotspot') }}</li>
+        <li class="active">{{ Lang::get('router.edithotspot') }}</li>
     </ol>
 </section>-->
 <!-- Main content -->
@@ -35,7 +35,7 @@
             @include('errors.flash')
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <strong>Whoops!</strong>{{ Lang::get('auth.problem') }}<br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -45,15 +45,15 @@
             @endif
             <div class="box box-info">
                 <!--<div class="box-header with-border">
-                    <h3 class="box-title">Edit Hotspot</h3>
+                    <h3 class="box-title">{{ Lang::get('router.edithotspot') }}</h3>
                 </div>-->
                 <!-- /.box-header -->
                 <!-- form start -->
                 {!! Form::model($hotspot,["method"=>"PATCH","class"=>"form-horizontal","action"=> ['HotspotController@update',$hotspot->id]]) !!}
                 <div class="box-body">
                    <div class="editboxinfo">
-    <h1>Router Infos</h1>
-    <p>Modify the information below and click on Modify to save.</p>
+    <h1>{{ Lang::get('router.routerinfo') }}</h1>
+    <p>{{ Lang::get('router.modifybelow') }}</p>
      
     <form class="editrouterform">
         <div class="editformblock">
@@ -76,18 +76,18 @@
             <input class="padnone" type="text" placeholder="Country" readonly="readonly"  id="country"> 
         </div>
         <div class="modifybtnblock">
-            <button class="modifybtn" type="submit">Modify</button>
+            <button class="modifybtn" type="submit">{{ Lang::get('router.modify') }}</button>
         </div>
     </form> 
 </div>
 {!! Form::close() !!}
 {!! Form::model($hotspot,["method"=>"PATCH","class"=>"form-horizontal","action"=> ['HotspotController@update',$hotspot->id],"id"=>"info"]) !!}
 <div class="editboxinfo">
-    <h1>Router Setting</h1>
-    <p>Modify the information below and click on Modify to save.</p> 
+    <h1>{{ Lang::get('router.routersetting') }}</h1>
+    <p>{{ Lang::get('router.modifybelow') }}</p> 
     <div class="box box-info no-border">
         <div class="box-header with-border">
-            <h3 class="box-title">Social</h3>
+            <h3 class="box-title">{{ Lang::get('router.social') }}</h3>
         </div>
         <div class="box-body">
             <div class="form-group">
@@ -119,7 +119,7 @@
     </div>
     <div class="box box-info no-border">
         <div class="box-header with-border">
-            <h3 class="box-title">E-Mail</h3>
+            <h3 class="box-title">{{ Lang::get('router.email') }}</h3>
         </div>
         <div class="box-body">
             <div class="form-group">
@@ -131,7 +131,7 @@
             <div class="form-group">
                 {!! Form::label('EMail_ChilliSpot-Bandwidth-Max-Down',Lang::get("auth.downloadspeed"), array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
-                    {!!  Form::text('EMail_ChilliSpot-Bandwidth-Max-Down', "", array('data-from'=>isset($hotspot['EMail_ChilliSpot-Bandwidth-Max-Down']) ? $hotspot['EMail_ChilliSpot-Bandwidth-Max-Down'] : '1024','id'=>'EMail_ChilliSpot-Bandwidth-Max-Down','class'=>'form-control','required'=>'true')) !!}
+                    {!!  Form::text('EMail_ChilliSpot-Bandwidth-Max-Down', "", array('data-from'=>isset($hotspot['EMail_ChilliSpot-Bandwidth-Max-Down']) ? $hotspot['EMail_ChilliSpot-Bandwidth-Max-Down'] : '5120','id'=>'EMail_ChilliSpot-Bandwidth-Max-Down','class'=>'form-control','required'=>'true')) !!}
                 </div>
             </div>
             <div class="form-group">
@@ -149,7 +149,7 @@
         </div>
     </div>
     <div class="modifybtnblock">
-        <button class="modifybtn" type="submit">Modify</button>
+        <button class="modifybtn" type="submit">{{ Lang::get('router.modify') }}</button>
     </div>
 </div>
 
@@ -310,16 +310,26 @@
             max: 14400,
             step: 60,
             prettify: function (value) {
-                return Math.round(value / 60) + ' min';
-            }
+                if (value <=3600) {
+                    
+                    return Math.round(value/60) + ' Min';
+                } else {
+                   return Math.round(value / 3600) + ' Hr';
+                }
+            },
         });
         $("#Idle-Timeout").ionRangeSlider({
             min: 60,
             max: 7200,
             step: 60,
             prettify: function (value) {
-                return Math.round(value / 60) + ' min';
-            }
+                if (value <=3600) {
+                    
+                    return Math.round(value/60) + ' Min';
+                } else {
+                   return Math.round(value / 3600) + ' Hr';
+                }
+            },
         });
 
         $("#EMail_ChilliSpot-Bandwidth-Max-Up").ionRangeSlider({
@@ -351,16 +361,26 @@
             max: 14400,
             step: 60,
             prettify: function (value) {
-                return Math.round(value / 60) + ' min';
-            }
+                if (value <=3600) {
+                    
+                    return Math.round(value/60) + ' Min';
+                } else {
+                   return Math.round(value / 3600) + ' Hr';
+                }
+            },
         });
         $("#EMail_Idle-Timeout").ionRangeSlider({
             min: 60,
             max: 7200,
             step: 60,
             prettify: function (value) {
-                return Math.round(value / 60) + ' min';
-            }
+                if (value <=3600) {
+                    
+                    return Math.round(value/60) + ' Min';
+                } else {
+                   return Math.round(value / 3600) + ' Hr';
+                }
+            },
         });
 
     });

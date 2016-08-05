@@ -7,7 +7,7 @@ class EmailCampaign extends Model
 
     protected $table = 'email_campaign';
     public $timestamps = false;
-    protected $fillable = ['adminid', 'emailListId', 'templateId','currentForm' ,'campaignName','templatePreview','campaignStatus','router','senderEmail','fromName','selectList','gender','age','checkbox','recipientNoOfVisit','duringRecipientLastVisit','datequickselection','noOfDays','testEmailAddress','createdDate','subjectEmail','scheduleTime'];
+    protected $fillable = ['adminid', 'transmission_id', 'emailListId', 'templateId','currentForm' ,'campaignName','templatePreview','campaignStatus','router','senderEmail','fromName','selectList','gender','age','checkbox','formObject','checkboxName','recipientNoOfVisit','duringRecipientLastVisit','datequickselection','noOfDays','testEmailAddress','createdDate','subjectEmail','scheduleTime','firstname'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -26,6 +26,12 @@ class EmailCampaign extends Model
         return $this->hasMany('App\CampaignAttributes', 'campaignid');
     }
 
+    
+    public function campaignFeedback()
+    {
+        return $this->hasMany('App\EmailCampaignFeedback', 'email_campaign_id');
+    }
+    
     public static function getDefaultCampaign()
     {
         return self::where('name','=','Default');

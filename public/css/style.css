@@ -230,3 +230,18 @@ input.cmn-toggle-yes-no:checked + label:after {
   -o-transform: rotateY(0);
   transform: rotateY(0);
 }
+
+/* DIEGO PUCCI */
+
+.manualdatadescblock:hover {
+    border-color: #009bdb;
+    background: #009bdb;
+    /* color: white; */
+}
+.manualdatadescblock:hover a,
+.manualdatadescblock:hover span,
+.manualdatadescblock:hover p,
+.manualdatadescblock:hover span i
+{
+    color: white;
+}

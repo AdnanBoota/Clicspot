@@ -6,6 +6,7 @@ use App\Campaign;
 use App\Hotspot;
 use App\Http\Requests;
 use App\HotspotAttributes;
+use App\EmailEvents;
 use App\SubscriptionHistory;
 use GoCardless;
 use App\Transactions;
@@ -15,7 +16,7 @@ use DB;
 use Mail;
 use App\UsersFeedback;
 use App\Users;
-
+use App;
 class HotspotLoginController extends Controller {
 
     protected $redirectURL;
@@ -30,15 +31,20 @@ class HotspotLoginController extends Controller {
         //put in session for feedback review url
         Session::put('calledmac', $mac);
         $hotspot = Hotspot::where('nasidentifier', "=", $mac)->first();
+//        echo Session::get('redirectURL');
+//        echo '<pre>';
+//        print_r($hotspot); exit;
         if ($hotspot) {
             $campaign = $hotspot->campaign;
+            $user=Users::where('username',Request::get('mac'))->first();
+
             //$redirectURLOnSuccess = $hotspot->redirectUrl;
             if($campaign->fakebrowser && $campaign->fakebrowser != "")
-            $redirectURLOnSuccess = $campaign->fakebrowser;
+                $redirectURLOnSuccess = $campaign->fakebrowser;
             session(
-                    [
-                        'redirectURL' => $redirectURLOnSuccess
-                    ]
+                [
+                    'redirectURL' => $redirectURLOnSuccess
+                ]
             );
         }
 
@@ -50,88 +56,141 @@ class HotspotLoginController extends Controller {
                 return $this->display_success(Request::all(), $hotspot);
             }
         } else {
+
             Session::put('mac', $mac);
             return redirect('/hotspot/create');
         }
     }
-
     public function login() {
         $flag = "true";
         $updateSubscriber = array();
-         $mac = Session::get('mac');
-        $calledmacd = Session::get('calledmac'); 
+        $mac = Session::get('mac');
+        $calledmacd = Session::get('calledmac');
         $hotspot = Hotspot::where('nasidentifier', "=", $calledmacd)->first();
         $mac = Session::get('mac');
         $hotspotAttr = $campaign = array();
-        
+
         $redirectURL = "https://www.google.com";
         if ($hotspot) {
-            
+
             $hotspotAttr = HotspotAttributes::select(DB::raw('users.username,users.type,nas_attributes.nasid,nas_attributes.type,nas_attributes.attribute,nas_attributes.value'))
-                    ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
-                    ->join('users', 'nas_attributes.type', '=', 'users.type')
-                    ->where('users.username', '=', Request::get('username'))
-                    ->where('nas.id', '=', $hotspot->id)
-                    ->get();
-             $campaign = $hotspot->campaign;
-            if($campaign->fakebrowser && $campaign->fakebrowser != ""){
-                 //$redirectURL = $hotspot->redirectUrl;
-                 $redirectURL = $campaign->fakebrowser;
+                ->join('nas', 'nas_attributes.nasid', '=', 'nas.id')
+                ->join('users', 'nas_attributes.type', '=', 'users.type')
+                ->where('users.username', '=', Request::get('username'))
+                ->where('nas.id', '=', $hotspot->id)
+                ->get();
+            $campaign = $hotspot->campaign;
+            if ($campaign->fakebrowser && $campaign->fakebrowser != "") {
+                //$redirectURL = $hotspot->redirectUrl;
+                $redirectURL = $campaign->fakebrowser;
             } else {
                 $redirectURL = "https://www.google.com";
             }
             session(
-                    [
-                        'redirectURL' => $redirectURL
-                    ]
+                [
+                    'redirectURL' => $redirectURL
+                ]
             );
         }
 
         $username = Request::get('username');
-        ///*
-        //$username = "2C-D0-5A-91-3A-A6";
-        //$mac = "14-CC-20-44-0D-68";
-        $calledmac = Session::get('calledmac'); 
-        $usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$calledmac)->first(); 
-        $hotspotData = Hotspot::where('nasidentifier', "=", $calledmac)->first();
-       
-        if($hotspotData AND $hotspotData->reviewstatus){
-            if(!$usrFeedData){ 
-                $userDetail = Users::where('username', "=", $username)->first();
-                $feedback_code = str_random(60);
-                //send feedback mail
-                if($userDetail){
-                    $response = Mail::send('emails.feedbackTemplate', array('feedback_code' => $feedback_code ,'userDetail' => $userDetail,'hotspot' => $hotspotData), function ($message) use ($userDetail,$hotspotData) {
-                        $message->to($userDetail->email, $userDetail->name);
-                        $message->from($hotspotData->user->email, $hotspotData->user->businessname);
-                        $message->subject("Thank you for visiting ".$hotspotData->shortname." !");
-                    });
 
-                    if($response){
-                        $resBody = json_decode($response->getBody()->getContents());
-                        if(count($resBody) > 0){
-    //                        echo "<pre>";
-    //                        print_r($resBody);
-                            if($resBody[0]->status == "sent"){ 
-                                $usrFeedback = new UsersFeedback();
-                                $usrFeedback->message_id =  $resBody[0]->_id;
-                                $usrFeedback->username =  $username;
-                                $usrFeedback->nasidentifier =  $calledmac;
-                                $usrFeedback->feedback_code =  $feedback_code;
-                                $usrFeedback->save(); 
-                                //exit;
-                            }
-                        }
+        $calledmac = Session::get('calledmac');
+        //$usrFeedData = UsersFeedback::where("username", "=", $username)->where("nasidentifier", "=", $calledmac)->first();
+
+        $hotspotData = Hotspot::where('nasidentifier', "=", $calledmac)->first();
+
+        if ($hotspotData AND $hotspotData->reviewstatus) {
+
+            $userDetail = Users::where('username', "=", $username)->first();
+            $usrFeedData = EmailEvents::where("emailid", "=", $userDetail->email)->where("adminid", "=", $hotspotData->user->id)->first();
+
+            if (!$usrFeedData) {
+                $ScheduleEmailTimeC = date("c", time() + $hotspotData->reviewEmailDelay);
+
+                //me@diegopucci.com
+                //the combination between adminid and emailid to easily link the user
+                // to the events in the email_events table
+                $feedback_code = $hotspot->id . "+" . $username;
+
+                //send feedback mail
+                if ($userDetail) {
+                    if (App::getLocale() == "en") {
+                        $languageTemplate = 'emails.feedbackTemplate';
+                    } else if (App::getLocale() == "fr") {
+                        $languageTemplate = 'emails.feedbackTemplateFR';
+                    } else {
+                        $languageTemplate = 'emails.feedbackTemplate';
                     }
+
+                    $subject = "Thank you for visiting " . $hotspotData->shortname . " !";
+                    $headers = array();
+                    $headers[] = 'Authorization: ac0acd4c1cb4665cd46edb4ada4aea6d24c2f278';
+                    $headers[] = 'Content-Type: application/json';
+                    $url = 'https://api.sparkpost.com/api/v1/transmissions';
+                    $recipients = array();
+
+                    $recipients[] = array(
+                        'address' => array(
+                            'email' => $userDetail->email
+                        ));
+
+                    $sender = array(
+                        'email' => $hotspotData->user->email,
+                        'name ' => $hotspotData->user->businessname
+                    );
+
+                    $full_containt = $languageTemplate;
+                    $field = array('feedback_code' => $feedback_code, 'userDetail' => $userDetail, 'hotspot' => $hotspotData);
+                    $full_containt = view($full_containt, $field);
+                    $full_containt = (string) $full_containt;
+
+                    $json = array(
+                        'recipients' => $recipients,
+                        'content' => array(
+                            'from' => $sender,
+                            'subject' => $subject,
+                            'html' => $full_containt
+                        ),
+                        'options' => array(
+                            'start_time' => $ScheduleEmailTimeC,
+                            'open_tracking' => true,
+                            'click_tracking' => true
+                        )
+                    );
+
+                    $json = json_encode($json);
+                    $ch = curl_init($url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+                    $response = curl_exec($ch);
+                    curl_close($ch);
+
+                    $response = json_decode($response);
+                    $responcedata = (array) $response;
+                    $store_array[] = $responcedata;
+
+                    $emailEvent = new EmailEvents();
+                    $emailEvent->transmission_id = $responcedata['results']->id;
+                    $emailEvent->router_id = $hotspot->id;
+                    $emailEvent->transmission_type = "transactional";
+                    $emailEvent->adminid = $hotspotData->user->id;
+                    $emailEvent->emailid = $userDetail->email;
+                    $emailEvent->feedback_confirm = 0;
+                    $emailEvent->save();
+
+                    //adding the user to the stars system with default 5 points (2 stars)
+                    \App\StarsRating::insert(['email_id' => $userDetail->email, 'admin_id' => $hotspotData->user->id, 'points' => 5, 'stars' => \App\StarsRating::returnStarsByPoints(5)]);
+
                 }
-            } 
+            }
         }
         // */
         $password = 1;
         //exit;
-        
-        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr','campaign'));
-       
+
+        return view('hotspotlogin.login', compact('username', 'password', 'redirectURL', 'hotspotAttr', 'campaign'));
     }
 
     /**
@@ -141,12 +200,12 @@ class HotspotLoginController extends Controller {
      */
     public function display_notyet($request, $hotspot) {
         session(
-                [
-                    'uamip' => $request['uamip'],
-                    'uamport' => $request['uamport'],
-                    'mac' => $request['mac'],
-                    'challenge' => $request['challenge']
-                ]
+            [
+                'uamip' => $request['uamip'],
+                'uamport' => $request['uamport'],
+                'mac' => $request['mac'],
+                'challenge' => $request['challenge']
+            ]
         );
         $campaign = $hotspot->campaign;
         return view('hotspotlogin.notyet', compact('request', 'hotspot', 'campaign'));
@@ -168,16 +227,16 @@ class HotspotLoginController extends Controller {
 
     public function goCardlessAPI() {
         $userId = Hotspot::select(DB::raw('nas.adminid,admin_user.resourceid'))
-                ->join('admin_user', 'admin_user.id', '=', 'nas.adminid')
-                ->where('nas.nasidentifier', "=", Request::get('username'))
-                ->get();
+            ->join('admin_user', 'admin_user.id', '=', 'nas.adminid')
+            ->where('nas.nasidentifier', "=", Request::get('username'))
+            ->get();
 
         if ($userId[0]) {
             $resourceid = $userId[0]->resourceid;
             $getSubScribedUser = SubscriptionHistory::select('*')
-                    ->where('nextpaymentdate', '=', new \DateTime('today'))
-                    ->whereRaw("resourceid='" . $resourceid . "'")
-                    ->first();
+                ->where('nextpaymentdate', '=', new \DateTime('today'))
+                ->whereRaw("resourceid='" . $resourceid . "'")
+                ->first();
 
             if (!empty($getSubScribedUser) && $getSubScribedUser->paymentstatus != "paid") {
                 $account_details = array(

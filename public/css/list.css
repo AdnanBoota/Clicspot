@@ -23,6 +23,11 @@ section{
     background: #ecf0f1;
     padding: 10px 15px;
 }
+.sweet-modal-title .titleblock{
+    display: block;
+    background: transparent;
+    padding: 0;
+}
 .titleblock h1{
     color: #34495e;
     font-weight: bold;
@@ -161,7 +166,7 @@ input[type=checkbox].css-checkbox + label.css-label {
     cursor:pointer;
     width: 220px;
 }
-.fbimg input[type=checkbox].css-checkbox:checked + label.css-label ,.gplusimg input[type=checkbox].css-checkbox:checked + label.css-label ,.emailimg input[type=checkbox].css-checkbox:checked + label.css-label ,.maleimg input[type=checkbox].css-checkbox:checked + label.css-label ,.femaleimg input[type=checkbox].css-checkbox:checked + label.css-label {
+.fbimg input[type=checkbox].css-checkbox:checked + label.css-label ,.gplusimg input[type=checkbox].css-checkbox:checked + label.css-label ,.emailimg input[type=checkbox].css-checkbox:checked + label.css-label ,.maleimg input[type=checkbox].css-checkbox:checked + label.css-label ,.femaleimg input[type=checkbox].css-checkbox:checked + label.css-label, .importedimg input[type=checkbox].css-checkbox:checked + label.css-label {
     background-position: 0 -41px;
 }
 label.css-label {
@@ -180,6 +185,9 @@ label.css-label {
 }
 .emailimg label.css-label{
     background-image: url('../img/emailimg.png');
+}
+.importedimg label.css-label{
+    background-image: url('../img/importedimg.png');
 }
 .maleimg label.css-label{
     background-image: url('../img/maleimg.png');
@@ -433,7 +441,7 @@ label.css-label {
 
 @media screen and (max-width:1440px){
     input.css-checkbox[type="checkbox"] + label.css-label{width: 188px;height: 35px;}
-    .fbimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .gplusimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .emailimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .maleimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .femaleimg input.css-checkbox[type="checkbox"]:checked + label.css-label{background-position: 0 -35px;}
+    .fbimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .gplusimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .emailimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .maleimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .femaleimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .importedimg input.css-checkbox[type="checkbox"]:checked + label.css-label{background-position: 0 -35px;}
     label.css-label{background-size:100% auto;}
 }
 
@@ -446,7 +454,7 @@ label.css-label {
     .tabpart li a{padding: 13px 0;font-size: 16px;}
     input.css-checkbox[type="checkbox"] + label.css-label{width: 172px;height: 32px;}
     
-    .fbimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .gplusimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .emailimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .maleimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .femaleimg input.css-checkbox[type="checkbox"]:checked + label.css-label{background-position: 0 -32px;}
+    .fbimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .gplusimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .emailimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .maleimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .femaleimg input.css-checkbox[type="checkbox"]:checked + label.css-label, .importedimg input.css-checkbox[type="checkbox"]:checked + label.css-label{background-position: 0 -32px;}
     .maincheck{margin-right: 5px;}
     .fliterrow input[type="text"] ,.dateblock input[type="date"], .dateblock input[type="text"] ,.fliterrow .editb input[type="text"]{height: 35px;}
     .dateblock i{font-size: 15px;left: 10px;top: 11px;}

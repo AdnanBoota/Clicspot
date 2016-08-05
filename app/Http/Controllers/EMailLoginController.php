@@ -12,10 +12,14 @@ class EMailLoginController extends Controller
         $data = array(
             'username' => \Session::get('mac'),
             'type' => 2,
-            'name' => $request->input('fname')." ".$request->input('lname'),
+            //'name' => $request->input('fname')." ".$request->input('lname'),
+            'firstname'=>ucfirst($request->input('fname')),
+            'lastname'=>ucfirst($request->input('lname')),
             'email' => $request->input('email'),
             'gender' => null,
-            'profileurl' => null
+            'profileurl' => null,
+            'language'=>App::getLocale()
+			
             
         );
         $users = Users::where('username', $data['username'])->first();

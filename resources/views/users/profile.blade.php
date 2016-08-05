@@ -27,18 +27,21 @@
                     <div class="col-md-5 userprofileblock_left">
                         <div class="profiledetleft">
                             <div class="{{($getProfile->gender=='male') ? 'profiledettop':'profiledettopFemale'}}" href="mailto:{{$getProfile->email}}">
-                                <h3>{{$getProfile->name}}</h3>
+                                <h3>{{$getProfile->firstname}} {{$getProfile->lastname}}</h3>
+
                             </div>
                             <div class="profiledetmin">
                                 <div class="profileimg">
-                                    @if($getProfile->avatar!='')
-                                    <img src="{{ $getProfile->avatar }}" />
-                                    @else
-                                    @if($getProfile->gender=='male')
+                                <?php $avatar = json_decode($getProfile->avatar); ?>
+                                    @if($avatar)
+                                    <img src="{!!$avatar->url !!}" />
+                                    @elseif($getProfile->avatar)
+                                    <img src="{{$getProfile->avatar}}">
+                                    @elseif($getProfile->gender=='male')
                                     <img src="{{ asset("img/male.png") }}" />
                                     @else
                                     <img src="{{ asset("img/female.png") }}" />
-                                    @endif
+                                    
                                     @endif
                                 </div>
                             </div>
@@ -69,12 +72,16 @@
                                 <div class="row userprodtlrow">
                                     <div class="col-md-4">
                                         <div class="prolabel">
+                                         <?php if ($getProfile->birthday !== '') { $from = new DateTime($getProfile->birthday);
+                                                    $to   = new DateTime('today');
+                                                    $age = $from->diff($to)->y; }else { $age = "unknown"; }?>
+                                            
                                             <label>{{ Lang::get('auth.age') }} :</label>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="prolbldetail">
-                                            <span>{{ Lang::get('auth.unkonwn') }}</span>
+                                            <span>{{ $age }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -99,6 +106,35 @@
                                     <div class="col-md-8">
                                         <div class="prolbldetail">
                                             <span>{{ isset($getProfile->email)? $getProfile->email : Lang::get('auth.unkonwn')  }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row userprodtlrow">
+                                    <div class="col-md-4">
+                                        <div class="prolabel">
+                                            <label>Birthday:</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="prolbldetail">
+                                        @if ($getProfile->birthday  !== '')
+                                             <span>{{date('d F, Y', strtotime($getProfile->birthday))}}</span>
+                                        @else
+                                            <span>Unknown</span>
+                                        @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row userprodtlrow">
+                                    <div class="col-md-4">
+                                        <div class="prolabel">
+                                            <label>Location:</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="prolbldetail">
+                                             <span>{{$getProfile->location}}</span>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -127,8 +163,11 @@
                                 @if (count($getLatestUsers) > 0)
                                 @foreach ($getLatestUsers as $latestUser)
                                 <li>
-                                    @if($latestUser->avatar!='')
-                                    <img alt="User Image" src="{{$latestUser->avatar}}">
+                                 <?php $avatar = json_decode($latestUser->avatar); ?>
+                                    @if($avatar)
+                                    <img alt="User Image" src="{{$avatar->url}}" width="50">
+                                    @elseif($latestUser->avatar!='')
+                                    <img alt="User Image" src="{{$latestUser->avatar}}" width="50">
                                     @else
                                     @if($latestUser->gender=='male')
                                     <img src="{{ asset("img/male.png") }}" height="50" width="50" />
@@ -191,6 +230,7 @@
                 <img src="{{ asset("img/wifiimg.png") }}" />
             </span>
         </div>
+        
     </div>
 </section>
 
@@ -271,6 +311,82 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="actionblock">
+    <div class="titleblock">
+        <img src="{{ asset("img/labelimg.png") }}" />
+        <h1>TimeLine</h1>
+    </div>
+    <div class="row content">
+            <div class="col-md-12 "  style="background:#ECEFF5;">
+          @if (isset($getRouterAllInfo))
+                    @foreach ($getRouterAllInfo as $getRounterInfo)
+                    <ul class="timeline" style="margin-top: 10px;">
+        <li class="time-label">
+        <span class="bg-red">
+        {{$getRounterInfo->LastVisitDate}}
+        </span>
+        </li>
+        <li>
+        
+        <i class="fa fa-map-marker bg-blue"></i>
+        <div class="timeline-item">
+        <span class="time"><i class="fa fa-clock-o"></i> {{$getRounterInfo->LastVisitDate}}</span>
+
+        <h3 class="timeline-header"><a href="#">Connection</a></h3>
+
+        <div class="timeline-body">
+          <h4><label>Router Name :</label> {{$getRounterInfo->routerName}}</h4>
+          <p><label>{{ Lang::get('auth.visits')}} :</label>{{$getRounterInfo->totalVisit}}</p>
+          
+        
+        </div>
+
+        <div class="timeline-footer">
+       
+        </div>
+        </div>
+        </li>
+        
+        
+        </ul>
+                    @endforeach
+                    @endif
+        @if(isset($emailCampignData))
+        @foreach($emailCampignData as $emaildata)
+        <ul class="timeline">
+        <li class="time-label">
+        <span class="bg-red">
+        {{$emaildata->createdDate}}
+        </span>
+        </li>
+        <li>
+        
+        <i class="fa fa-envelope bg-blue"></i>
+        <div class="timeline-item">
+        <span class="time"><i class="fa fa-clock-o"></i> {{ $emaildata->createdDate}}</span>
+
+        <h3 class="timeline-header"><a href="#">Email</a></h3>
+
+        <div class="timeline-body">
+          <h4><label>Subject Email :</label> {{$emaildata->subjectEmail}}</h4>
+          <p><label>Satus :</label> {{ $emaildata->campaignStatus }}</p>
+        </div>
+
+        <div class="timeline-footer">
+       
+        </div>
+        </div>
+        </li>
+        
+        
+        </ul>
+        @endforeach
+        @endif
+                    
+            </div>
     </div>
 </section>
 @endsection

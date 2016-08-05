@@ -1,6 +1,11 @@
 @import url('../fonts/stylesheet.css');
 
-
+.graph-funnel-container .graph-funnel-dividers line {
+    fill: none;
+    stroke: #666;
+    stroke-dasharray: 2 2;
+    stroke-width: 1;
+}
 .tabpart li{
     width: 180px;
 }
@@ -255,6 +260,9 @@
 
 /*----- email plateform automatic 14-march -----*/
 
+.automaticMailing{
+    overflow: hidden;
+}
 .mailingicon {
     margin: 0 6px 0 0 !important;
 }
@@ -494,10 +502,10 @@
     background-position: -162px -56px;
 }
 
-.reviewblockdetail .selectbox{
+.selectbox{
     width: 100%;
 }
-.reviewblockdetail .selectbox select{
+.selectbox select{
     -webkit-appearance: none;
     -moz-appearance:    none;
     appearance:         none; 
@@ -513,11 +521,11 @@
     line-height: 40px;
     position: relative;
 } 
-.reviewblockdetail .selectbox select option{
+.selectbox select option{
     background: #1abc9c;
     padding: 8px;
 }
-.reviewblockdetail .selectbox select option:hover{
+.selectbox select option:hover{
     background-color: #34495e !important;
 }
 .reviewtabdetial{
@@ -587,6 +595,168 @@
 /*----- email plateform automatic 14-march -----*/
 
 
+/*----- email plateform automatic 16-march new css start -----*/
+
+.manualmailblock{
+    margin: 40px 0;
+}
+.manualmailingdata{
+    margin: 50px 0 30px;
+    overflow: auto;
+}
+.manualdatadesc{
+    width: 25%;
+    float: left;
+    height: 200px;
+    position: relative;
+    
+}
+.manualdatadesc:after ,.manualdatadesc:before{
+    position: absolute;
+    border-right: 2px dotted #636162;
+    display: block;
+    content:'';
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.manualdatadesc:first-child:before{
+    left: 0 !important;
+    right: auto;
+}
+.manual_titleblock{
+    padding: 10px 20px;
+    min-height: 50px;
+}
+.manual_titleblock h3 ,.manual_titleblock span{
+    font-size: 14px;
+    color: #55555a;
+    font-family: 'proxima_novasemibold';
+    text-transform: uppercase;
+}
+.manual_titleblock span{
+    font-family: 'proxima_nova_rgbold';
+}
+.manualdatadetail{
+    display: table;
+    width: 100%;
+    height: 125px;
+    text-align: left;
+    background: #009bdb;
+    padding-left: 15px;
+}
+.manualdatadetail span{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 15px;
+    color: #fff;
+    font-family: 'proxima_nova_rgregular'; 
+}
+.manualdatadetail2{
+    background: #27aae0;
+}
+.manualdatadetail3{
+    background: #4db9e6;
+}
+.manualdatadetail4{
+    background: #73c8eb ;
+}
+.manualdatadescblock{
+    height: 80px;
+    text-align: center;
+    border:1px solid #646262; 
+    padding-top: 15px;
+}
+.manualdatadescblock.active{
+    border-color: #009bdb;
+    background: #009bdb;
+}
+.manualdatadescblock span{
+    color: #646262;
+    font-size: 15px;
+    font-family: 'proxima_nova_rgregular';
+}
+.manualdatadescblock.active span ,.manualdatadescblock.active p{
+    color: #fff;
+}
+.manualdatadescblock span i{
+    display: inline-block;
+    width: 18px;
+    left: 8px;
+    position: relative;
+    top: 3px;
+}
+.manualdatadescblock p{
+    color: #646262;
+    font-family: 'proxima_nova_rgregular';
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.manualdatadescblock span i.targeticon{
+    background: url('../img/targeticon.png') no-repeat 0px -16px;
+    height: 16px; 
+}
+.manualdatadescblock span i.accepticon{
+    background: url('../img/accepticon.png') no-repeat 0px -13px;
+    height: 13px; 
+}
+.manualdatadescblock span i.openicon{
+    background: url('../img/openicon.png') no-repeat 0px -12px;
+    height: 12px; 
+}
+.manualdatadescblock span i.clickicon{
+    background: url('../img/clicksicon.png') no-repeat 0px -16px;
+    height: 16px; 
+}
+.manualdatadescblock.active i{
+    background-position: 0 0 !important;
+}
+
+.reporttableblock{
+    width: 100%;
+    border: 1px solid #646262;
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 300px;
+}
+.reporttable{
+    width: 100%;
+}
+
+.reporttable th{
+    font-size: 16px;
+    font-family: 'proxima_nova_rgregular';
+    color: #646262;
+}
+.reporttable .starblock{
+    
+}
+.starblock li{
+    display: inline-block;
+    margin-right: 3px;
+} 
+.reporttable tbody tr{
+    border-bottom: 1px solid #dcdcdc; 
+}
+.reporttable tbody tr td{
+    padding: 10px 0;
+}
+
+.reportleftimgblock{
+    margin-top: 30px;
+}
+
+.reportleftimgblock img{
+    width: 100%;
+}
+
+
+
+
+
+/*----- email plateform automatic 16-march new css end -----*/
+
+
 
 
 @media screen and (max-width:1330px){
@@ -620,6 +790,8 @@
     .reviewtitle h2{font-size: 28px;}
     .reviewtabdetial .nav.nav-tabs a{font-size: 20px;}
     .tabdetailtitleleft h3{font-size: 20px;}
+    .manual_titleblock h3, .manual_titleblock span{font-size: 13px;}
+    .manual_titleblock{padding: 10px;}
 }
 
 @media screen and (max-width:1150px){
@@ -654,7 +826,7 @@
     .newautomaticplatform{padding: 35px 0;}
     .mailplateformnewtable thead th, .mailplateformnewtable tbody tr td{font-size: 16px;}
     .mailplateformnewtable tbody tr td img{height: 40px;}
-    .reviewblockdetail .selectbox select ,.urlreviewblock .urlreview input{height: 35px;line-height: 35px;}
+    .selectbox select ,.urlreviewblock .urlreview input{height: 35px;line-height: 35px;}
     .reviewblockdetail p{font-size: 14px;margin: 10px 0;}
     .tabdetailtitleleft h3{font-size: 18px;}
 }

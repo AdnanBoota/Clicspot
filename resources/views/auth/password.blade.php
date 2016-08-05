@@ -45,11 +45,17 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Reset Password</div>
 				<div class="panel-body">
-					@if (session('status'))
-						<div class="alert alert-success">
-							{{ session('status') }}
-						</div>
-					@endif
+					<?php if(isset($msg)) { ?>
+    <div class="alert alert-success">
+        <li>{{ $msg }}</li>
+    </div>
+                         <?php } ?>
+     <?php if(isset($errormsg)) { ?>
+    <div class="alert alert-danger">
+        <li>{{ $errormsg }}</li>
+    </div>
+                         <?php } ?>
+
 
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
@@ -61,7 +67,7 @@
 							</ul>
 						</div>
 					@endif
-
+                    
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 

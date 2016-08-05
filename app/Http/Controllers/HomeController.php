@@ -55,14 +55,14 @@ class HomeController extends Controller {
         
         if (Auth::user()->type == 'superadmin') {
          
-            $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(users.created_at,"%b %d") as joinDate'))
+            $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,CONCAT(users.firstname," ", users.lastname) as name,DATE_FORMAT(users.created_at,"%b %d") as joinDate'))
                 ->join('users', 'radacct.username', '=', 'users.username')
                 ->join('nas','radacct.calledstationid','=','nas.nasidentifier')
                 ->groupBy('radacct.username')
                 ->orderBy('users.created_at', 'desc');
         
         }else{
-                $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,users.name,DATE_FORMAT(users.created_at,"%b %d") as joinDate'))
+                $latestUsers = Radacct::select(DB::raw('radacct.radacctid,users.avatar,users.gender,users.id as userId,users.username as username,CONCAT(users.firstname," ", users.lastname) as name,DATE_FORMAT(users.created_at,"%b %d") as joinDate'))
                 ->where('nas.adminid', '=', Auth::user()->id)
                 ->join('users', 'radacct.username', '=', 'users.username')
                 ->join('nas','radacct.calledstationid','=','nas.nasidentifier')
@@ -88,11 +88,11 @@ class HomeController extends Controller {
         $weekData = array();
         $week = array();
         if (Auth::user()->type == 'superadmin') {
-            $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
+            $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,count(acctstarttime) as total,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, CONCAT(users.firstname," ", users.lastname) as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
                     ->join('users', 'radacct.username', '=', 'users.username')
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier');
         } else {
-            $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, users.name as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
+            $users = Radacct::select([DB::raw('radacct.radacctid,WEEK(acctstarttime) AS period,count( radacct.calledstationid ) AS totalAccess,count(acctstarttime) as total,users.id as userId,count(users.id) as `countId`,users.gender,users.profileurl,users.email,users.type as favoredconnection, CONCAT(users.firstname," ", users.lastname) as visitor,DATE_FORMAT(max(acctstarttime),"%b %d") as lastvisit,count(radacct.username) as `amountofvisit`'), DB::raw('DATE(acctstarttime) as day')])->groupBy('day')
                     ->join('users', 'radacct.username', '=', 'users.username')
                     ->join('nas', 'radacct.calledstationid', '=', 'nas.nasidentifier')
                     ->where('nas.adminid', '=', Auth::user()->id);
@@ -110,8 +110,7 @@ class HomeController extends Controller {
             }
             $totalRoter = $hotspot->count();
             foreach ($hotspot as $key => $value) {
-               
-                if ((time() - strtotime($value->status->updated_at)) < 180) {
+                if (isset($hotspot->status) && (time() - strtotime($value->status->updated_at)) < 180) {
                     $activeCount++;
                 } else {
                     $deActiveCount++;
@@ -189,10 +188,15 @@ class HomeController extends Controller {
                 $i++;
             }
         } elseif ($type == "weeks") {
-
+            
+            //$lastweekdates = $this->getLastNDays(7,5,4);
+            
+            //print_r($arr); exit;
             $users->whereRaw("acctstarttime >= date_sub(now(),INTERVAL 4 WEEK) and now()");
             $users->orderBy('period', 'ASC');
             $router = $users->get();
+            //echo '<pre>'; print_r($router); exit;
+            //echo count($router); exit;
             $users->groupBy('period');
             $Week[0]['date'] = Date('Y-m-d', strtotime("-21 days"));
             $Week[0]['week'] = '1';
@@ -203,7 +207,7 @@ class HomeController extends Controller {
 //            $Week[3]['date'] = Date('Y-m-d', strtotime("-7 days"));
             $Week[3]['date'] = Date('Y-m-d');
             $Week[3]['week'] = '4';
-          
+            //print_r($Week); exit;
             for ($i = 0; $i < count($Week); $i++) {
                 $date = new \DateTime($Week[$i]['date']);
                 $weekNoOne[$i]['period'] = $date->format("W");
@@ -212,18 +216,27 @@ class HomeController extends Controller {
                // $weekNoOne[$i]['totalAccess'] = "0";
                 $week[$i] = $date->format("W");
             }
+            //echo '<pre>';
+            //print_r($weekNoOne); exit;
+            //echo count($weekNoOne);
+            //echo count($router); exit;
+            ////print_r($router); exit;
+            //$count=0;
+            
             for($i=0;$i<count($router);$i++){
                 for($j=0;$j<count($weekNoOne);$j++){
-                    if($router[$i]['period']==$weekNoOne[$j]['period']){
-                        $weekNoOne[$j]['count'] = $weekNoOne[$j]['count'] + 1;
+                    if(strtotime($router[$i]['day'])<=strtotime($weekNoOne[$j]['week'])){
+                         $weekNoOne[$j]['count'] = $weekNoOne[$j]['count'] + $router[$i]['total'];
+                         break;
                     }
                 }
+                
             }
-            
-            for($j=0;$j<count($weekNoOne);$j++){
-                    $routerConnections[$j][$weekNoOne[$j]['week']] = $weekNoOne[$j]['count'];
+           // print_r($weekNoOne); exit;
+            for($k=0;$k<count($weekNoOne);$k++){
+                    $routerConnections[$k][$weekNoOne[$k]['week']] = $weekNoOne[$k]['count']-1;
                 }
-            
+            //echo '<pre>'; print_r($routerConnections); exit;
         } elseif ($type == "days") {
             $users->whereRaw("acctstarttime between date_sub(now(),INTERVAL 1 WEEK) and now()");
              $users->groupBy(DB::raw('DATE_FORMAT(`acctstarttime`,"%Y-%d-%c %H:%i:%s")'));
@@ -294,6 +307,14 @@ class HomeController extends Controller {
         return Response::json($allData);
     }
 
+    function getLastNDays($days,$date,$month){
+    $m = date("m"); $de= date("d"); $y= date("Y");
+    $dateArray = array();
+    for($i=0; $i<=$days-1; $i++){
+        $dateArray[] = '"' . date('d-m-y',mktime(0,0,0,$month,($date-$i),$y))  . '"'; 
+    }
+    return array_reverse($dateArray);
+}
     function routerStatus(Request $request) {
         $routerStatus = array();
         $activeCount = $activeCountPercentage = 0;

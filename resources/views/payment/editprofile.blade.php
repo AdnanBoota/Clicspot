@@ -1,3 +1,8 @@
+<?php //echo '<pre>'; print_r($userDetails); exit; ?>
+@push('styles') 
+<link href="{{ asset('/css/editrouter.css') }}" rel="stylesheet" type="text/css"/>
+@endpush
+
 @extends('app')
 @section('content')
 @if (count($errors) > 0)
@@ -10,85 +15,188 @@
     </ul>
 </div>
 @endif
+<div class="editrtitle">
+        <img src="{{ asset("img/proimg.png") }}"><h1>Profile</h1>
+    </div>
 <section class="content-header">
-    <h1>
-        {{ Lang::get('auth.payment') }}
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> {{ Lang::get('auth.home') }}</a></li>
-        <li class="active">{{ Lang::get('auth.payment') }}</li>
-        <li class="active">{{ Lang::get('auth.edituser') }}</li>
-    </ol>
+    
+    
 </section>
-{!! Form::model($userDetails,["method"=>"POST","class"=>"form-horizontal","action"=> ['PaymentController@updateUser'],"files"=>"true"]) !!}
-<div class="form-group">
-    {!! Form::label('username',Lang::get("auth.usernm"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('username', null, array('id'=>'username','class'=>'form-control','required'=>'true')) !!}
-    </div>
+
+<div class="editboxinfo">
+    <h1>Business Profile</h1>
+    <p>Modify the information below and click on Modify to save.</p>
+  {!! Form::model($userDetails,["method"=>"POST","class"=>"editrouterform","action"=> ['PaymentController@updateUser'],"files"=>"true","id"=>"multidtepForm"]) !!}   
+        <div class="editformblock">
+            {!!  Form::hidden('basic','basic') !!}
+             {!!  Form::text('email', null, array('id'=>'username','class'=>'addmail','required'=>'true','placeholder'=>'Address email')) !!}
+           {!!  Form::text('username', null, array('id'=>'username','class'=>'fname','required'=>'true','placeholder'=>'Full Name')) !!}
+<!--             <input class="fname" type="text" placeholder="Full Name">-->
+           {!!  Form::text('businessname', null, array('id'=>'businessname','class'=>'bussname','required'=>'true','placeholder'=>'Business Name')) !!}
+           {!!  Form::text('siren', null, array('id'=>'phone','class'=>'siranicon','required'=>'true','placeholder'=>'SIREN')) !!}
+           {!!  Form::text('nvat', null, array('id'=>'nvat','class'=>'vaticon','required'=>'true','placeholder'=>'VAT NUMBER')) !!}
+           {!!  Form::text('phone', null, array('id'=>'phone','class'=>'phicon','required'=>'true','placeholder'=>'Phone Number')) !!}
+<!--            <input class="bussname" type="text" placeholder="Business Name"> -->
+<!--            <input class="siranicon" type="text" placeholder="SIREN">-->
+<!--            <input class="vaticon" type="text" placeholder="VAT NUMBER">-->
+<!--            <input class="phicon" type="text" placeholder="Phone Number"> -->
+        </div>
+        <div class="editformblock">
+            {!!  Form::text('address', null, array('id'=>'autocomplete','onFocus'=>'geolocate()','class'=>'addressicon','required'=>'true','placeholder'=>'Enter your address')) !!}
+            <input type="hidden" id="street_number" value="">
+             <input class="" type="text" placeholder="Enter your address" readonly="readonly" id="route" >
+            <div class="editformrow">
+            {!!  Form::text('zip',null,array('id'=>'postal_code','readonly'=>'readonly','placeholder'=>'Zip Code','class'=>'padnone')) !!}
+           
+<!--            <input class="padnone" type="text" placeholder="Zip Code" readonly="readonly"  id="postal_code"> -->
+             {!!  Form::text('city',null,array('id'=>'locality','readonly'=>'readonly','placeholder'=>'Country','class'=>'padnone')) !!}    
+<!--            <input class="padnone" type="text" placeholder="City" readonly="readonly"  id="locality">-->
+            </div>
+             {!!  Form::text('country',null,array('id'=>'country','readonly'=>'readonly','placeholder'=>'Country','class'=>'padnone')) !!}
+<!--            <input class="padnone" type="text" placeholder="Country" readonly="readonly"  id="country"> -->
+            
+            
+        </div>
+        <div class="modifybtnblock">
+            <button type="submit" class="modifybtn">Modify</button>
+        </div>
+   {!! Form::close() !!}
 </div>
 
-<div class="form-group">
-    {!! Form::label('email', Lang::get("auth.email"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('email', null, array('id'=>'email','class'=>'form-control','required'=>'true')) !!}
+<div class="editboxinfo">
+    <h1>Account Password</h1>
+    <p>Modify the information below and click on Modify to save.</p>
+  {!! Form::model($userDetails,["method"=>"POST","class"=>"editrouterform","action"=> ['PaymentController@updateUser'],"files"=>"true","id"=>"passform"]) !!}      
+        <div class="editformblock passwordblock">
+            {!!  Form::hidden('pass','pass') !!}
+            {!!  Form::text('oldpassword', null, array('id'=>'phone','class'=>'pswicon','required'=>'true','placeholder'=>'Current password')) !!}
+            {!!  Form::password('newpassword',  array('id'=>'newpass','class'=>'pswicon','required'=>'true','placeholder'=>'password')) !!}
+            {!!  Form::password('retypepassword',  array('id'=>'retypepass','class'=>'pswicon','required'=>'true','placeholder'=>'Retype Password')) !!}
+        </div>
+         
+        <div class="modifybtnblock">
+            <button type="submit" class="modifybtn">Modify</button>
+        </div>
+   {!! Form::close() !!}
+</div>
 
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('businessname',Lang::get("auth.business"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('businessname', null, array('id'=>'businessname','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('address',Lang::get("auth.address"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('address', null, array('id'=>'ssid','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('city', Lang::get("auth.city"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('city', null, array('id'=>'city','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('zip',Lang::get("auth.zipcode"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('zip', null, array('id'=>'zip','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('country',Lang::get("auth.country"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('country', null, array('id'=>'country','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('phone',Lang::get("auth.phone"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('phone', null, array('id'=>'phone','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('siren', Lang::get("auth.SIREN"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('siren', null, array('id'=>'phone','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('nvat', Lang::get("auth.vat"), array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!!  Form::text('nvat', null, array('id'=>'nvat','class'=>'form-control','required'=>'true')) !!}
-    </div>
-</div>
-<div class="box-footer">
-    <!--<button type="submit" class="btn btn-default">Cancel</button>-->
-    <a href="{{url('payment')}}" class="btn btn-default">{{ Lang::get("auth.cancel") }}</a>
-    <button type="submit" class="btn btn-info pull-right">{{ Lang::get("auth.submit") }}</button>
-</div>
-<!-- /.box-footer -->
-{!! Form::close() !!}
+
 
 @endsection
+@push('scripts')
+<script>
+    var placeSearch, autocomplete;
+      var componentForm = {
+       street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        //administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+                var val,value;
+              if(addressType=="street_number")
+              {
+                     val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+              }else if(addressType=="route"){
+                   var value = place.address_components[i][componentForm[addressType]];
+                    if(val==undefined){
+                    document.getElementById(addressType).value = value;
+                 }
+                    else{
+                        document.getElementById(addressType).value =val+" "+value;
+                     }
+              }else{
+                   var vale = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value =vale;
+              }
+
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&signed_in=true&libraries=places&callback=initAutocomplete"
+        async defer></script>
+        <script>
+            $(function(){
+                
+            
+             var validator = $('#multidtepForm').validate({
+        rules: {
+            
+            "email": {
+                "required": true,
+                "email": true
+            },
+            "username": "required",
+            "businessname": "required",
+            "address": "required",
+            "city": "required",
+            "zip": "required",
+            "country": "required",
+            "phone":{ "required":true, "number": true} ,
+            "nvat": "required",
+            "siren": "required",
+            "term":"required"
+        }
+         });
+         var valid = $('#passform').validate({
+        rules: {
+            "newpassword": "required",
+            "retypepassword": {
+                "required": true,
+                "equalTo": "#newpass",
+            },
+        }
+        });
+        });
+        
+        
+        </script>
+        @endpush

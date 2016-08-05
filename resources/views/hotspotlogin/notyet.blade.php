@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Clicspot | Welcome</title>
+    <title>Clicspot.com - Solution WIFI public pour commerçant indépendant</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
@@ -15,7 +15,7 @@
     <link href="{{ asset('/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css"/>
     <style>
         .navbar {
-            height: 60px;
+            height: 70px;
             background: {{$campaign->fontcolor}};
         }
 
@@ -33,7 +33,7 @@
         }
 
         .container-img {
-            
+            -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
@@ -43,7 +43,8 @@
             min-height: 600px;
             top: 60px;
             width: 100%;
-            z-index: 10;
+			height:auto;
+            z-index: 10;			
         }
 
 /*        .footer {
@@ -94,17 +95,21 @@
         p a{ color:#fff}
         p a:hover{ color:#fff}
          .container-img:before{
-             top: 0;
-left: 0;
-bottom:0;
-right: 0;
-position: absolute;
-z-index: -1;
-content: "";
+            -webkit-background-size: cover!important;
+            -moz-background-size: cover!important;
+            -o-background-size: cover!important;
+            background-size: cover!important;
+            top: -60px;
+			left: 0px;
+			bottom:0px;
+			right: 0px;
+			position: absolute;
+			z-index: -1;
+			content: "";
 @if(isset($campaign->backgroundimage) AND $campaign->backgroundimage != '')
-                      background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center;
+                      background: url('{{ asset("/uploads/campaign/".$campaign->backgroundimage) }}') no-repeat center center fixed;
         @else
-                      background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center;
+                      background: url('{{ asset("/img/captive-wallpaper.jpg") }}') no-repeat center center fixed;
         @endif
         
 
@@ -138,11 +143,30 @@ width: 100%;
     bottom: 0;
     width: 100%;
     background: #222222;
-}   
+} 
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 600px)
+and (orientation : portrait)
+{
+    .container-img{ 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;	
+	}
 }
-@media screen and (max-width:991px){
+  
+}
+@media screen and (max-width:480px)
+and (orientation : portrait)
+{
     .container-img{ min-height: 400px; }
 }
+
+	.navbar-header { width:100%!important; text-align:center!important; margin-left:0!important; margin-right:0!important;}
+	.navbar-brand { float:none!important; display:inline-block!important;}
     </style>
 </head>
 <body>
@@ -152,10 +176,10 @@ width: 100%;
             <a class="navbar-brand" href="#">
                 @if(isset($campaign->logoimage) && $campaign->logoimage!="")
                     <img src="/uploads/campaign/{!! $campaign->logoimage !!}" alt="logo"
-                         style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
+                         style="display: block; margin 0 auto;max-height: 90px;max-width: 180px;"/>
                 @else
-                    <img src="{{ asset("img/Clicspot-Grey.png") }}" alt="logo"
-                         style="margin-top:-2px;margin-left: 28px;float: left;max-height: 40px;max-width: 120px;"/>
+                    <img src="{{ asset("uploads/campaign/fda48c479bf9ca532497fcbe9fa0151369309.png") }}" alt="logo"
+                         style="margin-top:-2px;margin-left: 28px;float: left;max-height: 90px;max-width: 180px;"/>
                 @endif
             </a>
         </div>
@@ -191,18 +215,20 @@ width: 100%;
                             </div>
                             {{ Lang::get('auth.loginwithfb') }} <!--Login with Facebook -->
                         </a>
-                        <a href="{{ url("/google/login") }}" class="btn btn-block btn-flat bg-red btn-lg">
+<!--					<a href="{{ url("/google/login") }}" class="btn btn-block btn-flat bg-red btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-google-plus"></i>
                             </div>
-                            {{ Lang::get('auth.loginwithgoogle') }} <!--Login with Google+ -->
+                            {{ Lang::get('auth.loginwithgoogle') }} 
                         </a>
-                    </div>
+-->                    </div>
                     <div class="box-body">
                         <div class="strike">
                             <span style="color: white;"><b>{{ Lang::get('auth.or')}}</b></span>
                         </div>
                     </div>
+				
+					
                     <div class="box-body">
                         <button id="emailLogin" class="btn btn-default btn-block btn-flat btn-lg">
                             <div class="pull-left">
@@ -241,12 +267,12 @@ width: 100%;
                                 <i class="fa fa-facebook-square"></i>
                             </div>
                         </a>
-                        <a href="{{ url("/google/login") }}" class="btn btn-flat bg-red btn-lg">
+ <!--                       <a href="{{ url("/google/login") }}" class="btn btn-flat bg-red btn-lg">
                             <div class="pull-left">
                                 <i class="fa fa-google-plus"></i>
                             </div>
                         </a>
-                    </div>
+-->                    </div>
                 </div>
             </div>
             <div class="clearfix visible-xs-block"></div>
@@ -259,30 +285,16 @@ width: 100%;
             <div class="col-xs-6 col-md-5">
                 <img src="{{ asset("img/Clicspot-Grey.png") }}" class="img-responsive" style="max-height: 60px;">
             </div>
-            <div class="col-xs-12 col-md-3 hidden-xs">
+            <div class="col-xs-12 col-md-3">
                 <h4>{{ Lang::get('auth.practical')}}</h4>
-
-                <p><a href="javascript:void(0)"> {{ Lang::get('auth.join')}} </a></p>
 
                 <p><a href="javascript:void(0)">{{ Lang::get('auth.termcondition')}} </a></p>
 
-                <p><a href="javascript:void(0)">{{ Lang::get('auth.privacy')}}</a></p>
+
             </div>
             <div class="col-xs-12 col-md-2">
-                <h4>{{ Lang::get('auth.support') }}</h4>
 
-                <p><a href="javascript:void(0)">{{ Lang::get('auth.support24by7') }}</a></p>
-
-                <p><a href="javascript:void(0)">FAQ</a></p>
-            </div>
-            <div class="col-xs-12 col-md-2">
-                <h4>{{ Lang::get('auth.securepayment') }} </h4>
-
-                <div>
-                    <i class="fa fa-cc-visa" style="font-size: 40px;color: white"></i>
-                    <i class="fa fa-cc-mastercard" style="font-size: 40px;color: white"></i>
-                    <i class="fa fa-lock" style="font-size: 40px;color: white"></i>
-                </div>
+                <p><br /><br /><a href="javascript:void(0)">{{ Lang::get('auth.privacy')}}</a></p>
             </div>
         </div>
     </div>

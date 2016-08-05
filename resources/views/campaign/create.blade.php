@@ -4,7 +4,7 @@
 @include('errors.flash')
 @if (count($errors) > 0)
 <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <strong>Whoops!</strong>{{ Lang::get('auth.problem') }}<br><br>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
@@ -19,9 +19,9 @@
         <li><a href="#"><img src="{{ asset("img/mobileicon.png") }}"></a></li>
     </ul>
     <ul class="camheaderright">
-        <li><a href="javascript:void(0);" id="reset"><img src="{{ asset("img/reseticon.png") }}"><span>Reset</span></a></li>
-        <li><a href="javascript:void(0);" id="quite"><img src="{{ asset("img/quiticon.png") }}"><span>Quit Without Saving</span></a></li>
-        <li><a href="javascript:void(0)" id="save"><img src="{{ asset("img/saveicon.png") }}"><span>Save & Quit</span></a></li>
+        <li><a href="javascript:void(0)" id="reset"><img src="{{ asset("img/reseticon.png") }}"><span>{{ Lang::get('campaign.reset') }}</span></a></li>
+        <li><a href="javascript:void(0)" id="quite"><img src="{{ asset("img/quiticon.png") }}"><span>{{ Lang::get('campaign.quitwithoutsaving') }}</span></a></li>
+        <li><a href="javascript:void(0)" id="save"><img src="{{ asset("img/saveicon.png") }}"><span>{{ Lang::get('campaign.saveandquit') }}</span></a></li>
     </ul>
     <a href="#" class="campaignlogo">
         <img src="{{ asset("img/campaign_logo.png") }}">

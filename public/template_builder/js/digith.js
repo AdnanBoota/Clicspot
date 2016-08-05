@@ -1,4 +1,14 @@
 jQuery(function($) {
+    var BgImgUrl1="";
+    var BgImgUrl2="";
+    var BgImgUrl3="";
+    var BgImgUrl4="";
+    var BgImgUrl5="";
+    var BgImgUrl6="";
+    var BgImgUrl7="";
+    var BgImgUrl8="";
+    var BgImgUrl9="";
+    
     function Fr() {
         $("#dpmenu1").find("li").live("click", function() {
 
@@ -352,6 +362,7 @@ jQuery(function($) {
 
     function Gr() {
         tr.click(function() {
+             console.log("disabled");
             nr.removeClass("active");
             $(this).addClass("active");
             Xn.html("Edit Layout, can not edit contents, click/drag or delete/duplicat/clear all/sort modules.").fadeIn(1e3);
@@ -379,6 +390,7 @@ jQuery(function($) {
             })
         });
         nr.click(function() {
+           
             tr.removeClass("active");
             $(this).addClass("active");
             if ($.browser.msie) {
@@ -387,7 +399,7 @@ jQuery(function($) {
                 Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)
             }
             setTimeout(function() {
-
+                console.log("Editable");
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"
                 }).ckeditor();
@@ -559,7 +571,8 @@ jQuery(function($) {
     }
 
     function ei(e) {
-
+        
+        
         CKDM = $n.html();
         var t = jsflay.test(CKDM);
         if (t != 1) {
@@ -582,11 +595,6 @@ jQuery(function($) {
                 Zn.find("layout").children().unwrap("layout")
             }
         }
-        pH = fn.val();
-        Zn.find(".preheader").remove();
-        console.log("ph=============>" + H);
-        $(tCK + " " + ".BGtable").before('<div class="preheader" style="display:none; visibility:hidden; height:0px; font-size:0px; line-height:0px;">' + pH + "</div>" + "\n");
-        Xn.html("Preheader has been added...").css("display", "none").fadeIn(1e3);
         tCKDM = Zn.html();
         var n = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' + "\n" + '<html xmlns="http://www.w3.org/1999/xhtml">' + "\n" + "<head>" + "\n" + '<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>' + "\n" + '<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>' + "\n",
                 r = "</head>" + "\n" + '<body style="margin:0;padding:0;width:100%;height:100%;">' + "\n";
@@ -703,7 +711,7 @@ jQuery(function($) {
         var dt = /\<v:fill[^>]+msoBG-8"\s*\>/gi;
         var vt = '<v:fill type="tile" src="' + BgImgUrl8 + '" color="' + mC18 + '" id="msoBG-8" />';
         var mt = /\<v:fill[^>]+msoBG-9"\s*\>/gi;
-        var gt = '<v:fill type="tile" src="' + BgImgUrl9 + '" color="' + mC18 + '" id="msoBG-9" />';
+      var gt = '<v:fill type="tile" src="' + BgImgUrl9 + '" color="' + mC18 + '" id="msoBG-9" />';
         var yt = /\<\/v:fill\>/gi;
         tCKDM = tCKDM.replace(konghang, "");
         tCKDM = tCKDM.replace(yt, "").replace(et, tt).replace(nt, rt).replace(it, st).replace(ot, ut).replace(at, ft).replace(lt, ct).replace(ht, pt).replace(dt, vt).replace(mt, gt);
@@ -760,7 +768,8 @@ jQuery(function($) {
             Qr();
             if (OptS == 1) {
                 setTimeout(function() {
-                    $("#iframe div[rev]").attr("contenteditable", "false");
+//                    $("#iframe div[rev]").attr("contenteditable", "false");
+ $("#iframe div[rev]").attr("contenteditable", "true");
                     ji(0);
                     Pt.animate({
                         marginTop: "9999px"
@@ -919,7 +928,8 @@ jQuery(function($) {
                 $("#iframe div[rev]").ckeditor();
                 if (OptS == 1) {
                     setTimeout(function() {
-                        $("#iframe div[rev]").attr("contenteditable", "false")
+                        //$("#iframe div[rev]").attr("contenteditable", "false")
+                         $("#iframe div[rev]").attr("contenteditable", "true")
                     }, 1e3)
                 }
             }
@@ -962,6 +972,7 @@ jQuery(function($) {
 
     function ai() {
         $.each(RQz, function(e) {
+            console.log('RQZ=',RQz);
             var t = RQz.length - 1;
             $("#" + RQz[e] + "Content" + " .item").click(function() {
                 //   colne_M
@@ -1013,7 +1024,8 @@ jQuery(function($) {
                 $("#iframe div[rev]").ckeditor();
                 if (OptS == 1) {
                     setTimeout(function() {
-                        $("#iframe div[rev]").attr("contenteditable", "false")
+                        //$("#iframe div[rev]").attr("contenteditable", "false")
+                        $("#iframe div[rev]").attr("contenteditable", "true")
                     }, 1e3)
                 }
                 Xn.html("module: [ " + n + " ] has been added to the email page.").css("display", "none").fadeIn(1e3);
@@ -1563,13 +1575,6 @@ jQuery(function($) {
             Zt.slideDown();
             Xn.html("Please edit the BG textures & Bg images & border height & border radius value.").css("display", "none").fadeIn(1e3)
         });
-        zt.click(function() {
-            Ft.removeClass("active");
-            $(this).addClass("active");
-            Jt.hide();
-            en.slideDown();
-            Xn.html("Please input the preheader text and choose which version you want , and then you can download the email page.").css("display", "none").fadeIn(1e3)
-        });
         Wt.click(function() {
             Ft.removeClass("active");
             $(this).addClass("active");
@@ -1857,6 +1862,7 @@ jQuery(function($) {
     }
 
     function Ii() {
+        console.log('Ii');
         var e = /^(rgb|RGB)/;
         var t = /^(rgba|RGBA)/;
         CC1 = $n.find("a").not(".header a,.button a,.footer a,.color-bg a,.dark-bg a").css("color") || Jn.find("a").not(".header a,.button a,.footer a,.color-bg a,.dark-bg a").css("color");
@@ -1979,7 +1985,7 @@ jQuery(function($) {
                     "background-image": "url(" + BgImgUrl8 + ")"
                 })
             }
-            if (BgImgUrl9 == undefined) {
+            if (BgImgUrl9 == undefined || BgImgUrl9=="") {
                 Jn.find(".banner6").removeAttr("background").css({
                     "background-image": "none"
                 })
@@ -1987,6 +1993,7 @@ jQuery(function($) {
                 Jn.find(".banner6").attr("background", BgImgUrl9).css({
                     "background-image": "url(" + BgImgUrl9 + ")"
                 })
+                console.log('bg9');
             }
             var n = $n.find(".BGtable").attr("background");
             var r = $n.find(".wrap").not(".wrap.gray,.wrap.dark,.wrap.color,.wrap.header,.wrap.bottom,.wrap.footer").attr("background");
@@ -2706,7 +2713,6 @@ jQuery(function($) {
             on = $("#urlTitle"),
             un = $("#border-setting"),
             an = $("#file-name"),
-            fn = $("#preheader"),
             ln = $("li#purchase"),
             cn = $("#code-in"),
             hn = $("#embededCSS"),
@@ -2862,7 +2868,7 @@ jQuery(function($) {
                     if (response == true) {
                         templateName = $("#templateName").val();
                         var templateDescription = $("#templateDesc").val();
-
+                        
                         $.ajax({
                             url: '/emails',
                             type: 'post',
@@ -2871,7 +2877,8 @@ jQuery(function($) {
                                 "_token": $("input[name=_token]").val(),
                                 "templateId": templateId,
                                 "templateName": templateName,
-                                "templateDescription": " "
+                                "templateDescription": " ",
+                                "firstname":$("#firstname").val()
 
 
                             },
@@ -2892,6 +2899,7 @@ jQuery(function($) {
                                         var retPageId = getCookie("camEmailSetup");
                                          //console.log("template id fsdfd:",templateId);
                                         if(templateId == ''){
+                                            console.log('blank');
                                         $.ajax({
                                             url: '/emails/emailSetup/updateForm',
                                             type: 'post',
@@ -2901,15 +2909,20 @@ jQuery(function($) {
                                                 "id": retPageId,
                                             },
                                             success: function(result) {
-                                                if (retPageId)
-                                                    window.location = APP_URL + "/emails/emailSetup/" + retPageId + "/edit";
-                                                else
+                                                if (retPageId){
+                                                    window.location = APP_URL + "/emails/emailSetup/" + retPageId + "/edit?step=second";
+                                                    console.log('edit');
+                                                }
+                                                else{
                                                     window.location = APP_URL + "/emails";
+                                                    console.log('elseinsert');
+                                                }
                                                 return false;
                                             }
                                         });
                                         }else{
                                             window.location = APP_URL + "/emails";
+                                            console.log('notfound');
                                             return false;
                                         }
                                         //console.log("camEmailSetup: ",getCookie("camEmailSetup"))

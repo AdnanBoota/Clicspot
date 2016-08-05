@@ -13,7 +13,7 @@ header('Content-Type:text/plain');
 #   Local Network Configurations
 #
 
-# HS_WANIF=eth0            # WAN Interface toward the Internet
+#HS_WANIF=eth1            # WAN Interface toward the Internet
 HS_LANIF=wlan0             # Subscriber Interface for client devices
 HS_NETWORK=10.1.0.0        # HotSpot Network (must include HS_UAMLISTEN)
 HS_NETMASK=255.255.255.0   # HotSpot Network Netmask

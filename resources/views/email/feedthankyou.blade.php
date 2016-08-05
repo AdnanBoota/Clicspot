@@ -10,7 +10,7 @@
             <div class="logo">
                 <img src="{{ asset("/img/logo-white.png") }}">
             </div>
-            <h1>Thank You For Your Feedback</h1>
+            <h1>{{ Lang::get('emails.thankyou') }}</h1>
         </div>
     </body>
 </html>

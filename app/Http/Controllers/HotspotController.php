@@ -45,6 +45,7 @@ class HotspotController extends Controller
             } else {
                 $hotspot = Auth::user()->hotspots()->with(['status'])->select(['id', 'shortname', 'nasidentifier']);
             }
+
             return Datatables::of($hotspot)
                 ->addColumn('edit', function ($hotspot) {
                     return '<a href="' . url("hotspot/{$hotspot->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
@@ -53,9 +54,10 @@ class HotspotController extends Controller
                     return '<a class="btn btn-xs btn-danger" id="delete" href="javascript:void(0);" data-token="' . csrf_token() . '" val=' . $hotspot->id . '><i class="glyphicon glyphicon-trash"></i></a>';
                 })
                 ->addColumn('publicip', function ($hotspot) {
-                    return $hotspot->status->publicip;
+                   if(isset($hotspot->status)) return $hotspot->status->publicip;
                 })
                 ->setRowClass(function ($hotspot) {
+                    if(isset($hotspot->status))
                     if ((time() - strtotime($hotspot->status->updated_at)) < 180) {
                         return 'success';
                     } else {
@@ -63,10 +65,10 @@ class HotspotController extends Controller
                     }
                 })
                 ->addColumn('lastcheckin', function ($hotspot) {
-                    return $hotspot->status->updated_at->diffForHumans();
+                    if(isset($hotspot->status)) return $hotspot->status->updated_at->diffForHumans();
                 })
                 ->addColumn('status', function ($hotspot) {
-                    if ((time() - strtotime($hotspot->status->updated_at)) < 180) {
+                    if (isset($hotspot->status) && (time() - strtotime($hotspot->status->updated_at)) < 180) {
                         return '<i class="fa fa-circle" style="color: green;"></i> Up';
                     } else {
                         return '<i class="fa fa-circle" style="color: red;"></i> Down';
@@ -144,7 +146,7 @@ class HotspotController extends Controller
         $hotspot->hotspotAttributes()->saveMany($hotAttrArr);
         $successMsg = "New Hotspot added successfully";
         Session::flash('flash_message_success', $successMsg);
-        return redirect('campaign');
+        return redirect('Campaign');
     }
 
     /**

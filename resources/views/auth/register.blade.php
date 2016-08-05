@@ -59,7 +59,7 @@
             <div class="register-box">
                 @if (count($errors) > 0)
                 <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
+                    <strong>Whoops!</strong>{{ Lang::get('auth.problem') }}
                     <br>
                     <br>
                     <ul>
@@ -75,7 +75,7 @@
                     <input name="page" type="hidden" value="register">
                     <select name="locale" id="locale">
                         <option value="en" {{  (App::getLocale()=='en') ? 'selected' : '' }}>English</option>
-                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} >French</option>
+                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} >Fra,çais</option>
                     </select>
                    
                     

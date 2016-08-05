@@ -1,4 +1,6 @@
 <header class="main-header newheader">
+<link rel="stylesheet" type="text/css" href="{{ asset('/cntry/css/msdropdown/dd.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('/cntry/css/msdropdown/flags.css') }}" />
     <!-- Logo -->
     <a href="/" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -17,7 +19,7 @@
         </a>
         <ul class="headnav">
             <li><a href="#"><span>{{ Lang::get('auth.activity') }}</span></a></li>
-            <li><a href="#"><span>{{ Lang::get('auth.notification') }}</span><span class="notidtl">19</span></a></li>
+            <li><a href="#"><span>{{ Lang::get('auth.notification') }}</span></a></li>
         </ul>
         <div class="navbar-custom-menu userprofile">
             <ul class="nav navbar-nav">
@@ -28,10 +30,14 @@
                 <form action="{{ URL::route('language')  }}" method="post" id="language">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
                     <input name="page" type="hidden" value="login">
-                    <select name="locale" id="locale">
-                        <option value="en" {{  (App::getLocale()=='en') ? 'selected' : '' }}>English</option>
-                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} >French</option>
+                <select name="locale" id="countries">
+                        <option value="en" {{  (App::getLocale()=='en') ? 'selected' : '' }} data-image="{{ asset('/cntry/images/msdropdown/icons/blank.gif') }}" data-imagecss="flag us"></option>
+
+                        <option value="fr" {{  (App::getLocale()=='fr') ? 'selected' : '' }} data-image="{{ asset('/cntry/images/msdropdown/icons/blank.gif') }}" data-imagecss="flag gf"></option>
                     </select>
+                   
+                    
+                </form>
                    
                     
                 </form>
@@ -58,7 +64,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">{{ Lang::get('auth.profile') }}</a>
+                                <a href="{{ url("/payment/4")}}" class="btn btn-default btn-flat">{{ Lang::get('auth.profile') }}</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{ url('/auth/logout') }}" class="btn btn-default btn-flat">{{ Lang::get('auth.signout') }}</a>
@@ -71,9 +77,11 @@
         
     </nav>
     @push('scripts')
+    <script src="{{ asset('/cntry/js/msdropdown/jquery.dd.min.js') }}"></script>
     <script>
     $(function(){
-           $("#locale").change(function(){
+        $("#countries").msDropdown();
+           $("#countries").change(function(){
                
            $("#language").submit();
             });
@@ -82,3 +90,4 @@
     </script>
     @endpush
 </header>
+<script type="text/javascript" src="/js/inline-manual-player.js"></script>
