@@ -5,7 +5,6 @@
 <link href="{{ asset('/plugins/raty/jquery.raty.css') }}" rel='stylesheet' />
 @endpush
 @section('content')
-
     <!-- Content Header (Page header) -->
     <!--<section class="content-header">
         <h1>
