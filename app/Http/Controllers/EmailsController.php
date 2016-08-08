@@ -35,12 +35,12 @@ class EmailsController extends Controller {
         if (Auth::user()->type == 'superadmin') {
             $draftCount = EmailCampaign::select(DB::raw('count(campaignStatus) as totalDraftCount'))->where('campaignStatus', '=', 'draft')->get();
             $sentCount = EmailCampaign::select(DB::raw('count(campaignStatus) as totalSentCountCount'))->where('campaignStatus', '=', 'sent')->get();
-        }else{
+        } else {
             $draftCount = Auth::user()->emailCampaign()->select(DB::raw('count(campaignStatus) as totalDraftCount'))->where('campaignStatus', '=', 'draft')->get();
             $sentCount = Auth::user()->emailCampaign()->select(DB::raw('count(campaignStatus) as totalSentCountCount'))->where('campaignStatus', '=', 'sent')->get();
         }
-        $userId=Auth::user()->id;
-        $hotspot=  Hotspot::where("adminid","=",$userId)->select('reviewstatus')->first();
+        $userId = Auth::user()->id;
+        $hotspot = Hotspot::where("adminid", "=", $userId)->select('reviewstatus')->first();
         if ($request->ajax()) {
 
             if (Auth::user()->type == 'superadmin') {
@@ -50,16 +50,16 @@ class EmailsController extends Controller {
             }
 
             return Datatables::of($emailTemplate)
-                ->addColumn('checkbox', function ($emailTemplate) {
-                    return ' <label class="">
+                            ->addColumn('checkbox', function ($emailTemplate) {
+                                return ' <label class="">
                               <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="' . $emailTemplate->id . '" name="emailTemplateDelete[]"  class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>';
-                })
+                            })
 //                            ->addColumn('edit', function ($emailTemplate) {
 //                                return '<a href="' . url("emails/{$emailTemplate->id}/edit") . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>';
 //                            })
-                ->addColumn('edit', function ($emailTemplate) {
-                    return '  <td class="tselectbox">
+                            ->addColumn('edit', function ($emailTemplate) {
+                                return '  <td class="tselectbox">
                         <div class="dropdown editbtn">
                       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span>Edit</span>
                       <span class="caret"></span></button>
@@ -70,12 +70,11 @@ class EmailsController extends Controller {
                       </ul>
                     </div>
                     </td>';
-                })
-                ->make(true);
-
+                            })
+                            ->make(true);
         } else {
 
-            return view('email.index', compact('draftCount', 'sentCount','hotspot'));
+            return view('email.index', compact('draftCount', 'sentCount', 'hotspot'));
         }
     }
 
@@ -97,17 +96,17 @@ class EmailsController extends Controller {
 //        dd($request);
         $sendToUser = array(array('email' => 'pritesh@logisticinfotech.com', 'firstName' => 'pritesh'));
         $response = Mail::send('emails.emailTemplate', array('msgBody' => $msgBody), function ($message) use ($sendToUser, $subject) {
-            foreach ($sendToUser as $singleUser) {
-                $message->to($singleUser['email'], $singleUser['firstName']);
-            }
-            //set track open true header text
-            // $headers = $message->getHeaders();
-            //$headers->addTextHeader('X-MC-MergeVars', json_encode($mergevars));
-            //$headers->addTextHeader('X-MC-Template', 'my-template');
-            // $headers->addTextHeader('X-MC-Track', 'opens');
-            $message->from('info@clicspot.com', 'Clicspot');
-            $message->subject($subject);
-        });
+                    foreach ($sendToUser as $singleUser) {
+                        $message->to($singleUser['email'], $singleUser['firstName']);
+                    }
+                    //set track open true header text
+                    // $headers = $message->getHeaders();
+                    //$headers->addTextHeader('X-MC-MergeVars', json_encode($mergevars));
+                    //$headers->addTextHeader('X-MC-Template', 'my-template');
+                    // $headers->addTextHeader('X-MC-Track', 'opens');
+                    $message->from('info@clicspot.com', 'Clicspot');
+                    $message->subject($subject);
+                });
 
         $successMsg = "Email send successfully";
         echo "<pre>";
@@ -165,7 +164,20 @@ class EmailsController extends Controller {
         $getFileNamePromotion = scandir($directoryPromotion, 0);
         $templateFileNamePromotion = array_diff($getFileNamePromotion, array('.', '..'));
 
-        return View::make('email.create', compact('getAllTemplates', 'images', 'defaultTemplate', 'templateFileName','eventTemplate','templateFileNameEvent','infoTemplate','templateFileNameInfo','promotionTemplate','templateFileNamePromotion'));
+        //Some code for changing the Email Template file based on the selected Language
+        $lang_email_template = '';
+        $current_language = \App::getLocale();
+        if ($current_language == 'en') {
+            $lang_email_template = 'default_EN.html';
+        } else if ($current_language == 'es') {
+            $lang_email_template = 'default_ES.html';
+        } else if ($current_language == 'fr') {
+            $lang_email_template = 'default_FR.html';
+        } else if ($current_language == 'ae') {
+            $lang_email_template = 'default_AE.html';
+        }
+
+        return View::make('email.create', compact('getAllTemplates', 'images', 'defaultTemplate', 'templateFileName', 'eventTemplate', 'templateFileNameEvent', 'infoTemplate', 'templateFileNameInfo', 'promotionTemplate', 'templateFileNamePromotion', 'lang_email_template'));
     }
 
     public function edit($id) {
@@ -212,7 +224,7 @@ class EmailsController extends Controller {
         $getFileNamePromotion = scandir($directoryPromotion, 0);
         $templateFileNamePromotion = array_diff($getFileNamePromotion, array('.', '..'));
 
-        return View::make('email.create', compact('templates', 'userId', 'images', 'defaultTemplate', 'templateFileName','eventTemplate','templateFileNameEvent','infoTemplate','templateFileNameInfo','promotionTemplate','templateFileNamePromotion'));
+        return View::make('email.create', compact('templates', 'userId', 'images', 'defaultTemplate', 'templateFileName', 'eventTemplate', 'templateFileNameEvent', 'infoTemplate', 'templateFileNameInfo', 'promotionTemplate', 'templateFileNamePromotion'));
     }
 
     /**
@@ -222,7 +234,7 @@ class EmailsController extends Controller {
      * @return Response
      */
     public function update($id, Request $request) {
-
+        
     }
 
     public function store(Request $request) {
@@ -234,7 +246,7 @@ class EmailsController extends Controller {
         $templateName = $data['templateName'];
         $input['description'] = $data['templateDescription'];
         $input['templateName'] = $templateName;
-        $input['firstname']=$data['firstname'];
+        $input['firstname'] = $data['firstname'];
         $directory = 'template_builder/html/' . Auth::user()->id . '/';
         if (!File::exists($directory)) {
             File::makeDirectory($directory, 0777, true, true);
@@ -260,7 +272,7 @@ class EmailsController extends Controller {
 
 
         return Response::json(array(
-            'id' => $id
+                    'id' => $id
         ));
     }
 
@@ -314,8 +326,8 @@ class EmailsController extends Controller {
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-            'success' => $success,
-            'message' => $msg,
+                    'success' => $success,
+                    'message' => $msg,
         ));
     }
 
@@ -340,8 +352,8 @@ class EmailsController extends Controller {
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-            'success' => $success,
-            'message' => $msg,
+                    'success' => $success,
+                    'message' => $msg,
         ));
     }
 
@@ -381,8 +393,8 @@ class EmailsController extends Controller {
             $msg = "Something went wrong , Please try again later.";
         }
         return Response::json(array(
-            'success' => $success,
-            'message' => $msg,
+                    'success' => $success,
+                    'message' => $msg,
         ));
     }
 
@@ -410,16 +422,16 @@ class EmailsController extends Controller {
         }
 
         return Datatables::of($campaignList)
-            ->addColumn('checkbox', function ($campaignList) {
-                return ' <label class="">
+                        ->addColumn('checkbox', function ($campaignList) {
+                            return ' <label class="">
                               <div class="icheckbox_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><input type="checkbox" value="' . $campaignList->id . '" name="emailTemplateDelete[]"  class="flat-red emailDelCheckBox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
                             </label>';
-            })
-            ->addColumn('statistics', function ($campaignList) {
-                return 'Statistics';
-            })
-            ->addColumn('edit', function ($campaignList) {
-                return '  <td class="tselectbox">
+                        })
+                        ->addColumn('statistics', function ($campaignList) {
+                            return 'Statistics';
+                        })
+                        ->addColumn('edit', function ($campaignList) {
+                            return '  <td class="tselectbox">
                         <div class="dropdown editbtn">
                       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span>Actions</span>
                       <span class="caret"></span></button>
@@ -429,83 +441,81 @@ class EmailsController extends Controller {
                       </ul>
                     </div>
                     </td>';
-            })
-            ->make(true);
+                        })
+                        ->make(true);
     }
 
-    public function reviewState($id){
-        $userId=Auth::user()->id;
-        $hotspot=  Hotspot::where("adminid","=",$userId)->get();
-        foreach($hotspot as $hotspot){
-            $hotspot->reviewstatus=$id;
+    public function reviewState($id) {
+        $userId = Auth::user()->id;
+        $hotspot = Hotspot::where("adminid", "=", $userId)->get();
+        foreach ($hotspot as $hotspot) {
+            $hotspot->reviewstatus = $id;
             $hotspot->save();
         }
-        if($hotspot){
+        if ($hotspot) {
             return Response::json(array(
-                'status'=>'success'
+                        'status' => 'success'
             ));
-        }else{
+        } else {
             return Response::json(array(
-                'status'=>'Fail'
+                        'status' => 'Fail'
             ));
         }
-
-
     }
-    public function emailReviews(){
-        $routers = Auth::user()->hotspots()->select('shortname','id')->lists('shortname', 'id');
-        $email=Auth::user()->email;
+
+    public function emailReviews() {
+        $routers = Auth::user()->hotspots()->select('shortname', 'id')->lists('shortname', 'id');
+        $email = Auth::user()->email;
         //$routers = Auth::user()->hotspots()->select('ssid')->lists('ssid', 'ssid');
         //$calledmac = Session::get('calledmac'); 
         //$usrFeedData = UsersFeedback::where("username","=",$username)->where("nasidentifier","=",$calledmac)->first(); 
-        $routers=array(''=>"Select Router")+$routers;
+        $routers = array('' => "Select Router") + $routers;
 
 
         /*
          * me@diegopucci.com
          * Get Chart Data
          */
-        return View::make("email.review",compact("routers","email"));
-
+        return View::make("email.review", compact("routers", "email"));
     }
+
     //public function emailReviewsUpdate($nasId,$fieldName,$fieldVal) {
     public function emailReviewsUpdate() {
-        $input=Input::all();
-        $id=$input['nasId'];
-        $fieldName=$input['fieldName'];
-        $fieldVal=$input['fieldVal'];
-        $hotspot=Hotspot::where("id","=",$id)->first();
-        $hotspot->$fieldName=$fieldVal;
+        $input = Input::all();
+        $id = $input['nasId'];
+        $fieldName = $input['fieldName'];
+        $fieldVal = $input['fieldVal'];
+        $hotspot = Hotspot::where("id", "=", $id)->first();
+        $hotspot->$fieldName = $fieldVal;
         $hotspot->save();
-        if($hotspot)
-        {
+        if ($hotspot) {
             return Response::json(array(
-                'status'=>'success'
+                        'status' => 'success'
             ));
-        }else{
+        } else {
             return Response::json(array(
-                'status'=>'fail'
+                        'status' => 'fail'
             ));
         }
-
     }
-    public function getHotspotDetail($routerID){
-        $hotspot=Hotspot::where("id","=",$routerID)->first();
+
+    public function getHotspotDetail($routerID) {
+        $hotspot = Hotspot::where("id", "=", $routerID)->first();
         return Response::json(array(
-            'hotspot'=>$hotspot
+                    'hotspot' => $hotspot
         ));
     }
 
     /*
-        * me@diegopucci.com
-        * Return transactionals report for logged in admin
-    */
+     * me@diegopucci.com
+     * Return transactionals report for logged in admin
+     */
 
-    public function reportTransactionals(){
+    public function reportTransactionals() {
 
         $input = Input::all();
 
-        if(!isset($input["router"])) {
+        if (!isset($input["router"])) {
             die;
         }
 
@@ -513,20 +523,20 @@ class EmailsController extends Controller {
         $reportData = \App\EmailEvents::reportData("transactionals", $input["router"]);
 
         $statsArr = [];
-        if(count($reportData) > 0 ){
+        if (count($reportData) > 0) {
             $stats = $reportData["statictic"];
-            foreach($stats as $stat => $value) {
-                switch($stat){
+            foreach ($stats as $stat => $value) {
+                switch ($stat) {
                     /*
-                    case "deliver":
-                        array_push($statsArr, array(
-                            "value" => $value,
-                            "color" => "#00a65a",
-                            "highlight" => "#00a65a",
-                            "label" => "Delivered"
-                        ));
-                        break;
-                    */
+                      case "deliver":
+                      array_push($statsArr, array(
+                      "value" => $value,
+                      "color" => "#00a65a",
+                      "highlight" => "#00a65a",
+                      "label" => "Delivered"
+                      ));
+                      break;
+                     */
                     case "open":
                         array_push($statsArr, array(
                             "value" => $value,

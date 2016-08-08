@@ -296,10 +296,7 @@ a .addimg:hover {
 .delete{
     line-height: 13px;
 }
-.clear{
-    height: 40px;
-    width: 50px;
-}
+
 
 .ui-accordion-header.ui-helper-reset.ui-state-default.ui-accordion-header-active.ui-state-active.ui-corner-top.ui-accordion-icons{
     display: none;

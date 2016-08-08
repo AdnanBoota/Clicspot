@@ -90,14 +90,6 @@ body,html{width:100% !important;height:100% !important;}
     border:2px solid #000;
 }
 
-.clear {   
-    right: 20px; top: -4px;
-    padding:10px 0;
-    width:39px;height:20px;
-    font-size:11px;
-    line-height:10px !important;
-    border:3px solid #000;
-}
 
 .clear br { 
     line-height:0px;

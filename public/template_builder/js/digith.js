@@ -1,16 +1,16 @@
-jQuery(function($) {
-    var BgImgUrl1="";
-    var BgImgUrl2="";
-    var BgImgUrl3="";
-    var BgImgUrl4="";
-    var BgImgUrl5="";
-    var BgImgUrl6="";
-    var BgImgUrl7="";
-    var BgImgUrl8="";
-    var BgImgUrl9="";
-    
+jQuery(function ($) {
+    var BgImgUrl1 = "";
+    var BgImgUrl2 = "";
+    var BgImgUrl3 = "";
+    var BgImgUrl4 = "";
+    var BgImgUrl5 = "";
+    var BgImgUrl6 = "";
+    var BgImgUrl7 = "";
+    var BgImgUrl8 = "";
+    var BgImgUrl9 = "";
+
     function Fr() {
-        $("#dpmenu1").find("li").live("click", function() {
+        $("#dpmenu1").find("li").live("click", function () {
 
             $("#dpmenu1 li").removeClass("active");
             var e = $(this).text();
@@ -23,7 +23,7 @@ jQuery(function($) {
                 "font-family": e
             })
         });
-        $("#dpmenu2").find("li").live("click", function() {
+        $("#dpmenu2").find("li").live("click", function () {
 
             $("#dpmenu2 li").removeClass("active");
             var e = $(this).text();
@@ -36,7 +36,7 @@ jQuery(function($) {
                 "font-weight": e
             })
         });
-        $("#dpmenu3").find("li").live("click", function() {
+        $("#dpmenu3").find("li").live("click", function () {
             $("#dpmenu3 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu3").find(".selected").text(e);
@@ -48,7 +48,7 @@ jQuery(function($) {
                 "font-weight": e
             })
         });
-        $("#dpmenu4").find("li").live("click", function() {
+        $("#dpmenu4").find("li").live("click", function () {
             $("#dpmenu4 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu4").find(".selected").text(e);
@@ -60,7 +60,7 @@ jQuery(function($) {
                 "font-weight": e
             })
         });
-        $("#dpmenu5").find("li").live("click", function() {
+        $("#dpmenu5").find("li").live("click", function () {
             $("#dpmenu5 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu5").find(".selected").text(e);
@@ -72,7 +72,7 @@ jQuery(function($) {
                 "font-weight": e
             })
         });
-        $("#dpmenu6").find("li").live("click", function() {
+        $("#dpmenu6").find("li").live("click", function () {
             $("#dpmenu6 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu6").find(".selected").text(e);
@@ -84,7 +84,7 @@ jQuery(function($) {
                 "font-weight": e
             })
         });
-        $("#dpmenu7").find("li").live("click", function() {
+        $("#dpmenu7").find("li").live("click", function () {
             $("#dpmenu7 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu7").find(".selected").text(e);
@@ -96,7 +96,7 @@ jQuery(function($) {
                 "font-weight": e
             })
         });
-        $("#dpmenu8").find("li").live("click", function() {
+        $("#dpmenu8").find("li").live("click", function () {
             $("#dpmenu8 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu8").find(".selected").text(e);
@@ -108,7 +108,7 @@ jQuery(function($) {
                 "font-family": e
             })
         });
-        $("#dpmenu9").find("li").live("click", function() {
+        $("#dpmenu9").find("li").live("click", function () {
             $("#dpmenu9 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu9").find(".selected").text(e);
@@ -120,7 +120,7 @@ jQuery(function($) {
                 "font-weight": e
             })
         });
-        $("#dpmenu10").find("li").live("click", function() {
+        $("#dpmenu10").find("li").live("click", function () {
             $("#dpmenu10 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu10").find(".selected").text(e);
@@ -132,7 +132,7 @@ jQuery(function($) {
                 "font-family": e
             })
         });
-        $("#dpmenu11").find("li").live("click", function() {
+        $("#dpmenu11").find("li").live("click", function () {
             $("#dpmenu11 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu11").find(".selected").text(e);
@@ -144,7 +144,7 @@ jQuery(function($) {
                 "font-weight": e
             })
         });
-        $("#dpmenu12").find("li").live("click", function() {
+        $("#dpmenu12").find("li").live("click", function () {
             $("#dpmenu12 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu12").find(".selected").text(e);
@@ -156,7 +156,7 @@ jQuery(function($) {
                 "font-family": e
             })
         });
-        $("#dpmenu13").find("li").live("click", function() {
+        $("#dpmenu13").find("li").live("click", function () {
             $("#dpmenu13 li").removeClass("active");
             var e = $(this).text();
             $("#dpmenu13").find(".selected").text(e);
@@ -199,13 +199,13 @@ jQuery(function($) {
 
     function Ur() {
 
-        ur.click(function() {
+        ur.click(function () {
             ir.slideUp("fast");
             rr.removeClass("active");
             or.slideToggle("fast");
             ur.toggleClass("active")
         });
-        or.find("a").click(function() {
+        or.find("a").click(function () {
             if (isDemo == false) {
                 Rr()
             } else {
@@ -220,7 +220,7 @@ jQuery(function($) {
     }
 
     function zr() {
-        rr.click(function() {
+        rr.click(function () {
             or.slideUp("fast");
             ur.removeClass("active");
             ir.slideToggle("fast");
@@ -229,10 +229,10 @@ jQuery(function($) {
     }
 
     function Wr() {
-        $("#minFbox").click(function() {
+        $("#minFbox").click(function () {
             ir.slideUp("fast")
         });
-        $("#minPbox").click(function() {
+        $("#minPbox").click(function () {
             or.slideUp("fast")
         });
         ur.removeClass("active");
@@ -252,7 +252,7 @@ jQuery(function($) {
         Hr.html(Ar);
         Br.find(".selected").html("font-family");
         jr.find(".selected").html("font-weight");
-        Dr.click(function() {
+        Dr.click(function () {
             var e = Cr.val();
             var t = e.match(kr);
             if (t == null) {
@@ -276,7 +276,7 @@ jQuery(function($) {
                 } else {
                     var a = s.split("|"),
                             u = "";
-                    $.each(a, function(e, t) {
+                    $.each(a, function (e, t) {
                         u += "<li>" + t + ", serif</li>"
                     });
                     u += Lr;
@@ -287,7 +287,7 @@ jQuery(function($) {
     }
 
     function $r() {
-        Br.click(function() {
+        Br.click(function () {
             $(this).toggleClass("open");
             Br.find("div").css({
                 "z-index": 2
@@ -296,7 +296,7 @@ jQuery(function($) {
                 "z-index": 3
             })
         });
-        jr.click(function() {
+        jr.click(function () {
             $(this).toggleClass("open");
             jr.find("div").css({
                 "z-index": 2
@@ -321,21 +321,21 @@ jQuery(function($) {
             return (e / 1e3).toFixed(2) + " KB"
         }
         var e = window.location.hostname === "blueimp.github.io" ? "//jquery-file-upload.appspot.com/" : "server/php/";
-        $(document).on("drop dragover", function(e) {
+        $(document).on("drop dragover", function (e) {
             e.preventDefault()
         })
     }
 
     function Kr() {
         var e = IPuL + pName;
-        $.get(e, function(e) {
+        $.get(e, function (e) {
             $n.html("").html(e).css({
                 opacity: "0.3"
             }).animate({
                 opacity: 1
             }, 1e3);
             Qr();
-            setTimeout(function() {
+            setTimeout(function () {
                 Ii();
                 repk = 1
             }, 2500);
@@ -352,7 +352,7 @@ jQuery(function($) {
 
     function Qr() {
         if (OptS != 1) {
-            setTimeout(function() {
+            setTimeout(function () {
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"
                 }).ckeditor()
@@ -361,8 +361,8 @@ jQuery(function($) {
     }
 
     function Gr() {
-        tr.click(function() {
-             console.log("disabled");
+        tr.click(function () {
+            console.log("disabled");
             nr.removeClass("active");
             $(this).addClass("active");
             Xn.html("Edit Layout, can not edit contents, click/drag or delete/duplicat/clear all/sort modules.").fadeIn(1e3);
@@ -375,7 +375,7 @@ jQuery(function($) {
             $("#hide-iframe div[rev]").attr({
                 title: ""
             });
-            $n.find(Id).live("mouseenter", function() {
+            $n.find(Id).live("mouseenter", function () {
                 var e = $(this).height() / 2 - 20;
                 $(this).css({
                     "border-top": "#20B2AA 1px dotted",
@@ -385,12 +385,12 @@ jQuery(function($) {
                 }).find(opt).css("top", e + "px").show();
                 $n.find(Id).removeClass("this-module");
                 $(this).addClass("this-module")
-            }).live("mouseleave", function() {
+            }).live("mouseleave", function () {
                 $(this).css("border", "none").find(opt).hide()
             })
         });
-        nr.click(function() {
-           
+        nr.click(function () {
+
             tr.removeClass("active");
             $(this).addClass("active");
             if ($.browser.msie) {
@@ -398,14 +398,14 @@ jQuery(function($) {
             } else {
                 Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)
             }
-            setTimeout(function() {
+            setTimeout(function () {
                 console.log("Editable");
                 $("#iframe div[rev]").attr({
                     contenteditable: "true"
                 }).ckeditor();
                 OptS = 0;
                 oi();
-                $n.find(Id).live("mouseenter", function() {
+                $n.find(Id).live("mouseenter", function () {
                     $(this).css({
                         "border-top": "#20B2AA 1px dotted",
                         "border-bottom": "#20B2AA 1px dotted",
@@ -414,15 +414,15 @@ jQuery(function($) {
                     });
                     $n.find(Id).removeClass("this-module");
                     $(this).addClass("this-module").find(opt).hide()
-                }).live("mouseleave", function() {
+                }).live("mouseleave", function () {
                     $(this).css("border", "none")
                 });
-                setTimeout(function() {
+                setTimeout(function () {
                     console.log("Enable");
                     $('.dropableCLass tbody tr img').droppable({
                         hoverClass: "container-img-drop-hover",
                         disabled: false,
-                        drop: function(ev, ui) {
+                        drop: function (ev, ui) {
                             $(this).attr("src", $(drag_obj).attr('src'));
 
                         }
@@ -431,13 +431,13 @@ jQuery(function($) {
 
             }, 500);
         });
-        rr.click(function() {
+        rr.click(function () {
             qr()
         })
     }
 
     function Yr() {
-        Sn.click(function() {
+        Sn.click(function () {
             Dt.css({
                 "border-width": "0px"
             }).animate({
@@ -445,37 +445,37 @@ jQuery(function($) {
                 marginLeft: "75px"
             }, 400)
         });
-        $('li[rel="welcome"], li[rel="function"], li[rel="info"], li[rel="install"], li[rel="file"], li[rel="psd"], li[rel="three"], li[rel="credit"], li[rel="import"],li[rel="faq"]').click(function() {
+        $('li[rel="welcome"], li[rel="function"], li[rel="info"], li[rel="install"], li[rel="file"], li[rel="psd"], li[rel="three"], li[rel="credit"], li[rel="import"],li[rel="faq"]').click(function () {
             Dt.removeClass("leftdiv").animate({
                 marginTop: "37px",
                 marginLeft: "75px"
             }, 150)
         });
-        $('li[rel="choose module"],li[rel="layout"],li[rel="color"],li[rel="bg"],li[rel="gAPI"],li[rel="download"],li[rel="copyright"],li[rel="guide"]').click(function() {
+        $('li[rel="choose module"],li[rel="layout"],li[rel="color"],li[rel="bg"],li[rel="gAPI"],li[rel="download"],li[rel="copyright"],li[rel="guide"]').click(function () {
             Dt.removeClass("leftdiv").animate({
                 marginTop: "37px",
                 marginLeft: "325px"
             }, 150)
         });
-        $('li[rel="choose module"]').click(function() {
+        $('li[rel="choose module"]').click(function () {
             Jt.hide();
             Ft.removeClass("active");
             qt.addClass("active");
             Gt.slideDown(500)
         });
-        $('li[rel="layout"]').click(function() {
+        $('li[rel="layout"]').click(function () {
             Jt.hide();
             Ft.removeClass("active");
             It.addClass("active");
             Qt.slideDown(500)
         });
-        $('li[rel="color"]').click(function() {
+        $('li[rel="color"]').click(function () {
             Jt.hide();
             Ft.removeClass("active");
             Rt.addClass("active");
             Yt.slideDown(500)
         });
-        $('li[rel="bg"]').click(function() {
+        $('li[rel="bg"]').click(function () {
             Ft.removeClass("active");
             Ut.addClass("active");
             Jt.hide();
@@ -483,7 +483,7 @@ jQuery(function($) {
             Ln.show();
             Zt.slideDown(500)
         });
-        $('li[rel="gAPI"]').click(function() {
+        $('li[rel="gAPI"]').click(function () {
             Ft.removeClass("active");
             Nr.addClass("active");
             Jt.hide();
@@ -491,31 +491,31 @@ jQuery(function($) {
             Hn.show();
             Or.slideDown(500)
         });
-        $('li[rel="download"]').click(function() {
+        $('li[rel="download"]').click(function () {
             Jt.hide();
             Ft.removeClass("active");
             zt.addClass("active");
             en.slideDown(500)
         });
-        $('li[rel="copyright"]').click(function() {
+        $('li[rel="copyright"]').click(function () {
             Jt.hide();
             Ft.removeClass("active");
             Wt.addClass("active");
             tn.slideDown(500)
         });
-        $('li[rel="guide"]').click(function() {
+        $('li[rel="guide"]').click(function () {
             Jt.hide();
             Ft.removeClass("active");
             Xt.addClass("active");
             nn.slideDown(500)
         });
-        $('li[rel="myitem"],li[rel="responsive"],li[rel="theme"],li[rel="operate"]').click(function() {
+        $('li[rel="myitem"],li[rel="responsive"],li[rel="theme"],li[rel="operate"]').click(function () {
             Dt.addClass("leftdiv").animate({
                 marginTop: "37px",
                 marginLeft: "0px"
             }, 150)
         });
-        $("#cancelTabs").click(function() {
+        $("#cancelTabs").click(function () {
             Dt.css({
                 "border-width": "0px"
             }).animate({
@@ -523,8 +523,8 @@ jQuery(function($) {
             }, 300)
         });
         $("#tabs").tabs({
-            beforeLoad: function(e, t) {
-                t.jqXHR.error(function() {
+            beforeLoad: function (e, t) {
+                t.jqXHR.error(function () {
                     t.panel.html("Couldn't load this tab. We'll try to fix this as soon as possible. " + "If this wouldn't be a demo.")
                 })
             }
@@ -557,22 +557,21 @@ jQuery(function($) {
         } else {
             if (templateName != "") {
                 IL = BDLJ + userId + "/" + templateName + ".html"
-            }
-            else {
-                IL = BDLJ + mTm + "/all-inline.html"
+            } else {
+                IL = BDLJ + mTm + "/" + $('.lang_email_template').val()
             }
         }
 
         console.log(userId)
-        hIL = BDLJ + mTm + "/all-inline.html";
+        hIL = BDLJ + mTm + "/" + $('.lang_email_template').val();
         IImL = '"' + BDLJ + mTm + "/images/";
         IBmL = "url(" + BDLJ + mTm + "/images/";
         ImmL = BDLJ + mTm + "/images/"
     }
 
     function ei(e) {
-        
-        
+
+
         CKDM = $n.html();
         var t = jsflay.test(CKDM);
         if (t != 1) {
@@ -678,7 +677,7 @@ jQuery(function($) {
             if (f.test(o) != 1) {
                 return false
             }
-            $.each(rgbs, function(e) {
+            $.each(rgbs, function (e) {
                 Z[e] = Bi(rgbs[e]);
                 var t = rgbs[e].split("(");
                 var n = t[0];
@@ -711,7 +710,7 @@ jQuery(function($) {
         var dt = /\<v:fill[^>]+msoBG-8"\s*\>/gi;
         var vt = '<v:fill type="tile" src="' + BgImgUrl8 + '" color="' + mC18 + '" id="msoBG-8" />';
         var mt = /\<v:fill[^>]+msoBG-9"\s*\>/gi;
-      var gt = '<v:fill type="tile" src="' + BgImgUrl9 + '" color="' + mC18 + '" id="msoBG-9" />';
+        var gt = '<v:fill type="tile" src="' + BgImgUrl9 + '" color="' + mC18 + '" id="msoBG-9" />';
         var yt = /\<\/v:fill\>/gi;
         tCKDM = tCKDM.replace(konghang, "");
         tCKDM = tCKDM.replace(yt, "").replace(et, tt).replace(nt, rt).replace(it, st).replace(ot, ut).replace(at, ft).replace(lt, ct).replace(ht, pt).replace(dt, vt).replace(mt, gt);
@@ -733,7 +732,7 @@ jQuery(function($) {
                 Xn.html("<span>***Do you upload the [ html ] file onto your server? you should upload both [ digith_template_builder ] and [ html ] folder***</span>").css("display", "none").fadeIn(1e3)
             }
         }
-        $.get(e, function(e) {
+        $.get(e, function (e) {
             var t = jsflay.test(e);
             if (t != 1) {
                 return false
@@ -767,9 +766,9 @@ jQuery(function($) {
             Vr();
             Qr();
             if (OptS == 1) {
-                setTimeout(function() {
+                setTimeout(function () {
 //                    $("#iframe div[rev]").attr("contenteditable", "false");
- $("#iframe div[rev]").attr("contenteditable", "true");
+                    $("#iframe div[rev]").attr("contenteditable", "true");
                     ji(0);
                     Pt.animate({
                         marginTop: "9999px"
@@ -803,7 +802,7 @@ jQuery(function($) {
     my_function = ti;
     function ni(e) {
 
-        $.get(e, function(e) {
+        $.get(e, function (e) {
             var t = jsflay.test(e);
             if (t != 1) {
                 return false
@@ -823,7 +822,7 @@ jQuery(function($) {
 
     function ri() {
 
-        In.click(function(e) {
+        In.click(function (e) {
 
             if (isDemo == false) {
 
@@ -843,7 +842,7 @@ jQuery(function($) {
                 })
             }
         });
-        _t.click(function() {
+        _t.click(function () {
             _t.css({
                 "border-width": "0px"
             }).animate({
@@ -872,12 +871,12 @@ jQuery(function($) {
 
     function si() {
 
-        $(BJ + " a").each(function(e) {
+        $(BJ + " a").each(function (e) {
             br[e] = $(this).attr("id");
             Er = br[0];
             pi(br[e])
         });
-        $(ZT + " a").each(function(e) {
+        $(ZT + " a").each(function (e) {
             wr[e] = $(this).attr("id");
             Sr = wr[0];
             vi(wr[e])
@@ -900,7 +899,7 @@ jQuery(function($) {
         $n.sortable({
             items: Id,
             placeholder: "placehold",
-            receive: function(e, t) {
+            receive: function (e, t) {
                 $(CK + " li.item").css({
                     "list-style-type": "none",
                     display: "none"
@@ -916,20 +915,20 @@ jQuery(function($) {
                 $(CK + " li.item").remove();
                 Xn.html("module:  [ " + mT + " ]  has been added to the email page.").css("display", "none").fadeIn(1e3)
             },
-            start: function(e, t) {
+            start: function (e, t) {
                 hi(t)
             },
             axis: "y",
             tolerance: "pointer",
             revert: 300,
-            stop: function(e, t) {
+            stop: function (e, t) {
                 ci(t);
                 CKDM = $n.html();
                 $("#iframe div[rev]").ckeditor();
                 if (OptS == 1) {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         //$("#iframe div[rev]").attr("contenteditable", "false")
-                         $("#iframe div[rev]").attr("contenteditable", "true")
+                        $("#iframe div[rev]").attr("contenteditable", "true")
                     }, 1e3)
                 }
             }
@@ -938,7 +937,7 @@ jQuery(function($) {
             connectToSortable: CK,
             helper: "clone",
             distance: 20,
-            drag: function(e, t) {
+            drag: function (e, t) {
                 h = t.helper.find("img").height() + "px";
                 mT = $(this).attr("id");
                 $(CK + " .placehold").css({
@@ -957,7 +956,7 @@ jQuery(function($) {
                 })
             },
             revert: "invalid",
-            stop: function(e, t) {
+            stop: function (e, t) {
 
                 scrollPosi = $n.scrollTop();
                 $n.scrollTop(scrollPosi);
@@ -971,10 +970,10 @@ jQuery(function($) {
     }
 
     function ai() {
-        $.each(RQz, function(e) {
-            console.log('RQZ=',RQz);
+        $.each(RQz, function (e) {
+            console.log('RQZ=', RQz);
             var t = RQz.length - 1;
-            $("#" + RQz[e] + "Content" + " .item").click(function() {
+            $("#" + RQz[e] + "Content" + " .item").click(function () {
                 //   colne_M
                 //   alert("hello");
                 var n = $(this).attr("id");
@@ -1023,7 +1022,7 @@ jQuery(function($) {
                 $(this).removeClass("this-module");
                 $("#iframe div[rev]").ckeditor();
                 if (OptS == 1) {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         //$("#iframe div[rev]").attr("contenteditable", "false")
                         $("#iframe div[rev]").attr("contenteditable", "true")
                     }, 1e3)
@@ -1032,7 +1031,7 @@ jQuery(function($) {
 
                 CKDM = $n.html()
             });
-            $("#" + RQz[e] + "Content" + " .item").live("mousemove", function() {
+            $("#" + RQz[e] + "Content" + " .item").live("mousemove", function () {
                 $(this).css({
                     opacity: "0.8",
                     border: "olive 1px dotted",
@@ -1040,7 +1039,7 @@ jQuery(function($) {
                     "box-shadow": "2px 2px 2px #222"
                 })
             });
-            $("#" + RQz[e] + "Content" + " .item").live("mouseout", function() {
+            $("#" + RQz[e] + "Content" + " .item").live("mouseout", function () {
                 $(this).css({
                     opacity: "1",
                     border: "none",
@@ -1062,13 +1061,13 @@ jQuery(function($) {
             Ot.addClass("active");
             At.removeClass("darkk").addClass("lightt")
         }
-        Mt.click(function() {
+        Mt.click(function () {
             $(this).addClass("active");
             Ot.removeClass("active");
             At.removeClass("lightt").addClass("darkk");
             Xn.html("You choosed the dark Template Builder Theme.").css("display", "none").removeClass("lightt").addClass("darkk").fadeIn(1e3)
         });
-        Ot.click(function() {
+        Ot.click(function () {
             $(this).addClass("active");
             Mt.removeClass("active");
             At.removeClass("darkk").addClass("lightt");
@@ -1077,7 +1076,7 @@ jQuery(function($) {
     }
 
     function li() {
-        $n.find(Id).live("mouseenter", function() {
+        $n.find(Id).live("mouseenter", function () {
             var e = $(this).height() / 2 - 20;
             $(this).css({
                 "border-top": "#20B2AA 1px dotted",
@@ -1087,29 +1086,29 @@ jQuery(function($) {
             }).find(opt).css("top", e + "px").show();
             $n.find(Id).removeClass("this-module");
             $(this).addClass("this-module")
-        }).live("mouseleave", function() {
+        }).live("mouseleave", function () {
             $(this).css("border", "none").find(opt).hide()
         });
-        $n.find(dlt).live("click", function() {
+        $n.find(dlt).live("click", function () {
             var e = $(this).parent().parent(Id);
             $(e).css({
                 opacity: 0
             }).animate({
                 opacity: 1
             }, 200).hide(400);
-            setTimeout(function() {
+            setTimeout(function () {
                 $(e).remove()
             }, 600);
             var t = e.attr("rev");
             Xn.html("Module [ " + t + " ]  has been deleted......").css("display", "none").fadeIn(1e3);
             CKDM = $n.html()
         });
-        $n.find(clr).live("click", function() {
+        $n.find(clr).live("click", function () {
             $n.find(Id).remove();
             Xn.html("<span>All Modules has been deleted, please click left items to add modules to the right position, do not using dragging to the window......</span>").css("display", "none").fadeIn(1e3);
             CKDM = $n.html()
         });
-        $n.find(dpt).live("click", function() {
+        $n.find(dpt).live("click", function () {
             $(this).parent().hide();
             var e = $(this).parent().parent(Id);
             var t = $(this).parent().parent(Id).clone();
@@ -1158,7 +1157,7 @@ jQuery(function($) {
     }
 
     function pi(e) {
-        $("#" + e).click(function() {
+        $("#" + e).click(function () {
             Er = e;
             $("a").removeClass("active_layout");
             $(this).addClass("active_layout");
@@ -1168,16 +1167,16 @@ jQuery(function($) {
 
     function di(e, t) {
         IL = BDLJ + e + "/" + t + ".html";
-        hIL = BDLJ + e + "/" + "all-inline.html";
+        hIL = BDLJ + e + "/" + $('.lang_email_template').val();
         ti(IL);
         ni(hIL);
-        $n.ready(function() {
+        $n.ready(function () {
             iframe_height()
         })
     }
 
     function vi(e) {
-        $("#" + e).click(function() {
+        $("#" + e).click(function () {
             var e = $(this).attr("id");
             Sr = e;
             mTm = e;
@@ -1186,7 +1185,7 @@ jQuery(function($) {
             $(this).addClass("active_theme");
             $("#" + Er).addClass("active_layout");
             IL = BDLJ + e + "/" + Er + ".html";
-            hIL = BDLJ + e + "/" + "all-inline.html";
+            hIL = BDLJ + e + "/" + $('.lang_email_template').val();
             IImL = '"' + BDLJ + e + "/images/";
             IBmL = "url(" + BDLJ + e + "/images/";
             ImmL = BDLJ + e + "/images/";
@@ -1204,7 +1203,7 @@ jQuery(function($) {
         CKDM = CKDM.replace(imgLb, IBmL);
         CKDM = CKDM.replace(xr, IPmL);
         e = Hi(e);
-        $.each(e, function(e, t) {
+        $.each(e, function (e, t) {
             var n = RegExp(/start/g);
             var r = RegExp(/end/g);
             var i = n.test(t);
@@ -1222,7 +1221,7 @@ jQuery(function($) {
     }
 
     function yi(e) {
-        $.each(e, function(e, t) {
+        $.each(e, function (e, t) {
             c = /start/g;
             d = /end/g;
             test = c.test(t);
@@ -1242,10 +1241,10 @@ jQuery(function($) {
     }
 
     function bi() {
-        $.each(RQm, function(e) {
+        $.each(RQm, function (e) {
             var t = RQm[e];
             var n = $(tCK + " " + t).find(Id);
-            $.each(n, function(e) {
+            $.each(n, function (e) {
                 var n = $(this).attr("rev");
                 var r = $(this).clone();
                 var i = $(r).html();
@@ -1384,7 +1383,7 @@ jQuery(function($) {
 
     function xi() {
         var e = "<ul>";
-        $.each(ZTZ, function(t, n) {
+        $.each(ZTZ, function (t, n) {
             if (t == "theme1") {
                 c = "active_theme "
             } else {
@@ -1395,7 +1394,7 @@ jQuery(function($) {
         e += "</ul>";
         Rn.html(e);
         var t = "<ul>";
-        $.each(BJZ, function(e, n) {
+        $.each(BJZ, function (e, n) {
             if (n == "1") {
                 c = ' class="active_layout"';
                 d = "layout"
@@ -1413,13 +1412,13 @@ jQuery(function($) {
     }
 
     function Ti() {
-        $.each(BuFen, function(e, t) {
+        $.each(BuFen, function (e, t) {
             XZH += '<ul id="' + e + '"><li class="menu-list' + '">';
-            $.each(t, function(t, n) {
+            $.each(t, function (t, n) {
                 XZH += t + "</li></ul>" + '<div id="' + e + 'Content"><ul>';
-                $.each(n, function(e, t) {
+                $.each(n, function (e, t) {
                     var n = "";
-                    $.each(Itm, function(e, r) {
+                    $.each(Itm, function (e, r) {
                         if (e == t) {
                             n = r;
                             return false
@@ -1439,7 +1438,7 @@ jQuery(function($) {
         if (myItem == "") {
             er.html('<a id="template-list" class="noc" href="http://themeforest.net/user/digith/portfolio?ref=digith">See All My Email Templates with Builder</a>')
         } else {
-            er.html(myItem).find("#template-list").click(function() {
+            er.html(myItem).find("#template-list").click(function () {
                 if (e == true) {
                     $(this).removeClass("highlighted");
                     $("#container").slideUp(200);
@@ -1453,7 +1452,7 @@ jQuery(function($) {
             })
         }
         $thisshi = Vt.attr("rev");
-        $("#container").each(function() {
+        $("#container").each(function () {
             var e = $(this).find("a").attr("rel");
             if (e == $thisshi) {
                 $theme_lk = $(this).find("a").attr("goumai");
@@ -1497,41 +1496,41 @@ jQuery(function($) {
     }
 
     function ki() {
-        mn.click(function() {
+        mn.click(function () {
             Mn.find(".accordion").slideUp(200);
             Nn.slideDown(500)
         });
-        gn.click(function() {
+        gn.click(function () {
             Mn.find(".accordion").slideUp(200);
             Cn.slideDown(500)
         });
-        yn.click(function() {
+        yn.click(function () {
             Mn.find(".accordion").slideUp(200);
             kn.slideDown(500)
         })
     }
 
     function Li() {
-        bn.click(function() {
+        bn.click(function () {
             _n.find(".accordion").slideUp(200);
             An.slideDown(500)
         });
-        wn.click(function() {
+        wn.click(function () {
             _n.find(".accordion").slideUp(200);
             Ln.slideDown(500)
         });
-        En.click(function() {
+        En.click(function () {
             _n.find(".accordion").slideUp(200);
             On.slideDown(500)
         })
     }
 
     function Ai() {
-        Mr.click(function() {
+        Mr.click(function () {
             Pn.find(".accordion").slideUp(200);
             Hn.slideDown(500)
         });
-        _r.click(function() {
+        _r.click(function () {
             Pn.find(".accordion").slideUp(200);
             Bn.slideDown(500)
         })
@@ -1543,21 +1542,21 @@ jQuery(function($) {
     }
 
     function Mi() {
-        qt.click(function() {
+        qt.click(function () {
             Ft.removeClass("active");
             $(this).addClass("active");
             Jt.hide();
             Gt.slideDown();
             Xn.html("Please choose modules which you like, you can click/drag, and you can delete/duplicate/darg in the page window directly.").css("display", "none").fadeIn(1e3)
         });
-        It.click(function() {
+        It.click(function () {
             Ft.removeClass("active");
             $(this).addClass("active");
             Jt.hide();
             Qt.slideDown();
             Xn.html("Please choose the Prebuild Themes and Layouts, then you can edit modules,color scheme,bg and contents.").css("display", "none").fadeIn(1e3)
         });
-        Rt.click(function() {
+        Rt.click(function () {
             Ft.removeClass("active");
             $(this).addClass("active");
             Jt.hide();
@@ -1566,7 +1565,7 @@ jQuery(function($) {
             Yt.slideDown();
             Xn.html('Please edit the color scheme, you can pick / input / copy / paste the color value, do not forget the "#".').css("display", "none").fadeIn(1e3)
         });
-        Ut.click(function() {
+        Ut.click(function () {
             Ft.removeClass("active");
             $(this).addClass("active");
             Jt.hide();
@@ -1575,21 +1574,21 @@ jQuery(function($) {
             Zt.slideDown();
             Xn.html("Please edit the BG textures & Bg images & border height & border radius value.").css("display", "none").fadeIn(1e3)
         });
-        Wt.click(function() {
+        Wt.click(function () {
             Ft.removeClass("active");
             $(this).addClass("active");
             Jt.hide();
             tn.slideDown();
             Xn.html("Copyright info. Many thanks!").css("display", "none").fadeIn(1e3)
         });
-        Xt.click(function() {
+        Xt.click(function () {
             Ft.removeClass("active");
             $(this).addClass("active");
             Jt.hide();
             nn.slideDown();
             Xn.html("Please see the guide to learn how to use digith_template_builder.").css("display", "none").fadeIn(1e3)
         });
-        Nr.click(function() {
+        Nr.click(function () {
             Ft.removeClass("active");
             $(this).addClass("active");
             Jt.hide();
@@ -1622,7 +1621,7 @@ jQuery(function($) {
     }
 
     function Di() {
-        pn.click(function() {
+        pn.click(function () {
             Wn.removeClass("active");
             $(this).addClass("active");
             pS = "-inline";
@@ -1630,7 +1629,7 @@ jQuery(function($) {
             Xn.html("You choose default inline CSS version...").css("display", "none").fadeIn(1e3);
             return false
         });
-        dn.click(function() {
+        dn.click(function () {
             Wn.removeClass("active");
             $(this).addClass("active");
             pS = "-mc";
@@ -1638,7 +1637,7 @@ jQuery(function($) {
             Xn.html('You choose mailchimp tags integrated version and page tile will set to "*|MC:SUBJECT|*"...').css("display", "none").fadeIn(1e3);
             return false
         });
-        vn.click(function() {
+        vn.click(function () {
             Wn.removeClass("active");
             $(this).addClass("active");
             pS = "-cm";
@@ -1656,7 +1655,7 @@ jQuery(function($) {
                 at: "center bottom",
                 effect: "toggle",
                 opacity: .3,
-                using: function(e, t) {
+                using: function (e, t) {
                     $(this).css(e);
                     $("<div>").addClass(t.vertical).addClass(t.horizontal).appendTo(this)
                 }
@@ -1670,7 +1669,7 @@ jQuery(function($) {
         while (e.length > 0) {
             n = e[0];
             t.push(n);
-            e = $.grep(e, function(e, t) {
+            e = $.grep(e, function (e, t) {
                 return e == n
             }, true)
         }
@@ -1693,7 +1692,7 @@ jQuery(function($) {
                 strokeColor: "#E6E8FA",
                 step: "fader",
                 multiplier: 2,
-                setup: function() {
+                setup: function () {
                     this._.lineWidth = 5
                 },
                 path: [
@@ -1735,7 +1734,7 @@ jQuery(function($) {
                 display: "inline-block"
             }).show()
         }
-        cr.click(function() {
+        cr.click(function () {
             if (repk == 0) {
                 return false
             }
@@ -1756,7 +1755,7 @@ jQuery(function($) {
             Qr();
             return false
         });
-        dr.click(function() {
+        dr.click(function () {
             if (repk == 0) {
                 return false
             }
@@ -1777,7 +1776,7 @@ jQuery(function($) {
             Qr();
             return false
         });
-        vr.click(function() {
+        vr.click(function () {
             if (repk == 0) {
                 return false
             }
@@ -1797,7 +1796,7 @@ jQuery(function($) {
             Qr();
             return false
         });
-        mr.click(function() {
+        mr.click(function () {
             if (repk == 0) {
                 return false
             }
@@ -1818,7 +1817,7 @@ jQuery(function($) {
             Qr();
             return false
         });
-        gr.click(function() {
+        gr.click(function () {
             if (repk == 0) {
                 return false
             }
@@ -1839,7 +1838,7 @@ jQuery(function($) {
             Qr();
             return false
         });
-        hr.click(function() {
+        hr.click(function () {
             if (repk == 0) {
                 return false
             }
@@ -1985,7 +1984,7 @@ jQuery(function($) {
                     "background-image": "url(" + BgImgUrl8 + ")"
                 })
             }
-            if (BgImgUrl9 == undefined || BgImgUrl9=="") {
+            if (BgImgUrl9 == undefined || BgImgUrl9 == "") {
                 Jn.find(".banner6").removeAttr("background").css({
                     "background-image": "none"
                 })
@@ -2223,7 +2222,7 @@ jQuery(function($) {
     }
 
     function Wi() {
-        ct.find("li.patternItem").click(function() {
+        ct.find("li.patternItem").click(function () {
             var e = $(this).attr("id");
             var t = IPmL + e;
             var n = "url(" + t + ")";
@@ -2245,7 +2244,7 @@ jQuery(function($) {
                 })
             }
         });
-        ht.find("li.patternItem").click(function() {
+        ht.find("li.patternItem").click(function () {
             var e = $(this).attr("id");
             var t = IPmL + e;
             var n = "url(" + t + ")";
@@ -2267,7 +2266,7 @@ jQuery(function($) {
                 })
             }
         });
-        pt.find("li.patternItem").click(function() {
+        pt.find("li.patternItem").click(function () {
             var e = $(this).attr("id");
             var t = IPmL + e;
             var n = "url(" + t + ")";
@@ -2289,7 +2288,7 @@ jQuery(function($) {
                 })
             }
         });
-        dt.find("li.patternItem").click(function() {
+        dt.find("li.patternItem").click(function () {
             var e = $(this).attr("id");
             var t = IPmL + e;
             var n = "url(" + t + ")";
@@ -2311,7 +2310,7 @@ jQuery(function($) {
                 })
             }
         });
-        vt.find("li.patternItem").click(function() {
+        vt.find("li.patternItem").click(function () {
             var e = $(this).attr("id");
             var t = IPmL + e;
             var n = "url(" + t + ")";
@@ -2333,7 +2332,7 @@ jQuery(function($) {
                 })
             }
         });
-        nt.click(function() {
+        nt.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2349,7 +2348,7 @@ jQuery(function($) {
                 }
             }
         });
-        rt.click(function() {
+        rt.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2365,7 +2364,7 @@ jQuery(function($) {
                 }
             }
         });
-        it.click(function() {
+        it.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2381,7 +2380,7 @@ jQuery(function($) {
                 }
             }
         });
-        st.click(function() {
+        st.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2397,7 +2396,7 @@ jQuery(function($) {
                 }
             }
         });
-        ot.click(function() {
+        ot.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2413,7 +2412,7 @@ jQuery(function($) {
                 }
             }
         });
-        ut.click(function() {
+        ut.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2429,7 +2428,7 @@ jQuery(function($) {
                 }
             }
         });
-        at.click(function() {
+        at.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2445,7 +2444,7 @@ jQuery(function($) {
                 }
             }
         });
-        ft.click(function() {
+        ft.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2461,7 +2460,7 @@ jQuery(function($) {
                 }
             }
         });
-        lt.click(function() {
+        lt.click(function () {
             if (isBG == false) {
                 return false
             } else {
@@ -2485,7 +2484,7 @@ jQuery(function($) {
             value: Radius1,
             min: 30,
             max: 60,
-            slide: function(e, t) {
+            slide: function (e, t) {
                 rR1 = t.value;
                 mt.val(t.value + "px");
                 $n.find("h1,.h1").not(".headerbanner2 .h1.b").css({
@@ -2502,7 +2501,7 @@ jQuery(function($) {
             value: Radius2,
             min: 30,
             max: 60,
-            slide: function(e, t) {
+            slide: function (e, t) {
                 rR2 = t.value;
                 gt.val(t.value + "px");
                 $n.find(".headerbanner2 .h1.b").css({
@@ -2519,7 +2518,7 @@ jQuery(function($) {
             value: Radius3,
             min: 20,
             max: 36,
-            slide: function(e, t) {
+            slide: function (e, t) {
                 rR3 = t.value;
                 yt.val(t.value + "px");
                 $n.find("h2,.h2").not(".bottom .h2.large").css({
@@ -2536,7 +2535,7 @@ jQuery(function($) {
             value: Radius4,
             min: 16,
             max: 28,
-            slide: function(e, t) {
+            slide: function (e, t) {
                 rR4 = t.value;
                 bt.val(t.value + "px");
                 $n.find("h3,.h3").css({
@@ -2553,7 +2552,7 @@ jQuery(function($) {
             value: Radius5,
             min: 10,
             max: 14,
-            slide: function(e, t) {
+            slide: function (e, t) {
                 rR5 = t.value;
                 wt.val(t.value + "px");
                 $n.find(".footer .h6").css({
@@ -2570,7 +2569,7 @@ jQuery(function($) {
             value: Radius6,
             min: 12,
             max: 16,
-            slide: function(e, t) {
+            slide: function (e, t) {
                 rR6 = t.value;
                 Et.val(t.value + "px");
                 $n.find(".content, .content p").not(".button .content,.headerbanner .content,.number-td.content,.content.f35").css({
@@ -2834,15 +2833,15 @@ jQuery(function($) {
     Ur();
     Jr();
     Wr();
-    $("div#color-none").click(function() {
+    $("div#color-none").click(function () {
         $(CK).find(".divider .border,.gray").css("background", "none");
         $(hCK).find(".divider .border,.gray").css("background", "none")
     });
     ri();
-    Lt.resize(function() {
+    Lt.resize(function () {
         wi()
     }).resize();
-    $.generateFile = function(e) {
+    $.generateFile = function (e) {
 
         e = e || {};
 //        if (!e.script || !e.filename || !e.content) {
@@ -2851,7 +2850,7 @@ jQuery(function($) {
 //        }
 
         console.log(templateName);
-        console.log("template id:",templateId);
+        console.log("template id:", templateId);
         var templaeIDInsert = "";
         if (templateName != '') {
             var title = "Email Template Updated SuccessFully";
@@ -2864,11 +2863,11 @@ jQuery(function($) {
             html: true,
             showCancelButton: true,
         },
-                function(response) {
+                function (response) {
                     if (response == true) {
                         templateName = $("#templateName").val();
                         var templateDescription = $("#templateDesc").val();
-                        
+
                         $.ajax({
                             url: '/emails',
                             type: 'post',
@@ -2878,11 +2877,11 @@ jQuery(function($) {
                                 "templateId": templateId,
                                 "templateName": templateName,
                                 "templateDescription": " ",
-                                "firstname":$("#firstname").val()
+                                "firstname": $("#firstname").val()
 
 
                             },
-                            success: function(result) {
+                            success: function (result) {
                                 templaeIDInsert = result.id;
                                 //console.log("now goes for swal");
                                 swal({
@@ -2894,46 +2893,44 @@ jQuery(function($) {
                                     closeOnConfirm: true
 
                                 },
-                                function(response) {
-                                    if (response == true) {
-                                        var retPageId = getCookie("camEmailSetup");
-                                         //console.log("template id fsdfd:",templateId);
-                                        if(templateId == ''){
-                                            console.log('blank');
-                                        $.ajax({
-                                            url: '/emails/emailSetup/updateForm',
-                                            type: 'post',
-                                            data: {
-                                                "_token": $("#token").val(),
-                                                "templateId": templaeIDInsert,
-                                                "id": retPageId,
-                                            },
-                                            success: function(result) {
-                                                if (retPageId){
-                                                    window.location = APP_URL + "/emails/emailSetup/" + retPageId + "/edit?step=second";
-                                                    console.log('edit');
-                                                }
-                                                else{
+                                        function (response) {
+                                            if (response == true) {
+                                                var retPageId = getCookie("camEmailSetup");
+                                                //console.log("template id fsdfd:",templateId);
+                                                if (templateId == '') {
+                                                    console.log('blank');
+                                                    $.ajax({
+                                                        url: '/emails/emailSetup/updateForm',
+                                                        type: 'post',
+                                                        data: {
+                                                            "_token": $("#token").val(),
+                                                            "templateId": templaeIDInsert,
+                                                            "id": retPageId,
+                                                        },
+                                                        success: function (result) {
+                                                            if (retPageId) {
+                                                                window.location = APP_URL + "/emails/emailSetup/" + retPageId + "/edit?step=second";
+                                                                console.log('edit');
+                                                            } else {
+                                                                window.location = APP_URL + "/emails";
+                                                                console.log('elseinsert');
+                                                            }
+                                                            return false;
+                                                        }
+                                                    });
+                                                } else {
                                                     window.location = APP_URL + "/emails";
-                                                    console.log('elseinsert');
+                                                    console.log('notfound');
+                                                    return false;
                                                 }
+                                                //console.log("camEmailSetup: ",getCookie("camEmailSetup"))
+
+
+                                            } else {
                                                 return false;
                                             }
+
                                         });
-                                        }else{
-                                            window.location = APP_URL + "/emails";
-                                            console.log('notfound');
-                                            return false;
-                                        }
-                                        //console.log("camEmailSetup: ",getCookie("camEmailSetup"))
-
-
-                                    }
-                                    else {
-                                        return false;
-                                    }
-
-                                });
                             }
                         });
                     }
@@ -2947,7 +2944,7 @@ jQuery(function($) {
             }
         }).appendTo(bo);
         var n = '<form action="" method="post">' + '<input type="hidden" name="filename" />' + '<input type="hidden" name="content" />' + "</form>";
-        setTimeout(function() {
+        setTimeout(function () {
             var r = t.prop("contentDocument") !== undefined ? t.prop("contentDocument").body : t.prop("document").body;
             r = $(r);
             r.html(n);
@@ -2962,6 +2959,6 @@ jQuery(function($) {
 });
 if (top.location != location)
     top.location.href = location.href
-$(document).ready(function() {
+$(document).ready(function () {
     $("#choose-module").trigger("click");
 });
