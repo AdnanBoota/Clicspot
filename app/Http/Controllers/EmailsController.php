@@ -122,62 +122,42 @@ class EmailsController extends Controller {
     }
 
     public function create() {
-        $images = array();
-        $getAllTemplates = Emails::select(DB::raw('id,adminid,templateName'))->get();
+        $data['images'] = array();
         $directory = 'uploads/templateImages/' . Auth::user()->id;
+
+        $total_templates = ['marketing', 'event', 'info', 'promotion'];
+        //Marketing Data
         $files = File::files($directory);
         foreach ($files as $file) {
-            $images[] = "/" . (string) $file;
+            $data['images'][] = "/" . (string) $file;
         }
-        $directory = 'uploads/defaultTemplate/images';
-        $files = File::files($directory);
-        foreach ($files as $file) {
-            $defaultTemplate[] = "/" . (string) $file;
-        }
-        $getFileName = scandir($directory, 0);
-        $templateFileName = array_diff($getFileName, array('.', '..'));
-
-        //event
-        $directoryEvent = 'uploads/defaultTemplate/event';
-        $filesEvent = File::files($directoryEvent);
-        foreach ($filesEvent as $fileEvent) {
-            $eventTemplate[] = "/" . (string) $fileEvent;
-        }
-        $getFileNameEvent = scandir($directoryEvent, 0);
-        $templateFileNameEvent = array_diff($getFileNameEvent, array('.', '..'));
-
-        //info
-        $directoryInfo = 'uploads/defaultTemplate/info';
-        $filesInfo = File::files($directoryInfo);
-        foreach ($filesInfo as $fileInfo) {
-            $infoTemplate[] = "/" . (string) $fileInfo;
-        }
-        $getFileNameInfo = scandir($directoryInfo, 0);
-        $templateFileNameInfo = array_diff($getFileNameInfo, array('.', '..'));
-
-        //promotion
-        $directoryPromotion = 'uploads/defaultTemplate/promotion';
-        $filesPromotion = File::files($directoryPromotion);
-        foreach ($filesPromotion as $filePromotion) {
-            $promotionTemplate[] = "/" . (string) $filePromotion;
-        }
-        $getFileNamePromotion = scandir($directoryPromotion, 0);
-        $templateFileNamePromotion = array_diff($getFileNamePromotion, array('.', '..'));
-
-        //Some code for changing the Email Template file based on the selected Language
-        $lang_email_template = '';
         $current_language = \App::getLocale();
+
+        foreach ($total_templates as $template) {
+            $directory = 'uploads/defaultTemplate/' . $template . '/' . $current_language;
+            $files = File::files($directory);
+//            dd($template);
+            $data[$template] = array();
+            foreach ($files as $file) {
+                $data[$template]['images'][] = url() . '/' . $file;
+                $data[$template]['files'][] = pathinfo($file)['filename'];
+            }
+        }
+//dd($data);
+        //Some code for changing the Email Template file based on the selected Language
+        $data['lang_email_template'] = '';
+//        dd($current_language);
         if ($current_language == 'en') {
-            $lang_email_template = 'default_EN.html';
+            $data['lang_email_template'] = 'default_EN.html';
         } else if ($current_language == 'es') {
-            $lang_email_template = 'default_ES.html';
+            $data['lang_email_template'] = 'default_ES.html';
         } else if ($current_language == 'fr') {
-            $lang_email_template = 'default_FR.html';
+            $data['lang_email_template'] = 'default_FR.html';
         } else if ($current_language == 'ae') {
-            $lang_email_template = 'default_AE.html';
+            $data['lang_email_template'] = 'default_AE.html';
         }
 
-        return View::make('email.create', compact('getAllTemplates', 'images', 'defaultTemplate', 'templateFileName', 'eventTemplate', 'templateFileNameEvent', 'infoTemplate', 'templateFileNameInfo', 'promotionTemplate', 'templateFileNamePromotion', 'lang_email_template'));
+        return View::make('email.create', $data);
     }
 
     public function edit($id) {

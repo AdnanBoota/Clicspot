@@ -581,105 +581,96 @@
                     </div>
 
                     <div class="modal-body hide"  id="marketingModel">
+                        @if(isset($marketing['images']))
                         <ul class="gridder gridder-first">
-                            @for($i=0;$i<count($defaultTemplate);$i++)
-
-                                <li class="gridder-list" data-griddercontent="#gridder-content-{{ $i}}">
-                                    <img src="{{url().$defaultTemplate[$i]}}" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileName[$i + 2])}}" class="img-responsive thumbnail" />
-                                </li>
-
-                                @endfor
+                            @foreach($marketing['images'] as $key=>$item)
+                            <li class="gridder-list" data-griddercontent="#gridder-content-{{ $key}}">
+                                <img src="{{$item}}" alt="{{$marketing['files'][$key]}}" class="img-responsive thumbnail" />
+                            </li>
+                            @endforeach
                         </ul>
-                        @for($i=0;$i<count($defaultTemplate);$i++)
-
-                            <div id="gridder-content-{{ $i}}" class="gridder-content">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a href="javascript:void(0)" class="thumbnail"><img src="{{url().$defaultTemplate[$i]}}" class=" getTemplate" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileName[$i + 2])}}" /></a>
-                                    </div>
-
+                        @foreach($marketing['images'] as $key=>$item)
+                        <div id="gridder-content-{{$key}}" class="gridder-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a href="javascript:void(0)" class="thumbnail"><img src="{{$item}}" class=" getTemplate" alt="{{$marketing['files'][$key]}}" /></a>
                                 </div>
+
                             </div>
-
-                            @endfor   
+                        </div>
+                        @endforeach  
+                        @endif
                     </div>
-
 
                     <div class="modal-body hide"  id="eventModel">
+                        @if(isset($event['images']))
                         <ul class="gridder gridder-second">
-                            @for($j=0;$j<count($eventTemplate);$j++)
-                                {{ $templateFileNameEvent[$j + 2] }}
-                                <li class="gridder-list" data-griddercontent="#second-gridder-content-{{ $j}}">
-                                    <img src="{{url().$eventTemplate[$j]}}" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileNameEvent[$j + 2])}}" class="img-responsive thumbnail" />
-                                </li>
-
-                                @endfor
+                            @foreach($event['images'] as $key=>$item)
+                            {{$event['files'][$key]}}
+                            <li class="gridder-list" data-griddercontent="#second-gridder-content-{{ $key}}">
+                                <img src="{{$item}}" alt="{{$event['files'][$key]}}" class="img-responsive thumbnail" />
+                            </li>
+                            @endforeach
                         </ul>
-                        @for($j=0;$j<count($eventTemplate);$j++)
-
-                            <div id="second-gridder-content-{{ $j}}" class="gridder-content">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a href="javascript:void(0)" class="thumbnail"><img src="{{url().$eventTemplate[$j]}}" class="getTemplateEvent" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileNameEvent[$j + 2])}}" /></a>
-                                    </div>
-
+                        @foreach($event['images'] as $key=>$item)
+                        <div id="second-gridder-content-{{ $key}}" class="gridder-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a href="javascript:void(0)" class="thumbnail"><img src="{{$item}}" class="getTemplateEvent" alt="{{$event['files'][$key]}}" /></a>
                                 </div>
                             </div>
-
-                            @endfor   
+                        </div>
+                        @endforeach  
+                        @endif
                     </div>
-
 
                     <div class="modal-body hide"  id="promotionModel">
+                        @if(isset($promotion['images']))
                         <ul class="gridder gridder-third">
-                            @for($k=0;$k<count($promotionTemplate);$k++)
-                                {{ $templateFileNamePromotion[$k + 2] }}
-                                <li class="gridder-list" data-griddercontent="#third-gridder-content-{{ $k}}">
-                                    <img src="{{url().$promotionTemplate[$k]}}" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileNamePromotion[$k + 2])}}" class="img-responsive thumbnail" />
-                                </li>
-
-                                @endfor
+                            @foreach($promotion['images'] as $key=>$item)
+                            {{$promotion['files'][$key]}}
+                            <li class="gridder-list" data-griddercontent="#third-gridder-content-{{ $key}}">
+                                <img src="{{$item}}" alt="{{$promotion['files'][$key]}}" class="img-responsive thumbnail" />
+                            </li>
+                            @endforeach
                         </ul>
-                        @for($k=0;$k<count($promotionTemplate);$k++)
-
-                            <div id="third-gridder-content-{{ $k}}" class="gridder-content">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a href="javascript:void(0)" class="thumbnail"><img src="{{url().$promotionTemplate[$k]}}" class="getTemplatePromotion" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileNamePromotion[$k + 2])}}" /></a>
-                                    </div>
-
+                        @foreach($promotion['images'] as $key=>$item)
+                        <div id="third-gridder-content-{{ $key}}" class="gridder-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a href="javascript:void(0)" class="thumbnail"><img src="{{$item}}" alt="{{$promotion['files'][$key]}}" class="getTemplatePromotion" /></a>
                                 </div>
+
                             </div>
-
-                            @endfor   
+                        </div>
+                        @endforeach  
+                        @endif
                     </div>
-
 
                     <div class="modal-body hide"  id="infoModel">
+                        @if(isset($info['images']))
                         <ul class="gridder gridder-forth">
-                            @for($a=0;$a<count($infoTemplate);$a++)
-                                {{ $templateFileNameInfo[$a + 2] }}
-                                <li class="gridder-list" data-griddercontent="#forth-gridder-content-{{ $a}}">
-                                    <img src="{{url().$infoTemplate[$a]}}" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileNameInfo[$a + 2])}}" class="img-responsive thumbnail" />
-                                </li>
+                            @foreach($info['images'] as $key=>$item)
+                            {{$info['files'][$key]}}
+                            <li class="gridder-list" data-griddercontent="#forth-gridder-content-{{ $key}}">
+                                <img src="{{$item}}" alt="{{$info['files'][$key]}}" class="img-responsive thumbnail" />
+                            </li>
 
-                                @endfor
+                            @endforeach
                         </ul>
-                        @for($a=0;$a<count($infoTemplate);$a++)
-
-                            <div id="forth-gridder-content-{{ $a}}" class="gridder-content">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a href="javascript:void(0)" class="thumbnail"><img src="{{url().$infoTemplate[$a]}}" class="getTemplateInfo" alt="{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $templateFileNameInfo[$a + 2])}}" /></a>
-                                    </div>
-
+                        @foreach($info['images'] as $key=>$item)
+                        <div id="forth-gridder-content-{{ $key}}" class="gridder-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a href="javascript:void(0)" class="thumbnail"><img src="src="{{$item}}" class="getTemplateInfo" alt="{{$info['files'][$key]}}" /></a>
                                 </div>
-                            </div>
 
-                            @endfor   
+                            </div>
+                        </div>
+                        @endforeach  
+                        @endif
                     </div>
                     <div class="modal-footer">
-
                     </div>
                 </div>
             </div>
